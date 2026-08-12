@@ -306,30 +306,329 @@ export default function App() {
       const active = session.activeSlots;
       const locked = session.lockedSlotIndexes;
 
-      if (autoSolveMode === 'random') {
-        // --- RANDOM MODE (PLAYER SIMULATION) ---
-        // Pick 2 random available (unlocked & non-null) slots on the board
-        const unlockedSlots: number[] = [];
-        for (let i = 0; i < active.length; i++) {
-          if (active[i] && !locked.includes(i)) {
-            unlockedSlots.push(i);
+      // Common unlocked slots & row indexes
+      const unlockedSlots: number[] = [];
+      for (let i = 0; i < active.length; i++) {
+        if (active[i] && !locked.includes(i)) {
+          unlockedSlots.push(i);
+        }
+      }
+
+      if (unlockedSlots.length < 2) {
+        setIsAutoSolving(false);
+        return;
+      }
+
+      const unlockedRowIndexes: number[] = [];
+      for (let r = 0; r < rows; r++) {
+        if (!locked.includes(r * columns)) {
+          unlockedRowIndexes.push(r);
+        }
+      }
+
+      const targetRowIndex = unlockedRowIndexes.length > 0 
+        ? unlockedRowIndexes[Math.floor(Math.random() * unlockedRowIndexes.length)] 
+        : -1;
+
+      if (autoSolveMode === 'instinct') {
+        // --- 1. HUMAN INSTINCT MODE (70% SMART + 30% RANDOM) ---
+        const isSmartMove = Math.random() < 0.70;
+        const targetRowSlots = Array.from({ length: columns }, (_, c) => targetRowIndex * columns + c);
+        const outsideSlots = unlockedSlots.filter(s => !targetRowSlots.includes(s));
+
+        if (isSmartMove) {
+          const tileData = unlockedSlots.map(slotIdx => {
+            const tile = session.tilesById[active[slotIdx]!];
+            return { slotIdx, word: (tile?.word || '').toLowerCase(), isPic: !!tile?.isPictureCategory };
+          });
+          const picSlots = tileData.filter(t => t.isPic).map(t => t.slotIdx);
+          const candidateSet = (picSlots.length >= columns ? picSlots : unlockedSlots).slice(0, columns);
+
+          const slotToFill = targetRowSlots.find(s => !candidateSet.includes(s));
+          const tileToMove = candidateSet.find(s => !targetRowSlots.includes(s));
+
+          if (slotToFill !== undefined && tileToMove !== undefined) {
+            setAutoSwapAnim({ from: tileToMove, to: slotToFill });
+            setTimeout(() => {
+              handleSwap(tileToMove, slotToFill);
+              setAutoSwapAnim(null);
+            }, Math.min(350, autoSolveSpeed / 2));
+            return;
           }
         }
 
-        if (unlockedSlots.length < 2) {
-          console.warn("Auto-solver (Random): Not enough unlocked slots to swap!");
-          setIsAutoSolving(false);
+        if (targetRowSlots.length > 0 && outsideSlots.length > 0) {
+          const slotA = targetRowSlots[Math.floor(Math.random() * targetRowSlots.length)];
+          const slotB = outsideSlots[Math.floor(Math.random() * outsideSlots.length)];
+          setAutoSwapAnim({ from: slotA, to: slotB });
+          setTimeout(() => {
+            handleSwap(slotA, slotB);
+            setAutoSwapAnim(null);
+          }, Math.min(350, autoSolveSpeed / 2));
           return;
         }
 
-        const idxA = Math.floor(Math.random() * unlockedSlots.length);
-        let idxB = Math.floor(Math.random() * unlockedSlots.length);
-        while (idxB === idxA && unlockedSlots.length > 1) {
-          idxB = Math.floor(Math.random() * unlockedSlots.length);
+      } else if (autoSolveMode === 'anchor') {
+        // --- 2. ANCHOR & FILL (TARGET PURSUIT) ---
+        const targetRowSlots = Array.from({ length: columns }, (_, c) => targetRowIndex * columns + c);
+        const outsideSlots = unlockedSlots.filter(s => !targetRowSlots.includes(s));
+
+        if (outsideSlots.length > 0 && targetRowSlots.length > 0) {
+          const slotA = targetRowSlots[Math.floor(Math.random() * targetRowSlots.length)];
+          const slotB = outsideSlots[Math.floor(Math.random() * outsideSlots.length)];
+
+          setAutoSwapAnim({ from: slotB, to: slotA });
+          setTimeout(() => {
+            handleSwap(slotB, slotA);
+            setAutoSwapAnim(null);
+          }, Math.min(350, autoSolveSpeed / 2));
+          return;
         }
 
-        const slotA = unlockedSlots[idxA];
-        const slotB = unlockedSlots[idxB];
+      } else if (autoSolveMode === 'neighbor') {
+        // --- 3. ADJACENT NEIGHBOR SHUFFLE (VISUAL SCAN) ---
+        const slotA = unlockedSlots[Math.floor(Math.random() * unlockedSlots.length)];
+        const row = Math.floor(slotA / columns);
+        const col = slotA % columns;
+
+        const neighborCols = [col - 1, col + 1].filter(c => c >= 0 && c < columns);
+        let slotB = -1;
+
+        for (const nc of neighborCols) {
+          const nSlot = row * columns + nc;
+          if (unlockedSlots.includes(nSlot)) {
+            slotB = nSlot;
+            break;
+          }
+        }
+
+        if (slotB === -1) {
+          slotB = unlockedSlots[(unlockedSlots.indexOf(slotA) + 1) % unlockedSlots.length];
+        }
+
+        setAutoSwapAnim({ from: slotA, to: slotB });
+        setTimeout(() => {
+          handleSwap(slotA, slotB);
+          setAutoSwapAnim(null);
+        }, Math.min(350, autoSolveSpeed / 2));
+
+      } else if (autoSolveMode === 'semantic') {
+        // --- 1. SEMANTIC AI SOLVER (WORD SIMILARITY CLUSTERING) ---
+        const tileData = unlockedSlots.map(slotIdx => {
+          const tile = session.tilesById[active[slotIdx]!];
+          const text = (tile?.word || '').toLowerCase();
+          const isPic = !!tile?.isPictureCategory;
+          return { slotIdx, text, isPic };
+        });
+
+        const pictureSlots = tileData.filter(t => t.isPic).map(t => t.slotIdx);
+        let candidateSet: number[] = [];
+
+        if (pictureSlots.length >= columns) {
+          candidateSet = pictureSlots.slice(0, columns);
+        } else {
+          const scores = new Map<number, number>();
+          tileData.forEach(t1 => {
+            let score = 0;
+            tileData.forEach(t2 => {
+              if (t1.slotIdx !== t2.slotIdx) {
+                for (let char of t1.text) {
+                  if (t2.text.includes(char)) score += 1;
+                }
+              }
+            });
+            scores.set(t1.slotIdx, score);
+          });
+
+          const sortedTiles = [...unlockedSlots].sort((a, b) => (scores.get(b) || 0) - (scores.get(a) || 0));
+          candidateSet = sortedTiles.slice(0, columns);
+        }
+
+        if (targetRowIndex !== -1 && candidateSet.length > 0) {
+          const targetRowSlots = Array.from({ length: columns }, (_, c) => targetRowIndex * columns + c);
+          const slotToFill = targetRowSlots.find(s => !candidateSet.includes(s));
+          const tileToMove = candidateSet.find(s => !targetRowSlots.includes(s));
+
+          if (slotToFill !== undefined && tileToMove !== undefined) {
+            setAutoSwapAnim({ from: tileToMove, to: slotToFill });
+            setTimeout(() => {
+              handleSwap(tileToMove, slotToFill);
+              setAutoSwapAnim(null);
+            }, Math.min(350, autoSolveSpeed / 2));
+            return;
+          } else {
+            const outsideSlots = unlockedSlots.filter(s => !targetRowSlots.includes(s));
+            if (outsideSlots.length > 0) {
+              const slotA = targetRowSlots[Math.floor(Math.random() * targetRowSlots.length)];
+              const slotB = outsideSlots[Math.floor(Math.random() * outsideSlots.length)];
+              setAutoSwapAnim({ from: slotA, to: slotB });
+              setTimeout(() => {
+                handleSwap(slotA, slotB);
+                setAutoSwapAnim(null);
+              }, Math.min(350, autoSolveSpeed / 2));
+              return;
+            }
+          }
+        }
+
+        const slotA = unlockedSlots[Math.floor(Math.random() * unlockedSlots.length)];
+        let slotB = unlockedSlots[Math.floor(Math.random() * unlockedSlots.length)];
+        while (slotB === slotA && unlockedSlots.length > 1) {
+          slotB = unlockedSlots[Math.floor(Math.random() * unlockedSlots.length)];
+        }
+        setAutoSwapAnim({ from: slotA, to: slotB });
+        setTimeout(() => {
+          handleSwap(slotA, slotB);
+          setAutoSwapAnim(null);
+        }, Math.min(350, autoSolveSpeed / 2));
+
+      } else if (autoSolveMode === 'pattern') {
+        // --- 2. PATTERN & TILE TYPE CLUSTERING SOLVER ---
+        const tileData = unlockedSlots.map(slotIdx => {
+          const tile = session.tilesById[active[slotIdx]!];
+          const text = (tile?.word || '');
+          const isPic = !!tile?.isPictureCategory;
+          return { slotIdx, text, isPic, length: text.length };
+        });
+
+        const pictureSlots = tileData.filter(t => t.isPic).map(t => t.slotIdx);
+        let candidateSet: number[] = [];
+
+        if (pictureSlots.length >= columns) {
+          candidateSet = pictureSlots.slice(0, columns);
+        } else {
+          const lengthGroups = new Map<number, number[]>();
+          tileData.forEach(t => {
+            const list = lengthGroups.get(t.length) || [];
+            list.push(t.slotIdx);
+            lengthGroups.set(t.length, list);
+          });
+
+          let bestGroup: number[] = [];
+          for (const list of lengthGroups.values()) {
+            if (list.length >= columns) {
+              bestGroup = list;
+              break;
+            }
+          }
+          candidateSet = (bestGroup.length >= columns ? bestGroup : unlockedSlots).slice(0, columns);
+        }
+
+        if (targetRowIndex !== -1 && candidateSet.length > 0) {
+          const targetRowSlots = Array.from({ length: columns }, (_, c) => targetRowIndex * columns + c);
+          const slotToFill = targetRowSlots.find(s => !candidateSet.includes(s));
+          const tileToMove = candidateSet.find(s => !targetRowSlots.includes(s));
+
+          if (slotToFill !== undefined && tileToMove !== undefined) {
+            setAutoSwapAnim({ from: tileToMove, to: slotToFill });
+            setTimeout(() => {
+              handleSwap(tileToMove, slotToFill);
+              setAutoSwapAnim(null);
+            }, Math.min(350, autoSolveSpeed / 2));
+            return;
+          } else {
+            const outsideSlots = unlockedSlots.filter(s => !targetRowSlots.includes(s));
+            if (outsideSlots.length > 0) {
+              const slotA = targetRowSlots[Math.floor(Math.random() * targetRowSlots.length)];
+              const slotB = outsideSlots[Math.floor(Math.random() * outsideSlots.length)];
+              setAutoSwapAnim({ from: slotA, to: slotB });
+              setTimeout(() => {
+                handleSwap(slotA, slotB);
+                setAutoSwapAnim(null);
+              }, Math.min(350, autoSolveSpeed / 2));
+              return;
+            }
+          }
+        }
+
+        const slotA = unlockedSlots[Math.floor(Math.random() * unlockedSlots.length)];
+        let slotB = unlockedSlots[Math.floor(Math.random() * unlockedSlots.length)];
+        while (slotB === slotA && unlockedSlots.length > 1) {
+          slotB = unlockedSlots[Math.floor(Math.random() * unlockedSlots.length)];
+        }
+        setAutoSwapAnim({ from: slotA, to: slotB });
+        setTimeout(() => {
+          handleSwap(slotA, slotB);
+          setAutoSwapAnim(null);
+        }, Math.min(350, autoSolveSpeed / 2));
+
+      } else if (autoSolveMode === 'backtrack') {
+        // --- 3. BACKTRACKING SEARCH TREE SOLVER ---
+        if (targetRowIndex !== -1) {
+          const targetRowSlots = Array.from({ length: columns }, (_, c) => targetRowIndex * columns + c);
+          const outsideSlots = unlockedSlots.filter(s => !targetRowSlots.includes(s));
+
+          if (outsideSlots.length > 0) {
+            const slotA = targetRowSlots[Math.floor(Math.random() * targetRowSlots.length)];
+            const slotB = outsideSlots[Math.floor(Math.random() * outsideSlots.length)];
+
+            setAutoSwapAnim({ from: slotA, to: slotB });
+            setTimeout(() => {
+              handleSwap(slotA, slotB);
+              setAutoSwapAnim(null);
+            }, Math.min(350, autoSolveSpeed / 2));
+            return;
+          }
+        }
+
+      } else if (autoSolveMode === 'human') {
+        // --- RANDOM HALF (HUMAN SIMULATION SOLVER) ---
+        const targetRowSlots: number[] = [];
+        const outsideSlots: number[] = [];
+
+        for (let i = 0; i < active.length; i++) {
+          if (active[i] && !locked.includes(i)) {
+            if (Math.floor(i / columns) === targetRowIndex) {
+              targetRowSlots.push(i);
+            } else {
+              outsideSlots.push(i);
+            }
+          }
+        }
+
+        if (targetRowSlots.length === 0 || outsideSlots.length === 0) {
+          if (unlockedSlots.length >= 2) {
+            const slotA = unlockedSlots[Math.floor(Math.random() * unlockedSlots.length)];
+            let slotB = unlockedSlots[Math.floor(Math.random() * unlockedSlots.length)];
+            while (slotB === slotA && unlockedSlots.length > 1) {
+              slotB = unlockedSlots[Math.floor(Math.random() * unlockedSlots.length)];
+            }
+            setAutoSwapAnim({ from: slotA, to: slotB });
+            setTimeout(() => {
+              handleSwap(slotA, slotB);
+              setAutoSwapAnim(null);
+            }, Math.min(350, autoSolveSpeed / 2));
+          } else {
+            setIsAutoSolving(false);
+          }
+          return;
+        }
+
+        const slotA = targetRowSlots[Math.floor(Math.random() * targetRowSlots.length)];
+        const slotB = outsideSlots[Math.floor(Math.random() * outsideSlots.length)];
+
+        setAutoSwapAnim({ from: slotA, to: slotB });
+        setTimeout(() => {
+          handleSwap(slotA, slotB);
+          setAutoSwapAnim(null);
+        }, Math.min(350, autoSolveSpeed / 2));
+
+      } else if (autoSolveMode === 'random') {
+        // --- PURE RANDOM MODE ---
+        const rowSlots: number[] = [];
+        for (let i = 0; i < active.length; i++) {
+          if (active[i] && !locked.includes(i)) {
+            if (Math.floor(i / columns) === targetRowIndex) {
+              rowSlots.push(i);
+            }
+          }
+        }
+
+        const slotA = rowSlots.length > 0 ? rowSlots[Math.floor(Math.random() * rowSlots.length)] : unlockedSlots[Math.floor(Math.random() * unlockedSlots.length)];
+        let slotB = unlockedSlots[Math.floor(Math.random() * unlockedSlots.length)];
+        while (slotB === slotA && unlockedSlots.length > 1) {
+          slotB = unlockedSlots[Math.floor(Math.random() * unlockedSlots.length)];
+        }
 
         setAutoSwapAnim({ from: slotA, to: slotB });
         setTimeout(() => {

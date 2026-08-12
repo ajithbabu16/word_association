@@ -7,7 +7,7 @@ interface DebugDashboardProps {
   session: PuzzleSession | null;
   onAutoSolveToggle: () => void;
   isAutoSolving: boolean;
-  autoSolveMode?: 'normal' | 'random';
+  autoSolveMode?: 'normal' | 'instinct' | 'anchor' | 'neighbor' | 'semantic' | 'pattern' | 'backtrack' | 'human' | 'random';
 }
 
 export function DebugDashboard({
@@ -16,13 +16,27 @@ export function DebugDashboard({
   session,
   onAutoSolveToggle,
   isAutoSolving,
-  autoSolveMode = 'normal'
+  autoSolveMode = 'instinct'
 }: DebugDashboardProps) {
   const [dateInput, setDateInput] = useState(currentDate);
 
   const handleDateSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     onDateChange(dateInput);
+  };
+
+  const getModeLabel = () => {
+    switch (autoSolveMode) {
+      case 'instinct': return 'Human Instinct';
+      case 'anchor': return 'Anchor & Fill';
+      case 'neighbor': return 'Neighbor Shuffle';
+      case 'semantic': return 'Semantic AI';
+      case 'pattern': return 'Pattern AI';
+      case 'backtrack': return 'Backtrack AI';
+      case 'human': return 'Random Half';
+      case 'random': return 'Pure Random';
+      default: return 'Normal';
+    }
   };
 
   return (
@@ -77,7 +91,7 @@ export function DebugDashboard({
           style={{ width: '100%' }}
         >
           {isAutoSolving 
-            ? `Stop Automation (${autoSolveMode === 'random' ? 'Random' : 'Normal'})` 
+            ? `Stop Automation (${getModeLabel()})` 
             : 'Automation Solve'}
         </button>
       </div>
