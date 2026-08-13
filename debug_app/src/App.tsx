@@ -91,6 +91,45 @@ export default function App() {
   const [showErrorView, setShowErrorView] = useState(false);
   
   const captureRef = useRef<HTMLDivElement>(null);
+  const workerRef = useRef<Worker | null>(null);
+
+  // Initialize Web Worker for background timing
+  useEffect(() => {
+    const blobCode = `
+      let intervalId = null;
+      self.onmessage = function(e) {
+        if (e.data.action === 'start') {
+          if (intervalId) clearInterval(intervalId);
+          intervalId = setInterval(function() {
+            self.postMessage('tick');
+          }, e.data.interval);
+        } else if (e.data.action === 'stop') {
+          if (intervalId) {
+            clearInterval(intervalId);
+            intervalId = null;
+          }
+        }
+      };
+    `;
+    const blob = new Blob([blobCode], { type: 'application/javascript' });
+    const worker = new Worker(URL.createObjectURL(blob));
+    workerRef.current = worker;
+
+    return () => {
+      worker.terminate();
+    };
+  }, []);
+
+  // Sync worker state with auto-solve state
+  useEffect(() => {
+    if (workerRef.current) {
+      if (isAutoSolving && session && !session.completed) {
+        workerRef.current.postMessage({ action: 'start', interval: autoSolveSpeed });
+      } else {
+        workerRef.current.postMessage({ action: 'stop' });
+      }
+    }
+  }, [isAutoSolving, autoSolveSpeed, session?.completed]);
 
   // Fetch daily.json on mount
   useEffect(() => {
@@ -295,13 +334,28 @@ export default function App() {
     return () => clearTimeout(completionTimer);
   }, [session?.completed]);
 
-  // Automation Solve Logic
+  // Automation Solve Logic (Web Worker driven for background execution)
   useEffect(() => {
-    if (!isAutoSolving || !session || session.completed) {
-      return;
-    }
+    if (!workerRef.current) return;
 
-    const timeout = setTimeout(() => {
+    workerRef.current.onmessage = (e) => {
+      if (e.data !== 'tick') return;
+      if (!isAutoSolving || !session || session.completed) {
+        return;
+      }
+
+      const performSwap = (fromSlot: number, toSlot: number) => {
+        if (document.hidden) {
+          handleSwap(fromSlot, toSlot);
+        } else {
+          setAutoSwapAnim({ from: fromSlot, to: toSlot });
+          setTimeout(() => {
+            handleSwap(fromSlot, toSlot);
+            setAutoSwapAnim(null);
+          }, Math.min(350, autoSolveSpeed / 2));
+        }
+      };
+
       const { rows, columns } = session.level.size;
       const active = session.activeSlots;
       const locked = session.lockedSlotIndexes;
@@ -348,11 +402,7 @@ export default function App() {
           const tileToMove = candidateSet.find(s => !targetRowSlots.includes(s));
 
           if (slotToFill !== undefined && tileToMove !== undefined) {
-            setAutoSwapAnim({ from: tileToMove, to: slotToFill });
-            setTimeout(() => {
-              handleSwap(tileToMove, slotToFill);
-              setAutoSwapAnim(null);
-            }, Math.min(350, autoSolveSpeed / 2));
+            performSwap(tileToMove, slotToFill);
             return;
           }
         }
@@ -360,11 +410,7 @@ export default function App() {
         if (targetRowSlots.length > 0 && outsideSlots.length > 0) {
           const slotA = targetRowSlots[Math.floor(Math.random() * targetRowSlots.length)];
           const slotB = outsideSlots[Math.floor(Math.random() * outsideSlots.length)];
-          setAutoSwapAnim({ from: slotA, to: slotB });
-          setTimeout(() => {
-            handleSwap(slotA, slotB);
-            setAutoSwapAnim(null);
-          }, Math.min(350, autoSolveSpeed / 2));
+          performSwap(slotA, slotB);
           return;
         }
 
@@ -377,11 +423,7 @@ export default function App() {
           const slotA = targetRowSlots[Math.floor(Math.random() * targetRowSlots.length)];
           const slotB = outsideSlots[Math.floor(Math.random() * outsideSlots.length)];
 
-          setAutoSwapAnim({ from: slotB, to: slotA });
-          setTimeout(() => {
-            handleSwap(slotB, slotA);
-            setAutoSwapAnim(null);
-          }, Math.min(350, autoSolveSpeed / 2));
+          performSwap(slotB, slotA);
           return;
         }
 
@@ -406,11 +448,7 @@ export default function App() {
           slotB = unlockedSlots[(unlockedSlots.indexOf(slotA) + 1) % unlockedSlots.length];
         }
 
-        setAutoSwapAnim({ from: slotA, to: slotB });
-        setTimeout(() => {
-          handleSwap(slotA, slotB);
-          setAutoSwapAnim(null);
-        }, Math.min(350, autoSolveSpeed / 2));
+        performSwap(slotA, slotB);
 
       } else if (autoSolveMode === 'semantic') {
         // --- 1. SEMANTIC AI SOLVER (WORD SIMILARITY CLUSTERING) ---
@@ -450,22 +488,14 @@ export default function App() {
           const tileToMove = candidateSet.find(s => !targetRowSlots.includes(s));
 
           if (slotToFill !== undefined && tileToMove !== undefined) {
-            setAutoSwapAnim({ from: tileToMove, to: slotToFill });
-            setTimeout(() => {
-              handleSwap(tileToMove, slotToFill);
-              setAutoSwapAnim(null);
-            }, Math.min(350, autoSolveSpeed / 2));
+            performSwap(tileToMove, slotToFill);
             return;
           } else {
             const outsideSlots = unlockedSlots.filter(s => !targetRowSlots.includes(s));
             if (outsideSlots.length > 0) {
               const slotA = targetRowSlots[Math.floor(Math.random() * targetRowSlots.length)];
               const slotB = outsideSlots[Math.floor(Math.random() * outsideSlots.length)];
-              setAutoSwapAnim({ from: slotA, to: slotB });
-              setTimeout(() => {
-                handleSwap(slotA, slotB);
-                setAutoSwapAnim(null);
-              }, Math.min(350, autoSolveSpeed / 2));
+              performSwap(slotA, slotB);
               return;
             }
           }
@@ -476,11 +506,7 @@ export default function App() {
         while (slotB === slotA && unlockedSlots.length > 1) {
           slotB = unlockedSlots[Math.floor(Math.random() * unlockedSlots.length)];
         }
-        setAutoSwapAnim({ from: slotA, to: slotB });
-        setTimeout(() => {
-          handleSwap(slotA, slotB);
-          setAutoSwapAnim(null);
-        }, Math.min(350, autoSolveSpeed / 2));
+        performSwap(slotA, slotB);
 
       } else if (autoSolveMode === 'pattern') {
         // --- 2. PATTERN & TILE TYPE CLUSTERING SOLVER ---
@@ -520,22 +546,14 @@ export default function App() {
           const tileToMove = candidateSet.find(s => !targetRowSlots.includes(s));
 
           if (slotToFill !== undefined && tileToMove !== undefined) {
-            setAutoSwapAnim({ from: tileToMove, to: slotToFill });
-            setTimeout(() => {
-              handleSwap(tileToMove, slotToFill);
-              setAutoSwapAnim(null);
-            }, Math.min(350, autoSolveSpeed / 2));
+            performSwap(tileToMove, slotToFill);
             return;
           } else {
             const outsideSlots = unlockedSlots.filter(s => !targetRowSlots.includes(s));
             if (outsideSlots.length > 0) {
               const slotA = targetRowSlots[Math.floor(Math.random() * targetRowSlots.length)];
               const slotB = outsideSlots[Math.floor(Math.random() * outsideSlots.length)];
-              setAutoSwapAnim({ from: slotA, to: slotB });
-              setTimeout(() => {
-                handleSwap(slotA, slotB);
-                setAutoSwapAnim(null);
-              }, Math.min(350, autoSolveSpeed / 2));
+              performSwap(slotA, slotB);
               return;
             }
           }
@@ -546,11 +564,7 @@ export default function App() {
         while (slotB === slotA && unlockedSlots.length > 1) {
           slotB = unlockedSlots[Math.floor(Math.random() * unlockedSlots.length)];
         }
-        setAutoSwapAnim({ from: slotA, to: slotB });
-        setTimeout(() => {
-          handleSwap(slotA, slotB);
-          setAutoSwapAnim(null);
-        }, Math.min(350, autoSolveSpeed / 2));
+        performSwap(slotA, slotB);
 
       } else if (autoSolveMode === 'backtrack') {
         // --- 3. BACKTRACKING SEARCH TREE SOLVER ---
@@ -562,11 +576,7 @@ export default function App() {
             const slotA = targetRowSlots[Math.floor(Math.random() * targetRowSlots.length)];
             const slotB = outsideSlots[Math.floor(Math.random() * outsideSlots.length)];
 
-            setAutoSwapAnim({ from: slotA, to: slotB });
-            setTimeout(() => {
-              handleSwap(slotA, slotB);
-              setAutoSwapAnim(null);
-            }, Math.min(350, autoSolveSpeed / 2));
+            performSwap(slotA, slotB);
             return;
           }
         }
@@ -593,11 +603,7 @@ export default function App() {
             while (slotB === slotA && unlockedSlots.length > 1) {
               slotB = unlockedSlots[Math.floor(Math.random() * unlockedSlots.length)];
             }
-            setAutoSwapAnim({ from: slotA, to: slotB });
-            setTimeout(() => {
-              handleSwap(slotA, slotB);
-              setAutoSwapAnim(null);
-            }, Math.min(350, autoSolveSpeed / 2));
+            performSwap(slotA, slotB);
           } else {
             setIsAutoSolving(false);
           }
@@ -607,11 +613,7 @@ export default function App() {
         const slotA = targetRowSlots[Math.floor(Math.random() * targetRowSlots.length)];
         const slotB = outsideSlots[Math.floor(Math.random() * outsideSlots.length)];
 
-        setAutoSwapAnim({ from: slotA, to: slotB });
-        setTimeout(() => {
-          handleSwap(slotA, slotB);
-          setAutoSwapAnim(null);
-        }, Math.min(350, autoSolveSpeed / 2));
+        performSwap(slotA, slotB);
 
       } else if (autoSolveMode === 'random') {
         // --- PURE RANDOM MODE ---
@@ -630,11 +632,7 @@ export default function App() {
           slotB = unlockedSlots[Math.floor(Math.random() * unlockedSlots.length)];
         }
 
-        setAutoSwapAnim({ from: slotA, to: slotB });
-        setTimeout(() => {
-          handleSwap(slotA, slotB);
-          setAutoSwapAnim(null);
-        }, Math.min(350, autoSolveSpeed / 2));
+        performSwap(slotA, slotB);
 
       } else {
         // --- NORMAL MODE (SMART SOLVER) ---
@@ -722,25 +720,14 @@ export default function App() {
           }
 
           if (tileToMoveSlot !== -1) {
-            setAutoSwapAnim({ from: tileToMoveSlot, to: slotToFill });
-            setTimeout(() => {
-              handleSwap(tileToMoveSlot, slotToFill);
-              setAutoSwapAnim(null);
-            }, Math.min(350, autoSolveSpeed / 2));
+            performSwap(tileToMoveSlot, slotToFill);
           }
         } else {
           // Dummy swap to trigger evaluation
-          setAutoSwapAnim({ from: targetRowIndex * columns, to: targetRowIndex * columns + 1 });
-          setTimeout(() => {
-            handleSwap(targetRowIndex * columns, targetRowIndex * columns + 1);
-            setAutoSwapAnim(null);
-          }, Math.min(350, autoSolveSpeed / 2));
+          performSwap(targetRowIndex * columns, targetRowIndex * columns + 1);
         }
       }
-
-    }, autoSolveSpeed);
-
-    return () => clearTimeout(timeout);
+    };
   }, [session, isAutoSolving, autoSolveMode, autoSolveSpeed]);
 
   const handleSwap = (fromSlot: number, toSlot: number) => {
