@@ -280,9 +280,11 @@ export async function exportPDF(trackingHistory: TrackingData[]) {
   doc.save('live_tracking_screenshots.pdf');
 }
 
-// Download all 3 formats (CSV, Excel, PDF) automatically
+// Download all 3 formats (CSV, Excel, PDF) automatically with staggered delays for browser popup compliance
 export async function exportAllReports(trackingHistory: TrackingData[]) {
   exportCSV(trackingHistory);
+  await new Promise(r => setTimeout(r, 400));
   exportExcel(trackingHistory);
+  await new Promise(r => setTimeout(r, 400));
   await exportPDF(trackingHistory);
 }
