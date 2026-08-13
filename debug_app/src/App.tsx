@@ -10,6 +10,7 @@ import type { TrackingData, StageRecord } from './components/LiveView';
 import { ErrorView } from './components/ErrorView';
 import { PuzzleValidator } from './engine/PuzzleValidator';
 import { AlertTriangle } from 'lucide-react';
+import { exportAllReports } from './utils/exportUtils';
 import html2canvas from 'html2canvas';
 
 import { AutoSolveModal, AutoSolveMode } from './components/AutoSolveModal';
@@ -76,6 +77,10 @@ function createSession(level: PuzzleLevelDefinition): PuzzleSession {
 
 export default function App() {
   const [currentDate, setCurrentDate] = useState(DEFAULT_TEST_DATE);
+  const [startDate, setStartDate] = useState('2026-09-01');
+  const [endDate, setEndDate] = useState('2026-09-02');
+  const [isRangeAutoSolving, setIsRangeAutoSolving] = useState(false);
+
   const [levelData, setLevelData] = useState<PuzzleRawLevel[]>([]);
   const [session, setSession] = useState<PuzzleSession | null>(null);
   const [internalDict, setInternalDict] = useState<Set<string>>(new Set());
@@ -369,18 +374,35 @@ export default function App() {
           setStageProgress(prev => prev + 1);
         }, 1500);
       } else {
-        setShowOverlay(`Daily Puzzle Completed! Loading next day...`);
-        setTimeout(() => {
-          setShowOverlay(null);
-          const nextLevel = targetLevelNum + 1;
-          setCurrentDate(dateFromLevelNumber(nextLevel));
-          setStageProgress(1); // Reset to stage 1
-        }, 2000);
+        // Stage 3 Completed! Check if target end date is reached during Range Auto-Solve
+        const reachedEnd = isRangeAutoSolving && currentDate >= endDate;
+
+        if (reachedEnd) {
+          setShowOverlay(`🎉 End Date ${endDate} Reached! Downloading PDF, CSV & Excel reports...`);
+          setIsAutoSolving(false);
+          setIsRangeAutoSolving(false);
+
+          setTimeout(() => {
+            setShowOverlay(null);
+            setTrackingHistory(latest => {
+              exportAllReports(latest);
+              return latest;
+            });
+          }, 2000);
+        } else {
+          setShowOverlay(`Daily Puzzle Completed! Loading next day...`);
+          setTimeout(() => {
+            setShowOverlay(null);
+            const nextLevel = targetLevelNum + 1;
+            setCurrentDate(dateFromLevelNumber(nextLevel));
+            setStageProgress(1); // Reset to stage 1
+          }, 2000);
+        }
       }
     }, 2000);
 
     return () => clearTimeout(completionTimer);
-  }, [session?.completed]);
+  }, [session?.completed, isRangeAutoSolving, endDate, currentDate]);
 
   // Automation Solve Logic (Web Worker driven for background execution)
   useEffect(() => {
@@ -797,6 +819,18 @@ export default function App() {
     }
   };
 
+  const handleAutoSolveRange = () => {
+    if (isRangeAutoSolving) {
+      setIsRangeAutoSolving(false);
+      setIsAutoSolving(false);
+    } else {
+      setIsRangeAutoSolving(true);
+      setCurrentDate(startDate);
+      setStageProgress(1);
+      setIsAutoSolving(true);
+    }
+  };
+
   const handleStartAutoSolve = (mode: AutoSolveMode, speed: number) => {
     setAutoSolveMode(mode);
     setAutoSolveSpeed(speed);
@@ -893,6 +927,12 @@ export default function App() {
       <DebugDashboard
         currentDate={currentDate}
         onDateChange={handleDateChange}
+        startDate={startDate}
+        endDate={endDate}
+        onStartDateChange={setStartDate}
+        onEndDateChange={setEndDate}
+        onAutoSolveRange={handleAutoSolveRange}
+        isRangeAutoSolving={isRangeAutoSolving}
         session={session}
         onAutoSolveToggle={handleAutoSolveToggle}
         isAutoSolving={isAutoSolving}
