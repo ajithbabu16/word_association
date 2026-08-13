@@ -506,6 +506,7 @@ export default function App() {
               const updated = [...prev];
               const recordIndex = updated.findIndex(r => r.levelNumber === mainLevelNumber);
               const totalCats = session ? session.level.categories : 6;
+              const existingRecord = recordIndex >= 0 ? updated[recordIndex] : null;
               const record: MainTrackingData = {
                 levelNumber: mainLevelNumber,
                 imagesFormedCount: session.solvedRows.length,
@@ -515,6 +516,7 @@ export default function App() {
                 startTime: mainStartTimeRef.current,
                 completionTime: new Date().toLocaleTimeString(),
                 durationSec,
+                errorImages: existingRecord?.errorImages,
                 initialBoardScreenshot: mainInitialScreenshot.current,
                 imageFormationScreenshots: [...mainImageFormationScreenshots.current],
                 finalCompletionScreenshot: finalDataUrl

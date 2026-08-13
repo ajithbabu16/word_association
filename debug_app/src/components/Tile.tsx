@@ -50,16 +50,16 @@ function FormedPictureCard({ word, category, isWhiteMode }: { word: string; cate
     let alive = true;
     let idx = 0;
     const tryNext = () => {
-      if (idx >= candidates.length) { 
+      if (idx >= candidates.length) {
         if (alive) {
           setFailedAll(true);
           const event = new CustomEvent('image-error', { detail: candidates[0]?.split('/').pop() });
           window.dispatchEvent(event);
         }
-        return; 
+        return;
       }
       const img = new Image();
-      img.onload  = () => { if (alive) { setLoadedSrc(img.src); setFailedAll(false); } };
+      img.onload = () => { if (alive) { setLoadedSrc(img.src); setFailedAll(false); } };
       img.onerror = () => { idx++; tryNext(); };
       img.src = candidates[idx];
     };
@@ -281,4 +281,4 @@ export function Tile({
 
 // ─── Constants exported for PuzzleBoard to use ────────────────────────────────
 export const ROW_HEIGHT = 70;
-export const ROW_GAP    = 24;
+export const ROW_GAP = 24;
