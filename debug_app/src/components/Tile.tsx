@@ -39,7 +39,7 @@ function resolveImageCandidates(category?: string, word?: string): string[] {
 }
 
 // ─── Picture Card ─────────────────────────────────────────────────────────────
-function FormedPictureCard({ word, category }: { word: string; category?: string }) {
+function FormedPictureCard({ word, category, isWhiteMode }: { word: string; category?: string; isWhiteMode?: boolean }) {
   const candidates = React.useMemo(() => resolveImageCandidates(category, word), [category, word]);
   const [loadedSrc, setLoadedSrc] = React.useState<string | null>(null);
   const [failedAll, setFailedAll] = React.useState(false);
@@ -62,7 +62,7 @@ function FormedPictureCard({ word, category }: { word: string; category?: string
     return (
       <div style={{
         position: 'relative', width: '100%', height: '100%',
-        backgroundColor: '#1a1a1a', color: '#fff',
+        backgroundColor: isWhiteMode ? 'transparent' : '#1a1a1a', color: '#fff',
         display: 'flex', flexDirection: 'column',
         alignItems: 'center', justifyContent: 'center',
         borderRadius: '8px', padding: '4px', boxSizing: 'border-box',
@@ -95,14 +95,21 @@ function FormedPictureCard({ word, category }: { word: string; category?: string
         <img
           src={loadedSrc}
           alt={category || word}
-          style={{ width: 44, height: 44, objectFit: 'contain', borderRadius: '4px' }}
+          style={{
+            width: 44,
+            height: 44,
+            objectFit: 'contain',
+            borderRadius: '4px',
+            filter: isWhiteMode ? 'brightness(0) invert(1)' : undefined
+          }}
         />
       ) : (
         <span style={{ fontSize: 20 }}>🖼️</span>
       )}
       <span style={{
         fontSize: 11, fontWeight: 800, textTransform: 'uppercase',
-        letterSpacing: '0.3px', color: '#000',
+        letterSpacing: '0.3px',
+        color: isWhiteMode ? '#ffffff' : '#000',
       }}>
         {word}
       </span>
@@ -193,9 +200,11 @@ export function Tile({
     transformStr = CSS.Transform.toString(transform) ?? '';
     transitionStr = 'none';
   } else {
-    transformStr = CSS.Transform.toString(transform) ?? '';
-    transitionStr = transition ?? '';
+    transformStr = '';
+    transitionStr = '';
   }
+
+  const isMasterCompleteTile = session?.extraCategoryComplete === true && (index % columns === 0);
 
   const style: React.CSSProperties = {
     transform: transformStr,
@@ -203,7 +212,7 @@ export function Tile({
     position: 'relative',
     width: '100%',
     height: '100%',
-    zIndex: (isDragging || activeAutoTransform || visualY !== 0) ? 100 : 1,
+    zIndex: (isDragging || activeAutoTransform || visualY !== 0) ? 100 : (isMasterCompleteTile ? 5 : 1),
     gridColumn: (index % columns) + 1,
     gridRow: Math.floor(index / columns) + 1,
   };
@@ -211,8 +220,10 @@ export function Tile({
   const innerStyle: React.CSSProperties = {
     opacity: isDragging ? 0.75 : (isMergingOut ? 0 : 1),
     transform: isMergingOut ? 'scale(0.5)' : undefined,
-    backgroundColor: color || undefined,
-    border: isOverTarget && !isDragging ? '2px dashed var(--accent-color)' : undefined,
+    backgroundColor: isMasterCompleteTile ? 'transparent' : (color || undefined),
+    boxShadow: isMasterCompleteTile ? 'none' : undefined,
+    border: isMasterCompleteTile ? 'none' : (isOverTarget && !isDragging ? '2px dashed var(--accent-color)' : undefined),
+    color: isMasterCompleteTile ? '#ffffff' : undefined,
     boxSizing: 'border-box',
     // Smooth opacity and transform scale on merge out
     transition: isMergingOut
@@ -237,7 +248,7 @@ export function Tile({
       <div style={innerStyle} className={classNames.join(' ')}>
         {tileData ? (
           isFormedCard ? (
-            <FormedPictureCard word={tileData.word} category={tileData.category} />
+            <FormedPictureCard word={tileData.word} category={tileData.category} isWhiteMode={isMasterCompleteTile} />
           ) : (
             tileData.word
           )

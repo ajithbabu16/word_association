@@ -599,6 +599,41 @@ export default function App() {
       const active = session.activeSlots;
       const locked = session.lockedSlotIndexes;
 
+      // Special Solver for Master Category (Extra Category)
+      if (session.extraCategoryActive && !session.extraCategoryComplete) {
+        for (let r = 0; r < rows; r++) {
+          const col0Slot = r * columns;
+          const col0TileId = active[col0Slot];
+          const col0Tile = col0TileId ? session.tilesById[col0TileId] : null;
+          
+          const isMasterTile = (tile: any) => 
+            tile && (tile.categoryKey === session.level.extraCategoryKey || tile.isExtraCategory);
+
+          if (!isMasterTile(col0Tile)) {
+            // Find the master tile in this row
+            let masterSlotIndex = -1;
+            for (let c = 1; c < columns; c++) {
+              const slotIdx = r * columns + c;
+              const tileId = active[slotIdx];
+              const tile = tileId ? session.tilesById[tileId] : null;
+              if (isMasterTile(tile)) {
+                masterSlotIndex = slotIdx;
+                break;
+              }
+            }
+            
+            if (masterSlotIndex !== -1) {
+              console.log(`[AutoSolve] Master Category swap: Swapping row ${r} col 0 (slot ${col0Slot}) with master tile at slot ${masterSlotIndex}`);
+              performSwap(col0Slot, masterSlotIndex);
+              return;
+            }
+          }
+        }
+        
+        setIsAutoSolving(false);
+        return;
+      }
+
       const unlockedSlots: number[] = [];
       for (let i = 0; i < active.length; i++) {
         if (active[i] && !locked.includes(i)) {

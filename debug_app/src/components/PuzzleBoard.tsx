@@ -142,8 +142,8 @@ export function PuzzleBoard({ session, onSwap, autoSwapAnim, spawnedSlotIndexes 
   const getSlotStatus = (index: number) => {
     const solvedRow = session.solvedRows.find(row => {
       if (row.isPictureCategory) {
-        // Only the anchor slot keeps its color; other slotIndexes are stale after collapse
-        return row.anchorSlotIndex === index;
+        // Picture categories do not color slots as they are playable tiles that move
+        return false;
       }
       return row.slotIndexes.includes(index);
     });
@@ -186,7 +186,41 @@ export function PuzzleBoard({ session, onSwap, autoSwapAnim, spawnedSlotIndexes 
                   transition: 'background-color 0.6s ease',
                   boxShadow: '0 0 16px rgba(220, 38, 38, 0.4)',
                 }}
-              />
+              >
+                {/* Master Category Title Tab */}
+                <div
+                  className="category-banner"
+                  style={{
+                    position: 'absolute',
+                    top: '-20px',
+                    left: '12px',
+                    backgroundColor: '#dc2626',
+                    color: '#ffffff',
+                    fontSize: '10px',
+                    fontWeight: 800,
+                    whiteSpace: 'nowrap',
+                    zIndex: 10,
+                  }}
+                >
+                  {session.level.extraCategory.toUpperCase()}
+                </div>
+                {/* Complete Fill Element */}
+                {session.extraCategoryComplete && (
+                  <div
+                    style={{
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      backgroundColor: '#dc2626',
+                      borderRadius: '8px',
+                      animation: 'verticalWipe 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards',
+                      zIndex: -1,
+                    }}
+                  />
+                )}
+              </div>
             )}
 
             {/* Row banners for locked text categories */}
@@ -195,11 +229,14 @@ export function PuzzleBoard({ session, onSwap, autoSwapAnim, spawnedSlotIndexes 
               .map(row => {
                 const rowIdx = Math.floor(row.slotIndexes[0] / columns) + 1;
                 const color  = CATEGORY_COLORS[row.order % CATEGORY_COLORS.length];
+                const gridColumnStr = session.extraCategoryActive
+                  ? `2 / span ${columns - 1}`
+                  : `1 / span ${columns}`;
                 return (
                   <div
                     key={`bg-${row.order}`}
                     className="row-background"
-                    style={{ gridColumn: `1 / span ${columns}`, gridRow: rowIdx, backgroundColor: color }}
+                    style={{ gridColumn: gridColumnStr, gridRow: rowIdx, backgroundColor: color }}
                   >
                     <div className="category-banner" style={{ backgroundColor: color, color: '#ffffff' }}>
                       {row.category.toUpperCase()}
