@@ -72,7 +72,7 @@ export function LiveView({
           </span>
         ) : (
           <span style={{ fontWeight: '600', color: stage.passed ? '#059669' : '#d97706' }}>
-            {stage.passed ? '✅ Passed' : '❌ Pending'}
+            {stage.passed ? '✅ Passed' : '⏳ Pending'}
           </span>
         )}
 
@@ -113,9 +113,29 @@ export function LiveView({
           </div>
         )}
 
+        {/* Image error names shown as prominent badges */}
         {stage.errorImages && stage.errorImages.length > 0 && (
-          <div style={{ marginTop: '4px', fontSize: '11px', color: '#ef4444', fontWeight: 'bold' }}>
-            Missing: {stage.errorImages.join(', ')}
+          <div style={{ marginTop: '4px', display: 'flex', flexDirection: 'column', gap: '3px' }}>
+            <div style={{ fontSize: '10px', fontWeight: 800, color: '#b91c1c', textTransform: 'uppercase', letterSpacing: '0.5px', display: 'flex', alignItems: 'center', gap: '3px' }}>
+              <span>🚫</span> Missing Images ({stage.errorImages.length}):
+            </div>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '3px' }}>
+              {stage.errorImages.map((imgName, i) => (
+                <span key={i} style={{
+                  fontSize: '10px',
+                  fontWeight: 700,
+                  color: '#ffffff',
+                  backgroundColor: '#dc2626',
+                  padding: '2px 6px',
+                  borderRadius: '4px',
+                  border: '1px solid #b91c1c',
+                  fontFamily: 'monospace',
+                  wordBreak: 'break-all',
+                }}>
+                  {imgName}
+                </span>
+              ))}
+            </div>
           </div>
         )}
 
@@ -244,8 +264,33 @@ export function LiveView({
                   <td style={{ padding: '14px', fontWeight: 700, color: '#2563eb' }}>
                     {formatDuration(track.durationSec)}
                   </td>
-                  <td style={{ padding: '14px', fontSize: '12px', color: '#ef4444', fontWeight: 600, maxWidth: '150px', wordWrap: 'break-word' }}>
-                    {track.errorImages && track.errorImages.length > 0 ? track.errorImages.join(', ') : '-'}
+                  <td style={{ padding: '14px', maxWidth: '200px' }}>
+                    {track.errorImages && track.errorImages.length > 0 ? (
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '3px' }}>
+                        <div style={{ fontSize: '10px', fontWeight: 800, color: '#b91c1c', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                          🚫 Missing ({track.errorImages.length}):
+                        </div>
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '3px' }}>
+                          {track.errorImages.map((imgName, idx) => (
+                            <span key={idx} style={{
+                              fontSize: '10px',
+                              fontWeight: 700,
+                              color: '#ffffff',
+                              backgroundColor: '#dc2626',
+                              padding: '2px 6px',
+                              borderRadius: '4px',
+                              border: '1px solid #b91c1c',
+                              fontFamily: 'monospace',
+                              wordBreak: 'break-all',
+                            }}>
+                              {imgName}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    ) : (
+                      <span style={{ color: '#059669', fontWeight: 600 }}>✅ None</span>
+                    )}
                   </td>
                   <td style={{ padding: '14px' }}>
                     <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>

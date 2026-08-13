@@ -315,21 +315,28 @@ export default function App() {
         const targetLevelNum = dateToLevelNumber(currentDate);
         setTrackingHistory(prev => {
           const newHistory = [...prev];
-          let currentRecord = newHistory.find(r => r.date === currentDate && r.levelNumber === targetLevelNum);
-          if (currentRecord) {
-             currentRecord = { ...currentRecord };
-             const idx = newHistory.findIndex(r => r.date === currentDate && r.levelNumber === targetLevelNum);
-             
-             let stageKey = `stage${stageProgress}` as keyof TrackingData;
-             if (stageKey === 'stage1' || stageKey === 'stage2' || stageKey === 'stage3') {
-               const stageData = { ...currentRecord[stageKey] } as StageRecord;
-               const errors = new Set(stageData.errorImages || []);
-               errors.add(imageName);
-               stageData.errorImages = Array.from(errors);
-               currentRecord[stageKey] = stageData as any;
-             }
-             newHistory[idx] = currentRecord;
+          let idx = newHistory.findIndex(r => r.date === currentDate && r.levelNumber === targetLevelNum);
+          
+          // Create record if it doesn't exist yet (error fired before stage capture)
+          if (idx === -1) {
+            newHistory.push({
+              date: currentDate,
+              levelNumber: targetLevelNum,
+              stage1: { passed: false, startScreenshot: null, screenshot: null, moves: null },
+              stage2: { passed: false, startScreenshot: null, screenshot: null, moves: null },
+              stage3: { passed: false, startScreenshot: null, screenshot: null, moves: null },
+            });
+            idx = newHistory.length - 1;
           }
+
+          const currentRecord = { ...newHistory[idx] };
+          const stageKey = `stage${stageProgress}` as 'stage1' | 'stage2' | 'stage3';
+          const stageData = { ...currentRecord[stageKey] } as StageRecord;
+          const errors = new Set(stageData.errorImages || []);
+          errors.add(imageName);
+          stageData.errorImages = Array.from(errors);
+          currentRecord[stageKey] = stageData as any;
+          newHistory[idx] = currentRecord;
           return newHistory;
         });
       } else {
@@ -342,6 +349,23 @@ export default function App() {
             errors.add(imageName);
             record.errorImages = Array.from(errors);
             updated[recordIndex] = record;
+          } else {
+            // Create a new in-progress record so errors show immediately
+            const totalCats = session ? session.level.categories : 6;
+            updated.push({
+              levelNumber: mainLevelNumber,
+              imagesFormedCount: mainImagesFormed,
+              totalCategories: totalCats,
+              totalMoves: session?.moveCount ?? 0,
+              status: 'In Progress',
+              startTime: mainStartTimeRef.current,
+              completionTime: null,
+              durationSec: null,
+              errorImages: [imageName],
+              initialBoardScreenshot: mainInitialScreenshot.current,
+              imageFormationScreenshots: [],
+              finalCompletionScreenshot: null,
+            });
           }
           return updated;
         });
@@ -349,7 +373,7 @@ export default function App() {
     };
     window.addEventListener('image-error', handleImageError);
     return () => window.removeEventListener('image-error', handleImageError);
-  }, [activeMode, currentDate, stageProgress, mainLevelNumber]);
+  }, [activeMode, currentDate, stageProgress, mainLevelNumber, session, mainImagesFormed]);
 
   // --- 1. DAILY PUZZLE LEVEL LOAD ---
   useEffect(() => {
@@ -608,10 +632,11 @@ export default function App() {
           handleSwap(fromSlot, toSlot);
         } else {
           setAutoSwapAnim({ from: fromSlot, to: toSlot });
+          // 580ms matches the CSS transition (0.55s) + small buffer to avoid flash at end
           setTimeout(() => {
-            handleSwap(fromSlot, toSlot);
             setAutoSwapAnim(null);
-          }, 600);
+            handleSwap(fromSlot, toSlot);
+          }, 580);
         }
       };
 

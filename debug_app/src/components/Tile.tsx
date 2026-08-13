@@ -101,27 +101,39 @@ function FormedPictureCard({ word, category, isWhiteMode }: { word: string; cate
       width: '100%', height: '100%',
       display: 'flex', flexDirection: 'column',
       alignItems: 'center', justifyContent: 'center',
-      gap: 3, padding: 4, boxSizing: 'border-box',
+      gap: 2, padding: '4px 4px 2px', boxSizing: 'border-box',
+      backgroundColor: isWhiteMode ? 'transparent' : '#1e293b',
+      borderRadius: '8px',
+      overflow: 'hidden',
+      position: 'relative',
     }}>
       {loadedSrc ? (
         <img
           src={loadedSrc}
           alt={category || word}
           style={{
-            width: 44,
-            height: 44,
+            width: 32,
+            height: 32,
             objectFit: 'contain',
             borderRadius: '4px',
-            filter: isWhiteMode ? 'brightness(0) invert(1)' : undefined
+            filter: isWhiteMode ? 'brightness(0) invert(1)' : undefined,
+            flexShrink: 0,
           }}
         />
       ) : (
-        <span style={{ fontSize: 20 }}>🖼️</span>
+        <span style={{ fontSize: 16, flexShrink: 0 }}>🖼️</span>
       )}
       <span style={{
-        fontSize: 11, fontWeight: 800, textTransform: 'uppercase',
+        fontSize: 8, fontWeight: 800, textTransform: 'uppercase',
         letterSpacing: '0.3px',
-        color: isWhiteMode ? '#ffffff' : '#000',
+        color: isWhiteMode ? '#ffffff' : '#e2e8f0',
+        lineHeight: 1.1,
+        textAlign: 'center',
+        maxWidth: '100%',
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
+        whiteSpace: 'nowrap',
+        flexShrink: 0,
       }}>
         {word}
       </span>
@@ -230,17 +242,14 @@ export function Tile({
   };
 
   const innerStyle: React.CSSProperties = {
-    opacity: isDragging ? 0.75 : (isMergingOut ? 0 : 1),
-    transform: isMergingOut ? 'scale(0.5)' : undefined,
+    opacity: isDragging ? 0.75 : undefined,
     backgroundColor: isMasterCompleteTile ? 'transparent' : (color || undefined),
     boxShadow: isMasterCompleteTile ? 'none' : undefined,
     border: isMasterCompleteTile ? 'none' : (isOverTarget && !isDragging ? '2px dashed var(--accent-color)' : undefined),
     color: isMasterCompleteTile ? '#ffffff' : undefined,
     boxSizing: 'border-box',
-    // Smooth opacity and transform scale on merge out
-    transition: isMergingOut
-      ? 'opacity 0.5s ease-in, transform 0.55s cubic-bezier(0.25, 1, 0.5, 1)'
-      : 'opacity 0.15s ease',
+    // Only apply opacity transition for non-merging states; merging-out CSS class handles its own
+    transition: isMergingOut ? undefined : 'opacity 0.15s ease',
   };
 
   const classNames = ['tile'];

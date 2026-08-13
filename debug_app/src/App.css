@@ -136,13 +136,18 @@ body {
   word-break: break-word;
   overflow-wrap: anywhere;
   overflow: hidden;
-  /* Smooth lift on hover */
+  /* GPU layer promotion prevents layout blink on drag */
   will-change: transform;
+  backface-visibility: hidden;
 }
 
 .tile-wrapper {
   /* wrapper owns the animated transform; must NOT clip the tile */
   overflow: visible !important;
+  /* GPU compositing layer prevents blink on drag start */
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 .tile:hover:not(.locked):not(.dragging) {
@@ -166,8 +171,11 @@ body {
 }
 
 .tile.picture {
-  color: #333;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: #e2e8f0;
+  background-color: #1e293b;
+  border: 1.5px solid #334155;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
 }
 
 .dashboard-section {
@@ -501,9 +509,11 @@ body {
 }
 
 .tile.merging-out {
+  /* Use specific properties (not 'all') to avoid competing with JS-driven transforms */
   opacity: 0;
-  transform: scale(0.5);
-  transition: all 0.5s ease-in;
+  transform: scale(0.5) translateZ(0);
+  transition: opacity 0.5s ease-in, transform 0.55s cubic-bezier(0.25, 1, 0.5, 1);
+  pointer-events: none;
 }
 
 @keyframes verticalWipe {
