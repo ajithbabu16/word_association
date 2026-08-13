@@ -126,7 +126,8 @@ body {
   font-size: 11px;
   box-shadow: var(--tile-shadow);
   cursor: grab;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  /* Only animate box-shadow/opacity — transform is owned by JS/dnd-kit */
+  transition: box-shadow 0.2s ease, opacity 0.15s ease;
   position: relative;
   text-align: center;
   padding: 4px;
@@ -135,11 +136,26 @@ body {
   word-break: break-word;
   overflow-wrap: anywhere;
   overflow: hidden;
+  /* Smooth lift on hover */
+  will-change: transform;
 }
 
-.tile:active {
-  cursor: grabbing;
+.tile-wrapper {
+  /* wrapper owns the animated transform; must NOT clip the tile */
+  overflow: visible !important;
 }
+
+.tile:hover:not(.locked):not(.dragging) {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.tile.dragging {
+  cursor: grabbing;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  opacity: 0.85;
+}
+
+
 
 .tile.locked {
   color: #333;
@@ -150,8 +166,8 @@ body {
 }
 
 .tile.picture {
-  background-image: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
   color: #333;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .dashboard-section {
@@ -484,3 +500,8 @@ body {
   background-color: #d1d5db !important;
 }
 
+.tile.merging-out {
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.5s ease-in;
+}

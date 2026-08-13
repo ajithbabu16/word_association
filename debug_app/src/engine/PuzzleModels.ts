@@ -13,6 +13,8 @@ export interface PuzzleCellDefinition {
     categoryKey: string;
     isExtraCategory: boolean;
     isPictureCategory: boolean;
+    isFormedPictureCard?: boolean;
+    isMergingOut?: boolean;
 }
 
 export interface PuzzleSequenceDefinition {

@@ -280,6 +280,172 @@ export async function exportPDF(trackingHistory: TrackingData[]) {
   doc.save('live_tracking_screenshots.pdf');
 }
 
+// Main Puzzle Tracking Interfaces & Exports
+export interface MainImageFormationRecord {
+  categoryName: string;
+  screenshot: string;
+  timestamp: string;
+}
+
+export interface MainTrackingData {
+  levelNumber: number;
+  imagesFormedCount: number;
+  totalCategories: number;
+  totalMoves: number;
+  status: 'In Progress' | 'Passed' | 'Failed / Error';
+  startTime: string | null;
+  completionTime: string | null;
+  durationSec: number | null;
+  initialBoardScreenshot: string | null;
+  imageFormationScreenshots: MainImageFormationRecord[];
+  finalCompletionScreenshot: string | null;
+  error?: string | null;
+}
+
+export function exportMainExcel(mainTrackingHistory: MainTrackingData[]) {
+  const summaryRows = mainTrackingHistory.map(t => ({
+    'Level Number': t.levelNumber,
+    'Images Formed': `${t.imagesFormedCount} / ${t.totalCategories}`,
+    'Total Moves': t.totalMoves,
+    'Status': t.status,
+    'Start Time': t.startTime || '-',
+    'Completion Time': t.completionTime || '-',
+    'Duration': formatDuration(t.durationSec),
+    'Error': t.error || '-'
+  }));
+
+  const worksheet = XLSX.utils.json_to_sheet(summaryRows);
+  worksheet['!cols'] = [
+    { wch: 14 },
+    { wch: 16 },
+    { wch: 14 },
+    { wch: 16 },
+    { wch: 16 },
+    { wch: 16 },
+    { wch: 14 },
+    { wch: 30 }
+  ];
+
+  const workbook = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(workbook, worksheet, 'Main Puzzle Tracking');
+  XLSX.writeFile(workbook, 'main_puzzle_live_tracking.xlsx');
+}
+
+export async function exportMainPDF(mainTrackingHistory: MainTrackingData[]) {
+  const doc = new jsPDF('p', 'mm', 'a4'); // Portrait layout (210mm x 297mm)
+  const pageWidth = doc.internal.pageSize.getWidth();
+  const margin = 10;
+  const contentWidth = pageWidth - margin * 2; // 190mm
+
+  for (let idx = 0; idx < mainTrackingHistory.length; idx++) {
+    const track = mainTrackingHistory[idx];
+    if (idx > 0) doc.addPage();
+
+    let y = margin;
+
+    // Header
+    doc.setFontSize(14);
+    doc.setFont('helvetica', 'bold');
+    doc.text(`Main Puzzle - Level ${track.levelNumber} Report`, margin, y + 4);
+
+    doc.setFontSize(9);
+    doc.setFont('helvetica', 'normal');
+    doc.text(`Status: ${track.status}  |  Moves: ${track.totalMoves}  |  Images Formed: ${track.imagesFormedCount}/${track.totalCategories}  |  Duration: ${formatDuration(track.durationSec)}`, margin, y + 10);
+
+    y += 14;
+    doc.setDrawColor(210);
+    doc.line(margin, y, pageWidth - margin, y);
+    y += 6;
+
+    // 1. Initial Board Screenshot
+    doc.setFontSize(11);
+    doc.setFont('helvetica', 'bold');
+    doc.text('1. Initial Board View (Level Start)', margin, y);
+    y += 4;
+
+    if (track.initialBoardScreenshot) {
+      try {
+        const aspect = await getImageAspectRatio(track.initialBoardScreenshot);
+        const imgH = Math.min(65, 80 * aspect);
+        const imgW = imgH / aspect;
+        doc.addImage(track.initialBoardScreenshot, 'JPEG', margin, y, imgW, imgH, undefined, 'FAST');
+        y += imgH + 8;
+      } catch (e) {
+        y += 10;
+      }
+    } else {
+      doc.setFontSize(9);
+      doc.setFont('helvetica', 'italic');
+      doc.text('(No initial board screenshot)', margin, y + 4);
+      y += 10;
+    }
+
+    // 2. Per-Image Formation Screenshots
+    doc.setFontSize(11);
+    doc.setFont('helvetica', 'bold');
+    doc.text(`2. Image Formation Screenshots (${track.imageFormationScreenshots.length} Captured)`, margin, y);
+    y += 6;
+
+    const gridCols = 2;
+    const itemW = (contentWidth - 6) / gridCols; // ~92mm per screenshot box
+
+    for (let i = 0; i < track.imageFormationScreenshots.length; i++) {
+      const item = track.imageFormationScreenshots[i];
+      const col = i % gridCols;
+
+      if (col === 0 && i > 0) {
+        y += 55; // Next row spacing
+        if (y > 250) {
+          doc.addPage();
+          y = margin + 10;
+        }
+      }
+
+      const xPos = margin + col * (itemW + 6);
+
+      doc.setFontSize(8);
+      doc.setFont('helvetica', 'bold');
+      doc.text(`Image ${i + 1}: ${item.categoryName}`, xPos, y);
+
+      try {
+        doc.addImage(item.screenshot, 'JPEG', xPos, y + 3, itemW, 46, undefined, 'FAST');
+      } catch (e) {
+        doc.setDrawColor(200);
+        doc.rect(xPos, y + 3, itemW, 46);
+      }
+    }
+
+    y += 55;
+    if (y > 240) {
+      doc.addPage();
+      y = margin + 10;
+    }
+
+    // 3. Final Completion Screenshot
+    doc.setFontSize(11);
+    doc.setFont('helvetica', 'bold');
+    doc.text('3. Final Level Completion View', margin, y);
+    y += 4;
+
+    if (track.finalCompletionScreenshot) {
+      try {
+        const aspect = await getImageAspectRatio(track.finalCompletionScreenshot);
+        const imgH = Math.min(65, 80 * aspect);
+        const imgW = imgH / aspect;
+        doc.addImage(track.finalCompletionScreenshot, 'JPEG', margin, y, imgW, imgH, undefined, 'FAST');
+      } catch (e) {
+        // fallback
+      }
+    } else {
+      doc.setFontSize(9);
+      doc.setFont('helvetica', 'italic');
+      doc.text('(Level in progress or no completion screenshot)', margin, y + 4);
+    }
+  }
+
+  doc.save('main_puzzle_live_tracking_report.pdf');
+}
+
 // Download all 3 formats (CSV, Excel, PDF) automatically with staggered delays for browser popup compliance
 export async function exportAllReports(trackingHistory: TrackingData[]) {
   exportCSV(trackingHistory);
@@ -288,3 +454,4 @@ export async function exportAllReports(trackingHistory: TrackingData[]) {
   await new Promise(r => setTimeout(r, 400));
   await exportPDF(trackingHistory);
 }
+

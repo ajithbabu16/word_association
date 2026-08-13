@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import type { PuzzleSession } from '../engine/PuzzleModels';
 
 interface DebugDashboardProps {
+  activeMode?: 'daily' | 'main';
   currentDate: string;
   onDateChange: (newDate: string) => void;
   startDate: string;
@@ -14,9 +15,16 @@ interface DebugDashboardProps {
   onAutoSolveToggle: () => void;
   isAutoSolving: boolean;
   autoSolveMode?: 'normal' | 'instinct' | 'anchor' | 'neighbor' | 'semantic' | 'pattern' | 'backtrack' | 'human' | 'random';
+  // Main Puzzle specific props
+  mainLevelNumber?: number;
+  onMainLevelJump?: (levelNum: number) => void;
+  mainImagesFormed?: number;
+  totalCategories?: number;
+  onOpenAutoSolveModal?: () => void;
 }
 
 export function DebugDashboard({
+  activeMode = 'daily',
   currentDate,
   onDateChange,
   startDate,
@@ -28,13 +36,27 @@ export function DebugDashboard({
   session,
   onAutoSolveToggle,
   isAutoSolving,
-  autoSolveMode = 'instinct'
+  autoSolveMode = 'instinct',
+  mainLevelNumber = 1,
+  onMainLevelJump,
+  mainImagesFormed = 0,
+  totalCategories = session ? session.level.categories : 6,
+  onOpenAutoSolveModal
 }: DebugDashboardProps) {
   const [dateInput, setDateInput] = useState(currentDate);
+  const [levelJumpInput, setLevelJumpInput] = useState(String(mainLevelNumber));
 
   const handleDateSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     onDateChange(dateInput);
+  };
+
+  const handleLevelJumpSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const num = parseInt(levelJumpInput, 10);
+    if (!isNaN(num) && num >= 1 && onMainLevelJump) {
+      onMainLevelJump(num);
+    }
   };
 
   const getModeLabel = () => {
@@ -50,6 +72,76 @@ export function DebugDashboard({
       default: return 'Normal';
     }
   };
+
+  if (activeMode === 'main') {
+    return (
+      <div className="debug-dashboard">
+        <div className="dashboard-section" style={{ borderLeft: '4px solid #7c3aed' }}>
+          <h3 style={{ color: '#6d28d9' }}>Main Puzzle Level Controller</h3>
+          <form onSubmit={handleLevelJumpSubmit} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <label style={{ fontSize: '12px', fontWeight: 'bold', width: '80px', color: '#4b5563' }}>Load Level:</label>
+            <input 
+              type="number" 
+              min={1}
+              value={levelJumpInput} 
+              onChange={(e) => setLevelJumpInput(e.target.value)}
+              className="input-field"
+              placeholder="e.g. 1"
+              style={{ flex: 1, padding: '8px 10px', borderRadius: '6px', border: '1px solid #cbd5e1', fontWeight: 'bold' }}
+            />
+            <button type="submit" className="button" style={{ backgroundColor: '#7c3aed', color: 'white', padding: '8px 14px', borderRadius: '6px', fontWeight: 'bold', border: 'none', cursor: 'pointer' }}>
+              Load
+            </button>
+          </form>
+        </div>
+
+        <div className="dashboard-section">
+          <h3>Main Level Info Panel</h3>
+          {session ? (
+            <>
+              <div className="stat-row">
+                <span className="stat-label">Level Number:</span>
+                <span className="stat-value" style={{ fontWeight: 800, color: '#7c3aed' }}>Level {session.level.identity.levelNumber || mainLevelNumber}</span>
+              </div>
+              <div className="stat-row">
+                <span className="stat-label">Images Formed Count:</span>
+                <span className="stat-value" style={{ fontWeight: 800, color: '#059669', backgroundColor: '#ecfdf5', padding: '2px 8px', borderRadius: '4px' }}>
+                  {mainImagesFormed} / {totalCategories}
+                </span>
+              </div>
+              <div className="stat-row">
+                <span className="stat-label">Total Moves:</span>
+                <span className="stat-value">{session.moveCount}</span>
+              </div>
+              <div className="stat-row">
+                <span className="stat-label">Level Status:</span>
+                <span className="stat-value">
+                  {session.completed ? '✅ Passed' : session.failed ? '❌ Failed / Error' : '⏳ In Progress'}
+                </span>
+              </div>
+            </>
+          ) : (
+            <div className="stat-row"><span className="stat-label">No level session loaded</span></div>
+          )}
+        </div>
+
+        <div className="dashboard-section">
+          <h3>Automation (Main Puzzle)</h3>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            <button 
+              className={`button ${isAutoSolving ? 'danger' : ''}`} 
+              onClick={onAutoSolveToggle}
+              style={{ width: '100%', padding: '10px', backgroundColor: isAutoSolving ? '#ef4444' : '#7c3aed', color: 'white', fontWeight: 'bold', borderRadius: '8px', border: 'none', cursor: 'pointer' }}
+            >
+              {isAutoSolving 
+                ? `🛑 Stop Automation (${getModeLabel()})` 
+                : `⚡ Auto Solve Level (${getModeLabel()})`}
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="debug-dashboard">
@@ -92,7 +184,6 @@ export function DebugDashboard({
               />
             </div>
 
-            {/* Auto Solve CTA located below Start Date and End Date */}
             <button 
               onClick={onAutoSolveRange}
               style={{ 
@@ -157,15 +248,17 @@ export function DebugDashboard({
 
       <div className="dashboard-section">
         <h3>Automation</h3>
-        <button 
-          className={`button ${isAutoSolving ? 'danger' : ''}`} 
-          onClick={onAutoSolveToggle}
-          style={{ width: '100%' }}
-        >
-          {isAutoSolving 
-            ? `Stop Automation (${getModeLabel()})` 
-            : 'Single Stage Automation Solve'}
-        </button>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+          <button 
+            className={`button ${isAutoSolving ? 'danger' : ''}`} 
+            onClick={onAutoSolveToggle}
+            style={{ width: '100%' }}
+          >
+            {isAutoSolving 
+              ? `Stop Automation (${getModeLabel()})` 
+              : 'Single Stage Automation Solve'}
+          </button>
+        </div>
       </div>
     </div>
   );

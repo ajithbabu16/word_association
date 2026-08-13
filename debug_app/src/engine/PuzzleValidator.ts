@@ -242,4 +242,22 @@ export class PuzzleValidator {
     if (warnings.length > 0) return { status: 'WARNINGS', errors, warnings };
     return { status: 'OK', errors, warnings };
   }
+
+  static validateMainPuzzleLevel(level: PuzzleRawLevel, internalDict?: Set<string>): ValidationResult {
+    const result = this.validateStage(level, internalDict);
+    const errors = [...result.errors];
+    const warnings = [...result.warnings];
+
+    if (level.groups) {
+      if (level.groups.length === 0) {
+        errors.push(`Main Puzzle Level ${level.levelNumber || level.id} has 0 categories.`);
+      }
+    }
+
+    if (errors.length > 0) return { status: 'ERRORS', errors, warnings };
+    if (warnings.length > 0) return { status: 'WARNINGS', errors, warnings };
+    return { status: 'OK', errors, warnings };
+  }
 }
+
+

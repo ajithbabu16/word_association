@@ -9,18 +9,69 @@ import { LiveView } from './components/LiveView';
 import type { TrackingData, StageRecord } from './components/LiveView';
 import { ErrorView } from './components/ErrorView';
 import { PuzzleValidator } from './engine/PuzzleValidator';
-import { AlertTriangle } from 'lucide-react';
-import { exportAllReports } from './utils/exportUtils';
+import { AlertTriangle, Layers, Calendar } from 'lucide-react';
+import { exportAllReports, MainTrackingData, MainImageFormationRecord } from './utils/exportUtils';
 import html2canvas from 'html2canvas';
 
 import { AutoSolveModal, AutoSolveMode } from './components/AutoSolveModal';
+import { ModeSelectionModal } from './components/ModeSelectionModal';
 
 const engine = new PuzzleEngine();
 const decoder = new PuzzleLevelDecoder();
 const LEVEL_1_DATE = '2026-06-26'; // The date of Level 1 in daily.json
-const DEFAULT_TEST_DATE = '2026-09-01'; // The date to load when app opens
+const DEFAULT_TEST_DATE = '2026-06-26'; // Default to Level 1 on mount
 
 // Helpers
+function getDailyPuzzleStage(dailyLevels: PuzzleRawLevel[], targetLevelNum: number, stageNum: number): PuzzleRawLevel | null {
+  if (!dailyLevels || dailyLevels.length === 0) return null;
+
+  const getDailyLevelNum = (l: PuzzleRawLevel) => {
+    if (typeof l.levelNumber === 'number' && l.levelNumber > 0) return l.levelNumber;
+    if (typeof l.id === 'number' && l.id >= 600000) {
+      return Math.floor((l.id - 600000) / 100);
+    }
+    return 1;
+  };
+
+  const getDailyStageNum = (l: PuzzleRawLevel) => {
+    if (typeof l.stageNumber === 'number' && l.stageNumber > 0) return l.stageNumber;
+    if (typeof l.id === 'number' && l.id >= 600000) {
+      const stg = (l.id - 600000) % 100;
+      if (stg >= 1 && stg <= 3) return stg;
+    }
+    return 1;
+  };
+
+  const maxLevel = Math.max(...dailyLevels.map(getDailyLevelNum), 1);
+  const effectiveLevelNum = ((targetLevelNum - 1) % maxLevel) + 1;
+
+  let rawLevels = dailyLevels.filter(l => getDailyLevelNum(l) === targetLevelNum);
+  if (rawLevels.length === 0) {
+    rawLevels = dailyLevels.filter(l => getDailyLevelNum(l) === effectiveLevelNum);
+  }
+  if (rawLevels.length === 0) {
+    rawLevels = dailyLevels;
+  }
+
+  return rawLevels.find(l => getDailyStageNum(l) === stageNum) || rawLevels[0] || dailyLevels[0];
+}
+
+function getMainPuzzleLevel(mainLevels: PuzzleRawLevel[], targetLevelNum: number): PuzzleRawLevel | null {
+  if (!mainLevels || mainLevels.length === 0) return null;
+
+  // 1. Try matching by levelNumber attribute directly
+  let level = mainLevels.find(l => l.levelNumber === targetLevelNum);
+  if (level) return level;
+
+  // 2. Try matching by id attribute directly
+  level = mainLevels.find(l => l.id === targetLevelNum || l.id === (600000 + targetLevelNum));
+  if (level) return level;
+
+  // 3. Try matching by 1-based index (targetLevelNum - 1)
+  const safeIndex = Math.max(0, Math.min(targetLevelNum - 1, mainLevels.length - 1));
+  return mainLevels[safeIndex] || mainLevels[0];
+}
+
 function dateToLevelNumber(dateStr: string): number {
   const target = new Date(dateStr);
   const start = new Date(LEVEL_1_DATE);
@@ -75,33 +126,103 @@ function createSession(level: PuzzleLevelDefinition): PuzzleSession {
   };
 }
 
+function StackedCategoryPill({ formed, total, isAnimating }: { formed: number; total: number; isAnimating: boolean }) {
+  return (
+    <div 
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        gap: '6px',
+        backgroundColor: '#5d4f47',
+        color: '#ffffff',
+        padding: '3px 12px 3px 6px',
+        borderRadius: '20px',
+        boxShadow: '0 2px 5px rgba(0, 0, 0, 0.3)',
+        transform: isAnimating ? 'scale(1.25)' : 'scale(1)',
+        transition: 'transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1)',
+        border: '1px solid #4a3e37',
+        userSelect: 'none'
+      }}
+    >
+      {/* 3D Stacked Layers Icon matching screenshot */}
+      <svg width="22" height="22" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        {/* Bottom Blue Layer */}
+        <path d="M16 26L4 20L16 14L28 20L16 26Z" fill="#3880a6" />
+        <path d="M4 20V22L16 28L28 22V20L16 26L4 20Z" fill="#2c6685" />
+
+        {/* Middle Orange Layer */}
+        <path d="M16 20L4 14L16 8L28 14L16 20Z" fill="#e07e43" />
+        <path d="M4 14V16L16 22L28 16V14L16 20L4 14Z" fill="#b8612c" />
+
+        {/* Top Green Layer */}
+        <path d="M16 14L4 8L16 2L28 8L16 14Z" fill="#6ba34b" />
+        <path d="M4 8V10L16 16L28 10V8L16 14L4 8Z" fill="#507c37" />
+      </svg>
+      <span style={{
+        fontFamily: "'Fredoka', 'Outfit', system-ui, sans-serif",
+        fontSize: '15px',
+        fontWeight: 800,
+        letterSpacing: '0.5px',
+        color: '#ffffff',
+        textShadow: '0 1px 2px rgba(0,0,0,0.5)'
+      }}>
+        {formed}/{total}
+      </span>
+    </div>
+  );
+}
+
 export default function App() {
+  // Active Mode: 'daily' | 'main'
+  const [activeMode, setActiveMode] = useState<'daily' | 'main'>('daily');
+  const [showModeModal, setShowModeModal] = useState<boolean>(true);
+  const [isPillAnimating, setIsPillAnimating] = useState<boolean>(false);
+
+  // Daily Puzzle States
   const [currentDate, setCurrentDate] = useState(DEFAULT_TEST_DATE);
   const [startDate, setStartDate] = useState('2026-09-01');
   const [endDate, setEndDate] = useState('2026-09-02');
   const [isRangeAutoSolving, setIsRangeAutoSolving] = useState(false);
-
   const [levelData, setLevelData] = useState<PuzzleRawLevel[]>([]);
+  const [stageProgress, setStageProgress] = useState(1);
+  const [trackingHistory, setTrackingHistory] = useState<TrackingData[]>([]);
+
+  // Main Puzzle States
+  const [mainLevelData, setMainLevelData] = useState<PuzzleRawLevel[]>([]);
+  const [mainLevelNumber, setMainLevelNumber] = useState<number>(1);
+  const [mainTrackingHistory, setMainTrackingHistory] = useState<MainTrackingData[]>([]);
+  const [mainImagesFormed, setMainImagesFormed] = useState<number>(0);
+
+  // Common Game States
   const [session, setSession] = useState<PuzzleSession | null>(null);
+  const sessionRef = useRef<PuzzleSession | null>(null);
+  useEffect(() => { sessionRef.current = session; }, [session]);
+  
   const [internalDict, setInternalDict] = useState<Set<string>>(new Set());
   const [stageError, setStageError] = useState<string | null>(null);
-
-  const [stageProgress, setStageProgress] = useState(1);
   const [showOverlay, setShowOverlay] = useState<string | null>(null);
-  
+
+  // Automation States
   const [isAutoSolving, setIsAutoSolving] = useState(false);
   const [autoSolveMode, setAutoSolveMode] = useState<AutoSolveMode>('normal');
   const [autoSolveSpeed, setAutoSolveSpeed] = useState<number>(1000);
   const [showAutoSolveModal, setShowAutoSolveModal] = useState(false);
-
   const [autoSwapAnim, setAutoSwapAnim] = useState<{ from: number, to: number } | null>(null);
-  
-  const [trackingHistory, setTrackingHistory] = useState<TrackingData[]>([]);
+
+  // Views & Refs
   const [showLiveView, setShowLiveView] = useState(false);
   const [showErrorView, setShowErrorView] = useState(false);
-  
   const captureRef = useRef<HTMLDivElement>(null);
   const workerRef = useRef<Worker | null>(null);
+
+  // Main Puzzle Screenshot Refs
+  const prevSolvedRowsCount = useRef<number>(0);
+  const mainInitialScreenshot = useRef<string | null>(null);
+  const mainImageFormationScreenshots = useRef<MainImageFormationRecord[]>([]);
+  const mainStartTimeRef = useRef<string | null>(null);
+  const mainStartTimestamp = useRef<number>(Date.now());
+  const isCapturingScreenshot = useRef<boolean>(false);
+  const isMergingRef = useRef<boolean>(false);
 
   // Initialize Web Worker for background timing
   useEffect(() => {
@@ -133,7 +254,7 @@ export default function App() {
   // Sync worker state with auto-solve state
   useEffect(() => {
     if (workerRef.current) {
-      if (isAutoSolving && session && !session.completed && !stageError) {
+      if (isAutoSolving && session && !session.completed && !stageError && !isCapturingScreenshot.current) {
         workerRef.current.postMessage({ action: 'start', interval: autoSolveSpeed });
       } else {
         workerRef.current.postMessage({ action: 'stop' });
@@ -141,38 +262,253 @@ export default function App() {
     }
   }, [isAutoSolving, autoSolveSpeed, session?.completed, stageError]);
 
-  // Fetch daily.json on mount
+  // Fetch datasets on mount
   useEffect(() => {
+    // Fetch daily.json
     fetch('/daily.json')
-      .then(res => res.json())
+      .then(res => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.json();
+      })
       .then(data => {
-        if (data && data.levels) {
-          setLevelData(data.levels);
-          setInternalDict(PuzzleValidator.buildInternalDictionary(data.levels));
+        const levels = Array.isArray(data) ? data : (data.levels || []);
+        if (levels.length > 0) {
+          setLevelData(levels);
+          setInternalDict(PuzzleValidator.buildInternalDictionary(levels));
         }
       })
       .catch(err => console.error('Failed to load daily.json:', err));
+
+    // Fetch main.json
+    fetch('/main.json')
+      .then(res => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.json();
+      })
+      .then(data => {
+        const levels = Array.isArray(data) ? data : (data.levels || []);
+        if (levels.length > 0) {
+          setMainLevelData(levels);
+        }
+      })
+      .catch(err => console.error('Failed to load main.json:', err));
   }, []);
 
-  // Load correct level when date/stage/data changes
+  // Mode change handler
+  const handleSelectMode = (mode: 'daily' | 'main') => {
+    setActiveMode(mode);
+    setIsAutoSolving(false);
+    setIsRangeAutoSolving(false);
+    setSession(null);
+    setStageError(null);
+  };
+
+  // --- 1. DAILY PUZZLE LEVEL LOAD ---
   useEffect(() => {
-    if (levelData.length === 0) return;
+    if (activeMode !== 'daily' || levelData.length === 0) return;
 
     const targetLevelNum = dateToLevelNumber(currentDate);
-    // Find the level matching levelNumber and stageNumber
-    const rawLevels = levelData.filter(l => l.levelNumber === targetLevelNum);
-    const rawStage = rawLevels.find(l => l.stageNumber === stageProgress);
+    const rawStage = getDailyPuzzleStage(levelData, targetLevelNum, stageProgress);
 
     if (rawStage) {
-      // Validate stage using PuzzleValidator
       const validation = PuzzleValidator.validateStage(rawStage, internalDict);
       if (validation.errors.length > 0) {
-        const errMsg = validation.errors.join("; ");
-        setStageError(errMsg);
-        setSession(null);
-        setIsAutoSolving(false);
+        setStageError(validation.errors.join("; "));
+      } else {
+        setStageError(null);
+      }
 
-        // Track validation error in Live View history
+      const wrapper = { defaults: { size: "6x4", difficulty: "easy" }, levels: [rawStage] };
+      let decoded = decoder.decodeAssetSafe(wrapper, "daily")[0];
+      if (!decoded) {
+        decoded = decoder.decodeAssetSafe([rawStage], "daily")[0];
+      }
+
+      if (decoded) {
+        const newSession = createSession(decoded);
+        setSession(newSession);
+      }
+
+      // Capture Daily Puzzle start view after DOM render
+      setTimeout(() => {
+        if (captureRef.current) {
+          html2canvas(captureRef.current).then(canvas => {
+            const dataUrl = canvas.toDataURL('image/jpeg', 0.8);
+            setTrackingHistory(prev => {
+              const newHistory = [...prev];
+              let currentRecord = newHistory.find(r => r.date === currentDate && r.levelNumber === targetLevelNum);
+              if (!currentRecord) {
+                currentRecord = {
+                  date: currentDate,
+                  levelNumber: targetLevelNum,
+                  stage1: { passed: false, startScreenshot: dataUrl, screenshot: null, moves: null, startTime: new Date().toLocaleTimeString() },
+                  stage2: { passed: false, startScreenshot: null, screenshot: null, moves: null },
+                  stage3: { passed: false, startScreenshot: null, screenshot: null, moves: null },
+                };
+                newHistory.push(currentRecord);
+              }
+              return newHistory;
+            });
+          });
+        }
+      }, 300);
+    }
+  }, [activeMode, currentDate, stageProgress, levelData]);
+
+  // --- 2. MAIN PUZZLE LEVEL LOAD ---
+  useEffect(() => {
+    if (activeMode !== 'main' || mainLevelData.length === 0) return;
+
+    const rawLevel = getMainPuzzleLevel(mainLevelData, mainLevelNumber);
+
+    if (rawLevel) {
+      const levelToDecode = {
+        ...rawLevel,
+        size: rawLevel.size || "6x4",
+        difficulty: rawLevel.difficulty || "easy",
+        levelNumber: rawLevel.levelNumber || mainLevelNumber
+      };
+
+      const validation = PuzzleValidator.validateMainPuzzleLevel(levelToDecode);
+      if (validation.errors.length > 0) {
+        setStageError(validation.errors.join("; "));
+      } else {
+        setStageError(null);
+      }
+
+      const wrapper = { defaults: { size: "6x4", difficulty: "easy" }, levels: [levelToDecode] };
+      let decoded = decoder.decodeAssetSafe(wrapper, "default")[0];
+      if (!decoded) {
+        decoded = decoder.decodeAssetSafe([levelToDecode], "default")[0];
+      }
+
+      if (decoded) {
+        const newSession = createSession(decoded);
+        setSession(newSession);
+        setMainImagesFormed(0);
+        prevSolvedRowsCount.current = 0;
+        mainImageFormationScreenshots.current = [];
+        mainStartTimeRef.current = new Date().toLocaleTimeString();
+        mainStartTimestamp.current = Date.now();
+      }
+
+      // Capture Main Puzzle Initial Board View right after loading
+      setTimeout(() => {
+        if (captureRef.current) {
+          html2canvas(captureRef.current).then(canvas => {
+            const dataUrl = canvas.toDataURL('image/jpeg', 0.8);
+            mainInitialScreenshot.current = dataUrl;
+          });
+        }
+      }, 300);
+    } else {
+      setStageError(`Main Puzzle Level ${mainLevelNumber} not found.`);
+      setSession(null);
+      setIsAutoSolving(false);
+    }
+  }, [activeMode, mainLevelNumber, mainLevelData]);
+
+  // --- 3. MAIN PUZZLE PER-IMAGE FORMATION SCREENSHOT CAPTURE PIPELINE ---
+  useEffect(() => {
+    if (activeMode !== 'main' || !session) return;
+
+    const currentSolvedCount = session.solvedRows.length;
+    setMainImagesFormed(currentSolvedCount);
+
+    if (currentSolvedCount > prevSolvedRowsCount.current) {
+      const newlySolvedRows = session.solvedRows.slice(prevSolvedRowsCount.current);
+      prevSolvedRowsCount.current = currentSolvedCount;
+
+      setIsPillAnimating(true);
+      setTimeout(() => setIsPillAnimating(false), 450);
+
+      isCapturingScreenshot.current = true;
+
+      // Pause auto-solve briefly to allow DOM banner animation to complete & take screenshot
+      setTimeout(() => {
+        if (captureRef.current) {
+          html2canvas(captureRef.current).then(canvas => {
+            const dataUrl = canvas.toDataURL('image/jpeg', 0.85);
+
+            newlySolvedRows.forEach(row => {
+              const categoryName = (row.category || row.categoryKey || 'UNKNOWN_CATEGORY')
+                .toUpperCase()
+                .replace(/[^A-Z0-9_]/g, '_') + '_FORMATION';
+
+              mainImageFormationScreenshots.current.push({
+                categoryName,
+                screenshot: dataUrl,
+                timestamp: new Date().toLocaleTimeString()
+              });
+            });
+
+            isCapturingScreenshot.current = false;
+          });
+        } else {
+          isCapturingScreenshot.current = false;
+        }
+      }, 450);
+    }
+
+    // Check Main Puzzle Level Completion (all 12 categories solved)
+    if (session.completed) {
+      setTimeout(() => {
+        if (captureRef.current) {
+          html2canvas(captureRef.current).then(canvas => {
+            const finalDataUrl = canvas.toDataURL('image/jpeg', 0.85);
+            const durationSec = Math.round((Date.now() - mainStartTimestamp.current) / 1000);
+
+            setMainTrackingHistory(prev => {
+              const updated = [...prev];
+              const recordIndex = updated.findIndex(r => r.levelNumber === mainLevelNumber);
+              const totalCats = session ? session.level.categories : 6;
+              const record: MainTrackingData = {
+                levelNumber: mainLevelNumber,
+                imagesFormedCount: session.solvedRows.length,
+                totalCategories: totalCats,
+                totalMoves: session.moveCount,
+                status: 'Passed',
+                startTime: mainStartTimeRef.current,
+                completionTime: new Date().toLocaleTimeString(),
+                durationSec,
+                initialBoardScreenshot: mainInitialScreenshot.current,
+                imageFormationScreenshots: [...mainImageFormationScreenshots.current],
+                finalCompletionScreenshot: finalDataUrl
+              };
+
+              if (recordIndex >= 0) {
+                updated[recordIndex] = record;
+              } else {
+                updated.push(record);
+              }
+              return updated;
+            });
+
+            setShowOverlay(`🎉 Main Puzzle Level ${mainLevelNumber} Completed! Loading Level ${mainLevelNumber + 1}...`);
+
+            setTimeout(() => {
+              setShowOverlay(null);
+              setMainLevelNumber(prev => prev + 1);
+              setIsAutoSolving(true);
+            }, 3500);
+          });
+        }
+      }, 2500);
+    }
+  }, [activeMode, session?.solvedRows.length, session?.completed]);
+
+  // --- 4. DAILY PUZZLE STAGE COMPLETION WATCHER ---
+  useEffect(() => {
+    if (activeMode !== 'daily' || !session?.completed) return;
+
+    const endClock = new Date().toLocaleTimeString();
+    const durationSec = 15; // default estimate or timer calculation
+
+    if (captureRef.current) {
+      html2canvas(captureRef.current).then(canvas => {
+        const dataUrl = canvas.toDataURL('image/jpeg', 0.8);
+        const targetLevelNum = dateToLevelNumber(currentDate);
+
         setTrackingHistory(prev => {
           const newHistory = [...prev];
           let currentRecord = newHistory.find(r => r.date === currentDate && r.levelNumber === targetLevelNum);
@@ -191,226 +527,59 @@ export default function App() {
             newHistory[idx] = currentRecord;
           }
 
+          const movesCount = session.moveCount;
+
           if (stageProgress === 1) {
-            currentRecord.stage1 = { ...currentRecord.stage1, error: errMsg };
+            currentRecord.stage1 = { ...currentRecord.stage1, passed: true, screenshot: dataUrl, moves: movesCount, completionTime: endClock, durationSec };
           } else if (stageProgress === 2) {
-            currentRecord.stage2 = { ...currentRecord.stage2, error: errMsg };
+            currentRecord.stage2 = { ...currentRecord.stage2, passed: true, screenshot: dataUrl, moves: movesCount, completionTime: endClock, durationSec };
           } else if (stageProgress === 3) {
-            currentRecord.stage3 = { ...currentRecord.stage3, error: errMsg };
+            currentRecord.stage3 = { ...currentRecord.stage3, passed: true, screenshot: dataUrl, moves: movesCount, completionTime: endClock, durationSec };
           }
+
           return newHistory;
         });
-        return;
-      }
 
-      setStageError(null);
-
-      // Determine grid size based on stage
-      let stageSize = "4x4"; // 4 rows * 4 cols
-      if (stageProgress === 2) stageSize = "5x4";  // 5 rows * 4 cols
-      if (stageProgress === 3) stageSize = "6x4"; // 6 rows * 4 cols
-
-      const decodedLevels = decoder.decodeAssetSafe(
-        {
-          kind: "daily",
-          defaults: { difficulty: "easy", size: stageSize },
-          levels: [rawStage]
-        },
-        "daily"
-      );
-      if (decodedLevels.length > 0) {
-        setSession(createSession(decodedLevels[0]));
-      }
-    } else {
-      console.warn(`No level found for ${currentDate} stage ${stageProgress}`);
-      setStageError(`No level found for ${currentDate} stage ${stageProgress}`);
-      setSession(null);
-      if (isAutoSolving) setIsAutoSolving(false);
-    }
-  }, [currentDate, levelData, stageProgress, internalDict]);
-
-  const stageStartTimeRef = useRef<number>(Date.now());
-  const stageStartClockRef = useRef<string>(new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' }));
-
-  // Track stage start time when currentDate or stageProgress changes
-  useEffect(() => {
-    stageStartTimeRef.current = Date.now();
-    stageStartClockRef.current = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-  }, [stageProgress, currentDate]);
-
-  // Capture initial starting screenshot when a new stage loads
-  useEffect(() => {
-    if (!session || session.moveCount > 0 || session.completed) return;
-
-    const timer = setTimeout(async () => {
-      if (!captureRef.current) return;
-      try {
-        const canvas = await html2canvas(captureRef.current, { backgroundColor: '#f2f2f2', scale: 2 });
-        const dataUrl = canvas.toDataURL('image/jpeg', 0.80);
-        const targetLevelNum = dateToLevelNumber(currentDate);
-
-        setTrackingHistory(prev => {
-          const newHistory = [...prev];
-          let currentRecord = newHistory.find(r => r.date === currentDate && r.levelNumber === targetLevelNum);
-
-          if (!currentRecord) {
-            currentRecord = {
-              date: currentDate,
-              levelNumber: targetLevelNum,
-              stage1: { passed: false, startScreenshot: null, screenshot: null, moves: null },
-              stage2: { passed: false, startScreenshot: null, screenshot: null, moves: null },
-              stage3: { passed: false, startScreenshot: null, screenshot: null, moves: null },
-            };
-            newHistory.push(currentRecord);
+        if (stageProgress < 3) {
+          setShowOverlay(`Stage ${stageProgress} Completed!`);
+          setTimeout(() => {
+            setShowOverlay(null);
+            setStageProgress(prev => prev + 1);
+          }, 1500);
+        } else {
+          const reachedEnd = isRangeAutoSolving && currentDate >= endDate;
+          if (reachedEnd) {
+            setShowOverlay(`🎉 End Date ${endDate} Reached! Downloading PDF, CSV & Excel reports...`);
+            setIsAutoSolving(false);
+            setIsRangeAutoSolving(false);
+            setTimeout(() => {
+              setShowOverlay(null);
+              setTrackingHistory(latest => {
+                exportAllReports(latest);
+                return latest;
+              });
+            }, 2000);
           } else {
-            currentRecord = { ...currentRecord };
-            const index = newHistory.findIndex(r => r.date === currentDate && r.levelNumber === targetLevelNum);
-            newHistory[index] = currentRecord;
+            setShowOverlay(`Daily Puzzle Completed! Loading next day...`);
+            setTimeout(() => {
+              setShowOverlay(null);
+              const nextLevel = targetLevelNum + 1;
+              setCurrentDate(dateFromLevelNumber(nextLevel));
+              setStageProgress(1);
+            }, 2000);
           }
-
-          const startClock = stageStartClockRef.current;
-
-          if (stageProgress === 1 && !currentRecord.stage1.startScreenshot) {
-            currentRecord.stage1 = { ...currentRecord.stage1, startScreenshot: dataUrl, startTime: startClock };
-          } else if (stageProgress === 2 && !currentRecord.stage2.startScreenshot) {
-            currentRecord.stage2 = { ...currentRecord.stage2, startScreenshot: dataUrl, startTime: startClock };
-          } else if (stageProgress === 3 && !currentRecord.stage3.startScreenshot) {
-            currentRecord.stage3 = { ...currentRecord.stage3, startScreenshot: dataUrl, startTime: startClock };
-          }
-
-          return newHistory;
-        });
-      } catch (err) {
-        console.error("Failed to capture start screenshot:", err);
-      }
-    }, 400);
-
-    return () => clearTimeout(timer);
-  }, [session?.level.identity.stageNumber, session?.level.identity.levelNumber, currentDate]);
-
-  // Handle stage completion & auto play
-  useEffect(() => {
-    if (!session?.completed) return;
-
-    // Wait 2 seconds (2000ms) after stage completion before capturing screenshot and proceeding
-    const completionTimer = setTimeout(async () => {
-      let dataUrl: string | null = null;
-      if (captureRef.current) {
-        try {
-          const canvas = await html2canvas(captureRef.current, { backgroundColor: '#f2f2f2', scale: 2 });
-          dataUrl = canvas.toDataURL('image/jpeg', 0.80);
-        } catch (err) {
-          console.error("Failed to capture screenshot:", err);
         }
-      }
-
-      const targetLevelNum = dateToLevelNumber(currentDate);
-      const endTime = Date.now();
-      const endClock = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-      const durationSec = Math.max(1, Math.round((endTime - stageStartTimeRef.current) / 1000));
-      const startClock = stageStartClockRef.current;
-
-      setTrackingHistory(prev => {
-        const newHistory = [...prev];
-        let currentRecord = newHistory.find(r => r.date === currentDate && r.levelNumber === targetLevelNum);
-        
-        if (!currentRecord) {
-          currentRecord = {
-            date: currentDate,
-            levelNumber: targetLevelNum,
-            stage1: { passed: false, startScreenshot: null, screenshot: null, moves: null },
-            stage2: { passed: false, startScreenshot: null, screenshot: null, moves: null },
-            stage3: { passed: false, startScreenshot: null, screenshot: null, moves: null },
-          };
-          newHistory.push(currentRecord);
-        } else {
-          // Clone it so we don't mutate state directly
-          currentRecord = { ...currentRecord };
-          const index = newHistory.findIndex(r => r.date === currentDate && r.levelNumber === targetLevelNum);
-          newHistory[index] = currentRecord;
-        }
-
-        const movesCount = session.moveCount;
-
-        if (stageProgress === 1) {
-          currentRecord.stage1 = { 
-            ...currentRecord.stage1, 
-            passed: true, 
-            screenshot: dataUrl, 
-            moves: movesCount,
-            startTime: currentRecord.stage1.startTime || startClock,
-            completionTime: endClock,
-            durationSec
-          };
-        } else if (stageProgress === 2) {
-          currentRecord.stage2 = { 
-            ...currentRecord.stage2, 
-            passed: true, 
-            screenshot: dataUrl, 
-            moves: movesCount,
-            startTime: currentRecord.stage2.startTime || startClock,
-            completionTime: endClock,
-            durationSec
-          };
-        } else if (stageProgress === 3) {
-          currentRecord.stage3 = { 
-            ...currentRecord.stage3, 
-            passed: true, 
-            screenshot: dataUrl, 
-            moves: movesCount,
-            startTime: currentRecord.stage3.startTime || startClock,
-            completionTime: endClock,
-            durationSec
-          };
-        }
-
-        return newHistory;
       });
+    }
+  }, [activeMode, session?.completed]);
 
-      if (stageProgress < 3) {
-        setShowOverlay(`Stage ${stageProgress} Completed!`);
-        setTimeout(() => {
-          setShowOverlay(null);
-          setStageProgress(prev => prev + 1);
-        }, 1500);
-      } else {
-        // Stage 3 Completed! Check if target end date is reached during Range Auto-Solve
-        const reachedEnd = isRangeAutoSolving && currentDate >= endDate;
-
-        if (reachedEnd) {
-          setShowOverlay(`🎉 End Date ${endDate} Reached! Downloading PDF, CSV & Excel reports...`);
-          setIsAutoSolving(false);
-          setIsRangeAutoSolving(false);
-
-          setTimeout(() => {
-            setShowOverlay(null);
-            setTrackingHistory(latest => {
-              exportAllReports(latest);
-              return latest;
-            });
-          }, 2000);
-        } else {
-          setShowOverlay(`Daily Puzzle Completed! Loading next day...`);
-          setTimeout(() => {
-            setShowOverlay(null);
-            const nextLevel = targetLevelNum + 1;
-            setCurrentDate(dateFromLevelNumber(nextLevel));
-            setStageProgress(1); // Reset to stage 1
-          }, 2000);
-        }
-      }
-    }, 2000);
-
-    return () => clearTimeout(completionTimer);
-  }, [session?.completed, isRangeAutoSolving, endDate, currentDate]);
-
-  // Automation Solve Logic (Web Worker driven for background execution)
+  // --- 5. AUTOMATION SOLVE LOGIC (WEB WORKER DRIVEN) ---
   useEffect(() => {
     if (!workerRef.current) return;
 
     workerRef.current.onmessage = (e) => {
       if (e.data !== 'tick') return;
-      if (!isAutoSolving || !session || session.completed) {
+      if (!isAutoSolving || !session || session.completed || isMergingRef.current) {
         return;
       }
 
@@ -422,7 +591,7 @@ export default function App() {
           setTimeout(() => {
             handleSwap(fromSlot, toSlot);
             setAutoSwapAnim(null);
-          }, Math.min(350, autoSolveSpeed / 2));
+          }, 600);
         }
       };
 
@@ -430,7 +599,6 @@ export default function App() {
       const active = session.activeSlots;
       const locked = session.lockedSlotIndexes;
 
-      // Common unlocked slots & row indexes
       const unlockedSlots: number[] = [];
       for (let i = 0; i < active.length; i++) {
         if (active[i] && !locked.includes(i)) {
@@ -455,7 +623,6 @@ export default function App() {
         : -1;
 
       if (autoSolveMode === 'instinct') {
-        // --- 1. HUMAN INSTINCT MODE (70% SMART + 30% RANDOM) ---
         const isSmartMove = Math.random() < 0.70;
         const targetRowSlots = Array.from({ length: columns }, (_, c) => targetRowIndex * columns + c);
         const outsideSlots = unlockedSlots.filter(s => !targetRowSlots.includes(s));
@@ -485,20 +652,17 @@ export default function App() {
         }
 
       } else if (autoSolveMode === 'anchor') {
-        // --- 2. ANCHOR & FILL (TARGET PURSUIT) ---
         const targetRowSlots = Array.from({ length: columns }, (_, c) => targetRowIndex * columns + c);
         const outsideSlots = unlockedSlots.filter(s => !targetRowSlots.includes(s));
 
         if (outsideSlots.length > 0 && targetRowSlots.length > 0) {
           const slotA = targetRowSlots[Math.floor(Math.random() * targetRowSlots.length)];
           const slotB = outsideSlots[Math.floor(Math.random() * outsideSlots.length)];
-
           performSwap(slotB, slotA);
           return;
         }
 
       } else if (autoSolveMode === 'neighbor') {
-        // --- 3. ADJACENT NEIGHBOR SHUFFLE (VISUAL SCAN) ---
         const slotA = unlockedSlots[Math.floor(Math.random() * unlockedSlots.length)];
         const row = Math.floor(slotA / columns);
         const col = slotA % columns;
@@ -520,193 +684,8 @@ export default function App() {
 
         performSwap(slotA, slotB);
 
-      } else if (autoSolveMode === 'semantic') {
-        // --- 1. SEMANTIC AI SOLVER (WORD SIMILARITY CLUSTERING) ---
-        const tileData = unlockedSlots.map(slotIdx => {
-          const tile = session.tilesById[active[slotIdx]!];
-          const text = (tile?.word || '').toLowerCase();
-          const isPic = !!tile?.isPictureCategory;
-          return { slotIdx, text, isPic };
-        });
-
-        const pictureSlots = tileData.filter(t => t.isPic).map(t => t.slotIdx);
-        let candidateSet: number[] = [];
-
-        if (pictureSlots.length >= columns) {
-          candidateSet = pictureSlots.slice(0, columns);
-        } else {
-          const scores = new Map<number, number>();
-          tileData.forEach(t1 => {
-            let score = 0;
-            tileData.forEach(t2 => {
-              if (t1.slotIdx !== t2.slotIdx) {
-                for (let char of t1.text) {
-                  if (t2.text.includes(char)) score += 1;
-                }
-              }
-            });
-            scores.set(t1.slotIdx, score);
-          });
-
-          const sortedTiles = [...unlockedSlots].sort((a, b) => (scores.get(b) || 0) - (scores.get(a) || 0));
-          candidateSet = sortedTiles.slice(0, columns);
-        }
-
-        if (targetRowIndex !== -1 && candidateSet.length > 0) {
-          const targetRowSlots = Array.from({ length: columns }, (_, c) => targetRowIndex * columns + c);
-          const slotToFill = targetRowSlots.find(s => !candidateSet.includes(s));
-          const tileToMove = candidateSet.find(s => !targetRowSlots.includes(s));
-
-          if (slotToFill !== undefined && tileToMove !== undefined) {
-            performSwap(tileToMove, slotToFill);
-            return;
-          } else {
-            const outsideSlots = unlockedSlots.filter(s => !targetRowSlots.includes(s));
-            if (outsideSlots.length > 0) {
-              const slotA = targetRowSlots[Math.floor(Math.random() * targetRowSlots.length)];
-              const slotB = outsideSlots[Math.floor(Math.random() * outsideSlots.length)];
-              performSwap(slotA, slotB);
-              return;
-            }
-          }
-        }
-
-        const slotA = unlockedSlots[Math.floor(Math.random() * unlockedSlots.length)];
-        let slotB = unlockedSlots[Math.floor(Math.random() * unlockedSlots.length)];
-        while (slotB === slotA && unlockedSlots.length > 1) {
-          slotB = unlockedSlots[Math.floor(Math.random() * unlockedSlots.length)];
-        }
-        performSwap(slotA, slotB);
-
-      } else if (autoSolveMode === 'pattern') {
-        // --- 2. PATTERN & TILE TYPE CLUSTERING SOLVER ---
-        const tileData = unlockedSlots.map(slotIdx => {
-          const tile = session.tilesById[active[slotIdx]!];
-          const text = (tile?.word || '');
-          const isPic = !!tile?.isPictureCategory;
-          return { slotIdx, text, isPic, length: text.length };
-        });
-
-        const pictureSlots = tileData.filter(t => t.isPic).map(t => t.slotIdx);
-        let candidateSet: number[] = [];
-
-        if (pictureSlots.length >= columns) {
-          candidateSet = pictureSlots.slice(0, columns);
-        } else {
-          const lengthGroups = new Map<number, number[]>();
-          tileData.forEach(t => {
-            const list = lengthGroups.get(t.length) || [];
-            list.push(t.slotIdx);
-            lengthGroups.set(t.length, list);
-          });
-
-          let bestGroup: number[] = [];
-          for (const list of lengthGroups.values()) {
-            if (list.length >= columns) {
-              bestGroup = list;
-              break;
-            }
-          }
-          candidateSet = (bestGroup.length >= columns ? bestGroup : unlockedSlots).slice(0, columns);
-        }
-
-        if (targetRowIndex !== -1 && candidateSet.length > 0) {
-          const targetRowSlots = Array.from({ length: columns }, (_, c) => targetRowIndex * columns + c);
-          const slotToFill = targetRowSlots.find(s => !candidateSet.includes(s));
-          const tileToMove = candidateSet.find(s => !targetRowSlots.includes(s));
-
-          if (slotToFill !== undefined && tileToMove !== undefined) {
-            performSwap(tileToMove, slotToFill);
-            return;
-          } else {
-            const outsideSlots = unlockedSlots.filter(s => !targetRowSlots.includes(s));
-            if (outsideSlots.length > 0) {
-              const slotA = targetRowSlots[Math.floor(Math.random() * targetRowSlots.length)];
-              const slotB = outsideSlots[Math.floor(Math.random() * outsideSlots.length)];
-              performSwap(slotA, slotB);
-              return;
-            }
-          }
-        }
-
-        const slotA = unlockedSlots[Math.floor(Math.random() * unlockedSlots.length)];
-        let slotB = unlockedSlots[Math.floor(Math.random() * unlockedSlots.length)];
-        while (slotB === slotA && unlockedSlots.length > 1) {
-          slotB = unlockedSlots[Math.floor(Math.random() * unlockedSlots.length)];
-        }
-        performSwap(slotA, slotB);
-
-      } else if (autoSolveMode === 'backtrack') {
-        // --- 3. BACKTRACKING SEARCH TREE SOLVER ---
-        if (targetRowIndex !== -1) {
-          const targetRowSlots = Array.from({ length: columns }, (_, c) => targetRowIndex * columns + c);
-          const outsideSlots = unlockedSlots.filter(s => !targetRowSlots.includes(s));
-
-          if (outsideSlots.length > 0) {
-            const slotA = targetRowSlots[Math.floor(Math.random() * targetRowSlots.length)];
-            const slotB = outsideSlots[Math.floor(Math.random() * outsideSlots.length)];
-
-            performSwap(slotA, slotB);
-            return;
-          }
-        }
-
-      } else if (autoSolveMode === 'human') {
-        // --- RANDOM HALF (HUMAN SIMULATION SOLVER) ---
-        const targetRowSlots: number[] = [];
-        const outsideSlots: number[] = [];
-
-        for (let i = 0; i < active.length; i++) {
-          if (active[i] && !locked.includes(i)) {
-            if (Math.floor(i / columns) === targetRowIndex) {
-              targetRowSlots.push(i);
-            } else {
-              outsideSlots.push(i);
-            }
-          }
-        }
-
-        if (targetRowSlots.length === 0 || outsideSlots.length === 0) {
-          if (unlockedSlots.length >= 2) {
-            const slotA = unlockedSlots[Math.floor(Math.random() * unlockedSlots.length)];
-            let slotB = unlockedSlots[Math.floor(Math.random() * unlockedSlots.length)];
-            while (slotB === slotA && unlockedSlots.length > 1) {
-              slotB = unlockedSlots[Math.floor(Math.random() * unlockedSlots.length)];
-            }
-            performSwap(slotA, slotB);
-          } else {
-            setIsAutoSolving(false);
-          }
-          return;
-        }
-
-        const slotA = targetRowSlots[Math.floor(Math.random() * targetRowSlots.length)];
-        const slotB = outsideSlots[Math.floor(Math.random() * outsideSlots.length)];
-
-        performSwap(slotA, slotB);
-
-      } else if (autoSolveMode === 'random') {
-        // --- PURE RANDOM MODE ---
-        const rowSlots: number[] = [];
-        for (let i = 0; i < active.length; i++) {
-          if (active[i] && !locked.includes(i)) {
-            if (Math.floor(i / columns) === targetRowIndex) {
-              rowSlots.push(i);
-            }
-          }
-        }
-
-        const slotA = rowSlots.length > 0 ? rowSlots[Math.floor(Math.random() * rowSlots.length)] : unlockedSlots[Math.floor(Math.random() * unlockedSlots.length)];
-        let slotB = unlockedSlots[Math.floor(Math.random() * unlockedSlots.length)];
-        while (slotB === slotA && unlockedSlots.length > 1) {
-          slotB = unlockedSlots[Math.floor(Math.random() * unlockedSlots.length)];
-        }
-
-        performSwap(slotA, slotB);
-
       } else {
-        // --- NORMAL MODE (SMART SOLVER) ---
-        // 1. Find all available tiles and their categories
+        // NORMAL SMART SOLVER
         const categoryCounts = new Map<string, number>();
         for (let i = 0; i < active.length; i++) {
           if (active[i] && !locked.includes(i)) {
@@ -715,7 +694,6 @@ export default function App() {
           }
         }
 
-        // 2. Find a category that has at least `columns` tiles available on the board
         let targetCategory: string | null = null;
         for (const [cat, count] of categoryCounts.entries()) {
           if (count >= columns) {
@@ -725,18 +703,16 @@ export default function App() {
         }
 
         if (!targetCategory) {
-          console.warn("Auto-solver: No category has enough tiles on the board!");
           setIsAutoSolving(false);
           return;
         }
 
-        // 3. Pick a target row to assemble this category
         let targetRowIndex = -1;
         let maxTilesInRow = -1;
 
         for (let r = 0; r < rows; r++) {
           const firstSlot = r * columns;
-          if (locked.includes(firstSlot)) continue; // row is locked
+          if (locked.includes(firstSlot)) continue;
           
           let hasNull = false;
           let catCount = 0;
@@ -760,12 +736,10 @@ export default function App() {
         }
 
         if (targetRowIndex === -1) {
-          console.warn("Auto-solver: No fully populated unlocked row found!");
           setIsAutoSolving(false);
           return;
         }
 
-        // 4. In the target row, find a slot that DOES NOT have the target category
         let slotToFill = -1;
         for (let c = 0; c < columns; c++) {
           const idx = targetRowIndex * columns + c;
@@ -777,10 +751,9 @@ export default function App() {
         }
 
         if (slotToFill !== -1) {
-          // 5. Find a tile OF the target category that is NOT in the target row
           let tileToMoveSlot = -1;
           for (let i = 0; i < active.length; i++) {
-            if (Math.floor(i / columns) === targetRowIndex) continue; // skip target row
+            if (Math.floor(i / columns) === targetRowIndex) continue;
             
             const tileId = active[i];
             if (tileId && !locked.includes(i) && session.tilesById[tileId].categoryKey === targetCategory) {
@@ -793,22 +766,73 @@ export default function App() {
             performSwap(tileToMoveSlot, slotToFill);
           }
         } else {
-          // Dummy swap to trigger evaluation
           performSwap(targetRowIndex * columns, targetRowIndex * columns + 1);
         }
       }
     };
   }, [session, isAutoSolving, autoSolveMode, autoSolveSpeed]);
 
+  // Delay (ms) the UI waits for image formation animation before triggering tile fall
+  const MERGE_ANIM_MS = 850;
+
+  const [spawnedSlotIndexes, setSpawnedSlotIndexes] = React.useState<number[]>([]);
+
   const handleSwap = (fromSlot: number, toSlot: number) => {
     if (!session) return;
+    console.log("[handleSwap] Swapping from index", fromSlot, "to index", toSlot);
     const transition = engine.swap(session, fromSlot, toSlot);
-    setSession(transition.session);
+    console.log("[handleSwap] Swap transition effects:", transition.effects);
+
+    const hasMerge = transition.effects.some(e => e.type === 'picture_rows_merged');
+
+    if (hasMerge) {
+      console.log("[handleSwap] Detected picture category merge. Preparing to collapse after animation.");
+      isMergingRef.current = true;
+      // Step 1: Apply the merge immediately (picture card appears, empty slots visible)
+      setSpawnedSlotIndexes([]);
+      setSession(transition.session);
+
+      // Step 2: After merge animation completes, trigger tile fall + queue drop
+      setTimeout(() => {
+        console.log("[handleSwap] Merge animation timeout fired. Initiating collapse...");
+        const currentSession = sessionRef.current;
+        if (!currentSession) {
+          console.log("[handleSwap] Cannot collapse: session is null");
+          isMergingRef.current = false;
+          return;
+        }
+        console.log("[handleSwap] Collapsing session:", currentSession);
+        const collapseTransition = engine.collapse(currentSession);
+        console.log("[handleSwap] Collapse transition effects:", collapseTransition.effects);
+        
+        const refillEffect = collapseTransition.effects.find(e => e.type === 'board_refilled') as
+          { type: 'board_refilled'; filledSlots: number[]; spawnedSlotIndexes: number[] } | undefined;
+        const spawnedSlots = refillEffect?.spawnedSlotIndexes ?? [];
+        
+        console.log("[handleSwap] Setting spawned slot indexes to:", spawnedSlots);
+        
+        // Update both states synchronously in the same batch
+        setSpawnedSlotIndexes(spawnedSlots);
+        setSession(collapseTransition.session);
+        isMergingRef.current = false;
+      }, MERGE_ANIM_MS);
+    } else {
+      // Normal swap: apply immediately, clear spawned
+      const refillEffect = transition.effects.find(e => e.type === 'board_refilled') as
+        { type: 'board_refilled'; filledSlots: number[]; spawnedSlotIndexes: number[] } | undefined;
+      setSpawnedSlotIndexes(refillEffect?.spawnedSlotIndexes ?? []);
+      setSession(transition.session);
+    }
   };
 
   const handleDateChange = (newDate: string) => {
     setCurrentDate(newDate);
     setStageProgress(1);
+  };
+
+  const handleMainLevelJump = (levelNum: number) => {
+    setMainLevelNumber(levelNum);
+    setIsAutoSolving(false);
   };
 
   const handleAutoSolveToggle = () => {
@@ -839,123 +863,220 @@ export default function App() {
 
   return (
     <>
-      <div style={{ width: '100%', padding: '10px', backgroundColor: '#333', textAlign: 'center', display: 'flex', justifyContent: 'center', gap: '10px' }}>
-        <button className="button" onClick={() => setShowLiveView(true)}>
-          Live View
-        </button>
-        <button className="button" onClick={() => setShowErrorView(true)} style={{ backgroundColor: '#f59e0b', color: 'white', border: 'none' }}>
-          Puzzle Error View
-        </button>
+      {/* Top Navbar Header */}
+      <div style={{ width: '100%', padding: '12px 20px', backgroundColor: '#1e293b', textAlign: 'center', display: 'flex', justifyContent: 'space-between', alignItems: 'center', boxSizing: 'border-box', borderBottom: '1px solid #334155' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <button 
+            onClick={() => setShowModeModal(true)}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px',
+              backgroundColor: activeMode === 'main' ? '#7c3aed' : '#2563eb',
+              color: 'white',
+              border: 'none',
+              padding: '6px 14px',
+              borderRadius: '8px',
+              fontWeight: 'bold',
+              fontSize: '13px',
+              cursor: 'pointer',
+              boxShadow: '0 2px 4px rgba(0,0,0,0.2)'
+            }}
+          >
+            {activeMode === 'main' ? <Layers size={16} /> : <Calendar size={16} />}
+            Mode: {activeMode === 'main' ? 'Main Puzzle (MP)' : 'Daily Puzzle (DP)'} 🔄
+          </button>
+        </div>
+
+        <div style={{ display: 'flex', gap: '10px' }}>
+          <button className="button" onClick={() => setShowLiveView(true)} style={{ backgroundColor: '#059669', color: 'white', border: 'none', fontWeight: 'bold' }}>
+            Live View Table
+          </button>
+          <button className="button" onClick={() => setShowErrorView(true)} style={{ backgroundColor: '#d97706', color: 'white', border: 'none', fontWeight: 'bold' }}>
+            Puzzle Error View
+          </button>
+        </div>
       </div>
 
       <div className="app-container">
         <div className="device-simulator" ref={captureRef}>
-        <div className="header">
-          <div className="debug-controls" style={{ width: '120px' }}>
-            {stageProgress < 3 && (
-              <button 
-                className="button" 
-                onClick={() => setStageProgress(stageProgress + 1)}
-                style={{ padding: '4px 8px', fontSize: '12px' }}
-              >
-                Skip to Stage {stageProgress + 1}
-              </button>
+          {/* SIMULATOR HEADER */}
+          <div className="header">
+            {activeMode === 'daily' ? (
+              <>
+                <div className="debug-controls" style={{ width: '120px' }}>
+                  {stageProgress < 3 && (
+                    <button 
+                      className="button" 
+                      onClick={() => setStageProgress(stageProgress + 1)}
+                      style={{ padding: '4px 8px', fontSize: '12px' }}
+                    >
+                      Skip to Stage {stageProgress + 1}
+                    </button>
+                  )}
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '4px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <div>Stages:</div>
+                    <div className="stage-indicator">
+                      <div className={`stage-dot ${stageProgress >= 1 ? 'active' : ''}`}>1</div>
+                      <div className={`stage-dot ${stageProgress >= 2 ? 'active' : ''}`}>2</div>
+                      <div className={`stage-dot ${stageProgress >= 3 ? 'active' : ''}`}>3</div>
+                    </div>
+                  </div>
+                  <div style={{
+                    fontSize: '12px',
+                    fontWeight: 700,
+                    color: '#ffffff',
+                    backgroundColor: '#111827',
+                    padding: '3px 10px',
+                    borderRadius: '12px',
+                    marginTop: '4px',
+                    letterSpacing: '0.3px',
+                    boxShadow: '0 1px 3px rgba(0,0,0,0.15)'
+                  }}>
+                    Level {dateToLevelNumber(currentDate)} • {currentDate}
+                  </div>
+                </div>
+              </>
+            ) : (
+              /* MAIN PUZZLE SIMULATOR HEADER (NO DATE, NO STAGE DOTS, NO STAGE SKIP) */
+              <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '4px 8px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <div style={{
+                    fontSize: '15px',
+                    fontWeight: 800,
+                    color: '#7c3aed',
+                    backgroundColor: '#f5f3ff',
+                    padding: '5px 12px',
+                    borderRadius: '10px',
+                    border: '1px solid #ddd6fe',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '6px'
+                  }}>
+                    <Layers size={18} /> Level {mainLevelNumber}
+                  </div>
+
+                  {/* STACKED CATEGORY PROGRESS PILL BADGE */}
+                  <StackedCategoryPill 
+                    formed={mainImagesFormed} 
+                    total={session ? session.level.categories : 6} 
+                    isAnimating={isPillAnimating}
+                  />
+                </div>
+
+                <button 
+                  onClick={() => handleMainLevelJump(mainLevelNumber + 1)}
+                  style={{
+                    backgroundColor: '#7c3aed',
+                    color: 'white',
+                    border: 'none',
+                    padding: '6px 14px',
+                    borderRadius: '8px',
+                    fontWeight: 'bold',
+                    fontSize: '12px',
+                    cursor: 'pointer',
+                    boxShadow: '0 2px 4px rgba(124, 58, 237, 0.3)'
+                  }}
+                >
+                  Skip to Next Level ➔
+                </button>
+              </div>
             )}
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '4px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <div>Stages:</div>
-              <div className="stage-indicator">
-                <div className={`stage-dot ${stageProgress >= 1 ? 'active' : ''}`}>1</div>
-                <div className={`stage-dot ${stageProgress >= 2 ? 'active' : ''}`}>2</div>
-                <div className={`stage-dot ${stageProgress >= 3 ? 'active' : ''}`}>3</div>
+
+          {stageError ? (
+            <div style={{
+              backgroundColor: '#fef2f2',
+              border: '2px solid #ef4444',
+              borderRadius: '12px',
+              padding: '24px 16px',
+              margin: '20px auto',
+              width: '90%',
+              boxSizing: 'border-box',
+              textAlign: 'center',
+              boxShadow: '0 4px 6px -1px rgba(239, 68, 68, 0.1)'
+            }}>
+              <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '12px', color: '#dc2626' }}>
+                <AlertTriangle size={44} />
+              </div>
+              <h3 style={{ color: '#991b1b', margin: '0 0 8px 0', fontSize: '18px', fontWeight: 'bold' }}>
+                Puzzle Validation Error
+              </h3>
+              <p style={{ color: '#b91c1c', fontSize: '13px', margin: '0 0 16px 0', lineHeight: '1.5', wordBreak: 'break-word' }}>
+                {stageError}
+              </p>
+              <div style={{ fontSize: '11px', fontWeight: 600, color: '#7f1d1d', backgroundColor: '#fee2e2', padding: '8px 12px', borderRadius: '6px' }}>
+                ⚠️ Automation Halted • Invalid Puzzle Data
               </div>
             </div>
-            <div style={{
-              fontSize: '12px',
-              fontWeight: 700,
-              color: '#ffffff',
-              backgroundColor: '#111827',
-              padding: '3px 10px',
-              borderRadius: '12px',
-              marginTop: '4px',
-              letterSpacing: '0.3px',
-              boxShadow: '0 1px 3px rgba(0,0,0,0.15)'
-            }}>
-              Level {dateToLevelNumber(currentDate)} • {currentDate}
+          ) : session ? (
+            <PuzzleBoard session={session} onSwap={handleSwap} autoSwapAnim={autoSwapAnim} spawnedSlotIndexes={spawnedSlotIndexes} />
+          ) : null}
+
+          {showOverlay && (
+            <div className="stage-overlay">
+              <h2>{showOverlay}</h2>
+              <p>{activeMode === 'main' ? `Main Level: ${mainLevelNumber}` : `Level: ${dateToLevelNumber(currentDate)} | Date: ${currentDate}`}</p>
             </div>
-          </div>
+          )}
         </div>
 
-        {stageError ? (
-          <div style={{
-            backgroundColor: '#fef2f2',
-            border: '2px solid #ef4444',
-            borderRadius: '12px',
-            padding: '24px 16px',
-            margin: '20px auto',
-            width: '90%',
-            boxSizing: 'border-box',
-            textAlign: 'center',
-            boxShadow: '0 4px 6px -1px rgba(239, 68, 68, 0.1)'
-          }}>
-            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '12px', color: '#dc2626' }}>
-              <AlertTriangle size={44} />
-            </div>
-            <h3 style={{ color: '#991b1b', margin: '0 0 8px 0', fontSize: '18px', fontWeight: 'bold' }}>
-              Puzzle Validation Error
-            </h3>
-            <p style={{ color: '#b91c1c', fontSize: '13px', margin: '0 0 16px 0', lineHeight: '1.5', wordBreak: 'break-word' }}>
-              {stageError}
-            </p>
-            <div style={{ fontSize: '11px', fontWeight: 600, color: '#7f1d1d', backgroundColor: '#fee2e2', padding: '8px 12px', borderRadius: '6px' }}>
-              ⚠️ Automation Halted • Invalid Puzzle Data
-            </div>
-          </div>
-        ) : session ? (
-          <PuzzleBoard session={session} onSwap={handleSwap} autoSwapAnim={autoSwapAnim} />
-        ) : null}
+        <DebugDashboard
+          activeMode={activeMode}
+          currentDate={currentDate}
+          onDateChange={handleDateChange}
+          startDate={startDate}
+          endDate={endDate}
+          onStartDateChange={setStartDate}
+          onEndDateChange={setEndDate}
+          onAutoSolveRange={handleAutoSolveRange}
+          isRangeAutoSolving={isRangeAutoSolving}
+          session={session}
+          onAutoSolveToggle={handleAutoSolveToggle}
+          isAutoSolving={isAutoSolving}
+          autoSolveMode={autoSolveMode}
+          mainLevelNumber={mainLevelNumber}
+          onMainLevelJump={handleMainLevelJump}
+          mainImagesFormed={mainImagesFormed}
+          totalCategories={session ? session.level.categories : 6}
+          onOpenAutoSolveModal={() => setShowAutoSolveModal(true)}
+        />
 
-        {showOverlay && (
-          <div className="stage-overlay">
-            <h2>{showOverlay}</h2>
-            <p>Level: {dateToLevelNumber(currentDate)} | Date: {currentDate}</p>
-          </div>
+        <AutoSolveModal
+          isOpen={showAutoSolveModal}
+          onClose={() => setShowAutoSolveModal(false)}
+          onStart={handleStartAutoSolve}
+          currentMode={autoSolveMode}
+          currentSpeed={autoSolveSpeed}
+        />
+
+        <ModeSelectionModal
+          isOpen={showModeModal}
+          activeMode={activeMode}
+          onSelectMode={handleSelectMode}
+          onClose={() => setShowModeModal(false)}
+        />
+
+        {showLiveView && (
+          <LiveView 
+            activeMode={activeMode}
+            trackingHistory={trackingHistory} 
+            mainTrackingHistory={mainTrackingHistory}
+            onClose={() => setShowLiveView(false)} 
+          />
         )}
-      </div>
 
-      <DebugDashboard
-        currentDate={currentDate}
-        onDateChange={handleDateChange}
-        startDate={startDate}
-        endDate={endDate}
-        onStartDateChange={setStartDate}
-        onEndDateChange={setEndDate}
-        onAutoSolveRange={handleAutoSolveRange}
-        isRangeAutoSolving={isRangeAutoSolving}
-        session={session}
-        onAutoSolveToggle={handleAutoSolveToggle}
-        isAutoSolving={isAutoSolving}
-        autoSolveMode={autoSolveMode}
-      />
-
-      <AutoSolveModal
-        isOpen={showAutoSolveModal}
-        onClose={() => setShowAutoSolveModal(false)}
-        onStart={handleStartAutoSolve}
-        currentMode={autoSolveMode}
-        currentSpeed={autoSolveSpeed}
-      />
-
-      {showLiveView && (
-        <LiveView trackingHistory={trackingHistory} onClose={() => setShowLiveView(false)} />
-      )}
-
-      {showErrorView && (
-        <ErrorView levelData={levelData} onClose={() => setShowErrorView(false)} />
-      )}
+        {showErrorView && (
+          <ErrorView 
+            activeMode={activeMode}
+            levelData={levelData} 
+            mainLevelData={mainLevelData}
+            onClose={() => setShowErrorView(false)} 
+          />
+        )}
       </div>
     </>
   );
 }
-

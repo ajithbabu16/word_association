@@ -372,9 +372,12 @@ export class PuzzleLevelDecoder {
             }
         }
 
-        if (normalizedData.length < size.visibleCount) {
-            const usedCellIndexes = new Set(normalizedData);
-            for (let cellIndex = 0; cellIndex < cellCount && normalizedData.length < size.visibleCount; cellIndex += 1) {
+        if (normalizedData.length < cellCount) {
+            const usedCellIndexes = new Set<number>();
+            for (const idx of normalizedData) {
+                usedCellIndexes.add(idx);
+            }
+            for (let cellIndex = 0; cellIndex < cellCount && normalizedData.length < cellCount; cellIndex += 1) {
                 if (!usedCellIndexes.has(cellIndex)) {
                     normalizedData.push(cellIndex);
                     usedCellIndexes.add(cellIndex);

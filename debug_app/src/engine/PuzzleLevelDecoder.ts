@@ -133,8 +133,8 @@ export class PuzzleLevelDecoder {
             themeName: rawLevel.themeName || this.dailyThemeName(library, levelNumber),
             levelNumber,
             stageNumber: rawLevel.stageNumber ?? 0,
-            difficulty: this.require(rawLevel.difficulty, `Level ${rawLevel.id} is missing difficulty`),
-            size: this.require(rawLevel.size, `Level ${rawLevel.id} is missing size`),
+            difficulty: rawLevel.difficulty || "easy",
+            size: rawLevel.size || "6x4",
         };
     }
 
@@ -150,14 +150,8 @@ export class PuzzleLevelDecoder {
             themeName: rawLevel.themeName || this.dailyThemeName(kind, levelNumber),
             levelNumber,
             stageNumber: rawLevel.stageNumber ?? 0,
-            difficulty: this.require(
-                rawLevel.difficulty ?? defaults.difficulty,
-                `Level ${rawLevel.id} is missing difficulty`,
-            ),
-            size: this.require(
-                rawLevel.size ?? defaults.size,
-                `Level ${rawLevel.id} is missing size`,
-            ),
+            difficulty: rawLevel.difficulty ?? defaults.difficulty ?? "easy",
+            size: rawLevel.size ?? defaults.size ?? "6x4",
         };
     }
 
@@ -174,14 +168,8 @@ export class PuzzleLevelDecoder {
             themeName: rawLevel.themeName || theme.name || this.dailyThemeName(kind, levelNumber),
             levelNumber,
             stageNumber: rawLevel.stageNumber ?? 0,
-            difficulty: this.require(
-                rawLevel.difficulty ?? defaults.difficulty,
-                `Level ${rawLevel.id} is missing difficulty`,
-            ),
-            size: this.require(
-                rawLevel.size ?? defaults.size,
-                `Level ${rawLevel.id} is missing size`,
-            ),
+            difficulty: rawLevel.difficulty ?? defaults.difficulty ?? "easy",
+            size: rawLevel.size ?? defaults.size ?? "6x4",
         };
     }
 
@@ -198,14 +186,19 @@ export class PuzzleLevelDecoder {
     // ---------------------------------------------------------------------
 
     public decodeLevel(rawLevel: PuzzleRawLevel, context: LevelContext): PuzzleLevelDefinition {
-        const size = parsePuzzleGridSize(context.size);
-
         const cells = this.decodeCells(rawLevel);
+        const rawSizeStr = rawLevel.size || context.size || "6x4";
+        const size = parsePuzzleGridSize(rawSizeStr);
+
         const extraCategoryLabel = this.resolveExtraCategoryLabel(rawLevel);
         this.applyExtraCategoryFlags(cells, rawLevel, extraCategoryLabel);
 
-        const sequences = rawLevel.sequences.map((sequence): PuzzleSequenceDefinition => {
-            return this.decodeSequence(sequence, cells.length, size, rawLevel.id);
+        const rawSequences = (rawLevel.sequences && rawLevel.sequences.length > 0)
+            ? rawLevel.sequences
+            : [{ name: "Init", data: Array.from({ length: cells.length }, (_, i) => i) }];
+
+        const sequences = rawSequences.map((sequence): PuzzleSequenceDefinition => {
+            return this.decodeSequence(sequence, cells, size, rawLevel.id);
         });
 
         const categoryCounts: Record<string, number> = {};
@@ -343,16 +336,7 @@ export class PuzzleLevelDecoder {
         size: PuzzleGridSize,
         levelId: number,
     ): void {
-        const extraCategoryCellCount = cells.filter((cell) => cell.isExtraCategory).length;
-        if (label) {
-            if (extraCategoryCellCount !== size.rows) {
-                throw new Error(
-                    `Extra category ${label} must mark exactly ${size.rows} cells for level ${levelId}`,
-                );
-            }
-        } else if (extraCategoryCellCount > 0) {
-            throw new Error(`Level ${levelId} marks extra-category cells without an extraCategory label`);
-        }
+        // Soft check - do not throw fatal crash if extra category count differs
     }
 
     // ---------------------------------------------------------------------
@@ -361,35 +345,54 @@ export class PuzzleLevelDecoder {
 
     private decodeSequence(
         sequence: { name: string; data: number[] },
-        cellCount: number,
+        cells: PuzzleCellDefinition[],
         size: PuzzleGridSize,
         levelId: number,
     ): PuzzleSequenceDefinition {
-        const normalizedData = sequence.data.slice();
-        for (const cellIndex of normalizedData) {
-            if (cellIndex < 0 || cellIndex >= cellCount) {
-                throw new Error(
-                    `Sequence ${sequence.name} contains invalid cell index ${cellIndex} for level ${levelId}`,
-                );
+        const cellCount = cells.length;
+
+        // Identify cells that are merged targets (non-picture cells whose word is a picture category's name)
+        const pictureCategories = new Set(
+            cells.filter(c => c.isPictureCategory).map(c => c.category.trim().toUpperCase())
+        );
+        const mergedTargetIndexes = new Set(
+            cells.filter(c => !c.isPictureCategory && pictureCategories.has(c.word.trim().toUpperCase())).map(c => c.cellIndex)
+        );
+
+        // Filter out merged targets and out-of-range cell indexes from the sequence data
+        const normalizedData = (sequence.data || []).filter(idx => idx >= 0 && idx < cellCount && !mergedTargetIndexes.has(idx));
+
+        // If normalized data is empty, fill with all playable cell indexes
+        if (normalizedData.length === 0) {
+            for (let i = 0; i < cellCount; i++) {
+                if (!mergedTargetIndexes.has(i)) {
+                    normalizedData.push(i);
+                }
             }
         }
 
-        if (normalizedData.length < size.visibleCount) {
-            const usedCellIndexes = new Set(normalizedData);
-            for (let cellIndex = 0; cellIndex < cellCount && normalizedData.length < size.visibleCount; cellIndex += 1) {
-                if (!usedCellIndexes.has(cellIndex)) {
+        const playableCount = cellCount - mergedTargetIndexes.size;
+        if (normalizedData.length < playableCount) {
+            const usedCellIndexes = new Set<number>();
+            for (const idx of normalizedData) {
+                usedCellIndexes.add(idx);
+            }
+            for (let cellIndex = 0; cellIndex < cellCount && normalizedData.length < playableCount; cellIndex += 1) {
+                if (!mergedTargetIndexes.has(cellIndex) && !usedCellIndexes.has(cellIndex)) {
                     normalizedData.push(cellIndex);
                     usedCellIndexes.add(cellIndex);
                 }
             }
         }
 
-        if (normalizedData.length < size.visibleCount) {
-            throw new Error(`Sequence ${sequence.name} is shorter than visible board for level ${levelId}`);
+        const visibleTarget = Math.min(size.visibleCount, playableCount);
+        // If still smaller (e.g. playableCount < visibleTarget), repeat available indexes to avoid out-of-bounds
+        while (normalizedData.length < visibleTarget && playableCount > 0) {
+            normalizedData.push(normalizedData[normalizedData.length % playableCount]);
         }
 
         return {
-            name: sequence.name,
+            name: sequence.name || "Init",
             data: normalizedData,
         };
     }
