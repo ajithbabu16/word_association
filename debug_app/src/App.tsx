@@ -35,7 +35,8 @@ function dateFromLevelNumber(levelNum: number): string {
 function createSession(level: PuzzleLevelDefinition): PuzzleSession {
   // Use first sequence to map cells to board
   const sequence = level.sequences[0];
-  const activeSlots = new Array(level.size.rows * level.size.columns).fill(null);
+  const totalSlots = level.size.rows * level.size.columns;
+  const activeSlots = new Array(totalSlots).fill(null);
   const queue: string[] = [];
 
   const tilesById: any = {};
@@ -46,7 +47,7 @@ function createSession(level: PuzzleLevelDefinition): PuzzleSession {
   sequence.data.forEach((cellIndex, i) => {
     const tileId = `cell-${cellIndex}`;
     if (i < activeSlots.length) {
-      activeSlots[i] = tileId;
+      activeSlots[totalSlots - 1 - i] = tileId;
     } else {
       queue.push(tileId);
     }
