@@ -8,6 +8,7 @@ import { DebugDashboard } from './components/DebugDashboard';
 import { LiveView } from './components/LiveView';
 import type { TrackingData, StageRecord } from './components/LiveView';
 import { ErrorView } from './components/ErrorView';
+import { ImageIssueView } from './components/ImageIssueView';
 import { PuzzleValidator } from './engine/PuzzleValidator';
 import { AlertTriangle, Layers, Calendar } from 'lucide-react';
 import { exportAllReports, MainTrackingData, MainImageFormationRecord } from './utils/exportUtils';
@@ -212,6 +213,7 @@ export default function App() {
   // Views & Refs
   const [showLiveView, setShowLiveView] = useState(false);
   const [showErrorView, setShowErrorView] = useState(false);
+  const [showImageIssueView, setShowImageIssueView] = useState(false);
   const captureRef = useRef<HTMLDivElement>(null);
   const workerRef = useRef<Worker | null>(null);
 
@@ -302,6 +304,52 @@ export default function App() {
     setSession(null);
     setStageError(null);
   };
+
+  // --- 0. IMAGE ERROR TRACKER ---
+  useEffect(() => {
+    const handleImageError = (e: any) => {
+      const imageName = e.detail;
+      if (!imageName) return;
+
+      if (activeMode === 'daily') {
+        const targetLevelNum = dateToLevelNumber(currentDate);
+        setTrackingHistory(prev => {
+          const newHistory = [...prev];
+          let currentRecord = newHistory.find(r => r.date === currentDate && r.levelNumber === targetLevelNum);
+          if (currentRecord) {
+             currentRecord = { ...currentRecord };
+             const idx = newHistory.findIndex(r => r.date === currentDate && r.levelNumber === targetLevelNum);
+             
+             let stageKey = `stage${stageProgress}` as keyof TrackingData;
+             if (stageKey === 'stage1' || stageKey === 'stage2' || stageKey === 'stage3') {
+               const stageData = { ...currentRecord[stageKey] } as StageRecord;
+               const errors = new Set(stageData.errorImages || []);
+               errors.add(imageName);
+               stageData.errorImages = Array.from(errors);
+               currentRecord[stageKey] = stageData as any;
+             }
+             newHistory[idx] = currentRecord;
+          }
+          return newHistory;
+        });
+      } else {
+        setMainTrackingHistory(prev => {
+          const updated = [...prev];
+          const recordIndex = updated.findIndex(r => r.levelNumber === mainLevelNumber);
+          if (recordIndex >= 0) {
+            const record = { ...updated[recordIndex] };
+            const errors = new Set(record.errorImages || []);
+            errors.add(imageName);
+            record.errorImages = Array.from(errors);
+            updated[recordIndex] = record;
+          }
+          return updated;
+        });
+      }
+    };
+    window.addEventListener('image-error', handleImageError);
+    return () => window.removeEventListener('image-error', handleImageError);
+  }, [activeMode, currentDate, stageProgress, mainLevelNumber]);
 
   // --- 1. DAILY PUZZLE LEVEL LOAD ---
   useEffect(() => {
@@ -416,38 +464,10 @@ export default function App() {
     setMainImagesFormed(currentSolvedCount);
 
     if (currentSolvedCount > prevSolvedRowsCount.current) {
-      const newlySolvedRows = session.solvedRows.slice(prevSolvedRowsCount.current);
       prevSolvedRowsCount.current = currentSolvedCount;
 
       setIsPillAnimating(true);
       setTimeout(() => setIsPillAnimating(false), 450);
-
-      isCapturingScreenshot.current = true;
-
-      // Pause auto-solve briefly to allow DOM banner animation to complete & take screenshot
-      setTimeout(() => {
-        if (captureRef.current) {
-          html2canvas(captureRef.current).then(canvas => {
-            const dataUrl = canvas.toDataURL('image/jpeg', 0.85);
-
-            newlySolvedRows.forEach(row => {
-              const categoryName = (row.category || row.categoryKey || 'UNKNOWN_CATEGORY')
-                .toUpperCase()
-                .replace(/[^A-Z0-9_]/g, '_') + '_FORMATION';
-
-              mainImageFormationScreenshots.current.push({
-                categoryName,
-                screenshot: dataUrl,
-                timestamp: new Date().toLocaleTimeString()
-              });
-            });
-
-            isCapturingScreenshot.current = false;
-          });
-        } else {
-          isCapturingScreenshot.current = false;
-        }
-      }, 450);
     }
 
     // Check Main Puzzle Level Completion (all 12 categories solved)
@@ -721,10 +741,26 @@ export default function App() {
 
       } else {
         // NORMAL SMART SOLVER
+        const allCategories = new Set(session.level.cells.map(c => c.categoryKey));
+        const solvedCategories = new Set(session.solvedRows.map(r => r.categoryKey));
+        const unsolvedCategories = Array.from(allCategories).filter(c => !solvedCategories.has(c) && c !== session.level.extraCategoryKey);
+
+        const getTileCategory = (tile: any) => {
+          if (unsolvedCategories.includes(tile.categoryKey)) return tile.categoryKey;
+          for (const cat of unsolvedCategories) {
+            const targetCells = session.level.cells.filter(c => c.categoryKey === cat);
+            if (targetCells.some(c => c.word.trim().toUpperCase() === tile.word.trim().toUpperCase())) {
+              return cat;
+            }
+          }
+          return tile.categoryKey;
+        };
+
         const categoryCounts = new Map<string, number>();
         for (let i = 0; i < active.length; i++) {
           if (active[i] && !locked.includes(i)) {
-            const cat = session.tilesById[active[i]!].categoryKey;
+            const tile = session.tilesById[active[i]!];
+            const cat = getTileCategory(tile);
             categoryCounts.set(cat, (categoryCounts.get(cat) || 0) + 1);
           }
         }
@@ -757,7 +793,7 @@ export default function App() {
               hasNull = true;
               break;
             }
-            if (session.tilesById[tileId].categoryKey === targetCategory) {
+            if (getTileCategory(session.tilesById[tileId]) === targetCategory) {
               catCount++;
             }
           }
@@ -779,7 +815,7 @@ export default function App() {
         for (let c = 0; c < columns; c++) {
           const idx = targetRowIndex * columns + c;
           const tileId = active[idx];
-          if (tileId && session.tilesById[tileId].categoryKey !== targetCategory) {
+          if (tileId && getTileCategory(session.tilesById[tileId]) !== targetCategory) {
             slotToFill = idx;
             break;
           }
@@ -791,7 +827,7 @@ export default function App() {
             if (Math.floor(i / columns) === targetRowIndex) continue;
             
             const tileId = active[i];
-            if (tileId && !locked.includes(i) && session.tilesById[tileId].categoryKey === targetCategory) {
+            if (tileId && !locked.includes(i) && getTileCategory(session.tilesById[tileId]) === targetCategory) {
               tileToMoveSlot = i;
               break;
             }
@@ -929,6 +965,9 @@ export default function App() {
           </button>
           <button className="button" onClick={() => setShowErrorView(true)} style={{ backgroundColor: '#d97706', color: 'white', border: 'none', fontWeight: 'bold' }}>
             Puzzle Error View
+          </button>
+          <button className="button" onClick={() => setShowImageIssueView(true)} style={{ backgroundColor: '#ef4444', color: 'white', border: 'none', fontWeight: 'bold' }}>
+            Image Issues 🖼️
           </button>
         </div>
       </div>
@@ -1109,6 +1148,13 @@ export default function App() {
             levelData={levelData} 
             mainLevelData={mainLevelData}
             onClose={() => setShowErrorView(false)} 
+          />
+        )}
+
+        {showImageIssueView && (
+          <ImageIssueView 
+            levelData={mainLevelData}
+            onClose={() => setShowImageIssueView(false)} 
           />
         )}
       </div>

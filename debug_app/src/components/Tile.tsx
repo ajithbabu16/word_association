@@ -27,12 +27,14 @@ function resolveImageCandidates(category?: string, word?: string): string[] {
     const c = category.trim();
     candidates.push(`/puzzle_image/${toTitle(c)}.png`);
     candidates.push(`/puzzle_image/${c.charAt(0).toUpperCase() + c.slice(1).toLowerCase()}.png`);
+    candidates.push(`/puzzle_image/${c.toLowerCase()}.png`);
     candidates.push(`/puzzle_image/${c}.png`);
   }
   if (word) {
     const w = word.trim();
     candidates.push(`/puzzle_image/${toTitle(w)}.png`);
     candidates.push(`/puzzle_image/${w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()}.png`);
+    candidates.push(`/puzzle_image/${w.toLowerCase()}.png`);
     candidates.push(`/puzzle_image/${w}.png`);
   }
   return [...new Set(candidates)];
@@ -48,7 +50,14 @@ function FormedPictureCard({ word, category, isWhiteMode }: { word: string; cate
     let alive = true;
     let idx = 0;
     const tryNext = () => {
-      if (idx >= candidates.length) { if (alive) setFailedAll(true); return; }
+      if (idx >= candidates.length) { 
+        if (alive) {
+          setFailedAll(true);
+          const event = new CustomEvent('image-error', { detail: candidates[0]?.split('/').pop() });
+          window.dispatchEvent(event);
+        }
+        return; 
+      }
       const img = new Image();
       img.onload  = () => { if (alive) { setLoadedSrc(img.src); setFailedAll(false); } };
       img.onerror = () => { idx++; tryNext(); };
@@ -79,6 +88,9 @@ function FormedPictureCard({ word, category, isWhiteMode }: { word: string; cate
         </span>
         <span style={{ fontSize: 7, color: '#ef4444', fontWeight: 700, marginTop: 2 }}>
           NO IMAGE
+        </span>
+        <span style={{ fontSize: 6, color: '#aaa', marginTop: 2, textAlign: 'center', wordBreak: 'break-all' }}>
+          {candidates[0]?.split('/').pop()}
         </span>
       </div>
     );

@@ -56,6 +56,11 @@ export function PuzzleBoard({ session, onSwap, autoSwapAnim, spawnedSlotIndexes 
       const toIndex   = session.activeSlots.indexOf(over.id as string);
 
       if (fromIndex !== -1 && toIndex !== -1 && fromIndex !== toIndex) {
+        const toTile = session.tilesById[over.id as string];
+        if (toTile?.isFormedPictureCard && !session.extraCategoryActive) {
+          return; // prevent dropping onto a locked formed picture card
+        }
+
         lastSwapRef.current = new Set([active.id as string, over.id as string]);
         onSwap(fromIndex, toIndex);
       }
@@ -156,7 +161,17 @@ export function PuzzleBoard({ session, onSwap, autoSwapAnim, spawnedSlotIndexes 
       <DndContext
         sensors={sensors}
         collisionDetection={closestCenter}
-        onDragOver={(e) => setOverId(e.over?.id ? (e.over.id as string) : null)}
+        onDragOver={(e) => {
+          const overTileId = e.over?.id ? (e.over.id as string) : null;
+          if (overTileId && !overTileId.startsWith('empty')) {
+            const tile = session.tilesById[overTileId];
+            if (tile?.isFormedPictureCard && !session.extraCategoryActive) {
+              setOverId(null);
+              return;
+            }
+          }
+          setOverId(overTileId);
+        }}
         onDragEnd={handleDragEnd}
         onDragCancel={() => setOverId(null)}
       >
@@ -248,7 +263,8 @@ export function PuzzleBoard({ session, onSwap, autoSwapAnim, spawnedSlotIndexes 
             {/* Tiles */}
             {items.map((tileId, index) => {
               const tileData  = tileId.startsWith('empty') ? null : session.tilesById[tileId];
-              const isLocked  = session.lockedSlotIndexes.includes(index);
+              const isLocked  = session.lockedSlotIndexes.includes(index) || 
+                                (!!tileData?.isFormedPictureCard && !session.extraCategoryActive);
               const { color } = getSlotStatus(index);
               const isPicture = session.solvedRows.some(
                 row => row.anchorSlotIndex === index && row.isPictureCategory

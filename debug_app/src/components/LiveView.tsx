@@ -21,6 +21,7 @@ export interface StageRecord {
   completionTime?: string | null;
   durationSec?: number | null;
   error?: string | null;
+  errorImages?: string[];
 }
 
 export interface TrackingData {
@@ -109,6 +110,12 @@ export function LiveView({
                 {stage.startTime} ➔ {stage.completionTime}
               </div>
             )}
+          </div>
+        )}
+
+        {stage.errorImages && stage.errorImages.length > 0 && (
+          <div style={{ marginTop: '4px', fontSize: '11px', color: '#ef4444', fontWeight: 'bold' }}>
+            Missing: {stage.errorImages.join(', ')}
           </div>
         )}
 
@@ -208,7 +215,8 @@ export function LiveView({
                 <th style={{ borderBottom: '2px solid #cbd5e1', padding: '14px', fontSize: '13px', color: '#334155' }}>Status</th>
                 <th style={{ borderBottom: '2px solid #cbd5e1', padding: '14px', fontSize: '13px', color: '#334155' }}>Start / Completion Time</th>
                 <th style={{ borderBottom: '2px solid #cbd5e1', padding: '14px', fontSize: '13px', color: '#334155' }}>Duration</th>
-                <th style={{ borderBottom: '2px solid #cbd5e1', padding: '14px', fontSize: '13px', color: '#334155' }}>Screenshots & Formations</th>
+                <th style={{ borderBottom: '2px solid #cbd5e1', padding: '14px', fontSize: '13px', color: '#334155' }}>Missing Images</th>
+                <th style={{ borderBottom: '2px solid #cbd5e1', padding: '14px', fontSize: '13px', color: '#334155' }}>Screenshots</th>
               </tr>
             </thead>
             <tbody>
@@ -236,6 +244,9 @@ export function LiveView({
                   <td style={{ padding: '14px', fontWeight: 700, color: '#2563eb' }}>
                     {formatDuration(track.durationSec)}
                   </td>
+                  <td style={{ padding: '14px', fontSize: '12px', color: '#ef4444', fontWeight: 600, maxWidth: '150px', wordWrap: 'break-word' }}>
+                    {track.errorImages && track.errorImages.length > 0 ? track.errorImages.join(', ') : '-'}
+                  </td>
                   <td style={{ padding: '14px' }}>
                     <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
                       {track.initialBoardScreenshot && (
@@ -244,15 +255,6 @@ export function LiveView({
                           style={{ display: 'flex', alignItems: 'center', gap: '4px', padding: '6px 10px', borderRadius: '6px', border: 'none', backgroundColor: '#475569', color: 'white', fontSize: '11px', fontWeight: 700, cursor: 'pointer' }}
                         >
                           <ImageIcon size={13} /> Initial Board
-                        </button>
-                      )}
-
-                      {track.imageFormationScreenshots.length > 0 && (
-                        <button 
-                          onClick={() => setFullscreenModal({ title: `Level ${track.levelNumber} • Image Formation Screenshot 1 (${track.imageFormationScreenshots[0].categoryName})`, url: track.imageFormationScreenshots[0].screenshot })}
-                          style={{ display: 'flex', alignItems: 'center', gap: '4px', padding: '6px 10px', borderRadius: '6px', border: 'none', backgroundColor: '#7c3aed', color: 'white', fontSize: '11px', fontWeight: 700, cursor: 'pointer' }}
-                        >
-                          <ImageIcon size={13} /> {track.imageFormationScreenshots.length} Image Formations
                         </button>
                       )}
 
