@@ -47,22 +47,56 @@ export class PuzzleValidator {
     const wordMap: Record<string, string> = {};
     const singularPluralMap: Record<string, { word: string, title: string }[]> = {};
 
-    // Helper: Singular/Plural
-    const getSingularForms = (word: string): string[] => {
+    // Helper: Root Stem & Tense Forms (Singular/Plural, -ing, -ed, -er, -ers)
+    const getStemForms = (word: string): string[] => {
       const w = word.trim().toLowerCase();
-      const forms = [w];
-      if (w.length > 3 && w.endsWith('ies')) forms.push(w.slice(0, -3) + 'y');
-      if (w.length > 2 && w.endsWith('s')) forms.push(w.slice(0, -1));
-      if (w.length > 3 && w.endsWith('es')) forms.push(w.slice(0, -2));
-      return Array.from(new Set(forms));
+      const forms = new Set<string>();
+      forms.add(w);
+
+      // 1. Singular/Plural
+      if (w.length > 3 && w.endsWith('ies')) forms.add(w.slice(0, -3) + 'y');
+      if (w.length > 3 && w.endsWith('es')) forms.add(w.slice(0, -2));
+      if (w.length > 2 && w.endsWith('s') && !w.endsWith('ss')) forms.add(w.slice(0, -1));
+
+      // 2. Gerund / Continuous (-ing) e.g., WALKING -> WALK, DANCING -> DANCE, RUNNING -> RUN
+      if (w.length > 4 && w.endsWith('ing')) {
+        const base = w.slice(0, -3);
+        forms.add(base);
+        forms.add(base + 'e');
+        if (base.length > 2 && base[base.length - 1] === base[base.length - 2]) {
+          forms.add(base.slice(0, -1));
+        }
+      }
+
+      // 3. Past Tense (-ed) e.g., WALKED -> WALK, DANCED -> DANCE
+      if (w.length > 3 && w.endsWith('ed')) {
+        const base = w.slice(0, -2);
+        forms.add(base);
+        forms.add(base + 'e');
+        if (base.length > 2 && base[base.length - 1] === base[base.length - 2]) {
+          forms.add(base.slice(0, -1));
+        }
+      }
+
+      // 4. Agent Nouns / Comparative (-er / -ers) e.g., WALKER -> WALK
+      if (w.length > 4 && (w.endsWith('ers') || w.endsWith('er'))) {
+        const base = w.endsWith('ers') ? w.slice(0, -3) : w.slice(0, -2);
+        forms.add(base);
+        forms.add(base + 'e');
+        if (base.length > 2 && base[base.length - 1] === base[base.length - 2]) {
+          forms.add(base.slice(0, -1));
+        }
+      }
+
+      return Array.from(forms);
     };
 
-    const isSingularPlural = (w1: string, w2: string): boolean => {
+    const isStemVariation = (w1: string, w2: string): boolean => {
       const c1 = w1.trim().toLowerCase();
       const c2 = w2.trim().toLowerCase();
       if (c1 === c2) return false;
-      const f1 = getSingularForms(c1);
-      const f2 = getSingularForms(c2);
+      const f1 = getStemForms(c1);
+      const f2 = getStemForms(c2);
       return f1.some(f => f2.includes(f));
     };
 
@@ -155,16 +189,16 @@ export class PuzzleValidator {
           wordMap[wordKey] = title;
         }
 
-        // Rule 6: Singular/Plural
-        const normalizedForms = getSingularForms(word);
+        // Rule 6: Singular/Plural & Root/Tense Variations (e.g., WALK and WALKING)
+        const normalizedForms = getStemForms(word);
         normalizedForms.forEach(normalized => {
           if (singularPluralMap[normalized]) {
             singularPluralMap[normalized].forEach(previous => {
-              if (previous.word.toLowerCase() !== wordKey && isSingularPlural(previous.word, word)) {
+              if (previous.word.toLowerCase() !== wordKey && isStemVariation(previous.word, word)) {
                 if (previous.title === title) {
-                  addError(`Singular/plural variation '${previous.word}' and '${word}' found in the same category '${title}'`);
+                  addError(`Root/tense variation '${previous.word}' and '${word}' found in the same category '${title}'`);
                 } else {
-                  addError(`Singular/plural variation '${previous.word}' in '${previous.title}' and '${word}' in '${title}'`);
+                  addError(`Root/tense variation '${previous.word}' in '${previous.title}' and '${word}' in '${title}'`);
                 }
               }
             });
