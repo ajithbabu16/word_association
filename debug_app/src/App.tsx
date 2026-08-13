@@ -8,6 +8,8 @@ import { DebugDashboard } from './components/DebugDashboard';
 import { LiveView } from './components/LiveView';
 import type { TrackingData, StageRecord } from './components/LiveView';
 import { ErrorView } from './components/ErrorView';
+import { PuzzleValidator } from './engine/PuzzleValidator';
+import { AlertTriangle } from 'lucide-react';
 import html2canvas from 'html2canvas';
 
 import { AutoSolveModal, AutoSolveMode } from './components/AutoSolveModal';
@@ -76,6 +78,8 @@ export default function App() {
   const [currentDate, setCurrentDate] = useState(DEFAULT_TEST_DATE);
   const [levelData, setLevelData] = useState<PuzzleRawLevel[]>([]);
   const [session, setSession] = useState<PuzzleSession | null>(null);
+  const [internalDict, setInternalDict] = useState<Set<string>>(new Set());
+  const [stageError, setStageError] = useState<string | null>(null);
 
   const [stageProgress, setStageProgress] = useState(1);
   const [showOverlay, setShowOverlay] = useState<string | null>(null);
@@ -124,13 +128,13 @@ export default function App() {
   // Sync worker state with auto-solve state
   useEffect(() => {
     if (workerRef.current) {
-      if (isAutoSolving && session && !session.completed) {
+      if (isAutoSolving && session && !session.completed && !stageError) {
         workerRef.current.postMessage({ action: 'start', interval: autoSolveSpeed });
       } else {
         workerRef.current.postMessage({ action: 'stop' });
       }
     }
-  }, [isAutoSolving, autoSolveSpeed, session?.completed]);
+  }, [isAutoSolving, autoSolveSpeed, session?.completed, stageError]);
 
   // Fetch daily.json on mount
   useEffect(() => {
@@ -139,6 +143,7 @@ export default function App() {
       .then(data => {
         if (data && data.levels) {
           setLevelData(data.levels);
+          setInternalDict(PuzzleValidator.buildInternalDictionary(data.levels));
         }
       })
       .catch(err => console.error('Failed to load daily.json:', err));
@@ -150,11 +155,51 @@ export default function App() {
 
     const targetLevelNum = dateToLevelNumber(currentDate);
     // Find the level matching levelNumber and stageNumber
-    // Note: If daily.json doesn't strictly have levelNumber, we assume they are sequential
     const rawLevels = levelData.filter(l => l.levelNumber === targetLevelNum);
     const rawStage = rawLevels.find(l => l.stageNumber === stageProgress);
 
     if (rawStage) {
+      // Validate stage using PuzzleValidator
+      const validation = PuzzleValidator.validateStage(rawStage, internalDict);
+      if (validation.errors.length > 0) {
+        const errMsg = validation.errors.join("; ");
+        setStageError(errMsg);
+        setSession(null);
+        setIsAutoSolving(false);
+
+        // Track validation error in Live View history
+        setTrackingHistory(prev => {
+          const newHistory = [...prev];
+          let currentRecord = newHistory.find(r => r.date === currentDate && r.levelNumber === targetLevelNum);
+          if (!currentRecord) {
+            currentRecord = {
+              date: currentDate,
+              levelNumber: targetLevelNum,
+              stage1: { passed: false, startScreenshot: null, screenshot: null, moves: null },
+              stage2: { passed: false, startScreenshot: null, screenshot: null, moves: null },
+              stage3: { passed: false, startScreenshot: null, screenshot: null, moves: null },
+            };
+            newHistory.push(currentRecord);
+          } else {
+            currentRecord = { ...currentRecord };
+            const idx = newHistory.findIndex(r => r.date === currentDate && r.levelNumber === targetLevelNum);
+            newHistory[idx] = currentRecord;
+          }
+
+          if (stageProgress === 1) {
+            currentRecord.stage1 = { ...currentRecord.stage1, error: errMsg };
+          } else if (stageProgress === 2) {
+            currentRecord.stage2 = { ...currentRecord.stage2, error: errMsg };
+          } else if (stageProgress === 3) {
+            currentRecord.stage3 = { ...currentRecord.stage3, error: errMsg };
+          }
+          return newHistory;
+        });
+        return;
+      }
+
+      setStageError(null);
+
       // Determine grid size based on stage
       let stageSize = "4x4"; // 4 rows * 4 cols
       if (stageProgress === 2) stageSize = "5x4";  // 5 rows * 4 cols
@@ -173,9 +218,11 @@ export default function App() {
       }
     } else {
       console.warn(`No level found for ${currentDate} stage ${stageProgress}`);
+      setStageError(`No level found for ${currentDate} stage ${stageProgress}`);
+      setSession(null);
       if (isAutoSolving) setIsAutoSolving(false);
     }
-  }, [currentDate, levelData, stageProgress]);
+  }, [currentDate, levelData, stageProgress, internalDict]);
 
   const stageStartTimeRef = useRef<number>(Date.now());
   const stageStartClockRef = useRef<string>(new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' }));
@@ -806,9 +853,34 @@ export default function App() {
           </div>
         </div>
 
-        {session && (
+        {stageError ? (
+          <div style={{
+            backgroundColor: '#fef2f2',
+            border: '2px solid #ef4444',
+            borderRadius: '12px',
+            padding: '24px 16px',
+            margin: '20px auto',
+            width: '90%',
+            boxSizing: 'border-box',
+            textAlign: 'center',
+            boxShadow: '0 4px 6px -1px rgba(239, 68, 68, 0.1)'
+          }}>
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '12px', color: '#dc2626' }}>
+              <AlertTriangle size={44} />
+            </div>
+            <h3 style={{ color: '#991b1b', margin: '0 0 8px 0', fontSize: '18px', fontWeight: 'bold' }}>
+              Puzzle Validation Error
+            </h3>
+            <p style={{ color: '#b91c1c', fontSize: '13px', margin: '0 0 16px 0', lineHeight: '1.5', wordBreak: 'break-word' }}>
+              {stageError}
+            </p>
+            <div style={{ fontSize: '11px', fontWeight: 600, color: '#7f1d1d', backgroundColor: '#fee2e2', padding: '8px 12px', borderRadius: '6px' }}>
+              ⚠️ Automation Halted • Invalid Puzzle Data
+            </div>
+          </div>
+        ) : session ? (
           <PuzzleBoard session={session} onSwap={handleSwap} autoSwapAnim={autoSwapAnim} />
-        )}
+        ) : null}
 
         {showOverlay && (
           <div className="stage-overlay">

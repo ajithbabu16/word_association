@@ -11,6 +11,7 @@ export interface StageRecord {
   startTime?: string | null;
   completionTime?: string | null;
   durationSec?: number | null;
+  error?: string | null;
 }
 
 export interface TrackingData {
@@ -33,6 +34,11 @@ function formatDuration(sec: number | null | undefined): string {
   const mins = Math.floor(sec / 60);
   const remSec = sec % 60;
   return remSec > 0 ? `${mins}m ${remSec}s` : `${mins}m`;
+}
+
+function getStageStatusString(stage: StageRecord): string {
+  if (stage.error) return `Error: ${stage.error}`;
+  return stage.passed ? 'Passed' : 'Pending';
 }
 
 // Helper to determine exact aspect ratio (height / width) of captured screenshots
@@ -122,7 +128,11 @@ export function LiveView({ trackingHistory, onClose }: LiveViewProps) {
       const totalMoves = getTotalMoves(t);
       const totalTime = formatDuration(getTotalTimeSec(t));
 
-      return `"${t.date}",${t.levelNumber},${t.stage1.passed ? 'Passed' : 'Pending'},${s1Moves},"${s1Start}","${s1End}","${s1Dur}",${t.stage2.passed ? 'Passed' : 'Pending'},${s2Moves},"${s2Start}","${s2End}","${s2Dur}",${t.stage3.passed ? 'Passed' : 'Pending'},${s3Moves},"${s3Start}","${s3End}","${s3Dur}",${totalMoves},"${totalTime}"`;
+      const s1Status = getStageStatusString(t.stage1);
+      const s2Status = getStageStatusString(t.stage2);
+      const s3Status = getStageStatusString(t.stage3);
+
+      return `"${t.date}",${t.levelNumber},"${s1Status}",${s1Moves},"${s1Start}","${s1End}","${s1Dur}","${s2Status}",${s2Moves},"${s2Start}","${s2End}","${s2Dur}","${s3Status}",${s3Moves},"${s3Start}","${s3End}","${s3Dur}",${totalMoves},"${totalTime}"`;
     });
 
     const csvContent = [headers.join(','), ...rows].join('\n');
@@ -145,17 +155,17 @@ export function LiveView({ trackingHistory, onClose }: LiveViewProps) {
       return {
         'Date': t.date,
         'Level': `Level ${t.levelNumber}`,
-        'Stage 1 Status': t.stage1.passed ? 'Passed' : 'Pending',
+        'Stage 1 Status': getStageStatusString(t.stage1),
         'Stage 1 Moves': t.stage1.moves ?? '-',
         'Stage 1 Start Time': t.stage1.startTime ?? '-',
         'Stage 1 End Time': t.stage1.completionTime ?? '-',
         'Stage 1 Duration': formatDuration(t.stage1.durationSec),
-        'Stage 2 Status': t.stage2.passed ? 'Passed' : 'Pending',
+        'Stage 2 Status': getStageStatusString(t.stage2),
         'Stage 2 Moves': t.stage2.moves ?? '-',
         'Stage 2 Start Time': t.stage2.startTime ?? '-',
         'Stage 2 End Time': t.stage2.completionTime ?? '-',
         'Stage 2 Duration': formatDuration(t.stage2.durationSec),
-        'Stage 3 Status': t.stage3.passed ? 'Passed' : 'Pending',
+        'Stage 3 Status': getStageStatusString(t.stage3),
         'Stage 3 Moves': t.stage3.moves ?? '-',
         'Stage 3 Start Time': t.stage3.startTime ?? '-',
         'Stage 3 End Time': t.stage3.completionTime ?? '-',
@@ -275,7 +285,12 @@ export function LiveView({ trackingHistory, onClose }: LiveViewProps) {
         doc.setFont('helvetica', 'bold');
         const movesLabel = stage.moves !== undefined && stage.moves !== null ? ` • ${stage.moves} Moves` : '';
         const durationLabel = stage.durationSec !== undefined && stage.durationSec !== null ? ` • ${formatDuration(stage.durationSec)}` : '';
-        const statusLabel = stage.passed ? `Stage ${sIdx + 1} (Complete${movesLabel}${durationLabel})` : `Stage ${sIdx + 1} (Pending)`;
+        const statusLabel = stage.error
+          ? `Stage ${sIdx + 1} (Error: ${stage.error})`
+          : stage.passed
+          ? `Stage ${sIdx + 1} (Complete${movesLabel}${durationLabel})`
+          : `Stage ${sIdx + 1} (Pending)`;
+        
         doc.text(statusLabel, colStartX + 2, y + 3);
 
         if (stage.screenshot) {
@@ -302,9 +317,15 @@ export function LiveView({ trackingHistory, onClose }: LiveViewProps) {
   const renderStageCell = (stage: StageRecord, stageNum: number, levelNumber: number, date: string) => {
     return (
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '4px' }}>
-        <span style={{ fontWeight: '600', color: stage.passed ? '#059669' : '#d97706' }}>
-          {stage.passed ? '✅ Passed' : '❌ Pending'}
-        </span>
+        {stage.error ? (
+          <span style={{ fontWeight: '600', color: '#ef4444', display: 'flex', alignItems: 'center', gap: '4px', fontSize: '12px' }}>
+            ❌ Error: {stage.error}
+          </span>
+        ) : (
+          <span style={{ fontWeight: '600', color: stage.passed ? '#059669' : '#d97706' }}>
+            {stage.passed ? '✅ Passed' : '❌ Pending'}
+          </span>
+        )}
 
         {stage.passed && stage.moves !== undefined && stage.moves !== null && (
           <span style={{ 
