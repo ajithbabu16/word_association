@@ -184,6 +184,22 @@ export class PuzzleEngine {
                     }
                 }
 
+                // Fallback: check all unsolved category keys from the level definition.
+                // This handles meta-categories (e.g., "Popular Brands") whose words are
+                // formed picture card names — no tile carries the meta-category's key,
+                // so the tile-based loop above never tests it as a candidate.
+                if (!categoryKey) {
+                    const solvedKeys = new Set(session.solvedRows.map(r => r.categoryKey));
+                    const allCategoryKeys = Object.keys(session.level.categoryCounts);
+                    for (const candidateKey of allCategoryKeys) {
+                        if (solvedKeys.has(candidateKey)) continue;
+                        if (rowTiles.every(tile => this.isTileInCategory(session, tile, candidateKey))) {
+                            categoryKey = candidateKey;
+                            break;
+                        }
+                    }
+                }
+
                 if (!categoryKey) {
                     continue;
                 }
@@ -412,11 +428,24 @@ export class PuzzleEngine {
         const cols = session.level.size.columns;
         const rows = session.level.size.rows;
         let complete = true;
+
+        // Build a set of extra category member words for word-based matching.
+        // This handles formed picture cards whose word matches an extra category
+        // member (e.g., "PUZZLE GAMES") but whose isExtraCategory flag is false.
+        const extraCategoryCells = session.level.cells.filter(
+            c => c.isExtraCategory === true
+        );
+        const isExtraCategoryTile = (tile: PuzzleCellDefinition): boolean => {
+            if (tile.isExtraCategory === true) return true;
+            const tileWord = tile.word.trim().toUpperCase();
+            return extraCategoryCells.some(c => c.word.trim().toUpperCase() === tileWord);
+        };
+
         // SPEC: Master category is formed in the LEFTMOST column (column 0)
         for (let rowIndex = 0; rowIndex < rows; rowIndex += 1) {
             const tileId = session.activeSlots[(rowIndex * cols) + 0];
             const tile = tileId ? session.tilesById[tileId] : null;
-            if (!tile || tile.isExtraCategory !== true) {
+            if (!tile || !isExtraCategoryTile(tile)) {
                 complete = false;
                 break;
             }

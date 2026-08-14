@@ -653,8 +653,16 @@ export default function App() {
           const col0TileId = active[col0Slot];
           const col0Tile = col0TileId ? session.tilesById[col0TileId] : null;
           
-          const isMasterTile = (tile: any) => 
-            tile && (tile.categoryKey === session.level.extraCategoryKey || tile.isExtraCategory);
+          const extraCategoryCells = session.level.cells.filter(
+            c => c.isExtraCategory === true
+          );
+          const isMasterTile = (tile: any) => {
+            if (!tile) return false;
+            if (tile.categoryKey === session.level.extraCategoryKey || tile.isExtraCategory) return true;
+            // Also match formed picture cards whose word is an extra category member
+            const tileWord = (tile.word || '').trim().toUpperCase();
+            return extraCategoryCells.some(c => c.word.trim().toUpperCase() === tileWord);
+          };
 
           if (!isMasterTile(col0Tile)) {
             // Find the master tile in this row
