@@ -3140,10 +3140,10 @@
         {
           "category": "DIRECTIONS",
           "words": [
-            "←",
-            "→",
-            "↑",
-            "↓"
+            "\u2190",
+            "\u2192",
+            "\u2191",
+            "\u2193"
           ],
           "picture": true
         },
@@ -3609,9 +3609,9 @@
           "category": "CURRENCY SYMBOLS",
           "words": [
             "$",
-            "¥",
-            "₹",
-            "£"
+            "\u00a5",
+            "\u20b9",
+            "\u00a3"
           ],
           "picture": true
         },
@@ -10420,8 +10420,8 @@
           "category": "DEGREES",
           "words": [
             "DIPLOMA",
-            "BACHELOR’S",
-            "MASTER’S",
+            "BACHELOR\u2019S",
+            "MASTER\u2019S",
             "DOCTORATE"
           ],
           "picture": true
@@ -11707,7 +11707,7 @@
         {
           "category": "FESTIVALS",
           "words": [
-            "ST. PATRICK’S DAY",
+            "ST. PATRICK\u2019S DAY",
             "CINCO DE MAYO",
             "CHINESE NEW YEAR",
             "EASTER"

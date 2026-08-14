@@ -33041,7 +33041,7 @@
           ]
         },
         {
-          "category": "\\u0421OMMUNICATION TOOLS",
+          "category": "\u0421OMMUNICATION TOOLS",
           "words": [
             "TELEGRAPH",
             "SMARTPHONE",
@@ -33438,7 +33438,7 @@
           "words": [
             "ODDS",
             "WAGER",
-            "HORSERACING",
+            "HORSE RACING",
             "BOOKMAKER"
           ]
         },
@@ -36718,7 +36718,7 @@
           "category": "OFFLINE LIFE",
           "words": [
             "WALKING",
-            "WALK",
+            "SKETCHING",
             "PICNIC",
             "LIBRARY"
           ]
@@ -36908,7 +36908,7 @@
           ]
         },
         {
-          "category": "TRAVELER\\u2019S SET",
+          "category": "TRAVELER\u2019S SET",
           "words": [
             "TICKET",
             "BACKPACK",
@@ -37438,7 +37438,7 @@
             "TIGER",
             "KANGAROO",
             "BAT",
-            "GIRLS"
+            "DEER"
           ]
         },
         {
@@ -39939,7 +39939,7 @@
           "words": [
             "CLARICE LISPECTOR",
             "ISABEL ALLENDE",
-            "GABRIEL GARC\\u00cdA",
+            "GABRIEL GARC\u00cdA",
             "MARIO VARGAS LLOSA"
           ]
         },
@@ -39976,7 +39976,7 @@
             "FOUR-LEAF CLOVER",
             "HORSESHOE",
             "FORTUNE COOKIE",
-            "RABBIT\\u2019S FOOT"
+            "RABBIT\u2019S FOOT"
           ]
         }
       ],
@@ -55300,7 +55300,7 @@
           ]
         },
         {
-          "category": "ALPHABET\\u2019S FIRST LETTERS",
+          "category": "ALPHABET\u2019S FIRST LETTERS",
           "words": [
             "H",
             "C",
@@ -56753,7 +56753,7 @@
           ]
         },
         {
-          "category": "CLICH\\u00c3\\u0191\\u00c2\\u00a9S",
+          "category": "CLICH\u00c3\u0191\u00c2\u00a9S",
           "words": [
             "CLIFFHANGER",
             "HAPPY ENDING",
@@ -57365,7 +57365,7 @@
       "size": "6x4",
       "groups": [
         {
-          "category": "GENTLEMAN\\u2019S ACCESSORIES",
+          "category": "GENTLEMAN\u2019S ACCESSORIES",
           "words": [
             "POCKET WATCH",
             "SUSPENDERS",
@@ -62339,8 +62339,8 @@
           "category": "TIME TRACKING DEVICES",
           "words": [
             "SUNDIAL",
-            "TIMER",
-            "TIME",
+            "CLOCK",
+            "HOURGLASS",
             "STOPWATCH"
           ]
         }
@@ -66955,7 +66955,7 @@
           ]
         },
         {
-          "category": "VALENTINE\\u2019S DAY",
+          "category": "VALENTINE\u2019S DAY",
           "words": [
             "LETTER",
             "HEART",
@@ -86053,7 +86053,7 @@
             "ID CARD",
             "PASSPORT",
             "VISA",
-            "DRIVER\\u2019S LICENSE"
+            "DRIVER\u2019S LICENSE"
           ]
         },
         {
@@ -88255,10 +88255,10 @@
         {
           "category": "WRITER ROUTINE",
           "words": [
-            "WRITING",
+            "RESEARCH",
             "READING",
             "BOOK",
-            "WRITER"
+            "PROOFREAD"
           ]
         },
         {
