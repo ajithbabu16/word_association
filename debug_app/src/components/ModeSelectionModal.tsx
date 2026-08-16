@@ -3,8 +3,8 @@ import { Calendar, Layers, CheckCircle2, Sparkles, Play } from 'lucide-react';
 
 interface ModeSelectionModalProps {
   isOpen: boolean;
-  activeMode: 'daily' | 'main';
-  onSelectMode: (mode: 'daily' | 'main') => void;
+  activeMode: 'daily' | 'main' | 'prefab';
+  onSelectMode: (mode: 'daily' | 'main' | 'prefab') => void;
   onClose?: () => void;
 }
 
@@ -159,6 +159,54 @@ export function ModeSelectionModal({
               </p>
             </div>
           </div>
+
+          {/* Prefab Creation Mode Option */}
+          <div 
+            onClick={() => onSelectMode('prefab')}
+            style={{
+              padding: '20px',
+              borderRadius: '16px',
+              border: `2px solid ${activeMode === 'prefab' ? '#10b981' : '#e2e8f0'}`,
+              backgroundColor: activeMode === 'prefab' ? '#ecfdf5' : '#ffffff',
+              cursor: 'pointer',
+              transition: 'all 0.2s ease',
+              display: 'flex',
+              alignItems: 'flex-start',
+              gap: '16px',
+              position: 'relative'
+            }}
+          >
+            <div style={{
+              width: '44px',
+              height: '44px',
+              borderRadius: '12px',
+              backgroundColor: activeMode === 'prefab' ? '#10b981' : '#f1f5f9',
+              color: activeMode === 'prefab' ? '#ffffff' : '#64748b',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              flexShrink: 0
+            }}>
+              <Sparkles size={24} />
+            </div>
+            <div style={{ flex: 1 }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                <h3 style={{ margin: 0, fontSize: '18px', fontWeight: 700, color: '#0f172a' }}>
+                  Prefab Creation (PC) Mode
+                </h3>
+                {activeMode === 'prefab' && (
+                  <span style={{ display: 'flex', alignItems: 'center', gap: '4px', fontSize: '13px', fontWeight: 700, color: '#10b981' }}>
+                    <CheckCircle2 size={18} /> Active
+                  </span>
+                )}
+              </div>
+              <p style={{ margin: '6px 0 0 0', fontSize: '13px', color: '#475569', lineHeight: 1.5 }}>
+                • Upload PSD/Adobe files to extract assets<br />
+                • Automated Cocos Prefab & Scene generation<br />
+                • Asset pipeline integration
+              </p>
+            </div>
+          </div>
         </div>
 
         <div style={{ display: 'flex', gap: '12px' }}>
@@ -202,7 +250,7 @@ export function ModeSelectionModal({
               boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
             }}
           >
-            <Play size={18} /> Continue with {activeMode === 'main' ? 'Main Puzzle' : 'Daily Puzzle'} Mode
+            <Play size={18} /> Continue with {activeMode === 'main' ? 'Main Puzzle' : activeMode === 'prefab' ? 'Prefab Creation' : 'Daily Puzzle'} Mode
           </button>
         </div>
       </div>

@@ -16,6 +16,7 @@ import html2canvas from 'html2canvas';
 
 import { AutoSolveModal, AutoSolveMode } from './components/AutoSolveModal';
 import { ModeSelectionModal } from './components/ModeSelectionModal';
+import { PrefabCreationView } from './components/PrefabCreationView';
 
 const engine = new PuzzleEngine();
 const decoder = new PuzzleLevelDecoder();
@@ -174,8 +175,8 @@ function StackedCategoryPill({ formed, total, isAnimating }: { formed: number; t
 }
 
 export default function App() {
-  // Active Mode: 'daily' | 'main'
-  const [activeMode, setActiveMode] = useState<'daily' | 'main'>('daily');
+  // Active Mode: 'daily' | 'main' | 'prefab'
+  const [activeMode, setActiveMode] = useState<'daily' | 'main' | 'prefab'>('daily');
   const [showModeModal, setShowModeModal] = useState<boolean>(true);
   const [isPillAnimating, setIsPillAnimating] = useState<boolean>(false);
 
@@ -297,7 +298,7 @@ export default function App() {
   }, []);
 
   // Mode change handler
-  const handleSelectMode = (mode: 'daily' | 'main') => {
+  const handleSelectMode = (mode: 'daily' | 'main' | 'prefab') => {
     setActiveMode(mode);
     setIsAutoSolving(false);
     setIsRangeAutoSolving(false);
@@ -1008,133 +1009,138 @@ export default function App() {
       </div>
 
       <div className="app-container">
-        <div className="device-simulator" ref={captureRef}>
-          {/* SIMULATOR HEADER */}
-          <div className="header">
-            {activeMode === 'daily' ? (
-              <>
-                <div className="debug-controls" style={{ width: '120px' }}>
-                  {stageProgress < 3 && (
-                    <button 
-                      className="button" 
-                      onClick={() => setStageProgress(stageProgress + 1)}
-                      style={{ padding: '4px 8px', fontSize: '12px' }}
-                    >
-                      Skip to Stage {stageProgress + 1}
-                    </button>
-                  )}
-                </div>
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '4px' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <div>Stages:</div>
-                    <div className="stage-indicator">
-                      <div className={`stage-dot ${stageProgress >= 1 ? 'active' : ''}`}>1</div>
-                      <div className={`stage-dot ${stageProgress >= 2 ? 'active' : ''}`}>2</div>
-                      <div className={`stage-dot ${stageProgress >= 3 ? 'active' : ''}`}>3</div>
+        {activeMode === 'prefab' ? (
+          <PrefabCreationView />
+        ) : (
+          <div className="device-simulator" ref={captureRef}>
+            {/* SIMULATOR HEADER */}
+            <div className="header">
+              {activeMode === 'daily' ? (
+                <>
+                  <div className="debug-controls" style={{ width: '120px' }}>
+                    {stageProgress < 3 && (
+                      <button 
+                        className="button" 
+                        onClick={() => setStageProgress(stageProgress + 1)}
+                        style={{ padding: '4px 8px', fontSize: '12px' }}
+                      >
+                        Skip to Stage {stageProgress + 1}
+                      </button>
+                    )}
+                  </div>
+                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '4px' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <div>Stages:</div>
+                      <div className="stage-indicator">
+                        <div className={`stage-dot ${stageProgress >= 1 ? 'active' : ''}`}>1</div>
+                        <div className={`stage-dot ${stageProgress >= 2 ? 'active' : ''}`}>2</div>
+                        <div className={`stage-dot ${stageProgress >= 3 ? 'active' : ''}`}>3</div>
+                      </div>
+                    </div>
+                    <div style={{
+                      fontSize: '12px',
+                      fontWeight: 700,
+                      color: '#ffffff',
+                      backgroundColor: '#111827',
+                      padding: '3px 10px',
+                      borderRadius: '12px',
+                      marginTop: '4px',
+                      letterSpacing: '0.3px',
+                      boxShadow: '0 1px 3px rgba(0,0,0,0.15)'
+                    }}>
+                      Level {dateToLevelNumber(currentDate)} • {currentDate}
                     </div>
                   </div>
-                  <div style={{
-                    fontSize: '12px',
-                    fontWeight: 700,
-                    color: '#ffffff',
-                    backgroundColor: '#111827',
-                    padding: '3px 10px',
-                    borderRadius: '12px',
-                    marginTop: '4px',
-                    letterSpacing: '0.3px',
-                    boxShadow: '0 1px 3px rgba(0,0,0,0.15)'
-                  }}>
-                    Level {dateToLevelNumber(currentDate)} • {currentDate}
-                  </div>
-                </div>
-              </>
-            ) : (
-              /* MAIN PUZZLE SIMULATOR HEADER (NO DATE, NO STAGE DOTS, NO STAGE SKIP) */
-              <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '4px 8px' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <div style={{
-                    fontSize: '15px',
-                    fontWeight: 800,
-                    color: '#7c3aed',
-                    backgroundColor: '#f5f3ff',
-                    padding: '5px 12px',
-                    borderRadius: '10px',
-                    border: '1px solid #ddd6fe',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '6px'
-                  }}>
-                    <Layers size={18} /> Level {mainLevelNumber}
+                </>
+              ) : (
+                /* MAIN PUZZLE SIMULATOR HEADER (NO DATE, NO STAGE DOTS, NO STAGE SKIP) */
+                <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '4px 8px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <div style={{
+                      fontSize: '15px',
+                      fontWeight: 800,
+                      color: '#7c3aed',
+                      backgroundColor: '#f5f3ff',
+                      padding: '5px 12px',
+                      borderRadius: '10px',
+                      border: '1px solid #ddd6fe',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '6px'
+                    }}>
+                      <Layers size={18} /> Level {mainLevelNumber}
+                    </div>
+
+                    {/* STACKED CATEGORY PROGRESS PILL BADGE */}
+                    <StackedCategoryPill 
+                      formed={mainImagesFormed} 
+                      total={session ? session.level.categories : 6} 
+                      isAnimating={isPillAnimating}
+                    />
                   </div>
 
-                  {/* STACKED CATEGORY PROGRESS PILL BADGE */}
-                  <StackedCategoryPill 
-                    formed={mainImagesFormed} 
-                    total={session ? session.level.categories : 6} 
-                    isAnimating={isPillAnimating}
-                  />
+                  <button 
+                    onClick={() => handleMainLevelJump(mainLevelNumber + 1)}
+                    style={{
+                      backgroundColor: '#7c3aed',
+                      color: 'white',
+                      border: 'none',
+                      padding: '6px 14px',
+                      borderRadius: '8px',
+                      fontWeight: 'bold',
+                      fontSize: '12px',
+                      cursor: 'pointer',
+                      boxShadow: '0 2px 4px rgba(124, 58, 237, 0.3)'
+                    }}
+                  >
+                    Skip to Next Level ➔
+                  </button>
                 </div>
+              )}
+            </div>
 
-                <button 
-                  onClick={() => handleMainLevelJump(mainLevelNumber + 1)}
-                  style={{
-                    backgroundColor: '#7c3aed',
-                    color: 'white',
-                    border: 'none',
-                    padding: '6px 14px',
-                    borderRadius: '8px',
-                    fontWeight: 'bold',
-                    fontSize: '12px',
-                    cursor: 'pointer',
-                    boxShadow: '0 2px 4px rgba(124, 58, 237, 0.3)'
-                  }}
-                >
-                  Skip to Next Level ➔
-                </button>
+            {stageError ? (
+              <div style={{
+                backgroundColor: '#fef2f2',
+                border: '2px solid #ef4444',
+                borderRadius: '12px',
+                padding: '24px 16px',
+                margin: '20px auto',
+                width: '90%',
+                boxSizing: 'border-box',
+                textAlign: 'center',
+                boxShadow: '0 4px 6px -1px rgba(239, 68, 68, 0.1)'
+              }}>
+                <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '12px', color: '#dc2626' }}>
+                  <AlertTriangle size={44} />
+                </div>
+                <h3 style={{ color: '#991b1b', margin: '0 0 8px 0', fontSize: '18px', fontWeight: 'bold' }}>
+                  Puzzle Validation Error
+                </h3>
+                <p style={{ color: '#b91c1c', fontSize: '13px', margin: '0 0 16px 0', lineHeight: '1.5', wordBreak: 'break-word' }}>
+                  {stageError}
+                </p>
+                <div style={{ fontSize: '11px', fontWeight: 600, color: '#7f1d1d', backgroundColor: '#fee2e2', padding: '8px 12px', borderRadius: '6px' }}>
+                  ⚠️ Automation Halted • Invalid Puzzle Data
+                </div>
+              </div>
+            ) : session ? (
+              <PuzzleBoard session={session} onSwap={handleSwap} autoSwapAnim={autoSwapAnim} spawnedSlotIndexes={spawnedSlotIndexes} />
+            ) : null}
+
+            {showOverlay && (
+              <div className="stage-overlay">
+                <h2>{showOverlay}</h2>
+                <p>{activeMode === 'main' ? `Main Level: ${mainLevelNumber}` : `Level: ${dateToLevelNumber(currentDate)} | Date: ${currentDate}`}</p>
               </div>
             )}
           </div>
+        )}
 
-          {stageError ? (
-            <div style={{
-              backgroundColor: '#fef2f2',
-              border: '2px solid #ef4444',
-              borderRadius: '12px',
-              padding: '24px 16px',
-              margin: '20px auto',
-              width: '90%',
-              boxSizing: 'border-box',
-              textAlign: 'center',
-              boxShadow: '0 4px 6px -1px rgba(239, 68, 68, 0.1)'
-            }}>
-              <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '12px', color: '#dc2626' }}>
-                <AlertTriangle size={44} />
-              </div>
-              <h3 style={{ color: '#991b1b', margin: '0 0 8px 0', fontSize: '18px', fontWeight: 'bold' }}>
-                Puzzle Validation Error
-              </h3>
-              <p style={{ color: '#b91c1c', fontSize: '13px', margin: '0 0 16px 0', lineHeight: '1.5', wordBreak: 'break-word' }}>
-                {stageError}
-              </p>
-              <div style={{ fontSize: '11px', fontWeight: 600, color: '#7f1d1d', backgroundColor: '#fee2e2', padding: '8px 12px', borderRadius: '6px' }}>
-                ⚠️ Automation Halted • Invalid Puzzle Data
-              </div>
-            </div>
-          ) : session ? (
-            <PuzzleBoard session={session} onSwap={handleSwap} autoSwapAnim={autoSwapAnim} spawnedSlotIndexes={spawnedSlotIndexes} />
-          ) : null}
-
-          {showOverlay && (
-            <div className="stage-overlay">
-              <h2>{showOverlay}</h2>
-              <p>{activeMode === 'main' ? `Main Level: ${mainLevelNumber}` : `Level: ${dateToLevelNumber(currentDate)} | Date: ${currentDate}`}</p>
-            </div>
-          )}
-        </div>
-
-        <DebugDashboard
-          activeMode={activeMode}
-          currentDate={currentDate}
+        {activeMode !== 'prefab' && (
+          <DebugDashboard
+            activeMode={activeMode as 'daily' | 'main'}
+            currentDate={currentDate}
           onDateChange={handleDateChange}
           startDate={startDate}
           endDate={endDate}
@@ -1152,6 +1158,7 @@ export default function App() {
           totalCategories={session ? session.level.categories : 6}
           onOpenAutoSolveModal={() => setShowAutoSolveModal(true)}
         />
+        )}
 
         <AutoSolveModal
           isOpen={showAutoSolveModal}
@@ -1161,12 +1168,17 @@ export default function App() {
           currentSpeed={autoSolveSpeed}
         />
 
-        <ModeSelectionModal
-          isOpen={showModeModal}
-          activeMode={activeMode}
-          onSelectMode={handleSelectMode}
-          onClose={() => setShowModeModal(false)}
-        />
+        {showModeModal && (
+          <ModeSelectionModal
+            isOpen={showModeModal}
+            activeMode={activeMode}
+            onSelectMode={(mode) => {
+              handleSelectMode(mode);
+              setShowModeModal(false);
+            }}
+            onClose={() => setShowModeModal(false)}
+          />
+        )}
 
         {showLiveView && (
           <LiveView 

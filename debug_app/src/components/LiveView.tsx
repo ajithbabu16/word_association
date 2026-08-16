@@ -33,7 +33,7 @@ export interface TrackingData {
 }
 
 interface LiveViewProps {
-  activeMode?: 'daily' | 'main';
+  activeMode?: 'daily' | 'main' | 'prefab';
   trackingHistory: TrackingData[];
   mainTrackingHistory?: MainTrackingData[];
   onClose: () => void;

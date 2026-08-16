@@ -6,7 +6,7 @@ import type { ValidationResult } from '../engine/PuzzleValidator';
 import * as XLSX from 'xlsx';
 
 interface ErrorViewProps {
-  activeMode?: 'daily' | 'main';
+  activeMode?: 'daily' | 'main' | 'prefab';
   levelData: PuzzleRawLevel[];
   mainLevelData?: PuzzleRawLevel[];
   onClose: () => void;
