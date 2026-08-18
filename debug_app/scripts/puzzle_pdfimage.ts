@@ -103,9 +103,10 @@ async function run() {
     for (const group of level.groups || []) {
       const catTitle = group.category || 'UNKNOWN';
       const words = group.words || [];
-      const wordsStr = words.join(', ');
+      
       // Check for images
       const imagesToDraw: {word: string, path: string | null}[] = [];
+      const normalWords: string[] = [];
       
       if (group.picture === true) {
         const titleKey = catTitle.toLowerCase();
@@ -127,8 +128,12 @@ async function run() {
               imagesToDraw.push({ word, path: null });
             }
           }
+        } else {
+          normalWords.push(word);
         }
       }
+
+      const wordsStr = normalWords.join(', ');
 
       // Set font size before measuring to get accurate heights
       doc.fontSize(10).font('Helvetica');
