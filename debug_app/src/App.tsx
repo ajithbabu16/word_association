@@ -405,8 +405,16 @@ export default function App() {
       // Capture Daily Puzzle start view after DOM render
       setTimeout(() => {
         if (captureRef.current) {
-          html2canvas(captureRef.current).then(canvas => {
-            const dataUrl = canvas.toDataURL('image/jpeg', 0.8);
+          html2canvas(captureRef.current, {
+            scale: 2,
+            useCORS: true,
+            scrollY: -window.scrollY,
+            width: captureRef.current.scrollWidth,
+            height: captureRef.current.scrollHeight,
+            windowWidth: document.documentElement.offsetWidth,
+            windowHeight: document.documentElement.offsetHeight,
+          }).then(canvas => {
+            const dataUrl = canvas.toDataURL('image/jpeg', 0.95);
             setTrackingHistory(prev => {
               const newHistory = [...prev];
               let currentRecord = newHistory.find(r => r.date === currentDate && r.levelNumber === targetLevelNum);
@@ -468,8 +476,16 @@ export default function App() {
       // Capture Main Puzzle Initial Board View right after loading
       setTimeout(() => {
         if (captureRef.current) {
-          html2canvas(captureRef.current).then(canvas => {
-            const dataUrl = canvas.toDataURL('image/jpeg', 0.8);
+          html2canvas(captureRef.current, {
+            scale: 2,
+            useCORS: true,
+            scrollY: -window.scrollY,
+            width: captureRef.current.scrollWidth,
+            height: captureRef.current.scrollHeight,
+            windowWidth: document.documentElement.offsetWidth,
+            windowHeight: document.documentElement.offsetHeight,
+          }).then(canvas => {
+            const dataUrl = canvas.toDataURL('image/jpeg', 0.95);
             mainInitialScreenshot.current = dataUrl;
           });
         }
@@ -499,8 +515,16 @@ export default function App() {
     if (session.completed) {
       setTimeout(() => {
         if (captureRef.current) {
-          html2canvas(captureRef.current).then(canvas => {
-            const finalDataUrl = canvas.toDataURL('image/jpeg', 0.85);
+          html2canvas(captureRef.current, {
+            scale: 2,
+            useCORS: true,
+            scrollY: -window.scrollY,
+            width: captureRef.current.scrollWidth,
+            height: captureRef.current.scrollHeight,
+            windowWidth: document.documentElement.offsetWidth,
+            windowHeight: document.documentElement.offsetHeight,
+          }).then(canvas => {
+            const finalDataUrl = canvas.toDataURL('image/jpeg', 0.95);
             const durationSec = Math.round((Date.now() - mainStartTimestamp.current) / 1000);
 
             setMainTrackingHistory(prev => {
@@ -552,8 +576,16 @@ export default function App() {
     const durationSec = 15; // default estimate or timer calculation
 
     if (captureRef.current) {
-      html2canvas(captureRef.current).then(canvas => {
-        const dataUrl = canvas.toDataURL('image/jpeg', 0.8);
+      html2canvas(captureRef.current, {
+        scale: 2,
+        useCORS: true,
+        scrollY: -window.scrollY,
+        width: captureRef.current.scrollWidth,
+        height: captureRef.current.scrollHeight,
+        windowWidth: document.documentElement.offsetWidth,
+        windowHeight: document.documentElement.offsetHeight,
+      }).then(canvas => {
+        const dataUrl = canvas.toDataURL('image/jpeg', 0.95);
         const targetLevelNum = dateToLevelNumber(currentDate);
 
         setTrackingHistory(prev => {
