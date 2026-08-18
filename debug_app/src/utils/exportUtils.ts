@@ -352,10 +352,10 @@ export function exportMainExcel(mainTrackingHistory: MainTrackingData[]) {
 }
 
 export async function exportMainPDF(mainTrackingHistory: MainTrackingData[]) {
-  const doc = new jsPDF('p', 'mm', 'a4'); // Portrait layout (210mm x 297mm)
+  const doc = new jsPDF('l', 'mm', 'a4'); // Landscape layout (297mm x 210mm)
   const pageWidth = doc.internal.pageSize.getWidth();
   const margin = 10;
-  const contentWidth = pageWidth - margin * 2; // 190mm
+  const contentWidth = pageWidth - margin * 2; // 277mm
 
   for (let idx = 0; idx < mainTrackingHistory.length; idx++) {
     const track = mainTrackingHistory[idx];
@@ -384,49 +384,52 @@ export async function exportMainPDF(mainTrackingHistory: MainTrackingData[]) {
     doc.line(margin, y, pageWidth - margin, y);
     y += 6;
 
-    // 1. Initial Board Screenshot
+    const colWidth = (contentWidth - 10) / 2; // two columns with 10mm gap
+    const leftColX = margin;
+    const rightColX = margin + colWidth + 10;
+
+    // 1. Initial Board Screenshot (Left Column)
     doc.setFontSize(11);
     doc.setFont('helvetica', 'bold');
-    doc.text('1. Initial Board View (Level Start)', margin, y);
+    doc.text('1. Initial Board View (Level Start)', leftColX, y);
+    
+    // 2. Final Completion Screenshot (Right Column)
+    doc.text('2. Final Level Completion View', rightColX, y);
+
     y += 4;
+    let maxImgH = 0;
 
     if (track.initialBoardScreenshot) {
       try {
         const aspect = await getImageAspectRatio(track.initialBoardScreenshot);
-        const imgH = Math.min(65, 80 * aspect);
+        const imgH = Math.min(130, colWidth * aspect);
         const imgW = imgH / aspect;
-        doc.addImage(track.initialBoardScreenshot, 'JPEG', margin, y, imgW, imgH, undefined, 'FAST');
-        y += imgH + 8;
+        doc.addImage(track.initialBoardScreenshot, 'JPEG', leftColX, y, imgW, imgH, undefined, 'FAST');
+        maxImgH = Math.max(maxImgH, imgH);
       } catch (e) {
-        y += 10;
       }
     } else {
       doc.setFontSize(9);
       doc.setFont('helvetica', 'italic');
-      doc.text('(No initial board screenshot)', margin, y + 4);
-      y += 10;
+      doc.text('(No initial board screenshot)', leftColX, y + 4);
     }
-
-    // 2. Final Completion Screenshot
-    doc.setFontSize(11);
-    doc.setFont('helvetica', 'bold');
-    doc.text('2. Final Level Completion View', margin, y);
-    y += 4;
 
     if (track.finalCompletionScreenshot) {
       try {
         const aspect = await getImageAspectRatio(track.finalCompletionScreenshot);
-        const imgH = Math.min(65, 80 * aspect);
+        const imgH = Math.min(130, colWidth * aspect);
         const imgW = imgH / aspect;
-        doc.addImage(track.finalCompletionScreenshot, 'JPEG', margin, y, imgW, imgH, undefined, 'FAST');
+        doc.addImage(track.finalCompletionScreenshot, 'JPEG', rightColX, y, imgW, imgH, undefined, 'FAST');
+        maxImgH = Math.max(maxImgH, imgH);
       } catch (e) {
-        // fallback
       }
     } else {
       doc.setFontSize(9);
       doc.setFont('helvetica', 'italic');
-      doc.text('(Level in progress or no completion screenshot)', margin, y + 4);
+      doc.text('(Level in progress or no completion screenshot)', rightColX, y + 4);
     }
+    
+    y += maxImgH + 10;
   }
 
   doc.save('main_puzzle_live_tracking_report.pdf');

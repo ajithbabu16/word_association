@@ -257,13 +257,13 @@ export default function App() {
   // Sync worker state with auto-solve state
   useEffect(() => {
     if (workerRef.current) {
-      if (isAutoSolving && session && !session.completed && !stageError && !isCapturingScreenshot.current) {
+      if (isAutoSolving && session && !session.completed && !isCapturingScreenshot.current) {
         workerRef.current.postMessage({ action: 'start', interval: autoSolveSpeed });
       } else {
         workerRef.current.postMessage({ action: 'stop' });
       }
     }
-  }, [isAutoSolving, autoSolveSpeed, session?.completed, stageError]);
+  }, [isAutoSolving, autoSolveSpeed, session?.completed, isCapturingScreenshot.current]);
 
   // Fetch datasets on mount
   useEffect(() => {
@@ -1099,32 +1099,9 @@ export default function App() {
               )}
             </div>
 
-            {stageError ? (
-              <div style={{
-                backgroundColor: '#fef2f2',
-                border: '2px solid #ef4444',
-                borderRadius: '12px',
-                padding: '24px 16px',
-                margin: '20px auto',
-                width: '90%',
-                boxSizing: 'border-box',
-                textAlign: 'center',
-                boxShadow: '0 4px 6px -1px rgba(239, 68, 68, 0.1)'
-              }}>
-                <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '12px', color: '#dc2626' }}>
-                  <AlertTriangle size={44} />
-                </div>
-                <h3 style={{ color: '#991b1b', margin: '0 0 8px 0', fontSize: '18px', fontWeight: 'bold' }}>
-                  Puzzle Validation Error
-                </h3>
-                <p style={{ color: '#b91c1c', fontSize: '13px', margin: '0 0 16px 0', lineHeight: '1.5', wordBreak: 'break-word' }}>
-                  {stageError}
-                </p>
-                <div style={{ fontSize: '11px', fontWeight: 600, color: '#7f1d1d', backgroundColor: '#fee2e2', padding: '8px 12px', borderRadius: '6px' }}>
-                  ⚠️ Automation Halted • Invalid Puzzle Data
-                </div>
-              </div>
-            ) : session ? (
+
+            
+            {session ? (
               <PuzzleBoard session={session} onSwap={handleSwap} autoSwapAnim={autoSwapAnim} spawnedSlotIndexes={spawnedSlotIndexes} />
             ) : null}
 

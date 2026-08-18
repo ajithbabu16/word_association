@@ -210,7 +210,7 @@ export function PuzzleBoard({ session, onSwap, autoSwapAnim, spawnedSlotIndexes 
                     top: '-20px',
                     left: '12px',
                     backgroundColor: '#dc2626',
-                    color: '#ffffff',
+                    color: '#111827',
                     fontSize: '10px',
                     fontWeight: 800,
                     whiteSpace: 'nowrap',
@@ -253,7 +253,7 @@ export function PuzzleBoard({ session, onSwap, autoSwapAnim, spawnedSlotIndexes 
                     className="row-background"
                     style={{ gridColumn: gridColumnStr, gridRow: rowIdx, backgroundColor: color }}
                   >
-                    <div className="category-banner" style={{ backgroundColor: color, color: '#ffffff' }}>
+                    <div className="category-banner" style={{ backgroundColor: color, color: '#111827' }}>
                       {row.category.toUpperCase()}
                     </div>
                   </div>
