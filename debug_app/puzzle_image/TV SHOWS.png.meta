@@ -2,7 +2,7 @@
   "ver": "1.0.27",
   "importer": "image",
   "imported": true,
-  "uuid": "5c09503b-1c45-4945-8d9d-7b4d7c410a23",
+  "uuid": "949c530b-f83e-45e6-87fc-bee21604989f",
   "files": [
     ".json",
     ".png"
@@ -10,14 +10,14 @@
   "subMetas": {
     "6c48a": {
       "importer": "texture",
-      "uuid": "5c09503b-1c45-4945-8d9d-7b4d7c410a23@6c48a",
+      "uuid": "949c530b-f83e-45e6-87fc-bee21604989f@6c48a",
       "displayName": "TV SHOWS",
       "id": "6c48a",
       "name": "texture",
       "userData": {
         "wrapModeS": "clamp-to-edge",
         "wrapModeT": "clamp-to-edge",
-        "imageUuidOrDatabaseUri": "5c09503b-1c45-4945-8d9d-7b4d7c410a23",
+        "imageUuidOrDatabaseUri": "949c530b-f83e-45e6-87fc-bee21604989f",
         "isUuid": true,
         "visible": false,
         "minfilter": "linear",
@@ -34,7 +34,7 @@
     },
     "f9941": {
       "importer": "sprite-frame",
-      "uuid": "5c09503b-1c45-4945-8d9d-7b4d7c410a23@f9941",
+      "uuid": "949c530b-f83e-45e6-87fc-bee21604989f@f9941",
       "displayName": "TV SHOWS",
       "id": "f9941",
       "name": "spriteFrame",
@@ -113,7 +113,7 @@
           ]
         },
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "5c09503b-1c45-4945-8d9d-7b4d7c410a23@6c48a",
+        "imageUuidOrDatabaseUri": "949c530b-f83e-45e6-87fc-bee21604989f@6c48a",
         "atlasUuid": "",
         "trimType": "none"
       },
@@ -129,7 +129,7 @@
     "type": "sprite-frame",
     "fixAlphaTransparencyArtifacts": false,
     "hasAlpha": true,
-    "redirect": "5c09503b-1c45-4945-8d9d-7b4d7c410a23@6c48a",
+    "redirect": "949c530b-f83e-45e6-87fc-bee21604989f@6c48a",
     "compressSettings": {
       "useCompressTexture": true,
       "presetId": "7338w0tqBO4pYqyiJNakvf"

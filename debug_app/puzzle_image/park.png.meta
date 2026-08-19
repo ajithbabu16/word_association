@@ -2,7 +2,7 @@
   "ver": "1.0.27",
   "importer": "image",
   "imported": true,
-  "uuid": "02941cb7-a560-4ae8-ad27-a7928fcaf427",
+  "uuid": "57794287-cb84-497f-8c45-6a0b519e2ecc",
   "files": [
     ".json",
     ".png"
@@ -10,14 +10,14 @@
   "subMetas": {
     "6c48a": {
       "importer": "texture",
-      "uuid": "02941cb7-a560-4ae8-ad27-a7928fcaf427@6c48a",
-      "displayName": "park",
+      "uuid": "57794287-cb84-497f-8c45-6a0b519e2ecc@6c48a",
+      "displayName": "Park",
       "id": "6c48a",
       "name": "texture",
       "userData": {
         "wrapModeS": "clamp-to-edge",
         "wrapModeT": "clamp-to-edge",
-        "imageUuidOrDatabaseUri": "02941cb7-a560-4ae8-ad27-a7928fcaf427",
+        "imageUuidOrDatabaseUri": "57794287-cb84-497f-8c45-6a0b519e2ecc",
         "isUuid": true,
         "visible": false,
         "minfilter": "linear",
@@ -34,8 +34,8 @@
     },
     "f9941": {
       "importer": "sprite-frame",
-      "uuid": "02941cb7-a560-4ae8-ad27-a7928fcaf427@f9941",
-      "displayName": "park",
+      "uuid": "57794287-cb84-497f-8c45-6a0b519e2ecc@f9941",
+      "displayName": "Park",
       "id": "f9941",
       "name": "spriteFrame",
       "userData": {
@@ -113,7 +113,7 @@
           ]
         },
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "02941cb7-a560-4ae8-ad27-a7928fcaf427@6c48a",
+        "imageUuidOrDatabaseUri": "57794287-cb84-497f-8c45-6a0b519e2ecc@6c48a",
         "atlasUuid": "",
         "trimType": "none"
       },
@@ -129,7 +129,7 @@
     "type": "sprite-frame",
     "fixAlphaTransparencyArtifacts": false,
     "hasAlpha": true,
-    "redirect": "02941cb7-a560-4ae8-ad27-a7928fcaf427@6c48a",
+    "redirect": "57794287-cb84-497f-8c45-6a0b519e2ecc@6c48a",
     "compressSettings": {
       "useCompressTexture": true,
       "presetId": "7338w0tqBO4pYqyiJNakvf"

@@ -6,7 +6,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const publicDir = path.join(__dirname, '../public');
-const imageDir = path.join(__dirname, '../puzzle_image/Puzzle Images');
+const imageDir = path.join(__dirname, '../puzzle_image');
 const outputFile = path.join(publicDir, 'existing_images.json');
 
 try {

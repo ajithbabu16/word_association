@@ -2,7 +2,7 @@
   "ver": "1.0.27",
   "importer": "image",
   "imported": true,
-  "uuid": "ecea6bdc-ba11-4295-b402-b88fe36e25a7",
+  "uuid": "3bd9aeb3-ea2e-4b01-b08e-f87a31196b68",
   "files": [
     ".json",
     ".png"
@@ -10,14 +10,14 @@
   "subMetas": {
     "6c48a": {
       "importer": "texture",
-      "uuid": "ecea6bdc-ba11-4295-b402-b88fe36e25a7@6c48a",
-      "displayName": "CEREAL BAR",
+      "uuid": "3bd9aeb3-ea2e-4b01-b08e-f87a31196b68@6c48a",
+      "displayName": "Potted Plant",
       "id": "6c48a",
       "name": "texture",
       "userData": {
         "wrapModeS": "clamp-to-edge",
         "wrapModeT": "clamp-to-edge",
-        "imageUuidOrDatabaseUri": "ecea6bdc-ba11-4295-b402-b88fe36e25a7",
+        "imageUuidOrDatabaseUri": "3bd9aeb3-ea2e-4b01-b08e-f87a31196b68",
         "isUuid": true,
         "visible": false,
         "minfilter": "linear",
@@ -34,8 +34,8 @@
     },
     "f9941": {
       "importer": "sprite-frame",
-      "uuid": "ecea6bdc-ba11-4295-b402-b88fe36e25a7@f9941",
-      "displayName": "CEREAL BAR",
+      "uuid": "3bd9aeb3-ea2e-4b01-b08e-f87a31196b68@f9941",
+      "displayName": "Potted Plant",
       "id": "f9941",
       "name": "spriteFrame",
       "userData": {
@@ -43,10 +43,10 @@
         "rotated": false,
         "offsetX": 0,
         "offsetY": 0,
-        "trimX": 0,
-        "trimY": 0,
-        "width": 128,
-        "height": 128,
+        "trimX": 17,
+        "trimY": 3,
+        "width": 94,
+        "height": 122,
         "rawWidth": 128,
         "rawHeight": 128,
         "borderTop": 0,
@@ -60,17 +60,17 @@
         "meshType": 0,
         "vertices": {
           "rawPosition": [
-            -64,
-            -64,
+            -47,
+            -61,
             0,
-            64,
-            -64,
+            47,
+            -61,
             0,
-            -64,
-            64,
+            -47,
+            61,
             0,
-            64,
-            64,
+            47,
+            61,
             0
           ],
           "indexes": [
@@ -82,40 +82,40 @@
             3
           ],
           "uv": [
-            0,
-            128,
-            128,
-            128,
-            0,
-            0,
-            128,
-            0
+            17,
+            125,
+            111,
+            125,
+            17,
+            3,
+            111,
+            3
           ],
           "nuv": [
-            0,
-            0,
-            1,
-            0,
-            0,
-            1,
-            1,
-            1
+            0.1328125,
+            0.0234375,
+            0.8671875,
+            0.0234375,
+            0.1328125,
+            0.9765625,
+            0.8671875,
+            0.9765625
           ],
           "minPos": [
-            -64,
-            -64,
+            -47,
+            -61,
             0
           ],
           "maxPos": [
-            64,
-            64,
+            47,
+            61,
             0
           ]
         },
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "ecea6bdc-ba11-4295-b402-b88fe36e25a7@6c48a",
+        "imageUuidOrDatabaseUri": "3bd9aeb3-ea2e-4b01-b08e-f87a31196b68@6c48a",
         "atlasUuid": "",
-        "trimType": "none"
+        "trimType": "auto"
       },
       "ver": "1.0.12",
       "imported": true,
@@ -129,10 +129,6 @@
     "type": "sprite-frame",
     "fixAlphaTransparencyArtifacts": false,
     "hasAlpha": true,
-    "redirect": "ecea6bdc-ba11-4295-b402-b88fe36e25a7@6c48a",
-    "compressSettings": {
-      "useCompressTexture": true,
-      "presetId": "7338w0tqBO4pYqyiJNakvf"
-    }
+    "redirect": "3bd9aeb3-ea2e-4b01-b08e-f87a31196b68@6c48a"
   }
 }

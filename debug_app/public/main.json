@@ -10884,7 +10884,7 @@
       "size": "6x4",
       "groups": [
         {
-          "category": "TENNISBALL",
+          "category": "TENNIS BALL",
           "words": [
             "TENNIS",
             "RACKET",
@@ -10944,7 +10944,7 @@
             "BALL",
             "GLOBE",
             "MARBLE",
-            "TENNISBALL"
+            "TENNIS BALL"
           ]
         }
       ],
@@ -14556,7 +14556,7 @@
         {
           "category": "FILM PRODUCTION",
           "words": [
-            "COLORGRADING",
+            "COLOR GRADING",
             "FOLEY",
             "CONTINUITY",
             "STORYBOARD"
@@ -15256,7 +15256,7 @@
           "category": "HEADLINE",
           "words": [
             "BOLD",
-            "FRONTPAGE",
+            "FRONT PAGE",
             "TITLE",
             "LEAD"
           ],
@@ -15343,9 +15343,9 @@
         {
           "category": "NEWSPAPER PRESS",
           "words": [
-            "PRINTINGPRESS",
+            "PRINTING PRESS",
             "BROADSHEET",
-            "INKROLLER",
+            "INK ROLLER",
             "HEADLINE"
           ]
         },
@@ -15362,7 +15362,7 @@
           "category": "SUBWAY STATION",
           "words": [
             "TRACK",
-            "METROCARD",
+            "METRO CARD",
             "TURNSTILE",
             "PLATFORM"
           ]
@@ -16493,7 +16493,7 @@
           "picture": true
         },
         {
-          "category": "PASTRYBAG",
+          "category": "PASTRY BAG",
           "words": [
             "PIPING",
             "NOZZLE",
@@ -16505,9 +16505,9 @@
         {
           "category": "BAKING STUDIO",
           "words": [
-            "ROLLINGPIN",
-            "TARTPAN",
-            "PASTRYBAG",
+            "ROLLING PIN",
+            "TART PAN",
+            "PASTRY BAG",
             "WHISK"
           ]
         },
@@ -17318,7 +17318,7 @@
         {
           "category": "LAUNDROMAT",
           "words": [
-            "DRYINGRACK",
+            "DRYING RACK",
             "BASKET",
             "WASHING MACHINE",
             "DETERGENT"
@@ -18296,7 +18296,7 @@
           "category": "TAPE MEASURE",
           "words": [
             "INCHES",
-            "BELTCLIP",
+            "BELT CLIP",
             "SPRING",
             "RULER"
           ],
@@ -18531,7 +18531,7 @@
           "words": [
             "F1 CAR",
             "JET PLANE",
-            "HORSERACING",
+            "HORSE RACING",
             "MOTORBIKE"
           ]
         },
@@ -18709,7 +18709,7 @@
           "picture": true
         },
         {
-          "category": "POTTEDPLANT",
+          "category": "POTTED PLANT",
           "words": [
             "SOIL",
             "ROOTS",
@@ -18760,7 +18760,7 @@
           "words": [
             "CACTUS",
             "NEEDLE",
-            "BROKENGLASS",
+            "BROKEN GLASS",
             "CUTLERY"
           ]
         },
@@ -18776,10 +18776,10 @@
         {
           "category": "GREENHOUSE NURSERY",
           "words": [
-            "WATERINGCAN",
+            "WATERING CAN",
             "TRELLIS",
             "FERTILIZER",
-            "POTTEDPLANT"
+            "POTTED PLANT"
           ]
         }
       ],
@@ -20218,10 +20218,10 @@
           "picture": true
         },
         {
-          "category": "QUEENBEE",
+          "category": "QUEEN BEE",
           "words": [
             "CROWN",
-            "ROYALJELLY",
+            "ROYAL JELLY",
             "EGGS",
             "LEADER"
           ],
@@ -20277,7 +20277,7 @@
           "words": [
             "SMOKER",
             "HIVE",
-            "QUEENBEE",
+            "QUEEN BEE",
             "HONEYCOMB"
           ]
         }

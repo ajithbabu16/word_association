@@ -2,7 +2,7 @@
   "ver": "1.0.27",
   "importer": "image",
   "imported": true,
-  "uuid": "52038573-4fcb-4bf8-b7da-8cbe4be6bda4",
+  "uuid": "f630e4c3-dcb5-4c0a-955c-b989047bcbed",
   "files": [
     ".json",
     ".png"
@@ -10,14 +10,14 @@
   "subMetas": {
     "6c48a": {
       "importer": "texture",
-      "uuid": "52038573-4fcb-4bf8-b7da-8cbe4be6bda4@6c48a",
-      "displayName": "Board games",
+      "uuid": "f630e4c3-dcb5-4c0a-955c-b989047bcbed@6c48a",
+      "displayName": "Board Games",
       "id": "6c48a",
       "name": "texture",
       "userData": {
         "wrapModeS": "clamp-to-edge",
         "wrapModeT": "clamp-to-edge",
-        "imageUuidOrDatabaseUri": "52038573-4fcb-4bf8-b7da-8cbe4be6bda4",
+        "imageUuidOrDatabaseUri": "f630e4c3-dcb5-4c0a-955c-b989047bcbed",
         "isUuid": true,
         "visible": false,
         "minfilter": "linear",
@@ -34,8 +34,8 @@
     },
     "f9941": {
       "importer": "sprite-frame",
-      "uuid": "52038573-4fcb-4bf8-b7da-8cbe4be6bda4@f9941",
-      "displayName": "Board games",
+      "uuid": "f630e4c3-dcb5-4c0a-955c-b989047bcbed@f9941",
+      "displayName": "Board Games",
       "id": "f9941",
       "name": "spriteFrame",
       "userData": {
@@ -113,7 +113,7 @@
           ]
         },
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "52038573-4fcb-4bf8-b7da-8cbe4be6bda4@6c48a",
+        "imageUuidOrDatabaseUri": "f630e4c3-dcb5-4c0a-955c-b989047bcbed@6c48a",
         "atlasUuid": "",
         "trimType": "none"
       },
@@ -129,7 +129,7 @@
     "type": "sprite-frame",
     "fixAlphaTransparencyArtifacts": false,
     "hasAlpha": true,
-    "redirect": "52038573-4fcb-4bf8-b7da-8cbe4be6bda4@6c48a",
+    "redirect": "f630e4c3-dcb5-4c0a-955c-b989047bcbed@6c48a",
     "compressSettings": {
       "useCompressTexture": true,
       "presetId": "7338w0tqBO4pYqyiJNakvf"
