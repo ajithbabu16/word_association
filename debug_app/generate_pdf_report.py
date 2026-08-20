@@ -115,8 +115,9 @@ def main():
     print("Select Puzzle Type:")
     print("1. Main Puzzle")
     print("2. Daily Puzzle")
+    print("3. Bonus Special Level")
     
-    choice = input("Enter choice (1 or 2): ").strip()
+    choice = input("Enter choice (1, 2, or 3): ").strip()
     
     if choice == '1':
         start_level = int(input("Enter level from: "))
@@ -152,6 +153,23 @@ def main():
             headers.append(f"Stage {i}<br/>Words")
             
         create_pdf("daily_puzzle_report.pdf", results, headers)
+        
+    elif choice == '3':
+        start_level = int(input("Enter level from: "))
+        end_level = int(input("Enter level to: "))
+        
+        filepath = os.path.join("debug_app", "public", "special_levels.json")
+        if not os.path.exists(filepath):
+            filepath = os.path.join("public", "special_levels.json")
+            if not os.path.exists(filepath):
+                filepath = "special_levels.json" 
+            
+        with open(filepath, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+            
+        results = extract_long_words_main(data, start_level, end_level)
+        headers = ["Level", "Words (>=10 chars in a single word)"]
+        create_pdf("special_puzzle_report.pdf", results, headers)
     else:
         print("Invalid choice.")
 
