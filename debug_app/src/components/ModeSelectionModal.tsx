@@ -3,8 +3,8 @@ import { Calendar, Layers, CheckCircle2, Sparkles, Play } from 'lucide-react';
 
 interface ModeSelectionModalProps {
   isOpen: boolean;
-  activeMode: 'daily' | 'main' | 'prefab' | 'special';
-  onSelectMode: (mode: 'daily' | 'main' | 'prefab' | 'special') => void;
+  activeMode: 'daily' | 'main' | 'prefab' | 'special' | 'testcase';
+  onSelectMode: (mode: 'daily' | 'main' | 'prefab' | 'special' | 'testcase') => void;
   onClose?: () => void;
 }
 
@@ -255,6 +255,54 @@ export function ModeSelectionModal({
               </p>
             </div>
           </div>
+
+          {/* Test Case Mode Option */}
+          <div 
+            onClick={() => onSelectMode('testcase')}
+            style={{
+              padding: '20px',
+              borderRadius: '16px',
+              border: `2px solid ${activeMode === 'testcase' ? '#8b5cf6' : '#e2e8f0'}`,
+              backgroundColor: activeMode === 'testcase' ? '#f5f3ff' : '#ffffff',
+              cursor: 'pointer',
+              transition: 'all 0.2s ease',
+              display: 'flex',
+              alignItems: 'flex-start',
+              gap: '16px',
+              position: 'relative'
+            }}
+          >
+            <div style={{
+              width: '44px',
+              height: '44px',
+              borderRadius: '12px',
+              backgroundColor: activeMode === 'testcase' ? '#8b5cf6' : '#f1f5f9',
+              color: activeMode === 'testcase' ? '#ffffff' : '#64748b',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              flexShrink: 0
+            }}>
+              <Sparkles size={24} />
+            </div>
+            <div style={{ flex: 1 }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                <h3 style={{ margin: 0, fontSize: '18px', fontWeight: 700, color: '#0f172a' }}>
+                  Qubit Gen Automation Mode
+                </h3>
+                {activeMode === 'testcase' && (
+                  <span style={{ display: 'flex', alignItems: 'center', gap: '4px', fontSize: '13px', fontWeight: 700, color: '#8b5cf6' }}>
+                    <CheckCircle2 size={18} /> Active
+                  </span>
+                )}
+              </div>
+              <p style={{ margin: '6px 0 0 0', fontSize: '13px', color: '#475569', lineHeight: 1.5 }}>
+                • Upload Presentation Slides (PDF/PPTX)<br />
+                • Automated test case generation using Gemini AI<br />
+                • Export test cases directly to Excel
+              </p>
+            </div>
+          </div>
         </div>
 
         <div style={{ display: 'flex', gap: '12px' }}>
@@ -298,7 +346,7 @@ export function ModeSelectionModal({
               boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
             }}
           >
-            <Play size={18} /> Continue with {activeMode === 'main' ? 'Main Puzzle' : activeMode === 'special' ? 'Special Puzzle' : activeMode === 'prefab' ? 'Prefab Creation' : 'Daily Puzzle'} Mode
+            <Play size={18} /> Continue with {activeMode === 'main' ? 'Main Puzzle' : activeMode === 'special' ? 'Special Puzzle' : activeMode === 'prefab' ? 'Prefab Creation' : activeMode === 'testcase' ? 'Qubit Gen Automation' : 'Daily Puzzle'} Mode
           </button>
         </div>
       </div>

@@ -17,6 +17,7 @@ import html2canvas from 'html2canvas';
 import { AutoSolveModal, AutoSolveMode } from './components/AutoSolveModal';
 import { ModeSelectionModal } from './components/ModeSelectionModal';
 import { PrefabCreationView } from './components/PrefabCreationView';
+import { TestCaseGenerator } from './components/TestCaseGenerator';
 
 const engine = new PuzzleEngine();
 const decoder = new PuzzleLevelDecoder();
@@ -175,8 +176,8 @@ function StackedCategoryPill({ formed, total, isAnimating }: { formed: number; t
 }
 
 export default function App() {
-  // Active Mode: 'daily' | 'main' | 'prefab' | 'special'
-  const [activeMode, setActiveMode] = useState<'daily' | 'main' | 'prefab' | 'special'>('daily');
+  // Active Mode: 'daily' | 'main' | 'prefab' | 'special' | 'testcase'
+  const [activeMode, setActiveMode] = useState<'daily' | 'main' | 'prefab' | 'special' | 'testcase'>('daily');
   const [showModeModal, setShowModeModal] = useState<boolean>(true);
   const [isPillAnimating, setIsPillAnimating] = useState<boolean>(false);
 
@@ -326,7 +327,7 @@ export default function App() {
   }, []);
 
   // Mode change handler
-  const handleSelectMode = (mode: 'daily' | 'main' | 'prefab' | 'special') => {
+  const handleSelectMode = (mode: 'daily' | 'main' | 'prefab' | 'special' | 'testcase') => {
     setActiveMode(mode);
     setIsAutoSolving(false);
     setIsRangeAutoSolving(false);
@@ -1152,7 +1153,7 @@ export default function App() {
               display: 'flex',
               alignItems: 'center',
               gap: '8px',
-              backgroundColor: activeMode === 'main' ? '#7c3aed' : activeMode === 'special' ? '#db2777' : '#2563eb',
+              backgroundColor: activeMode === 'main' ? '#7c3aed' : activeMode === 'special' ? '#db2777' : activeMode === 'testcase' ? '#8b5cf6' : '#2563eb',
               color: 'white',
               border: 'none',
               padding: '6px 14px',
@@ -1164,7 +1165,7 @@ export default function App() {
             }}
           >
             {activeMode === 'main' || activeMode === 'special' ? <Layers size={16} /> : <Calendar size={16} />}
-            Mode: {activeMode === 'main' ? 'Main Puzzle (MP)' : activeMode === 'special' ? 'Special Puzzle (SP)' : 'Daily Puzzle (DP)'} 🔄
+            Mode: {activeMode === 'main' ? 'Main Puzzle (MP)' : activeMode === 'special' ? 'Special Puzzle (SP)' : activeMode === 'testcase' ? 'Qubit Gen Automation' : 'Daily Puzzle (DP)'} 🔄
           </button>
         </div>
 
@@ -1184,6 +1185,8 @@ export default function App() {
       <div className="app-container">
         {activeMode === 'prefab' ? (
           <PrefabCreationView />
+        ) : activeMode === 'testcase' ? (
+          <TestCaseGenerator onClose={() => setActiveMode('daily')} />
         ) : (
           <div className="device-simulator" ref={captureRef}>
             {/* SIMULATOR HEADER */}
@@ -1292,7 +1295,7 @@ export default function App() {
           </div>
         )}
 
-        {activeMode !== 'prefab' && (
+        {activeMode !== 'prefab' && activeMode !== 'testcase' && (
           <DebugDashboard
             activeMode={activeMode as 'daily' | 'main' | 'special'}
             currentDate={currentDate}
@@ -1337,7 +1340,7 @@ export default function App() {
 
         {showLiveView && (
           <LiveView 
-            activeMode={activeMode}
+            activeMode={activeMode as 'daily' | 'main' | 'prefab' | 'special'}
             trackingHistory={trackingHistory} 
             mainTrackingHistory={activeMode === 'special' ? specialTrackingHistory : mainTrackingHistory}
             onClose={() => setShowLiveView(false)} 
@@ -1346,7 +1349,7 @@ export default function App() {
 
         {showErrorView && (
           <ErrorView 
-            activeMode={activeMode}
+            activeMode={activeMode as 'daily' | 'main' | 'prefab' | 'special'}
             levelData={levelData} 
             mainLevelData={activeMode === 'special' ? specialLevelData : mainLevelData}
             onClose={() => setShowErrorView(false)} 
@@ -1356,7 +1359,7 @@ export default function App() {
         {showImageIssueView && (
           <ImageIssueView 
             levelData={activeMode === 'special' ? specialLevelData : mainLevelData}
-            activeMode={activeMode}
+            activeMode={activeMode as 'daily' | 'main' | 'prefab' | 'special'}
             onClose={() => setShowImageIssueView(false)} 
           />
         )}
