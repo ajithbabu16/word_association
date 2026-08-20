@@ -36,6 +36,8 @@ export function ModeSelectionModal({
         borderRadius: '20px',
         width: '100%',
         maxWidth: '560px',
+        maxHeight: '90vh',
+        overflowY: 'auto',
         padding: '32px',
         boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
         border: '1px solid #e2e8f0',
@@ -298,8 +300,8 @@ export function ModeSelectionModal({
               </div>
               <p style={{ margin: '6px 0 0 0', fontSize: '13px', color: '#475569', lineHeight: 1.5 }}>
                 • Upload Presentation Slides (PDF/PPTX)<br />
-                • Automated test case generation using Gemini AI<br />
-                • Export test cases directly to Excel
+                • Automated Qubit generation using Gemini AI<br />
+                • Export Qubits directly to Excel
               </p>
             </div>
           </div>

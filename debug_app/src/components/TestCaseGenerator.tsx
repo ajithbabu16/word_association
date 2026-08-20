@@ -94,7 +94,7 @@ Do not include markdown blocks like \`\`\`json. Just the raw JSON array.`;
 
     } catch (err: any) {
       console.error(err);
-      setError('Failed to generate test cases: ' + (err.message || 'Unknown error'));
+      setError('Failed to generate Qubits: ' + (err.message || 'Unknown error'));
     } finally {
       setIsProcessing(false);
     }
@@ -114,8 +114,8 @@ Do not include markdown blocks like \`\`\`json. Just the raw JSON array.`;
 
     const worksheet = XLSX.utils.json_to_sheet(dataForExcel);
     const workbook = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(workbook, worksheet, 'Test Cases');
-    XLSX.writeFile(workbook, 'Generated_Test_Cases.xlsx');
+    XLSX.utils.book_append_sheet(workbook, worksheet, 'Qubits');
+    XLSX.writeFile(workbook, 'Generated_Qubits.xlsx');
   };
 
   return (
@@ -131,7 +131,7 @@ Do not include markdown blocks like \`\`\`json. Just the raw JSON array.`;
         boxShadow: '0 10px 25px rgba(0,0,0,0.5)'
       }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <h2>Test Case Generator from Slides</h2>
+          <h2>Qubit Gen Automation from Slides</h2>
           <button onClick={onClose} style={{ background: 'transparent', border: 'none', color: 'white', fontSize: '24px', cursor: 'pointer' }}>×</button>
         </div>
 
@@ -164,7 +164,7 @@ Do not include markdown blocks like \`\`\`json. Just the raw JSON array.`;
               fontWeight: 'bold'
             }}
           >
-            {isProcessing ? 'Generating...' : 'Generate Test Cases'}
+            {isProcessing ? 'Generating...' : 'Generate Qubits'}
           </button>
         </div>
 
@@ -177,7 +177,7 @@ Do not include markdown blocks like \`\`\`json. Just the raw JSON array.`;
         {testCases.length > 0 && (
           <div style={{ marginTop: '16px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <h3>Generated Test Cases ({testCases.length})</h3>
+              <h3>Generated Qubits ({testCases.length})</h3>
               <button 
                 onClick={downloadExcel}
                 style={{ backgroundColor: '#10b981', color: 'white', padding: '8px 16px', border: 'none', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold' }}
