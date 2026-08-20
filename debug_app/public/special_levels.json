@@ -1,0 +1,6110 @@
+{
+  "kind": "special",
+  "version": 1,
+  "defaults": {
+    "size": "6x4",
+    "difficulty": "easy"
+  },
+  "levels": [
+    {
+      "id": 700001,
+      "levelNumber": 1,
+      "stageNumber": 1,
+      "size": "6x4",
+      "groups": [
+        {
+          "category": "HISTORIC BUILDINGS",
+          "words": [
+            "CASTLE",
+            "PALACE",
+            "FORTRESS",
+            "CATHEDRAL"
+          ]
+        },
+        {
+          "category": "PHARMACOLOGICAL FORMS",
+          "words": [
+            "OINTMENT",
+            "CAPSULE",
+            "TABLET",
+            "TINCTURE"
+          ]
+        },
+        {
+          "category": "ON THE SIDE OF THE ROAD",
+          "words": [
+            "DEBRIS",
+            "ROAD SIGN",
+            "GAS STATION",
+            "GUARDRAILS"
+          ]
+        },
+        {
+          "category": "PELOPONNESIAN WAR",
+          "words": [
+            "TRIREME",
+            "THUCYDIDES",
+            "SPARTA",
+            "ATHENS"
+          ]
+        },
+        {
+          "category": "SECURITY",
+          "words": [
+            "LOCK",
+            "KEYS",
+            "STRONGHOLD",
+            "ALARM"
+          ]
+        },
+        {
+          "category": "CAMPING",
+          "words": [
+            "LANTERN",
+            "SLEEPING BAG",
+            "WILDERNESS",
+            "BONFIRE"
+          ]
+        }
+      ],
+      "sequences": [
+        {
+          "name": "Init",
+          "data": [
+            20,
+            16,
+            12,
+            8,
+            4,
+            0,
+            21,
+            17,
+            13,
+            9,
+            5,
+            1,
+            22,
+            18,
+            14,
+            10,
+            6,
+            2,
+            23,
+            19,
+            15,
+            11,
+            7,
+            3
+          ]
+        },
+        {
+          "name": "#1",
+          "data": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        }
+      ]
+    },
+    {
+      "id": 700002,
+      "levelNumber": 2,
+      "stageNumber": 1,
+      "size": "6x4",
+      "groups": [
+        {
+          "category": "INTERNATIONAL GREETINGS",
+          "words": [
+            "FIST BUMP",
+            "HUG",
+            "BOW",
+            "HIGH FIVE"
+          ]
+        },
+        {
+          "category": "VERBS OF MOVEMENT",
+          "words": [
+            "CRAWL",
+            "WALK",
+            "JUMP",
+            "RUN"
+          ]
+        },
+        {
+          "category": "HEALTH METRICS",
+          "words": [
+            "GLUCOSE",
+            "BMI",
+            "BLOOD PRESSURE",
+            "HEART RATE"
+          ]
+        },
+        {
+          "category": "LITERARY CHARACTERS",
+          "words": [
+            "HAMLET",
+            "DORIAN GRAY",
+            "GATSBY",
+            "TOM SAWYER"
+          ]
+        },
+        {
+          "category": "EDIBLE SEEDS",
+          "words": [
+            "SESAME",
+            "FLAX",
+            "SUNFLOWER",
+            "CHIA"
+          ]
+        },
+        {
+          "category": "RIDEABLE ANIMALS",
+          "words": [
+            "YAK",
+            "CAMEL",
+            "ELEPHANT",
+            "MULE"
+          ]
+        }
+      ],
+      "sequences": [
+        {
+          "name": "Init",
+          "data": [
+            20,
+            16,
+            12,
+            8,
+            4,
+            0,
+            21,
+            17,
+            13,
+            9,
+            5,
+            1,
+            22,
+            18,
+            14,
+            10,
+            6,
+            2,
+            23,
+            19,
+            15,
+            11,
+            7,
+            3
+          ]
+        },
+        {
+          "name": "#1",
+          "data": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        }
+      ]
+    },
+    {
+      "id": 700003,
+      "levelNumber": 3,
+      "stageNumber": 1,
+      "size": "6x4",
+      "groups": [
+        {
+          "category": "COLD FOOD",
+          "words": [
+            "SUSHI",
+            "ICE CREAM",
+            "COLD COFFEE",
+            "GELATO"
+          ]
+        },
+        {
+          "category": "NATIONALITIES",
+          "words": [
+            "INDIAN",
+            "CHINESE",
+            "CANADIAN",
+            "POLISH"
+          ]
+        },
+        {
+          "category": "INVESTIGATION",
+          "words": [
+            "TESTIMONY",
+            "MYSTERY",
+            "CRIME SCENE",
+            "ALIBI"
+          ]
+        },
+        {
+          "category": "HAIRDRESSER",
+          "words": [
+            "COMB",
+            "SALON",
+            "SHAMPOO",
+            "BRAIDS"
+          ]
+        },
+        {
+          "category": "COMPUTER PORTS",
+          "words": [
+            "ETHERNET",
+            "VGA",
+            "HDMI",
+            "USB"
+          ]
+        },
+        {
+          "category": "COMMUNICATION TOOLS",
+          "words": [
+            "LETTER",
+            "COMPUTER",
+            "SMARTPHONE",
+            "WALKIE-TALKIE"
+          ]
+        }
+      ],
+      "sequences": [
+        {
+          "name": "Init",
+          "data": [
+            20,
+            16,
+            12,
+            8,
+            4,
+            0,
+            21,
+            17,
+            13,
+            9,
+            5,
+            1,
+            22,
+            18,
+            14,
+            10,
+            6,
+            2,
+            23,
+            19,
+            15,
+            11,
+            7,
+            3
+          ]
+        },
+        {
+          "name": "#1",
+          "data": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        }
+      ]
+    },
+    {
+      "id": 700004,
+      "levelNumber": 4,
+      "stageNumber": 1,
+      "size": "6x4",
+      "groups": [
+        {
+          "category": "THINGS WITH ROOFS",
+          "words": [
+            "GAZEBO",
+            "APARTMENT",
+            "CABIN",
+            "DOG HOUSE"
+          ]
+        },
+        {
+          "category": "SPANISH-SPEAKING COUNTRIES",
+          "words": [
+            "PERU",
+            "ARGENTINA",
+            "SPAIN",
+            "MEXICO"
+          ]
+        },
+        {
+          "category": "SLOT MACHINES",
+          "words": [
+            "JACKPOT",
+            "REELS",
+            "BONUS ROUND",
+            "PAYLINE"
+          ]
+        },
+        {
+          "category": "COMMON SURNAMES",
+          "words": [
+            "JOHNSON",
+            "SMITH",
+            "WILLIAMS",
+            "BROWN"
+          ]
+        },
+        {
+          "category": "CLOTHING DETAILS",
+          "words": [
+            "POCKET",
+            "ZIPPER",
+            "COLLAR",
+            "CUFF"
+          ]
+        },
+        {
+          "category": "MUSIC",
+          "words": [
+            "SINGER",
+            "LYRICS",
+            "FOLK",
+            "GUITAR"
+          ]
+        }
+      ],
+      "sequences": [
+        {
+          "name": "Init",
+          "data": [
+            20,
+            16,
+            12,
+            8,
+            4,
+            0,
+            21,
+            17,
+            13,
+            9,
+            5,
+            1,
+            22,
+            18,
+            14,
+            10,
+            6,
+            2,
+            23,
+            19,
+            15,
+            11,
+            7,
+            3
+          ]
+        },
+        {
+          "name": "#1",
+          "data": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        }
+      ]
+    },
+    {
+      "id": 700005,
+      "levelNumber": 5,
+      "stageNumber": 1,
+      "size": "6x4",
+      "groups": [
+        {
+          "category": "ALPHABET",
+          "words": [
+            "H",
+            "P",
+            "C",
+            "X"
+          ]
+        },
+        {
+          "category": "NIGHT CLUB LIFE",
+          "words": [
+            "DANCING",
+            "COCKTAIL",
+            "DJ",
+            "MUSIC"
+          ]
+        },
+        {
+          "category": "IN THE WATER",
+          "words": [
+            "BEAVER",
+            "STARFISH",
+            "MANATEE",
+            "PLATYPUS"
+          ]
+        },
+        {
+          "category": "TIME AND LIGHT",
+          "words": [
+            "MIRROR",
+            "SUNDIAL",
+            "CALENDAR",
+            "CAMERA"
+          ]
+        },
+        {
+          "category": "BEDROOM",
+          "words": [
+            "NIGHTSTAND",
+            "ALARM CLOCK",
+            "CURTAINS",
+            "MIRROR"
+          ]
+        },
+        {
+          "category": "TIME",
+          "words": [
+            "DATE",
+            "DAY",
+            "HOUR",
+            "SECOND"
+          ]
+        }
+      ],
+      "sequences": [
+        {
+          "name": "Init",
+          "data": [
+            20,
+            16,
+            12,
+            8,
+            4,
+            0,
+            21,
+            17,
+            13,
+            9,
+            5,
+            1,
+            22,
+            18,
+            14,
+            10,
+            6,
+            2,
+            23,
+            19,
+            15,
+            11,
+            7,
+            3
+          ]
+        },
+        {
+          "name": "#1",
+          "data": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        }
+      ]
+    },
+    {
+      "id": 700006,
+      "levelNumber": 6,
+      "stageNumber": 1,
+      "size": "6x4",
+      "groups": [
+        {
+          "category": "WORMS",
+          "words": [
+            "LEECH",
+            "EARTHWORM",
+            "FLATWORM",
+            "HOOKWORM"
+          ]
+        },
+        {
+          "category": "CATS BEHAVIORS",
+          "words": [
+            "PURRING",
+            "HISSING",
+            "MEOWING",
+            "KNEADING"
+          ]
+        },
+        {
+          "category": "SEAS",
+          "words": [
+            "CASPIAN",
+            "BALTIC",
+            "BERING",
+            "CARIBBEAN"
+          ]
+        },
+        {
+          "category": "LAKE",
+          "words": [
+            "ROCKS",
+            "WATER",
+            "FISH",
+            "PLANTS"
+          ]
+        },
+        {
+          "category": "VANS",
+          "words": [
+            "MINIVAN",
+            "PASSENGER",
+            "CARGO",
+            "HOOD"
+          ]
+        },
+        {
+          "category": "INSTRUMENT FAMILIES",
+          "words": [
+            "PERCUSSION",
+            "WOODWIND",
+            "BRASS",
+            "STRINGS"
+          ]
+        }
+      ],
+      "sequences": [
+        {
+          "name": "Init",
+          "data": [
+            20,
+            16,
+            12,
+            8,
+            4,
+            0,
+            21,
+            17,
+            13,
+            9,
+            5,
+            1,
+            22,
+            18,
+            14,
+            10,
+            6,
+            2,
+            23,
+            19,
+            15,
+            11,
+            7,
+            3
+          ]
+        },
+        {
+          "name": "#1",
+          "data": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        }
+      ]
+    },
+    {
+      "id": 700007,
+      "levelNumber": 7,
+      "stageNumber": 1,
+      "size": "6x4",
+      "groups": [
+        {
+          "category": "UNICORN",
+          "words": [
+            "MANE",
+            "HORN",
+            "RAINBOW",
+            "HORSE"
+          ]
+        },
+        {
+          "category": "COMICS",
+          "words": [
+            "THOUGHT BUBBLE",
+            "FRAME",
+            "SUPERHERO",
+            "GRAPHIC NOVEL"
+          ]
+        },
+        {
+          "category": "SCIENTIFIC THEORIES",
+          "words": [
+            "EVOLUTION",
+            "GENERAL RELATIVITY",
+            "QUANTUM THEORY",
+            "PLATE TECTONICS"
+          ]
+        },
+        {
+          "category": "PARTS OF A LAMP",
+          "words": [
+            "BULB",
+            "SWITCH",
+            "LAMPSHADE",
+            "SOCKET"
+          ]
+        },
+        {
+          "category": "CARTOGRAPHY",
+          "words": [
+            "MAP",
+            "COMPASS",
+            "PROJECTION",
+            "LATITUDE"
+          ]
+        },
+        {
+          "category": "COSMOLOGY",
+          "words": [
+            "BLACK HOLE",
+            "NEBULA",
+            "QUASAR",
+            "PULSAR"
+          ]
+        }
+      ],
+      "sequences": [
+        {
+          "name": "Init",
+          "data": [
+            20,
+            16,
+            12,
+            8,
+            4,
+            0,
+            21,
+            17,
+            13,
+            9,
+            5,
+            1,
+            22,
+            18,
+            14,
+            10,
+            6,
+            2,
+            23,
+            19,
+            15,
+            11,
+            7,
+            3
+          ]
+        },
+        {
+          "name": "#1",
+          "data": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        }
+      ]
+    },
+    {
+      "id": 700008,
+      "levelNumber": 8,
+      "stageNumber": 1,
+      "size": "6x4",
+      "groups": [
+        {
+          "category": "THINGS TO WATCH",
+          "words": [
+            "COMMERCIALS",
+            "ANIME",
+            "MOVIE",
+            "SERIES"
+          ]
+        },
+        {
+          "category": "CROSSING STRUCTURES",
+          "words": [
+            "TUNNEL",
+            "OVERPASS",
+            "BRIDGE",
+            "VIADUCT"
+          ]
+        },
+        {
+          "category": "BEACH DAY",
+          "words": [
+            "SUNSCREEN",
+            "TOWEL",
+            "SANDCASTLE",
+            "UMBRELLA"
+          ]
+        },
+        {
+          "category": "HINDUISM",
+          "words": [
+            "PUJA",
+            "VEDAS",
+            "DHARMA",
+            "KARMA"
+          ]
+        },
+        {
+          "category": "ALCOHOLIC DRINKS",
+          "words": [
+            "VODKA",
+            "MARTINI",
+            "BLOODY MARY",
+            "BEER"
+          ]
+        },
+        {
+          "category": "HOUSEHOLD APPLIANCES",
+          "words": [
+            "MIXER",
+            "GRILL",
+            "OVEN",
+            "WASHING MACHINE"
+          ]
+        }
+      ],
+      "sequences": [
+        {
+          "name": "Init",
+          "data": [
+            20,
+            16,
+            12,
+            8,
+            4,
+            0,
+            21,
+            17,
+            13,
+            9,
+            5,
+            1,
+            22,
+            18,
+            14,
+            10,
+            6,
+            2,
+            23,
+            19,
+            15,
+            11,
+            7,
+            3
+          ]
+        },
+        {
+          "name": "#1",
+          "data": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        }
+      ]
+    },
+    {
+      "id": 700009,
+      "levelNumber": 9,
+      "stageNumber": 1,
+      "size": "6x4",
+      "groups": [
+        {
+          "category": "BIOLOGY CLASS",
+          "words": [
+            "SLIDES",
+            "ORGANS",
+            "SKELETON",
+            "MICROSCOPE"
+          ]
+        },
+        {
+          "category": "HISTORICAL SOLDIERS",
+          "words": [
+            "SAMURAI",
+            "HOPLITE",
+            "LEGIONARY",
+            "KNIGHT"
+          ]
+        },
+        {
+          "category": "DOG BREEDS",
+          "words": [
+            "BOXER",
+            "LABRADOR",
+            "DALMATIAN",
+            "BULLDOG"
+          ]
+        },
+        {
+          "category": "MOVIES",
+          "words": [
+            "CINEMA",
+            "SUBTITLES",
+            "FILM DIRECTOR",
+            "THE SEVENTH SEAL"
+          ]
+        },
+        {
+          "category": "VIDEO GAME FRANCHISES",
+          "words": [
+            "GOD OF WAR",
+            "CIVILIZATION",
+            "FALLOUT",
+            "FINAL FANTASY"
+          ]
+        },
+        {
+          "category": "POKER ACTIONS",
+          "words": [
+            "FOLD",
+            "CHECK",
+            "BET",
+            "CALL"
+          ]
+        }
+      ],
+      "sequences": [
+        {
+          "name": "Init",
+          "data": [
+            20,
+            16,
+            12,
+            8,
+            4,
+            0,
+            21,
+            17,
+            13,
+            9,
+            5,
+            1,
+            22,
+            18,
+            14,
+            10,
+            6,
+            2,
+            23,
+            19,
+            15,
+            11,
+            7,
+            3
+          ]
+        },
+        {
+          "name": "#1",
+          "data": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        }
+      ]
+    },
+    {
+      "id": 700010,
+      "levelNumber": 10,
+      "stageNumber": 1,
+      "size": "6x4",
+      "groups": [
+        {
+          "category": "BUSINESS FUNCTIONS",
+          "words": [
+            "MARKETING",
+            "MANAGEMENT",
+            "FINANCE",
+            "OPERATIONS"
+          ]
+        },
+        {
+          "category": "EUROPEAN CAPITALS",
+          "words": [
+            "LONDON",
+            "ROME",
+            "PARIS",
+            "BERLIN"
+          ]
+        },
+        {
+          "category": "CURRENCIES",
+          "words": [
+            "DOLLAR",
+            "YUAN",
+            "LIRA",
+            "FRANC"
+          ]
+        },
+        {
+          "category": "FOUR-LEGGED ANIMALS",
+          "words": [
+            "SLOTH",
+            "ARMADILLO",
+            "WOLF",
+            "HORSE"
+          ]
+        },
+        {
+          "category": "COMMON SUPERPOWERS",
+          "words": [
+            "MIND CONTROL",
+            "FLIGHT",
+            "SUPER SPEED",
+            "TELEPATHY"
+          ]
+        },
+        {
+          "category": "RAINFOREST",
+          "words": [
+            "TOUCAN",
+            "HUMIDITY",
+            "VINES",
+            "CANOPY"
+          ]
+        }
+      ],
+      "sequences": [
+        {
+          "name": "Init",
+          "data": [
+            20,
+            16,
+            12,
+            8,
+            4,
+            0,
+            21,
+            17,
+            13,
+            9,
+            5,
+            1,
+            22,
+            18,
+            14,
+            10,
+            6,
+            2,
+            23,
+            19,
+            15,
+            11,
+            7,
+            3
+          ]
+        },
+        {
+          "name": "#1",
+          "data": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        }
+      ]
+    },
+    {
+      "id": 700011,
+      "levelNumber": 11,
+      "stageNumber": 1,
+      "size": "6x4",
+      "groups": [
+        {
+          "category": "FILLED WITH WATER",
+          "words": [
+            "POND",
+            "POOL",
+            "AQUARIUM",
+            "RESERVOIR"
+          ]
+        },
+        {
+          "category": "HOOVED ANIMALS",
+          "words": [
+            "COW",
+            "DEER",
+            "GIRAFFE",
+            "OX"
+          ]
+        },
+        {
+          "category": "THINGS THAT MELT",
+          "words": [
+            "CHEESE",
+            "ICE",
+            "BUTTER",
+            "CHOCOLATE"
+          ]
+        },
+        {
+          "category": "DEVICES WITH A KEYBOARD",
+          "words": [
+            "COMPUTER",
+            "SMARTPHONE",
+            "TABLET",
+            "PIANO"
+          ]
+        },
+        {
+          "category": "MINERAL HARDNESS",
+          "words": [
+            "TALC",
+            "GYPSUM",
+            "CALCITE",
+            "DIAMOND"
+          ]
+        },
+        {
+          "category": "SET OF CLOTHING",
+          "words": [
+            "SUIT",
+            "HAT",
+            "UNDERWEAR",
+            "SHOES"
+          ]
+        }
+      ],
+      "sequences": [
+        {
+          "name": "Init",
+          "data": [
+            20,
+            16,
+            12,
+            8,
+            4,
+            0,
+            21,
+            17,
+            13,
+            9,
+            5,
+            1,
+            22,
+            18,
+            14,
+            10,
+            6,
+            2,
+            23,
+            19,
+            15,
+            11,
+            7,
+            3
+          ]
+        },
+        {
+          "name": "#1",
+          "data": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        }
+      ]
+    },
+    {
+      "id": 700012,
+      "levelNumber": 12,
+      "stageNumber": 1,
+      "size": "6x4",
+      "groups": [
+        {
+          "category": "PRODUCT DESIGN",
+          "words": [
+            "PROTOTYPE",
+            "WIREFRAME",
+            "IDEA",
+            "USER RESEARCH"
+          ]
+        },
+        {
+          "category": "PARTY NIGHT",
+          "words": [
+            "DJ",
+            "MARTINI GLASS",
+            "DANCES",
+            "FOOD"
+          ]
+        },
+        {
+          "category": "SWIMMING STYLES",
+          "words": [
+            "BUTTERFLY",
+            "FREESTYLE",
+            "BACKSTROKE",
+            "BREASTSTROKE"
+          ]
+        },
+        {
+          "category": "TITANIC",
+          "words": [
+            "JAMES",
+            "ICEBERG",
+            "SHIP",
+            "JACK"
+          ]
+        },
+        {
+          "category": "MOTORSPORTS",
+          "words": [
+            "LAP",
+            "PIT STOP",
+            "CIRCUIT",
+            "RACING"
+          ]
+        },
+        {
+          "category": "SPA TREATMENTS",
+          "words": [
+            "FACIAL",
+            "MASSAGE",
+            "MANICURE",
+            "PEELING"
+          ]
+        }
+      ],
+      "sequences": [
+        {
+          "name": "Init",
+          "data": [
+            20,
+            16,
+            12,
+            8,
+            4,
+            0,
+            21,
+            17,
+            13,
+            9,
+            5,
+            1,
+            22,
+            18,
+            14,
+            10,
+            6,
+            2,
+            23,
+            19,
+            15,
+            11,
+            7,
+            3
+          ]
+        },
+        {
+          "name": "#1",
+          "data": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        }
+      ]
+    },
+    {
+      "id": 700013,
+      "levelNumber": 13,
+      "stageNumber": 1,
+      "size": "6x4",
+      "groups": [
+        {
+          "category": "BRITISH ENGLISH WORDS",
+          "words": [
+            "BLOKE",
+            "LORRY",
+            "BONNET",
+            "BEETROOT"
+          ]
+        },
+        {
+          "category": "VIDEO GAME STORAGE MEDIA",
+          "words": [
+            "OPTICAL DISC",
+            "CARTRIDGE",
+            "DIGITAL DOWNLOAD",
+            "MEMORY CARD"
+          ]
+        },
+        {
+          "category": "EASILY MISPLACED",
+          "words": [
+            "KEYS",
+            "HAT",
+            "GLOVES",
+            "SCARF"
+          ]
+        },
+        {
+          "category": "GIRL WITH A PEARL EARRING",
+          "words": [
+            "EARRING",
+            "JEWELRY",
+            "PORTRAIT",
+            "JAN VERMEER"
+          ]
+        },
+        {
+          "category": "MUSIC BAND",
+          "words": [
+            "DRUM",
+            "GUITAR",
+            "KEYBOARD",
+            "SINGER"
+          ]
+        },
+        {
+          "category": "HAIR COLORS",
+          "words": [
+            "BLONDE",
+            "BRUNETTE",
+            "REDHEAD",
+            "BLACK"
+          ]
+        }
+      ],
+      "sequences": [
+        {
+          "name": "Init",
+          "data": [
+            20,
+            16,
+            12,
+            8,
+            4,
+            0,
+            21,
+            17,
+            13,
+            9,
+            5,
+            1,
+            22,
+            18,
+            14,
+            10,
+            6,
+            2,
+            23,
+            19,
+            15,
+            11,
+            7,
+            3
+          ]
+        },
+        {
+          "name": "#1",
+          "data": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        }
+      ]
+    },
+    {
+      "id": 700014,
+      "levelNumber": 14,
+      "stageNumber": 1,
+      "size": "6x4",
+      "groups": [
+        {
+          "category": "WRITERS",
+          "words": [
+            "AUSTEN",
+            "KAFKA",
+            "TWAIN",
+            "DICKENS"
+          ]
+        },
+        {
+          "category": "WOMAN NAMES",
+          "words": [
+            "ELENA",
+            "MARIA",
+            "SOFIA",
+            "ELISA"
+          ]
+        },
+        {
+          "category": "TOOTH DECAY CAUSES",
+          "words": [
+            "BACTERIA",
+            "LOLLIPOPS",
+            "PLAQUE",
+            "GENETICS"
+          ]
+        },
+        {
+          "category": "HERPETOLOGY",
+          "words": [
+            "SCUTE",
+            "MOLTING",
+            "TURTLE",
+            "LIZARD"
+          ]
+        },
+        {
+          "category": "OPTICAL EFFECTS",
+          "words": [
+            "PARALLAX",
+            "REFLECTION",
+            "CHROMATIC ABERRATION",
+            "MIRAGE"
+          ]
+        },
+        {
+          "category": "NAUTICAL PURSUITS",
+          "words": [
+            "DIVING",
+            "FISHING",
+            "BOAT",
+            "SAILING"
+          ]
+        }
+      ],
+      "sequences": [
+        {
+          "name": "Init",
+          "data": [
+            20,
+            16,
+            12,
+            8,
+            4,
+            0,
+            21,
+            17,
+            13,
+            9,
+            5,
+            1,
+            22,
+            18,
+            14,
+            10,
+            6,
+            2,
+            23,
+            19,
+            15,
+            11,
+            7,
+            3
+          ]
+        },
+        {
+          "name": "#1",
+          "data": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        }
+      ]
+    },
+    {
+      "id": 700015,
+      "levelNumber": 15,
+      "stageNumber": 1,
+      "size": "6x4",
+      "groups": [
+        {
+          "category": "COMPETITIVE HONORS",
+          "words": [
+            "MEDAL",
+            "TROPHY",
+            "PODIUM",
+            "CERTIFICATE"
+          ]
+        },
+        {
+          "category": "LITERARY GENRES",
+          "words": [
+            "MEMOIR",
+            "BIOGRAPHY",
+            "THRILLER",
+            "POETRY"
+          ]
+        },
+        {
+          "category": "HIGHLY FLAMMABLE THINGS",
+          "words": [
+            "GASOLINE",
+            "PROPANE",
+            "ALCOHOL",
+            "LIGHTER FLUID"
+          ]
+        },
+        {
+          "category": "VEXILLOLOGY",
+          "words": [
+            "CANTON",
+            "HALYARD",
+            "FIELD",
+            "EMBLEM"
+          ]
+        },
+        {
+          "category": "MUSHROOMS",
+          "words": [
+            "DEATH CAP",
+            "CRIMINI",
+            "AMANITA",
+            "BOLETUS"
+          ]
+        },
+        {
+          "category": "ARCADE",
+          "words": [
+            "TETRIS",
+            "PONG",
+            "PACMAN",
+            "PINBALL"
+          ]
+        }
+      ],
+      "sequences": [
+        {
+          "name": "Init",
+          "data": [
+            20,
+            16,
+            12,
+            8,
+            4,
+            0,
+            21,
+            17,
+            13,
+            9,
+            5,
+            1,
+            22,
+            18,
+            14,
+            10,
+            6,
+            2,
+            23,
+            19,
+            15,
+            11,
+            7,
+            3
+          ]
+        },
+        {
+          "name": "#1",
+          "data": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        }
+      ]
+    },
+    {
+      "id": 700016,
+      "levelNumber": 16,
+      "stageNumber": 1,
+      "size": "6x4",
+      "groups": [
+        {
+          "category": "COFFEE",
+          "words": [
+            "ESPRESSO",
+            "CORTADO",
+            "COFFEE BEAN",
+            "COFFEE MACHINE"
+          ]
+        },
+        {
+          "category": "TEA",
+          "words": [
+            "EARL GREY",
+            "GREEN",
+            "BLACK",
+            "GINGER"
+          ]
+        },
+        {
+          "category": "BODY FLUIDS",
+          "words": [
+            "TEARS",
+            "BLOOD",
+            "SWEAT",
+            "SALIVA"
+          ]
+        },
+        {
+          "category": "RELIGIOUS ITEMS",
+          "words": [
+            "ICON",
+            "CRUCIFIX",
+            "ALTAR",
+            "RELIC"
+          ]
+        },
+        {
+          "category": "SPANISH-SPEAKING",
+          "words": [
+            "COLOMBIA",
+            "SPAIN",
+            "ARGENTINA",
+            "MEXICO"
+          ]
+        },
+        {
+          "category": "FAMILY MEMBERS",
+          "words": [
+            "FATHER",
+            "SISTER",
+            "UNCLE",
+            "BROTHER"
+          ]
+        }
+      ],
+      "sequences": [
+        {
+          "name": "Init",
+          "data": [
+            20,
+            16,
+            12,
+            8,
+            4,
+            0,
+            21,
+            17,
+            13,
+            9,
+            5,
+            1,
+            22,
+            18,
+            14,
+            10,
+            6,
+            2,
+            23,
+            19,
+            15,
+            11,
+            7,
+            3
+          ]
+        },
+        {
+          "name": "#1",
+          "data": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        }
+      ]
+    },
+    {
+      "id": 700017,
+      "levelNumber": 17,
+      "stageNumber": 1,
+      "size": "6x4",
+      "groups": [
+        {
+          "category": "GOVERNMENT AGENCIES",
+          "words": [
+            "NASA",
+            "EPA",
+            "FEMA",
+            "FDA"
+          ]
+        },
+        {
+          "category": "FAMOUS HISTORIC FIGURES",
+          "words": [
+            "CLEOPATRA",
+            "GALILEO",
+            "LINCOLN",
+            "LUTHER"
+          ]
+        },
+        {
+          "category": "CLOCKS",
+          "words": [
+            "HOUR HAND",
+            "CLOCK FACE",
+            "COUNTDOWN",
+            "ALARM"
+          ]
+        },
+        {
+          "category": "CRIME SCENE",
+          "words": [
+            "EVIDENCE",
+            "DETECTIVE",
+            "MAGNIFYING GLASS",
+            "FOOTPRINTS"
+          ]
+        },
+        {
+          "category": "RESTAURANT",
+          "words": [
+            "TABLE",
+            "CHEF",
+            "MENU",
+            "BEEF WELLINGTON"
+          ]
+        },
+        {
+          "category": "CARBONARA",
+          "words": [
+            "SPAGHETTI",
+            "PARMESAN",
+            "GUANCIALE",
+            "YOLKS"
+          ]
+        }
+      ],
+      "sequences": [
+        {
+          "name": "Init",
+          "data": [
+            20,
+            16,
+            12,
+            8,
+            4,
+            0,
+            21,
+            17,
+            13,
+            9,
+            5,
+            1,
+            22,
+            18,
+            14,
+            10,
+            6,
+            2,
+            23,
+            19,
+            15,
+            11,
+            7,
+            3
+          ]
+        },
+        {
+          "name": "#1",
+          "data": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        }
+      ]
+    },
+    {
+      "id": 700018,
+      "levelNumber": 18,
+      "stageNumber": 1,
+      "size": "6x4",
+      "groups": [
+        {
+          "category": "LOVECRAFTIAN THEMES",
+          "words": [
+            "MADNESS",
+            "COSMIC HORROR",
+            "ANCIENT GODS",
+            "CIVILIZATIONAL DECLINE"
+          ]
+        },
+        {
+          "category": "LABORATORY APPARATUS",
+          "words": [
+            "BURETTE",
+            "RETORT",
+            "PIPETTE",
+            "BEAKER"
+          ]
+        },
+        {
+          "category": "HEALTHY EATING",
+          "words": [
+            "VEGETABLES",
+            "NUTS",
+            "SALAD",
+            "OLIVE"
+          ]
+        },
+        {
+          "category": "ART BASICS",
+          "words": [
+            "TEXTURE",
+            "COLORS",
+            "LINES",
+            "SHAPES"
+          ]
+        },
+        {
+          "category": "LIVING ROOM FURNITURE",
+          "words": [
+            "BOOKSHELF",
+            "ARMCHAIR",
+            "SOFA",
+            "COFFEE TABLE"
+          ]
+        },
+        {
+          "category": "TASTE PROPERTIES",
+          "words": [
+            "SOUR",
+            "SPICY",
+            "SALTY",
+            "SWEET"
+          ]
+        }
+      ],
+      "sequences": [
+        {
+          "name": "Init",
+          "data": [
+            20,
+            16,
+            12,
+            8,
+            4,
+            0,
+            21,
+            17,
+            13,
+            9,
+            5,
+            1,
+            22,
+            18,
+            14,
+            10,
+            6,
+            2,
+            23,
+            19,
+            15,
+            11,
+            7,
+            3
+          ]
+        },
+        {
+          "name": "#1",
+          "data": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        }
+      ]
+    },
+    {
+      "id": 700019,
+      "levelNumber": 19,
+      "stageNumber": 1,
+      "size": "6x4",
+      "groups": [
+        {
+          "category": "SURVIVAL SKILLS",
+          "words": [
+            "NAVIGATION",
+            "CRAFTING",
+            "FORAGING",
+            "FISHING"
+          ]
+        },
+        {
+          "category": "COOKING VERBS",
+          "words": [
+            "SIMMER",
+            "BRAISE",
+            "CHOP",
+            "GRILL"
+          ]
+        },
+        {
+          "category": "SEASONS IN A YEAR",
+          "words": [
+            "SPRING",
+            "WINTER",
+            "FALL",
+            "MONSOON"
+          ]
+        },
+        {
+          "category": "CRIME & JUSTICE",
+          "words": [
+            "DETECTIVE",
+            "LAWYER",
+            "PRISON",
+            "POLICE OFFICER"
+          ]
+        },
+        {
+          "category": "FITNESS",
+          "words": [
+            "GYM",
+            "PILATES",
+            "JOGGING",
+            "YOGA"
+          ]
+        },
+        {
+          "category": "PERSONALITY TYPES",
+          "words": [
+            "EXTRAVERT",
+            "AMBIVERT",
+            "OMNIVERT",
+            "INTROVERT"
+          ]
+        }
+      ],
+      "sequences": [
+        {
+          "name": "Init",
+          "data": [
+            20,
+            16,
+            12,
+            8,
+            4,
+            0,
+            21,
+            17,
+            13,
+            9,
+            5,
+            1,
+            22,
+            18,
+            14,
+            10,
+            6,
+            2,
+            23,
+            19,
+            15,
+            11,
+            7,
+            3
+          ]
+        },
+        {
+          "name": "#1",
+          "data": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        }
+      ]
+    },
+    {
+      "id": 700020,
+      "levelNumber": 20,
+      "stageNumber": 1,
+      "size": "6x4",
+      "groups": [
+        {
+          "category": "INFLUENCER LIFE",
+          "words": [
+            "CONTENT",
+            "FOLLOWERS",
+            "LIVESTREAM",
+            "SPONSORSHIP"
+          ]
+        },
+        {
+          "category": "TROPICAL ISLANDS",
+          "words": [
+            "MAURITIUS",
+            "BORA BORA",
+            "MALDIVES",
+            "HAWAII"
+          ]
+        },
+        {
+          "category": "THINGS TO LIE ON",
+          "words": [
+            "COUCH",
+            "BED",
+            "SOFA",
+            "HAMMOCK"
+          ]
+        },
+        {
+          "category": "RECTANGULAR THINGS",
+          "words": [
+            "DOOR",
+            "CHOCOLATE BAR",
+            "FRIDGE",
+            "PAINTING"
+          ]
+        },
+        {
+          "category": "MUSIC PLAYING MACHINES",
+          "words": [
+            "JUKEBOX",
+            "PERSONAL STEREO",
+            "MP3 PLAYER",
+            "GRAMOPHONE"
+          ]
+        },
+        {
+          "category": "20TH CENTURY WRITERS",
+          "words": [
+            "TONI MORRISON",
+            "GEORGE ORWELL",
+            "VIRGINIA WOOLF",
+            "GABRIEL GARCIA MARQUEZ"
+          ]
+        }
+      ],
+      "sequences": [
+        {
+          "name": "Init",
+          "data": [
+            20,
+            16,
+            12,
+            8,
+            4,
+            0,
+            21,
+            17,
+            13,
+            9,
+            5,
+            1,
+            22,
+            18,
+            14,
+            10,
+            6,
+            2,
+            23,
+            19,
+            15,
+            11,
+            7,
+            3
+          ]
+        },
+        {
+          "name": "#1",
+          "data": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        }
+      ]
+    },
+    {
+      "id": 700021,
+      "levelNumber": 21,
+      "stageNumber": 1,
+      "size": "6x4",
+      "groups": [
+        {
+          "category": "CHESS",
+          "words": [
+            "QUEEN",
+            "CHECKMATE",
+            "ROOK",
+            "KING"
+          ]
+        },
+        {
+          "category": "WINTER OLYMPIC SPORTS",
+          "words": [
+            "CURLING",
+            "BOBSLED",
+            "BIATHLON",
+            "SKELETON"
+          ]
+        },
+        {
+          "category": "HAVE SLOPES",
+          "words": [
+            "ROADS",
+            "MOUNTAINS",
+            "ROOFS",
+            "SKI TRAILS"
+          ]
+        },
+        {
+          "category": "FABRICS",
+          "words": [
+            "WOOL",
+            "DENIM",
+            "COTTON",
+            "VELVET"
+          ]
+        },
+        {
+          "category": "BIOME TYPE",
+          "words": [
+            "SAVANNA",
+            "TUNDRA",
+            "DESERT",
+            "RAIN FOREST"
+          ]
+        },
+        {
+          "category": "BIG CITY",
+          "words": [
+            "BANK",
+            "HOSPITAL",
+            "MUSEUM",
+            "HOTEL"
+          ]
+        }
+      ],
+      "sequences": [
+        {
+          "name": "Init",
+          "data": [
+            20,
+            16,
+            12,
+            8,
+            4,
+            0,
+            21,
+            17,
+            13,
+            9,
+            5,
+            1,
+            22,
+            18,
+            14,
+            10,
+            6,
+            2,
+            23,
+            19,
+            15,
+            11,
+            7,
+            3
+          ]
+        },
+        {
+          "name": "#1",
+          "data": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        }
+      ]
+    },
+    {
+      "id": 700022,
+      "levelNumber": 22,
+      "stageNumber": 1,
+      "size": "6x4",
+      "groups": [
+        {
+          "category": "COMIC BOOK CHARACTERS",
+          "words": [
+            "HULK",
+            "WOLVERINE",
+            "WONDER WOMAN",
+            "SUPERHERO"
+          ]
+        },
+        {
+          "category": "SOUND-RELATED WORDS",
+          "words": [
+            "MUSIC",
+            "ECHO",
+            "VOLUME",
+            "WHISPER"
+          ]
+        },
+        {
+          "category": "THE LITTLE PRINCE",
+          "words": [
+            "BAOBAB",
+            "ELEPHANT IN BOA",
+            "ROSE",
+            "PLANET"
+          ]
+        },
+        {
+          "category": "TRAVELING PROFESSIONS",
+          "words": [
+            "FLIGHT ATTENDANT",
+            "TRUCK DRIVER",
+            "SAILOR",
+            "PILOT"
+          ]
+        },
+        {
+          "category": "ANCIENT ENTERTAINMENT",
+          "words": [
+            "OLYMPIC GAMES",
+            "GREEK TRAGEDIES",
+            "MEDIEVAL JOUSTS",
+            "BEAST HUNT"
+          ]
+        },
+        {
+          "category": "ITEMS KEPT IN A SAFE",
+          "words": [
+            "DOCUMENTS",
+            "CASH",
+            "PASSPORT",
+            "JEWELRY"
+          ]
+        }
+      ],
+      "sequences": [
+        {
+          "name": "Init",
+          "data": [
+            20,
+            16,
+            12,
+            8,
+            4,
+            0,
+            21,
+            17,
+            13,
+            9,
+            5,
+            1,
+            22,
+            18,
+            14,
+            10,
+            6,
+            2,
+            23,
+            19,
+            15,
+            11,
+            7,
+            3
+          ]
+        },
+        {
+          "name": "#1",
+          "data": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        }
+      ]
+    },
+    {
+      "id": 700023,
+      "levelNumber": 23,
+      "stageNumber": 1,
+      "size": "6x4",
+      "groups": [
+        {
+          "category": "DANCE FORMS",
+          "words": [
+            "HIP-HOP",
+            "ZUMBA",
+            "SALSA",
+            "JAZZ"
+          ]
+        },
+        {
+          "category": "ROBOT",
+          "words": [
+            "AI UNIT",
+            "SENSOR",
+            "ARM",
+            "MECHA"
+          ]
+        },
+        {
+          "category": "WARM MEALS",
+          "words": [
+            "BEEF STEW",
+            "SPICY CHILI",
+            "LASAGNA",
+            "SOUP"
+          ]
+        },
+        {
+          "category": "POPULAR DIPS",
+          "words": [
+            "GUACAMOLE",
+            "HUMMUS",
+            "SALSA",
+            "TZATZIKI"
+          ]
+        },
+        {
+          "category": "FUTURE TECHNOLOGIES",
+          "words": [
+            "TELEPORT",
+            "SPACE TRAVEL",
+            "FLYING CAR",
+            "ROBOT"
+          ]
+        },
+        {
+          "category": "AUTOMOTIVE ENGINES",
+          "words": [
+            "INTERNAL COMBUSTION",
+            "ELECTRIC",
+            "HYBRID",
+            "DIESEL"
+          ]
+        }
+      ],
+      "sequences": [
+        {
+          "name": "Init",
+          "data": [
+            20,
+            16,
+            12,
+            8,
+            4,
+            0,
+            21,
+            17,
+            13,
+            9,
+            5,
+            1,
+            22,
+            18,
+            14,
+            10,
+            6,
+            2,
+            23,
+            19,
+            15,
+            11,
+            7,
+            3
+          ]
+        },
+        {
+          "name": "#1",
+          "data": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        }
+      ]
+    },
+    {
+      "id": 700024,
+      "levelNumber": 24,
+      "stageNumber": 1,
+      "size": "6x4",
+      "groups": [
+        {
+          "category": "THEATER PLAY",
+          "words": [
+            "ACT",
+            "SCENE",
+            "SCRIPT",
+            "CURTAIN CALL"
+          ]
+        },
+        {
+          "category": "SCI-FI",
+          "words": [
+            "WARP DRIVE",
+            "ANDROID",
+            "HYPERSPACE",
+            "TIME TRAVEL"
+          ]
+        },
+        {
+          "category": "GEOLOGICAL LANDFORMS",
+          "words": [
+            "CANYON",
+            "VALLEY",
+            "MOUNTAINS",
+            "PLATEAU"
+          ]
+        },
+        {
+          "category": "COLD BEVERAGES",
+          "words": [
+            "MILKSHAKE",
+            "LEMONADE",
+            "SMOOTHIE",
+            "ICED TEA"
+          ]
+        },
+        {
+          "category": "LOUD NOISES",
+          "words": [
+            "SIREN",
+            "THUNDER",
+            "FIREWORKS",
+            "DRUMS"
+          ]
+        },
+        {
+          "category": "INSECT PROTECTION METHOD",
+          "words": [
+            "ESSENTIAL OIL",
+            "REPELLENT",
+            "NET",
+            "BUG ZAPPER"
+          ]
+        }
+      ],
+      "sequences": [
+        {
+          "name": "Init",
+          "data": [
+            20,
+            16,
+            12,
+            8,
+            4,
+            0,
+            21,
+            17,
+            13,
+            9,
+            5,
+            1,
+            22,
+            18,
+            14,
+            10,
+            6,
+            2,
+            23,
+            19,
+            15,
+            11,
+            7,
+            3
+          ]
+        },
+        {
+          "name": "#1",
+          "data": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        }
+      ]
+    },
+    {
+      "id": 700025,
+      "levelNumber": 25,
+      "stageNumber": 1,
+      "size": "6x4",
+      "groups": [
+        {
+          "category": "VIDEO GAME GENRES",
+          "words": [
+            "ADVENTURE",
+            "RPG",
+            "PUZZLE",
+            "STRATEGY"
+          ]
+        },
+        {
+          "category": "POETRY FORMS",
+          "words": [
+            "HAIKU",
+            "LIMERICK",
+            "SONNET",
+            "VILLANELLE"
+          ]
+        },
+        {
+          "category": "ENOLOGY",
+          "words": [
+            "TERROIR",
+            "TANNIN",
+            "VINTAGE",
+            "MUST"
+          ]
+        },
+        {
+          "category": "ACCOMMODATION",
+          "words": [
+            "MANSION",
+            "PALACE",
+            "GUESTHOUSE",
+            "HOSTEL"
+          ]
+        },
+        {
+          "category": "LEISURE PURSUITS",
+          "words": [
+            "GALLERY",
+            "THEATER",
+            "MUSIC",
+            "COCKTAIL"
+          ]
+        },
+        {
+          "category": "ESSENTIAL DOG COMMANDS",
+          "words": [
+            "SIT",
+            "FETCH",
+            "HEEL",
+            "STAY"
+          ]
+        }
+      ],
+      "sequences": [
+        {
+          "name": "Init",
+          "data": [
+            20,
+            16,
+            12,
+            8,
+            4,
+            0,
+            21,
+            17,
+            13,
+            9,
+            5,
+            1,
+            22,
+            18,
+            14,
+            10,
+            6,
+            2,
+            23,
+            19,
+            15,
+            11,
+            7,
+            3
+          ]
+        },
+        {
+          "name": "#1",
+          "data": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        }
+      ]
+    },
+    {
+      "id": 700026,
+      "levelNumber": 26,
+      "stageNumber": 1,
+      "size": "6x4",
+      "groups": [
+        {
+          "category": "MYTHOLOGY",
+          "words": [
+            "ANUBIS",
+            "CERBERUS",
+            "MARS",
+            "ATHENA"
+          ]
+        },
+        {
+          "category": "GEOLOGIC TIME SCALE",
+          "words": [
+            "ERA",
+            "PERIOD",
+            "EPOCH",
+            "EON"
+          ]
+        },
+        {
+          "category": "NUMISMATICS",
+          "words": [
+            "EXERGUE",
+            "OBVERSE",
+            "RIM",
+            "REVERSE"
+          ]
+        },
+        {
+          "category": "PARTY SUPPLIES",
+          "words": [
+            "PRESENTS",
+            "CONFETTI",
+            "BALLOONS",
+            "PARTYHAT"
+          ]
+        },
+        {
+          "category": "NATURAL DISASTERS",
+          "words": [
+            "VOLCANIC ERUPTION",
+            "TSUNAMI",
+            "VOLCANICERUPTION",
+            "TWISTER"
+          ]
+        },
+        {
+          "category": "BREAKFAST TABLE",
+          "words": [
+            "CHEESE",
+            "TOAST",
+            "COFFEE",
+            "BUTTER"
+          ]
+        }
+      ],
+      "sequences": [
+        {
+          "name": "Init",
+          "data": [
+            20,
+            16,
+            12,
+            8,
+            4,
+            0,
+            21,
+            17,
+            13,
+            9,
+            5,
+            1,
+            22,
+            18,
+            14,
+            10,
+            6,
+            2,
+            23,
+            19,
+            15,
+            11,
+            7,
+            3
+          ]
+        },
+        {
+          "name": "#1",
+          "data": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        }
+      ]
+    },
+    {
+      "id": 700027,
+      "levelNumber": 27,
+      "stageNumber": 1,
+      "size": "6x4",
+      "groups": [
+        {
+          "category": "PRINT MEDIA",
+          "words": [
+            "BROCHURE",
+            "BOOK",
+            "MAGAZINE",
+            "NEWSPAPER"
+          ]
+        },
+        {
+          "category": "MONASTERY",
+          "words": [
+            "CHAPEL",
+            "CLOISTER",
+            "MONKS",
+            "VOWS"
+          ]
+        },
+        {
+          "category": "HARBORS",
+          "words": [
+            "MARINA",
+            "QUAYS",
+            "DOCKS",
+            "PIER"
+          ]
+        },
+        {
+          "category": "SYMBOLS IN ANCIENT EGYPT",
+          "words": [
+            "EYE OF HORUS",
+            "TYET",
+            "CARTOUCHE",
+            "DJED"
+          ]
+        },
+        {
+          "category": "FLAMING THINGS",
+          "words": [
+            "SUN",
+            "CANDLE",
+            "FIREPLACE",
+            "FIRE"
+          ]
+        },
+        {
+          "category": "HERBIVORES",
+          "words": [
+            "GUINEA PIG",
+            "HIPPO",
+            "GROUNDHOG",
+            "BUFFALO"
+          ]
+        }
+      ],
+      "sequences": [
+        {
+          "name": "Init",
+          "data": [
+            20,
+            16,
+            12,
+            8,
+            4,
+            0,
+            21,
+            17,
+            13,
+            9,
+            5,
+            1,
+            22,
+            18,
+            14,
+            10,
+            6,
+            2,
+            23,
+            19,
+            15,
+            11,
+            7,
+            3
+          ]
+        },
+        {
+          "name": "#1",
+          "data": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        }
+      ]
+    },
+    {
+      "id": 700028,
+      "levelNumber": 28,
+      "stageNumber": 1,
+      "size": "6x4",
+      "groups": [
+        {
+          "category": "RENEWABLE ENERGY",
+          "words": [
+            "WIND",
+            "GEOTHERMAL POWER",
+            "RIVER",
+            "BIOFUEL"
+          ]
+        },
+        {
+          "category": "TYPES OF HABITATIONS",
+          "words": [
+            "COTTAGE",
+            "APARTMENT",
+            "HOUSE",
+            "HUT"
+          ]
+        },
+        {
+          "category": "ASTRONOMICAL OBJECTS",
+          "words": [
+            "PLANET",
+            "STAR",
+            "ASTEROID",
+            "SATURN"
+          ]
+        },
+        {
+          "category": "UK FLAG",
+          "words": [
+            "CROSS",
+            "WHITE STRIPE",
+            "BLUE BACKGROUND",
+            "RED STRIPE"
+          ]
+        },
+        {
+          "category": "OCEAN CURRENTS",
+          "words": [
+            "GULF STREAM",
+            "CANARY CURRENT",
+            "KUROSHIO CURRENT",
+            "ALASKA CURRENT"
+          ]
+        },
+        {
+          "category": "SPORTS SCORING TERMS",
+          "words": [
+            "MATCH",
+            "GAME",
+            "SET",
+            "POINT"
+          ]
+        }
+      ],
+      "sequences": [
+        {
+          "name": "Init",
+          "data": [
+            20,
+            16,
+            12,
+            8,
+            4,
+            0,
+            21,
+            17,
+            13,
+            9,
+            5,
+            1,
+            22,
+            18,
+            14,
+            10,
+            6,
+            2,
+            23,
+            19,
+            15,
+            11,
+            7,
+            3
+          ]
+        },
+        {
+          "name": "#1",
+          "data": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        }
+      ]
+    },
+    {
+      "id": 700029,
+      "levelNumber": 29,
+      "stageNumber": 1,
+      "size": "6x4",
+      "groups": [
+        {
+          "category": "AMERICAN STATE CAPITALS",
+          "words": [
+            "PHOENIX",
+            "AUSTIN",
+            "ATLANTA",
+            "DENVER"
+          ]
+        },
+        {
+          "category": "CLASSIC CARD GAMES",
+          "words": [
+            "BRIDGE",
+            "POKER",
+            "BLACKJACK",
+            "SOLITAIRE"
+          ]
+        },
+        {
+          "category": "BIO CLASSIFICATIONS",
+          "words": [
+            "SPECIES",
+            "DOMAIN",
+            "FAMILY",
+            "KINGDOM"
+          ]
+        },
+        {
+          "category": "NEW SEVEN WONDERS",
+          "words": [
+            "MACHU PICCHU",
+            "TAJ MAHAL",
+            "PETRA",
+            "CHICHEN ITZA"
+          ]
+        },
+        {
+          "category": "HOME OWNERSHIP",
+          "words": [
+            "MORTGAGE",
+            "RENOVATION",
+            "MAINTENANCE",
+            "INSURANCE"
+          ]
+        },
+        {
+          "category": "OPTICS",
+          "words": [
+            "TELESCOPE",
+            "SPYGLASS",
+            "REFRACTION",
+            "PHOTON"
+          ]
+        }
+      ],
+      "sequences": [
+        {
+          "name": "Init",
+          "data": [
+            20,
+            16,
+            12,
+            8,
+            4,
+            0,
+            21,
+            17,
+            13,
+            9,
+            5,
+            1,
+            22,
+            18,
+            14,
+            10,
+            6,
+            2,
+            23,
+            19,
+            15,
+            11,
+            7,
+            3
+          ]
+        },
+        {
+          "name": "#1",
+          "data": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        }
+      ]
+    },
+    {
+      "id": 700030,
+      "levelNumber": 30,
+      "stageNumber": 1,
+      "size": "6x4",
+      "groups": [
+        {
+          "category": "FARM",
+          "words": [
+            "FARM ANIMALS",
+            "TRACTOR",
+            "GARDEN",
+            "FARM MACHINERY"
+          ]
+        },
+        {
+          "category": "FAMOUS VOLCANOES",
+          "words": [
+            "FUJI",
+            "ETNA",
+            "VESUVIUS",
+            "KRAKATOA"
+          ]
+        },
+        {
+          "category": "TINY THINGS",
+          "words": [
+            "SPECK",
+            "MICROBE",
+            "GRAIN",
+            "DROPLET"
+          ]
+        },
+        {
+          "category": "DECADES",
+          "words": [
+            "1970S",
+            "1960S",
+            "1940S",
+            "1950S"
+          ]
+        },
+        {
+          "category": "FOOD TYPES",
+          "words": [
+            "PASTA",
+            "FAST FOOD",
+            "SALAD",
+            "SOUP"
+          ]
+        },
+        {
+          "category": "AUSTRALIAN MARSUPIALS",
+          "words": [
+            "WALLABY",
+            "KOALA",
+            "TASMANIAN DEVIL",
+            "WOMBAT"
+          ]
+        }
+      ],
+      "sequences": [
+        {
+          "name": "Init",
+          "data": [
+            20,
+            16,
+            12,
+            8,
+            4,
+            0,
+            21,
+            17,
+            13,
+            9,
+            5,
+            1,
+            22,
+            18,
+            14,
+            10,
+            6,
+            2,
+            23,
+            19,
+            15,
+            11,
+            7,
+            3
+          ]
+        },
+        {
+          "name": "#1",
+          "data": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        }
+      ]
+    },
+    {
+      "id": 700031,
+      "levelNumber": 31,
+      "stageNumber": 1,
+      "size": "6x4",
+      "groups": [
+        {
+          "category": "CITY LANDMARKS",
+          "words": [
+            "BANK",
+            "LIBRARY",
+            "HOSPITAL",
+            "MALL"
+          ]
+        },
+        {
+          "category": "NIGHT CLUB",
+          "words": [
+            "BAR",
+            "DANCE FLOOR",
+            "CROWD",
+            "DJ"
+          ]
+        },
+        {
+          "category": "CREATE",
+          "words": [
+            "GENERATE",
+            "DEVELOP",
+            "DESIGN",
+            "INVENT"
+          ]
+        },
+        {
+          "category": "SOUPS",
+          "words": [
+            "GAZPACHO",
+            "FRENCH ONION",
+            "SAIMIN",
+            "RAMEN"
+          ]
+        },
+        {
+          "category": "PROGRAMMING DATA TYPES",
+          "words": [
+            "INTEGER",
+            "FLOAT",
+            "BOOLEAN",
+            "STRING"
+          ]
+        },
+        {
+          "category": "WRITERS STARTING WITH J",
+          "words": [
+            "JOHN STEINBECK",
+            "JANE AUSTEN",
+            "JULES VERNE",
+            "JAMES JOYCE"
+          ]
+        }
+      ],
+      "sequences": [
+        {
+          "name": "Init",
+          "data": [
+            20,
+            16,
+            12,
+            8,
+            4,
+            0,
+            21,
+            17,
+            13,
+            9,
+            5,
+            1,
+            22,
+            18,
+            14,
+            10,
+            6,
+            2,
+            23,
+            19,
+            15,
+            11,
+            7,
+            3
+          ]
+        },
+        {
+          "name": "#1",
+          "data": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        }
+      ]
+    },
+    {
+      "id": 700032,
+      "levelNumber": 32,
+      "stageNumber": 1,
+      "size": "6x4",
+      "groups": [
+        {
+          "category": "AEROSPACE",
+          "words": [
+            "ROVER",
+            "SATELLITE",
+            "FUSELAGE",
+            "NACELLE"
+          ]
+        },
+        {
+          "category": "SENSES",
+          "words": [
+            "TASTE",
+            "SMELL",
+            "TOUCH",
+            "HEARING"
+          ]
+        },
+        {
+          "category": "CALENDAR SYSTEMS",
+          "words": [
+            "GREGORIAN",
+            "JULIAN",
+            "HEBREW",
+            "MAYAN"
+          ]
+        },
+        {
+          "category": "CLEANING TOOLS",
+          "words": [
+            "BROOM",
+            "SCRUB",
+            "MOP",
+            "VACUUM CLEANER"
+          ]
+        },
+        {
+          "category": "VOLCANO",
+          "words": [
+            "MAGMA",
+            "CRATER",
+            "ASH CLOUD",
+            "LAVA"
+          ]
+        },
+        {
+          "category": "BEACH GEAR",
+          "words": [
+            "SUN HAT",
+            "TOWEL",
+            "FLIP-FLOPS",
+            "PARASOL"
+          ]
+        }
+      ],
+      "sequences": [
+        {
+          "name": "Init",
+          "data": [
+            20,
+            16,
+            12,
+            8,
+            4,
+            0,
+            21,
+            17,
+            13,
+            9,
+            5,
+            1,
+            22,
+            18,
+            14,
+            10,
+            6,
+            2,
+            23,
+            19,
+            15,
+            11,
+            7,
+            3
+          ]
+        },
+        {
+          "name": "#1",
+          "data": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        }
+      ]
+    },
+    {
+      "id": 700033,
+      "levelNumber": 33,
+      "stageNumber": 1,
+      "size": "6x4",
+      "groups": [
+        {
+          "category": "WEATHER TYPES",
+          "words": [
+            "CLEAR",
+            "FOGGY",
+            "SUNNY",
+            "RAINY"
+          ]
+        },
+        {
+          "category": "TYPES OF LANDFORMS",
+          "words": [
+            "JUNGLE",
+            "DESERT",
+            "MOUNTAINS",
+            "VALLEY"
+          ]
+        },
+        {
+          "category": "WORN ON FEET",
+          "words": [
+            "SOCK",
+            "UGG",
+            "FOOTWEAR",
+            "ANKLET"
+          ]
+        },
+        {
+          "category": "JUNGLE FAUNA",
+          "words": [
+            "MONKEY",
+            "JAGUAR",
+            "SLOTH",
+            "TROPICALBIRDS"
+          ]
+        },
+        {
+          "category": "ROYALS",
+          "words": [
+            "DUKE",
+            "PRINCE",
+            "QUEEN",
+            "KING"
+          ]
+        },
+        {
+          "category": "CHEMISTRY BONDS",
+          "words": [
+            "COVALENT",
+            "IONIC",
+            "HYDROGEN",
+            "METALLIC"
+          ]
+        }
+      ],
+      "sequences": [
+        {
+          "name": "Init",
+          "data": [
+            20,
+            16,
+            12,
+            8,
+            4,
+            0,
+            21,
+            17,
+            13,
+            9,
+            5,
+            1,
+            22,
+            18,
+            14,
+            10,
+            6,
+            2,
+            23,
+            19,
+            15,
+            11,
+            7,
+            3
+          ]
+        },
+        {
+          "name": "#1",
+          "data": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        }
+      ]
+    },
+    {
+      "id": 700034,
+      "levelNumber": 34,
+      "stageNumber": 1,
+      "size": "6x4",
+      "groups": [
+        {
+          "category": "19TH CENTURY PAINTERS",
+          "words": [
+            "MONET",
+            "MANET",
+            "DEGAS",
+            "VAN GOGH"
+          ]
+        },
+        {
+          "category": "NORDIC COUNTRIES",
+          "words": [
+            "DENMARK",
+            "FINLAND",
+            "NORWAY",
+            "SWEDEN"
+          ]
+        },
+        {
+          "category": "ART FORMS",
+          "words": [
+            "DANCES",
+            "LITERATURE",
+            "MUSIC",
+            "THEATER"
+          ]
+        },
+        {
+          "category": "NOBLE GASES",
+          "words": [
+            "ARGON",
+            "RADON",
+            "XENON",
+            "KRYPTON"
+          ]
+        },
+        {
+          "category": "YARD FEATURES",
+          "words": [
+            "LAWN",
+            "SHED",
+            "FENCE",
+            "GARDEN"
+          ]
+        },
+        {
+          "category": "TRADITIONAL CLOTHING",
+          "words": [
+            "SARAFAN",
+            "PONCHO",
+            "SARI",
+            "KILT"
+          ]
+        }
+      ],
+      "sequences": [
+        {
+          "name": "Init",
+          "data": [
+            20,
+            16,
+            12,
+            8,
+            4,
+            0,
+            21,
+            17,
+            13,
+            9,
+            5,
+            1,
+            22,
+            18,
+            14,
+            10,
+            6,
+            2,
+            23,
+            19,
+            15,
+            11,
+            7,
+            3
+          ]
+        },
+        {
+          "name": "#1",
+          "data": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        }
+      ]
+    },
+    {
+      "id": 700035,
+      "levelNumber": 35,
+      "stageNumber": 1,
+      "size": "6x4",
+      "groups": [
+        {
+          "category": "ARCHAEOLOGY",
+          "words": [
+            "FOSSIL",
+            "AMULET",
+            "RUINS",
+            "EXCAVATION"
+          ]
+        },
+        {
+          "category": "PARTS OF A BUILDING",
+          "words": [
+            "BALCONY",
+            "STAIRS",
+            "PORCH",
+            "CHIMNEY"
+          ]
+        },
+        {
+          "category": "POSTAL SERVICE",
+          "words": [
+            "PACKAGE",
+            "POSTAGE",
+            "LETTER",
+            "MAILMAN"
+          ]
+        },
+        {
+          "category": "MEASUREMENT UNITS",
+          "words": [
+            "LITER",
+            "GRAM",
+            "VOLT",
+            "INCH"
+          ]
+        },
+        {
+          "category": "SPACE LAW",
+          "words": [
+            "ORBITAL DEBRIS",
+            "REGISTRATION",
+            "TREATY",
+            "LIABILITY"
+          ]
+        },
+        {
+          "category": "TOURIST SPOTS",
+          "words": [
+            "AMUSEMENT PARK",
+            "MUSEUM",
+            "AQUARIUM",
+            "ZOO"
+          ]
+        }
+      ],
+      "sequences": [
+        {
+          "name": "Init",
+          "data": [
+            20,
+            16,
+            12,
+            8,
+            4,
+            0,
+            21,
+            17,
+            13,
+            9,
+            5,
+            1,
+            22,
+            18,
+            14,
+            10,
+            6,
+            2,
+            23,
+            19,
+            15,
+            11,
+            7,
+            3
+          ]
+        },
+        {
+          "name": "#1",
+          "data": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        }
+      ]
+    },
+    {
+      "id": 700036,
+      "levelNumber": 36,
+      "stageNumber": 1,
+      "size": "6x4",
+      "groups": [
+        {
+          "category": "STATES OF MATTER",
+          "words": [
+            "FLUIDS",
+            "GAS",
+            "FLUID",
+            "PLASMA"
+          ]
+        },
+        {
+          "category": "IN THE ROOM",
+          "words": [
+            "WINDOW",
+            "FLOOR",
+            "CEILING",
+            "WALLS"
+          ]
+        },
+        {
+          "category": "GREEN THINGS",
+          "words": [
+            "GRASS",
+            "CROCODILE",
+            "AVOCADO",
+            "LEAF"
+          ]
+        },
+        {
+          "category": "IGNEOUS ROCKS",
+          "words": [
+            "GRANITE",
+            "PUMICE",
+            "BASALT",
+            "OBSIDIAN"
+          ]
+        },
+        {
+          "category": "TYPES OF BRIDGES",
+          "words": [
+            "ARCH",
+            "SUSPENSION",
+            "PONTOON",
+            "CANTILEVER"
+          ]
+        },
+        {
+          "category": "ARCTIC FAUNA",
+          "words": [
+            "WALRUS",
+            "POLAR BEAR",
+            "SEAL",
+            "ARCTIC FOX"
+          ]
+        }
+      ],
+      "sequences": [
+        {
+          "name": "Init",
+          "data": [
+            20,
+            16,
+            12,
+            8,
+            4,
+            0,
+            21,
+            17,
+            13,
+            9,
+            5,
+            1,
+            22,
+            18,
+            14,
+            10,
+            6,
+            2,
+            23,
+            19,
+            15,
+            11,
+            7,
+            3
+          ]
+        },
+        {
+          "name": "#1",
+          "data": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        }
+      ]
+    },
+    {
+      "id": 700037,
+      "levelNumber": 37,
+      "stageNumber": 1,
+      "size": "6x4",
+      "groups": [
+        {
+          "category": "ANIMAL FAMILIES",
+          "words": [
+            "FELINE",
+            "CANINE",
+            "CAPRINE",
+            "URSINE"
+          ]
+        },
+        {
+          "category": "EATING ESTABLISHMENTS",
+          "words": [
+            "DINER",
+            "CAFE",
+            "RESTAURANT",
+            "BAKERY"
+          ]
+        },
+        {
+          "category": "MEDICINE",
+          "words": [
+            "AMBULANCE",
+            "DOCTOR",
+            "PILLS",
+            "HOSPITAL"
+          ]
+        },
+        {
+          "category": "CAR RACING",
+          "words": [
+            "PIT STOP",
+            "RACING CAR",
+            "FORMULA 1",
+            "LAP"
+          ]
+        },
+        {
+          "category": "ANCIENT LANDMARKS",
+          "words": [
+            "ROME",
+            "PYRAMIDS",
+            "STONEHENGE",
+            "MACHU PICCHU"
+          ]
+        },
+        {
+          "category": "ASSOCIATED WITH IRELAND",
+          "words": [
+            "LEPRECHAUN",
+            "SHAMROCK",
+            "CELTIC KNOT",
+            "CLADDAGH"
+          ]
+        }
+      ],
+      "sequences": [
+        {
+          "name": "Init",
+          "data": [
+            20,
+            16,
+            12,
+            8,
+            4,
+            0,
+            21,
+            17,
+            13,
+            9,
+            5,
+            1,
+            22,
+            18,
+            14,
+            10,
+            6,
+            2,
+            23,
+            19,
+            15,
+            11,
+            7,
+            3
+          ]
+        },
+        {
+          "name": "#1",
+          "data": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        }
+      ]
+    },
+    {
+      "id": 700038,
+      "levelNumber": 38,
+      "stageNumber": 1,
+      "size": "6x4",
+      "groups": [
+        {
+          "category": "SPARE MONEY",
+          "words": [
+            "VACATION",
+            "INVESTMENTS",
+            "SAVINGS",
+            "HOBBIES"
+          ]
+        },
+        {
+          "category": "AT THE HOSPITAL",
+          "words": [
+            "WARD",
+            "PATIENT",
+            "LABORATORY",
+            "NURSE"
+          ]
+        },
+        {
+          "category": "PAPER TO DIGITAL",
+          "words": [
+            "RESUME",
+            "LETTER",
+            "CALENDAR",
+            "PHOTO"
+          ]
+        },
+        {
+          "category": "SPACE",
+          "words": [
+            "ROCKET",
+            "SATELLITE",
+            "ASTRONAUT",
+            "ORBIT"
+          ]
+        },
+        {
+          "category": "TECTONIC PLATES",
+          "words": [
+            "NAZCA",
+            "EURASIAN",
+            "PACIFIC",
+            "ANATOLIAN"
+          ]
+        },
+        {
+          "category": "ARTISAN BREAD STEPS",
+          "words": [
+            "BAKE",
+            "KNEAD",
+            "PROOF",
+            "SCORE"
+          ]
+        }
+      ],
+      "sequences": [
+        {
+          "name": "Init",
+          "data": [
+            20,
+            16,
+            12,
+            8,
+            4,
+            0,
+            21,
+            17,
+            13,
+            9,
+            5,
+            1,
+            22,
+            18,
+            14,
+            10,
+            6,
+            2,
+            23,
+            19,
+            15,
+            11,
+            7,
+            3
+          ]
+        },
+        {
+          "name": "#1",
+          "data": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        }
+      ]
+    },
+    {
+      "id": 700039,
+      "levelNumber": 39,
+      "stageNumber": 1,
+      "size": "6x4",
+      "groups": [
+        {
+          "category": "ATOMS",
+          "words": [
+            "NUCLEUS",
+            "ELECTRON",
+            "NEUTRON",
+            "PROTON"
+          ]
+        },
+        {
+          "category": "SPELEOLOGY",
+          "words": [
+            "STALAGMITE",
+            "COLUMN",
+            "FLOWSTONE",
+            "STALACTITE"
+          ]
+        },
+        {
+          "category": "GREEK MYTHS",
+          "words": [
+            "AGAPE",
+            "KAIROS",
+            "LOGOS",
+            "THEATER"
+          ]
+        },
+        {
+          "category": "FROZEN THINGS",
+          "words": [
+            "ICE CUBE",
+            "GLACIER",
+            "ICECREAM",
+            "ICEBERG"
+          ]
+        },
+        {
+          "category": "OPTICAL PHENOMENA",
+          "words": [
+            "RAINBOW",
+            "AURORA",
+            "MIRAGE",
+            "REFRACTION"
+          ]
+        },
+        {
+          "category": "SI UNITS",
+          "words": [
+            "GRAM",
+            "LITRE",
+            "KELVIN",
+            "METRE"
+          ]
+        }
+      ],
+      "sequences": [
+        {
+          "name": "Init",
+          "data": [
+            20,
+            16,
+            12,
+            8,
+            4,
+            0,
+            21,
+            17,
+            13,
+            9,
+            5,
+            1,
+            22,
+            18,
+            14,
+            10,
+            6,
+            2,
+            23,
+            19,
+            15,
+            11,
+            7,
+            3
+          ]
+        },
+        {
+          "name": "#1",
+          "data": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        }
+      ]
+    },
+    {
+      "id": 700040,
+      "levelNumber": 40,
+      "stageNumber": 1,
+      "size": "6x4",
+      "groups": [
+        {
+          "category": "SPORT EVENTS",
+          "words": [
+            "FIFA WORLD CUP",
+            "TOUR DE FRANCE",
+            "WORLD CUP",
+            "DAKAR RALLY"
+          ]
+        },
+        {
+          "category": "DESERT",
+          "words": [
+            "CAMEL",
+            "MIRAGE",
+            "DUNE",
+            "HEAT"
+          ]
+        },
+        {
+          "category": "FAMOUS PAINTERS",
+          "words": [
+            "PICASSO",
+            "MONET",
+            "RENOIR",
+            "VAN GOGH"
+          ]
+        },
+        {
+          "category": "TYPES OF CHEESE",
+          "words": [
+            "FETA",
+            "PECORINO",
+            "MANCHEGO",
+            "BRIE"
+          ]
+        },
+        {
+          "category": "GREEN FOOD",
+          "words": [
+            "AVOCADO",
+            "SPINACH",
+            "EDAMAME",
+            "GREEN PEPPER"
+          ]
+        },
+        {
+          "category": "FICTIONAL CITIES",
+          "words": [
+            "GOTHAM CITY",
+            "RIVENDELL",
+            "ZION",
+            "CITY"
+          ]
+        }
+      ],
+      "sequences": [
+        {
+          "name": "Init",
+          "data": [
+            20,
+            16,
+            12,
+            8,
+            4,
+            0,
+            21,
+            17,
+            13,
+            9,
+            5,
+            1,
+            22,
+            18,
+            14,
+            10,
+            6,
+            2,
+            23,
+            19,
+            15,
+            11,
+            7,
+            3
+          ]
+        },
+        {
+          "name": "#1",
+          "data": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        }
+      ]
+    },
+    {
+      "id": 700041,
+      "levelNumber": 41,
+      "stageNumber": 1,
+      "size": "6x4",
+      "groups": [
+        {
+          "category": "ANCIENT CITIES",
+          "words": [
+            "BABYLON",
+            "CARTHAGE",
+            "POMPEII",
+            "SPARTA"
+          ]
+        },
+        {
+          "category": "CONTAINERS",
+          "words": [
+            "BOX",
+            "PITCHER",
+            "CAN",
+            "BOTTLE"
+          ]
+        },
+        {
+          "category": "GNOMES",
+          "words": [
+            "WHIMSICAL",
+            "TINY",
+            "MAGICAL",
+            "GRUMPY"
+          ]
+        },
+        {
+          "category": "CONCERT",
+          "words": [
+            "SETLIST",
+            "DANCES",
+            "ENCORE",
+            "BACKSTAGE"
+          ]
+        },
+        {
+          "category": "MEDICAL SPECIALTIES",
+          "words": [
+            "NURSE",
+            "DENTIST",
+            "SURGEON",
+            "THERAPIST"
+          ]
+        },
+        {
+          "category": "HUMAN MOVEMENTS",
+          "words": [
+            "JUMPING",
+            "CRAWLING",
+            "RUNNING",
+            "JOGGING"
+          ]
+        }
+      ],
+      "sequences": [
+        {
+          "name": "Init",
+          "data": [
+            20,
+            16,
+            12,
+            8,
+            4,
+            0,
+            21,
+            17,
+            13,
+            9,
+            5,
+            1,
+            22,
+            18,
+            14,
+            10,
+            6,
+            2,
+            23,
+            19,
+            15,
+            11,
+            7,
+            3
+          ]
+        },
+        {
+          "name": "#1",
+          "data": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        }
+      ]
+    },
+    {
+      "id": 700042,
+      "levelNumber": 42,
+      "stageNumber": 1,
+      "size": "6x4",
+      "groups": [
+        {
+          "category": "MODERN COMMUNICATION",
+          "words": [
+            "STREAM",
+            "EMAIL",
+            "TEXT MESSAGE",
+            "VIDEO CHAT"
+          ]
+        },
+        {
+          "category": "BROTH ESSENTIALS",
+          "words": [
+            "SPICES",
+            "WATER",
+            "SEASONING",
+            "VEGETABLES"
+          ]
+        },
+        {
+          "category": "MARINE BIOLOGY",
+          "words": [
+            "KELP",
+            "BENTHOS",
+            "NEKTON",
+            "PLANKTON"
+          ]
+        },
+        {
+          "category": "OFFICE",
+          "words": [
+            "APPLIANCES",
+            "OFFICE SUPPLIES",
+            "CEO",
+            "FURNITURE"
+          ]
+        },
+        {
+          "category": "THINGS THAT GROW QUICKLY",
+          "words": [
+            "INFLATION",
+            "PUPPY",
+            "WEED",
+            "KIDS"
+          ]
+        },
+        {
+          "category": "TIME MEASURING DEVICES",
+          "words": [
+            "TIMER",
+            "SUNDIAL",
+            "STOPWATCH",
+            "TIME"
+          ]
+        }
+      ],
+      "sequences": [
+        {
+          "name": "Init",
+          "data": [
+            20,
+            16,
+            12,
+            8,
+            4,
+            0,
+            21,
+            17,
+            13,
+            9,
+            5,
+            1,
+            22,
+            18,
+            14,
+            10,
+            6,
+            2,
+            23,
+            19,
+            15,
+            11,
+            7,
+            3
+          ]
+        },
+        {
+          "name": "#1",
+          "data": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        }
+      ]
+    },
+    {
+      "id": 700043,
+      "levelNumber": 43,
+      "stageNumber": 1,
+      "size": "6x4",
+      "groups": [
+        {
+          "category": "NAVIGATION TOOLS",
+          "words": [
+            "DRIFT BOTTLE",
+            "MAP",
+            "STAR MAP",
+            "ASTROLABE"
+          ]
+        },
+        {
+          "category": "SOFTWARE DEVELOPMENT",
+          "words": [
+            "CODING",
+            "COMPILER",
+            "BUG",
+            "VERSION CONTROL"
+          ]
+        },
+        {
+          "category": "FLOORING",
+          "words": [
+            "LAMINATE",
+            "CARPET",
+            "HARDWOOD",
+            "PARQUET"
+          ]
+        },
+        {
+          "category": "SICK DAY",
+          "words": [
+            "REST",
+            "COUGH",
+            "MEDICINE",
+            "FEVER"
+          ]
+        },
+        {
+          "category": "GODS AND GODDESSES",
+          "words": [
+            "POSEIDON",
+            "ODIN",
+            "NJORD",
+            "CETO"
+          ]
+        },
+        {
+          "category": "16TH CENTURY PAINTERS",
+          "words": [
+            "BOSCH",
+            "BRUEGEL",
+            "TITIAN",
+            "EL GRECO"
+          ]
+        }
+      ],
+      "sequences": [
+        {
+          "name": "Init",
+          "data": [
+            20,
+            16,
+            12,
+            8,
+            4,
+            0,
+            21,
+            17,
+            13,
+            9,
+            5,
+            1,
+            22,
+            18,
+            14,
+            10,
+            6,
+            2,
+            23,
+            19,
+            15,
+            11,
+            7,
+            3
+          ]
+        },
+        {
+          "name": "#1",
+          "data": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        }
+      ]
+    },
+    {
+      "id": 700044,
+      "levelNumber": 44,
+      "stageNumber": 1,
+      "size": "6x4",
+      "groups": [
+        {
+          "category": "PLACES YOU HAVE TO WAIT",
+          "words": [
+            "AMUSEMENT PARKS",
+            "BUS STOP",
+            "AIRPORTS",
+            "GROCERY STORES"
+          ]
+        },
+        {
+          "category": "SEAFOOD DISHES",
+          "words": [
+            "GRILLED SALMON",
+            "LOBSTER ROLL",
+            "PAELLA",
+            "NAMASU"
+          ]
+        },
+        {
+          "category": "TYPES OF SOIL",
+          "words": [
+            "CLAY",
+            "PEAT",
+            "SAND",
+            "GRAVEL"
+          ]
+        },
+        {
+          "category": "DANGERS ON THE WATER",
+          "words": [
+            "PREDATORY FISH",
+            "DROWNING",
+            "WAVE",
+            "JELLYFISH"
+          ]
+        },
+        {
+          "category": "RENAISSANCE",
+          "words": [
+            "TELESCOPE",
+            "HUMANISM",
+            "SISTINE CHAPEL",
+            "MONA LISA"
+          ]
+        },
+        {
+          "category": "FIRST DATE",
+          "words": [
+            "DINNER",
+            "EYE CONTACT",
+            "ROSE",
+            "CANDLES"
+          ]
+        }
+      ],
+      "sequences": [
+        {
+          "name": "Init",
+          "data": [
+            20,
+            16,
+            12,
+            8,
+            4,
+            0,
+            21,
+            17,
+            13,
+            9,
+            5,
+            1,
+            22,
+            18,
+            14,
+            10,
+            6,
+            2,
+            23,
+            19,
+            15,
+            11,
+            7,
+            3
+          ]
+        },
+        {
+          "name": "#1",
+          "data": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        }
+      ]
+    },
+    {
+      "id": 700045,
+      "levelNumber": 45,
+      "stageNumber": 1,
+      "size": "6x4",
+      "groups": [
+        {
+          "category": "COOKING",
+          "words": [
+            "PEEL",
+            "SPICES",
+            "ROAST",
+            "CHOP"
+          ]
+        },
+        {
+          "category": "EVENING AT HOME",
+          "words": [
+            "CHESS",
+            "BOOK",
+            "CINEMA",
+            "GAMER"
+          ]
+        },
+        {
+          "category": "ANCIENT LEGENDS",
+          "words": [
+            "EGYPT",
+            "PERSIA",
+            "GREECE",
+            "BABYLON"
+          ]
+        },
+        {
+          "category": "WILLIAM SHAKESPEARE",
+          "words": [
+            "JULIET",
+            "MACBETH",
+            "HAMLET",
+            "ROMEO"
+          ]
+        },
+        {
+          "category": "WARM DRINKS",
+          "words": [
+            "MULLED CIDER",
+            "TEA",
+            "HOT CHOCOLATE",
+            "LATTE"
+          ]
+        },
+        {
+          "category": "GAMING",
+          "words": [
+            "CARDGAMES",
+            "ROLEPLAY",
+            "BOARDGAMES",
+            "VIDEOGAMES"
+          ]
+        }
+      ],
+      "sequences": [
+        {
+          "name": "Init",
+          "data": [
+            20,
+            16,
+            12,
+            8,
+            4,
+            0,
+            21,
+            17,
+            13,
+            9,
+            5,
+            1,
+            22,
+            18,
+            14,
+            10,
+            6,
+            2,
+            23,
+            19,
+            15,
+            11,
+            7,
+            3
+          ]
+        },
+        {
+          "name": "#1",
+          "data": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        }
+      ]
+    },
+    {
+      "id": 700046,
+      "levelNumber": 46,
+      "stageNumber": 1,
+      "size": "6x4",
+      "groups": [
+        {
+          "category": "SOCIAL RELATIONSHIPS",
+          "words": [
+            "COLLEAGUES",
+            "PARTNERS",
+            "FRIENDS",
+            "FAMILY"
+          ]
+        },
+        {
+          "category": "NATURE ACTIVITIES",
+          "words": [
+            "FISHING",
+            "RAFTING",
+            "HIKING",
+            "CAMPING"
+          ]
+        },
+        {
+          "category": "BIRD ANATOMY",
+          "words": [
+            "WATTLE",
+            "TALON",
+            "FEATHERS",
+            "PLUMAGE"
+          ]
+        },
+        {
+          "category": "MEDIEVAL OCCUPATIONS",
+          "words": [
+            "FLETCHER",
+            "FARMER",
+            "JESTER",
+            "BLACKSMITH"
+          ]
+        },
+        {
+          "category": "SPORT EQUIPMENT",
+          "words": [
+            "FOOTBALL",
+            "GYM",
+            "SOCCER",
+            "TENNIS"
+          ]
+        },
+        {
+          "category": "EQUESTRIAN EQUIPMENT",
+          "words": [
+            "STIRRUP",
+            "REINS",
+            "BRIDLE",
+            "SADDLE"
+          ]
+        }
+      ],
+      "sequences": [
+        {
+          "name": "Init",
+          "data": [
+            20,
+            16,
+            12,
+            8,
+            4,
+            0,
+            21,
+            17,
+            13,
+            9,
+            5,
+            1,
+            22,
+            18,
+            14,
+            10,
+            6,
+            2,
+            23,
+            19,
+            15,
+            11,
+            7,
+            3
+          ]
+        },
+        {
+          "name": "#1",
+          "data": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        }
+      ]
+    },
+    {
+      "id": 700047,
+      "levelNumber": 47,
+      "stageNumber": 1,
+      "size": "6x4",
+      "groups": [
+        {
+          "category": "FAMILY STRUCTURES",
+          "words": [
+            "NUCLEAR",
+            "BLENDED",
+            "SINGLE PARENT",
+            "EXTENDED"
+          ]
+        },
+        {
+          "category": "MYCOLOGY",
+          "words": [
+            "MOREL",
+            "SHIITAKE",
+            "PORCINI",
+            "CHANTERELLE"
+          ]
+        },
+        {
+          "category": "APPETIZERS",
+          "words": [
+            "SKEWERS",
+            "CHEESE PLATTER",
+            "OLIVES",
+            "CROSTINI"
+          ]
+        },
+        {
+          "category": "POLITICS",
+          "words": [
+            "VOTING",
+            "CONGRESS",
+            "SENATE",
+            "ORATORS"
+          ]
+        },
+        {
+          "category": "SOIL HORIZONS",
+          "words": [
+            "TOPSOIL",
+            "SUBSOIL",
+            "HUMUS",
+            "BEDROCK"
+          ]
+        },
+        {
+          "category": "FORMS OF APPROVAL",
+          "words": [
+            "STANDING OVATION",
+            "AWARD",
+            "HANDSHAKE",
+            "APPROVAL STAMP"
+          ]
+        }
+      ],
+      "sequences": [
+        {
+          "name": "Init",
+          "data": [
+            20,
+            16,
+            12,
+            8,
+            4,
+            0,
+            21,
+            17,
+            13,
+            9,
+            5,
+            1,
+            22,
+            18,
+            14,
+            10,
+            6,
+            2,
+            23,
+            19,
+            15,
+            11,
+            7,
+            3
+          ]
+        },
+        {
+          "name": "#1",
+          "data": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        }
+      ]
+    },
+    {
+      "id": 700048,
+      "levelNumber": 48,
+      "stageNumber": 1,
+      "size": "6x4",
+      "groups": [
+        {
+          "category": "LIFE OF EARLY HUMANS",
+          "words": [
+            "CAVE PAINTINGS",
+            "GATHERING",
+            "CAVE",
+            "TRIBALISM"
+          ]
+        },
+        {
+          "category": "THINGS TO DRINK",
+          "words": [
+            "WATER",
+            "COFFEE",
+            "FINE WINE",
+            "SODA"
+          ]
+        },
+        {
+          "category": "TIME MEASUREMENT",
+          "words": [
+            "EPOCH",
+            "MILLENNIUM",
+            "FORTNIGHT",
+            "NANOSECOND"
+          ]
+        },
+        {
+          "category": "GIRLS",
+          "words": [
+            "OLIVIA",
+            "EMMA",
+            "SOPHIA",
+            "LILY"
+          ]
+        },
+        {
+          "category": "EUROPEAN CITIES",
+          "words": [
+            "MADRID",
+            "BERLIN",
+            "VIENNA",
+            "ATHENS"
+          ]
+        },
+        {
+          "category": "FAMOUS KINGS AND RULERS",
+          "words": [
+            "JULIUS CAESAR",
+            "GENGHIS KHAN",
+            "HENRY VIII",
+            "LOUIS XIV"
+          ]
+        }
+      ],
+      "sequences": [
+        {
+          "name": "Init",
+          "data": [
+            20,
+            16,
+            12,
+            8,
+            4,
+            0,
+            21,
+            17,
+            13,
+            9,
+            5,
+            1,
+            22,
+            18,
+            14,
+            10,
+            6,
+            2,
+            23,
+            19,
+            15,
+            11,
+            7,
+            3
+          ]
+        },
+        {
+          "name": "#1",
+          "data": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        }
+      ]
+    },
+    {
+      "id": 700049,
+      "levelNumber": 49,
+      "stageNumber": 1,
+      "size": "6x4",
+      "groups": [
+        {
+          "category": "FENCING EQUIPMENT",
+          "words": [
+            "FOIL",
+            "PLASTRON",
+            "MASK",
+            "SABRE"
+          ]
+        },
+        {
+          "category": "MUSEUM SECURITY",
+          "words": [
+            "GUARD",
+            "ALARM",
+            "CCTV",
+            "DISPLAY CASE"
+          ]
+        },
+        {
+          "category": "BODY TYPES",
+          "words": [
+            "ECTOMORPH",
+            "MESOMORPH",
+            "ENDOMORPH",
+            "BODY"
+          ]
+        },
+        {
+          "category": "COMMUNITY",
+          "words": [
+            "TRIBE",
+            "COUPLE",
+            "COLLECTIVE",
+            "FAMILY"
+          ]
+        },
+        {
+          "category": "EARTH\u2019S LAYERS",
+          "words": [
+            "CRUST",
+            "INNER CORE",
+            "OUTER CORE",
+            "MANTLE"
+          ]
+        },
+        {
+          "category": "UTENSILS",
+          "words": [
+            "WHISK",
+            "SPATULA",
+            "MEASURING CUP",
+            "ROLLING PIN"
+          ]
+        }
+      ],
+      "sequences": [
+        {
+          "name": "Init",
+          "data": [
+            20,
+            16,
+            12,
+            8,
+            4,
+            0,
+            21,
+            17,
+            13,
+            9,
+            5,
+            1,
+            22,
+            18,
+            14,
+            10,
+            6,
+            2,
+            23,
+            19,
+            15,
+            11,
+            7,
+            3
+          ]
+        },
+        {
+          "name": "#1",
+          "data": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        }
+      ]
+    },
+    {
+      "id": 700050,
+      "levelNumber": 50,
+      "stageNumber": 1,
+      "size": "6x4",
+      "groups": [
+        {
+          "category": "RELATED TO WATER",
+          "words": [
+            "AQUEDUCT",
+            "WATER PARK",
+            "BOAT",
+            "FOUNTAIN"
+          ]
+        },
+        {
+          "category": "1984",
+          "words": [
+            "SPACE RACE",
+            "CIVIL RIGHTS",
+            "BAY OF PIGS",
+            "VIETNAM WAR"
+          ]
+        },
+        {
+          "category": "TARIFFS",
+          "words": [
+            "EXPORT TARIFF",
+            "IMPORT TARIFF",
+            "CUSTOMS DUTY",
+            "TRADE BARRIER"
+          ]
+        },
+        {
+          "category": "POSTAL ITEMS",
+          "words": [
+            "LETTER",
+            "POSTCARD",
+            "ENVELOPE",
+            "STAMP"
+          ]
+        },
+        {
+          "category": "SUSTAINABILITY",
+          "words": [
+            "ENERGY SAVING",
+            "RECYCLING",
+            "REUSE",
+            "COMPOSTING"
+          ]
+        },
+        {
+          "category": "CMYK COLOR MODEL",
+          "words": [
+            "MAGENTA",
+            "CYAN",
+            "YELLOW",
+            "KEY"
+          ]
+        }
+      ],
+      "sequences": [
+        {
+          "name": "Init",
+          "data": [
+            20,
+            16,
+            12,
+            8,
+            4,
+            0,
+            21,
+            17,
+            13,
+            9,
+            5,
+            1,
+            22,
+            18,
+            14,
+            10,
+            6,
+            2,
+            23,
+            19,
+            15,
+            11,
+            7,
+            3
+          ]
+        },
+        {
+          "name": "#1",
+          "data": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -6,7 +6,7 @@ import type { ValidationResult } from '../engine/PuzzleValidator';
 import * as XLSX from 'xlsx';
 
 interface ErrorViewProps {
-  activeMode?: 'daily' | 'main' | 'prefab';
+  activeMode?: 'daily' | 'main' | 'prefab' | 'special';
   levelData: PuzzleRawLevel[];
   mainLevelData?: PuzzleRawLevel[];
   onClose: () => void;
@@ -25,7 +25,8 @@ export function ErrorView({
   onClose
 }: ErrorViewProps) {
   
-  const isMain = activeMode === 'main';
+  const isMain = activeMode === 'main' || activeMode === 'special';
+  const isSpecial = activeMode === 'special';
   const targetData = isMain ? (mainLevelData.length > 0 ? mainLevelData : levelData) : levelData;
 
   const validatedData = useMemo<ValidatedLevel[]>(() => {
@@ -69,8 +70,8 @@ export function ErrorView({
     worksheet['!cols'] = colWidths;
 
     const workbook = XLSX.utils.book_new();
-    const sheetName = isMain ? 'Main Puzzle Errors' : 'Daily Puzzle Errors';
-    const fileName = isMain ? 'main_puzzle_errors.xlsx' : 'daily_puzzle_errors.xlsx';
+    const sheetName = isSpecial ? 'Special Puzzle Errors' : isMain ? 'Main Puzzle Errors' : 'Daily Puzzle Errors';
+    const fileName = isSpecial ? 'special_puzzle_errors.xlsx' : isMain ? 'main_puzzle_errors.xlsx' : 'daily_puzzle_errors.xlsx';
 
     XLSX.utils.book_append_sheet(workbook, worksheet, sheetName);
     XLSX.writeFile(workbook, fileName);
@@ -81,10 +82,10 @@ export function ErrorView({
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
         <div>
           <h2 style={{ margin: 0, color: '#0f172a', fontSize: '24px', fontWeight: 800 }}>
-            {isMain ? 'Main Puzzle Error Validation (12 Categories / Level)' : 'Daily Puzzle Error Validation'}
+            {isSpecial ? 'Special' : isMain ? 'Main' : 'Daily'} Puzzle Error Validation {isMain ? '(12 Categories / Level)' : ''}
           </h2>
           <p style={{ margin: '4px 0 0 0', color: '#64748b', fontSize: '14px' }}>
-            {isMain ? 'Validating 12 categories, 48 words, duplicates, stem forms & format errors in main.json' : 'Validating 3 stages/day formatting, duplicates & stem variations'}
+            {isMain ? `Validating 12 categories, 48 words, duplicates, stem forms & format errors in ${isSpecial ? 'special_levels.json' : 'main.json'}` : 'Validating 3 stages/day formatting, duplicates & stem variations'}
           </p>
         </div>
         <div style={{ display: 'flex', gap: '10px' }}>
@@ -112,7 +113,7 @@ export function ErrorView({
         <tbody>
           {validatedData.map((data, i) => (
             <tr key={i} style={{ borderBottom: '1px solid #eee', backgroundColor: data.result.status === 'ERRORS' ? '#fff0f0' : data.result.status === 'WARNINGS' ? '#fffbea' : 'white' }}>
-              <td style={{ padding: '12px', fontWeight: 800, color: isMain ? '#7c3aed' : '#1e293b' }}>Level {data.levelNumber}</td>
+              <td style={{ padding: '12px', fontWeight: 800, color: isSpecial ? '#db2777' : isMain ? '#7c3aed' : '#1e293b' }}>Level {data.levelNumber}</td>
               {!isMain && <td style={{ padding: '12px' }}>{data.stageNumber}</td>}
               <td style={{ padding: '12px' }}>
                 {data.result.status === 'OK' && <span style={{ color: '#10b981', display: 'flex', alignItems: 'center', gap: '4px', fontWeight: 700 }}><CheckCircle size={16} /> Passed</span>}

@@ -33,7 +33,7 @@ export interface TrackingData {
 }
 
 interface LiveViewProps {
-  activeMode?: 'daily' | 'main' | 'prefab';
+  activeMode?: 'daily' | 'main' | 'prefab' | 'special';
   trackingHistory: TrackingData[];
   mainTrackingHistory?: MainTrackingData[];
   onClose: () => void;
@@ -49,14 +49,14 @@ export function LiveView({
 
   const handleDownloadCSV = () => exportCSV(trackingHistory);
   const handleDownloadExcel = () => {
-    if (activeMode === 'main') {
+    if (activeMode === 'main' || activeMode === 'special') {
       exportMainExcel(mainTrackingHistory);
     } else {
       exportExcel(trackingHistory);
     }
   };
   const handleDownloadPDF = () => {
-    if (activeMode === 'main') {
+    if (activeMode === 'main' || activeMode === 'special') {
       exportMainPDF(mainTrackingHistory);
     } else {
       exportPDF(trackingHistory);
@@ -187,13 +187,14 @@ export function LiveView({
     );
   };
 
-  if (activeMode === 'main') {
+  if (activeMode === 'main' || activeMode === 'special') {
+    const isSpecial = activeMode === 'special';
     return (
       <div className="live-view-container" style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: '#f8fafc', zIndex: 1000, overflowY: 'auto', padding: '24px', boxSizing: 'border-box' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
           <div>
             <h2 style={{ margin: 0, color: '#0f172a', fontSize: '24px', fontWeight: 800 }}>
-              Main Puzzle Live Tracking Table
+              {isSpecial ? 'Special' : 'Main'} Puzzle Live Tracking Table
             </h2>
             <p style={{ margin: '4px 0 0 0', color: '#64748b', fontSize: '14px' }}>
               Per-level image formation tracking and visual report exports
@@ -223,7 +224,7 @@ export function LiveView({
 
         {mainTrackingHistory.length === 0 ? (
           <div style={{ backgroundColor: 'white', padding: '40px', borderRadius: '12px', textAlign: 'center', border: '1px solid #e2e8f0' }}>
-            <p style={{ color: '#64748b', fontSize: '16px', margin: 0 }}>No Main Puzzle levels played or tracked yet.</p>
+            <p style={{ color: '#64748b', fontSize: '16px', margin: 0 }}>No {isSpecial ? 'Special' : 'Main'} Puzzle levels played or tracked yet.</p>
           </div>
         ) : (
           <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', backgroundColor: 'white', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 4px 12px rgba(0,0,0,0.05)', border: '1px solid #e2e8f0' }}>
@@ -242,7 +243,7 @@ export function LiveView({
             <tbody>
               {mainTrackingHistory.map((track, i) => (
                 <tr key={i} style={{ borderBottom: '1px solid #f1f5f9' }}>
-                  <td style={{ padding: '14px', fontWeight: 800, color: '#7c3aed', fontSize: '15px' }}>
+                  <td style={{ padding: '14px', fontWeight: 800, color: isSpecial ? '#db2777' : '#7c3aed', fontSize: '15px' }}>
                     Level {track.levelNumber}
                   </td>
                   <td style={{ padding: '14px' }}>

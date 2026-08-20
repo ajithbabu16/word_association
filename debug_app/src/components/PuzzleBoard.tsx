@@ -17,6 +17,7 @@ interface PuzzleBoardProps {
   onSwap: (fromIndex: number, toIndex: number) => void;
   autoSwapAnim?: { from: number; to: number } | null;
   spawnedSlotIndexes?: number[]; // slots that just dropped from the queue
+  activeMode?: 'daily' | 'main' | 'prefab' | 'special';
 }
 
 const CATEGORY_COLORS = [
@@ -32,7 +33,7 @@ const ROW_HEIGHT  = 70;   // px — must match .tile height in App.css
 const ROW_GAP     = 24;   // px — must match .puzzle-grid row-gap in App.css
 const CELL_STRIDE = ROW_HEIGHT + ROW_GAP; // 94px per row
 
-export function PuzzleBoard({ session, onSwap, autoSwapAnim, spawnedSlotIndexes }: PuzzleBoardProps) {
+export function PuzzleBoard({ session, onSwap, autoSwapAnim, spawnedSlotIndexes, activeMode }: PuzzleBoardProps) {
   const sensors = useSensors(
     useSensor(MouseSensor, {
       activationConstraint: { distance: 8 },
@@ -152,7 +153,13 @@ export function PuzzleBoard({ session, onSwap, autoSwapAnim, spawnedSlotIndexes 
       }
       return row.slotIndexes.includes(index);
     });
-    if (solvedRow) return { color: CATEGORY_COLORS[solvedRow.order % CATEGORY_COLORS.length] };
+    if (solvedRow) {
+      const allCategories = Object.keys(session.level.categoryLabels).sort();
+      const catIndex = allCategories.indexOf(solvedRow.categoryKey) !== -1 
+        ? allCategories.indexOf(solvedRow.categoryKey) 
+        : solvedRow.category.length;
+      return { color: CATEGORY_COLORS[catIndex % CATEGORY_COLORS.length] };
+    }
     return { color: undefined };
   };
 
@@ -243,7 +250,14 @@ export function PuzzleBoard({ session, onSwap, autoSwapAnim, spawnedSlotIndexes 
               .filter(row => !row.isPictureCategory)
               .map(row => {
                 const rowIdx = Math.floor(row.slotIndexes[0] / columns) + 1;
-                const color  = CATEGORY_COLORS[row.order % CATEGORY_COLORS.length];
+                
+                // Get a consistent color index based on the category string itself
+                const allCategories = Object.keys(session.level.categoryLabels).sort();
+                const catIndex = allCategories.indexOf(row.categoryKey) !== -1 
+                  ? allCategories.indexOf(row.categoryKey) 
+                  : row.category.length;
+                const color  = CATEGORY_COLORS[catIndex % CATEGORY_COLORS.length];
+                
                 const gridColumnStr = session.extraCategoryActive
                   ? `2 / span ${columns - 1}`
                   : `1 / span ${columns}`;
@@ -286,6 +300,40 @@ export function PuzzleBoard({ session, onSwap, autoSwapAnim, spawnedSlotIndexes 
                 }
               }
 
+              // Special merge logic
+              let mergeState: 'none' | 'left' | 'middle' | 'right' | 'full' = 'none';
+              let mergeColor: string | undefined;
+
+              if (activeMode === 'special' && tileData && !isLocked) {
+                const currentRow = Math.floor(index / columns);
+                const prevSlot = index % columns > 0 ? session.activeSlots[index - 1] : null;
+                const isLeftSame = prevSlot !== null && 
+                  !prevSlot.startsWith('empty') &&
+                  session.tilesById[prevSlot]?.category === tileData.category;
+                  
+                const nextSlot = index % columns < columns - 1 ? session.activeSlots[index + 1] : null;
+                const isRightSame = nextSlot !== null && 
+                  !nextSlot.startsWith('empty') &&
+                  session.tilesById[nextSlot]?.category === tileData.category;
+
+                if (isLeftSame || isRightSame) {
+                  // Ensure the merged tiles use the EXACT same color as the completed row banner
+                  const allCategories = Object.keys(session.level.categoryLabels).sort();
+                  const catIndex = allCategories.indexOf(tileData.categoryKey || tileData.category) !== -1 
+                    ? allCategories.indexOf(tileData.categoryKey || tileData.category) 
+                    : tileData.category.length;
+                  mergeColor = CATEGORY_COLORS[catIndex % CATEGORY_COLORS.length];
+
+                  if (isLeftSame && isRightSame) {
+                    mergeState = 'middle';
+                  } else if (isLeftSame) {
+                    mergeState = 'right';
+                  } else if (isRightSame) {
+                    mergeState = 'left';
+                  }
+                }
+              }
+
               return (
                 <Tile
                   key={tileId}
@@ -293,13 +341,14 @@ export function PuzzleBoard({ session, onSwap, autoSwapAnim, spawnedSlotIndexes 
                   index={index}
                   tileData={tileData}
                   isLocked={isLocked}
-                  color={color}
+                  color={color || mergeColor}
                   isPicture={isPicture}
                   columns={columns}
                   isOverTarget={overId === tileId}
                   autoTransform={autoTransform}
                   fallOffsetY={fallOffsetY}
                   session={session}
+                  mergeState={mergeState}
                 />
               );
             })}

@@ -15,6 +15,7 @@ interface TileProps {
   autoTransform?: { x: number; y: number };
   fallOffsetY?: number;
   session?: PuzzleSession;
+  mergeState?: 'none' | 'left' | 'middle' | 'right' | 'full';
 }
 
 // ─── Image resolution helper ───────────────────────────────────────────────────
@@ -145,7 +146,7 @@ function FormedPictureCard({ word, category, isWhiteMode }: { word: string; cate
 export function Tile({
   id, index, tileData, isLocked, color, isPicture,
   columns = 4, isOverTarget, autoTransform, fallOffsetY = 0,
-  session,
+  session, mergeState
 }: TileProps) {
   const {
     attributes, listeners,
@@ -246,11 +247,33 @@ export function Tile({
     backgroundColor: isMasterCompleteTile ? 'transparent' : (color || undefined),
     boxShadow: isMasterCompleteTile ? 'none' : undefined,
     border: isMasterCompleteTile ? 'none' : (isOverTarget && !isDragging ? '2px dashed var(--accent-color)' : undefined),
-    color: isMasterCompleteTile ? '#ffffff' : undefined,
+    color: (isMasterCompleteTile || (mergeState && mergeState !== 'none')) ? '#ffffff' : undefined,
     boxSizing: 'border-box',
     // Only apply opacity transition for non-merging states; merging-out CSS class handles its own
     transition: isMergingOut ? undefined : 'opacity 0.15s ease',
   };
+
+  if (mergeState === 'left') {
+    innerStyle.borderRadius = '12px 0 0 12px';
+    innerStyle.borderRight = '1px solid rgba(255, 255, 255, 0.4)';
+    innerStyle.width = 'calc(100% + 8px)';
+    innerStyle.marginRight = '-8px';
+    innerStyle.zIndex = 2; // Keep borders visible
+  } else if (mergeState === 'middle') {
+    innerStyle.borderRadius = '0';
+    innerStyle.borderRight = '1px solid rgba(255, 255, 255, 0.4)';
+    innerStyle.width = 'calc(100% + 16px)';
+    innerStyle.marginLeft = '-8px';
+    innerStyle.marginRight = '-8px';
+    innerStyle.zIndex = 2;
+  } else if (mergeState === 'right') {
+    innerStyle.borderRadius = '0 12px 12px 0';
+    innerStyle.width = 'calc(100% + 8px)';
+    innerStyle.marginLeft = '-8px';
+    innerStyle.zIndex = 1;
+  } else if (mergeState === 'full') {
+    innerStyle.borderRadius = '12px';
+  }
 
   const classNames = ['tile'];
   if (isLocked) classNames.push('locked');

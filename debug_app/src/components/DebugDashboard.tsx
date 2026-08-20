@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import type { PuzzleSession } from '../engine/PuzzleModels';
 
 interface DebugDashboardProps {
-  activeMode?: 'daily' | 'main';
+  activeMode?: 'daily' | 'main' | 'special';
   currentDate: string;
   onDateChange: (newDate: string) => void;
   startDate: string;
@@ -73,11 +73,12 @@ export function DebugDashboard({
     }
   };
 
-  if (activeMode === 'main') {
+  if (activeMode === 'main' || activeMode === 'special') {
+    const isSpecial = activeMode === 'special';
     return (
       <div className="debug-dashboard">
-        <div className="dashboard-section" style={{ borderLeft: '4px solid #7c3aed' }}>
-          <h3 style={{ color: '#6d28d9' }}>Main Puzzle Level Controller</h3>
+        <div className="dashboard-section" style={{ borderLeft: `4px solid ${isSpecial ? '#db2777' : '#7c3aed'}` }}>
+          <h3 style={{ color: isSpecial ? '#db2777' : '#6d28d9' }}>{isSpecial ? 'Special' : 'Main'} Puzzle Level Controller</h3>
           <form onSubmit={handleLevelJumpSubmit} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
             <label style={{ fontSize: '12px', fontWeight: 'bold', width: '80px', color: '#4b5563' }}>Load Level:</label>
             <input 
@@ -89,19 +90,19 @@ export function DebugDashboard({
               placeholder="e.g. 1"
               style={{ flex: 1, padding: '8px 10px', borderRadius: '6px', border: '1px solid #cbd5e1', fontWeight: 'bold' }}
             />
-            <button type="submit" className="button" style={{ backgroundColor: '#7c3aed', color: 'white', padding: '8px 14px', borderRadius: '6px', fontWeight: 'bold', border: 'none', cursor: 'pointer' }}>
+            <button type="submit" className="button" style={{ backgroundColor: isSpecial ? '#db2777' : '#7c3aed', color: 'white', padding: '8px 14px', borderRadius: '6px', fontWeight: 'bold', border: 'none', cursor: 'pointer' }}>
               Load
             </button>
           </form>
         </div>
 
         <div className="dashboard-section">
-          <h3>Main Level Info Panel</h3>
+          <h3>{isSpecial ? 'Special' : 'Main'} Level Info Panel</h3>
           {session ? (
             <>
               <div className="stat-row">
                 <span className="stat-label">Level Number:</span>
-                <span className="stat-value" style={{ fontWeight: 800, color: '#7c3aed' }}>Level {session.level.identity.levelNumber || mainLevelNumber}</span>
+                <span className="stat-value" style={{ fontWeight: 800, color: isSpecial ? '#db2777' : '#7c3aed' }}>Level {session.level.identity.levelNumber || mainLevelNumber}</span>
               </div>
               <div className="stat-row">
                 <span className="stat-label">Images Formed Count:</span>
@@ -126,12 +127,12 @@ export function DebugDashboard({
         </div>
 
         <div className="dashboard-section">
-          <h3>Automation (Main Puzzle)</h3>
+          <h3>Automation ({isSpecial ? 'Special' : 'Main'} Puzzle)</h3>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
             <button 
               className={`button ${isAutoSolving ? 'danger' : ''}`} 
               onClick={onAutoSolveToggle}
-              style={{ width: '100%', padding: '10px', backgroundColor: isAutoSolving ? '#ef4444' : '#7c3aed', color: 'white', fontWeight: 'bold', borderRadius: '8px', border: 'none', cursor: 'pointer' }}
+              style={{ width: '100%', padding: '10px', backgroundColor: isAutoSolving ? '#ef4444' : isSpecial ? '#db2777' : '#7c3aed', color: 'white', fontWeight: 'bold', borderRadius: '8px', border: 'none', cursor: 'pointer' }}
             >
               {isAutoSolving 
                 ? `🛑 Stop Automation (${getModeLabel()})` 

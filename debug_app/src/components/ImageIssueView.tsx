@@ -5,6 +5,7 @@ import * as XLSX from 'xlsx';
 
 interface ImageIssueViewProps {
   levelData: PuzzleRawLevel[];
+  activeMode?: 'daily' | 'main' | 'prefab' | 'special';
   onClose: () => void;
 }
 
@@ -20,7 +21,7 @@ interface LevelImageValidation {
 const toTitle = (s: string) =>
   s.toLowerCase().split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
 
-export function ImageIssueView({ levelData, onClose }: ImageIssueViewProps) {
+export function ImageIssueView({ levelData, activeMode, onClose }: ImageIssueViewProps) {
   const [existingImages, setExistingImages] = useState<string[]>([]);
   const [showOnlyMissing, setShowOnlyMissing] = useState<boolean>(false);
   const [searchTerm, setSearchTerm] = useState<string>('');
@@ -142,7 +143,7 @@ export function ImageIssueView({ levelData, onClose }: ImageIssueViewProps) {
             🖼️ Image Resource validator
           </h2>
           <p style={{ margin: '4px 0 0 0', color: '#64748b', fontSize: '14px' }}>
-            Scanning levels in <code style={{ backgroundColor: '#e2e8f0', padding: '2px 6px', borderRadius: '4px' }}>main.json</code> and verifying corresponding asset files in <code style={{ backgroundColor: '#e2e8f0', padding: '2px 6px', borderRadius: '4px' }}>puzzle_image/</code> folder.
+            Scanning levels in <code style={{ backgroundColor: '#e2e8f0', padding: '2px 6px', borderRadius: '4px' }}>{activeMode === 'special' ? 'special_levels.json' : 'main.json'}</code> and verifying corresponding asset files in <code style={{ backgroundColor: '#e2e8f0', padding: '2px 6px', borderRadius: '4px' }}>puzzle_image/</code> folder.
           </p>
         </div>
         <div style={{ display: 'flex', gap: '10px' }}>

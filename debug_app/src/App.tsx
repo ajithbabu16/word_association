@@ -175,8 +175,8 @@ function StackedCategoryPill({ formed, total, isAnimating }: { formed: number; t
 }
 
 export default function App() {
-  // Active Mode: 'daily' | 'main' | 'prefab'
-  const [activeMode, setActiveMode] = useState<'daily' | 'main' | 'prefab'>('daily');
+  // Active Mode: 'daily' | 'main' | 'prefab' | 'special'
+  const [activeMode, setActiveMode] = useState<'daily' | 'main' | 'prefab' | 'special'>('daily');
   const [showModeModal, setShowModeModal] = useState<boolean>(true);
   const [isPillAnimating, setIsPillAnimating] = useState<boolean>(false);
 
@@ -194,6 +194,12 @@ export default function App() {
   const [mainLevelNumber, setMainLevelNumber] = useState<number>(1);
   const [mainTrackingHistory, setMainTrackingHistory] = useState<MainTrackingData[]>([]);
   const [mainImagesFormed, setMainImagesFormed] = useState<number>(0);
+
+  // Special Puzzle States
+  const [specialLevelData, setSpecialLevelData] = useState<PuzzleRawLevel[]>([]);
+  const [specialLevelNumber, setSpecialLevelNumber] = useState<number>(1);
+  const [specialTrackingHistory, setSpecialTrackingHistory] = useState<MainTrackingData[]>([]);
+  const [specialImagesFormed, setSpecialImagesFormed] = useState<number>(0);
 
   // Common Game States
   const [session, setSession] = useState<PuzzleSession | null>(null);
@@ -224,6 +230,14 @@ export default function App() {
   const mainImageFormationScreenshots = useRef<MainImageFormationRecord[]>([]);
   const mainStartTimeRef = useRef<string | null>(null);
   const mainStartTimestamp = useRef<number>(Date.now());
+
+  // Special Puzzle Screenshot Refs
+  const prevSpecialSolvedRowsCount = useRef<number>(0);
+  const specialInitialScreenshot = useRef<string | null>(null);
+  const specialImageFormationScreenshots = useRef<MainImageFormationRecord[]>([]);
+  const specialStartTimeRef = useRef<string | null>(null);
+  const specialStartTimestamp = useRef<number>(Date.now());
+
   const isCapturingScreenshot = useRef<boolean>(false);
   const isMergingRef = useRef<boolean>(false);
 
@@ -295,10 +309,24 @@ export default function App() {
         }
       })
       .catch(err => console.error('Failed to load main.json:', err));
+
+    // Fetch special_levels.json
+    fetch('/special_levels.json')
+      .then(res => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.json();
+      })
+      .then(data => {
+        const levels = Array.isArray(data) ? data : (data.levels || []);
+        if (levels.length > 0) {
+          setSpecialLevelData(levels);
+        }
+      })
+      .catch(err => console.error('Failed to load special_levels.json:', err));
   }, []);
 
   // Mode change handler
-  const handleSelectMode = (mode: 'daily' | 'main' | 'prefab') => {
+  const handleSelectMode = (mode: 'daily' | 'main' | 'prefab' | 'special') => {
     setActiveMode(mode);
     setIsAutoSolving(false);
     setIsRangeAutoSolving(false);
@@ -340,7 +368,7 @@ export default function App() {
           newHistory[idx] = currentRecord;
           return newHistory;
         });
-      } else {
+      } else if (activeMode === 'main') {
         setMainTrackingHistory(prev => {
           const updated = [...prev];
           const recordIndex = updated.findIndex(r => r.levelNumber === mainLevelNumber);
@@ -370,11 +398,40 @@ export default function App() {
           }
           return updated;
         });
+      } else if (activeMode === 'special') {
+        setSpecialTrackingHistory(prev => {
+          const updated = [...prev];
+          const recordIndex = updated.findIndex(r => r.levelNumber === specialLevelNumber);
+          if (recordIndex >= 0) {
+            const record = { ...updated[recordIndex] };
+            const errors = new Set(record.errorImages || []);
+            errors.add(imageName);
+            record.errorImages = Array.from(errors);
+            updated[recordIndex] = record;
+          } else {
+            const totalCats = session ? session.level.categories : 6;
+            updated.push({
+              levelNumber: specialLevelNumber,
+              imagesFormedCount: specialImagesFormed,
+              totalCategories: totalCats,
+              totalMoves: session?.moveCount ?? 0,
+              status: 'In Progress',
+              startTime: specialStartTimeRef.current,
+              completionTime: null,
+              durationSec: null,
+              errorImages: [imageName],
+              initialBoardScreenshot: specialInitialScreenshot.current,
+              imageFormationScreenshots: [],
+              finalCompletionScreenshot: null,
+            });
+          }
+          return updated;
+        });
       }
     };
     window.addEventListener('image-error', handleImageError);
     return () => window.removeEventListener('image-error', handleImageError);
-  }, [activeMode, currentDate, stageProgress, mainLevelNumber, session, mainImagesFormed]);
+  }, [activeMode, currentDate, stageProgress, mainLevelNumber, specialLevelNumber, session, mainImagesFormed, specialImagesFormed]);
 
   // --- 1. DAILY PUZZLE LEVEL LOAD ---
   useEffect(() => {
@@ -497,21 +554,87 @@ export default function App() {
     }
   }, [activeMode, mainLevelNumber, mainLevelData]);
 
-  // --- 3. MAIN PUZZLE PER-IMAGE FORMATION SCREENSHOT CAPTURE PIPELINE ---
+  // --- 2.5 SPECIAL PUZZLE LEVEL LOAD ---
   useEffect(() => {
-    if (activeMode !== 'main' || !session) return;
+    if (activeMode !== 'special' || specialLevelData.length === 0) return;
 
+    const rawLevel = getMainPuzzleLevel(specialLevelData, specialLevelNumber); // Reusing logic
+
+    if (rawLevel) {
+      const levelToDecode = {
+        ...rawLevel,
+        size: rawLevel.size || "6x4",
+        difficulty: rawLevel.difficulty || "easy",
+        levelNumber: rawLevel.levelNumber || specialLevelNumber
+      };
+
+      const validation = PuzzleValidator.validateMainPuzzleLevel(levelToDecode); // Reusing validation
+      if (validation.errors.length > 0) {
+        setStageError(validation.errors.join("; "));
+      } else {
+        setStageError(null);
+      }
+
+      const wrapper = { defaults: { size: "6x4", difficulty: "easy" }, levels: [levelToDecode] };
+      let decoded = decoder.decodeAssetSafe(wrapper, "default")[0];
+      if (!decoded) {
+        decoded = decoder.decodeAssetSafe([levelToDecode], "default")[0];
+      }
+
+      if (decoded) {
+        const newSession = createSession(decoded);
+        setSession(newSession);
+        setSpecialImagesFormed(0);
+        prevSpecialSolvedRowsCount.current = 0;
+        specialImageFormationScreenshots.current = [];
+        specialStartTimeRef.current = new Date().toLocaleTimeString();
+        specialStartTimestamp.current = Date.now();
+      }
+
+      setTimeout(() => {
+        if (captureRef.current) {
+          html2canvas(captureRef.current, {
+            scale: 2,
+            useCORS: true,
+            scrollY: -window.scrollY,
+            width: captureRef.current.scrollWidth,
+            height: captureRef.current.scrollHeight,
+            windowWidth: document.documentElement.offsetWidth,
+            windowHeight: document.documentElement.offsetHeight,
+          }).then(canvas => {
+            const dataUrl = canvas.toDataURL('image/jpeg', 0.95);
+            specialInitialScreenshot.current = dataUrl;
+          });
+        }
+      }, 300);
+    } else {
+      setStageError(`Special Puzzle Level ${specialLevelNumber} not found.`);
+      setSession(null);
+      setIsAutoSolving(false);
+    }
+  }, [activeMode, specialLevelNumber, specialLevelData]);
+
+  // --- 3. MAIN/SPECIAL PUZZLE PER-IMAGE FORMATION SCREENSHOT CAPTURE PIPELINE ---
+  useEffect(() => {
+    if ((activeMode !== 'main' && activeMode !== 'special') || !session) return;
+
+    const isMain = activeMode === 'main';
+    const currentLevelNumber = isMain ? mainLevelNumber : specialLevelNumber;
+    const currentImagesFormed = isMain ? mainImagesFormed : specialImagesFormed;
+    const setImagesFormed = isMain ? setMainImagesFormed : setSpecialImagesFormed;
+    const prevSolvedCountRef = isMain ? prevSolvedRowsCount : prevSpecialSolvedRowsCount;
+    
     const currentSolvedCount = session.solvedRows.length;
-    setMainImagesFormed(currentSolvedCount);
+    setImagesFormed(currentSolvedCount);
 
-    if (currentSolvedCount > prevSolvedRowsCount.current) {
-      prevSolvedRowsCount.current = currentSolvedCount;
+    if (currentSolvedCount > prevSolvedCountRef.current) {
+      prevSolvedCountRef.current = currentSolvedCount;
 
       setIsPillAnimating(true);
       setTimeout(() => setIsPillAnimating(false), 450);
     }
 
-    // Check Main Puzzle Level Completion (all 12 categories solved)
+    // Check Puzzle Level Completion
     if (session.completed) {
       setTimeout(() => {
         if (captureRef.current) {
@@ -525,25 +648,33 @@ export default function App() {
             windowHeight: document.documentElement.offsetHeight,
           }).then(canvas => {
             const finalDataUrl = canvas.toDataURL('image/jpeg', 0.95);
-            const durationSec = Math.round((Date.now() - mainStartTimestamp.current) / 1000);
+            const startTimestamp = isMain ? mainStartTimestamp.current : specialStartTimestamp.current;
+            const durationSec = Math.round((Date.now() - startTimestamp) / 1000);
+            
+            const setTrackingHistory = isMain ? setMainTrackingHistory : setSpecialTrackingHistory;
 
-            setMainTrackingHistory(prev => {
+            setTrackingHistory(prev => {
               const updated = [...prev];
-              const recordIndex = updated.findIndex(r => r.levelNumber === mainLevelNumber);
+              const recordIndex = updated.findIndex(r => r.levelNumber === currentLevelNumber);
               const totalCats = session ? session.level.categories : 6;
               const existingRecord = recordIndex >= 0 ? updated[recordIndex] : null;
+              
+              const startTimeRef = isMain ? mainStartTimeRef.current : specialStartTimeRef.current;
+              const initialScreenshot = isMain ? mainInitialScreenshot.current : specialInitialScreenshot.current;
+              const imageFormationScreenshots = isMain ? mainImageFormationScreenshots.current : specialImageFormationScreenshots.current;
+
               const record: MainTrackingData = {
-                levelNumber: mainLevelNumber,
+                levelNumber: currentLevelNumber,
                 imagesFormedCount: session.solvedRows.length,
                 totalCategories: totalCats,
                 totalMoves: session.moveCount,
                 status: 'Passed',
-                startTime: mainStartTimeRef.current,
+                startTime: startTimeRef,
                 completionTime: new Date().toLocaleTimeString(),
                 durationSec,
                 errorImages: existingRecord?.errorImages,
-                initialBoardScreenshot: mainInitialScreenshot.current,
-                imageFormationScreenshots: [...mainImageFormationScreenshots.current],
+                initialBoardScreenshot: initialScreenshot,
+                imageFormationScreenshots: [...imageFormationScreenshots],
                 finalCompletionScreenshot: finalDataUrl
               };
 
@@ -555,11 +686,16 @@ export default function App() {
               return updated;
             });
 
-            setShowOverlay(`🎉 Main Puzzle Level ${mainLevelNumber} Completed! Loading Level ${mainLevelNumber + 1}...`);
+            const modeName = isMain ? 'Main' : 'Special';
+            setShowOverlay(`🎉 ${modeName} Puzzle Level ${currentLevelNumber} Completed! Loading Level ${currentLevelNumber + 1}...`);
 
             setTimeout(() => {
               setShowOverlay(null);
-              setMainLevelNumber(prev => prev + 1);
+              if (isMain) {
+                setMainLevelNumber(prev => prev + 1);
+              } else {
+                setSpecialLevelNumber(prev => prev + 1);
+              }
               setIsAutoSolving(true);
             }, 3500);
           });
@@ -974,6 +1110,11 @@ export default function App() {
     setIsAutoSolving(false);
   };
 
+  const handleSpecialLevelJump = (levelNum: number) => {
+    setSpecialLevelNumber(levelNum);
+    setIsAutoSolving(false);
+  };
+
   const handleAutoSolveToggle = () => {
     if (isAutoSolving) {
       setIsAutoSolving(false);
@@ -1011,7 +1152,7 @@ export default function App() {
               display: 'flex',
               alignItems: 'center',
               gap: '8px',
-              backgroundColor: activeMode === 'main' ? '#7c3aed' : '#2563eb',
+              backgroundColor: activeMode === 'main' ? '#7c3aed' : activeMode === 'special' ? '#db2777' : '#2563eb',
               color: 'white',
               border: 'none',
               padding: '6px 14px',
@@ -1022,8 +1163,8 @@ export default function App() {
               boxShadow: '0 2px 4px rgba(0,0,0,0.2)'
             }}
           >
-            {activeMode === 'main' ? <Layers size={16} /> : <Calendar size={16} />}
-            Mode: {activeMode === 'main' ? 'Main Puzzle (MP)' : 'Daily Puzzle (DP)'} 🔄
+            {activeMode === 'main' || activeMode === 'special' ? <Layers size={16} /> : <Calendar size={16} />}
+            Mode: {activeMode === 'main' ? 'Main Puzzle (MP)' : activeMode === 'special' ? 'Special Puzzle (SP)' : 'Daily Puzzle (DP)'} 🔄
           </button>
         </div>
 
@@ -1091,30 +1232,30 @@ export default function App() {
                     <div style={{
                       fontSize: '15px',
                       fontWeight: 800,
-                      color: '#7c3aed',
-                      backgroundColor: '#f5f3ff',
+                      color: activeMode === 'main' ? '#7c3aed' : '#db2777',
+                      backgroundColor: activeMode === 'main' ? '#f5f3ff' : '#fdf2f8',
                       padding: '5px 12px',
                       borderRadius: '10px',
-                      border: '1px solid #ddd6fe',
+                      border: `1px solid ${activeMode === 'main' ? '#ddd6fe' : '#fbcfe8'}`,
                       display: 'flex',
                       alignItems: 'center',
                       gap: '6px'
                     }}>
-                      <Layers size={18} /> Level {mainLevelNumber}
+                      <Layers size={18} /> Level {activeMode === 'main' ? mainLevelNumber : specialLevelNumber}
                     </div>
 
                     {/* STACKED CATEGORY PROGRESS PILL BADGE */}
                     <StackedCategoryPill 
-                      formed={mainImagesFormed} 
+                      formed={activeMode === 'main' ? mainImagesFormed : specialImagesFormed} 
                       total={session ? session.level.categories : 6} 
                       isAnimating={isPillAnimating}
                     />
                   </div>
 
                   <button 
-                    onClick={() => handleMainLevelJump(mainLevelNumber + 1)}
+                    onClick={() => activeMode === 'main' ? handleMainLevelJump(mainLevelNumber + 1) : handleSpecialLevelJump(specialLevelNumber + 1)}
                     style={{
-                      backgroundColor: '#7c3aed',
+                      backgroundColor: activeMode === 'main' ? '#7c3aed' : '#db2777',
                       color: 'white',
                       border: 'none',
                       padding: '6px 14px',
@@ -1122,7 +1263,7 @@ export default function App() {
                       fontWeight: 'bold',
                       fontSize: '12px',
                       cursor: 'pointer',
-                      boxShadow: '0 2px 4px rgba(124, 58, 237, 0.3)'
+                      boxShadow: `0 2px 4px rgba(${activeMode === 'main' ? '124, 58, 237' : '219, 39, 119'}, 0.3)`
                     }}
                   >
                     Skip to Next Level ➔
@@ -1134,13 +1275,18 @@ export default function App() {
 
             
             {session ? (
-              <PuzzleBoard session={session} onSwap={handleSwap} autoSwapAnim={autoSwapAnim} spawnedSlotIndexes={spawnedSlotIndexes} />
-            ) : null}
+              <PuzzleBoard 
+              session={session} 
+              onSwap={handleSwap} 
+              autoSwapAnim={autoSwapAnim}
+              spawnedSlotIndexes={spawnedSlotIndexes}
+              activeMode={activeMode}
+            />) : null}
 
             {showOverlay && (
               <div className="stage-overlay">
                 <h2>{showOverlay}</h2>
-                <p>{activeMode === 'main' ? `Main Level: ${mainLevelNumber}` : `Level: ${dateToLevelNumber(currentDate)} | Date: ${currentDate}`}</p>
+                <p>{activeMode === 'main' ? `Main Level: ${mainLevelNumber}` : activeMode === 'special' ? `Special Level: ${specialLevelNumber}` : `Level: ${dateToLevelNumber(currentDate)} | Date: ${currentDate}`}</p>
               </div>
             )}
           </div>
@@ -1148,7 +1294,7 @@ export default function App() {
 
         {activeMode !== 'prefab' && (
           <DebugDashboard
-            activeMode={activeMode as 'daily' | 'main'}
+            activeMode={activeMode as 'daily' | 'main' | 'special'}
             currentDate={currentDate}
           onDateChange={handleDateChange}
           startDate={startDate}
@@ -1161,9 +1307,9 @@ export default function App() {
           onAutoSolveToggle={handleAutoSolveToggle}
           isAutoSolving={isAutoSolving}
           autoSolveMode={autoSolveMode}
-          mainLevelNumber={mainLevelNumber}
-          onMainLevelJump={handleMainLevelJump}
-          mainImagesFormed={mainImagesFormed}
+          mainLevelNumber={activeMode === 'special' ? specialLevelNumber : mainLevelNumber}
+          onMainLevelJump={activeMode === 'special' ? handleSpecialLevelJump : handleMainLevelJump}
+          mainImagesFormed={activeMode === 'special' ? specialImagesFormed : mainImagesFormed}
           totalCategories={session ? session.level.categories : 6}
           onOpenAutoSolveModal={() => setShowAutoSolveModal(true)}
         />
@@ -1193,7 +1339,7 @@ export default function App() {
           <LiveView 
             activeMode={activeMode}
             trackingHistory={trackingHistory} 
-            mainTrackingHistory={mainTrackingHistory}
+            mainTrackingHistory={activeMode === 'special' ? specialTrackingHistory : mainTrackingHistory}
             onClose={() => setShowLiveView(false)} 
           />
         )}
@@ -1202,14 +1348,15 @@ export default function App() {
           <ErrorView 
             activeMode={activeMode}
             levelData={levelData} 
-            mainLevelData={mainLevelData}
+            mainLevelData={activeMode === 'special' ? specialLevelData : mainLevelData}
             onClose={() => setShowErrorView(false)} 
           />
         )}
 
         {showImageIssueView && (
           <ImageIssueView 
-            levelData={mainLevelData}
+            levelData={activeMode === 'special' ? specialLevelData : mainLevelData}
+            activeMode={activeMode}
             onClose={() => setShowImageIssueView(false)} 
           />
         )}
