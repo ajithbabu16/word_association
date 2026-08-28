@@ -530,7 +530,7 @@
         {
           "category": "TIME AND LIGHT",
           "words": [
-            "MIRROR",
+            "HOURGLASS",
             "SUNDIAL",
             "CALENDAR",
             "CAMERA"
@@ -2701,7 +2701,7 @@
           "words": [
             "HIP-HOP",
             "ZUMBA",
-            "SALSA",
+            "TANGO",
             "JAZZ"
           ]
         },
@@ -2728,7 +2728,7 @@
           "words": [
             "GUACAMOLE",
             "HUMMUS",
-            "SALSA",
+            "QUESO",
             "TZATZIKI"
           ]
         },
@@ -4285,7 +4285,7 @@
         {
           "category": "STATES OF MATTER",
           "words": [
-            "FLUIDS",
+            "SOLID",
             "GAS",
             "FLUID",
             "PLASMA"
@@ -5065,7 +5065,7 @@
             "TIMER",
             "SUNDIAL",
             "STOPWATCH",
-            "TIME"
+            "CLOCK"
           ]
         }
       ],

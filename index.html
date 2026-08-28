@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genie QuriousBit Games</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #050508;
+            --eye-color: #ff3300;
+            --eye-glow: #ff9900;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-color);
+            font-family: 'Montserrat', sans-serif;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            perspective: 1000px;
+        }
+
+        /* --- Realistic Creature Ambient Background --- */
+        .ambient-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at center, #1a0b0b 0%, #050508 70%);
+            z-index: 0;
+        }
+
+        .fog {
+            position: absolute;
+            width: 200vw; height: 100vh;
+            background: url('https://raw.githubusercontent.com/danielstuart14/CSS_FOG_ANIMATION/master/fog1.png') repeat-x;
+            background-size: cover;
+            opacity: 0.2;
+            z-index: 1;
+            animation: fogAnim 60s linear infinite;
+        }
+
+        @keyframes fogAnim {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100vw); }
+        }
+
+        /* --- Interactive Realistic Dragon Eye --- */
+        .creature-container {
+            position: relative;
+            z-index: 5;
+            margin-bottom: 2rem;
+            filter: drop-shadow(0 0 30px rgba(255, 51, 0, 0.3));
+        }
+
+        .eye-socket {
+            width: 300px;
+            height: 140px;
+            background: #000;
+            border-radius: 100% 0;
+            transform: rotate(45deg);
+            position: relative;
+            overflow: hidden;
+            box-shadow: inset 0 0 40px #000, 0 0 20px #000;
+            /* Eyelid clipping */
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            transition: clip-path 0.1s;
+        }
+
+        .eyeball {
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle at center, var(--eye-glow) 0%, var(--eye-color) 40%, #550000 80%, #000 100%);
+            border-radius: 50%;
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            /* Realistic Iris Texture */
+            background-image: 
+                radial-gradient(circle at center, transparent 20%, rgba(0,0,0,0.8) 70%),
+                repeating-radial-gradient(circle at center, transparent 0, transparent 5px, rgba(0,0,0,0.2) 6px, transparent 7px);
+            box-shadow: inset 0 0 30px #000;
+            transition: transform 0.1s ease-out;
+        }
+
+        .pupil {
+            width: 15px;
+            height: 100px;
+            background: #000;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 10px rgba(0,0,0,0.9);
+            transition: height 0.3s, width 0.3s;
+        }
+
+        /* Eye reflection for realism */
+        .eye-reflection {
+            width: 60px;
+            height: 40px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            position: absolute;
+            top: 25%; left: 30%;
+            transform: rotate(-45deg);
+            pointer-events: none;
+            filter: blur(4px);
+        }
+
+        /* --- Cinematic UI --- */
+        .ui-card {
+            position: relative;
+            z-index: 10;
+            background: rgba(10, 5, 5, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 51, 0, 0.2);
+            border-top: 1px solid rgba(255, 153, 0, 0.4);
+            border-radius: 20px;
+            padding: 3rem 5rem;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.9);
+            width: 90%;
+            max-width: 800px;
+            animation: slideUp 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        @keyframes slideUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            margin: 0 0 10px 0;
+            color: #fff;
+            text-shadow: 0 0 20px var(--eye-color);
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #aaa;
+            margin-bottom: 3rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        /* --- Realistic Creature Interface Buttons --- */
+        .btn-group {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        .creature-btn {
+            position: relative;
+            background: rgba(20, 5, 5, 0.8);
+            color: #ff9900;
+            padding: 1.2rem 3rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            border: 1px solid rgba(255, 51, 0, 0.3);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5), inset 0 0 10px rgba(255,51,0,0.1);
+            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+            overflow: hidden;
+        }
+
+        .creature-btn::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at center, rgba(255,153,0,0.2) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .creature-btn:hover {
+            color: #fff;
+            border-color: #ff9900;
+            box-shadow: 0 15px 30px rgba(255, 51, 0, 0.3), inset 0 0 20px rgba(255,51,0,0.4);
+            transform: translateY(-4px);
+        }
+
+        .creature-btn:hover::before {
+            opacity: 1;
+        }
+
+        .icon {
+            width: 20px; height: 20px;
+            fill: currentColor;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ambient-bg"></div>
+    <div class="fog"></div>
+
+    <!-- The Creature: Interactive Dragon Eye -->
+    <div class="creature-container">
+        <div class="eye-socket" id="eye-socket">
+            <div class="eyeball" id="eyeball">
+                <div class="pupil" id="pupil"></div>
+                <div class="eye-reflection"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cinematic UI -->
+    <div class="ui-card">
+        <h1>Genie QuriousBit<br>Automation</h1>
+        
+        <div class="btn-group">
+            <a href="http://localhost:8080" class="creature-btn">
+                <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/>
+                </svg>
+                CODEWORDS
+            </a>
+            
+            <a href="http://localhost:5173" class="creature-btn">
+                <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.06-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.73,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.06,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.43-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.49-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"/>
+                </svg>
+                WORD ASSOCIATION
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // --- Realistic Creature Eye Tracking ---
+        const eyeball = document.getElementById('eyeball');
+        const pupil = document.getElementById('pupil');
+        const socket = document.getElementById('eye-socket');
+
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX;
+            const y = e.clientY;
+            
+            const rect = socket.getBoundingClientRect();
+            const eyeX = rect.left + rect.width / 2;
+            const eyeY = rect.top + rect.height / 2;
+
+            const angle = Math.atan2(y - eyeY, x - eyeX);
+            const distance = Math.min(Math.hypot(x - eyeX, y - eyeY) / 15, 30); // Cap movement
+
+            // Move the eyeball to track cursor
+            const moveX = Math.cos(angle) * distance;
+            const moveY = Math.sin(angle) * distance;
+            
+            // Note: Keep the -45deg rotation for the eyeball's shape
+            eyeball.style.transform = `translate(calc(-50% + ${moveX}px), calc(-50% + ${moveY}px)) rotate(-45deg)`;
+
+            // Make pupil dilate (widen) when mouse is far away
+            const dilation = Math.min(distance / 2, 20);
+            pupil.style.width = (15 + dilation) + 'px';
+        });
+
+        // --- Realistic Blinking Animation ---
+        function blink() {
+            socket.style.clipPath = 'polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%)'; // Close eye
+            
+            setTimeout(() => {
+                socket.style.clipPath = 'polygon(0 0, 100% 0, 100% 100%, 0 100%)'; // Open eye
+            }, 150); // Blink duration
+
+            // Randomize next blink between 2 and 6 seconds
+            const nextBlink = Math.random() * 4000 + 2000;
+            setTimeout(blink, nextBlink);
+        }
+
+        // Start blinking loop
+        setTimeout(blink, 3000);
+
+    </script>
+</body>
+</html>
