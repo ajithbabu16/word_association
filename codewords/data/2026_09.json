@@ -1,0 +1,566 @@
+{
+    "sceneName": "Heidi",
+    "bg_header": "e07d4d",
+    "bg_body": "fadcc6",
+    "bg_keyboard": "#a3c0c2",
+    "keyboard_key_normal": "f5f1eb",
+    "keyboard_key_disabled": "#8ba4a5",
+    "keyboard_text_normal": "37342d",
+    "keyboard_text_disabled": "#606b68",
+    "keyboard_text_reveal": "#49B03B",
+    "hud_text_color": "250a05",
+    "hud_bg_light": "ffffff",
+    "hud_bg_dark": "2b2018",
+    "author": "Johanna Spyri",
+    "desc": "1881",
+    "puzzles": {
+        "20260901": {
+            "phrase": "_e___, _ b_____ ___ ______ ____, _______ ____ __ __r _____ __ s__ _________ ______ _ n__ ____ ____ __ _h_ ________ __i__ A___.",
+            "answer": "HidiarightandgentlegirlcarriedhopeinheheartashejourneyedtowardaewlifehighintepeacefulSwsslps",
+            "solv": 39.53,
+            "author": "Johanna Spyri",
+            "desc": "1881",
+            "locks1": [
+                15,
+                44,
+                55
+            ],
+            "locks2": [
+                20,
+                52,
+                79
+            ]
+        },
+        "20260902": {
+            "phrase": "___n_______, _____ y__ ____ _______ _i_ _____ ______, _____ _____ __ _ _____ ______ __t ___________ ____e__ _r_____ __ ___d__ a__.",
+            "answer": "Gradfathersternetkindbeneathhsgruffmannerlivedaloneinaquietwoodenhuoverlookingvallyswappedingolenir",
+            "solv": 39.42,
+            "author": "Johanna Spyri",
+            "desc": "1881",
+            "locks1": [
+                9,
+                11,
+                45,
+                60,
+                80
+            ],
+            "locks2": [
+                25,
+                56,
+                69
+            ]
+        },
+        "20260903": {
+            "phrase": "___r_, _______ b__ __e_____, ______ ___ ____d__ ______ ___ __________, ________ __ ____ f_____ ___ _a_ _____ __l___ __o_.",
+            "answer": "Claafragileutcherfullongedforfreeombeyondherwheelchairdreamingofopenieldsshehdneverwakedupn",
+            "solv": 39.31,
+            "author": "Johanna Spyri",
+            "desc": "1881",
+            "locks1": [
+                27,
+                41,
+                48,
+                63
+            ],
+            "locks2": [
+                6,
+                46,
+                55
+            ]
+        },
+        "20260904": {
+            "phrase": "_e___ _______ __ __a________'_ ___, ______g ________ _r_____ ____l_ ______ __ ___t_ ______ __ _____ _______ _____ s___ __n_____.",
+            "answer": "HidiarrivedatGrndfathershutfeelinmountainbeezescircewarmlyasgoasgrazedonhillsglowingunderoftsulight",
+            "solv": 39.2,
+            "author": "Johanna Spyri",
+            "desc": "1881",
+            "locks1": [
+                26,
+                59,
+                64,
+                74,
+                85
+            ],
+            "locks2": [
+                5,
+                53,
+                68,
+                81
+            ]
+        },
+        "20260905": {
+            "phrase": "_____ _h_ ___t____ g______ ___ _____, _u_____ ___ ____s _____ _____i__ _____'_ ___ _____ __ ___ ________ ___ ______ __o___.",
+            "answer": "PetertegoaherdreetedhershylygidinghisgoatwhilewatchngHeidisjoybloomassheexploredthegrassyslpes",
+            "solv": 39.09,
+            "author": "Johanna Spyri",
+            "desc": "1881",
+            "locks1": [
+                2,
+                55,
+                64
+            ],
+            "locks2": [
+                24,
+                78,
+                86
+            ]
+        },
+        "20260906": {
+            "phrase": "__i__ ______d _______, ___h_____ ___, ________ __a___, ___ _______ ____ ____ l_______ ____ _o______ _______t___'_ _______e.",
+            "answer": "HediadaptequicklygateringhaylearningtrilsandfillingdayswithaughterthatsftenedGrandfaherssolitud",
+            "solv": 38.98,
+            "author": "Johanna Spyri",
+            "desc": "1881",
+            "locks1": [
+                5,
+                32,
+                47
+            ],
+            "locks2": [
+                26,
+                29,
+                45,
+                57
+            ]
+        },
+        "20260907": {
+            "phrase": "______ _______s ____o___ __r ____ _______ _____, __i___ _____, _n_ t__ _____ _____ __ ________e__ _________ ______ _____ l_____.",
+            "answer": "Alpinemorningwelcmedhewithringingbellsbrghtskiesadhesweetscentofwildflowrsscatteredacrossrockyedges",
+            "solv": 38.88,
+            "author": "Johanna Spyri",
+            "desc": "1881",
+            "locks1": [
+                9,
+                66,
+                77,
+                84,
+                90
+            ],
+            "locks2": [
+                27
+            ]
+        },
+        "20260908": {
+            "phrase": "___ ____d ______g ____s ____ _____, _a____ _____ ____e_ __ ______ ______ __t____ __i___ __________ __ _______ ______ __n__.",
+            "answer": "ShelovetendingoatwithPeterrcingalongridgsasechoesdancedbeweenclffsbrightenedbysingingsummerwids",
+            "solv": 38.77,
+            "author": "Johanna Spyri",
+            "desc": "1881",
+            "locks1": [
+                19,
+                41,
+                75,
+                81
+            ],
+            "locks2": [
+                51,
+                72,
+                79
+            ]
+        },
+        "20260909": {
+            "phrase": "_______t___ _______ ______ ____ _____ ___ ___, __o__ __ ___ ____ ___ ___r____ __ _a____ _______d __ ___ ___e-_____ h___.",
+            "answer": "Grandfahercraftedsturdymilkbowlsforherprudofthelifesheembacedaswrmthreturnetohisoncquietome",
+            "solv": 38.66,
+            "author": "Johanna Spyri",
+            "desc": "1881",
+            "locks1": [
+                2,
+                33,
+                43
+            ],
+            "locks2": [
+                15,
+                20
+            ]
+        },
+        "20260910": {
+            "phrase": "_e___ ____ s_______, ______, ___ ___d__, _______r___ ____ ______ ______ ___t__, _____n_ ___ ______ ____ ___h _______ ____i__.",
+            "answer": "Hidigrewtrongerkinderandbolerdiscoveingthatnaturehealedgenlyliftigherspiritwitheacpassingsunrse",
+            "solv": 38.55,
+            "author": "Johanna Spyri",
+            "desc": "1881",
+            "locks1": [
+                41,
+                77,
+                84
+            ],
+            "locks2": [
+                5,
+                19,
+                86
+            ]
+        },
+        "20260911": {
+            "phrase": "_u_ ___ __n_ ___i___ ____________, _________ _____ ______ __ _h_ ____ __ ____ ___r_, _______ _______t___'_ _____ ______a___.",
+            "answer": "BtherautarrvedunexpectedlyinsistingHeidireturntotecitytohelpClaadespiteGrandfahersheavyreluctnce",
+            "solv": 38.44,
+            "author": "Johanna Spyri",
+            "desc": "1881",
+            "locks1": [
+                2,
+                37,
+                91
+            ],
+            "locks2": [
+                16,
+                31,
+                44,
+                84
+            ]
+        },
+        "20260912": {
+            "phrase": "_e___ ____ ____ _________k, _____i__ ___ _________ ____ _s ____ __r____ ____ _______ ___ ____ ______n ________ _____ _a___.",
+            "answer": "Hidileftwithheartbreawatchngthemountainsfadeacitysteetsrosecrowdedandgraybetweetoweringstonewlls",
+            "solv": 38.33,
+            "author": "Johanna Spyri",
+            "desc": "1881",
+            "locks1": [
+                8,
+                34,
+                57,
+                60
+            ],
+            "locks2": [
+                41,
+                46,
+                82,
+                88
+            ]
+        },
+        "20260913": {
+            "phrase": "__a__ ____o___ ___ ____ ____ _____, ___t____ ___ _____'_ ______ _______ ___ ____r___ _______ __ ___n___ ____s ___ ____ __i__.",
+            "answer": "ClrawelcmedherwithopentrustgraefulforHeidisgentlecompanyandcheefulstoriesofshiingpeakandopenskes",
+            "solv": 38.22,
+            "author": "Johanna Spyri",
+            "desc": "1881",
+            "locks1": [
+                13,
+                39,
+                46,
+                68
+            ],
+            "locks2": [
+                44,
+                53
+            ]
+        },
+        "20260914": {
+            "phrase": "_e___ ____ __ __a__ _____, __l____ _h_ ____ ____ _________ _____ ___s________ ____r__ ___ _____t_ ___ __u______ _______n ___, ______ ____ ____ w______ ______y __ ___ m_____ ___ ____ _o ______ ____ _______k____ ______ ___ d_____ ____ f_______ ______ _i___.",
+            "answer": "HidireadtoClradailyfilingtehomewithsweetnesswhilehouekeepersadmiedherhonesyandbondlessmountaijoythoughcitylifeeighedheavilassheissedtheAlpssdeeplythathomesicnessfilledherreamswithamiliaralpinewnds",
+            "solv": 38.11,
+            "author": "Johanna Spyri",
+            "desc": "1881",
+            "locks1": [
+                29,
+                31,
+                68,
+                89,
+                94,
+                99,
+                137,
+                161
+            ],
+            "locks2": [
+                15,
+                37,
+                144,
+                189
+            ]
+        },
+        "20260915": {
+            "phrase": "__a__ _______ _e___'_ _______ ___ _________d ___ __ _____ ___o____, ___i__ ______s___ __u__ ____ ___ ____ __ __n____.",
+            "answer": "ClranoticedHidissadnessandencouragehertosharememrieshopngfriendhipwoldeasetheacheofloging",
+            "solv": 38.0,
+            "author": "Johanna Spyri",
+            "desc": "1881",
+            "locks1": [
+                5,
+                72,
+                75
+            ],
+            "locks2": [
+                7,
+                17,
+                24
+            ]
+        },
+        "20260916": {
+            "phrase": "__ _____, _e___ ___d____ h____, _______ ____ _______ _____i_ s_____ ___ t__ __________ ____ __ _______n _______.",
+            "answer": "AtnightHidiwaneredallsfeelinglostwithoutstarltlopesandhecomfortinghushofmountaibreezes",
+            "solv": 37.89,
+            "author": "Johanna Spyri",
+            "desc": "1881",
+            "locks1": [
+                5,
+                30,
+                75,
+                85
+            ],
+            "locks2": [
+                26,
+                62,
+                81
+            ]
+        },
+        "20260917": {
+            "phrase": "____ ____e______ __o____ __i__ _____, ______ ____ h__ ____ ______, ______ ___r_ d_______ ___ ____ ____t, __________ _____.",
+            "answer": "MissRottnmeierscldedHedioftenuneasywitherwildspiritthoughClaaefendedherwithquiedeterminedgrace",
+            "solv": 37.78,
+            "author": "Johanna Spyri",
+            "desc": "1881",
+            "locks1": [
+                2,
+                38,
+                86,
+                90
+            ],
+            "locks2": [
+                42
+            ]
+        },
+        "20260918": {
+            "phrase": "_______ _______ ________h__, ____n_ _i_ __ _____ _____ ____, ___ ___r_'_ __a________ ______ ________ ________ ______ ________.",
+            "answer": "LettersreachedGrandfaterurgighmtobringHeidihomeandClaasgrndmotherhelpedpersuadeeveryonetowardkindness",
+            "solv": 37.67,
+            "author": "Johanna Spyri",
+            "desc": "1881",
+            "locks1": [
+                2,
+                40,
+                65,
+                95
+            ],
+            "locks2": [
+                9,
+                72,
+                82
+            ]
+        },
+        "20260919": {
+            "phrase": "__ ____, __r_______ c___, ___ _e___ ________ __ ___ _____a___, _____ _______ __ ___ _____ ___o _______t___'_ __i____ ___s.",
+            "answer": "AtlastpemissionameandHidireturnedtothemountinsheartsoaringassheracedintGrandfaherswatingarm",
+            "solv": 37.56,
+            "author": "Johanna Spyri",
+            "desc": "1881",
+            "locks1": [
+                32,
+                41,
+                60,
+                80
+            ],
+            "locks2": [
+                27,
+                53,
+                66
+            ]
+        },
+        "20260920": {
+            "phrase": "S__ ________ ____ __e _____ ___, ______ ____i__ __r____ ___ __ ___ ____ ________ ___ ___k __t_ __________ _a___ __ ______h_.",
+            "answer": "hebreatheddeepthcrispairreliefwashngthoughherasthelandwelcomedherbacwihshimmeringwvesofsunligt",
+            "solv": 37.45,
+            "author": "Johanna Spyri",
+            "desc": "1881",
+            "locks1": [
+                31,
+                61,
+                71
+            ],
+            "locks2": [
+                7,
+                18,
+                76
+            ]
+        },
+        "20260921": {
+            "phrase": "_____ ________, __i____ ___t_ _______ _____ _e___ ______d, _______ _____ _____ __ _l____ _______ ______ o___ ______g _____r__.",
+            "answer": "PeterrejoicedgudinggoasproudlywhileHidilaughefeelingwholeagainascoudsdriftedlazilyverrollinpastues",
+            "solv": 37.34,
+            "author": "Johanna Spyri",
+            "desc": "1881",
+            "locks1": [
+                4,
+                8,
+                51,
+                62
+            ],
+            "locks2": [
+                6,
+                28,
+                79
+            ]
+        },
+        "20260922": {
+            "phrase": "____a ______ __ _____, ___ ____ ______e_____ ____ ____, _______ __r __ t__ ____ ____ _o__ _____n_ _h_____ ___ ______ _m___.",
+            "answer": "ClarlongedtovisitandsoonarrangmentsweremadesendinghetoheAlpswithhpeshinigtroughhergentlesile",
+            "solv": 37.23,
+            "author": "Johanna Spyri",
+            "desc": "1881",
+            "locks1": [
+                2,
+                21,
+                25,
+                69
+            ],
+            "locks2": [
+                8,
+                84
+            ]
+        },
+        "20260923": {
+            "phrase": "___r_ ______d _______, _________ __ _____ __e____ ____ _______ ________ t______ h__ __a__ _i___ ___ ________ ___ ______s.",
+            "answer": "Claaarrivetimidlyenchantedbyfreshbrezesthatcarriedstrengthhrougherwerylmbsandsoftenedherworrie",
+            "solv": 37.12,
+            "author": "Johanna Spyri",
+            "desc": "1881",
+            "locks1": [
+                10,
+                49
+            ],
+            "locks2": [
+                24,
+                29,
+                44
+            ]
+        },
+        "20260924": {
+            "phrase": "__i__ _n________ ___ _____, _______ __a___, _______, ___ __________ __ _____ _______e_ ________ __ ___ ____ ___d__ _____.",
+            "answer": "HediecouragedherdailysharingtrilsstoriesandconfidenceasClarapracticdstandinginthewarmmeaowlight",
+            "solv": 37.01,
+            "author": "Johanna Spyri",
+            "desc": "1881",
+            "locks1": [
+                15,
+                26,
+                33,
+                63
+            ],
+            "locks2": [
+                23,
+                38,
+                72,
+                91
+            ]
+        },
+        "20260925": {
+            "phrase": "____ e___ _______, __a__ ____ ________, ______ __ __________ ___ t__ _____ w____ _h_____ ___ _____n_ ________ _i_.",
+            "answer": "WithachattemptClragrewstrongerdrivenbyfriendshipandhemagicoventroughthehealigmountainar",
+            "solv": 36.9,
+            "author": "Johanna Spyri",
+            "desc": "1881",
+            "locks1": [
+                19,
+                26,
+                40
+            ],
+            "locks2": [
+                28,
+                54,
+                81
+            ]
+        },
+        "20260926": {
+            "phrase": "_____ _a_____ ____ ___ __ _____ ____ h__ _i___ _____, _________ ___ d_________, s________ __ _e___'_ ______ ______t.",
+            "answer": "PeterwtchedwithaweasClaratookerfrststepstremblingyeteterminedupportedbyHidisbrightsuppor",
+            "solv": 36.79,
+            "author": "Johanna Spyri",
+            "desc": "1881",
+            "locks1": [
+                19,
+                22
+            ],
+            "locks2": [
+                12,
+                77
+            ]
+        },
+        "20260927": {
+            "phrase": "___________ _r_____ __a__'_ _______, _____ ___l___ ___ ____ __ ___ ______ ______ ____s _h___ g____ ______ __i____ ____ __e_.",
+            "answer": "GrandfatherpaisedClrascouragepridefilinghiseyesasjoyechoedacrosshillwereoatsgrazedquetlynearthm",
+            "solv": 36.68,
+            "author": "Johanna Spyri",
+            "desc": "1881",
+            "locks1": [
+                8,
+                32,
+                35,
+                66
+            ],
+            "locks2": [
+                2,
+                25,
+                62,
+                80
+            ]
+        },
+        "20260928": {
+            "phrase": "__a__ _____d _o__ ___h ___, n_______ _______ l______ ___ _____ __ ___ _____r__ _____ ___ ____ _______ ___e_______.",
+            "answer": "Clrawalkemreeacdayewfoundfreedomiftingherheartassheexploedpathssheoncethoughtunrachable",
+            "solv": 36.57,
+            "author": "Johanna Spyri",
+            "desc": "1881",
+            "locks1": [
+                15,
+                30
+            ],
+            "locks2": [
+                27,
+                59
+            ]
+        },
+        "20260929": {
+            "phrase": "____ _______ __a__'_ f_____, ___ ___i___ __________ __ s__ ___ ________ ____ ____ _r_______ _______ ______ ___ ___e.",
+            "answer": "NewsreachedClrasamilywhoarrvedastonishedtoeeherstandingtallwithgatitudeglowingacrossherfac",
+            "solv": 36.46,
+            "author": "Johanna Spyri",
+            "desc": "1881",
+            "locks1": [
+                22,
+                51,
+                60,
+                65
+            ],
+            "locks2": [
+                1
+            ]
+        },
+        "20260930": {
+            "phrase": "_____ ___t ____i____ _____, _______ ____ ___ ______ ___ ______ ____ ___ __ ____ d_____ ___n ___ __ _h__ ___ __a_____.",
+            "answer": "Heidifelhappnessbloomknowingloveandnaturehadhealedthemallinwayseeperthaanyoftemhadimgined",
+            "solv": 36.35,
+            "author": "Johanna Spyri",
+            "desc": "1881",
+            "locks1": [
+                2,
+                18,
+                43,
+                55
+            ],
+            "locks2": [
+                22,
+                45,
+                51,
+                60
+            ]
+        },
+        "20260931": {
+            "phrase": "___ _________ _________ __ ____ __n_____ __ _h_ ________ ______a___, _____ __ ________i_ s_____ ____u__ _____ ___ ______ ___e.",
+            "answer": "Themountainsshimmeredinlatesulightastefamiliescelebrtedboundbyfriendshphapedthroghtrustandgentlecar",
+            "solv": 36.24,
+            "author": "Johanna Spyri",
+            "desc": "1881",
+            "locks1": [
+                6,
+                12,
+                59,
+                64
+            ],
+            "locks2": [
+                1,
+                17,
+                39,
+                93
+            ]
+        }
+    }
+}

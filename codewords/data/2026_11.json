@@ -1,0 +1,574 @@
+{
+    "sceneName": "Helen and Grandma",
+    "bg_header": "e07d4d",
+    "bg_body": "fadcc6",
+    "bg_keyboard": "#a39a9c",
+    "keyboard_key_normal": "f5f1eb",
+    "keyboard_key_disabled": "#8b8285",
+    "keyboard_text_normal": "37342d",
+    "keyboard_text_disabled": "#605a58",
+    "keyboard_text_reveal": "#49B03B",
+    "hud_text_color": "250a05",
+    "hud_bg_light": "ffffff",
+    "hud_bg_dark": "2b2018",
+    "author": "Marcie M. Jones",
+    "desc": "1961",
+    "puzzles": {
+        "20261101": {
+            "phrase": "_____, _ ______ ___ _h________ ____, _________ ___t__ ________ ____ ___ _______, _____ _______ ______ _____ ______ __ ___i_ ____ ______ ___e.",
+            "answer": "Helenabrightandtoughtfulgirlcherishedgenlemorningswithhergrandmawhosestorieswarmedeverycornerofthercozylittlehom",
+            "solv": 32.84,
+            "author": "Marcie M. Jones",
+            "desc": "1961",
+            "locks1": [
+                8,
+                45,
+                71,
+                103
+            ],
+            "locks2": [
+                29,
+                58,
+                80
+            ]
+        },
+        "20261102": {
+            "phrase": "_______, w___ ___ _______, _______ _e_____ __ _____i__, _______ ____o__ __t_ ___h ____ ___ ______ ____ ____n _______ ____ ___d__ _a_______.",
+            "answer": "GrandmaiseandpatientcarrieddcadesofmemoresweavingcomfrtinoeactaleshesharedwithHelebeneathsoftgolenlmplight",
+            "solv": 32.73,
+            "author": "Marcie M. Jones",
+            "desc": "1961",
+            "locks1": [
+                22,
+                50,
+                66,
+                73,
+                84
+            ],
+            "locks2": [
+                2,
+                16,
+                43
+            ]
+        },
+        "20261103": {
+            "phrase": "_____ ______ ____ ___t__ ______y ______ ____, _______ ___d______ _____ __ ____n ___ _______ _____ _ ____ __a___ __ ____ ___ ______ ____e_.",
+            "answer": "TheirsleepytownresedquietlaroundthemholdingtraitionscloseasHeleandGrandmabuiltabondshpedbyloveandsharedwondr",
+            "solv": 32.62,
+            "author": "Marcie M. Jones",
+            "desc": "1961",
+            "locks1": [
+                32,
+                37,
+                58,
+                76
+            ],
+            "locks2": [
+                7,
+                41,
+                70,
+                99
+            ]
+        },
+        "20261104": {
+            "phrase": "__l__ _o___ __s_____ __t__ ______, ______ __ __e ____h _____ __ ____ _______ ________ __ ___ ___d__, _______ __n__ _____ ____ ___ _i__.",
+            "answer": "HeenlvedviitingaferschoolracingupthporcstepstofindGrandmaknittingbythewinowhummingtuesolderthanthewnd",
+            "solv": 32.51,
+            "author": "Marcie M. Jones",
+            "desc": "1961",
+            "locks1": [
+                26,
+                49,
+                86,
+                92
+            ],
+            "locks2": [
+                28,
+                60,
+                80,
+                89
+            ]
+        },
+        "20261105": {
+            "phrase": "____ __e___ _______ ____ t__ _______ _s _______ ________ _____r, ________ ____n __w ______ m______ _____ ____ ______ _a___.",
+            "answer": "WarmscntsdriftedfromhekitchenaGrandmapreparedsuppeteachingHelehosimpleomentscouldholdgentlemgic",
+            "solv": 32.4,
+            "author": "Marcie M. Jones",
+            "desc": "1961",
+            "locks1": [
+                2,
+                26,
+                80
+            ],
+            "locks2": [
+                14,
+                32,
+                87
+            ]
+        },
+        "20261106": {
+            "phrase": "_______ ____i___ _a_____ ____ ______ ______ t__ ____, ________ _____ _______r __ ____ s______ __ _____o__ p______ ______e.",
+            "answer": "Eveningsunlghtpintedsoftcolorsacrossheroomwrappingtheirlaughteincalmhadowsassparrwserchedoutsid",
+            "solv": 32.29,
+            "author": "Marcie M. Jones",
+            "desc": "1961",
+            "locks1": [
+                23,
+                53,
+                65
+            ],
+            "locks2": [
+                2,
+                21,
+                43
+            ]
+        },
+        "20261107": {
+            "phrase": "_____ __s_____ _______ __ _______ __o__ __ ________d ________, _____i____ ____ ______ _______ l___ ___r___ ____ _n___ _____t ___e_.",
+            "answer": "HelenlitenedcloselyasGrandmaspkeofchildhoojourneysdescrbingopenfieldsglowingikeemealdseasuderbrighskis",
+            "solv": 32.18,
+            "author": "Marcie M. Jones",
+            "desc": "1961",
+            "locks1": [
+                4,
+                14,
+                38,
+                87
+            ],
+            "locks2": [
+                2,
+                47,
+                73
+            ]
+        },
+        "20261108": {
+            "phrase": "_n_ ___ G_a____ __________ __ ___ ___d__ ___ ______ ____ __ ___ ________, ____r___ ___o____ t___ _________ _i__ ________ ____e______.",
+            "answer": "Oedayrndmadiscoveredanoldwooenboxhiddendeepinhercupboardstiringmemrieshatflutteredlkeawakenedbuttrflies",
+            "solv": 32.07,
+            "author": "Marcie M. Jones",
+            "desc": "1961",
+            "locks1": [
+                26,
+                38,
+                58,
+                74,
+                95
+            ],
+            "locks2": [
+                17,
+                78,
+                87
+            ]
+        },
+        "20261109": {
+            "phrase": "_e___'_ ____ _______ __ _______ ______ _ __d__ ___, _t_ ____s w___ ___ _______ ____ _______ __ ________n _a___.",
+            "answer": "HlenseyeswidenedasGrandmaliftedafaedmapisedgeornyetglowingwithpromiseofforgottepths",
+            "solv": 31.96,
+            "author": "Marcie M. Jones",
+            "desc": "1961",
+            "locks1": [
+                28,
+                59,
+                67
+            ],
+            "locks2": [
+                12,
+                20
+            ]
+        },
+        "20261110": {
+            "phrase": "_______ ____a____ __ __d __ _ _____ ___ ____ _____r__ ____ _g_, _____ _e_____ __ ___i_ ______ __s___ _______ __l__ ___ __________ __n__.",
+            "answer": "Grandmaexplineditletoaplacesheonceexploedlongaowherescretsoftherfamilyretedbetweenhilsandwhisperingpies",
+            "solv": 31.85,
+            "author": "Marcie M. Jones",
+            "desc": "1961",
+            "locks1": [
+                4,
+                20,
+                27,
+                50,
+                81
+            ],
+            "locks2": [
+                2,
+                23,
+                67,
+                94
+            ]
+        },
+        "20261111": {
+            "phrase": "____n ______ __ _e_ __, ___i______ ________ __ ___ _______d _____t___ ________ __ _____ ____ __ _h_ _______ _a_.",
+            "answer": "Helebeggedtoseitexctementbubblingassheimagineadvenurestitchedtoeveryfoldofteancientmp",
+            "solv": 31.74,
+            "author": "Marcie M. Jones",
+            "desc": "1961",
+            "locks1": [
+                25,
+                33,
+                71,
+                77
+            ],
+            "locks2": [
+                30,
+                59
+            ]
+        },
+        "20261112": {
+            "phrase": "_______ _____d s_____ ___ ______, _________ _____ __ _____ ____a__ ___ __n_____, f__ ________ ______ _r____ ___o__ _i____ ______e____.",
+            "answer": "GrandmasmileoftlyandagreedremindingHelentocarrycourgeandkidnessorjourneysrevealtuthsbeyndsmplediscovries",
+            "solv": 31.63,
+            "author": "Marcie M. Jones",
+            "desc": "1961",
+            "locks1": [
+                29,
+                37,
+                41,
+                77,
+                96
+            ],
+            "locks2": [
+                1,
+                27,
+                69
+            ]
+        },
+        "20261113": {
+            "phrase": "____ ___ o__ _____ ____ _______, ___t _______ ______ ______ _____ _i___ _e______ ___m ____ __n___ s____ ________ ______h _____ __r.",
+            "answer": "Theysetutearlynextmorningmiscurlingacrossfieldswhilebrdswlcomedthewithgetleongsdriftingthrougcrispai",
+            "solv": 31.52,
+            "author": "Marcie M. Jones",
+            "desc": "1961",
+            "locks1": [
+                12,
+                21,
+                34,
+                46,
+                88
+            ],
+            "locks2": [
+                32,
+                43,
+                83,
+                94
+            ]
+        },
+        "20261114": {
+            "phrase": "__l__ ____ _______'s ____ ___h___ __ ____ _______ w_____ _______, _______ ___ ___e__'_ ____ ______ _____ __n____ _a__ _____ _t__.",
+            "answer": "HeenheldGrandmahandtigtlyastheycrossedoodenbridgesfeelingtheforstscalmrhythmpulsebeeathechleafysep",
+            "solv": 31.41,
+            "author": "Marcie M. Jones",
+            "desc": "1961",
+            "locks1": [
+                27,
+                37,
+                55
+            ],
+            "locks2": [
+                67,
+                71,
+                91
+            ]
+        },
+        "20261115": {
+            "phrase": "____e___ _i______ _h_____ ____ ________, _____n_ ____r ____ l___ ____a__ __ __g__ _______ __________ _______ ___ ______ t____.",
+            "answer": "Sunbamsflteredtroughtallbranchesguidigtheipathikethredsoflihtweavinginvitationthroughtheshadedrail",
+            "solv": 31.3,
+            "author": "Marcie M. Jones",
+            "desc": "1961",
+            "locks1": [
+                22,
+                25,
+                67
+            ],
+            "locks2": [
+                30,
+                65,
+                72,
+                89
+            ]
+        },
+        "20261116": {
+            "phrase": "____ ______ _ _____m __________ ___e _____, _h_r_ _______ _a____ __ ______ _____u_ _______ _____ _______ __________s ____ ___ _i______.",
+            "answer": "TheypassedastreashimmeringlikglassweeGrandmapusedtorecallplayflsummersspentchasingdragonfliewithhersblings",
+            "solv": 31.19,
+            "author": "Marcie M. Jones",
+            "desc": "1961",
+            "locks1": [
+                22,
+                29,
+                42,
+                55
+            ],
+            "locks2": [
+                67,
+                77,
+                93
+            ]
+        },
+        "20261117": {
+            "phrase": "_____ _____ _______ ___ ____i__, ___h ______ _________ l___ _e____ r________ ___o__ ___ _____ _____n__.",
+            "answer": "Helenlovedhearingherstoreseacmemoryunfoldingikeptalsevealingcolrssheneverimagied",
+            "solv": 31.08,
+            "author": "Marcie M. Jones",
+            "desc": "1961",
+            "locks1": [
+                4,
+                12,
+                19,
+                61
+            ],
+            "locks2": [
+                1,
+                41
+            ]
+        },
+        "20261118": {
+            "phrase": "_o__ t___ _______ _ _____i__ ___r_ ________e__ ______ ______, ______g __ ______ ________ _______ ____ ____-a______ ________n.",
+            "answer": "SonheyreachedaclearngwheewildflowrsdancedfreelyswayinasthoughgreetingGrandmawithlongwaitedaffectio",
+            "solv": 30.97,
+            "author": "Marcie M. Jones",
+            "desc": "1961",
+            "locks1": [
+                12,
+                42,
+                56,
+                77
+            ],
+            "locks2": [
+                39,
+                59,
+                67,
+                71
+            ]
+        },
+        "20261119": {
+            "phrase": "__ __e ______ _____ a_ ___ _____ ____h _______ __ ____, _ ____ _______ ____ ____t__ ____ __r ___ ___n_______ ____ __o.",
+            "answer": "AtthcenterstoodnoldstonebenccoveredinmossaspotGrandmaoncevisiedwithheowngradmotherlongag",
+            "solv": 30.86,
+            "author": "Marcie M. Jones",
+            "desc": "1961",
+            "locks1": [
+                0,
+                14,
+                39,
+                73
+            ],
+            "locks2": [
+                11,
+                44,
+                49
+            ]
+        },
+        "20261120": {
+            "phrase": "H____ ___ ______ ___, ____i__ t__ ______ __ _______ ______n_ ______ ___u__ ____ ____ _ _a__, ________ _____e_.",
+            "answer": "elensatbesidehersensngheweightofhistorysettliggentlyarondthemlikeawrmfamiliarblankt",
+            "solv": 30.75,
+            "author": "Marcie M. Jones",
+            "desc": "1961",
+            "locks1": [
+                13,
+                18,
+                61,
+                70
+            ],
+            "locks2": [
+                10,
+                47
+            ]
+        },
+        "20261121": {
+            "phrase": "_______ ______ _h_ ______ ___ _____, ______i__ _______ _______ __ ______t_ ___, _______g ____e_ _r__ __n________ _a__.",
+            "answer": "Grandmaopenedtewoodenboxagainrevealngletterswrittenindelicaeinkcarryinvoicsfomgeerationspst",
+            "solv": 30.64,
+            "author": "Marcie M. Jones",
+            "desc": "1961",
+            "locks1": [
+                0,
+                16,
+                39,
+                65
+            ],
+            "locks2": [
+                3,
+                19,
+                26
+            ]
+        },
+        "20261122": {
+            "phrase": "_____ _______d __ _______ ____ _h__ a____, e___ ____ _____ ____r _____s ______ __ ___ ___i__ ____ ______ _____ _____t_.",
+            "answer": "HelenlisteneasGrandmareadtemloudachwordtyingtheiheartclosertothefamlythatshapedtheirspiris",
+            "solv": 30.53,
+            "author": "Marcie M. Jones",
+            "desc": "1961",
+            "locks1": [
+                38,
+                58,
+                86
+            ],
+            "locks2": [
+                1,
+                16,
+                74
+            ]
+        },
+        "20261123": {
+            "phrase": "_ ______ _______ t__ __a___, ___p____ ____ __ _ __i__ _________ ____ ____ l___ _ ___s_____ __e_____.",
+            "answer": "Abreezerustledheleveswrapingtheminaquetstillnessthatfeltikeawhiperedblssing",
+            "solv": 30.43,
+            "author": "Marcie M. Jones",
+            "desc": "1961",
+            "locks1": [
+                25,
+                29,
+                50
+            ],
+            "locks2": [
+                12,
+                46
+            ]
+        },
+        "20261124": {
+            "phrase": "____n __a_____ h__ d_____ _______ _________ _____ _____i__, _______ t__ __________ __ ________ __o__ ___ ______ ____r_ __e_.",
+            "answer": "HelerelizedoweeplyGrandmacherishedthesememoresknowingheimportanceofhonoringthsewhowalkedbefoethm",
+            "solv": 30.32,
+            "author": "Marcie M. Jones",
+            "desc": "1961",
+            "locks1": [
+                34,
+                50,
+                61,
+                72,
+                87
+            ],
+            "locks2": [
+                21,
+                27,
+                58
+            ]
+        },
+        "20261125": {
+            "phrase": "__e_ ________ _n ___ _____i__, ___o____ __a__ __ ____ ___ _____ _____ t___ ______ ___ ____ _____ ____l_.",
+            "answer": "Thylingereditheclearngallwingpecetofillthespacewhereimeslowedandlovespokesofty",
+            "solv": 30.21,
+            "author": "Marcie M. Jones",
+            "desc": "1961",
+            "locks1": [
+                0,
+                5,
+                44,
+                70
+            ],
+            "locks2": [
+                7,
+                36,
+                56
+            ]
+        },
+        "20261126": {
+            "phrase": "_______ ______ t__ _______ ___k _________, h__ ____ __________ ____ __a______ __ s__ _______ ____n ___ ___r___ ____ ___e__.",
+            "answer": "GrandmaplacedhelettersbaccarefullyereyesglisteningwithgrtitudeashethankedHeleforshaingthismomnt",
+            "solv": 30.1,
+            "author": "Marcie M. Jones",
+            "desc": "1961",
+            "locks1": [
+                27,
+                48,
+                51,
+                89
+            ],
+            "locks2": [
+                2,
+                45,
+                87
+            ]
+        },
+        "20261127": {
+            "phrase": "H____ ______ ___ t______, ______i__ __ __e_____ _____ __o____ ___ ____ ____ _l___ ___ ______ ______ __ __r__.",
+            "answer": "elenhuggedherightlypromisngtotrasuretheirstriesandkeepthemaiveforfutureheartstocary",
+            "solv": 29.99,
+            "author": "Marcie M. Jones",
+            "desc": "1961",
+            "locks1": [
+                10,
+                23,
+                63
+            ],
+            "locks2": [
+                8,
+                67,
+                74
+            ]
+        },
+        "20261128": {
+            "phrase": "__ ___y w_____ ____, _____t ___o__ ________ ______, ________ _____ ____ ____ ____ ______ l___ ______s __n_______ ____ ___ __e____.",
+            "answer": "Asthealkedhomesunsecolrsfollowedbehindpaintingskieswithgoldthatglowedikethreadconectingpastandprsent",
+            "solv": 29.88,
+            "author": "Marcie M. Jones",
+            "desc": "1961",
+            "locks1": [
+                0,
+                20,
+                26,
+                40,
+                58
+            ],
+            "locks2": [
+                36,
+                67
+            ]
+        },
+        "20261129": {
+            "phrase": "_____ j______ ____n_______ _e___'_ _____ __ ______, ____a____ ______ _o___ _______ ________ ___h ______ ___ _r___.",
+            "answer": "TheirourneystregthenedHlenssenseoffamilyrevelingbeautywventhroughmemoriesbottenderandbave",
+            "solv": 29.77,
+            "author": "Marcie M. Jones",
+            "desc": "1961",
+            "locks1": [
+                50,
+                59,
+                68
+            ],
+            "locks2": [
+                29,
+                52,
+                66,
+                78
+            ]
+        },
+        "20261130": {
+            "phrase": "B___ ______ ___i_ ____ ____, _______ ______ ______, _______ ____n _o___ ________ ___ ___a__ ____ ____l_ ______e.",
+            "answer": "ackinsidethercozyhomeGrandmasmiledwarmlyknowingHelewuldcontinuethelegcywithgentecourag",
+            "solv": 29.66,
+            "author": "Marcie M. Jones",
+            "desc": "1961",
+            "locks1": [
+                27,
+                42,
+                55
+            ],
+            "locks2": [
+                24,
+                32,
+                44
+            ]
+        },
+        "20261131": {
+            "phrase": "___ ____n, ___d___ _h_ ___ _____, __l_ ___ _____ _x____, __a_____ ___ _ _r_________ _____ ____ ______ _____ ______ ___o _ _________ __e_____.",
+            "answer": "AndHeleholingtemapclosefetherworldepandgrtefulforagandmotherwhoseloveturnedeverymemoryintacherishedtrasure",
+            "solv": 29.55,
+            "author": "Marcie M. Jones",
+            "desc": "1961",
+            "locks1": [
+                26,
+                37,
+                74
+            ],
+            "locks2": [
+                16,
+                20,
+                84,
+                92
+            ]
+        }
+    }
+}

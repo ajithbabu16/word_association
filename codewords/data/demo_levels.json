@@ -1,0 +1,50 @@
+{
+    "1": {
+        "phrase": "The purp_se ee _ur liv_s is t_ b_ happy.",
+        "answer": "ooeoee",
+        "author": "Dalai Lama XIV"
+    },
+    "2": {
+        "phrase": "L_“f_ is _ike a b_x _f cho_ol_t_s.",
+        "answer": "ieloocae",
+        "author": "Tom Hanks"
+    },
+    "3": {
+        "phrase": "L_v_ i_ _he b_a_ty of __e s_ul.",
+        "answer": "oesteutho",
+        "author": "Saint Augustine"
+    },
+    "6": {
+        "phrase": "Wri___s _h_u__ b_ _e__, ___ _e_the_ s_e_ nor _ea_d.",
+        "answer": "tersolderadbutnirenhr",
+        "author": "Daphne du Maurier",
+        "locks1": [
+            2,
+            5
+        ]
+    },
+    "10": {
+        "phrase": "I _ut a do___r i_ _ ____ge _a__in_. _oth___ ch_____.",
+        "answer": "pllanachanmcheNinganged",
+        "author": "George Carlin",
+        "locks2": [
+            2,
+            7,
+            20
+        ]
+    },
+    "13": {
+        "phrase": "S___nce __ m_ __r______, ___ __i____ _i_____ __ th_ __ndsc_p_ _f m_ d_____.",
+        "answer": "cieisyteritorybutscencefctioniselaaeoyreams",
+        "author": "Forrest J. Ackerman",
+        "locks1": [
+            11,
+            12
+        ],
+        "locks2": [
+            1,
+            21,
+            40
+        ]
+    }
+}

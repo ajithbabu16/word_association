@@ -1,0 +1,546 @@
+{
+    "sceneName": "Aladdin and the Magic Lamp",
+    "bg_header": "e07d4d",
+    "bg_body": "fadcc6",
+    "bg_keyboard": "#c06c27",
+    "keyboard_key_normal": "f5f1eb",
+    "keyboard_key_disabled": "#a45b20",
+    "keyboard_text_normal": "37342d",
+    "keyboard_text_disabled": "#6c451c",
+    "keyboard_text_reveal": "#49B03B",
+    "hud_text_color": "250a05",
+    "hud_bg_light": "ffffff",
+    "hud_bg_dark": "2b2018",
+    "author": "Hanna Diyab",
+    "desc": "1704",
+    "puzzles": {
+        "20260601": {
+            "phrase": "_______ ___ _ ____ _____ ___ __o _____ ____ ___ ______, ________ __ a________ ___ ___l__ ____n_ ___ h_____ ___e.",
+            "answer": "Aladdinwasapooryoungmanwhlivedwithhismotherdreamingofdventureandweathbeyodhisumblehom",
+            "solv": 49.63,
+            "author": "Hanna Diyab",
+            "desc": "1704",
+            "locks1": [
+                3,
+                12,
+                18,
+                35
+            ],
+            "locks2": [
+                28,
+                40,
+                46
+            ]
+        },
+        "20260602": {
+            "phrase": "___ __y, _ ____n___ ________ __ __ __s _____ ___ ___d___ __ _ _____t ____ ______ ____ ___a____ ___ ____e_.",
+            "answer": "OnedaastragerclaimingtobehiuncleledAladintoasecrecavefilledwithtresureanddangr",
+            "solv": 49.52,
+            "author": "Hanna Diyab",
+            "desc": "1704",
+            "locks1": [
+                19,
+                30,
+                60,
+                64
+            ],
+            "locks2": [
+                15
+            ]
+        },
+        "20260603": {
+            "phrase": "______ ___ _a__, ______n _____ _ _______ l___, _______ ____________, ___i__ ________ __ ___ ____ ____ _e____.",
+            "answer": "InsidethecveAladdifoundamagicalampglowingmysteriouslyunlkeanythinghehadeverseenbfore",
+            "solv": 49.41,
+            "author": "Hanna Diyab",
+            "desc": "1704",
+            "locks1": [
+                15,
+                51,
+                65
+            ],
+            "locks2": [
+                25,
+                38,
+                45
+            ]
+        },
+        "20260604": {
+            "phrase": "T__ ___a____ _____ __ ____ h__, ___ _______ ________ _s_____, _____g ___ ____ ____l_ ____ __ ___ _____ ____e.",
+            "answer": "hestrngertriedtotrapimbutAladdincleverlyecapedtakinthelampsafeybacktohissmallhous",
+            "solv": 49.3,
+            "author": "Hanna Diyab",
+            "desc": "1704",
+            "locks1": [
+                54,
+                71
+            ],
+            "locks2": [
+                27,
+                34
+            ]
+        },
+        "20260605": {
+            "phrase": "___n __ _____d _h_ ___p, _ _i____ _____ ___e____, _____ __ _____ _______ ___ ____ __ _______ __ __ _______.",
+            "answer": "WheherubbetelamamghtygenieapparedreadytograntAladdinanywishhedesiredinaninstant",
+            "solv": 49.19,
+            "author": "Hanna Diyab",
+            "desc": "1704",
+            "locks1": [
+                3,
+                50,
+                61,
+                75
+            ],
+            "locks2": [
+                22,
+                43,
+                47
+            ]
+        },
+        "20260606": {
+            "phrase": "A______ ____t ______ __r ____, __o_____, ___ ___f___, _______n_ _________ ___ _______ ___ ___ ______ i__________.",
+            "answer": "laddinfirswishedfofoodclthingandcomortprovidigabundanceforhimselfandhismothermmediately",
+            "solv": 49.08,
+            "author": "Hanna Diyab",
+            "desc": "1704",
+            "locks1": [
+                18,
+                49,
+                76,
+                79
+            ],
+            "locks2": [
+                11,
+                72
+            ]
+        },
+        "20260607": {
+            "phrase": "__ g___ _____r ___ ________, ______n_ ____ _h_ _a__'_ _____ ___l_ ______ ___ ____, ___ ____ _____ _____ ____e_.",
+            "answer": "Herewcleveandcautiouslearnigthattelmpspowercoudchangehislifebutalsobringgreatdangr",
+            "solv": 48.97,
+            "author": "Hanna Diyab",
+            "desc": "1704",
+            "locks1": [
+                16,
+                25,
+                64,
+                71
+            ],
+            "locks2": [
+                14,
+                68
+            ]
+        },
+        "20260608": {
+            "phrase": "____ __ ______n'_ __d___ ______ _______ ___ s_____, __o ___ _______ ___u_ ___ _____ _a_'_ _______ ___ ____e__.",
+            "answer": "NewsofAladdissudenwealthreachedtheultanwhwascuriousabottheyoungmnsfortuneandmannrs",
+            "solv": 48.86,
+            "author": "Hanna Diyab",
+            "desc": "1704",
+            "locks1": [
+                9,
+                50,
+                59
+            ],
+            "locks2": [
+                1,
+                20,
+                71
+            ]
+        },
+        "20260609": {
+            "phrase": "_______ f___ __ __v_ ____ ___ _____n'_ ________, ________ __ ________ ___ _______ _i_ ____l_ _e________ ___ __a__.",
+            "answer": "Aladdinellinloewiththesultasdaughterdreamingofmarryingherdespitehshumbebginningsandfers",
+            "solv": 48.75,
+            "author": "Hanna Diyab",
+            "desc": "1704",
+            "locks1": [
+                3,
+                8,
+                20,
+                56
+            ],
+            "locks2": [
+                29,
+                38,
+                51,
+                81
+            ]
+        },
+        "20260610": {
+            "phrase": "____ t__ _e___'_ ____, ______n ___a____ ____ _______, _ _____ ____c_, ___ _i___ __ _______ ___ _____ ____l_.",
+            "answer": "WithhegnieshelpAladdiobtinedfineclothesagrandpalaeandgftstoimpresstheroyalfamiy",
+            "solv": 48.64,
+            "author": "Hanna Diyab",
+            "desc": "1704",
+            "locks1": [
+                18,
+                35,
+                73
+            ],
+            "locks2": [
+                29,
+                42,
+                63
+            ]
+        },
+        "20260611": {
+            "phrase": "T__ __i_____ ___ _______ _p___ ____ ________, _________n_ ____, __u__, ___ ___ __ ____ ___e_'_ _______ ____ _a_.",
+            "answer": "heprncessandAladdinsenttimetogetherdiscoveriglovetrstandjoyineachothrscompanyeachdy",
+            "solv": 48.53,
+            "author": "Hanna Diyab",
+            "desc": "1704",
+            "locks1": [
+                16,
+                23,
+                36,
+                57
+            ],
+            "locks2": [
+                14,
+                75
+            ]
+        },
+        "20260612": {
+            "phrase": "T__ ____ s_______ ________, ________n_ __ ___a_ ___ l___ ___ _____ i__ _____, ________ ______ ___ ______e_.",
+            "answer": "heeviltrangerreturnedattemptigtosteltheampandclaimtspowerplottingdeceitandmischif",
+            "solv": 48.42,
+            "author": "Hanna Diyab",
+            "desc": "1704",
+            "locks1": [
+                5,
+                7,
+                18,
+                47
+            ],
+            "locks2": [
+                62
+            ]
+        },
+        "20260613": {
+            "phrase": "_______ ____n___ t__ l___ _____ __________, _______, ___ ___ ____ __ ___ ___a_ _____ __ _____ _r_____ ___e__.",
+            "answer": "Aladdindefededheampusingclevernessbraveryandthehelpoftheloylgenieateverycucialmomnt",
+            "solv": 48.31,
+            "author": "Hanna Diyab",
+            "desc": "1704",
+            "locks1": [
+                3,
+                29,
+                66
+            ],
+            "locks2": [
+                25,
+                36,
+                61
+            ]
+        },
+        "20260614": {
+            "phrase": "T__ ___a____ w__ d_______, ___ ___ _______ ________ s___, ______n_ _____i_ __ ________ ____ __ _____ ___ _________.",
+            "answer": "hestrngerasefeatedandthekingdomremainedafeallowigAladdntocontinuelifeinpeaceandhappiness",
+            "solv": 48.2,
+            "author": "Hanna Diyab",
+            "desc": "1704",
+            "locks1": [
+                43,
+                60,
+                86
+            ],
+            "locks2": [
+                26,
+                32,
+                73
+            ]
+        },
+        "20260615": {
+            "phrase": "_______ __e_ t__ _____ ______, _______ ___ ____, ______ __i____, ___ _________ ___ ____ ____ ______ _______n_.",
+            "answer": "Aladdinusdhegeniewiselyhelpingthepooraidingfrendsandimprovingthecitywithcleversolutios",
+            "solv": 48.09,
+            "author": "Hanna Diyab",
+            "desc": "1704",
+            "locks1": [
+                3,
+                23,
+                70
+            ],
+            "locks2": [
+                15,
+                20,
+                41
+            ]
+        },
+        "20260616": {
+            "phrase": "__ _____ _ __________t ______ _____d ____ ______, _a_____, ___n_____, ___ __e______ ____ _i_____ _____ ___ ____.",
+            "answer": "Hebuiltamagnificenpalacefillewithbeautygrdensfoutainsandtrasuresfromdstantlandsandseas",
+            "solv": 47.98,
+            "author": "Hanna Diyab",
+            "desc": "1704",
+            "locks1": [
+                12,
+                59,
+                70,
+                77
+            ],
+            "locks2": [
+                54,
+                84
+            ]
+        },
+        "20260617": {
+            "phrase": "___ s_____ ___i___ A______'_ _______ _n_ ______, _________ __ ___ ________ __ ___ _r______ ___ ___ ___l_ _e___.",
+            "answer": "Theultanadmredladdinsbraveryadwisdomapprovingofhismarriagetothepincessandhisnobehart",
+            "solv": 47.87,
+            "author": "Hanna Diyab",
+            "desc": "1704",
+            "locks1": [
+                16,
+                52,
+                68
+            ],
+            "locks2": [
+                23,
+                42
+            ]
+        },
+        "20260618": {
+            "phrase": "A______'_ ___e______ __u___ ___ __t_, _____n__, ___ ____ _____ ___t __ _s__ ___ ____, ___ _______ __i_.",
+            "answer": "laddinsadvnturestaghthimduypatieceandthatpowermusbeuedforgoodnotselfishgan",
+            "solv": 47.76,
+            "author": "Hanna Diyab",
+            "desc": "1704",
+            "locks1": [
+                2,
+                61,
+                68
+            ],
+            "locks2": [
+                39,
+                65
+            ]
+        },
+        "20260619": {
+            "phrase": "__e ___n____ ___ _______ _____d l_______, ___, ___ _______r__, _____ ____ _______ s_______ ____ ____ _______ _a_.",
+            "answer": "ThpricessandAladdinshareaughterjoyandadventuestheirlovegrowingtrongerwitheachpassingdy",
+            "solv": 47.65,
+            "author": "Hanna Diyab",
+            "desc": "1704",
+            "locks1": [
+                7,
+                16,
+                50,
+                76
+            ],
+            "locks2": [
+                14,
+                82
+            ]
+        },
+        "20260620": {
+            "phrase": "_l_____ _______d __ _i_____ _a___, ________ _____ __e _____, _______r___ _________, ___ ________ _____ n_____.",
+            "answer": "Aaddintraveletodstantlndslearningaboutthworlddiscoveingtreasuresandgraspinghumanature",
+            "solv": 47.54,
+            "author": "Hanna Diyab",
+            "desc": "1704",
+            "locks1": [
+                37,
+                46,
+                56,
+                70
+            ],
+            "locks2": [
+                29,
+                72
+            ]
+        },
+        "20260621": {
+            "phrase": "T__ _____ ________ ___a_, ______n_ __i_____, __________, ___ _______ ____ _______r ______ o_ ____ ____e.",
+            "answer": "hegenieremainedloylofferiggudanceprotectionandmagicalhelpwhenevedangerrneedaros",
+            "solv": 47.43,
+            "author": "Hanna Diyab",
+            "desc": "1704",
+            "locks1": [
+                11,
+                35,
+                45,
+                69
+            ],
+            "locks2": [
+                3,
+                47,
+                66
+            ]
+        },
+        "20260622": {
+            "phrase": "______n ______ __s_ ___ r________, _________d _o_ ____a__, __________, ___ _____ ___ _____ __ ____ ___e__.",
+            "answer": "Aladdibecamewieandespectedrememberefrcourgeclevernessandusinghispowertohelpothrs",
+            "solv": 47.33,
+            "author": "Hanna Diyab",
+            "desc": "1704",
+            "locks1": [
+                3,
+                9,
+                49,
+                70
+            ],
+            "locks2": [
+                45,
+                57
+            ]
+        },
+        "20260623": {
+            "phrase": "__ ________ ____ ____ _____n___ _____ __o_ ____, _______h__, ___ _____ ____ ______ __a_ _______ ______ ____e.",
+            "answer": "Herealizedthattruehappiesscomesfrmlovefriendsipanddoinggoodratherthnseekingwealthalon",
+            "solv": 47.22,
+            "author": "Hanna Diyab",
+            "desc": "1704",
+            "locks1": [
+                15,
+                27,
+                40,
+                73
+            ],
+            "locks2": [
+                62,
+                77
+            ]
+        },
+        "20260624": {
+            "phrase": "T__ _a____ __________ __ _ _____ __ ________, l_______, ___ _o_, ____ _____e__ __________ ____ _____i_'_ __n_______.",
+            "answer": "heplaceflourishedasaplaceofkindnessearningandjywithcitiznsbenefitingfromAladdnsgeerosity",
+            "solv": 47.11,
+            "author": "Hanna Diyab",
+            "desc": "1704",
+            "locks1": [
+                8,
+                33,
+                70,
+                75
+            ],
+            "locks2": [
+                12,
+                22,
+                43,
+                59
+            ]
+        },
+        "20260625": {
+            "phrase": "S_o____ __ _____i_ _____d ___ ___ ____, _________ _e____ __ ___ _____y, __ __________, ___ _____ ____a_____.",
+            "answer": "triesofAladdnspreafarandwideinspiringpopletoactwiselbecourageousandvaluecompssion",
+            "solv": 47.0,
+            "author": "Hanna Diyab",
+            "desc": "1704",
+            "locks1": [
+                10,
+                22,
+                63,
+                73
+            ],
+            "locks2": [
+                32,
+                58
+            ]
+        },
+        "20260626": {
+            "phrase": "D______ ______, __ ____i___ h_____, _____ __________ t__ ____ _e_____ ____ ___ _______ _a__ ___ __s _____ ______l__.",
+            "answer": "espitewealthheremanedumbleneverforgettinghelifelssonsfromthemagicallmpandhiearlystrugges",
+            "solv": 46.89,
+            "author": "Hanna Diyab",
+            "desc": "1704",
+            "locks1": [
+                10,
+                12,
+                38,
+                54
+            ],
+            "locks2": [
+                8,
+                35
+            ]
+        },
+        "20260627": {
+            "phrase": "___ __y, _______ _______ __ ___ _i__ __ ______ t__ _____ ___ ___ ___ ____ ___ __d____ ___a___ ____ ___ _e___.",
+            "answer": "OnedaAladdindecideditwastmetorewardhegenieforallhishelpandenlessloyltyovertheyars",
+            "solv": 46.78,
+            "author": "Hanna Diyab",
+            "desc": "1704",
+            "locks1": [
+                20,
+                46,
+                49
+            ],
+            "locks2": [
+                7,
+                38
+            ]
+        },
+        "20260628": {
+            "phrase": "__ r_____ t__ _a__ ___ ____ _i__ ___ ______ ___ ___ _____ __ __ ____, ________ ___ _______ ____ _______ _e_______.",
+            "answer": "Heubbedhelmponelasttmeandwishedforthegenietobefreegrantinghimlibertyfrommagicalsrvitude",
+            "solv": 46.67,
+            "author": "Hanna Diyab",
+            "desc": "1704",
+            "locks1": [
+                22,
+                28,
+                51,
+                71
+            ],
+            "locks2": [
+                38,
+                54,
+                75
+            ]
+        },
+        "20260629": {
+            "phrase": "__e _____ ________, ________ _l_____, ___ __n_____ __o_ ___ _a__, _______ ____ __ ____ _ ____ __ h__ ___ _____i__.",
+            "answer": "ThgenierejoicedthankingAaddinandvaishedfrmthelmpfinallyfreetolivealifeofisownchoosng",
+            "solv": 46.56,
+            "author": "Hanna Diyab",
+            "desc": "1704",
+            "locks1": [
+                16,
+                61,
+                79
+            ],
+            "locks2": [
+                3,
+                20,
+                50
+            ]
+        },
+        "20260630": {
+            "phrase": "A______ ___ __e __i_____ _________ _____ ____ __ _____, __l___ ____ ____, _o_, ___ ___ _____n___ __ _____ ___d.",
+            "answer": "laddinandthprncesscontinuedtheirlifeinpeacefiledwithlovejyandthehappiessofdoinggoo",
+            "solv": 46.45,
+            "author": "Hanna Diyab",
+            "desc": "1704",
+            "locks1": [
+                2,
+                28,
+                80
+            ],
+            "locks2": [
+                20,
+                39,
+                76
+            ]
+        },
+        "20260631": {
+            "phrase": "___ _o, _______ ______ _ ____n_ ___ ____ ___ ______ ___ a________ b__ ___ ___d____, _i____, ___ _______ ___ _e___.",
+            "answer": "AndsAladdinbecamealegednotonlyforwealthanddventureutforkinnesswsdomandfreeingthegnie",
+            "solv": 46.34,
+            "author": "Hanna Diyab",
+            "desc": "1704",
+            "locks1": [
+                7,
+                26,
+                74,
+                77
+            ],
+            "locks2": [
+                35,
+                72
+            ]
+        }
+    }
+}

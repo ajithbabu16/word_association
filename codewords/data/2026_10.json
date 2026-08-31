@@ -1,0 +1,568 @@
+{
+    "sceneName": "The Adventure of Tintin",
+    "bg_header": "e07d4d",
+    "bg_body": "fadcc6",
+    "bg_keyboard": "#456b81",
+    "keyboard_key_normal": "f5f1eb",
+    "keyboard_key_disabled": "#46606e",
+    "keyboard_text_normal": "37342d",
+    "keyboard_text_disabled": "#3f4f57",
+    "keyboard_text_reveal": "#49B03B",
+    "hud_text_color": "250a05",
+    "hud_bg_light": "ffffff",
+    "hud_bg_dark": "2b2018",
+    "author": "Hergé",
+    "desc": "1930",
+    "puzzles": {
+        "20261001": {
+            "phrase": "_i____, _ _____ _____t__ _____ ___ _____ ________s ___ ________ ____a__, _____ ___ ___ _______n_ ___b__ __o____ __ ___ _____ _r______ ___e.",
+            "answer": "TntinayoungreporerknownforsharpinstinctandfearlesscourgebeganhisdayreviewiggloalstriesathisquietBusselshom",
+            "solv": 36.13,
+            "author": "Hergé",
+            "desc": "1930",
+            "locks1": [
+                24,
+                29,
+                34,
+                58,
+                86
+            ],
+            "locks2": [
+                43,
+                93
+            ]
+        },
+        "20261002": {
+            "phrase": "_____, ___ ___a_ _____ _o_ _______, w______ _______, s______ ____n____ ________i__ __ T_____ ______ _______ _______ _______ ______ _e___.",
+            "answer": "Snowyhisloylwhitefxterrieratchedcloselyensingadvetureapproachngasintinsiftedthroughlettersseekingurgentlads",
+            "solv": 36.02,
+            "author": "Hergé",
+            "desc": "1930",
+            "locks1": [
+                33,
+                63,
+                66,
+                77,
+                98
+            ],
+            "locks2": [
+                20,
+                73,
+                94
+            ]
+        },
+        "20261003": {
+            "phrase": "C______ _______, T_____'_ ______d ______ ____ _ _o__ _____ ___ ______ _____r, _______ ___ ___, ___i__ ___ _ _a__ ___ ___ ___e.",
+            "answer": "aptainHaddockintinstrustefriendwithabldheartandloudertempevisitedforteahopngforaclmdayforonc",
+            "solv": 35.91,
+            "author": "Hergé",
+            "desc": "1930",
+            "locks1": [
+                10,
+                16,
+                29,
+                67
+            ],
+            "locks2": [
+                7,
+                50,
+                63
+            ]
+        },
+        "20261004": {
+            "phrase": "____r _____ _____ ____ _ __a___ _n______ _______, ________d o___ __ _i____, ___t______ _ __________ ____ ____ _ _______ __________.",
+            "answer": "TheipeacebrokewhenaseledevelopearrivedaddressenlytoTntinconainingadistressedpleafromamissingresearcher",
+            "solv": 35.8,
+            "author": "Hergé",
+            "desc": "1930",
+            "locks1": [
+                10,
+                39,
+                49,
+                87,
+                96
+            ],
+            "locks2": [
+                34,
+                71
+            ]
+        },
+        "20261005": {
+            "phrase": "T__ _______ _________ _ ______ ___ _i____ __ d_____ r____ ___ _a____ ____ ________ _____s ____ _____n_ __ ___ _________ ___e_.",
+            "answer": "hemessagedescribedasacredmaphddeninesertuinsandwrnedthatruthlessrivalwerehuntigitfordangerouspowr",
+            "solv": 35.69,
+            "author": "Hergé",
+            "desc": "1930",
+            "locks1": [
+                24,
+                52,
+                75,
+                79
+            ],
+            "locks2": [
+                6,
+                22,
+                61
+            ]
+        },
+        "20261006": {
+            "phrase": "T_____ ______ ___f___, __________ __ ___a__ ___ __________ ___ ________d _________ ____ ___l_ ______i____ _______ ____o___ ____e__.",
+            "answer": "intinpackedswitlydeterminedtoloctetheresearcherandsafeguarknowledgethatcouddestablizefragilereginalbordrs",
+            "solv": 35.58,
+            "author": "Hergé",
+            "desc": "1930",
+            "locks1": [
+                3,
+                24,
+                41,
+                62,
+                101
+            ],
+            "locks2": [
+                6,
+                19,
+                64
+            ]
+        },
+        "20261007": {
+            "phrase": "_____ ______ ______d__ __ ____ ____, _______ _____n_ __ _a___ s_____ _r__ ______ ______t___ ___i___ _y_____ ___ _____ _____e__.",
+            "answer": "Snowybarkedexcitelyastheyleftalreadypickigupfintcentsfompaperssuggesingancentsmbolsanddustychambrs",
+            "solv": 35.47,
+            "author": "Hergé",
+            "desc": "1930",
+            "locks1": [
+                21,
+                35,
+                37
+            ],
+            "locks2": [
+                9,
+                57,
+                84
+            ]
+        },
+        "20261008": {
+            "phrase": "_a_____ _o____ _______ _r_______ ____t ____, _____i__ __ ___ __n___ ____ _______ ___e___ _____ ______ ___________ _h______ ____s.",
+            "answer": "HddockjineddespitegumblingabouheatrefusngtoletTitinfaceunknownthratsaloneacrosstreacheroussiftingdune",
+            "solv": 35.36,
+            "author": "Hergé",
+            "desc": "1930",
+            "locks1": [
+                13,
+                49,
+                59,
+                75,
+                88
+            ],
+            "locks2": [
+                16,
+                32,
+                56,
+                81
+            ]
+        },
+        "20261009": {
+            "phrase": "_____ ______ _______ ____ __ _ ______ _______ _____ ____e__ s____ __ __r______ ____o____ __i__ _______d __a____ __ _____n_ t____.",
+            "answer": "Theirflightcarriedthemtoaremoteoutpostwheretradrspokeofstangersexplringrunsbelievegurdedbyancietraps",
+            "solv": 35.25,
+            "author": "Hergé",
+            "desc": "1930",
+            "locks1": [
+                3,
+                28,
+                36,
+                85,
+                91
+            ],
+            "locks2": [
+                13,
+                26,
+                33
+            ]
+        },
+        "20261010": {
+            "phrase": "__n___ _______ _______s ______ __ _____ ____e_, ________ _________ a_____ ________ _______ _____ ______ ___ __________'s _______.",
+            "answer": "Titinstudiedcarvingetchedonlocalstonsnoticingrepeatingnglesmatchingsymbolsfoundinsidetheresearchermessage",
+            "solv": 35.14,
+            "author": "Hergé",
+            "desc": "1930",
+            "locks1": [
+                21,
+                60,
+                85,
+                92
+            ],
+            "locks2": [
+                23,
+                43,
+                64
+            ]
+        },
+        "20261011": {
+            "phrase": "_ ______ _______r_ ______ ____ __ ____ _____, ___ ________ ______ ________ __________ __t____ _______ ___a___ _____ __ ___ ____e_.",
+            "answer": "Asuddensandstomforcedthemtotakecoveryetswirlinggrainsrevealedfragmentedpoteryholdingclererpartsoftheciphr",
+            "solv": 35.03,
+            "author": "Hergé",
+            "desc": "1930",
+            "locks1": [
+                3,
+                32,
+                45
+            ],
+            "locks2": [
+                42,
+                57,
+                66,
+                93
+            ]
+        },
+        "20261012": {
+            "phrase": "_____ _______, ___ _____ ___r___ _h_ ________ _____ T_____ ___a____ ____d_ ____ ______n_ __i____ ____ ______ _ ______ e____.",
+            "answer": "NightsettledandSnowyguadedtecampsitewhileintinarrngedsharsintopattersgudingthemtowardahiddenntry",
+            "solv": 34.92,
+            "author": "Hergé",
+            "desc": "1930",
+            "locks1": [
+                29,
+                44,
+                47,
+                76
+            ],
+            "locks2": [
+                16,
+                34,
+                90
+            ]
+        },
+        "20261013": {
+            "phrase": "W___ _______, ____ ________ _ _a____ _i___ ________ ______ _____s ______d __ _____ ___e____ _____ __ ______r_ ________ ____ _____t_.",
+            "answer": "ithsunrisetheyfollowedanrrowrdgepointingtowardcliffrumoretohousegatwaysbuiltbyscholasguardingdeepsecres",
+            "solv": 34.81,
+            "author": "Hergé",
+            "desc": "1930",
+            "locks1": [
+                10,
+                34,
+                65,
+                85,
+                93
+            ],
+            "locks2": [
+                15,
+                62,
+                88
+            ]
+        },
+        "20261014": {
+            "phrase": "_n____ t__ ______, ____ ___ ___ ________ ______ ______ __ _____ i___________ __r___ ____ ___ __ ___d_ ______ ____o____ s_____.",
+            "answer": "Isidehecaverncoolairandrhythmicechoeshintedatcodednstructionscavedlongagotoguieworthyexplrersafely",
+            "solv": 34.71,
+            "author": "Hergé",
+            "desc": "1930",
+            "locks1": [
+                13,
+                43,
+                47,
+                82
+            ],
+            "locks2": [
+                10,
+                34,
+                38
+            ]
+        },
+        "20261015": {
+            "phrase": "_____s _________ _n_____ _____i___ ___ ___ t__ ______ _a_ __ _______ _____m ____ __o__ ___k___ __r____ _______ _______ ____ __t_.",
+            "answer": "Muraldescribedacientguardanswhohidhemastermptoprotectwisdofromthseseeingfotunewithoutinsightintoduy",
+            "solv": 34.6,
+            "author": "Hergé",
+            "desc": "1930",
+            "locks1": [
+                22,
+                30,
+                59,
+                81
+            ],
+            "locks2": [
+                32,
+                39,
+                50,
+                87
+            ]
+        },
+        "20261016": {
+            "phrase": "S____ ________ ___o___ _ ______ __a__, _________n_ _ _____ _______ _______ ____l_ __t_ r_____ ________ ___ ____i__ _______.",
+            "answer": "nowysqueezedthrughanarrowcrckdiscoverigasmallchamberglowinggentywihelicsarrangedforprecsemeaning",
+            "solv": 34.49,
+            "author": "Hergé",
+            "desc": "1930",
+            "locks1": [
+                23,
+                40,
+                45,
+                77,
+                91
+            ],
+            "locks2": [
+                7,
+                20,
+                56,
+                73
+            ]
+        },
+        "20261017": {
+            "phrase": "_ ________ d________ ____________ _____ _________ __ ___ ___e_ _______ T_____ ___ _______ ____ ___ _______'_ ______.",
+            "answer": "Apedestalisplayedinterlockingringsidenticaltothecodddesignsintinhadrebuiltfromthescholarsletter",
+            "solv": 34.38,
+            "author": "Hergé",
+            "desc": "1930",
+            "locks1": [
+                41,
+                54,
+                60,
+                75,
+                84
+            ],
+            "locks2": [
+                2,
+                19,
+                39
+            ]
+        },
+        "20261018": {
+            "phrase": "R____ e________ _______ __, ____n____ _h_ _____ ___ ___________ __ s____ ___ _______ ______ _i____ ____d ______ ___ _t___.",
+            "answer": "ivalxplorersstormedindemadingteringsandthreateningtoeizethechamberbeforeTntincoulfinishhissudy",
+            "solv": 34.27,
+            "author": "Hergé",
+            "desc": "1930",
+            "locks1": [
+                8,
+                35,
+                40
+            ],
+            "locks2": [
+                17,
+                33,
+                47
+            ]
+        },
+        "20261019": {
+            "phrase": "_______ ________ T_____, ________ _____f__ ______s, _____ ______ _______d ______i__ _____e___ n_____ __ _____ ___ _h_____'_ ____l_.",
+            "answer": "HaddockshieldedintinshoutingcolorulinsultwhileTintingathereessentalfragmntseededtosolvethecamberspuzze",
+            "solv": 34.16,
+            "author": "Hergé",
+            "desc": "1930",
+            "locks1": [
+                2,
+                37,
+                55,
+                81,
+                84
+            ],
+            "locks2": [
+                10,
+                17,
+                25
+            ]
+        },
+        "20261020": {
+            "phrase": "_ ______ _________ ___ _____, _o_____ ____ _r____ _____ i___ ________ t______ _____ ____ _____s _________ e____ _n_ d______.",
+            "answer": "Atremorfracturedthefloorfrcingbothgoupsapartntotwistingunnelswhiledustclouddisguisedxitsadangers",
+            "solv": 34.05,
+            "author": "Hergé",
+            "desc": "1930",
+            "locks1": [
+                31,
+                49,
+                56,
+                66
+            ],
+            "locks2": [
+                8,
+                77
+            ]
+        },
+        "20261021": {
+            "phrase": "__n___ ______ _______ ___ __l___ __ __o__'_ i________, _________ _____ _______ __m____ _a_____ t__ ____ _________ d_______.",
+            "answer": "TitincalmedHaddockandreiedonSnwysnstinctsfollowingfaintglowingsybolsmrkinghetruedirectionownward",
+            "solv": 33.94,
+            "author": "Hergé",
+            "desc": "1930",
+            "locks1": [
+                7,
+                35,
+                79
+            ],
+            "locks2": [
+                15,
+                52,
+                60
+            ]
+        },
+        "20261022": {
+            "phrase": "____ _____ _ _____ d___ w____ ____i_ ___e_ _______ _n___ ________ __a__, _______ ______ _________ ___ ___'s ______ _____.",
+            "answer": "Theyfoundagrandomeheremosactilsshiftedudersunlightbemsformingarrowsrevealingthemaphiddenvault",
+            "solv": 33.83,
+            "author": "Hergé",
+            "desc": "1930",
+            "locks1": [
+                31,
+                44,
+                62,
+                77
+            ],
+            "locks2": [
+                46,
+                68,
+                89
+            ]
+        },
+        "20261023": {
+            "phrase": "T_____ ________ _h_ _______ _______ _____l_, _______n_ ___s_ ______ ___e_ ________ ___ _____ ______c_ ______ ___ ___ _i____.",
+            "answer": "intinsketchedteglowingpatternquickyrealizigtheemovingtilsunlockedthefinalsequeneneededforthecpher",
+            "solv": 33.72,
+            "author": "Hergé",
+            "desc": "1930",
+            "locks1": [
+                10,
+                61,
+                72,
+                83
+            ],
+            "locks2": [
+                8,
+                19,
+                51,
+                63
+            ]
+        },
+        "20261024": {
+            "phrase": "_________ _____n_ _l_____ ___ _i____' ______, ______ T_____ ____ __ _s____ ____ ___e_ ____ _o_______ ___ _______ ______c_____.",
+            "answer": "Collapsedcolumsbockedthervalsreturngivingintintimetoecapewithclusthatcmpletedtheancientinstrutions",
+            "solv": 33.61,
+            "author": "Hergé",
+            "desc": "1930",
+            "locks1": [
+                2,
+                51,
+                82,
+                89
+            ],
+            "locks2": [
+                7,
+                36
+            ]
+        },
+        "20261025": {
+            "phrase": "______ _a___ _________ ___n _ ______ __o__ ____ _______ __ ________ __r_____ ___c____ _______ ______ __ _h_ u____ ___e___.",
+            "answer": "Deeperhllsconvergedupoasealedstnedoorcoveredinrhythmiccavingsmathingearlierechoesinteppercavrns",
+            "solv": 33.5,
+            "author": "Hergé",
+            "desc": "1930",
+            "locks1": [
+                10,
+                38,
+                47,
+                72
+            ],
+            "locks2": [
+                14
+            ]
+        },
+        "20261026": {
+            "phrase": "T_____ ______ _h_ ______s _r_______, _____e____ ______ __l__ ____ ____a___ _ _________ _________ ____n___ ___ _________ ______i__.",
+            "answer": "intintappedterhythmpeciselytriggringhiddenbotsthatrelesedamechanismpreservedsiletlyforcountlesscentures",
+            "solv": 33.39,
+            "author": "Hergé",
+            "desc": "1930",
+            "locks1": [
+                1,
+                14,
+                28,
+                62,
+                78
+            ],
+            "locks2": [
+                9,
+                37,
+                70,
+                90
+            ]
+        },
+        "20261027": {
+            "phrase": "____d_ w__ _ __r_____ _____ __t ____ ____ ____ ________ ________i__ _ ________ ____ _______ __e _________ ______ _a_.",
+            "answer": "Insieasacicularvaultliwithsoftblueradiancesurroundngapedestalthatcradledthlegendarymastermp",
+            "solv": 33.28,
+            "author": "Hergé",
+            "desc": "1930",
+            "locks1": [
+                23,
+                26,
+                31,
+                68
+            ],
+            "locks2": [
+                35,
+                54,
+                81
+            ]
+        },
+        "20261028": {
+            "phrase": "__c____ ____h_ ________ __ T_____ ________e_, ___ __s _________ ______ _______ ___i_ __o_, ________ ______ _n__ __ ______ _a___.",
+            "answer": "Anientglypsawakenedasintinapproachdbuthicompletedciphersoothedtherglwgrantingaccessolytoworthyhnds",
+            "solv": 33.17,
+            "author": "Hergé",
+            "desc": "1930",
+            "locks1": [
+                20,
+                24,
+                41,
+                78,
+                92
+            ],
+            "locks2": [
+                13,
+                60,
+                73
+            ]
+        },
+        "20261029": {
+            "phrase": "___ _i____ _______ ___ ____, ______ __ __f______ _e___ ____t___ o___ __ __n___'_ ________ ________, _l______ ________ _____s___.",
+            "answer": "ThervalsarrivedtoolatehaltedbydeensivebamsreacingnlytoTitinscompletesequencebockingrecklessintruion",
+            "solv": 33.06,
+            "author": "Hergé",
+            "desc": "1930",
+            "locks1": [
+                9,
+                18,
+                23,
+                61,
+                68
+            ],
+            "locks2": [
+                20,
+                26
+            ]
+        },
+        "20261030": {
+            "phrase": "T_____ _____d _n ________ ____ __ __e ______ ___ ___ ________ s_____ ____ _____ ___ ______k, _r______ ____ _h___ _______ ___ _____ __ __i____ ___ __a__.",
+            "answer": "intinstoreaaccuratecopyofthmastermapandreturnedafelywithSnowyandHaddocgatefulthatteirmissionhadendedintrumphandpece",
+            "solv": 32.95,
+            "author": "Hergé",
+            "desc": "1930",
+            "locks1": [
+                3,
+                29,
+                64,
+                90
+            ],
+            "locks2": [
+                16,
+                41,
+                57,
+                66,
+                98
+            ]
+        }
+    }
+}

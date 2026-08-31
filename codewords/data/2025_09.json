@@ -1,0 +1,485 @@
+{
+    "sceneName": "Casper's First Halloween",
+    "bg_header": "#8c4686",
+    "bg_body": "#fadcc6",
+    "bg_keyboard": "#8c4686",
+    "keyboard_key_normal": "#f5f1eb",
+    "keyboard_key_disabled": "#7d406f",
+    "keyboard_text_normal": "#37342d",
+    "keyboard_text_disabled": "#683b5a",
+    "keyboard_text_reveal": "#49B03B",
+    "hud_text_color": "#250a05",
+    "hud_bg_light": "#ffffff",
+    "hud_bg_dark": "#2b2018",
+    "author": "M D LaBelle",
+    "desc": "1974",
+    "puzzles": {
+        "20250901": {
+            "phrase": "__ _a_ ________n _____, ___ ___e____ _____ ______ _______ ___ __ t__ ___ _____o_.",
+            "answer": "ItwsHalloweenightandfrindlyghostCasperfloatedoutofheoldmansin",
+            "solv": 100.0,
+            "author": "M D LaBelle",
+            "desc": "1974",
+            "locks1": [
+                10,
+                31,
+                57
+            ],
+            "locks2": [
+                33,
+                40
+            ]
+        },
+        "20250902": {
+            "phrase": "__ _____ _h_ ___i___ ___ ________ _______ ____l_, ______ __s _______ ____e_.",
+            "answer": "Helovedteholdaybutdislikedscaringpeopeunlikehighostlyuncls",
+            "solv": 99.89,
+            "author": "M D LaBelle",
+            "desc": "1974",
+            "locks1": [
+                0,
+                26,
+                41
+            ],
+            "locks2": [
+                24,
+                51
+            ]
+        },
+        "20250903": {
+            "phrase": "A_ __ _______ ______h ___ ___e___, __ s______ _ _____ __ ________ __ ________.",
+            "answer": "shedriftedthrougthestretshepottedagroupofchildrenincostumes",
+            "solv": 99.78,
+            "author": "M D LaBelle",
+            "desc": "1974",
+            "locks1": [
+                11,
+                36,
+                53
+            ],
+            "locks2": [
+                8
+            ]
+        },
+        "20250904": {
+            "phrase": "___ ___s ____ o______, ___ ___ __ t____ __ _____ _______ ____ ___ __ ______e_.",
+            "answer": "Thekidwererphanstooshytorickortreatbecausetheyhadnocostums",
+            "solv": 99.67,
+            "author": "M D LaBelle",
+            "desc": "1974",
+            "locks1": [
+                43,
+                50,
+                53
+            ],
+            "locks2": [
+                36
+            ]
+        },
+        "20250905": {
+            "phrase": "______ ____ _a_ ___ _____d t___ __ _____ _________ ____ l___ ________ e___.",
+            "answer": "CasperfeltsdandwantehemtoenjoyHalloweenjustikeeveryonelse",
+            "solv": 99.56,
+            "author": "M D LaBelle",
+            "desc": "1974",
+            "locks1": [
+                9,
+                26,
+                32
+            ],
+            "locks2": [
+                1,
+                36
+            ]
+        },
+        "20250906": {
+            "phrase": "_e ________ __ t__ _____o_ __ ____ ___ ________ ____ __u__ ____ ___ _h______.",
+            "answer": "Hreturnedtohemansintolookforanythingthatcoldhelpthecildren",
+            "solv": 99.45,
+            "author": "M D LaBelle",
+            "desc": "1974",
+            "locks1": [
+                15,
+                26,
+                37
+            ],
+            "locks2": [
+                3,
+                45
+            ]
+        },
+        "20250907": {
+            "phrase": "___ ___________ _____s ___e _______ _____ __c__ _n__ _____i__, ________ ______.",
+            "answer": "Hismischievousunclewercarvingscaryfaesitopumpknscacklingloudly",
+            "solv": 99.34,
+            "author": "M D LaBelle",
+            "desc": "1974",
+            "locks1": [
+                2,
+                20,
+                54
+            ],
+            "locks2": [
+                4,
+                50
+            ]
+        },
+        "20250908": {
+            "phrase": "______ _____ ____ ___ ___ __e___ __ ____, ___ ____ ____ _a_____ __ h__.",
+            "answer": "Casperaskedthemforoldshetsorhatsbuttheyonlylughedatim",
+            "solv": 99.23,
+            "author": "M D LaBelle",
+            "desc": "1974",
+            "locks1": [
+                29
+            ],
+            "locks2": [
+                4,
+                12
+            ]
+        },
+        "20250909": {
+            "phrase": "I_______ _____ _______, ______ ___r____ t__ _____ ___ _n______ __e___.",
+            "answer": "gnoringtheirteasingCasperseachedheatticforaythingusful",
+            "solv": 99.12,
+            "author": "M D LaBelle",
+            "desc": "1974",
+            "locks1": [
+                1,
+                7
+            ],
+            "locks2": [
+                16,
+                23
+            ]
+        },
+        "20250910": {
+            "phrase": "__ _____ ___ _______, ____o__, _____, ___ ___n _ _____e'_ _a_ _______ __ d___.",
+            "answer": "Hefoundoldclothesribbnspaperandeveapiratshtcoveredinust",
+            "solv": 99.01,
+            "author": "M D LaBelle",
+            "desc": "1974",
+            "locks1": [
+                12,
+                49,
+                51
+            ],
+            "locks2": [
+                15,
+                24
+            ]
+        },
+        "20250911": {
+            "phrase": "___a____ ____ __ ___ o______, __ _____ ______n_ ___t____ ____ ___ __e__.",
+            "answer": "Flotingbacktotherphanshebegancraftigcosumesfromtheitms",
+            "solv": 98.9,
+            "author": "M D LaBelle",
+            "desc": "1974",
+            "locks1": [
+                14,
+                27,
+                45
+            ],
+            "locks2": [
+                25
+            ]
+        },
+        "20250912": {
+            "phrase": "___ _____ __c___ _ ______, _______ _ _a___, ___ ___ ___e _ _____ _r___.",
+            "answer": "Onechildbeameapirateanotherafiryandoneworapapercown",
+            "solv": 98.79,
+            "author": "M D LaBelle",
+            "desc": "1974",
+            "locks1": [
+                36
+            ],
+            "locks2": [
+                17,
+                45
+            ]
+        },
+        "20250913": {
+            "phrase": "T__ ________ _______ ___ ______d, ________ ___i_ ___ _________ _______e_.",
+            "answer": "hechildrengiggledandtwirleadmiringthernewHalloweendisguiss",
+            "solv": 98.68,
+            "author": "M D LaBelle",
+            "desc": "1974",
+            "locks1": [
+                33,
+                43
+            ],
+            "locks2": [
+                15,
+                29
+            ]
+        },
+        "20250914": {
+            "phrase": "C_____ ____ ____ __ _____ __ ____r _________ ______ _____ _h__ _____ __ __e____.",
+            "answer": "aspertoldthemhewouldbetheiinvisiblehelperwhileteytrickortrated",
+            "solv": 98.57,
+            "author": "M D LaBelle",
+            "desc": "1974",
+            "locks1": [
+                10,
+                26,
+                50
+            ],
+            "locks2": [
+                36
+            ]
+        },
+        "20250915": {
+            "phrase": "____ __o____ _n ___ _____ ____, ___ ______ ________d, \"H____ ______e__!\".",
+            "answer": "TheyknckedothefirstdoorandCasperwhispereappyHallowen",
+            "solv": 98.46,
+            "author": "M D LaBelle",
+            "desc": "1974",
+            "locks1": [
+                20,
+                25
+            ],
+            "locks2": [
+                1,
+                30
+            ]
+        },
+        "20250916": {
+            "phrase": "__e ____t___ _________ ______ ___ ______ ___ _a___ __ ___ ____h___ __d_.",
+            "answer": "Thstarledhomeownersmiledandhandedoutcndytothelaugingkis",
+            "solv": 98.35,
+            "author": "M D LaBelle",
+            "desc": "1974",
+            "locks1": [
+                3,
+                9,
+                28
+            ],
+            "locks2": [
+                12,
+                30
+            ]
+        },
+        "20250917": {
+            "phrase": "______ _______ a____, ______ ________ __ d____ ___ _____n_ __e __o__.",
+            "answer": "Casperfloatedheadgentlyknockingonoorsandguidigthgrup",
+            "solv": 98.24,
+            "author": "M D LaBelle",
+            "desc": "1974",
+            "locks1": [
+                18,
+                39
+            ],
+            "locks2": [
+                8,
+                24
+            ]
+        },
+        "20250918": {
+            "phrase": "A_ ___ _____, __ __e_ _ _______ _______ __ _____ _h_ ____ ____ ___ t___.",
+            "answer": "tonehouseheusdapumpkinlanterntolighttedarkpathforhem",
+            "solv": 98.13,
+            "author": "M D LaBelle",
+            "desc": "1974",
+            "locks1": [
+                9
+            ],
+            "locks2": [
+                26,
+                44
+            ]
+        },
+        "20250919": {
+            "phrase": "T__ ________ _________ ____ c____ _h__ ____ ____ i_______ _______e.",
+            "answer": "hechildrencollectedmoreandytantheyevermaginedpossibl",
+            "solv": 98.02,
+            "author": "M D LaBelle",
+            "desc": "1974",
+            "locks1": [
+                4,
+                18,
+                31
+            ],
+            "locks2": [
+                14
+            ]
+        },
+        "20250920": {
+            "phrase": "______ ____ ______ _____ ____r _____ _a__ ____ t___ ____ _e___.",
+            "answer": "Casperevenhelpedcarrytheitreatbgswhenheygrewhavy",
+            "solv": 97.91,
+            "author": "M D LaBelle",
+            "desc": "1974",
+            "locks1": [
+                28,
+                34
+            ],
+            "locks2": [
+                4,
+                26
+            ]
+        },
+        "20250921": {
+            "phrase": "____ _e_______ _____ _h___ ___ ___s' ____n__ __r_, ___ ____ _____ _________.",
+            "answer": "Somenighborsaskedwerethekidparetsweeandtheyshylyexplained",
+            "solv": 97.81,
+            "author": "M D LaBelle",
+            "desc": "1974",
+            "locks1": [
+                16,
+                22,
+                52
+            ],
+            "locks2": [
+                55
+            ]
+        },
+        "20250922": {
+            "phrase": "________ ____s__ ____r ______e_, _____ _____i__ _ ____n___ _____ ____ ____.",
+            "answer": "Everyonepraiedtheicostumsneverguessngafriedlyghostmadethem",
+            "solv": 97.7,
+            "author": "M D LaBelle",
+            "desc": "1974",
+            "locks1": [
+                3
+            ],
+            "locks2": [
+                48,
+                56
+            ]
+        },
+        "20250923": {
+            "phrase": "__ _he_ __l___ ____ __ ___ _________, ___ ________ _________ _a_____.",
+            "answer": "Astywakedbacktotheorphanagethechildrenchatteredhppily",
+            "solv": 97.59,
+            "author": "M D LaBelle",
+            "desc": "1974",
+            "locks1": [
+                21,
+                30,
+                41
+            ],
+            "locks2": [
+                10
+            ]
+        },
+        "20250924": {
+            "phrase": "____ _______ ______ __r ______ t___ _h___ ____ _________ e___.",
+            "answer": "TheythankedCasperfogivinghemteirbestHalloweenver",
+            "solv": 97.48,
+            "author": "M D LaBelle",
+            "desc": "1974",
+            "locks1": [
+                0,
+                16
+            ],
+            "locks2": [
+                5,
+                42
+            ]
+        },
+        "20250925": {
+            "phrase": "_____r _______ ______, _______ _a__ ______ _____t_ __e ____ _____ _i_.",
+            "answer": "Caspefloatedhigherfeelingwrminsidedespiethcoolnightar",
+            "solv": 97.37,
+            "author": "M D LaBelle",
+            "desc": "1974",
+            "locks1": [
+                8,
+                17,
+                49
+            ],
+            "locks2": [
+                10,
+                22
+            ]
+        },
+        "20250926": {
+            "phrase": "____h___ ___ ________ ____ _______, __ ____ __n_____ ___ ______ __a_ ____e_.",
+            "answer": "Watcingthechildrenwavegoodbyeheknewkidnesswasbetterthnscars",
+            "solv": 97.26,
+            "author": "M D LaBelle",
+            "desc": "1974",
+            "locks1": [
+                8,
+                19,
+                40
+            ],
+            "locks2": [
+                32
+            ]
+        },
+        "20250927": {
+            "phrase": "___ ____e_ _____ __ _____ h__ ____ __ ___ ____, ___ __ o___ __i___.",
+            "answer": "Hisunclstriedtospookimwhenhegothomebuthenlysmled",
+            "solv": 97.15,
+            "author": "M D LaBelle",
+            "desc": "1974",
+            "locks1": [
+                17
+            ],
+            "locks2": [
+                11
+            ]
+        },
+        "20250928": {
+            "phrase": "\"I _____ __ _____ ______ ___s _____,\" ______ _a__ p______.",
+            "answer": "spentmynightmakingkidhappyCaspersidroudly",
+            "solv": 97.04,
+            "author": "M D LaBelle",
+            "desc": "1974",
+            "locks1": [
+                0,
+                22
+            ],
+            "locks2": [
+                8,
+                29
+            ]
+        },
+        "20250929": {
+            "phrase": "_h_ ____e_ _______d, ___ ____ ____ ____ _______ ___ ______ ____t.",
+            "answer": "Teunclsgrumblebutdeepdowntheyadmiredhisgentlehear",
+            "solv": 96.93,
+            "author": "M D LaBelle",
+            "desc": "1974",
+            "locks1": [
+                26,
+                42
+            ],
+            "locks2": [
+                34
+            ]
+        },
+        "20250930": {
+            "phrase": "C_____ _______ __ _i_ ___o____ ______, _______ ___ __ __e _______ _t____.",
+            "answer": "asperdriftedtohsfavritewindowlookingoutatthmoonlitsreet",
+            "solv": 96.82,
+            "author": "M D LaBelle",
+            "desc": "1974",
+            "locks1": [
+                6,
+                24,
+                52
+            ],
+            "locks2": [
+                27
+            ]
+        },
+        "20250931": {
+            "phrase": "_________ __t _____, ___s ____ _____ ____h___ - ___ ____ ___ __e ____ _________ _a___.",
+            "answer": "SomewhereoutherekidwerestilllaugingandthatwasthrealHalloweenmgic",
+            "solv": 96.71,
+            "author": "M D LaBelle",
+            "desc": "1974",
+            "locks1": [
+                25,
+                53
+            ],
+            "locks2": [
+                3,
+                12,
+                49
+            ]
+        }
+    }
+}

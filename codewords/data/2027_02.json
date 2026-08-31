@@ -1,0 +1,547 @@
+{
+    "sceneName": "Snow White and the Seven Dwarfs",
+    "bg_header": "e07d4d",
+    "bg_body": "fadcc6",
+    "bg_keyboard": "#4368a6",
+    "keyboard_key_normal": "f5f1eb",
+    "keyboard_key_disabled": "#38578d",
+    "keyboard_text_normal": "37342d",
+    "keyboard_text_disabled": "#35445c",
+    "keyboard_text_reveal": "#49B03B",
+    "hud_text_color": "250a05",
+    "hud_bg_light": "ffffff",
+    "hud_bg_dark": "2b2018",
+    "author": "Brothers Grimm",
+    "desc": "1812",
+    "puzzles": {
+        "20270201": {
+            "phrase": "____ _____ ___ _ ______ ___n____ _________ ___ ___ _____e__, ___ ______ s______ _i__ ____ _______ ___ _____ _____ h____.",
+            "answer": "SnowWhitewasagentlepricesscherishedforherkindnssherbeautyhininglkedawnthroughthequietroyalalls",
+            "solv": 22.96,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                16,
+                40,
+                43,
+                67
+            ],
+            "locks2": [
+                5,
+                28,
+                82
+            ]
+        },
+        "20270202": {
+            "phrase": "__r __________, t__ ____n, ______ ___ _______ ___ ____h_ ________ p_____ ____ ___ _____ ____o_ __ ______ ___ ____e.",
+            "answer": "HestepmotherheQueeenviedhergreatlyandsougtconstantraisefromhermagicmirrrtosootheherprid",
+            "solv": 22.85,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                21,
+                44,
+                57,
+                63
+            ],
+            "locks2": [
+                4,
+                9,
+                28,
+                77
+            ]
+        },
+        "20270203": {
+            "phrase": "___n t__ _____r ________ ____ _h___ ___ _______, ___ __e__'_ __a_____ ________ ____ _ ____ ___ _________ _____d.",
+            "answer": "WhehemirrodeclaredSnowWitethefairesttheQuensjelousydeepenedintoacoldanddangeroushatre",
+            "solv": 22.74,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                7,
+                35,
+                60
+            ],
+            "locks2": [
+                33,
+                72
+            ]
+        },
+        "20270204": {
+            "phrase": "_n__ _____ ______ ______ __ t__ _a____, ___ ___ _o_______ ___ ____e_ _i__ _____, __________ ______s ____ ______ h__.",
+            "answer": "SowWhitesenseduneaseinhecstleyetshecntinuedherchorswthgracecomfortinganimalthatadoreder",
+            "solv": 22.63,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                20,
+                32,
+                56,
+                81
+            ],
+            "locks2": [
+                4,
+                10,
+                16,
+                65
+            ]
+        },
+        "20270205": {
+            "phrase": "_n_ ___ ___ ________ b_____ _h_ _____, _______ ____ __ ___ ______ _____ s_______ ________d ___t__ ___o___ _e____.",
+            "answer": "Oedayshewanderedeyondtegatesseekingcalmintheforestwhereunlightshimmeresoflythrughlaves",
+            "solv": 22.52,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                15,
+                24,
+                33,
+                45
+            ],
+            "locks2": [
+                12,
+                51
+            ]
+        },
+        "20270206": {
+            "phrase": "__e _____ _______ _ ________ __ ____ ____ __i__ ____ __t_ ___ ___d_ ___ ____r_ ___ _o___ _____ ______ ____n.",
+            "answer": "ThQueenorderedahuntsmantotakeSnowWhtedeepinothewoosandensueshewuldneverreturnagai",
+            "solv": 22.41,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                9,
+                21,
+                48,
+                71
+            ],
+            "locks2": [
+                4,
+                17,
+                73
+            ]
+        },
+        "20270207": {
+            "phrase": "____ ____c_ ____ _____ __ s__ _______ ___ _n____, ___ t__ ________ __a___ h__, _r____ ___ __ ____ ___ ___ ____ ___e__.",
+            "answer": "FearstrukSnowWhiteashelearnedhisitentbuthehuntsmansprederuginghertofleefarandhidesafly",
+            "solv": 22.3,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                3,
+                39,
+                78
+            ],
+            "locks2": [
+                10,
+                48,
+                69
+            ]
+        },
+        "20270208": {
+            "phrase": "_____ __ __e _a__ ______, ___ ________ _____ ______l_ ____s g_____ ___ ______ _ _____ __t____ n______ __ _____ ___d___.",
+            "answer": "Aloneinthvstforestshetrembleduntilfriendybirduidedhertowardasmallcotageestledingreenshaows",
+            "solv": 22.19,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                0,
+                26,
+                52,
+                83
+            ],
+            "locks2": [
+                23
+            ]
+        },
+        "20270209": {
+            "phrase": "______ s__ _____ _____ ____ _e__ ___ _ ____ ______, ____i____ _h_ ____ _______d __ ____f_ __o ______ __ ______ __n__.",
+            "answer": "Insidehefoundseventinybdsandacozyhearthrealzingtehomebelongetodwarswhworkedinnearbymies",
+            "solv": 22.09,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                2,
+                49,
+                70,
+                79
+            ],
+            "locks2": [
+                4,
+                19,
+                34
+            ]
+        },
+        "20270210": {
+            "phrase": "___n ____ _______d, ____ ____ ___r____ ___ ____ _____m__ h__ ______, ___t____ ___ ___ ______ ________ a__ ____ ___e.",
+            "answer": "Whetheyreturnetheywerestatledbutsoonwelcoederwarmlygraefulforhergentlepresencendtidycar",
+            "solv": 21.98,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                4,
+                68,
+                82
+            ],
+            "locks2": [
+                47,
+                65,
+                75
+            ]
+        },
+        "20270211": {
+            "phrase": "___w _____ ____ ____ _____ t___ ___ ______ ____ ____i__, _______g, ___ _______ __e_____ __n__ ____ __________ ___h _a_.",
+            "answer": "SnoWhitefeltsafeamonghemandhelpedwithcookngcleaninandsingingcherfulsogsthatbrightenedeacdy",
+            "solv": 21.87,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                32,
+                34,
+                59,
+                71
+            ],
+            "locks2": [
+                13,
+                55,
+                81
+            ]
+        },
+        "20270212": {
+            "phrase": "______i__ ___ _____ __________ _n__ _____ _____ ___ _a_ _______ ___ ____ __d ______ _______ ___ _____ ___e______.",
+            "answer": "MeanwhletheQueendiscoveredSowWhitelivedandwsfuriousherplanhafaileddespitehercruelintntions",
+            "solv": 21.76,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                51,
+                61,
+                68
+            ],
+            "locks2": [
+                47,
+                79
+            ]
+        },
+        "20270213": {
+            "phrase": "S__ _________ _______ ____ d___ ___i_ ___ ________ _ ________ _____, __________ __ ___ ____ ____e'_ __a___ ______r.",
+            "answer": "hedisguisedherselfwitharkmagcandpreparedapoisonedappledeterminedtoendSnowWhitsbeutyforeve",
+            "solv": 21.65,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                65,
+                69,
+                85
+            ],
+            "locks2": [
+                36,
+                47,
+                60
+            ]
+        },
+        "20270214": {
+            "phrase": "T__ _w____ __r___ _n__ _____ ___ __ _____ ______e__, _________ ___ d_____ _____ ________ ______ _____ ____s_ _o__.",
+            "answer": "hedarfswanedSowWhitenottotruststrangrsremindingherangerstilllingeredbeyondtheirforethme",
+            "solv": 21.54,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                21,
+                28,
+                77
+            ],
+            "locks2": [
+                64,
+                72
+            ]
+        },
+        "20270215": {
+            "phrase": "__t __e _____ _______ _n_ _______ __ __ ___ _______, ____r___ ____ _____ _ ______ ___ _____ ______ ____ d_____ __a__.",
+            "answer": "ButhQueenarrivedoemorningasanoldpeddleroffeingSnowWhiteaglossyredapplefilledwitheadlychrm",
+            "solv": 21.43,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                10,
+                28,
+                48,
+                77
+            ],
+            "locks2": [
+                33
+            ]
+        },
+        "20270216": {
+            "phrase": "__o_ _h___, _______ __ t__ ____, ________ ___ ____ ___ ____ _ ____, _______ _n__ _ ____, __a______ ___m___ __ ___e.",
+            "answer": "SnwWiteunawareofhetrapacceptedthegiftandtookabitefallingitoadeepdethlikesluberatonc",
+            "solv": 21.32,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                29,
+                41,
+                54
+            ],
+            "locks2": [
+                20,
+                47
+            ]
+        },
+        "20270217": {
+            "phrase": "T__ _____ ___i____, _______n_ _______ ___ ___s, _____ ___ ______ _______d __ ____ ____ _h___ l____ _____ ___ ___e__.",
+            "answer": "heQueenvanshedbelievigvictorywasherwhilethedwarfsreturnetofindSnowWiteyingstillandsilnt",
+            "solv": 21.21,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                36,
+                43,
+                77
+            ],
+            "locks2": [
+                4,
+                23,
+                63,
+                75
+            ]
+        },
+        "20270218": {
+            "phrase": "__a________, _h__ _____ _ _____ ______ __ _____ _e_ __r___, ____i__ _____ __ ____o_ __ s______ ______ ______ __.",
+            "answer": "Hertbrokenteybuiltaglasscoffintohonorhrpuitykeepngvigilinsorrwaseasonsslowlypassedby",
+            "solv": 21.1,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                15,
+                21,
+                34,
+                59
+            ],
+            "locks2": [
+                25,
+                80
+            ]
+        },
+        "20270219": {
+            "phrase": "_n_____ _______ a_ __l_, __t___i__ _____ ____ ___ ______, ____r _____ ________ f______ ___ ______ ____ ______ ___e_.",
+            "answer": "Aimalsmournedswelgaherngoftennearthecoffintheiquietpresenceillingtheforestwithtendergrif",
+            "solv": 20.99,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                31,
+                68,
+                77,
+                83
+            ],
+            "locks2": [
+                11,
+                40,
+                80
+            ]
+        },
+        "20270220": {
+            "phrase": "T__ ______ ________ __ _____c_ h__ _______, ______ _______ _ __r____ _____ ___a_ ___ _____ ______ __o_ _e_.",
+            "answer": "hedwarfspromisedtoproteterforeverhopingsomedayamiaclemightbrekthespellplacedupnhr",
+            "solv": 20.88,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                21,
+                66
+            ],
+            "locks2": [
+                5,
+                34,
+                42
+            ]
+        },
+        "20270221": {
+            "phrase": "___ ___ _ _r____ _______n_ _______ ___ ___d_ ___ ___ ______ ___ ____ _____ __ ____ ____e'_ __a_____ _o__.",
+            "answer": "OnedayapincetraveligthroughthewoossawthecoffinandfeltdrawntoSnowWhitspecefulfrm",
+            "solv": 20.77,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                21,
+                27
+            ],
+            "locks2": [
+                41,
+                50,
+                55
+            ]
+        },
+        "20270222": {
+            "phrase": "H_ __c_______ __r ____ _______ __ __n_____ ___ __a___ ___ _____ __ ___o_ ___ ____ _ _____ ______ ___e____.",
+            "answer": "ereognizedhefromstoriesofkidnessandbeutyandaskedtohonrherwithafinalgentlefarwell",
+            "solv": 20.66,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                13,
+                47,
+                51,
+                60
+            ],
+            "locks2": [
+                64,
+                68
+            ]
+        },
+        "20270223": {
+            "phrase": "__ __ l_____ __o___, ___ ____e'_ s____ ________, ___ ____ _____ ______d __ __ ______ ____ _ ____ _____n ___a_.",
+            "answer": "AsheeanedclsertheapplspellloosenedandSnowWhitestirreasifwakingfromalonghiddedrem",
+            "solv": 20.55,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                24,
+                64,
+                73
+            ],
+            "locks2": [
+                30,
+                57
+            ]
+        },
+        "20270224": {
+            "phrase": "S__ ______ __r ____, ___ __e ______ _____ ____ ___ __ ______h_ ______ __ ___ ____, _____n_ ___ _____ ____o_ a___.",
+            "answer": "heopenedheeyesandthdwarfscriedwithjoyassunligtglowedonherfaceliftigtheheavysorrwway",
+            "solv": 20.44,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                7,
+                26,
+                38,
+                76
+            ],
+            "locks2": [
+                21,
+                50
+            ]
+        },
+        "20270225": {
+            "phrase": "T__ ______ _______ __ ____ __r __ h__ _______, ______i__ ______ ___ _ ____ ____ f___ ___ __e__'_ _____ ____o___.",
+            "answer": "heprinceofferedtotakehetoiskingdompromisngsafetyandalifefreeromtheQuenscrueljealusy",
+            "solv": 20.33,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                9,
+                38,
+                46,
+                48
+            ],
+            "locks2": [
+                3,
+                32,
+                74
+            ]
+        },
+        "20270226": {
+            "phrase": "____ _____ _______ __e ______ ___ t____ ____, k______ ___y ___ _____ h__ _ ____ ____ ___ ___ _o_____ ____ __ ___n.",
+            "answer": "SnowWhitethankedthdwarfsforheirlovenowingthehadgivenerahomewhenshehadnwhereelsetotur",
+            "solv": 20.22,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                26,
+                59,
+                79
+            ],
+            "locks2": [
+                1,
+                5,
+                14
+            ]
+        },
+        "20270227": {
+            "phrase": "________ ____ j________ ______ t__ _____e'_ ____, ________g __ ___ _______ _h_ __d ____ ____ __n___.",
+            "answer": "Togethertheyourneyedtowardheprincslandmarvelinatthefreedomsehalongbeendeied",
+            "solv": 20.11,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                5,
+                8,
+                46
+            ],
+            "locks2": [
+                36,
+                53
+            ]
+        },
+        "20270228": {
+            "phrase": "_h_ _____ _______ __ _n__ ____e'_ r______, ___ ___ ____ _________ ___ ___ _____, l______ ___ t_ ____ ___ ________.",
+            "answer": "TeQueenlearnedofSowWhitsevivalandherrageshatteredherownmagiceavingherofaceherdownfall",
+            "solv": 20.0,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                6,
+                14,
+                33,
+                83
+            ],
+            "locks2": [
+                10,
+                37,
+                45
+            ]
+        },
+        "20270229": {
+            "phrase": "____ _____ _______ h__ n__ ____ ____ ____, ____o_____ __ _e____ w__ _______t__ ___ ______ ___ _________ ______.",
+            "answer": "SnowWhiteenterederewhomewithhopesurrundedbypoplehocelebraedhergentleandresilientspirit",
+            "solv": 19.89,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                2,
+                26,
+                64,
+                82
+            ],
+            "locks2": [
+                13,
+                72
+            ]
+        },
+        "20270230": {
+            "phrase": "S__ _____ _____t _h_ ______, ______n_ ____ _____ ___ _r______ _o_ __ ___ ______ ____ ___ ____ _________ _e_.",
+            "answer": "heneverforgotedwarfsvisitigthemoftenandbingingjytotheforestthathadonceshelteredhr",
+            "solv": 19.78,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                8,
+                21,
+                41,
+                55
+            ],
+            "locks2": [
+                28,
+                72
+            ]
+        },
+        "20270231": {
+            "phrase": "___ __ s__ ___ _h_ ______ _____ _ _______l ____, ___ ____ ___ ____ __d ___n ______ __ _______, ____, ___ ___a_ ___e___.",
+            "answer": "Andasheandteprincebuiltapeacefulifesheknewhertalehabeeshapedbycourageloveandloylfrinds",
+            "solv": 19.67,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                4,
+                15,
+                42,
+                59
+            ],
+            "locks2": [
+                21,
+                66
+            ]
+        }
+    }
+}

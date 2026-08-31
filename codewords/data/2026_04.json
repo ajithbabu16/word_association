@@ -1,0 +1,545 @@
+{
+    "sceneName": "Rapunzel",
+    "bg_header": "e07d4d",
+    "bg_body": "fadcc6",
+    "bg_keyboard": "#d5ab59",
+    "keyboard_key_normal": "f5f1eb",
+    "keyboard_key_disabled": "#b5914b",
+    "keyboard_text_normal": "37342d",
+    "keyboard_text_disabled": "#76623a",
+    "keyboard_text_reveal": "#49B03B",
+    "hud_text_color": "250a05",
+    "hud_bg_light": "ffffff",
+    "hud_bg_dark": "2b2018",
+    "author": "Brothers Grimm",
+    "desc": "1812",
+    "puzzles": {
+        "20260401": {
+            "phrase": "______e_ ___ ____ __ _ ____l_ ______ w__ ______ ___ _ _____ ___ __a___ _____ ___ _ ______n_ __ ____h___ ____r _____ _o__.",
+            "answer": "Rapunzlwasborntoahumbecoupleholongedforachildandpryeddailyforablessigtobrigtentheiquiethme",
+            "solv": 56.32,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                13,
+                38,
+                41,
+                84
+            ],
+            "locks2": [
+                23,
+                34,
+                43,
+                54
+            ]
+        },
+        "20260402": {
+            "phrase": "_ _________ _____ __t_e_ ______d ___ _____ a_ _____, _____s___ ______ ___ _i____ h__ ____ ______ __ ____ ___ ____ __r____.",
+            "answer": "AsorceressnamedGohlclaimethechildtbirthpromiingsafetybuthdingerdeepdesiretokeepthegirlfoever",
+            "solv": 56.21,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                1,
+                14,
+                38,
+                48
+            ],
+            "locks2": [
+                5,
+                35,
+                51,
+                84
+            ]
+        },
+        "20260403": {
+            "phrase": "______e_ ____ __ _ ____ _____ ____ __ _____, ___ _____n ____ _l_____ ____ _____ _o_h__ ___r___ ___ ____ ___ _____ _______.",
+            "answer": "RapunzlgrewinatalltowerwithnodoorshergoldehairfowinglongwhileGtelguadedherfromtheworldoutside",
+            "solv": 56.1,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                7,
+                24,
+                34,
+                91
+            ],
+            "locks2": [
+                16,
+                19,
+                32
+            ]
+        },
+        "20260404": {
+            "phrase": "_a__ ___ ______e_ s___ __ ____ ___ _o____ _____, ___ ___c_ ____ __ _______ _____ ________ ______ t__ ____n_ ______ __r.",
+            "answer": "EchdayRapunzlangtoeaseherlnelyhourshervoiesoftasmorninglightdriftingacrosshesiletforestai",
+            "solv": 55.99,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                43,
+                52,
+                66,
+                86
+            ],
+            "locks2": [
+                61
+            ]
+        },
+        "20260405": {
+            "phrase": "__t_e_ _______ __ c______ R_______ __ _____ h__ ____, _____ ___ _____ __ _ ____ __ __i__ ____ ___ ______ _____ _o__.",
+            "answer": "Gohlvisitedbyallingapunzeltolowererhairusingthebraidasaropetoclmbintothehiddentowerrom",
+            "solv": 55.88,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                36,
+                55,
+                67,
+                72
+            ],
+            "locks2": [
+                50,
+                79
+            ]
+        },
+        "20260406": {
+            "phrase": "______ _________, ______e_ _______ __ _______ ___d_, _____r___ ____ l__ ______ _h_ t____ ___ ________ __o_ ___ __n___.",
+            "answer": "ThoughshelteredRapunzldreamedofdistantlanswondeingwhataybeyondtereessheglimpsedfrmherwidow",
+            "solv": 55.78,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                53,
+                59,
+                84
+            ],
+            "locks2": [
+                1,
+                36,
+                77
+            ]
+        },
+        "20260407": {
+            "phrase": "S__ ___ _i___ ____ _______ __ h__ ____, _______ ___f___ __ _____ __n__ ___ _________ ___e___ ___ __d _____ ___ ____r_.",
+            "answer": "hefedbrdsthatperchedonersillfindingcomortintheirsogsandimaginingfrindsshehanevermetbefoe",
+            "solv": 55.67,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                4,
+                28,
+                44
+            ],
+            "locks2": [
+                14,
+                25,
+                60
+            ]
+        },
+        "20260408": {
+            "phrase": "T__ ______ ____ _____i__ __ __r ____, ___ ___ ______ ___ ______e__, _______, ___ _____s _______ _o____'_ w_______.",
+            "answer": "heforestgrewfamilartoheeyesyetshelongedforfootstpsstoriesandvoiceoutsideGthelsarnings",
+            "solv": 55.56,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                9,
+                15,
+                45,
+                57
+            ],
+            "locks2": [
+                3,
+                37
+            ]
+        },
+        "20260409": {
+            "phrase": "___ _v_____ _ ______ ____e____ ______ _____ ___ _i_____ ___ ________ ___ ___o__ __r____ ___ __n____ ______ ___h_.",
+            "answer": "Oneeeningaprincewandringnearbyheardhersngingandfollowedthemeldythoughthewidingforestpats",
+            "solv": 55.45,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                27,
+                32,
+                40,
+                54
+            ],
+            "locks2": [
+                13,
+                25
+            ]
+        },
+        "20260410": {
+            "phrase": "__ ___ ___ _____ _u_ _o ____, _______ _____ ____e_ a______ ___ ______ ___ R_______ __ l____ ___ _______ h___.",
+            "answer": "HesawthetowerbtndoorpuzzleduntilGothlrrivedandcalledforapunzeltoowerhershiningair",
+            "solv": 55.34,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                3,
+                6,
+                31,
+                74
+            ],
+            "locks2": [
+                17,
+                25
+            ]
+        },
+        "20260411": {
+            "phrase": "T__ ___n__ ________ ___ ____ ___ ___ _____ ___ _a__ ____, ______ _h__ ______e_ ________ ___ ____ __y ____r___.",
+            "answer": "hepricereturnedthenextdayandtriedthesmecallamazedwenRapunzlwelcomedhimwithshsurpise",
+            "solv": 55.23,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                12,
+                66,
+                72,
+                78
+            ],
+            "locks2": [
+                40,
+                47
+            ]
+        },
+        "20260412": {
+            "phrase": "T__y _____ ___ _____, ___ ______e_ ____ ____ ___ ___ __r__ ____, ____o______ ___ __ _ _____ ___ _____ _n__ ___s___.",
+            "answer": "hespokeforhoursandRapunzlfeltseenforthefisttimediscveringjoyinaworldsheneverkewexited",
+            "solv": 55.12,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                43,
+                48,
+                58,
+                68
+            ],
+            "locks2": [
+                13
+            ]
+        },
+        "20260413": {
+            "phrase": "_h_ ______ ________ __ ____ __r ______ ___ t____ ___ ___ ___ _____ ___ ___ ____ i_______ __ ___ _____ __e___.",
+            "answer": "Teprincepromisedtohelpheescapetheowerandseethelandsshehadonlymaginedinherquietdrams",
+            "solv": 55.01,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                3,
+                58,
+                75
+            ],
+            "locks2": [
+                14,
+                27
+            ]
+        },
+        "20260414": {
+            "phrase": "______e_'_ _____ ___t__ __ ____ _______ __ _____ _ ____ ____ ___ __i_ _______ ___ _l___ _________ ___r __n_ ____.",
+            "answer": "Rapunzlsheartlifedastheyplannedtoweavearopefromherharstrandsandcothcollectedovemaydays",
+            "solv": 54.9,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                20,
+                25,
+                57
+            ],
+            "locks2": [
+                34,
+                83
+            ]
+        },
+        "20260415": {
+            "phrase": "____e_ ______ _ ______ __ ________'s ______ ___ _______n__ ___, _____c____ _____t_ h__ ____a__ ___ ______ __i___.",
+            "answer": "GothlsensedachangeinRapunzelspiritandquestioedhersuspetingsecresidbenethhergentlesmles",
+            "solv": 54.79,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                31,
+                34,
+                46
+            ],
+            "locks2": [
+                6,
+                77
+            ]
+        },
+        "20260416": {
+            "phrase": "___ _____ ________ t__ _____, ___ ____e_ ___ ____n___'_ ____, ____s____ __r ____ _ ____a__, _____ _i________.",
+            "answer": "OnevisitrevealedhetruthandGothlcutRapuzelshairbanihingheintoadistntemptywlderness",
+            "solv": 54.68,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                12,
+                19,
+                42,
+                57
+            ],
+            "locks2": [
+                44
+            ]
+        },
+        "20260417": {
+            "phrase": "___ ___d t__ _u_ _____ __ ___ ____r ___ __i___ ___ ___ ______, _______ __ ___ ____ ______e_ ___ ______ ____ h__.",
+            "answer": "ShetiehectbraidtothetoweandwatedfortheprincefuriousatthehopeRapunzlhadhiddenfromer",
+            "solv": 54.57,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                51,
+                69,
+                71,
+                77
+            ],
+            "locks2": [
+                74
+            ]
+        },
+        "20260418": {
+            "phrase": "___n __ __i____, ____e_ ______ ___ ___ __l_____ ___ _____, ___d___ ___ _______ ____ ______ _h_____ ____w.",
+            "answer": "WheheclmbedGothlmockedhimandreeasedthebraidseninghimfallingintothornysadowsbelo",
+            "solv": 54.46,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                23,
+                54,
+                60
+            ],
+            "locks2": [
+                20,
+                64
+            ]
+        },
+        "20260419": {
+            "phrase": "_______ ___ ___________, _h_ ______ ________ ___ ______, _______ ______e_'_ ____ _______ d___ ___ __n___ _a___.",
+            "answer": "BlindedandheartbrokenteprincewanderedtheforestcallingRapunzlsnamethrougharkandloelypths",
+            "solv": 54.35,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                6,
+                13,
+                48,
+                66
+            ],
+            "locks2": [
+                3,
+                11,
+                30
+            ]
+        },
+        "20260420": {
+            "phrase": "______e_, ____ ___ ________, s_______ __ _ __i__ ______ ___r_ ___ _____ ____n___ __ t__ ______ _____ __ ____ ___.",
+            "answer": "Rapunzllostandgrievingurvivedinaquetvalleywheeshefoundstregthinhesimpletasksofeachday",
+            "solv": 54.24,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                20,
+                55,
+                73,
+                81
+            ],
+            "locks2": [
+                17,
+                66,
+                83
+            ]
+        },
+        "20260421": {
+            "phrase": "_e_____ ______ ____r_ ____ ___ ___ ______ ____ ___ ______, _____ __ _ _a___ __n_ __ __________ __o_ _i_ _______s.",
+            "answer": "Sasonspassedbefoefateledtheprincenearthevalleydrawnbyafintsogherecognizedfrmhsmemorie",
+            "solv": 54.13,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                30,
+                63
+            ],
+            "locks2": [
+                8,
+                41
+            ]
+        },
+        "20260422": {
+            "phrase": "_a______ _____ h__ ___ ___ __ ___, ____s _______ __ __e ___ ___ i_______ ___ ____ ___ _______n_ _____ _____ o__.",
+            "answer": "Rpunzelheardimandrantohimtearfallingasshsawhisnjuriesandfelthistremblighandsreachut",
+            "solv": 54.02,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                19,
+                33,
+                45
+            ],
+            "locks2": [
+                30,
+                77
+            ]
+        },
+        "20260423": {
+            "phrase": "H__ ____s _o_____ ___ ____, ___ _ _a__ _____ _________, _________ ___ _____ __ __ _____ _t ___ ____ r______ ___e.",
+            "answer": "erteartuchedhiseyesandawrmlightshimmeredrestoringhissightashegazedaherwithenewedhop",
+            "solv": 53.91,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                14,
+                33,
+                57
+            ],
+            "locks2": [
+                36,
+                45,
+                55
+            ]
+        },
+        "20260424": {
+            "phrase": "____ ___r____, __a______ ____ _______ t__ ____ ___ ______c_, _h___ ____ __d _______ _____ ____i__ ______ ______ __e_.",
+            "answer": "Theyembacedrelizingthatdespitehepainanddistaneteirbondhaenduredeverybarrerplacedbeforethm",
+            "solv": 53.8,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                0,
+                14,
+                20,
+                52
+            ],
+            "locks2": [
+                33,
+                61,
+                66
+            ]
+        },
+        "20260425": {
+            "phrase": "________ _h__ ________ __ ___ _____e'_ _______, ____o___ ______ __ ___s_ ___ ___ ____r ____ ___n_ ____ __i__ _t______.",
+            "answer": "Togetherteyreturnedtotheprincskingdomwelcmedwarmlybythoewhosawtheiloveshiewithquetsrength",
+            "solv": 53.69,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                15,
+                32,
+                59,
+                75
+            ],
+            "locks2": [
+                4,
+                12,
+                35,
+                57
+            ]
+        },
+        "20260426": {
+            "phrase": "______e_ _____r__ ___ _____ ______ __ ____, ___ ______ ________ __ ___ _______ ___ _o__ ___ ____ __l_ _______ a____.",
+            "answer": "Rapunzlexploedtheworldfreelyatlastherspiritbloomingasshelearnedthejyssheonceonydreamedbout",
+            "solv": 53.58,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                28,
+                32,
+                42,
+                62
+            ],
+            "locks2": [
+                23,
+                44,
+                81
+            ]
+        },
+        "20260427": {
+            "phrase": "S__ p______ ____e__, __n_ __ ____ ____d_, ___ _________ _____ _______ ___ ____ ___l_ ____ _a___ ____ _ ______ _o___.",
+            "answer": "helantedgardnssaginopenfielsandcherishedeverysunrisesheoncecoudonlywtchfromalonelytwer",
+            "solv": 53.47,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                28,
+                39,
+                72,
+                76
+            ],
+            "locks2": [
+                36,
+                78
+            ]
+        },
+        "20260428": {
+            "phrase": "____ __ ___ ________ ______, ___ ______ ____r__ ___ ____ w__ __d ____n ____ _________ ____ ____a__ ___ ____e.",
+            "answer": "Newsofherkindnessspreadandpeopleadmiedthegirlhoharisefromcaptivitywithcourgeandgrac",
+            "solv": 53.36,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                11,
+                33,
+                39,
+                67
+            ],
+            "locks2": [
+                20,
+                43,
+                58
+            ]
+        },
+        "20260429": {
+            "phrase": "______e_ ____ h__ ______y _a_ ___n___ ___, ________ ___ ____ ____d__ ___ ____ ____ _____ _____ _____ ____r__.",
+            "answer": "Rapunzlknewerjournehdchagedherteachingherthatfreeomandlovewerewortheverytrialendued",
+            "solv": 53.25,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                8,
+                79
+            ],
+            "locks2": [
+                31,
+                64
+            ]
+        },
+        "20260430": {
+            "phrase": "__a__ _____ _h_ ______ ____ __ t__ ______ ___ ____ _____, _r______ ___ ___ ____ ____ ___ l__ ___ __ ___ ___ ___e.",
+            "answer": "Yerslaterselookedbackatheforestandfeltpeacegatefulforthepaththathadedhertohernewlif",
+            "solv": 53.14,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                11,
+                27,
+                34,
+                69
+            ],
+            "locks2": [
+                5,
+                39,
+                58
+            ]
+        },
+        "20260431": {
+            "phrase": "___ a_ ___ ___ _h_ ______ _____d ____ __ ____, ___ ____ ___ __w__ n_ ______ _______ __r _____ __ ___ ______ _____e.",
+            "answer": "Andssheandteprincewalkehandinhandsheknewthetoerolongerdefinedhestoryorherbrightfutur",
+            "solv": 53.03,
+            "author": "Brothers Grimm",
+            "desc": "1812",
+            "locks1": [
+                0,
+                54,
+                64,
+                74
+            ],
+            "locks2": [
+                58,
+                77
+            ]
+        }
+    }
+}

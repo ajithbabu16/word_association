@@ -23,9 +23,12 @@ Start-Sleep -Seconds 3
 Write-Host "Opening Unified Launcher..." -ForegroundColor Green
 Start-Process -FilePath "http://localhost:3000"
 
-Write-Host "All systems go! A popup window will appear. Click OK on it to stop the servers." -ForegroundColor Cyan
-Add-Type -AssemblyName System.Windows.Forms
-[System.Windows.Forms.MessageBox]::Show("Servers are running. Click OK to stop them all.", "QuriousBit Ecosystem", 0, 64) | Out-Null
+Write-Host "========================================================" -ForegroundColor Cyan
+Write-Host "All systems go! The servers are now running in the background." -ForegroundColor Green
+Write-Host "You can now use the website at http://localhost:3000" -ForegroundColor Green
+Write-Host "========================================================" -ForegroundColor Cyan
+Write-Host ""
+Read-Host "PRESS ENTER IN THIS WINDOW WHEN YOU WANT TO SHUT DOWN THE SERVERS"
 
 Write-Host "Stopping servers..." -ForegroundColor Yellow
 taskkill /PID $p1.Id /T /F 2>&1 | Out-Null

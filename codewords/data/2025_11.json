@@ -1,0 +1,510 @@
+{
+    "sceneName": "The Elves and the Shoemaker",
+    "bg_header": "#ac9246",
+    "bg_body": "#fadcc6",
+    "bg_keyboard": "#ac9246",
+    "keyboard_key_normal": "#f5f1eb",
+    "keyboard_key_disabled": "#988245",
+    "keyboard_text_normal": "#37342d",
+    "keyboard_text_disabled": "#7b6a3b",
+    "keyboard_text_reveal": "#49B03B",
+    "hud_text_color": "#250a05",
+    "hud_bg_light": "#ffffff",
+    "hud_bg_dark": "#2b2018",
+    "author": "Jacob Grimm",
+    "desc": "1785-1863",
+    "puzzles": {
+        "20251101": {
+            "phrase": "____ __o_ _ t___, ___r_ ___ _ ____ ___ ____ _____a___ _h_ ___ _n__ ______ _______ ____ __ ____ ___ _____ __i_ __ ___e_.",
+            "answer": "Onceupnaimetheewasakindbutpoorshoemkerwohadolyenoughleatherlefttomakeonefinalparofshos",
+            "solv": 100.0,
+            "author": "Jacob Grimm",
+            "desc": "1785-1863",
+            "locks1": [
+                17,
+                19,
+                72
+            ],
+            "locks2": [
+                27,
+                33,
+                54
+            ]
+        },
+        "20251102": {
+            "phrase": "__ __r______ ___ _h_ __a____ __e___ ___ ______ t___ __ ___ _______c_, _l______ __ ___ ____ ________ __ ___ ___n___.",
+            "answer": "Hecaefullycutteletherpicesandplacedhemonhisworkbenhpanningtosewthemtogetherinthemoring",
+            "solv": 99.89,
+            "author": "Jacob Grimm",
+            "desc": "1785-1864",
+            "locks1": [
+                38,
+                69
+            ],
+            "locks2": [
+                27,
+                41,
+                61,
+                72
+            ]
+        },
+        "20251103": {
+            "phrase": "____ n____, __ ___h__ ___ ____ ___ ____, \"I_ t____ s____ ____ __l_, __ _____ ____ ______ __ ___ ____ _e_____\".",
+            "answer": "Thatighthesigedandtoldhiswifefhesehoessellwelwemighthaveenoughtobuymorelather",
+            "solv": 99.78,
+            "author": "Jacob Grimm",
+            "desc": "1785-1865",
+            "locks1": [
+                21,
+                53,
+                60,
+                68
+            ],
+            "locks2": [
+                39
+            ]
+        },
+        "20251104": {
+            "phrase": "_h_ ____l_ ____ __ ___, _______ ___ n___ __e___ __ ___ _____ _____ ___ __o_ __ ___ ________t.",
+            "answer": "Tecoupewenttobedleavingtheeatpicesonthetableundertheglwofthemoonligh",
+            "solv": 99.67,
+            "author": "Jacob Grimm",
+            "desc": "1785-1866",
+            "locks1": [
+                22
+            ],
+            "locks2": [
+                17,
+                40
+            ]
+        },
+        "20251105": {
+            "phrase": "___n _______ ____, ___ _________ ___ __________ __ ____ _ __i_ __ _h_ __s_ _________ __o__ __ _a_ ____ _e__.",
+            "answer": "Whemorningcametheshoemakerwasastonishedtofindaparoftemotbeautifulsheshehdeversen",
+            "solv": 99.56,
+            "author": "Jacob Grimm",
+            "desc": "1785-1867",
+            "locks1": [
+                3,
+                44,
+                60,
+                76
+            ],
+            "locks2": [
+                15,
+                20
+            ]
+        },
+        "20251106": {
+            "phrase": "__e __i______ __s _______, ___ ______ ________, ___ ___ _h___ ______ __ ______ t___ ___ ____ __d_ __ _a___.",
+            "answer": "Thsttchingwaperfectthedesignflawlessandthesoeslookedasthoughheyhadbeenmaebymgic",
+            "solv": 99.45,
+            "author": "Jacob Grimm",
+            "desc": "1785-1868",
+            "locks1": [
+                17,
+                26,
+                47,
+                69
+            ],
+            "locks2": [
+                24,
+                33,
+                55
+            ]
+        },
+        "20251107": {
+            "phrase": "____, _ c_______ _______ _h_ ____, a______ ___ _____, ___ ____ _o__ t___ ___ _________ ___ d____ __ ___e.",
+            "answer": "Soonaustomerenteredteshopdmiredtheshoesandpaidmrehantheshoemakerhadaredtohop",
+            "solv": 99.34,
+            "author": "Jacob Grimm",
+            "desc": "1785-1869",
+            "locks1": [
+                3,
+                16,
+                38
+            ],
+            "locks2": [
+                23,
+                35,
+                58
+            ]
+        },
+        "20251108": {
+            "phrase": "_i__ _h_ ____y, __ ______ ______ _______ __ ____ __o ____ _a___ __ _____ ___ ____ ___ __e___ ___ ____ ____t.",
+            "answer": "Wthtemoneheboughtenoughleathertomaketwmorepirsofshoesandlaidthepicesoutthatnigh",
+            "solv": 99.23,
+            "author": "Jacob Grimm",
+            "desc": "1785-1870",
+            "locks1": [
+                18,
+                32,
+                48
+            ],
+            "locks2": [
+                15,
+                26,
+                51
+            ]
+        },
+        "20251109": {
+            "phrase": "_____, __ ____ _h_ ____ __________, __n______ __ ___ _______ _i_____ __u__ _a____ _ ______ ___e.",
+            "answer": "Againheleftteworkunfinishedwoderingifthestrangemraclewoldhppenasecondtim",
+            "solv": 99.12,
+            "author": "Jacob Grimm",
+            "desc": "1785-1871",
+            "locks1": [
+                14,
+                42,
+                68
+            ],
+            "locks2": [
+                25,
+                44
+            ]
+        },
+        "20251110": {
+            "phrase": "__ ____, __o _a___ __ e______, _______l_ ____ _____ ___ ______ __ ___ _____, __in___ __ ___ _____ ____t.",
+            "answer": "Atdawntwpirsoflegantperfectymadeshoessatneatlyonthetableshingintheearlyligh",
+            "solv": 99.01,
+            "author": "Jacob Grimm",
+            "desc": "1785-1872",
+            "locks1": [
+                32,
+                49
+            ],
+            "locks2": [
+                3,
+                41
+            ]
+        },
+        "20251111": {
+            "phrase": "___h __i__ ____ _______, ___ t__ _________ ______ ____ _o__ _______, _______ ___ ___p ____ ___ ___e.",
+            "answer": "Botparssoldquicklyandheshoemakerboughtevenmreleatherfillinghisshowithnewhop",
+            "solv": 98.9,
+            "author": "Jacob Grimm",
+            "desc": "1785-1873",
+            "locks1": [
+                41,
+                47,
+                61
+            ],
+            "locks2": [
+                26,
+                49,
+                54
+            ]
+        },
+        "20251112": {
+            "phrase": "_h__ _t_____ ___ _____r___ _a_____ _________, ___ ____ __e _________ ___ ___ ____ ____ n_ ______ _o__.",
+            "answer": "Tissrangeandwondefulptterncontinuedandsoonthshoemakerandhiswifewereolongerpor",
+            "solv": 98.79,
+            "author": "Jacob Grimm",
+            "desc": "1785-1874",
+            "locks1": [
+                2,
+                34,
+                60,
+                63
+            ],
+            "locks2": [
+                39,
+                47,
+                70
+            ]
+        },
+        "20251113": {
+            "phrase": "_____, ____ ____ __r____ a____ _h_ __s _______ ____, _o ___ _____ ____ _______ __ ____ ____e ___ __t__.",
+            "answer": "Stilltheywerecuiousboutwowahelpingthemsonenighttheydecidedtostayawakandwach",
+            "solv": 98.68,
+            "author": "Jacob Grimm",
+            "desc": "1785-1875",
+            "locks1": [
+                9,
+                31,
+                40,
+                51
+            ],
+            "locks2": [
+                28,
+                61
+            ]
+        },
+        "20251114": {
+            "phrase": "__e_ _i_ _______ ______ _ ______n, _h___ ____ _____ __ ___ _________ __ ___ c____ _____d ______ _______t.",
+            "answer": "Thyhdquietlybehindacurtaiteireyesfixedontheworkbenchasthelockticketowardmidnigh",
+            "solv": 98.57,
+            "author": "Jacob Grimm",
+            "desc": "1785-1876",
+            "locks1": [
+                44,
+                52,
+                70
+            ],
+            "locks2": [
+                7,
+                48
+            ]
+        },
+        "20251115": {
+            "phrase": "________, ___ ____ _____ ___e____, d______ __ ______ ______ _______ a__ ____-__t s____.",
+            "answer": "Suddenlytwotinyelvesapparedressedinraggedlittleclothesndwornouhoes",
+            "solv": 98.46,
+            "author": "Jacob Grimm",
+            "desc": "1785-1877",
+            "locks1": [
+                12,
+                35,
+                57
+            ],
+            "locks2": [
+                18,
+                48
+            ]
+        },
+        "20251116": {
+            "phrase": "_______ _ __r_, ____ ____e_ ____ t__ _____ ___ _____ __ _o__ ____ _____d____ _____ ___ _____.",
+            "answer": "Withoutawodtheyjumpdontohetableandbegantowrkwithincreiblespeedandskill",
+            "solv": 98.35,
+            "author": "Jacob Grimm",
+            "desc": "1785-1878",
+            "locks1": [
+                12,
+                68
+            ],
+            "locks2": [
+                22,
+                37,
+                59
+            ]
+        },
+        "20251117": {
+            "phrase": "___i_ ______ ____e__ ________, ___, ___ _____h__ _____ ___ _____ _____ _____t__ ____ ____.",
+            "answer": "Thernimblefingrsstitchedcutandpoliseduntiltheshoesshonebrigherthangold",
+            "solv": 98.24,
+            "author": "Jacob Grimm",
+            "desc": "1785-1879",
+            "locks1": [
+                41,
+                45,
+                69
+            ],
+            "locks2": [
+                22,
+                38,
+                51
+            ]
+        },
+        "20251118": {
+            "phrase": "_h_ _________ ___ __s ____ ___l_ ______ _______ t____ ____, __i____ __ ____ _a_____ ___ ______ ____e__.",
+            "answer": "Teshoemakerandhiwifecoudhardlybelieveheireyessmlingastheywtchedthelittleworkrs",
+            "solv": 98.13,
+            "author": "Jacob Grimm",
+            "desc": "1785-1880",
+            "locks1": [
+                27,
+                74
+            ],
+            "locks2": [
+                5,
+                17
+            ]
+        },
+        "20251119": {
+            "phrase": "___n _h_ s____ ____ ________, ___ _____ ___i____ __t_ ___ _____ __ _______ __ ____ ___ ___e.",
+            "answer": "Whetehoeswerefinishedtheelvesvanshedinothenightasquietlyastheyhadcom",
+            "solv": 98.02,
+            "author": "Jacob Grimm",
+            "desc": "1785-1881",
+            "locks2": [
+                18,
+                27,
+                63
+            ]
+        },
+        "20251120": {
+            "phrase": "___ _____a___ _________ __ ___ ____, \"__e_ ____ ______ __ _o ___h; __ s_____ ____ ___m _________ __ __t___\".",
+            "answer": "TheshoemkerwhisperedtohiswifeThyhavehelpedussmucwehouldmakethesomethinginreurn",
+            "solv": 97.91,
+            "author": "Jacob Grimm",
+            "desc": "1785-1882",
+            "locks1": [
+                10,
+                41,
+                42
+            ],
+            "locks2": [
+                6,
+                12
+            ]
+        },
+        "20251121": {
+            "phrase": "___ ____ ______ ___ _a__, \"__e__ _______ ___ __ __r_; ___'s ____ ____ ____ __t____ ___ ______ ___ _h___\".",
+            "answer": "HiswifeagreedandsidThirclothesaresowonletmakethemwarmoufitsandsturdynewsoes",
+            "solv": 97.81,
+            "author": "Jacob Grimm",
+            "desc": "1785-1883",
+            "locks1": [
+                34,
+                68
+            ],
+            "locks2": [
+                28
+            ]
+        },
+        "20251122": {
+            "phrase": "__e __x_ ___, _h__ ______ ________, ______ ____ ____t_, ________, ___ ____s ____ ____ ___r__.",
+            "answer": "Thnetdayteyworkedtogethersewingtinyshirstrousersandcoatfromsoftfabic",
+            "solv": 97.7,
+            "author": "Jacob Grimm",
+            "desc": "1785-1884",
+            "locks1": [
+                28,
+                33,
+                48
+            ],
+            "locks2": [
+                26,
+                60
+            ]
+        },
+        "20251123": {
+            "phrase": "T__y ____ ___e ___ _a___ __ ____ ______ _____ ____ ___ ____ _______ ____ h__.",
+            "answer": "healsomadtwopirsoffinelittleshoesfromthebestleathertheyad",
+            "solv": 97.59,
+            "author": "Jacob Grimm",
+            "desc": "1785-1885",
+            "locks1": [
+                5,
+                28,
+                44
+            ],
+            "locks2": [
+                31,
+                47
+            ]
+        },
+        "20251124": {
+            "phrase": "__ C________ ___, _______ __ __a____ ___th__ __ ___ _____, ____ ______ ___ __o____ ___ s____ ___ ___ e____.",
+            "answer": "OnhristmasEveinsteadoflevingleaeronthetabletheyplacedtheclthesandhoesforthelves",
+            "solv": 97.48,
+            "author": "Jacob Grimm",
+            "desc": "1785-1886",
+            "locks1": [
+                19,
+                34,
+                48
+            ],
+            "locks2": [
+                16,
+                44
+            ]
+        },
+        "20251125": {
+            "phrase": "____ _____, _h_ _________ ___ ___ ____ _i_ _____, _a___ __ ___ ___ e____' ____t___.",
+            "answer": "Thatnightteshoemakerandhiswifehdagainegertoseethelvesreacion",
+            "solv": 97.37,
+            "author": "Jacob Grimm",
+            "desc": "1785-1887",
+            "locks1": [
+                4,
+                43
+            ],
+            "locks2": [
+                14,
+                34
+            ]
+        },
+        "20251126": {
+            "phrase": "____ ___ _____ ___e____, ____ ______ s________ __ ____ ___t_ ______d __ _o__.",
+            "answer": "Whentheelvesapparedtheylookedurprisedtofindgifsinsteaofwrk",
+            "solv": 97.26,
+            "author": "Jacob Grimm",
+            "desc": "1785-1888",
+            "locks1": [
+                30,
+                40
+            ],
+            "locks2": [
+                10
+            ]
+        },
+        "20251127": {
+            "phrase": "T_e_ _____ __ ___ _______ ___ _____, d______ ______ ___ _o______ __ _____h_.",
+            "answer": "hytriedontheclothesandshoesancingaroundthewrkshopindeligt",
+            "solv": 97.15,
+            "author": "Jacob Grimm",
+            "desc": "1785-1889",
+            "locks1": [
+                4,
+                22,
+                28
+            ],
+            "locks2": [
+                16,
+                25
+            ]
+        },
+        "20251128": {
+            "phrase": "__e _____ _______, _______, ___ ______d, ________ t____ ____ ___ ____i__ ___h ___.",
+            "answer": "Thelvestwirledclappedandlaugheadmiringheirfinenewoutftswitjoy",
+            "solv": 97.04,
+            "author": "Jacob Grimm",
+            "desc": "1785-1890",
+            "locks1": [
+                16,
+                46
+            ],
+            "locks2": [
+                12,
+                33
+            ]
+        },
+        "20251129": {
+            "phrase": "_h__, ____ _ _____ _____ _a__, ____ _____e_ ___ ___ ____ _n__ ___ _____ ____t.",
+            "answer": "Tenwithafinalhappywvetheyslippdoutthedooritothesnowynigh",
+            "solv": 96.93,
+            "author": "Jacob Grimm",
+            "desc": "1785-1891",
+            "locks1": [
+                4,
+                28,
+                31
+            ]
+        },
+        "20251130": {
+            "phrase": "_r__ ____ _____ __, t__ _____ _____ ________, ___ ___ ___e_____'_ ________ ______ _____s____.",
+            "answer": "Fomthatnightonheelvesneverreturnedbuttheshomakersbusinessstayedsuccesful",
+            "solv": 96.82,
+            "author": "Jacob Grimm",
+            "desc": "1785-1892",
+            "locks1": [
+                12,
+                59,
+                64
+            ],
+            "locks2": [
+                19,
+                31
+            ]
+        },
+        "20251131": {
+            "phrase": "___ __, t__ ______k__ ___ h__ ____ _____ _a_____ ____ _____, ______ ________i__ ___ ______s_ __ ___ ______ e____.",
+            "answer": "Andsoheshoemaerandiswifelivedhppilyeverafteralwaysrememberngthekindnesofthelittlelves",
+            "solv": 96.71,
+            "author": "Jacob Grimm",
+            "desc": "1785-1893",
+            "locks1": [
+                2,
+                24,
+                43,
+                65
+            ],
+            "locks2": [
+                21,
+                27,
+                47
+            ]
+        }
+    }
+}

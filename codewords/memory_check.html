@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Android Studio | Profiler Clone</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="profiler_styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="profiler-layout">
+        <!-- Header -->
+        <header class="profiler-header">
+            <div class="profiler-logo">
+                <img src="Qubit_logo.png" alt="Logo">
+                <h1>GENIE PROFILER <span style="font-weight: 400; opacity: 0.5;">v3.0</span></h1>
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <div id="device-pill" class="status-badge"
+                    style="background: rgba(255,255,255,0.05); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; display: none;">
+                    <span class="dot dot-running"></span> <span id="active-device-name">Pixel 6</span>
+                </div>
+                <button type="button" onclick="window.location.href='index.html'" class="btn-profiler">Exit
+                    Profiler</button>
+            </div>
+        </header>
+
+        <!-- Sidebar -->
+        <aside class="profiler-sidebar">
+            <div class="sidebar-section">
+                <h3>CONNECTION</h3>
+                <button type="button" id="connect-btn" class="btn-profiler btn-primary" style="width: 100%;">🔌 Detect
+                    Device</button>
+                <div id="connection-status" class="help-text" style="margin-top: 10px; font-size: 0.8rem;">Disconnected
+                </div>
+            </div>
+
+            <div class="sidebar-section" style="flex: 1; display: flex; flex-direction: column;">
+                <h3>PROCESS SELECTOR</h3>
+                <input type="text" id="package-search" placeholder="Search package..."
+                    style="width: calc(100% - 22px); background: #010409; border: 1px solid var(--border); color: white; padding: 10px; border-radius: 6px; margin-bottom: 10px;">
+                <div id="package-list" class="package-list"
+                    style="flex: 1; overflow-y: auto; border: 1px solid var(--border); border-radius: 6px; padding: 5px;">
+                    <p class="help-text" style="text-align: center; padding: 20px;">Connect to list apps</p>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>CONTROLS</h3>
+                <button type="button" id="start-tracking-btn" class="btn-profiler"
+                    style="width: 100%; margin-bottom: 8px;" disabled>▶ Start Session</button>
+                <button type="button" id="stop-tracking-btn" class="btn-profiler" style="width: 100%;" disabled>⏹
+                    Terminate</button>
+            </div>
+
+
+            <div class="sidebar-section" id="system-health-panel"
+                style="background: rgba(0,0,0,0.2); border-radius: 8px; padding: 10px;">
+                <h3>SYSTEM HEALTH</h3>
+                <div style="display: flex; justify-content: space-between; font-size: 0.8rem; margin-bottom: 6px;">
+                    <span>THERMAL</span>
+                    <span id="health-thermal" style="color: var(--success); font-weight: 700;">NOMINAL</span>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 4px; font-size: 0.8rem;">
+                    <span style="color: var(--text-dim);">LAST INTERACTION:</span>
+                    <span id="health-event"
+                        style="color: var(--primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">No
+                        events yet</span>
+                </div>
+            </div>
+
+        </aside>
+
+        <!-- Main Content -->
+        <main class="profiler-main">
+            <div class="tab-bar">
+                <div class="tab-item active" data-tab="overview">Overview</div>
+                <div class="tab-item" data-tab="cpu">CPU</div>
+                <div class="tab-item" data-tab="memory">Memory</div>
+                <div class="tab-item" data-tab="threads">Threads</div>
+                <div class="tab-item" data-tab="leaks">Leaks & I/O</div>
+            </div>
+
+            <div class="tab-content active" id="tab-overview">
+                <div class="metrics-row">
+                    <div class="mini-card">
+                        <div class="label">CPU USAGE</div>
+                        <div class="value" id="stat-cpu">0.0%</div>
+                    </div>
+                    <div class="mini-card">
+                        <div class="label">MEMORY (PSS)</div>
+                        <div class="value" id="stat-mem">0 MB</div>
+                    </div>
+                    <div class="mini-card" style="border: 1px solid var(--accent);">
+                        <div class="label">PHYSICAL (RSS)</div>
+                        <div class="value" id="mem-rss">0 MB</div>
+                    </div>
+                    <div class="mini-card">
+                        <div class="label">THREADS</div>
+                        <div class="value" id="stat-threads">0</div>
+                    </div>
+                    <div class="mini-card">
+                        <div class="label">PID</div>
+                        <div class="value" id="stat-pid">N/A</div>
+                    </div>
+                </div>
+
+
+                <div class="chart-box">
+                    <h4 style="margin-top: 0; color: var(--text-dim);">Performance Timeline</h4>
+                    <canvas id="mainChart" style="height: 350px;"></canvas>
+                </div>
+
+                <div class="chart-box">
+                    <h4 style="margin-top: 0; color: var(--text-dim);">Real-time Diagnostics</h4>
+                    <div id="log-console" class="log-console">
+                        <div class="log-entry">Waiting for session start...</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="tab-cpu">
+                <div class="chart-box" style="height: 300px;">
+                    <h4 style="margin-top: 0;">CPU Timeline (%)</h4>
+                    <canvas id="cpuTimelineChart"></canvas>
+                </div>
+                <div style="margin-top: 20px;">
+                    <h4 style="color: var(--text-dim);">Top Threads by CPU</h4>
+                    <div
+                        style="max-height: 400px; overflow-y: auto; border: 1px solid var(--border); border-radius: 8px;">
+                        <table class="data-table" id="cpu-thread-table">
+                            <thead>
+                                <tr>
+                                    <th>TID</th>
+                                    <th>Name</th>
+                                    <th>CPU %</th>
+                                    <th>State</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="tab-memory">
+                <div class="metrics-row">
+                    <div class="mini-card">
+                        <div class="label">JAVA HEAP</div>
+                        <div class="value" id="mem-java">0 MB</div>
+                    </div>
+                    <div class="mini-card">
+                        <div class="label">NATIVE HEAP</div>
+                        <div class="value" id="mem-native">0 MB</div>
+                    </div>
+                    <div class="mini-card">
+                        <div class="label">CODE & STACK</div>
+                        <div class="value" id="mem-code-stack">0 MB</div>
+                    </div>
+                    <div class="mini-card"
+                        style="border: 2px solid var(--primary); display: flex; align-items: center; justify-content: center;">
+                        <button type="button" onclick="profiler.triggerGC()" class="btn-profiler"
+                            style="width: 100%; height: 100%; border-radius: 8px; justify-content: center;">🗑 Force
+                            GC</button>
+                    </div>
+                </div>
+                <div class="chart-box">
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <h4 style="margin: 0;">Allocation Breakdown</h4>
+                        <div style="font-size:0.75rem; color:var(--text-dim);">
+                            <span style="color:var(--primary)">■</span> Java
+                            <span style="color:var(--accent)">■</span> Native
+                            <span style="color:#FF5252">■</span> Code
+                            <span style="color:var(--secondary)">■</span> Other
+                        </div>
+                    </div>
+                    <canvas id="memCompChart" style="height: 400px;"></canvas>
+                </div>
+
+            </div>
+
+            <div class="tab-content" id="tab-threads">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                    <h4 style="margin: 0;">Active Threads Detail</h4>
+                    <div style="display: flex; gap: 10px; align-items: center;">
+                        <button type="button" onclick="profiler.captureTrace()" class="btn-profiler"
+                            style="background: rgba(255, 82, 82, 0.1); color: #ff5252; border-color: #ff5252;">⏺ System
+                            Trace (5s)</button>
+                        <div class="status-badge" style="background: var(--card-bg); font-size: 0.8rem;">
+                            Total: <span id="thread-count-large"
+                                style="color: var(--primary); font-weight: 700;">0</span>
+                        </div>
+                    </div>
+                </div>
+                <div style="background: var(--card-bg); border-radius: 12px; border: 1px solid var(--border);">
+                    <table class="data-table" id="all-threads-table">
+                        <thead>
+                            <tr>
+                                <th>TID</th>
+                                <th>Thread Name</th>
+                                <th>CPU</th>
+                                <th>State</th>
+                                <th>Priority</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="5" style="text-align:center; padding: 40px; color: var(--text-dim);">Start
+                                    tracking to see threads</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="tab-content" id="tab-leaks">
+                <div class="metrics-row">
+                    <div class="mini-card">
+                        <div class="label">OPEN FILE HANDLES</div>
+                        <div class="value" id="leak-fd">0</div>
+                    </div>
+                    <div class="mini-card">
+                        <div class="label">P90 LATENCY</div>
+                        <div class="value" id="gfx-p90">0ms</div>
+                    </div>
+                    <div class="mini-card">
+                        <div class="label">P99 LATENCY</div>
+                        <div class="value" id="gfx-p99">0ms</div>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                    <div class="chart-box">
+                        <h4 style="margin-top: 0;">UI Jank Analysis</h4>
+                        <div id="leak-analysis-view"
+                            style="padding: 15px; border: 1px dashed var(--border); border-radius: 12px; height: 120px; font-size: 0.9rem; overflow-y: auto;">
+                            Waiting for diagnostic data...
+                        </div>
+                    </div>
+                    <div class="chart-box">
+                        <h4 style="margin-top: 0;">Power Rails (ODPM)</h4>
+                        <div id="power-rails-container"
+                            style="display: flex; flex-direction: column; gap: 6px; max-height: 120px; overflow-y: auto;">
+                            <div style="color: var(--text-dim); text-align: center; padding: 20px; font-size: 0.8rem;">
+                                Rail monitor inactive</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="metrics-row">
+                    <div class="mini-card">
+                        <div class="label">ACTIVITIES</div>
+                        <div class="value" id="leak-activities">0</div>
+                    </div>
+                    <div class="mini-card">
+                        <div class="label">VIEW COUNT</div>
+                        <div class="value" id="leak-views">0</div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="memory_check.js"></script>
+</body>
+
+</html>

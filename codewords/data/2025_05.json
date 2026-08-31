@@ -1,0 +1,571 @@
+{
+    "sceneName": "The Little Mermaid",
+    "bg_header": "#769887",
+    "bg_body": "#d0ddbd",
+    "bg_keyboard": "#769887",
+    "keyboard_key_normal": "#f5f1eb",
+    "keyboard_key_disabled": "#5f8069",
+    "keyboard_text_normal": "#172315",
+    "keyboard_text_disabled": "#2b3d2d",
+    "keyboard_text_reveal": "#49B03B",
+    "hud_text_color": "#1b3628",
+    "hud_bg_light": "#ffffff",
+    "hud_bg_dark": "#1b3628",
+    "author": "Hans Christian Andersen",
+    "desc": "1805 - 1875",
+    "puzzles": {
+        "20250501": {
+            "phrase": "____ ____a__ t__ s__, ___ ______ _______ _____ __ _ _r___ _______ _i__ h__ ______, ___ ___ ____, ___ ___ ____ __d__ ____e__.",
+            "answer": "DeepbenethheeatheLittleMermaidlivedinagandkingdomwtherfathertheSeaKingandherfiveolersistrs",
+            "solv": 100.0,
+            "author": "Hans Christian Andersen",
+            "desc": "1805 - 1875",
+            "locks1": [
+                26,
+                30,
+                54,
+                69
+            ],
+            "locks2": [
+                18,
+                24,
+                44,
+                56
+            ]
+        },
+        "20250502": {
+            "phrase": "___ ___ _h_ _o__ c______ __ t___ ___, _______ __ ___ ___ _____ _____, _____ ______ _____ ___ _____ s__l__ ______ ___ ___-___e _a____.",
+            "answer": "Shewastemsturiousofhemalllongingtoseetheworldabovewherehumanslivedandshipsaiedacrosstheskybluwters",
+            "solv": 99.89,
+            "author": "Hans Christian Andersen",
+            "desc": "1806 - 1875",
+            "locks1": [
+                11,
+                53,
+                59,
+                65
+            ],
+            "locks2": [
+                20,
+                29,
+                70,
+                82
+            ]
+        },
+        "20250503": {
+            "phrase": "_n __r ____e____ ________, ___ ___ _______ a______ __ ____ _____ ___ _____ ___ g___ _t ___ _______ __ ___ h____ _o___.",
+            "answer": "Ohefiftenthbirthdayshewasfinallyllowedtoriseabovethewavesandazeathewondersoftheumanwrld",
+            "solv": 99.78,
+            "author": "Hans Christian Andersen",
+            "desc": "1807 - 1875",
+            "locks1": [
+                19,
+                25,
+                32,
+                52
+            ],
+            "locks2": [
+                17,
+                50,
+                55,
+                70
+            ]
+        },
+        "20250504": {
+            "phrase": "S__ ___ _ _____ ____ ____ _____ ___ ____h___ _______ __e ___ __ _ ________ _r____ _____ __i____ _n___ ___ _a_____'_ __o_.",
+            "answer": "hesawagrandshipwithmusicandlaugterfillingthairasahandsomepincestoodsmlinguderthelnternsglw",
+            "solv": 99.67,
+            "author": "Hans Christian Andersen",
+            "desc": "1808 - 1875",
+            "locks1": [
+                17,
+                19,
+                40,
+                52
+            ],
+            "locks2": [
+                9,
+                35,
+                50
+            ]
+        },
+        "20250505": {
+            "phrase": "_ ___l___ _____ ______ ________, _______ t__ _h__ _i__ _ ____ __ ___ ____, s______ ___ ______ ________ _n__ ___ _e_.",
+            "answer": "Avioentstormstrucksuddenlytossinghesiplkealeafinthewindendingtheprinceplungingitothesa",
+            "solv": 99.56,
+            "author": "Hans Christian Andersen",
+            "desc": "1809 - 1875",
+            "locks1": [
+                9,
+                20,
+                44,
+                77
+            ],
+            "locks2": [
+                22,
+                30,
+                73
+            ]
+        },
+        "20250506": {
+            "phrase": "T__ ______ M______ ____ _______ _h_____ ___ ______ __v__, _a______ _i_ ____ ____r_ __ ____ ___ ________ ___ ______ __ ____e.",
+            "answer": "heLittleermaidswamswiftlytroughtheragingwaesctchinghmjustbefoehesankandcarryinghimsafelytoshor",
+            "solv": 99.45,
+            "author": "Hans Christian Andersen",
+            "desc": "1810 - 1875",
+            "locks1": [
+                2,
+                66,
+                78,
+                89
+            ],
+            "locks2": [
+                16,
+                47,
+                85
+            ]
+        },
+        "20250507": {
+            "phrase": "__ _h_ ___ ____, ___ _______ ___r _i_ ____ _o____, ___ ___n _ ____ ____ _ ______ ______ ________e_, ___ _______ s______ ____ __t_ ___ __a.",
+            "answer": "Astesunroseshewatchedovehmwithwnderbutwheagirlfromanearbytempleapproachdshequicklylippedbackinothese",
+            "solv": 99.34,
+            "author": "Hans Christian Andersen",
+            "desc": "1811 - 1875",
+            "locks1": [
+                17,
+                64
+            ],
+            "locks2": [
+                12,
+                15,
+                44,
+                52
+            ]
+        },
+        "20250508": {
+            "phrase": "__e __i___ ____ __ ___ ___ ____ ___ ________ ___ _a_ ____d __m, _____ ___ ______ _______ __t____ ____ ____, __r h____ ______.",
+            "answer": "ThprncewoketoseethegirlandbelievedshehdsavehiwhiletheLittleMermaidwachedfromafarheeartaching",
+            "solv": 99.23,
+            "author": "Hans Christian Andersen",
+            "desc": "1812 - 1875",
+            "locks2": [
+                28,
+                60,
+                78,
+                88
+            ]
+        },
+        "20250509": {
+            "phrase": "___ _______ __ _______ ____d_ h__, ______n_ ____ ___, ___ _e___ _a__ __ ___ _____, ___ ____ __ ___ _m________ __ ____ __ ___ r_______ _ _____i_.",
+            "answer": "Shedreamedofwalkingbesieimlaughigwithhimandbingprtofhisworldbutknewitwasipossibleaslongassheemainedamermad",
+            "solv": 99.12,
+            "author": "Hans Christian Andersen",
+            "desc": "1813 - 1875",
+            "locks1": [
+                10,
+                14,
+                29,
+                33,
+                60
+            ],
+            "locks2": [
+                5,
+                16,
+                21,
+                70
+            ]
+        },
+        "20250510": {
+            "phrase": "___ _____ __r _______th__ i_ ______ _____ _______, ___ ___ ___ m______ _________ ____ _n____ _e______, ______ ___ s____ ____ _____ ______ ___ ____d.",
+            "answer": "Sheaskedhegrandmoerfhumanslivedforeverbuttheoldermaidexplainedthatulikemrmaidshumanshadoulsthatlivedbeyondtheworl",
+            "solv": 99.01,
+            "author": "Hans Christian Andersen",
+            "desc": "1814 - 1875",
+            "locks1": [
+                28,
+                32,
+                39,
+                100
+            ],
+            "locks2": [
+                1,
+                23,
+                34,
+                56,
+                76
+            ]
+        },
+        "20250511": {
+            "phrase": "__r_ ___n __y_____, _h_ ______ ___ __ _______ ____, _________ ____ ____ _o___ ____ ___ ___t _e______ ____ _____ _____ __ _a__.",
+            "answer": "Moethaanthingselongedforaneternalsoulbelievingthatloveculdgiveherwhamrmaidswerenevermeanttohve",
+            "solv": 98.9,
+            "author": "Hans Christian Andersen",
+            "desc": "1815 - 1875",
+            "locks1": [
+                40,
+                52,
+                58,
+                84
+            ],
+            "locks2": [
+                19,
+                31,
+                35,
+                44
+            ]
+        },
+        "20250512": {
+            "phrase": "_e_______ __ b_ ____ th_ ______ ___ ____ _ _____ ____, ___ ____ __ ___ ____, _____ _a__ __ ___ ___ __t__.",
+            "answer": "DsperatetoewitheprinceandgainahumansoulshewenttothedarkeeriecveoftheSeaWich",
+            "solv": 98.79,
+            "author": "Hans Christian Andersen",
+            "desc": "1816 - 1875",
+            "locks1": [
+                36,
+                39,
+                53
+            ],
+            "locks2": [
+                6,
+                19,
+                56
+            ]
+        },
+        "20250513": {
+            "phrase": "\"I __n ____ _o_ ___s,\" ___ _____ _a__, \"__t __c_ ____ ____ ____ l___ _______ __ _____ ______, ___ ___ ____ _____ __ ____ __ ______ __ ___ _e_.\"",
+            "answer": "cagiveyulegthewitchsidbueahstepwillfeelikewalkingonsharpknivesandyouwillneverbeabletoreturntothesa",
+            "solv": 98.68,
+            "author": "Hans Christian Andersen",
+            "desc": "1817 - 1875",
+            "locks1": [
+                12,
+                31,
+                77,
+                85,
+                88
+            ],
+            "locks2": [
+                15,
+                44,
+                53,
+                60
+            ]
+        },
+        "20250514": {
+            "phrase": "\"A__ i_ __e ______ _______ _______, ____ _____ ____ _____, ___ ___ ____ ____ _n__ ___ f___ _t ____,\" ___ _____ ______ ____ _ w_____ _r__.",
+            "answer": "ndfthprincemarriesanotheryourheartwillbreakandyouwillturnitoseaoamadawnthewitchwarnedwithaickedgin",
+            "solv": 98.57,
+            "author": "Hans Christian Andersen",
+            "desc": "1818 - 1875",
+            "locks1": [
+                9,
+                26,
+                36,
+                67
+            ],
+            "locks2": [
+                16,
+                22,
+                75,
+                80
+            ]
+        },
+        "20250515": {
+            "phrase": "__e ______ _______ ______, ___ ___ _____ ____ h__ ____t _o___ __ _____n__, ____i__ ___ __a___ __ _____ _______ __r_.",
+            "answer": "ThLittleMermaidagreedandthewitchtookersweeviceinexchageleavngherunbletospeakanotherwod",
+            "solv": 98.46,
+            "author": "Hans Christian Andersen",
+            "desc": "1819 - 1875",
+            "locks1": [
+                2,
+                16,
+                44
+            ],
+            "locks2": [
+                9,
+                19,
+                29,
+                74
+            ]
+        },
+        "20250516": {
+            "phrase": "S__ ____ __ __e _____, _h_r_ ___ ______ _____ ___, ______ __ ___ ____t_ ___ _____, ______ ___ _o___ ___ ____ ___ w__ ___ _a_.",
+            "answer": "heswamtothshoreweetheprincefoundheramazedbyherbeauyandgracethoughsheculdnottellhimhoshews",
+            "solv": 98.35,
+            "author": "Hans Christian Andersen",
+            "desc": "1820 - 1875",
+            "locks1": [
+                24,
+                57,
+                62,
+                77
+            ],
+            "locks2": [
+                4,
+                11,
+                30,
+                39
+            ]
+        },
+        "20250517": {
+            "phrase": "E___ ____ w__ ___n___, ___ ___ ______ _______ __, _a_____ ___ ___ ____c_ ___ ________ ___ ___s___ ______i__.",
+            "answer": "achstepaspaifulbutshesmiledthroughitdncingfortheprineandbecominghiscloestcompanon",
+            "solv": 98.24,
+            "author": "Hans Christian Andersen",
+            "desc": "1821 - 1875",
+            "locks1": [
+                6,
+                28,
+                45,
+                74
+            ],
+            "locks2": [
+                25,
+                54,
+                61
+            ]
+        },
+        "20250518": {
+            "phrase": "__ ___e_ ___ __r ____l_, ___ ___ _____ _____ _______d __ ___ g___ __ ________ ___ _____ h__.",
+            "answer": "Hecardforhedeepybuthisheartstillbelongetotheirlhebelievedhadsavedim",
+            "solv": 98.13,
+            "author": "Hans Christian Andersen",
+            "desc": "1822 - 1875",
+            "locks1": [
+                16,
+                28,
+                58
+            ],
+            "locks2": [
+                42,
+                52,
+                63
+            ]
+        },
+        "20250519": {
+            "phrase": "___ ___, _ ___________ _in_'_ _____t__ _______, ___ __ _h_ ______ _e_____'_ _o____, ___ ______ __________ ___ __ ___ ___ __ __d ____ __a______ __r.",
+            "answer": "OnedayaneighboringkgsdaugherarrivedandtoteLittleMrmaidssrrowtheprincerecognizedherastheonehehabeenserchingfo",
+            "solv": 98.02,
+            "author": "Hans Christian Andersen",
+            "desc": "1823 - 1875",
+            "locks1": [
+                10,
+                42,
+                67,
+                83,
+                94
+            ],
+            "locks2": [
+                4,
+                8,
+                29,
+                74
+            ]
+        },
+        "20250520": {
+            "phrase": "__ __d____ _e___ _a__, s__ ______ _______, ______ _____ ____n_ ____ l___ _ ____ _______g _______ ___ _____, ____i__ ___ _______ ____ ___ ____ ___ ______ __r.",
+            "answer": "Aswedingbllsrnghesmiledbravelythougheverymometfeltikeawavecrashinagainstherheartpullngherfurtherfromthelifeshelongedfo",
+            "solv": 97.91,
+            "author": "Hans Christian Andersen",
+            "desc": "1824 - 1875",
+            "locks1": [
+                18,
+                32,
+                56,
+                90,
+                96
+            ],
+            "locks2": [
+                20,
+                27,
+                78,
+                93
+            ]
+        },
+        "20250521": {
+            "phrase": "____ _____, ___ ____e__ ________ ____ t__ ___, _____i__ ___ _ ______ ___y _a_ r_______ ____ ___ ___ ____h.",
+            "answer": "ThatnighthersistrsappearedfromheseaofferngheradaggerthehdeceivedfromtheSeaWitc",
+            "solv": 97.81,
+            "author": "Hans Christian Andersen",
+            "desc": "1825 - 1875",
+            "locks1": [
+                32,
+                36,
+                41,
+                63
+            ],
+            "locks2": [
+                7,
+                23,
+                50
+            ]
+        },
+        "20250522": {
+            "phrase": "\"I_ ___ u__ ___s ___ ___ ___ _____e'_ ____ b_____ _______, ___ __n ______ __ __,\" ____ _______.",
+            "answer": "fyousethiandendtheprincslifeeforesunriseyoucareturntoustheypleaded",
+            "solv": 97.7,
+            "author": "Hans Christian Andersen",
+            "desc": "1826 - 1875",
+            "locks1": [
+                2,
+                15,
+                63
+            ],
+            "locks2": [
+                31,
+                35,
+                61
+            ]
+        },
+        "20250523": {
+            "phrase": "S__ ____ __e ______ __ _______n_ _____, __t __ ___ _______ ___ ________ _r____, ___ ____ ___ _____ _____ _a__ h__.",
+            "answer": "hetookthdaggerintremblighandsbuasshewatchedthesleepingpincesheknewshecouldneverhrmim",
+            "solv": 97.59,
+            "author": "Hans Christian Andersen",
+            "desc": "1827 - 1875",
+            "locks1": [
+                10,
+                14,
+                69,
+                73
+            ],
+            "locks2": [
+                12,
+                40,
+                52
+            ]
+        },
+        "20250524": {
+            "phrase": "_______, ___ ____e_ ___ _o______ ___ ____ ____ ___ _______ ____ t__ s___'_ ____, ______ __ ___ ________ _a__.",
+            "answer": "Insteadshekissdhisfreheadonelasttimeandsteppedontohehipsdeckgazingatthebreakingdwn",
+            "solv": 97.48,
+            "author": "Hans Christian Andersen",
+            "desc": "1828 - 1875",
+            "locks1": [
+                8,
+                26,
+                45,
+                78
+            ],
+            "locks2": [
+                2,
+                57,
+                61
+            ]
+        },
+        "20250525": {
+            "phrase": "___ ___ _h_ ______ __i_ ____ ___ ____e__ ___ ___p__ __t_ ___ ___, _______ ___ b___ __s_____ ____ ___ ____.",
+            "answer": "Shelettedaggerslpfromherfingrsandleaedinotheseafeelingherodydisolveintothefoam",
+            "solv": 97.37,
+            "author": "Hans Christian Andersen",
+            "desc": "1829 - 1875",
+            "locks1": [
+                3,
+                8,
+                46,
+                75
+            ],
+            "locks2": [
+                1,
+                12,
+                51
+            ]
+        },
+        "20250526": {
+            "phrase": "___ _______ __ _i_____, ___ ____ _______ ____, ___a____ _e__________ __ _ __f_ _r____ _______ ___ ______ t__ s__.",
+            "answer": "Butinsteadofsnkingshefeltherselfriseflotingwightlesslyasasotbeezecarriedhertowardheky",
+            "solv": 97.26,
+            "author": "Hans Christian Andersen",
+            "desc": "1830 - 1875",
+            "locks1": [
+                13,
+                19,
+                48,
+                76
+            ],
+            "locks2": [
+                6,
+                26,
+                34
+            ]
+        },
+        "20250527": {
+            "phrase": "________ _____ __e ____ ___ _t___, s__ ____r_____ ____ ____ ___ ___ ____ a____ ___n_ ____d __ ______, ___ _____ g_____, ____ ____ __ _____ ____i__ _o.",
+            "answer": "Driftingamongthwindandsarsheundestoodthatlovewasnotonlyboutbeigloveinreturnbutaboutivingevenwhenitmeantlettngg",
+            "solv": 97.15,
+            "author": "Hans Christian Andersen",
+            "desc": "1831 - 1875",
+            "locks1": [
+                45,
+                53,
+                75,
+                89,
+                93
+            ],
+            "locks2": [
+                6,
+                42,
+                57,
+                70,
+                105
+            ]
+        },
+        "20250528": {
+            "phrase": "__e _k_ s______ _______d __r, _______ ___ ____ _h_____ ________ ___ ____ _____, ___ _____ ___ ___ _a__ ___ _t_____ ____ ___ ___ ______ ______ _o_.",
+            "answer": "Thsypiritswelcomehetellingherthattroughkindnessandgooddeedsshewouldonedayerntheeernalsoulshehadalwayswishedfr",
+            "solv": 97.04,
+            "author": "Hans Christian Andersen",
+            "desc": "1832 - 1875",
+            "locks1": [
+                5,
+                25,
+                41,
+                65,
+                101
+            ],
+            "locks2": [
+                45,
+                55,
+                57,
+                104
+            ]
+        },
+        "20250529": {
+            "phrase": "S__ ___k__ ____ __ t__ ______ ___ ____ _i__, __________ _ ______ _______ ___o__ _______ ______ ___ n__ _e_____.",
+            "answer": "helooedbackatheprinceonelasttmewhisperingasilentgoodbyebefresoaringtowardherewdstiny",
+            "solv": 96.93,
+            "author": "Hans Christian Andersen",
+            "desc": "1833 - 1875",
+            "locks1": [
+                11,
+                32,
+                72,
+                75
+            ],
+            "locks2": [
+                36,
+                43,
+                61
+            ]
+        },
+        "20250530": {
+            "phrase": "___ _o, t__ ______ _______ _____ _ _________ k___ __ _a_______, n__ ___ l___ ___ ____ _______ __, ___ _ ____ ____ ____d ____ ___e___.",
+            "answer": "AndsheLittleMermaidfoundadifferentindofhppinessottheovesheoncedreamedofbutalovethatwoullastforver",
+            "solv": 96.82,
+            "author": "Hans Christian Andersen",
+            "desc": "1834 - 1875",
+            "locks1": [
+                17,
+                45,
+                56,
+                93
+            ],
+            "locks2": [
+                8,
+                13,
+                27,
+                76
+            ]
+        }
+    }
+}

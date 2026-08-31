@@ -1,0 +1,515 @@
+{
+    "sceneName": "Pride and Prejudice",
+    "bg_header": "e07d4d",
+    "bg_body": "fadcc6",
+    "bg_keyboard": "#7a4465",
+    "keyboard_key_normal": "f5f1eb",
+    "keyboard_key_disabled": "#674459",
+    "keyboard_text_normal": "37342d",
+    "keyboard_text_disabled": "#553d49",
+    "keyboard_text_reveal": "#49B03B",
+    "hud_text_color": "250a05",
+    "hud_bg_light": "ffffff",
+    "hud_bg_dark": "2b2018",
+    "author": "Jane Austen",
+    "desc": "1813",
+    "puzzles": {
+        "20270101": {
+            "phrase": "_____b___ ______ __l_ _____ __t ___ ____ __s____, ______ _____ __ _e____'_ _a_____ _____ ________ h__ _____ ____ __r_____ ______n__.",
+            "answer": "ElizaethBennethedsharpwiandwarmreolveseeingtruthinpoplesmnnerswhileguardingerheartfromcaelessjudgmets",
+            "solv": 26.04,
+            "author": "Jane Austen",
+            "desc": "1813",
+            "locks1": [
+                43,
+                65,
+                91
+            ],
+            "locks2": [
+                9,
+                19,
+                41,
+                70
+            ]
+        },
+        "20270102": {
+            "phrase": "_r. _____ _______ l_f__ ____e _______ _ _____ ______, _t________ __ s____ __n___ _____ _________ ____ ________i___ __ _____ ___ _a__.",
+            "answer": "MDarcycarriedotypridmaskingaloyalspiritsrugglingtopeakkidlywhilewrestlingwithexpectatonsofclassandnme",
+            "solv": 25.93,
+            "author": "Jane Austen",
+            "desc": "1813",
+            "locks1": [
+                12,
+                22,
+                36,
+                71,
+                82
+            ],
+            "locks2": [
+                2,
+                24,
+                66
+            ]
+        },
+        "20270103": {
+            "phrase": "_a__ ______ _____ ____ ___t__ g____, ________ _o______ __ ___e__ ___ _____i__ ____ ____ ___r_ ________h _____ ______ ____ ______n.",
+            "answer": "JneBennetmovedwithgenleracetrustinggodnessinothrsandofferngsofthopewheeElizabetoftenplacedwarycautio",
+            "solv": 25.82,
+            "author": "Jane Austen",
+            "desc": "1813",
+            "locks1": [
+                15,
+                63,
+                86,
+                92
+            ],
+            "locks2": [
+                4,
+                10,
+                33
+            ]
+        },
+        "20270104": {
+            "phrase": "____ _f _r. _____e_'_ a______ __i____ t__ _______ __ ___ ______ ____ ______ ____ _____s ______ __ _________ ____ __ ___ _____n__.",
+            "answer": "NewsoMBinglysrrivalstrredhevillageastheBennethomebuzzedwithdreamrisinginwhisperedtalkofnewfortues",
+            "solv": 25.71,
+            "author": "Jane Austen",
+            "desc": "1813",
+            "locks1": [
+                34,
+                45,
+                57
+            ],
+            "locks2": [
+                41,
+                53,
+                74
+            ]
+        },
+        "20270105": {
+            "phrase": "T__ ____ ______ ____ _____ __ __i______ w______ _a___'_ __s____ ____, n_____ ___h _________ ___ ______ ___r_ _______ ___ _e_____.",
+            "answer": "heballglowedwithmusicasElzabethatchedDrcysditantgazeotingbotarroganceanduneasychambeneathhisrserve",
+            "solv": 25.6,
+            "author": "Jane Austen",
+            "desc": "1813",
+            "locks1": [
+                13,
+                20,
+                61,
+                84,
+                91
+            ],
+            "locks2": [
+                10,
+                65,
+                87
+            ]
+        },
+        "20270106": {
+            "phrase": "_____ _____ ______ ___ ________ ___h, ______l__ __ E________'_ ____ ___ __a_ _______ ___ s______ _i__ ____, ____d_ ____t.",
+            "answer": "Darcyspokelittlebutobservedmucunsettedbylizabethskeenwitthtpiercedhisilencelkesoftsteayligh",
+            "solv": 25.49,
+            "author": "Jane Austen",
+            "desc": "1813",
+            "locks1": [
+                14,
+                26,
+                66
+            ],
+            "locks2": [
+                11,
+                61
+            ]
+        },
+        "20270107": {
+            "phrase": "____ ___ _____e_ ______ _ __i__ ____, _a__ _____ _________ ________n __ ____t_ ____ ___r_ _______ ________ __d___ g_____ ____.",
+            "answer": "JaneandBinglyformedaquetbondechsmiledeepeningaffectioaswarmhgrewwheeneitherexpectedsudenentlelove",
+            "solv": 25.38,
+            "author": "Jane Austen",
+            "desc": "1813",
+            "locks1": [
+                33,
+                44,
+                61,
+                71
+            ],
+            "locks2": [
+                1,
+                41
+            ]
+        },
+        "20270108": {
+            "phrase": "_r_. ______ _________ ____ _____h_, ______ _______e_ ___l_ ____ ___ _a_______ __ __m____, ______, ___ _ ______u_ ______ ______.",
+            "answer": "MsBennetflutteredwithdeligthopingmarriagswoudliftherdughterstocofortwealthandacheerflsecurefuture",
+            "solv": 25.27,
+            "author": "Jane Austen",
+            "desc": "1813",
+            "locks1": [
+                16,
+                34,
+                45,
+                92
+            ],
+            "locks2": [
+                3,
+                11,
+                89
+            ]
+        },
+        "20270109": {
+            "phrase": "_________ __e______ _____ __________ h__ _s \"____r____\", ______n_ _ __a__ __ ________t ___ _____ ______ ___ _____ __i___.",
+            "answer": "ElizabethovrheardDarcydismissingeratoleableignitigasprkofamusemenandpridewithinherfierysprit",
+            "solv": 25.16,
+            "author": "Jane Austen",
+            "desc": "1813",
+            "locks1": [
+                7,
+                27,
+                45,
+                71
+            ],
+            "locks2": [
+                4,
+                19,
+                23,
+                84
+            ]
+        },
+        "20270110": {
+            "phrase": "_h_______ ______ __i______ ____ ___s_ ____e______ _____ _______ ______, ______ _________ _______ ___ ___t_____ ______ _____.",
+            "answer": "CarlottewarnedElzabeththatfirtimprssionscouldmisleadheartsthoughElizabethtrustedherinsinctsbeyonddoubt",
+            "solv": 25.05,
+            "author": "Jane Austen",
+            "desc": "1813",
+            "locks1": [
+                44,
+                46,
+                54,
+                82,
+                94
+            ],
+            "locks2": [
+                49,
+                56
+            ]
+        },
+        "20270111": {
+            "phrase": "_r. __l____ ______d ___s______, ________ _______ __ __c_ __ ____ _a_______ _____ _____n_ _ ______ __i__ ____ ______ _e_________.",
+            "answer": "MColinsarriveboatfullypraisinghimselfasmuhasLadyCtherinewhileseekigaBennetbrdewithclumsyprsistence",
+            "solv": 24.94,
+            "author": "Jane Austen",
+            "desc": "1813",
+            "locks1": [
+                8,
+                19,
+                71,
+                81,
+                82
+            ],
+            "locks2": [
+                25,
+                45,
+                69,
+                86
+            ]
+        },
+        "20270112": {
+            "phrase": "__i______ _______ _______'s _____r_ ____o___, ________ ___ ______ ___ _a_____ ___ ____e_'_ __l_, ______t___ ________ __ ____n__.",
+            "answer": "ElzabethrefusedCollinsawkwadpropsalstunninghermotherbuterningherfathrscamsupporiveapprovalinsilece",
+            "solv": 24.83,
+            "author": "Jane Austen",
+            "desc": "1813",
+            "locks1": [
+                19,
+                21,
+                30,
+                75,
+                89
+            ],
+            "locks2": [
+                9,
+                85
+            ]
+        },
+        "20270113": {
+            "phrase": "___c_ _____ _______ _____ ______ ____a____, ______n_ th_ _______ __ ___i______ _______ ____ _____ __ ____d ___ ___ ___ ____e.",
+            "answer": "DaryfoundhimselfdrawntowardElizbethfightigefeelingasadmrationtangledwithpridehecoulnotyetsetasid",
+            "solv": 24.72,
+            "author": "Jane Austen",
+            "desc": "1813",
+            "locks1": [
+                46,
+                71,
+                83
+            ],
+            "locks2": [
+                18,
+                66,
+                74
+            ]
+        },
+        "20270114": {
+            "phrase": "_____a_ _______ _h_ ____ w___ ____ __i___ ___ __l__ ________n_ _____ __ _____, s______ E________'_ ____ ____ ______ ________t___.",
+            "answer": "WickhmcharmedtetownitheasysmlesandtaesportrayigDarcyascruelhapinglizabethsviewwithsubtlemanipulaion",
+            "solv": 24.61,
+            "author": "Jane Austen",
+            "desc": "1813",
+            "locks1": [
+                7,
+                40,
+                58,
+                82,
+                90
+            ],
+            "locks2": [
+                11,
+                48,
+                75,
+                85
+            ]
+        },
+        "20270115": {
+            "phrase": "_l_______ ___s___ _i_____'_ _____, _______ __ ______ _____e_ ________ ___ ___r___ ____ ____ ___ _o__ _h__ ______ ________t___.",
+            "answer": "EizabethtrutedWckhamswordsunawareofhiddenmotivstwistinghisstoieswithenvyfarmretanhonestrecollecion",
+            "solv": 24.5,
+            "author": "Jane Austen",
+            "desc": "1813",
+            "locks1": [
+                23,
+                69,
+                90
+            ],
+            "locks2": [
+                36,
+                51,
+                85
+            ]
+        },
+        "20270116": {
+            "phrase": "_____e_ ________ ____ ___ ______, ______g ____ ___________ __ _l_______ s________ _a___'_ _________ __ ___ __i____ _______n.",
+            "answer": "BinglysuddenlyleftforLondonleavinJaneheartbrokenasEizabethuspectedDrcysinfluenceinthepanfuldecisio",
+            "solv": 24.39,
+            "author": "Jane Austen",
+            "desc": "1813",
+            "locks1": [
+                8,
+                44,
+                49
+            ],
+            "locks2": [
+                35,
+                38
+            ]
+        },
+        "20270117": {
+            "phrase": "_________ _______ ________e ___ ___ _____ _g___, s______ __n_____ __ ___ _a__ __ h__ ________ _____ _______ ____ _____l__ t____.",
+            "answer": "ElizabethvisitedCharlottandmetDarcyaainensingcoflictinhisgzeaseropinionsstillclashedwithtroubedruth",
+            "solv": 24.28,
+            "author": "Jane Austen",
+            "desc": "1813",
+            "locks1": [
+                33,
+                67,
+                78
+            ],
+            "locks2": [
+                7,
+                10,
+                31,
+                82
+            ]
+        },
+        "20270118": {
+            "phrase": "_____ s________ ____ ______n _____ __ _o_______ ____ a_ ____, ______ ___d_ ______ ___ ________ ___ _______ _______t_'_ ______e.",
+            "answer": "DarcytruggledwithemotiountilhecnfessedlovetlastthoughprietintedhisproposalandstirredElizabehsoutrag",
+            "solv": 24.17,
+            "author": "Jane Austen",
+            "desc": "1813",
+            "locks1": [
+                0,
+                34,
+                72,
+                80
+            ],
+            "locks2": [
+                26,
+                61,
+                68
+            ]
+        },
+        "20270119": {
+            "phrase": "S__ ________ _i_ ________, ________ ___ __ _______ ______ J___ ___ __c____ __ _____ _____n__ __ __a___ ___e___.",
+            "answer": "herejectedhmfiercelyaccusinghimofcrueltytowardaneandWikhamasDarcylisteedinshkensilnce",
+            "solv": 24.06,
+            "author": "Jane Austen",
+            "desc": "1813",
+            "locks1": [
+                9,
+                25,
+                26,
+                59
+            ],
+            "locks2": [
+                14,
+                21,
+                61
+            ]
+        },
+        "20270120": {
+            "phrase": "_____'s ______ _______ _____a_'_ ____ ___ _i_ ____ __ ___t___ ___r_____, _______ E________'_ ____ __ _o_ _____ h__ ________ ___ ___n.",
+            "answer": "DarcyletterexposedWickhmsliesandhswishtoproectGeogianaopeninglizabethseyestohwwrongerjudgmenthadbee",
+            "solv": 23.95,
+            "author": "Jane Austen",
+            "desc": "1813",
+            "locks1": [
+                26,
+                37,
+                57,
+                79,
+                94
+            ],
+            "locks2": [
+                16
+            ]
+        },
+        "20270121": {
+            "phrase": "S__ __l___ _______ ______ _____ ____ ______, __a______ ___ __i__ ______ ___ _____e_ _____ _____d___ c______ __r__'_ ____ _h_______.",
+            "answer": "hewakedthroughfieldsheavywithregretrelizinghowprdeshapedherchoicswhileprejuiceloudedDacysrealcaracter",
+            "solv": 23.84,
+            "author": "Jane Austen",
+            "desc": "1813",
+            "locks1": [
+                38,
+                55
+            ],
+            "locks2": [
+                22,
+                30,
+                51
+            ]
+        },
+        "20270122": {
+            "phrase": "_________ ____, s__ _____ _____ _______ ___h _____a_, _____n_ __e__ ______ t__ ______ __ __i_____ __ _______ ________ ___ __r.",
+            "answer": "ReturninghomehefoundLydiamissingwitWickhmcastigdradacrosshefamilyaswhspersofscandaldarkenedtheai",
+            "solv": 23.73,
+            "author": "Jane Austen",
+            "desc": "1813",
+            "locks1": [
+                5,
+                9,
+                53,
+                90
+            ],
+            "locks2": [
+                1,
+                23,
+                84
+            ]
+        },
+        "20270123": {
+            "phrase": "_____ __a_____ _____l_ ___ _____, _r____ _y ____ __ ____d_'_ _____, __________ __ _h____ E________'_ ______ ____ ___t___ _i______.",
+            "answer": "DarcyserchedquietyforLydiadivenblovehewoulntadmitdeterminedtosieldlizabethsfamilyfromlasingdsgrace",
+            "solv": 23.62,
+            "author": "Jane Austen",
+            "desc": "1813",
+            "locks1": [
+                19,
+                32,
+                48,
+                82
+            ],
+            "locks2": [
+                24,
+                50
+            ]
+        },
+        "20270124": {
+            "phrase": "__ ____ _i_____'_ _e___ ___ ________ _h_ ________, __s_____ ____a'_ ______ _____ __d___ ___ ______ ____ __________ _____t_.",
+            "answer": "HepaidWckhamsdbtsandarrangedtemarriageenuringLydisfuturewhilehiinghiseffortwiththoughtfuldigniy",
+            "solv": 23.51,
+            "author": "Jane Austen",
+            "desc": "1813",
+            "locks1": [
+                5,
+                21,
+                36,
+                85
+            ],
+            "locks2": [
+                3,
+                34,
+                80
+            ]
+        },
+        "20270125": {
+            "phrase": "_______t_ _______ __e __u__, _____ __ D____'_ __________ ___ _______ __ h__ ______ __ _____ _______ ___ ___s_ ____ __r__.",
+            "answer": "Elizabehlearnedthtrthmovedbyarcyscompassionandhumbledbyowdeeplyhecareddespiteherharhpastwods",
+            "solv": 23.4,
+            "author": "Jane Austen",
+            "desc": "1813",
+            "locks1": [
+                22,
+                38,
+                67,
+                75
+            ],
+            "locks2": [
+                10,
+                51
+            ]
+        },
+        "20270126": {
+            "phrase": "_____e_ ________, _u____ __ D____'_ _______, ___ __n_'_ ___ _________ _____ a_ ____ __________ ___ ______ s____.",
+            "answer": "BinglyreturnedgidedbyarcyshonestyandJaesjoyblossomedagainshopebrightenedhergentlemile",
+            "solv": 23.29,
+            "author": "Jane Austen",
+            "desc": "1813",
+            "locks1": [
+                30,
+                33,
+                64,
+                75
+            ],
+            "locks2": [
+                50,
+                69
+            ]
+        },
+        "20270127": {
+            "phrase": "_____ ___i___ ____ ______ ___r___, ___ __ __ ______ ____d_ _________, _h___ ___e ________ _____s _____ _ __w ___t__ __ _____ ___ _a____.",
+            "answer": "DarcyvistedwithcalmercouageandashewalkedbesieElizabethteironcclashingheartfoundanerhyhmoftrustandwrmth",
+            "solv": 23.18,
+            "author": "Jane Austen",
+            "desc": "1813",
+            "locks1": [
+                6,
+                31,
+                39,
+                59
+            ],
+            "locks2": [
+                1,
+                19
+            ]
+        },
+        "20270128": {
+            "phrase": "___c_ __n______ ___ ____ _g___ ____ _u___ _________, ___ _________ ____e___ ____s___, ___r_____ _ ____ _t__________ _h_____ __i___ _____ __y ______ ___ ______ ____ __ _____ _____ __o_____ __________, ___d____, ___ l_____ _f_______ a____.",
+            "answer": "DarycofessedhisloveaainwithqietsincerityandElizabethanswredhonetlyembacingabondsrengthenedtroughtralsuntiljofilledtheBennethomeastheirunionprmisedsteadinesskinnessandivelyafectionhead",
+            "solv": 23.07,
+            "author": "Jane Austen",
+            "desc": "1813",
+            "locks1": [
+                34,
+                76,
+                133
+            ],
+            "locks2": [
+                32,
+                47,
+                103,
+                119,
+                148
+            ]
+        }
+    }
+}

@@ -1,0 +1,528 @@
+{
+    "sceneName": "The Gift of Magi",
+    "bg_header": "e07d4d",
+    "bg_body": "fadcc6",
+    "bg_keyboard": "#923f3d",
+    "keyboard_key_normal": "f5f1eb",
+    "keyboard_key_disabled": "#794746",
+    "keyboard_text_normal": "37342d",
+    "keyboard_text_disabled": "#61403c",
+    "keyboard_text_reveal": "#49B03B",
+    "hud_text_color": "250a05",
+    "hud_bg_light": "ffffff",
+    "hud_bg_dark": "2b2018",
+    "author": "O. Henry",
+    "desc": "1905",
+    "puzzles": {
+        "20270001": {
+            "phrase": "_____, _ l_____ ___ _______ _____ w____, _________ ___ _____n_ _i_ __ ____ ____d ______ ___ _a___ _____ _____ _______e_ _____h__.",
+            "answer": "DellaaovingandhopefulyoungomancherishedherhusbadJmastheylivesimplyandfcedtheirdailystrugglstogeter",
+            "solv": 29.44,
+            "author": "O. Henry",
+            "desc": "1905",
+            "locks1": [
+                24,
+                51,
+                76,
+                81
+            ],
+            "locks2": [
+                32
+            ]
+        },
+        "20270002": {
+            "phrase": "__m, ___t__ ___ ___________, _________ _e___'_ _i______, _______ ____ d_____ ____ ______ ____r ____ _______ _____ ____ __ __n__.",
+            "answer": "JigenleandhardworkingtreasuredDllaskndnessholdingontoreamsthatwarmedtheihomedespitetheirlackofmoey",
+            "solv": 29.33,
+            "author": "O. Henry",
+            "desc": "1905",
+            "locks1": [
+                12,
+                43,
+                80
+            ],
+            "locks2": [
+                23,
+                50,
+                89
+            ]
+        },
+        "20270003": {
+            "phrase": "____t___ ___y _____ _ ____ ______ __ _____i__, __o____ ____ ___l_ ________ ___n ___ s_______ _____ ___ ________ e_______.",
+            "answer": "Togeherthebuiltalifeshapedbydevotonprvinglovecoudbrightenevethemallestroomsandquietestvenings",
+            "solv": 29.22,
+            "author": "O. Henry",
+            "desc": "1905",
+            "locks1": [
+                21,
+                65,
+                84,
+                88
+            ],
+            "locks2": [
+                12,
+                54,
+                71,
+                81
+            ]
+        },
+        "20270004": {
+            "phrase": "_________ a_________ _______, _______ _____ ____o__ __ ___ s_______ ___ _ _______f__ ____ ______ __ _i_'_ ______ ___e_____.",
+            "answer": "ChristmaspproachedquicklyleavingDellaanxiusassheearchedforameaningulgiftworthyofJmssteadyaffction",
+            "solv": 29.11,
+            "author": "O. Henry",
+            "desc": "1905",
+            "locks1": [
+                21,
+                46,
+                73,
+                90
+            ],
+            "locks2": [
+                69,
+                85
+            ]
+        },
+        "20270005": {
+            "phrase": "__e__ _a_____ w___ _________ _____, ___ ____ __i__ __________ _______ __ _h_ ____t__ ____ ____ ___ ____ ____n.",
+            "answer": "Thirsvingserepainfullysmallthetinyconswhisperingsadnessassecounedthemoverandoveragai",
+            "solv": 29.0,
+            "author": "O. Henry",
+            "desc": "1905",
+            "locks1": [
+                51,
+                56,
+                66,
+                69
+            ],
+            "locks2": [
+                15,
+                24,
+                32,
+                43
+            ]
+        },
+        "20270006": {
+            "phrase": "_____, _____ ______d __ ____ __, __________ __ ____ _________ ____ ___l_ _____s_ __r ___t_____ f__ ___ _i_ ____ _e_.",
+            "answer": "StillDellarefusetogiveupdeterminedtofindsomethingthatwoudexpreshegraitudeorallJmgavehr",
+            "solv": 28.89,
+            "author": "O. Henry",
+            "desc": "1905",
+            "locks1": [
+                28,
+                41,
+                51,
+                76
+            ],
+            "locks2": [
+                6,
+                26,
+                46
+            ]
+        },
+        "20270007": {
+            "phrase": "___ _____ _t ___ ____, __a______ ____, __e ___ ____s___ ___ _________ ____ _____ l___ _i__ __ ______ _______h_.",
+            "answer": "Shegazedaherlongbeutifulhairthonetreaureshepossessedthatshoneikeslkinwinterlampligt",
+            "solv": 28.78,
+            "author": "O. Henry",
+            "desc": "1905",
+            "locks1": [
+                12,
+                25,
+                67,
+                72
+            ],
+            "locks2": [
+                45
+            ]
+        },
+        "20270008": {
+            "phrase": "____ t________ __s____, ___ w______ __r ____ _______ _ _____ ___ _______ _______ i___ _h_ ________ _____a_ ___e___.",
+            "answer": "Withremblingreolvesherappedhehairbeneathascarfandsteppedoutsidentotebustlingholidystrets",
+            "solv": 28.67,
+            "author": "O. Henry",
+            "desc": "1905",
+            "locks1": [
+                19,
+                32,
+                55
+            ],
+            "locks2": [
+                37,
+                51,
+                71
+            ]
+        },
+        "20270009": {
+            "phrase": "_ _____ ____ _______g ___-___i__ ______ __r ___, __s ____ __o______ ____ ____e_ ___ ____ __ ___________ __a____.",
+            "answer": "Asmallshopofferinwigmakngcaughtheeyeitsignprmisingfairpricsforhairofexceptionalqulity",
+            "solv": 28.56,
+            "author": "O. Henry",
+            "desc": "1905",
+            "locks1": [
+                6,
+                19,
+                65
+            ],
+            "locks2": [
+                26,
+                74
+            ]
+        },
+        "20270010": {
+            "phrase": "_n____, _____ _______ ____ _e_ __l____ _o___, __________ ____ ___ ______ _____ __ b__ ___ _ _______s _i__.",
+            "answer": "IsideDellabravelysoldhrbeovedlcksexchangingthemforenoughmoneytouyJimapreciougft",
+            "solv": 28.45,
+            "author": "O. Henry",
+            "desc": "1905",
+            "locks1": [
+                5,
+                12,
+                51
+            ],
+            "locks2": [
+                14,
+                18,
+                40
+            ]
+        },
+        "20270011": {
+            "phrase": "___ ___r____ ________y _______ ____e_ _____ ___ _____ ___ _______ _t__: _ _____ __a__ ___ ___'s _________ __c___ ____h.",
+            "answer": "SheseachedcarefullthroughstorsuntilshefoundtheperfectiemasleekchinforJimcherishedpoketwatc",
+            "solv": 28.34,
+            "author": "O. Henry",
+            "desc": "1905",
+            "locks1": [
+                20,
+                51
+            ],
+            "locks2": [
+                59,
+                73,
+                77
+            ]
+        },
+        "20270012": {
+            "phrase": "_____ __ __r ______, ___ h______ ____, _o____ ___ __u__ __________ ___ ____ ______ ___ ________e.",
+            "answer": "ProudofhechoicesheurriedhomehpingJimwoldunderstandthelovebehindhersacrific",
+            "solv": 28.23,
+            "author": "O. Henry",
+            "desc": "1905",
+            "locks1": [
+                2,
+                19,
+                42
+            ],
+            "locks2": [
+                34,
+                59
+            ]
+        },
+        "20270013": {
+            "phrase": "_h__ _i_ _r_____, __ _a____ __ _____ __ __ ___ _e___'_ _______ ____, ___ ____ _________ ____ __n___ s_______.",
+            "answer": "WenJmarivedhepusedinshockashesawDllascroppedhairhiseyessofteningwithtederurprise",
+            "solv": 28.12,
+            "author": "O. Henry",
+            "desc": "1905",
+            "locks1": [
+                21,
+                25,
+                74
+            ],
+            "locks2": [
+                42,
+                46
+            ]
+        },
+        "20270014": {
+            "phrase": "R_______ ___o ___ ____, ___ _____l__ ___ ___ ____ _e_______ _____ _____ ___ ___i___ ___ ________ _h_ ____d _____ a_____.",
+            "answer": "eachinginthiscoatJimreveaedhisowngiftbautifulcombsDellahadadmredbutbelievedsecoulneverfford",
+            "solv": 28.01,
+            "author": "O. Henry",
+            "desc": "1905",
+            "locks1": [
+                55,
+                69,
+                85
+            ],
+            "locks2": [
+                15,
+                18,
+                51
+            ]
+        },
+        "20270015": {
+            "phrase": "_____ _o_____ t___ ____l_, __a______ ___ __d ____ ___ _________ _____ __ ___ ___ _____ _____ ___ __r ____-___e h___.",
+            "answer": "DellatuchedhemgentyrelizingJimhasoldhistreasuredwatchtobuythecombsmeantforhelonggonair",
+            "solv": 27.9,
+            "author": "O. Henry",
+            "desc": "1905",
+            "locks1": [
+                34,
+                47,
+                73,
+                77
+            ],
+            "locks2": [
+                41
+            ]
+        },
+        "20270016": {
+            "phrase": "___ _ ______ _______ s____, _____ ________e_ _____i__ _______ ____ ____ _n________ ________ _____ ____ ____t_.",
+            "answer": "Foramomentneitherpoketheirsacrificssettlngbetweenthemlikesowflakesgleamingunderwarmlighs",
+            "solv": 27.79,
+            "author": "O. Henry",
+            "desc": "1905",
+            "locks1": [
+                48,
+                81
+            ],
+            "locks2": [
+                12,
+                68
+            ]
+        },
+        "20270017": {
+            "phrase": "J__ s_____ ____l_, _________ _____ ____ t____ _i___, ______ ________ n__, ____ _ _______ ______ ______ ______e.",
+            "answer": "immiledsoftyremindingDellathatheirgftsthoughunusableowheldameaningbeyondsimplepurpos",
+            "solv": 27.68,
+            "author": "O. Henry",
+            "desc": "1905",
+            "locks1": [
+                26,
+                45,
+                61,
+                72
+            ],
+            "locks2": [
+                15,
+                23
+            ]
+        },
+        "20270018": {
+            "phrase": "____ ___ ________, _______ __e__ ____ ___ ________ _h_____ ___r__ ____n_, _o_ _______ ________ t_____.",
+            "answer": "Theysattogetherknowingthirlovehaddeepenedtroughshaedgivigntthroughmaterialhings",
+            "solv": 27.57,
+            "author": "O. Henry",
+            "desc": "1905",
+            "locks1": [
+                9,
+                18,
+                31,
+                70
+            ],
+            "locks2": [
+                12,
+                34
+            ]
+        },
+        "20270019": {
+            "phrase": "_______, _____e__' _o____ _______ _______ ___d___, ________ ___i_ ____ __ ________ __ __p_ ___ ______ __r___.",
+            "answer": "Outsidecarolrsvicesdriftedthroughwinowswrappingtherhomeinmelodiesofhoeandwinterwamth",
+            "solv": 27.46,
+            "author": "O. Henry",
+            "desc": "1905",
+            "locks1": [
+                5,
+                9,
+                27,
+                76
+            ],
+            "locks2": [
+                44,
+                58
+            ]
+        },
+        "20270020": {
+            "phrase": "_____ ______ _____r __ _i_, ___l_____ ____ ______ _____ __ t__ ________e_ ____ _________ _a__ ___ ____ __h__.",
+            "answer": "DellaleanedclosetoJmreaizingtruewealthlivedinhesacrificstheywillinglymdeforeachoter",
+            "solv": 27.35,
+            "author": "O. Henry",
+            "desc": "1905",
+            "locks1": [
+                29,
+                37,
+                56,
+                76
+            ],
+            "locks2": [
+                2,
+                61
+            ]
+        },
+        "20270021": {
+            "phrase": "__e__ _______r ____ ____l_, _______ ___ ____ ____ ________ _h__ ___ ____ _o___ ____ ____ t_.",
+            "answer": "Thirlaughterosegentyfillingtheroommorebrightlytananygiftculdeverhopeo",
+            "solv": 27.24,
+            "author": "O. Henry",
+            "desc": "1905",
+            "locks1": [
+                22,
+                36
+            ],
+            "locks2": [
+                43,
+                65
+            ]
+        },
+        "20270022": {
+            "phrase": "T__ __m__ ___ _____ ___ _______ __ ___ _____, h_____ ____o__ __ _______n _______ _____ ____ ____e_.",
+            "answer": "hecobsandchainsatquietlyonthetableumblesymblsofdevotioneitherwouldeverforgt",
+            "solv": 27.13,
+            "author": "O. Henry",
+            "desc": "1905",
+            "locks1": [
+                10,
+                22,
+                25
+            ],
+            "locks2": [
+                20,
+                62
+            ]
+        },
+        "20270023": {
+            "phrase": "___ a______ _____ ____ __r ______ ___ _____ _e______ _n ___ ____, ___ __ ___ ________ s__ _______ ___h__.",
+            "answer": "JimssuredDellathathebeautyhadneverdpendedoherhairbutonthekindnesshecarriedwitin",
+            "solv": 27.02,
+            "author": "O. Henry",
+            "desc": "1905",
+            "locks1": [
+                27,
+                48,
+                59,
+                75
+            ],
+            "locks2": [
+                10
+            ]
+        },
+        "20270024": {
+            "phrase": "___ _m____, _n_____ _i_'_ ___r_ ____ ___ ____ ___ _____, ___ ____ _h_ _________ __ _____ __s____ __ ___e___.",
+            "answer": "ShesiledkowingJmschamcamenotfromhiswatchbutfromtesincerityineverygetureheoffred",
+            "solv": 26.91,
+            "author": "O. Henry",
+            "desc": "1905",
+            "locks1": [
+                31,
+                42
+            ],
+            "locks2": [
+                33,
+                53,
+                63
+            ]
+        },
+        "20270025": {
+            "phrase": "__ei_ ______ ____ ______ ______ _s ___ _______ ________, ___ _____ _____ __t____ _h__ _______ ___n a__ ______.",
+            "answer": "Thrsimplehomeglowedwarmlyatheeveningdeepenedthequietpeacebeweentemsweeterthanyluxury",
+            "solv": 26.8,
+            "author": "O. Henry",
+            "desc": "1905",
+            "locks1": [
+                32,
+                49,
+                54,
+                78
+            ],
+            "locks2": [
+                68
+            ]
+        },
+        "20270026": {
+            "phrase": "____ __ ____, t___ _______d ___ ______ ____ _a_ ___e___: ____ _h_____ ____ ______ _____i___ _______n_.",
+            "answer": "Handinhandheyembracethelessonlifehdoffredlovetriveswhengivingoutweghsreceivig",
+            "solv": 26.69,
+            "author": "O. Henry",
+            "desc": "1905",
+            "locks1": [
+                3,
+                54
+            ],
+            "locks2": [
+                24,
+                56
+            ]
+        },
+        "20270027": {
+            "phrase": "_____ ______ ___ _____ _________ ______ _i_'_ _o___, _____s___ ____ ___l_ ____ ____ __ _e_______ __ _____ d_______.",
+            "answer": "DellaplacedthechaincarefullybesideJmscmbspromiingtheywoudkeepthemasrmindersoftheirevotion",
+            "solv": 26.58,
+            "author": "O. Henry",
+            "desc": "1905",
+            "locks1": [
+                12,
+                20,
+                84
+            ],
+            "locks2": [
+                1,
+                25,
+                31
+            ]
+        },
+        "20270028": {
+            "phrase": "___ _r_____ ___ ___ ______ h__, __a_____ _____ ______ _______d ____ ____ ____ _____ ____e__ _i_ __t.",
+            "answer": "Jimwappedhisarmaroundergrtefultheirheartsremainerichevenwhentheirpocktsddno",
+            "solv": 26.47,
+            "author": "O. Henry",
+            "desc": "1905",
+            "locks1": [
+                20,
+                30
+            ],
+            "locks2": [
+                13,
+                36
+            ]
+        },
+        "20270029": {
+            "phrase": "T__ _____ ______d ______, ________ _h___ ___e_ i___ ___ ______ ____ __ _________ _____n_.",
+            "answer": "henightsettlesoftlycarryingteirhopsntothegentleglowofChristmasmornig",
+            "solv": 26.36,
+            "author": "O. Henry",
+            "desc": "1905",
+            "locks1": [
+                14,
+                56,
+                65
+            ],
+            "locks2": [
+                16,
+                42,
+                54
+            ]
+        },
+        "20270030": {
+            "phrase": "T____ ________e_ ___ ________ ___ ____ _a___ __ _i____-_ ____ __r_________ __ ________n___ ___ ___s_.",
+            "answer": "heirsacrificshadrevealedthetruemgicofgvingalovestengthenedbyselflessessandtrut",
+            "solv": 26.26,
+            "author": "O. Henry",
+            "desc": "1905",
+            "locks1": [
+                8,
+                14,
+                28,
+                50
+            ]
+        },
+        "20270031": {
+            "phrase": "___ _s ____ ________e_, _____ ___ _i_ ____ ____r ________ ___t_ ____ _a__ _____, _____ ____ _____n_ ____h___ ____ ________ _____ ____d ___.",
+            "answer": "AndadawnapproachdDellaandJmknewtheigreatestgifswereechothertheirloveshinigbrigterthananythingmoneycoulbuy",
+            "solv": 26.15,
+            "author": "O. Henry",
+            "desc": "1905",
+            "locks1": [
+                35,
+                70,
+                75
+            ],
+            "locks2": [
+                5,
+                18,
+                82,
+                86
+            ]
+        }
+    }
+}

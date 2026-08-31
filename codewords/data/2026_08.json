@@ -1,0 +1,556 @@
+{
+    "sceneName": "The Last Leaf",
+    "bg_header": "e07d4d",
+    "bg_body": "fadcc6",
+    "bg_keyboard": "#9c6f48",
+    "keyboard_key_normal": "f5f1eb",
+    "keyboard_key_disabled": "#83664d",
+    "keyboard_text_normal": "37342d",
+    "keyboard_text_disabled": "#675341",
+    "keyboard_text_reveal": "#49B03B",
+    "hud_text_color": "250a05",
+    "hud_bg_light": "ffffff",
+    "hud_bg_dark": "2b2018",
+    "author": "O. Henry",
+    "desc": "1907",
+    "puzzles": {
+        "20260801": {
+            "phrase": "___, _ ____ ___ _______ ___i__, _a___ d_____ ___ __r ____n_ ____s_ __ ____ l____ ________ __ _ _____ _t____ ______ ______ _ _____ ___ ___e__.",
+            "answer": "SueakindandpatientartstcredeeplyforhefriedJohnyastheyivedtogetherinasmallsudiotuckedwithinaquietoldstret",
+            "solv": 42.83,
+            "author": "O. Henry",
+            "desc": "1907",
+            "locks1": [
+                0,
+                7,
+                16,
+                34,
+                50
+            ],
+            "locks2": [
+                14,
+                70,
+                82
+            ]
+        },
+        "20260802": {
+            "phrase": "___n__, _____ ___ ________ __ _______, _______ ______ ____s _____ ______ f___ _ _i__, __l______ h__ _____ ______ _____ _____ t__ ___e'_ ____ __a_.",
+            "answer": "Johsyfrailandweakenedbyillnesswatchedautumnwindstripleavesromavnebeievingerfinalbreathwouldmatchhevinslastlef",
+            "solv": 42.72,
+            "author": "O. Henry",
+            "desc": "1907",
+            "locks1": [
+                20,
+                34,
+                39,
+                47,
+                89
+            ],
+            "locks2": [
+                7,
+                14,
+                50
+            ]
+        },
+        "20260803": {
+            "phrase": "_e_____, __ ___n_ ______r __________, _______ __ ____t___ ___ _____ ___________, ____g_ _i__ h__ _o__ ___ __________ ____ _______ _____ __a__.",
+            "answer": "Bhrmananagigpaintedownstairsdreamedofcreaingonegreatmasterpiecethouhtmeadwrnhisconfidencethinbeneathheavyyers",
+            "solv": 42.61,
+            "author": "O. Henry",
+            "desc": "1907",
+            "locks1": [
+                44,
+                76,
+                98
+            ],
+            "locks2": [
+                24,
+                56,
+                83,
+                95
+            ]
+        },
+        "20260804": {
+            "phrase": "____ _i___ __e__ _h_____ ____r ____________ __ ___ ______ ____l_____, ________ ___t__ _____ _________n_ _o____ ____ _______, ______ ____s.",
+            "answer": "ColdwndsswpttroughtheineighborhoodasSueworkedtireesslypaintingsoflywhileencouragigJhnsywithhopefulsteadyword",
+            "solv": 42.5,
+            "author": "O. Henry",
+            "desc": "1907",
+            "locks1": [
+                24,
+                41,
+                58,
+                73,
+                102
+            ],
+            "locks2": [
+                28,
+                68,
+                94
+            ]
+        },
+        "20260805": {
+            "phrase": "__h___'_ ____ ______ _____ __ t__ __n_ _______, _____i__ _a__ _______ ____ __ _f ____ ___s_____ ___ ______ ___o___ ___ ________ ______e_.",
+            "answer": "Jonsyseyesstayedfixedonhevieoutsidecountngechfallingleafasifatewhiperedherfuturethrughtherustlingbranchs",
+            "solv": 42.39,
+            "author": "O. Henry",
+            "desc": "1907",
+            "locks1": [
+                12,
+                38,
+                49,
+                59,
+                73
+            ],
+            "locks2": [
+                14,
+                61,
+                91
+            ]
+        },
+        "20260806": {
+            "phrase": "_u_ p______ ____ h__ ______, _________ ___ ____ ____ ____'t ____ __ _ _e__'_ _______, ___ ____ _____ __ ______'_ _______s _i__ ______ _r___.",
+            "answer": "SeleadedwithergentlyremindingherthatlifewasntiedtoalafsjourneyyetfearclungtoJohnsysthoughtlkewinterfost",
+            "solv": 42.28,
+            "author": "O. Henry",
+            "desc": "1907",
+            "locks1": [
+                45,
+                58,
+                67,
+                80
+            ],
+            "locks2": [
+                17,
+                21,
+                72
+            ]
+        },
+        "20260807": {
+            "phrase": "_o_____ ______ ____ ______'s ________ _e______ __ ___ ______, ______ ___ __ ____ ___ _______, ______ _h_____ ____ ______ ___ _____ r___.",
+            "answer": "DctorswarnedthatJohnsyrecoverydpendedonherspiriturgingSuetokeepherhopefulthoughsadowsgrewinsidethesmalloom",
+            "solv": 42.17,
+            "author": "O. Henry",
+            "desc": "1907",
+            "locks1": [
+                12,
+                20,
+                38,
+                44,
+                93
+            ],
+            "locks2": [
+                25,
+                69,
+                74,
+                86
+            ]
+        },
+        "20260808": {
+            "phrase": "_a__ ___ t__ _____ __r_________, s______ ___ __n_ _______ __ __h___ ________d ____ ___ _i__ _____ ____ ____ ___ _____ ____ ______e____.",
+            "answer": "EchdayhestormstengthenedhakingthevieharshlyasJonsywhisperethathertmewouldfadewhenthefinalleafdisappared",
+            "solv": 42.06,
+            "author": "O. Henry",
+            "desc": "1907",
+            "locks1": [
+                16,
+                64,
+                72,
+                85
+            ],
+            "locks2": [
+                9,
+                40,
+                91
+            ]
+        },
+        "20260809": {
+            "phrase": "__e'_ _____ __h__ _a______ ___ ______ _i______, ___ ____ _____n_ ____ s______ ____ ________ __ ___ ___d ______ __r____ ___ ______ _t_____.",
+            "answer": "Susheartacedwtchingherfrienddminishtheroomfilligwithilencethatdeepenedasthewinhowledthoughthenarrowsreets",
+            "solv": 41.95,
+            "author": "O. Henry",
+            "desc": "1907",
+            "locks1": [
+                21,
+                60,
+                71,
+                93
+            ],
+            "locks2": [
+                24,
+                50,
+                82
+            ]
+        },
+        "20260810": {
+            "phrase": "____ _______ s__ ______d _e_____, _______ _______, __________ t__ __a_ ____ ___n__'_ ______ _____ ____ h__ ______ ______ ___i__.",
+            "answer": "ThateveninghevisiteBhrmanseekingcomfortconfessingheferthatJohsysbeliefmightpullerspiritbeyondsavng",
+            "solv": 41.84,
+            "author": "O. Henry",
+            "desc": "1907",
+            "locks1": [
+                38,
+                55
+            ],
+            "locks2": [
+                7,
+                29,
+                43
+            ]
+        },
+        "20260811": {
+            "phrase": "_e_____ _____n__ __a____, __s ____ _________ __ __ ________ __h___ t___ __r ____ __ _________ _______ __o___ __ ______ _____i___.",
+            "answer": "BhrmanlisteedhevilyhieyessofteningasherealizedJonsyiedhelifetosomethingfragileenughtovanishovernght",
+            "solv": 41.73,
+            "author": "O. Henry",
+            "desc": "1907",
+            "locks1": [
+                33,
+                35,
+                40,
+                60,
+                63
+            ],
+            "locks2": [
+                29,
+                67,
+                88
+            ]
+        },
+        "20260812": {
+            "phrase": "______ _____ _______, __ s____ __d_____ ____ __i__ r______, __________ __ ______t __e ____ _l________ ______ __ __h___'_ _________ _o___.",
+            "answer": "ThoughfrailhimselfhetoodsudenlywithquetesolvedeterminedtoprotecthhopefickeringweaklyinJonsysshrinkingwrld",
+            "solv": 41.62,
+            "author": "O. Henry",
+            "desc": "1907",
+            "locks1": [
+                16,
+                52,
+                60,
+                89
+            ],
+            "locks2": [
+                2,
+                79,
+                95
+            ]
+        },
+        "20260813": {
+            "phrase": "__ t__ s____ _____ ________ _h_____ ___ _____, _a__ ________ r_______ ___ d_______ _____o___ ___ ____ ____ ________, ___ ____e.",
+            "answer": "Ashetormragedfiercelytroughthenightrinhammeredooftopsandarknessswallwedthevinewithpowerfulicyforc",
+            "solv": 41.51,
+            "author": "O. Henry",
+            "desc": "1907",
+            "locks1": [
+                0,
+                61,
+                75,
+                80
+            ],
+            "locks2": [
+                33,
+                42,
+                83
+            ]
+        },
+        "20260814": {
+            "phrase": "___n__ ________ __ _a__, _________ _________, ___ _____ _ _i____ ____ ________ _______ __ ___ ____ __s____ ___ _t___'_ _____ ___e____.",
+            "answer": "Johsyawakenedatdwnexpectingemptinessyetfoundasngleleafclingingbravelytothevinedepitethesormscruelstrngth",
+            "solv": 41.4,
+            "author": "O. Henry",
+            "desc": "1907",
+            "locks1": [
+                43,
+                52,
+                58,
+                75
+            ],
+            "locks2": [
+                32,
+                66
+            ]
+        },
+        "20260815": {
+            "phrase": "________ f________ __ ___ ______ ____, s_______ _ ___r_ __ _______ ___ ___n'_ ____ _____ _l_____ _i___ _______ ____ _e_.",
+            "answer": "Surpriselickeredinherfadingeyestirringaspakofresolveshehadtfeltsinceilnessfrstsettleduponhr",
+            "solv": 41.29,
+            "author": "O. Henry",
+            "desc": "1907",
+            "locks1": [
+                47,
+                80,
+                88
+            ],
+            "locks2": [
+                24,
+                49
+            ]
+        },
+        "20260816": {
+            "phrase": "___ _______ t__ _____ _n_______, _______ _____h ______ __ ____s_'_ _____ __ ___ ________ _o____ ____ ___ __a_ _____ ____ _i__.",
+            "answer": "SuenoticedheshiftistantlysensingwarmtreturntoJohnysvoiceassherepeatedsftlythatthelefstillheldfrm",
+            "solv": 41.18,
+            "author": "O. Henry",
+            "desc": "1907",
+            "locks1": [
+                27,
+                65,
+                91
+            ],
+            "locks2": [
+                5
+            ]
+        },
+        "20260817": {
+            "phrase": "__ _____ ______, __e ________ __a_ r_______ _________, ____d_ _______ _i____ ____s ____ _____ __l_________ __ _____ _t.",
+            "answer": "Ashourspassedthstubbornlefemaineduntouchedsteayagainstbtterwindthattriedreentlesslytoclaimi",
+            "solv": 41.07,
+            "author": "O. Henry",
+            "desc": "1907",
+            "locks1": [
+                5,
+                12
+            ],
+            "locks2": [
+                35,
+                70,
+                87
+            ]
+        },
+        "20260818": {
+            "phrase": "__h___ _______ ___ _a___, ___ ______, ___ ______r__ ____ _______ s__ __d ___n ______e_, _______ ____ _____ ______ ___ __ ____t.",
+            "answer": "Jonsyreachedforwterateslowlyandwhispeedthatperhapshehabeemistaknperhapslifestillwantedhertofigh",
+            "solv": 40.96,
+            "author": "O. Henry",
+            "desc": "1907",
+            "locks1": [
+                11,
+                22,
+                88
+            ],
+            "locks2": [
+                6,
+                46,
+                76,
+                81
+            ]
+        },
+        "20260819": {
+            "phrase": "____i___ _e____ t______ ___ ___d__, _______ __r _____s __ ___ ___a__ ____ _______ ______ _ ______ __ _____ __________ ___ __n____ h___.",
+            "answer": "Sunlghtsepedhroughthewinowwarminghecheekasthestedyleafoutsidebecameasymbolofquietresilienceandreewedope",
+            "solv": 40.85,
+            "author": "O. Henry",
+            "desc": "1907",
+            "locks1": [
+                42,
+                59,
+                72,
+                78,
+                88
+            ],
+            "locks2": [
+                19,
+                27,
+                82
+            ]
+        },
+        "20260820": {
+            "phrase": "_o____ _____ S__ ___ h__ __________, ___ ____e__ _r_______, _______ __a__ __ i_____ _____ ____ ____ _ _____ ___ ______ ___n_____.",
+            "answer": "Jhnsyaskedueforersketchbookherfingrstemblingfinallyredytonvitecolorbackintoaworldshenearlyabadoned",
+            "solv": 40.74,
+            "author": "O. Henry",
+            "desc": "1907",
+            "locks1": [
+                71,
+                81
+            ],
+            "locks2": [
+                19,
+                46,
+                63,
+                87
+            ]
+        },
+        "20260821": {
+            "phrase": "T__ ______ __s____ _____ ___ _m____, ____n_ ________ __________ ______ __r, ___i__ ___ _____g_ _____ __o__ ____ _________ _____ ___ __e___.",
+            "answer": "hedoctorviitedagainandsiledseeigstrengthrebuildingwithinhenotnghowcouraeoftengrwsfromsomethingsmallyetstady",
+            "solv": 40.63,
+            "author": "O. Henry",
+            "desc": "1907",
+            "locks1": [
+                19,
+                64,
+                82,
+                85
+            ],
+            "locks2": [
+                5,
+                36,
+                41,
+                91
+            ]
+        },
+        "20260822": {
+            "phrase": "___ ____ ______ ______ __r _____, _______l ____ ___ _e__'_ ____i______ ___ ______t__ ___ _____ ____ ____ b_________ __h___'_ __n___ s_____.",
+            "answer": "SuefeltreliefsoftenhechestgratefuthatthelafspersstencehadreigniedthelightthatoncerightenedJonsysgetlepirit",
+            "solv": 40.52,
+            "author": "O. Henry",
+            "desc": "1907",
+            "locks1": [
+                5,
+                7,
+                55,
+                59
+            ],
+            "locks2": [
+                17,
+                71
+            ]
+        },
+        "20260823": {
+            "phrase": "_____ s__ ____ __________ __ _____ _h_ ____ n___, ___ _e_____ ___ _l_, __r_______ __ ___a___ _____ ________ ___ __o__ _______ ___t______.",
+            "answer": "LaterhewentdownstairstosharetegoodewsbutBhrmanlayilstugglingtobretheafterbattlingthestrmwithoutproection",
+            "solv": 40.41,
+            "author": "O. Henry",
+            "desc": "1907",
+            "locks1": [
+                15,
+                24,
+                68,
+                79,
+                89
+            ],
+            "locks2": [
+                12,
+                75
+            ]
+        },
+        "20260824": {
+            "phrase": "_e_______ ___h____ _________, ____i____ __ ___ ________ ___ ___ ________ _____, ______ ______n_ ____ ____ ____ __s ___ _o__.",
+            "answer": "Nighborsgateredanxiouslyrealzinghehadventuredoutthepreviousnightfacingfreezigrainwithonlyhioldcat",
+            "solv": 40.3,
+            "author": "O. Henry",
+            "desc": "1907",
+            "locks1": [
+                35,
+                45,
+                77,
+                83
+            ],
+            "locks2": [
+                18,
+                38,
+                62,
+                68
+            ]
+        },
+        "20260825": {
+            "phrase": "S__ ______ t__ _____ ________ __ _____e__ ______, ________ ___r___'_ ______ ____i____ ____ _______ ______ ___ _______ _________.",
+            "answer": "uepiecedhetruthtogetheraswhisprsspreadgraspingBehmanssilentsacrficewithgrowingsorrowandhumbledreverence",
+            "solv": 40.19,
+            "author": "O. Henry",
+            "desc": "1907",
+            "locks1": [
+                10,
+                36,
+                40,
+                57,
+                87
+            ],
+            "locks2": [
+                75,
+                80,
+                92
+            ]
+        },
+        "20260826": {
+            "phrase": "___n _h_ ____ _______ __ ___ _______, ___ ____ __i__ _a__ _v__ __r, _______ ___ _____ ___ ___ ______ ____s_'_ ______ __ ___e.",
+            "answer": "WhetenewsarrivedofhispassingSuefeltgrefwshoerheknowinghisfinalacthadshapedJohnysreturntolif",
+            "solv": 40.08,
+            "author": "O. Henry",
+            "desc": "1907",
+            "locks1": [
+                10,
+                48,
+                57,
+                66
+            ],
+            "locks2": [
+                51
+            ]
+        },
+        "20260827": {
+            "phrase": "_h_ ______ r_______ ____ _e_____ __d ___n _____ ____ ____t_ ___ _ _a____, __s ____ _____ ______ __ _______ _______ ___ __o__.",
+            "answer": "TedoctorevealedthatBhrmanhabeefoundwithpainsandaldderhilaststepsmarkedbyresolvebeneaththestrm",
+            "solv": 39.97,
+            "author": "O. Henry",
+            "desc": "1907",
+            "locks1": [
+                7,
+                36,
+                59,
+                77,
+                85
+            ],
+            "locks2": [
+                5,
+                65,
+                80
+            ]
+        },
+        "20260828": {
+            "phrase": "___ ________ __ ___n__ _______, _______ ____ ___r_ __ ___ _____ __ __e _______ ____ ____ _____ ____ _______ _______ ____ __ _a__.",
+            "answer": "SuereturnedtoJohsyquietlyholdingbackteasasshegazedatthpaintedleafthatneveroncewaveredthroughwindorrin",
+            "solv": 39.86,
+            "author": "O. Henry",
+            "desc": "1907",
+            "locks1": [
+                26,
+                86,
+                97
+            ],
+            "locks2": [
+                22,
+                46,
+                81,
+                94
+            ]
+        },
+        "20260829": {
+            "phrase": "__h___ __________ _____n___, __r ______ _a______ __ s__ ____i___ ___ ________ ______ ___ ____ ____ __o_ _e_____'_ _____ ___t_______.",
+            "answer": "JonsyunderstoodinstatlyhebreathctchingasherealzedthestrengthbehindtheleafcamefrmBhrmansfinalmaserpiece",
+            "solv": 39.75,
+            "author": "O. Henry",
+            "desc": "1907",
+            "locks1": [
+                16,
+                26,
+                63,
+                73
+            ],
+            "locks2": [
+                11,
+                28,
+                70
+            ]
+        },
+        "20260830": {
+            "phrase": "____ t____ ____ __ ___ __i______ ________e, ________ ___r___'_ _o_____ __ ___ ______g _____ ___ ____n_ __ _____ ___ _h_____ ___ a__.",
+            "answer": "WarmearsfellasshewhsperedgratitudcarryingBehmanscurageinherhealinheartandvowigtohonorhimtroughherrt",
+            "solv": 39.64,
+            "author": "O. Henry",
+            "desc": "1907",
+            "locks1": [
+                28,
+                40,
+                79,
+                82,
+                86
+            ],
+            "locks2": [
+                1,
+                9
+            ]
+        }
+    }
+}

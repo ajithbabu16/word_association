@@ -1,0 +1,520 @@
+{
+    "sceneName": "The Boy Who Cried Wolf",
+    "bg_header": "e07d4d",
+    "bg_body": "fadcc6",
+    "bg_keyboard": "#7c843f",
+    "keyboard_key_normal": "f5f1eb",
+    "keyboard_key_disabled": "#696f35",
+    "keyboard_text_normal": "37342d",
+    "keyboard_text_disabled": "#4e502e",
+    "keyboard_text_reveal": "#49B03B",
+    "hud_text_color": "250a05",
+    "hud_bg_light": "ffffff",
+    "hud_bg_dark": "2b2018",
+    "author": "Aesop",
+    "desc": "620-560 BCE",
+    "puzzles": {
+        "20260301": {
+            "phrase": "_ _____ _h______ n____ ___ ___d__ ___ _______ _l___ _a__ ___, _____i__ o___ ____ ____ _ ______ ____ ______ ___ __e___.",
+            "answer": "AyoungsepherdamedElitenedhisvillagefockechdaywatchngverthemfromagrassyhillbeyondthefilds",
+            "solv": 59.62,
+            "author": "Aesop",
+            "desc": "620-560 BCE",
+            "locks1": [
+                26,
+                30,
+                61,
+                78
+            ],
+            "locks2": [
+                66
+            ]
+        },
+        "20260302": {
+            "phrase": "__ ___ _h______ _u_ ________, _____ _______ __________ __r_ __a_ t__ _____ _____ _____ _____n_ s____ ______ ___ ____e_.",
+            "answer": "Hewasceerfulbtrestlessoftencravingexcitementmoethnhequiethoursspentguidigheepacrossthevally",
+            "solv": 59.51,
+            "author": "Aesop",
+            "desc": "620-560 BCE",
+            "locks1": [
+                3,
+                42,
+                69,
+                79
+            ],
+            "locks2": [
+                15,
+                38
+            ]
+        },
+        "20260303": {
+            "phrase": "T__ ______e__ _r_____ h__ ______, ________g __ _____ _____ ___ _l___ __i_______ _______ ___ ______ ________ __a_.",
+            "answer": "hevillagrstustedimdeeplybelievinhewouldguardthefockfathfullyagainstanydangercreepingner",
+            "solv": 59.4,
+            "author": "Aesop",
+            "desc": "620-560 BCE",
+            "locks1": [
+                39,
+                66,
+                68,
+                75
+            ],
+            "locks2": [
+                22,
+                41,
+                63,
+                78
+            ]
+        },
+        "20260304": {
+            "phrase": "___ _______ ______ __ E__'_ _i__, ___ ____ __ __a_____ ___ ____ __ ___r __u_____, ________, o_ _ ______ __ _t_______.",
+            "answer": "Butboredomtuggedatlismndandsoonheserchedforwaystostilaghtermischieframomentofatention",
+            "solv": 59.29,
+            "author": "Aesop",
+            "desc": "620-560 BCE",
+            "locks1": [
+                16,
+                42,
+                60,
+                80
+            ],
+            "locks2": [
+                4,
+                14
+            ]
+        },
+        "20260305": {
+            "phrase": "___ ______ a________ __ _____e_ ____ _ ____ ___ ______, _____n_ _i_______ r_____ __ t__ ____ ____ _o___ ______ h___.",
+            "answer": "Onebrightfternoonheshoutdthatawolfwascomingsendigvllagersacinguphehillwithtolsraisedigh",
+            "solv": 59.18,
+            "author": "Aesop",
+            "desc": "620-560 BCE",
+            "locks1": [
+                35,
+                42,
+                45
+            ],
+            "locks2": [
+                7,
+                31,
+                67,
+                82
+            ]
+        },
+        "20260306": {
+            "phrase": "_he_ ____v__ __________ __l_ __ _______r ___ _a______ __ ___ _____ ______ ______ _____t_ ___ ____ ___.",
+            "answer": "TyarriedbreathlessonytodiscoveElilughingasthesheepgrazedcalmlybeneahthewarmsky",
+            "solv": 59.07,
+            "author": "Aesop",
+            "desc": "620-560 BCE",
+            "locks1": [
+                14,
+                21,
+                73,
+                75
+            ],
+            "locks2": [
+                11,
+                46,
+                54
+            ]
+        },
+        "20260307": {
+            "phrase": "______ _______, _h_ ______e__ ___n__ ___ _____ _o ____ ____ _____ __l___ ___ _____r ___ ____ ___ __a_.",
+            "answer": "Thoughannoyedtevillagrswaredhimnevertcallthemagainunessthedangewasrealandner",
+            "solv": 58.96,
+            "author": "Aesop",
+            "desc": "620-560 BCE",
+            "locks1": [
+                17,
+                28,
+                41,
+                66
+            ],
+            "locks2": [
+                11,
+                38
+            ]
+        },
+        "20260308": {
+            "phrase": "___ ______ ___ _____ __l_ t__ u___ __ ______ ___ _____, _____ __ ___ _____ __a_____ _e_______ ____ __r_.",
+            "answer": "Elinoddedbutlaterfethergetorepeatthetrickeagertoseetheirstrtledractionsoncemoe",
+            "solv": 58.85,
+            "author": "Aesop",
+            "desc": "620-560 BCE",
+            "locks1": [
+                5,
+                26,
+                38,
+                42
+            ]
+        },
+        "20260309": {
+            "phrase": "__ ___ ____ ____ __ ______d _____, _____in_ t__ _____ ________, ___ _____ ___ ______e__ ___h__ __ __a_.",
+            "answer": "Sothenextweekheshouteagainclaimghebeastreturnedandagainthevillagrsrusedinfer",
+            "solv": 58.74,
+            "author": "Aesop",
+            "desc": "620-560 BCE",
+            "locks1": [
+                3,
+                29,
+                38,
+                39
+            ],
+            "locks2": [
+                23,
+                35,
+                44
+            ]
+        },
+        "20260310": {
+            "phrase": "___n ____ _____ _o ______, _____ _e______ _______, ___ ____ __w__ ___ __ __ _____d __ h__ _______ t___.",
+            "answer": "Whetheyfoundnthreatangerrplacedconcernandtheyvoednottobefoolebyimanotherime",
+            "solv": 58.63,
+            "author": "Aesop",
+            "desc": "620-560 BCE",
+            "locks1": [
+                3,
+                14,
+                19,
+                40
+            ],
+            "locks2": [
+                22,
+                33,
+                67
+            ]
+        },
+        "20260311": {
+            "phrase": "____ ______ __i____, ___ ___ ___ _____ _e_______ _____ ____l_ _____ __ ___ _____ ___ _____s_ __a___.",
+            "answer": "DayspassedquetlyandElisataloneralizingfewerpeopespoketohimafterhisfoolihprnks",
+            "solv": 58.52,
+            "author": "Aesop",
+            "desc": "620-560 BCE",
+            "locks1": [
+                4,
+                26,
+                33,
+                67
+            ],
+            "locks2": [
+                6,
+                23
+            ]
+        },
+        "20260312": {
+            "phrase": "__e _____ w_______ __________, ___ ___ ____ _ _______ _________ ____i__ _a__ t___ __ __________ ____r ___l____.",
+            "answer": "ThflockanderedpeacefullyyetElifeltastrangeemptinessgrowngechimeherememberedtheiscoding",
+            "solv": 58.41,
+            "author": "Aesop",
+            "desc": "620-560 BCE",
+            "locks1": [
+                3,
+                38,
+                47,
+                65
+            ],
+            "locks2": [
+                15,
+                45
+            ]
+        },
+        "20260313": {
+            "phrase": "___ _u__, __ ____o__ _________ ____ __e_ _h_ ____s, ___ _____ _ ___ _____ _______ ____ ___ ___k_____ ___d_.",
+            "answer": "OnedskasshadwsstretchedlongovrtehillEliheardalowgrowlechoingfromthedareningwoos",
+            "solv": 58.3,
+            "author": "Aesop",
+            "desc": "620-560 BCE",
+            "locks1": [
+                14,
+                34,
+                43,
+                61
+            ],
+            "locks2": [
+                20,
+                50
+            ]
+        },
+        "20260314": {
+            "phrase": "_ ____ w___ ___e____, __s ____ _______ ________ __ __ _______ _l____ __ t__ _r________ _____ _a_______ ______ __i.",
+            "answer": "ArealolfapparediteyesglowingfiercelyasitsteppedcosertohefightenedsheepgtheringbehindEl",
+            "solv": 58.19,
+            "author": "Aesop",
+            "desc": "620-560 BCE",
+            "locks1": [
+                21
+            ],
+            "locks2": [
+                3,
+                25,
+                30,
+                41
+            ]
+        },
+        "20260315": {
+            "phrase": "___i_ ______ _h_____ ___, ___ __ ________ ___ ____, ________ ______ t___ __ ____ ___ __r___ __s _o_____ ___e_.",
+            "answer": "Pancsurgedtroughhimandhescreamedforhelpshoutinglouderhanheeverhadduinghifolishjoks",
+            "solv": 58.08,
+            "author": "Aesop",
+            "desc": "620-560 BCE",
+            "locks1": [
+                4,
+                17,
+                34,
+                64
+            ],
+            "locks2": [
+                8,
+                40,
+                48
+            ]
+        },
+        "20260316": {
+            "phrase": "___ t__ ______e__, _____ _f ____g ________, _______ ___ _r___, __l______ __ ___ _______ _______ _____ __i__.",
+            "answer": "Buthevillagrstiredobeindeceivedignoredtheciesbeievinghewasplayinganothercrueltrck",
+            "solv": 57.97,
+            "author": "Aesop",
+            "desc": "620-560 BCE",
+            "locks1": [
+                7,
+                13,
+                32,
+                63
+            ],
+            "locks2": [
+                24,
+                73
+            ]
+        },
+        "20260317": {
+            "phrase": "___ ______d _ __i__ ___ _____ __ ______ t__ _____, ___ ___ __l_ ______ c_____, ________ ____ __n___ ___e__.",
+            "answer": "Eligrabbeastckandtriedtodefendhesheepbutthewoflungedlosersnarlingwithhugryintnt",
+            "solv": 57.86,
+            "author": "Aesop",
+            "desc": "620-560 BCE",
+            "locks1": [
+                24,
+                33,
+                46,
+                62
+            ],
+            "locks2": [
+                50,
+                58
+            ]
+        },
+        "20260318": {
+            "phrase": "_h_ ____k _________ __ ______, ___ ___ ____ ______s_ __ ___ _e___'_ _____n__ ____ ____ __r________ __ ___ _____t.",
+            "answer": "TeflocscatteredinterrorandElifelthelplesasthebastspresecegrewmoretheateningbythemomen",
+            "solv": 57.75,
+            "author": "Aesop",
+            "desc": "620-560 BCE",
+            "locks1": [
+                8,
+                47,
+                71
+            ],
+            "locks2": [
+                12
+            ]
+        },
+        "20260319": {
+            "phrase": "__ _h_____ _____, ___i__ _______ _____ ____ ___ ____ __ ___ _____ ___ __a____ ____ ____ ___ ______ ___ _e__.",
+            "answer": "Hesoutedagainhopngsomeonemighthearthefearinhisvoiceandrelizethistimethedangerwasral",
+            "solv": 57.64,
+            "author": "Aesop",
+            "desc": "620-560 BCE",
+            "locks1": [
+                23,
+                47,
+                60,
+                65
+            ],
+            "locks2": [
+                21,
+                39
+            ]
+        },
+        "20260320": {
+            "phrase": "F______ ___ ________, _______ ___ ___________, ______ ___ ______ ___ __________ __ E__'_ _______n_ ___a.",
+            "answer": "inallyonevillagerhearingthedesperationpausedandsensedthedifferenceinlistrembligple",
+            "solv": 57.53,
+            "author": "Aesop",
+            "desc": "620-560 BCE",
+            "locks1": [
+                11,
+                32,
+                39
+            ],
+            "locks2": [
+                28,
+                49,
+                57
+            ]
+        },
+        "20260321": {
+            "phrase": "__ ______ __e _t____, ___ ________ ____ _______ ______ ___ ____, __r_____ ____h__ ____ l__ ___ ____ _a__.",
+            "answer": "Hecalledthohersandtogethertheyhurriedtowardthehillcaryingtorcesthatitthedarkpth",
+            "solv": 57.42,
+            "author": "Aesop",
+            "desc": "620-560 BCE",
+            "locks1": [
+                32,
+                42,
+                48,
+                73
+            ],
+            "locks2": [
+                21
+            ]
+        },
+        "20260322": {
+            "phrase": "T__ ____ ______ a_ ___ ______ _l__ ___ _________ ____ ___ ___d_, _______ ___ _____n ___ ______e_.",
+            "answer": "hewolfturnedtthesuddengowandretreatedintothewoosleavingElishakebutunharmd",
+            "solv": 57.31,
+            "author": "Aesop",
+            "desc": "620-560 BCE",
+            "locks1": [
+                38,
+                50
+            ],
+            "locks2": [
+                18,
+                29
+            ]
+        },
+        "20260323": {
+            "phrase": "_h_ ______e__ _______ ___ ___ ___ __ ____ ___ ___r __ ___ ____, _______ ___ t_____ ___ ___n ___l_ __a_.",
+            "answer": "Tevillagrsreachedhimandsawatoncethefeaonhisfaceknowingthehreathadbeetruyner",
+            "solv": 57.2,
+            "author": "Aesop",
+            "desc": "620-560 BCE",
+            "locks1": [
+                18,
+                27,
+                48
+            ],
+            "locks2": [
+                11,
+                24
+            ]
+        },
+        "20260324": {
+            "phrase": "___ ________e_ ______, _______ __a______ h__ ___ ____ __d ___i____ ___ __ t__ _____ ____ ____ ____ ____l_.",
+            "answer": "Eliapologizddeeplyfinallyrelizingowhislieshastrppedhimofhetrusttheyoncegavefreey",
+            "solv": 57.09,
+            "author": "Aesop",
+            "desc": "620-560 BCE",
+            "locks1": [
+                12,
+                21,
+                51,
+                63
+            ],
+            "locks2": [
+                16,
+                39
+            ]
+        },
+        "20260325": {
+            "phrase": "___ ______e__ _______ ___ ___ ___i____ ___ ____ _____, ____ _r____, ____ __ ______t ____ ________ ___ h______.",
+            "answer": "Thevillagrsforgavehimbutremndedhimthattrustoncebokenmustberebuilwithpatienceandonesty",
+            "solv": 56.98,
+            "author": "Aesop",
+            "desc": "620-560 BCE",
+            "locks1": [
+                13,
+                36,
+                44
+            ],
+            "locks2": [
+                19
+            ]
+        },
+        "20260326": {
+            "phrase": "_l_ ______ ________, _r_______ __ ____d _____ _____ ____ ___n __ ___ _____ ___ __o__ _i__ _______ ___e.",
+            "answer": "Einoddedsolemnlypomisinghewoulspeaktruthfromtheonandguardtheflckwthrenewedcar",
+            "solv": 56.87,
+            "author": "Aesop",
+            "desc": "620-560 BCE",
+            "locks1": [
+                3,
+                14,
+                45,
+                67
+            ],
+            "locks2": [
+                11
+            ]
+        },
+        "20260327": {
+            "phrase": "_e_____ ___n___, ___ ___ ___k__ ____ __ ______ ___i_ _____, _______ ___ _________ _h_____ ____y ____ _a_.",
+            "answer": "SasonschagedandEliworedhardtoregaintherfaithshowinghissinceritytrougheverlongdy",
+            "solv": 56.76,
+            "author": "Aesop",
+            "desc": "620-560 BCE",
+            "locks1": [
+                25,
+                28,
+                40,
+                49
+            ],
+            "locks2": [
+                33,
+                45
+            ]
+        },
+        "20260328": {
+            "phrase": "__e_ ____ ___ ____a____ __w ___ ___i______ ___ ____o___ ___ _____ __ _ ____d___ __ _____ ______ _l___.",
+            "answer": "Ovrtimethevillgerssahisdedcationandwelcmedhimagainasaguarianoftheirvalleyfock",
+            "solv": 56.65,
+            "author": "Aesop",
+            "desc": "620-560 BCE",
+            "locks1": [
+                8,
+                12,
+                34,
+                60
+            ],
+            "locks2": [
+                48,
+                68
+            ]
+        },
+        "20260329": {
+            "phrase": "___ ____p _______ __ _____ __ _h_ ____, ________ _e'_ _______ ___ ____ __ _i__ ___o__ ____n_ __________ ___r.",
+            "answer": "Onecriseveninghestoodontehillgratefulhdlearnedthecostoflesbefrelosigeverythingdea",
+            "solv": 56.54,
+            "author": "Aesop",
+            "desc": "620-560 BCE",
+            "locks1": [
+                14,
+                36,
+                42
+            ],
+            "locks2": [
+                10,
+                18,
+                33
+            ]
+        },
+        "20260330": {
+            "phrase": "__ ___c___ t__ _____ _a____ s_____ ___ ____ _____ _______ ____ _____ ___ _______d _h__ ______ ____ _____e___.",
+            "answer": "Hewathedhesheepsfelyettleandfeltpeaceknowingthattruthhadrestorewatdeceitonceshattred",
+            "solv": 56.43,
+            "author": "Aesop",
+            "desc": "620-560 BCE",
+            "locks1": [
+                27,
+                35,
+                54
+            ],
+            "locks2": [
+                11,
+                51,
+                67
+            ]
+        }
+    }
+}

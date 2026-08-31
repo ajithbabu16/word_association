@@ -1,0 +1,586 @@
+{
+    "sceneName": "The Jungle Book",
+    "bg_header": "e07d4d",
+    "bg_body": "fadcc6",
+    "bg_keyboard": "#417237",
+    "keyboard_key_normal": "f5f1eb",
+    "keyboard_key_disabled": "#476542",
+    "keyboard_text_normal": "37342d",
+    "keyboard_text_disabled": "#405439",
+    "keyboard_text_reveal": "#49B03B",
+    "hud_text_color": "250a05",
+    "hud_bg_light": "ffffff",
+    "hud_bg_dark": "2b2018",
+    "author": "Rudyard Kipling",
+    "desc": "1894",
+    "puzzles": {
+        "20260701": {
+            "phrase": "_____i, _ _____t__ _____ _h___ ______ __ __e ____, _______ ___ ____s_'_ _______ __ ______ __ ___d_ ________ _____ ______ ____ ____l_ _a___.",
+            "answer": "Mowglaspiriedhumancildraisedinthwildlearnedtheforetsrhythmsasfreelyasbirsfollowedwindsacrosswarmjungepths",
+            "solv": 46.23,
+            "author": "Rudyard Kipling",
+            "desc": "1894",
+            "locks1": [
+                53,
+                84
+            ],
+            "locks2": [
+                33,
+                63,
+                93
+            ]
+        },
+        "20260702": {
+            "phrase": "_____, t__ ________ ____, ______ h__ __n___ _e_____ __ _o_ ___ __r_____, ________ _i____ __ l_______ ____ ______ _______ _____ _a______.",
+            "answer": "Baloohecarefreebeartaughtimgetlelssonsofjyandsuvivalwrappingwsdominaughterthatechoedbeneathleafycnopies",
+            "solv": 46.12,
+            "author": "Rudyard Kipling",
+            "desc": "1894",
+            "locks1": [
+                18,
+                57,
+                58
+            ],
+            "locks2": [
+                1,
+                10,
+                81,
+                89
+            ]
+        },
+        "20260703": {
+            "phrase": "____e___, t__ _____ ___ ________ _______, ______ ___ ____ s_____ _______, _r________ ___g__ ____ _a_____ _______ ______ ___ ___f____ _h_____.",
+            "answer": "BagherahesleekandwatchfulpantherguidedhimwithteadycouragepotectingMowlifromdngerslurkingacrosstheshitingsadows",
+            "solv": 46.01,
+            "author": "Rudyard Kipling",
+            "desc": "1894",
+            "locks1": [
+                35,
+                39,
+                55,
+                72,
+                92
+            ],
+            "locks2": [
+                11,
+                21,
+                26,
+                43
+            ]
+        },
+        "20260704": {
+            "phrase": "______h_ f_______ __r____ _______ ________ __ ____l_ ________ ________, _______ ___ _____e'_ _________ ___s_ __n____ ___ _a__ ___t.",
+            "answer": "SunligtilteredthoughemeraldbranchesasMowgisprintedjoyfullyfeelingthejunglsheartbeatpulebeeathhisbrefee",
+            "solv": 45.9,
+            "author": "Rudyard Kipling",
+            "desc": "1894",
+            "locks1": [
+                29,
+                44,
+                62,
+                95
+            ],
+            "locks2": [
+                32,
+                48,
+                55,
+                78
+            ]
+        },
+        "20260705": {
+            "phrase": "__ g______ _______ ________ ______ _____, ____r ___t___ s_______ l___ _______ ________ _______ ______h ___e_ ___ ___-_i_ ___n____.",
+            "answer": "Hereetedmonkeysswingingwildlyabovetheichaterwirlingikeplayfulmelodiesweavingthrougvinsandsunltbraches",
+            "solv": 45.79,
+            "author": "Rudyard Kipling",
+            "desc": "1894",
+            "locks1": [
+                19,
+                68,
+                77
+            ],
+            "locks2": [
+                10,
+                24,
+                55,
+                62
+            ]
+        },
+        "20260706": {
+            "phrase": "_____ _r__ _ ___l ______ ________ __ _____ ______, _________ M_____ __ _____ ___ _______t_ ___ ____a__ _____ ______ ____ e___.",
+            "answer": "WaterfomacoostreamsparkledasBaloohummedremindingowglitotrusthisinstincsandembrceeverymomentwithase",
+            "solv": 45.68,
+            "author": "Rudyard Kipling",
+            "desc": "1894",
+            "locks1": [
+                31,
+                61,
+                65
+            ],
+            "locks2": [
+                13,
+                29,
+                37,
+                41
+            ]
+        },
+        "20260707": {
+            "phrase": "_a______ __t____ ____________, ______g ____s _____ ___n____, _______ _ _u_____ ______ ________ _____ _______ _h_ _____e'_ ____ __r____.",
+            "answer": "Bgheerawachedthoughtfullysensinwindcarrywaringsknowingalrkingthreatremainedsharpbeneathtejunglscalmsuface",
+            "solv": 45.57,
+            "author": "Rudyard Kipling",
+            "desc": "1894",
+            "locks1": [
+                53,
+                62,
+                71,
+                75,
+                85
+            ],
+            "locks2": [
+                64,
+                78,
+                82,
+                96
+            ]
+        },
+        "20260708": {
+            "phrase": "__e ____ S____ _h__ _______ __r____ ___ ______, ______ ____ ______n, ___ ___ _i___ ________ ___a__ ___ __l__ ____ ______ __t______.",
+            "answer": "ThnamehereKandriftedthoughtheforestspokenwithcautioforthetgerdespisedhumnsandruedwithfierceauhority",
+            "solv": 45.46,
+            "author": "Rudyard Kipling",
+            "desc": "1894",
+            "locks1": [
+                30,
+                40,
+                68,
+                74,
+                86
+            ],
+            "locks2": [
+                17,
+                62,
+                88
+            ]
+        },
+        "20260709": {
+            "phrase": "_o____ _______ __i__ ___r, ________ _h_ ___g__ __ ____, ______ ____e___ ____ ___ t____'_ ______ _____ ____ ____ ____ ____ _______n__.",
+            "answer": "MwglibrushedasdefeaclaimingtejunleashomethoughBagheraknewtheigersreturnwouldsoontestthatboldconfidece",
+            "solv": 45.35,
+            "author": "Rudyard Kipling",
+            "desc": "1894",
+            "locks1": [
+                22,
+                44,
+                52,
+                65,
+                94
+            ],
+            "locks2": [
+                10,
+                67,
+                89
+            ]
+        },
+        "20260710": {
+            "phrase": "_____ __a____ t__ ______ __ ____ _s _____ ____ ____i__, ____ __l_ _________ _o____ ____ ______ __u__ _r__ ___ ______ _____ __ __e____.",
+            "answer": "NightwrppedheforestinhushaBalootoldstoreseachtaeremindingMwglithatfamilycoldgowfarbeyondbloodorspcies",
+            "solv": 45.24,
+            "author": "Rudyard Kipling",
+            "desc": "1894",
+            "locks1": [
+                15,
+                18,
+                23,
+                87
+            ],
+            "locks2": [
+                1,
+                29,
+                49,
+                67
+            ]
+        },
+        "20260711": {
+            "phrase": "_________ _______ ______, ____i__ ___d__ __a___ __ ______r_ ___e_ ____l_ __ ____ _____, _____ __ ______ __o_____ _____g_ ____ _____.",
+            "answer": "FirefliesdriftedcalmlycastnggolensprksasBagheeaurgdMowgitostaycloseawareofdangerprwlingthrouhtallgrass",
+            "solv": 45.13,
+            "author": "Rudyard Kipling",
+            "desc": "1894",
+            "locks1": [
+                6,
+                59,
+                64,
+                95,
+                100
+            ],
+            "locks2": [
+                3,
+                10,
+                17,
+                77
+            ]
+        },
+        "20260712": {
+            "phrase": "_ _____n ____ _________ ____ _______ __i___, s______ ______ _o___, _________ ___r_ __a_'_ ______l ____ ________ _e_______.",
+            "answer": "AsudderoarthunderedfromdistantclffshakingleaveslosesignalingSheeKhnsarrivawithchillingcrtainty",
+            "solv": 45.02,
+            "author": "Rudyard Kipling",
+            "desc": "1894",
+            "locks1": [
+                25,
+                41,
+                69,
+                77
+            ],
+            "locks2": [
+                8,
+                15,
+                54,
+                80
+            ]
+        },
+        "20260713": {
+            "phrase": "____ _______ _______ __e______ __a___, _______ ____l_ __ _______ ___ _____ __ _______ _____ _______ _______ ___ ____r'_ ______ ____.",
+            "answer": "FearrippledthroughcraturesnerbypushingMowgitorealizethepeacehetrustedstoodfragilebeneaththetigesfiercerule",
+            "solv": 44.91,
+            "author": "Rudyard Kipling",
+            "desc": "1894",
+            "locks1": [
+                12,
+                71,
+                97,
+                104
+            ],
+            "locks2": [
+                66,
+                76
+            ]
+        },
+        "20260714": {
+            "phrase": "_____ ________ __ _____ ___ t__ ___-______e, _____v___ _a____ l__ ______ ______ _______, ______ _____i r_______ ____ ______ s_____.",
+            "answer": "BalooinsistedheleaveforhemanvillagbelieingsfetyaybeyondforestbordersthoughMowglesistedwithrisingorrow",
+            "solv": 44.8,
+            "author": "Rudyard Kipling",
+            "desc": "1894",
+            "locks1": [
+                26,
+                63,
+                95
+            ],
+            "locks2": [
+                3,
+                11,
+                59,
+                91
+            ]
+        },
+        "20260715": {
+            "phrase": "____e___ ______ ___ ______ _h_____ _____ _i___, ______ ___ __ _____ _____ ____ _____ _________ ___ ____ _______ _n______ _______ ____ __ g_.",
+            "answer": "Bagheraguidedhimgentlytroughdensevnesurginghimtotrusttheircarewhileremindinghimthatcourageicludesknowingwhentoo",
+            "solv": 44.69,
+            "author": "Rudyard Kipling",
+            "desc": "1894",
+            "locks1": [
+                30,
+                79,
+                86,
+                99
+            ],
+            "locks2": [
+                9,
+                63,
+                68,
+                88
+            ]
+        },
+        "20260716": {
+            "phrase": "_____i _a____ __ ____, t___ _e_____ _______ ___ ____, _______g _____ _____r ___o___ ______ ____ __ ____s _________ _ ________ ___n___.",
+            "answer": "Mowglpusedatdawnornbtweenloyaltyandfearwatchinlightfiltethrughrisingmistasbirdannouncedarestlessmoring",
+            "solv": 44.58,
+            "author": "Rudyard Kipling",
+            "desc": "1894",
+            "locks1": [
+                25,
+                48,
+                62,
+                69,
+                73
+            ],
+            "locks2": [
+                28,
+                85,
+                91
+            ]
+        },
+        "20260717": {
+            "phrase": "_____n__ ___k___ _______d ___, ________ ___ _o____ ____r _______ ____ _h___ c________ __i__ ______ ____ ________ ___ ________ ____e.",
+            "answer": "Suddelymoneyscapturehimdragginghimtwardtheichaoticcitywererumblingrunsechoedwithmischiefandpoundingnois",
+            "solv": 44.47,
+            "author": "Rudyard Kipling",
+            "desc": "1894",
+            "locks1": [
+                20,
+                24,
+                43,
+                78,
+                92
+            ],
+            "locks2": [
+                29,
+                74,
+                96
+            ]
+        },
+        "20260718": {
+            "phrase": "____ _____, _h_ ________n_, _______ _______ ____ _f _o____ r_______ _e_____ __ ____, ___ ___ ___ _______, ______g ______ _____ __t_ ___ ___ _i__'_ s____.",
+            "answer": "KingLouieteOrangutasofferedfreedomonlyiMwglievealedscretsoffirebuttheboyrefusedsensindangerwoveninotheapekngsmile",
+            "solv": 44.36,
+            "author": "Rudyard Kipling",
+            "desc": "1894",
+            "locks1": [
+                13,
+                27,
+                65,
+                76,
+                88
+            ],
+            "locks2": [
+                60,
+                70
+            ]
+        },
+        "20260719": {
+            "phrase": "_____ ___ ____e___ _______ _n __ __v_ ___, s_________ _______ __ ____ _______ ___o __a____ _____ ______ ___t__ __ _____ ___i__.",
+            "answer": "BalooandBagheracrasheditosaehimcatteringmonkeysastheyescapedintshdowswheresafetywaiedinquietrelef",
+            "solv": 44.25,
+            "author": "Rudyard Kipling",
+            "desc": "1894",
+            "locks1": [
+                3,
+                6,
+                33,
+                70
+            ],
+            "locks2": [
+                1,
+                20,
+                89
+            ]
+        },
+        "20260720": {
+            "phrase": "_____i ______ t__m _____l_, _______n_ ___ _____e'_ ____ ____ ____ ____ _u__, ______ ___ __ _______ ___ ________ h_'_ ____ g____.",
+            "answer": "Mowglhuggedhetightyrealizigthejunglslovecamewithdeepdtyurginghimtocherishtheguidanceedbeeniven",
+            "solv": 44.14,
+            "author": "Rudyard Kipling",
+            "desc": "1894",
+            "locks1": [
+                36,
+                46,
+                63,
+                79
+            ],
+            "locks2": [
+                7,
+                58,
+                68
+            ]
+        },
+        "20260721": {
+            "phrase": "___ _____ ___n __o____ ______, _______ _e_____, ___ _______ ____ s_______ _i__ _ ______ _____ ______ t__ _____l___ ______ ____r.",
+            "answer": "YetShereKhaprwledcloserseekingrvengehisstripedformhiftinglkealivingstormacrosshetrembingforestfloo",
+            "solv": 44.03,
+            "author": "Rudyard Kipling",
+            "desc": "1894",
+            "locks1": [
+                18,
+                68,
+                96
+            ],
+            "locks2": [
+                5,
+                27,
+                41
+            ]
+        },
+        "20260722": {
+            "phrase": "______r ______ __ _h_ t____ ______n___ _o____, _________ ___ j_____ ______ ___ _____s, ___ _____ _____ __ __a__ ______ _______ e____.",
+            "answer": "ThunderolledasteigerconfrotedMwglideclaringtheungleunsafeforhumanhisvoicesharpasclwsrakingthrougharth",
+            "solv": 43.92,
+            "author": "Rudyard Kipling",
+            "desc": "1894",
+            "locks1": [
+                22,
+                67,
+                93
+            ],
+            "locks2": [
+                38,
+                74
+            ]
+        },
+        "20260723": {
+            "phrase": "____e_ __a_____ ____ _ _i_______ ______ ____c_, ________ ____l_ _n________ _____ __ ___r__ ______ ____ f_____ _______ __ ______ ____s.",
+            "answer": "FlamscrckledfromalghtningstruckbranhofferingMowgiuexpectedpowerasspaksdancedlikeiercespiritsinrisingwind",
+            "solv": 43.81,
+            "author": "Rudyard Kipling",
+            "desc": "1894",
+            "locks1": [
+                63,
+                85
+            ],
+            "locks2": [
+                40,
+                74,
+                87,
+                98
+            ]
+        },
+        "20260724": {
+            "phrase": "__ _____e_ t__ _______ ______ _______, ________ _______, ____i__ __r_'_ g___ __s_ _____ ___n ____ ____ __a_ __ _____ __ ______ h___.",
+            "answer": "HegraspdheburningbranchbravelysteppingforwardlettngfieslowpuhShereKhabackwithferhecouldnolongeride",
+            "solv": 43.7,
+            "author": "Rudyard Kipling",
+            "desc": "1894",
+            "locks1": [
+                16,
+                19,
+                74,
+                85,
+                88
+            ],
+            "locks2": [
+                24,
+                36,
+                63
+            ]
+        },
+        "20260725": {
+            "phrase": "T__ __g__ _________ __d__ _______ _____, ________ __ ______ __ _r_______ e_____ ______ h__ ____ __s____ __a____ ______ ___ __i___.",
+            "answer": "hetierretreatedunerblazinglightdefeatedasechoesofcacklingmberschasedimintoditantshdowsbeyondtheclffs",
+            "solv": 43.59,
+            "author": "Rudyard Kipling",
+            "desc": "1894",
+            "locks1": [
+                6,
+                29,
+                40,
+                70,
+                90
+            ],
+            "locks2": [
+                8,
+                21,
+                66
+            ]
+        },
+        "20260726": {
+            "phrase": "__i_ ____ ____, _________ __e ________ _____ __ _o____ _t___ _____h___ ___p__, _____n_ __ _a_ _____ ___ ____ ____ ______ ___ s_____.",
+            "answer": "RansoonfellsofteningthscorchedearthasMwglisoodbreatingdeelyknowighehdsavedthehomethatshapedhispirit",
+            "solv": 43.48,
+            "author": "Rudyard Kipling",
+            "desc": "1894",
+            "locks1": [
+                60,
+                70,
+                81,
+                90,
+                95
+            ],
+            "locks2": [
+                12,
+                28,
+                86
+            ]
+        },
+        "20260727": {
+            "phrase": "_____ ___ _____e__ ______ __m _______, ___________ _i_ _____g_ __ _____ ____ __ __l_____ _____ __ _h_ __n___'_ ____ ___ ______ __a__.",
+            "answer": "BalooandBagherajoinedhiproudlyrecognizinghscouraeasproofthathebeongedfullytotejuglesvastandlivinghert",
+            "solv": 43.37,
+            "author": "Rudyard Kipling",
+            "desc": "1894",
+            "locks1": [
+                11,
+                17,
+                34,
+                52
+            ],
+            "locks2": [
+                1,
+                19,
+                25,
+                95
+            ]
+        },
+        "20260728": {
+            "phrase": "__e______ ________ _i__ ___t_____, ___________ _h_ _____ _______d __ _ ___ ___ _a___ c________ _ ________ ____ f_____ r______.",
+            "answer": "Craturesgatheredwthgraitudecelebratingtepeacerestorebyaboywhodredhallengeapredatorwithierceesolve",
+            "solv": 43.26,
+            "author": "Rudyard Kipling",
+            "desc": "1894",
+            "locks1": [
+                15,
+                56,
+                59,
+                95
+            ],
+            "locks2": [
+                10,
+                32,
+                42,
+                76
+            ]
+        },
+        "20260729": {
+            "phrase": "T__ ___r_ ______, _____n_ ____h _____ ______ ___ _o____ __ s_______ ________, _a______ ____ ______ ______ __________ _i__ _e_____.",
+            "answer": "hestompassedleavigfresscentacrossthefrestasunlightreturnedpintinggoldacrossleavesshimmeringwthrnewal",
+            "solv": 43.16,
+            "author": "Rudyard Kipling",
+            "desc": "1894",
+            "locks1": [
+                7,
+                60,
+                83
+            ],
+            "locks2": [
+                54,
+                86
+            ]
+        },
+        "20260730": {
+            "phrase": "_____i __o__ _h_ ____l_ _______, ____a____ ___ ____ ______ ____ ______ ___, ___w___ ____ _______ ____ __ __t____ ____e_ __ __n___.",
+            "answer": "Mowglchsetejungeproudlyembrcingthewildfamilythatraisedhimknoinglovethrivedeveninunamedplacsofdager",
+            "solv": 43.05,
+            "author": "Rudyard Kipling",
+            "desc": "1894",
+            "locks1": [
+                44,
+                54,
+                64
+            ],
+            "locks2": [
+                35,
+                49,
+                72
+            ]
+        },
+        "20260731": {
+            "phrase": "__ __l___ ______ ____ _____ ___ ____e___, _____ _o_ ___ a_________, ________ ___r___ _____d __ _____ _________ __ t__ __n___ __ ______ h___.",
+            "answer": "HewakedonwardwithBalooandBagherareadyfrnewdventurescarryingcouageshapebyeveryheartbeatinhejuglehecalledome",
+            "solv": 42.94,
+            "author": "Rudyard Kipling",
+            "desc": "1894",
+            "locks1": [
+                15,
+                20,
+                35,
+                39,
+                99
+            ],
+            "locks2": [
+                11,
+                18,
+                78
+            ]
+        }
+    }
+}

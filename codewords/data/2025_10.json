@@ -1,0 +1,492 @@
+{
+    "sceneName": "Matilda",
+    "bg_header": "#aeaa41",
+    "bg_body": "#fadcc6",
+    "bg_keyboard": "#aeaa41",
+    "keyboard_key_normal": "#f5f1eb",
+    "keyboard_key_disabled": "#756f29",
+    "keyboard_text_normal": "#37342d",
+    "keyboard_text_disabled": "#615d2a",
+    "keyboard_text_reveal": "#49B03B",
+    "hud_text_color": "#250a05",
+    "hud_bg_light": "#ffffff",
+    "hud_bg_dark": "#2b2018",
+    "author": "Roald Dahl",
+    "desc": "1916-1990",
+    "puzzles": {
+        "20251001": {
+            "phrase": "_a_____ ___ _ ______ ______ ____ ___ _______ __ ____ ____r_ ___ ___ ____ _____ ___, ____ ______ ___ ___e___ ____l_ __t____.",
+            "answer": "Mtildawasabrightlittlegirlwholearnedtoreadbefoeshewasfouryearsoldeventhoughherparntsbareynoiced",
+            "solv": 100.0,
+            "author": "Roald Dahl",
+            "desc": "1916-1990",
+            "locks1": [
+                25,
+                35,
+                37,
+                75
+            ],
+            "locks2": [
+                11,
+                30,
+                40
+            ]
+        },
+        "20251002": {
+            "phrase": "___ __v__ ____s ____ ____ ________, _____i__ _____ __ ___ _______ _______ ____n_____, _____r___, ___ _a___ ___e_.",
+            "answer": "Sheloedbookmorethananythingspendnghoursinthelibraryreadingadveturesmysteiesandfirytals",
+            "solv": 99.89,
+            "author": "Roald Dahl",
+            "desc": "1916-1991",
+            "locks1": [
+                13,
+                41,
+                55,
+                69
+            ],
+            "locks2": [
+                20,
+                48,
+                52
+            ]
+        },
+        "20251003": {
+            "phrase": "H__ ___e___ _______ __________ ___ ______ t___ _o___, ___ ____ _____ ______ ___ __r __i__ __ ______s.",
+            "answer": "erparntsthoughttelevisionwasbetterhanboksandtheyoftenteasedherfobengsocuriou",
+            "solv": 99.78,
+            "author": "Roald Dahl",
+            "desc": "1916-1992",
+            "locks1": [
+                24,
+                33,
+                45,
+                68
+            ],
+            "locks2": [
+                10,
+                54
+            ]
+        },
+        "20251004": {
+            "phrase": "_a_____'_ ______, __. ________, ___ _ _________ ___ __l_____ __o _____e_ ____t ________ __s______.",
+            "answer": "MtildasfatherMrWormwoodwasadishonestcarsaesmanwhbraggdaboucheatingcutomers",
+            "solv": 99.67,
+            "author": "Roald Dahl",
+            "desc": "1916-1993",
+            "locks1": [
+                11
+            ],
+            "locks2": [
+                16,
+                29,
+                61
+            ]
+        },
+        "20251005": {
+            "phrase": "_e_ ______ _____ ___ ____ _______ _____, ____r___ ___i___'_ ____ _o_ ____n___.",
+            "answer": "HrmotherspentherdaysplayingbingoignoingMatldaslovefrlearing",
+            "solv": 99.56,
+            "author": "Roald Dahl",
+            "desc": "1916-1994",
+            "locks1": [
+                7,
+                24,
+                44
+            ],
+            "locks2": [
+                10,
+                29
+            ]
+        },
+        "20251006": {
+            "phrase": "_____ __ _____ ________, __t____ __a___ _____r __i___ __ ____, ____ _______ ____ __ ___ ____e_'_ h__.",
+            "answer": "TiredoftheirrudenessMaildaplyedclevetrcksonthemlikeputtingglueinherfathrsat",
+            "solv": 99.45,
+            "author": "Roald Dahl",
+            "desc": "1916-1995",
+            "locks1": [
+                25,
+                44,
+                66
+            ],
+            "locks2": [
+                15,
+                55
+            ]
+        },
+        "20251007": {
+            "phrase": "__e_ _a_____ _______ ______, ___ ___ ____ _____, _ ____ ______r ___ __i____ ___ h__ __________t ___ __s.",
+            "answer": "WhnMtildastartedschoolshemetMissHoneyakindteachewhoqucklysawowintelligenshewa",
+            "solv": 99.34,
+            "author": "Roald Dahl",
+            "desc": "1916-1996",
+            "locks1": [
+                8,
+                21,
+                64
+            ],
+            "locks2": [
+                18,
+                30,
+                35
+            ]
+        },
+        "20251008": {
+            "phrase": "M___ ____y _n________ ______a __ _s_ ___ ___e___, ______ __ ___ ___ _____ ___ ___ __ _______ ___ ___h.",
+            "answer": "issHoneecouragedMatildtouehertalntsamazedathowfaraheadshewasinreadingandmat",
+            "solv": 99.23,
+            "author": "Roald Dahl",
+            "desc": "1916-1997",
+            "locks1": [
+                18,
+                43,
+                54,
+                67
+            ],
+            "locks2": [
+                37,
+                51,
+                65
+            ]
+        },
+        "20251009": {
+            "phrase": "___ _h_ ______ ___ _u___ __ ____ T_________, _ __________ ___d________ ___ _______ ____e___ ___ _______s _l___.",
+            "answer": "ButteschoolwasrledbyMissrunchbullaterrifyingheamistresswhobulliedstudntsandteacheraike",
+            "solv": 99.12,
+            "author": "Roald Dahl",
+            "desc": "1916-1998",
+            "locks1": [
+                12,
+                31,
+                56
+            ],
+            "locks2": [
+                22,
+                63
+            ]
+        },
+        "20251010": {
+            "phrase": "____ _r________ _____ ________ ______ ___ _______u__ _n_ s______ __ _____e ___ _______ h__.",
+            "answer": "MissTunchbullthrewchildrenacrosstheplaygrondadhoutedatanyonwhocrosseder",
+            "solv": 99.01,
+            "author": "Roald Dahl",
+            "desc": "1916-1999",
+            "locks1": [
+                55,
+                61,
+                65
+            ],
+            "locks2": [
+                16,
+                19,
+                63
+            ]
+        },
+        "20251011": {
+            "phrase": "__t____ _____d _____, _____i__ ___ ________ __ ____ __ ___s____ __e _____ __a_________.",
+            "answer": "Maildastayequietwatchngandthinkingofwaystooutmartthcruelhedmistress",
+            "solv": 98.9,
+            "author": "Roald Dahl",
+            "desc": "1916-2000",
+            "locks1": [
+                13,
+                25,
+                61
+            ],
+            "locks2": [
+                37,
+                54
+            ]
+        },
+        "20251012": {
+            "phrase": "___ ___, ______ _ ______, _____d_ __________ s__ _o___ ____ ___e___ ____ ___ _i__.",
+            "answer": "OnedayduringalessonMatiladiscoveredheculdmoveobjctswithhermnd",
+            "solv": 98.79,
+            "author": "Roald Dahl",
+            "desc": "1916-2001",
+            "locks1": [
+                9,
+                17,
+                27
+            ],
+            "locks2": [
+                14
+            ]
+        },
+        "20251013": {
+            "phrase": "_h_ ____t____ __ ____, ______n_ __ c______ ___ ___e__ _____ ___ _o___ _i__ ___ ____ ______ ____ ____.",
+            "answer": "Sepracicedathomelearnigtoontrolherpowrsuntilsheculdlftandmovethingswithease",
+            "solv": 98.68,
+            "author": "Roald Dahl",
+            "desc": "1916-2002",
+            "locks1": [
+                20,
+                31,
+                68,
+                72
+            ],
+            "locks2": [
+                58
+            ]
+        },
+        "20251014": {
+            "phrase": "M___ _____ ____t__ _a_____ __ ___ _____ ______e, _____ ___ ________ ___ ___ __s_.",
+            "answer": "issHoneyinviedMtildatohersmallcottagwheresherevealedhersadpat",
+            "solv": 98.57,
+            "author": "Roald Dahl",
+            "desc": "1916-2003",
+            "locks1": [
+                32,
+                37,
+                41
+            ],
+            "locks2": [
+                6,
+                56
+            ]
+        },
+        "20251015": {
+            "phrase": "S__ ____ _a_____ ____ ____ _____h____ ___ __r ____, ___ __d _____ ___ ____ ___ _____ __t__ ___ ______ __e_.",
+            "answer": "hetoldMtildathatMissTruncbullwasheauntwhohatakenherhomeandmoneyaferherfatherdid",
+            "solv": 98.46,
+            "author": "Roald Dahl",
+            "desc": "1916-2004",
+            "locks1": [
+                5,
+                37,
+                60
+            ],
+            "locks2": [
+                74
+            ]
+        },
+        "20251016": {
+            "phrase": "_a_____ __l_ _____ ___ ___t__ __ ____ ____ ___e_ ___ ___ ____ ____.",
+            "answer": "MtildafetangryandwanedtohelpMissHonygetherlifeback",
+            "solv": 55.34,
+            "author": "Roald Dahl",
+            "desc": "1916-2005",
+            "locks1": [
+                22
+            ],
+            "locks2": [
+                25,
+                47
+            ]
+        },
+        "20251017": {
+            "phrase": "___ ____ ____ ____ T_________ ______ _____ _____, ____l__ _s__ ___ ___e__ __ _ ______ __a_.",
+            "answer": "ThenexttimeMissrunchbulltaughttheirclassMatidauedherpowrsinacleverpln",
+            "solv": 98.24,
+            "author": "Roald Dahl",
+            "desc": "1916-2006",
+            "locks1": [
+                13,
+                22,
+                31
+            ],
+            "locks2": [
+                37,
+                62
+            ]
+        },
+        "20251018": {
+            "phrase": "S__ ____ _ p____ __ _h___ _____ _ _______ __ t__ __________, __________ i_ ___ ____ ____ ___e_'_ ____ _a____.",
+            "answer": "hemadeaieceofcalkwriteamessageonheblackboardpretendingtwasfromMissHonyslatefther",
+            "solv": 98.13,
+            "author": "Roald Dahl",
+            "desc": "1916-2007",
+            "locks1": [
+                20
+            ],
+            "locks2": [
+                25,
+                36,
+                46
+            ]
+        },
+        "20251019": {
+            "phrase": "_h_ __s____ _______ ____ ___n______ __ ______ ____ ___e_'_ ____ ___ _____ __ o___.",
+            "answer": "TemesageorderedMissTruchbulltoreturnMissHonyshomeandmoneyatnce",
+            "solv": 98.02,
+            "author": "Roald Dahl",
+            "desc": "1916-2008",
+            "locks1": [
+                8,
+                15,
+                35
+            ],
+            "locks2": [
+                11,
+                17
+            ]
+        },
+        "20251020": {
+            "phrase": "_________, __s_ _r________ ________ ___ __n ____ t__ ______, _____ __ _e____.",
+            "answer": "TerrifiedMisTunchbullscreamedandrafromheschoolnevertorturn",
+            "solv": 97.91,
+            "author": "Roald Dahl",
+            "desc": "1916-2009",
+            "locks1": [
+                30,
+                36,
+                51
+            ],
+            "locks2": [
+                2,
+                24
+            ]
+        },
+        "20251021": {
+            "phrase": "____ H____ ___ __r _____ ___ ___ _____n___ ____, _______ ____ ___m ___ ____'s ___e___.",
+            "answer": "Missoneygothehouseandherhappiessbackfinallyfreefroherauntcrulty",
+            "solv": 97.81,
+            "author": "Roald Dahl",
+            "desc": "1916-2010",
+            "locks1": [
+                19,
+                30,
+                39
+            ],
+            "locks2": [
+                45
+            ]
+        },
+        "20251022": {
+            "phrase": "_____d_'_ ___e__ ______ _____, ___ s__ ____'t ____, ___ ___ _o ______ ______ ____ __ ____ ______l.",
+            "answer": "Matilaspowrsslowlyfadedbuthedidnmindforshenlongerneededthemtofeelspecia",
+            "solv": 97.7,
+            "author": "Roald Dahl",
+            "desc": "1916-2011",
+            "locks2": [
+                13,
+                21,
+                52
+            ]
+        },
+        "20251023": {
+            "phrase": "_t ____, h__ ___e___ ____ __ _______ ___ ___ _____r'_ _________ ______s_.",
+            "answer": "Ahomeerparntswereintroubleforherfathesdishonestbusines",
+            "solv": 97.59,
+            "author": "Roald Dahl",
+            "desc": "1916-2012",
+            "locks1": [
+                41,
+                49
+            ],
+            "locks2": [
+                20,
+                44
+            ]
+        },
+        "20251024": {
+            "phrase": "_h__ _______ __ ____ ___ _______, _a_____ __ _ _u___ ___ _______ __t____ ___ __d __ ___e.",
+            "answer": "TeydecidedtofleethecountrypckinginahrryandtellingMaildashehatocom",
+            "solv": 97.48,
+            "author": "Roald Dahl",
+            "desc": "1916-2013",
+            "locks1": [
+                3,
+                46,
+                56
+            ],
+            "locks2": [
+                14
+            ]
+        },
+        "20251025": {
+            "phrase": "___i___ _____ __ s__ ____d ____ ____ ____ H____ _______, _a____ ___ _____ __ _______ __e__.",
+            "answer": "MatldaaskedifhecoullivewithMissoneyinsteadsyingshewouldbehappierthre",
+            "solv": 97.37,
+            "author": "Roald Dahl",
+            "desc": "1916-2014",
+            "locks1": [
+                5,
+                26,
+                54
+            ],
+            "locks2": [
+                28,
+                37,
+                62
+            ]
+        },
+        "20251026": {
+            "phrase": "__r_________, ___ ___e___ ______, ______ n_______ ____ ____ _i____ ___ ____.",
+            "answer": "Suprisinglyherparntsagreedbarelyoticingtheyweregvingheraway",
+            "solv": 97.26,
+            "author": "Roald Dahl",
+            "desc": "1916-2015",
+            "locks1": [
+                4,
+                55
+            ],
+            "locks2": [
+                22,
+                29
+            ]
+        },
+        "20251027": {
+            "phrase": "__t____ _____ i___ M___ _o___'_ _______, _______ __ ____ ________, _____, ___ _a____.",
+            "answer": "MaildamovedntoissHneyscottagefillingitwithlaughterbooksandwrmth",
+            "solv": 97.15,
+            "author": "Roald Dahl",
+            "desc": "1916-2016",
+            "locks1": [
+                5,
+                28,
+                51
+            ],
+            "locks2": [
+                24,
+                30
+            ]
+        },
+        "20251028": {
+            "phrase": "_h_ _______ _a_ _ ____ __e__ ___ __s _____, ________d, ___ __________ __ ____.",
+            "answer": "Sefinallyhdahomewhreshewalovedrespecteandencouragedtogrow",
+            "solv": 97.04,
+            "author": "Roald Dahl",
+            "desc": "1916-2017",
+            "locks1": [
+                12,
+                55
+            ],
+            "locks2": [
+                5,
+                49
+            ]
+        },
+        "20251029": {
+            "phrase": "____ H____ _______ ___ ___ ____ __ _ _______, ___ __ __e ______ s__ _a_ ______ ___t__.",
+            "answer": "Missoneytreatedhernotjustasastudentbutasthfamilyhehdalwayswaned",
+            "solv": 96.93,
+            "author": "Roald Dahl",
+            "desc": "1916-2018",
+            "locks1": [
+                16,
+                26
+            ],
+            "locks2": [
+                11,
+                29
+            ]
+        },
+        "20251030": {
+            "phrase": "___ _o, _____d_'_ ______ ____ ___ ____ _____ _____ _h_ _____ ____n_ ____ _a_ ______ _e______.",
+            "answer": "AndsMatilasclevermindandkindheartfoundtehappyendigtheyhdalwaysdserved",
+            "solv": 96.82,
+            "author": "Roald Dahl",
+            "desc": "1916-2019",
+            "locks1": [
+                25,
+                46,
+                51
+            ],
+            "locks2": [
+                13,
+                41
+            ]
+        }
+    }
+}

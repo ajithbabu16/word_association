@@ -1,0 +1,566 @@
+{
+    "sceneName": "Madeline's Rescue",
+    "bg_header": "e07d4d",
+    "bg_body": "fadcc6",
+    "bg_keyboard": "#8fd5d0",
+    "keyboard_key_normal": "f5f1eb",
+    "keyboard_key_disabled": "#669996",
+    "keyboard_text_normal": "37342d",
+    "keyboard_text_disabled": "#404c47",
+    "keyboard_text_reveal": "#49B03B",
+    "hud_text_color": "250a05",
+    "hud_bg_light": "ffffff",
+    "hud_bg_dark": "2b2018",
+    "author": "Ludwig Bemelmans",
+    "desc": "1898-1962",
+    "puzzles": {
+        "20260201": {
+            "phrase": "__ ____s _____ __ ___ ___e-_______ _____ ___r_ ______ ______ ___l_ _____ ____i__ ________ _n___ t__ ________ ____ __ ____ __a___.",
+            "answer": "InParistoodanoldvincoveredhousewheetwelvelittlegirslivedhapplytogetheruderhewatchfulcareofMissClvel",
+            "solv": 100.0,
+            "author": "Ludwig Bemelmans",
+            "desc": "1898-1962",
+            "locks1": [
+                8,
+                11,
+                69,
+                80,
+                92
+            ],
+            "locks2": [
+                37,
+                52,
+                66
+            ]
+        },
+        "20260202": {
+            "phrase": "_____ th__ ___ ___e____, ___ _____s_ _n_ ___d___, ______ ____r___ ___ _____ ______, _____ ___ a________ ________ ___ ___ ___.",
+            "answer": "AmongemwasMadlinethetinietadbolestalwayscheefulandneverafraideagerfordventurewhereverthedayled",
+            "solv": 99.89,
+            "author": "Ludwig Bemelmans",
+            "desc": "1898-1963",
+            "locks1": [
+                3
+            ],
+            "locks2": [
+                62,
+                80,
+                92
+            ]
+        },
+        "20260203": {
+            "phrase": "_n_ _____ _________, ____ ____e_ ____h__ t__ ____s o__ ___ __ ___ ___ _ ______ ______ ___ _____, _____ _____i__ ____ __ __r__.",
+            "answer": "OesunnyafternoonMissClavlmarcedhegirluttwobytwoforastrollbesidetheSeinetheirfavortewalkinPais",
+            "solv": 99.78,
+            "author": "Ludwig Bemelmans",
+            "desc": "1898-1964",
+            "locks1": [
+                7,
+                69,
+                75
+            ],
+            "locks2": [
+                9,
+                54,
+                60,
+                67
+            ]
+        },
+        "20260204": {
+            "phrase": "___e____ _______ _____, _____n_ __ __a__, ______s, ___ d____, ___ l_____ ___ ___ o___ ___ ____ __ ___ ____ _____ _________t.",
+            "answer": "Madlineskippedaheadpeekigatbotsbridgeanducksbuteanedtoofarvertheedgeofthetallstoneembankmen",
+            "solv": 99.67,
+            "author": "Ludwig Bemelmans",
+            "desc": "1898-1965",
+            "locks1": [
+                7,
+                44,
+                86
+            ],
+            "locks2": [
+                12,
+                74,
+                78
+            ]
+        },
+        "20260205": {
+            "phrase": "__d_____, s__ _______ __t_ __e _____, _________ ____, ___ ______ _______ ____i__ h__ _______ __ ___ _____ __r__ ________ __ __n__.",
+            "answer": "Sudenlyhetoppledinothriversplashinghardthestrongcurrentpullngerswiftlyastheothergilsscreamedinpaic",
+            "solv": 99.56,
+            "author": "Ludwig Bemelmans",
+            "desc": "1898-1966",
+            "locks1": [
+                32,
+                46,
+                57,
+                77
+            ],
+            "locks2": [
+                14,
+                30,
+                67,
+                86
+            ]
+        },
+        "20260206": {
+            "phrase": "____ __a___ ______ __________, ___ ___o__ s__ ___l_ ___, _ ___ _____ d__ _____ i___ t__ _____ ____ _______ ___ _e_____.",
+            "answer": "MissClvelgaspedhelplesslybutbefrehecoudactabigbrownogleaptntohewaterwithcourageandrsolve",
+            "solv": 99.45,
+            "author": "Ludwig Bemelmans",
+            "desc": "1898-1967",
+            "locks1": [
+                2,
+                73,
+                81,
+                86
+            ],
+            "locks2": [
+                16,
+                55,
+                65
+            ]
+        },
+        "20260207": {
+            "phrase": "T__ ___ _w__ _______, ____i__ ___e____ _____ __ ___ ____, ____l___ _____ ___h _a____ _______ ___ _____, ________ ___ _______d.",
+            "answer": "hedogsamquicklylettngMadlineclingtoitsbackpaddinguntilbotsfelyreachedtheshoredrenchedbutunharme",
+            "solv": 99.34,
+            "author": "Ludwig Bemelmans",
+            "desc": "1898-1968",
+            "locks1": [
+                13,
+                35,
+                73
+            ],
+            "locks2": [
+                51,
+                64,
+                79
+            ]
+        },
+        "20260208": {
+            "phrase": "_h_ _i___ _______ ______, ____ _l____ _____ ____ ___, ___ ________ ______d ___ _r___ __g ___ _a_ _____ _____ _______ ___e____.",
+            "answer": "TegrlscheeredloudlyMissCavelcriedwithjoyandeveryonepraisethebavedowhohdsavedtheirbelovedMadline",
+            "solv": 99.23,
+            "author": "Ludwig Bemelmans",
+            "desc": "1898-1969",
+            "locks1": [
+                27,
+                29,
+                79
+            ],
+            "locks2": [
+                8,
+                16,
+                67,
+                72
+            ]
+        },
+        "20260209": {
+            "phrase": "T___ ______ ___ __g, __o______ __ ____ ______i__, ___ __s_ ______ ______ __ d_______ _ ____ ____ _h__ ___ ___ ____ __ ___e.",
+            "answer": "heyhuggedthedoshweringitwithaffectonandMisClavelagreediteservedahomewithtemfortherestoftim",
+            "solv": 99.12,
+            "author": "Ludwig Bemelmans",
+            "desc": "1898-1970",
+            "locks1": [
+                5,
+                44,
+                53,
+                76
+            ],
+            "locks2": [
+                25,
+                46
+            ]
+        },
+        "20260210": {
+            "phrase": "T__ __r__ _____ ___ _e_______, g___ ___ ____ ____, _ ____ ___, ___ ___l___ __d____, ______ ___ ____ __ ___i_ ______ _a____.",
+            "answer": "hegilsnamedherGnevieveaveherwarmfoodasoftbedandendesscudlesmakingherpartoftherlittlefmily",
+            "solv": 99.01,
+            "author": "Ludwig Bemelmans",
+            "desc": "1898-1971",
+            "locks1": [
+                11,
+                62,
+                78
+            ],
+            "locks2": [
+                9,
+                29,
+                70
+            ]
+        },
+        "20260211": {
+            "phrase": "_e_______ _______ ______ _____ _______l _________, ________g t__ ____ __ ______ _v________, _____n_ ___ ____ __o____ ______ _h__.",
+            "answer": "Gnevievequicklybecametheirfaithfucompanionfollowinhelineoftwelveeerywherewaggighertailprudlybehindtem",
+            "solv": 98.9,
+            "author": "Ludwig Bemelmans",
+            "desc": "1898-1972",
+            "locks1": [
+                21,
+                38,
+                56,
+                75
+            ],
+            "locks2": [
+                13,
+                60,
+                84,
+                94
+            ]
+        },
+        "20260212": {
+            "phrase": "___ ______ __ _e_____, ______d ____ ____s, ___ ___l__ h______ __ _____ ____i___, _____n_ ___ _____ ____ ___ ___ ____r___.",
+            "answer": "Shejoinedinlssonswatcheovermealandcuredappilyattheirbedsdesfilligthehousewithjoyandsecuity",
+            "solv": 98.79,
+            "author": "Ludwig Bemelmans",
+            "desc": "1898-1973",
+            "locks1": [
+                18,
+                48,
+                61
+            ],
+            "locks2": [
+                7,
+                50,
+                71
+            ]
+        },
+        "20260213": {
+            "phrase": "___h ____ _____ ___ ______, ___ ___e____ _o__ __ ___, _______ __a_____ __ t__ l____ ___ ___ __d _______ ___ ____ _____r.",
+            "answer": "EacgirllovedherdearlybutMadlinemstofallforevergrtefultoheoyaldogwhoharescuedherfromdange",
+            "solv": 98.68,
+            "author": "Ludwig Bemelmans",
+            "desc": "1898-1974",
+            "locks1": [
+                11,
+                12,
+                23,
+                36
+            ],
+            "locks2": [
+                16,
+                40
+            ]
+        },
+        "20260214": {
+            "phrase": "___ ____ ____ _______e, t__ ____c_ _____o__, _____r__, ________ ______ __ ___ s____ __ _ ___ ______ _i_ ______ ____d____.",
+            "answer": "YetsoonLordCucufachestritlandlrdappeaedfrowningdeeplyattheightofadoginsidehsproperresience",
+            "solv": 98.57,
+            "author": "Ludwig Bemelmans",
+            "desc": "1898-1975",
+            "locks1": [
+                6,
+                21,
+                53,
+                68
+            ],
+            "locks2": [
+                41,
+                48,
+                77
+            ]
+        },
+        "20260215": {
+            "phrase": "__ ___l____ a______ ___ n__ b_____ t____, ___ _______ _____ __e__, __ _______ _____i___ __ __ _____ ____ ____d______.",
+            "answer": "HedecarednimalsdidotelonghereanddespitetheirplasheorderedGenevevetobetakenawayimmeiately",
+            "solv": 98.46,
+            "author": "Ludwig Bemelmans",
+            "desc": "1898-1976",
+            "locks1": [
+                30,
+                39
+            ],
+            "locks2": [
+                16,
+                33,
+                52,
+                76
+            ]
+        },
+        "20260216": {
+            "phrase": "T__ ___l_ ______ _____r__ __ _e_______ ____, ___ ____ _i___ ___ _____ ____ ____ ___ _____, _______ h__ _a__ ___ ______ _____n__.",
+            "answer": "hegirssobbedbittelyasGnevieveleftandthatnghtthehousefeltcoldandemptywithouterwrmandgentlepresece",
+            "solv": 98.35,
+            "author": "Ludwig Bemelmans",
+            "desc": "1898-1977",
+            "locks1": [
+                19,
+                59,
+                69
+            ],
+            "locks2": [
+                10,
+                34,
+                86
+            ]
+        },
+        "20260217": {
+            "phrase": "___e____ ________d _______ ____ _______ __n______ w____ ______, ______ _h_ ____r_ ____i__ t____ _______ ______ ___ ____ _o_____.",
+            "answer": "MadlinewhisperebravelythatsomehowGeevieveouldreturnthoughteothesworredheirbelovedfriendwasgonefrever",
+            "solv": 98.24,
+            "author": "Ludwig Bemelmans",
+            "desc": "1898-1978",
+            "locks1": [
+                22,
+                36,
+                80,
+                92
+            ],
+            "locks2": [
+                19,
+                30,
+                77,
+                82
+            ]
+        },
+        "20260218": {
+            "phrase": "T__ ____ ___ ____ __a_; _e___ ______ _________, __l__ ______, ___ __s____ d___, ___ ___ g____ ______ __ ___ __n______ _____.",
+            "answer": "henextdayfeltgrymalsseemedtastelesswakslonelyandlesonsullfortheirlslongedtoseeGeevieveagain",
+            "solv": 98.13,
+            "author": "Ludwig Bemelmans",
+            "desc": "1898-1979",
+            "locks1": [
+                25,
+                26,
+                70,
+                90
+            ],
+            "locks2": [
+                30,
+                88
+            ]
+        },
+        "20260219": {
+            "phrase": "________, _______ ____ __o_ _______, ___ t___ _____d __ ___ _i____, ________ _e_______ ________ ______g a_ ___ ____ __ ____ _n.",
+            "answer": "SuddenlybarkingcamefrmoutsideandheyrushetothewndowspottingGnevievejoyfullywaggintthedoortocomei",
+            "solv": 98.02,
+            "author": "Ludwig Bemelmans",
+            "desc": "1898-1980",
+            "locks1": [
+                2,
+                9,
+                26,
+                76
+            ],
+            "locks2": [
+                4,
+                13,
+                53,
+                67
+            ]
+        },
+        "20260220": {
+            "phrase": "____ __n __________ __ ____a__ __r ___h___, __u_____ ___ _____ ________, ___ _o__ _______e ______ ____ __ ___ ______ _____t.",
+            "answer": "TheyradownstairstoembrcehetigtlylaghterandtearsminglingbutLrdCucufaccaughttheminthejoyfulmomen",
+            "solv": 97.91,
+            "author": "Ludwig Bemelmans",
+            "desc": "1898-1981",
+            "locks1": [
+                45,
+                49,
+                64
+            ],
+            "locks2": [
+                11,
+                43,
+                69,
+                75
+            ]
+        },
+        "20260221": {
+            "phrase": "_______, __ _______ _____i___ __r _______, _________ ____ s___ _ ____ ___ _____ _o_ ____n_ __ ___, __t __e ______ ___l_.",
+            "answer": "FuriousheclaimedGenevevefohimselfinsistingthatuchafinedogwouldnwbelogtohimnothlittlegirs",
+            "solv": 97.81,
+            "author": "Ludwig Bemelmans",
+            "desc": "1898-1982",
+            "locks1": [
+                26,
+                29,
+                52,
+                60
+            ],
+            "locks2": [
+                4,
+                14,
+                36,
+                80
+            ]
+        },
+        "20260222": {
+            "phrase": "___ _e_______ r______ __ ___y, _______ ____ ____ ___ ____ _a__ _i__, ______ _______n_ ___t______ __ _h_ ________ ___ _____.",
+            "answer": "YetGnevieveefusedtostarunningawayfromhishomeechtmealwaysreturnigfaihfullytotechildrensheloved",
+            "solv": 97.7,
+            "author": "Ludwig Bemelmans",
+            "desc": "1898-1983",
+            "locks1": [
+                34,
+                38,
+                61,
+                88
+            ],
+            "locks2": [
+                31,
+                91
+            ]
+        },
+        "20260223": {
+            "phrase": "___ ____s ______ ____ _______e __ __________, ___ __ _r__ _______, _________ _____ m___ __ ________ ___ d___ _o___ ___ _t__.",
+            "answer": "ThegirlbeggedLordCucufactounderstandbuthegewangrierinsistingrulesustbefollowedandogsculdnotsay",
+            "solv": 97.59,
+            "author": "Ludwig Bemelmans",
+            "desc": "1898-1984",
+            "locks1": [
+                47,
+                59,
+                71,
+                88
+            ],
+            "locks2": [
+                8,
+                28,
+                53
+            ]
+        },
+        "20260224": {
+            "phrase": "_____, __ m_____ _o_ _____ __ ____ ___ ____, _e_______ ______ ___a___ ___ ________, _r_____ ___ _____t_ ___l_ ___ __ _____n.",
+            "answer": "StillnoatterhwoftenhesentherawayGnevievealwaysescpedandreturnedpovingherloyalycoudnotbebroke",
+            "solv": 97.48,
+            "author": "Ludwig Bemelmans",
+            "desc": "1898-1985",
+            "locks1": [
+                27,
+                41,
+                62,
+                84
+            ],
+            "locks2": [
+                23,
+                30,
+                56
+            ]
+        },
+        "20260225": {
+            "phrase": "___ __r__ ____ ____ __________, ___i__ ___ ___ __ s_____, __a____ ____, __g_, ___ ________ _____ __ _____o_ ___ ____n.",
+            "answer": "Thegilsgrewmoredeterminedcarngforherinecretshringfoodhusandpromisesnevertoabandnheragai",
+            "solv": 97.37,
+            "author": "Ludwig Bemelmans",
+            "desc": "1898-1986",
+            "locks1": [
+                7,
+                12,
+                21,
+                64
+            ],
+            "locks2": [
+                9,
+                19,
+                76
+            ]
+        },
+        "20260226": {
+            "phrase": "____ _______e _______ __a_____ __r _____ _______d ____ ____, ___ ___ _____ _________ ___ ____ ____t____ __f___ ___ ___i__.",
+            "answer": "LordCucufacfinallyrelizedheheartbelongewiththembuthispridepreventedhimfromadmitingdeeattooeasly",
+            "solv": 97.26,
+            "author": "Ludwig Bemelmans",
+            "desc": "1898-1987",
+            "locks1": [
+                15,
+                44,
+                66
+            ],
+            "locks2": [
+                55,
+                60
+            ]
+        },
+        "20260227": {
+            "phrase": "___ ___e_ ______ __r ________ _____ ___ _____, ___n __ _____ _o ______, _______ _y s___ ____ ___ __________ ___a___.",
+            "answer": "Yetaftrseeinghedevotionagainandagainevehebegantsoftenpuzzledbuchrareandunshakableloylty",
+            "solv": 97.15,
+            "author": "Ludwig Bemelmans",
+            "desc": "1898-1988",
+            "locks1": [
+                12,
+                18,
+                30,
+                74
+            ],
+            "locks2": [
+                65
+            ]
+        },
+        "20260228": {
+            "phrase": "____ ___v__ ______ _e______ _i_ ____ ____ ____ _a____ b_ ______, ___ _____ ____ _____, _________ _________ ___l___ __ _____n.",
+            "answer": "MissClaelwiselyrmindedhmthattruelovecnnoteforcedandwhereloveliveshappinessnaturallyfolowsinretur",
+            "solv": 97.04,
+            "author": "Ludwig Bemelmans",
+            "desc": "1898-1989",
+            "locks1": [
+                29,
+                61,
+                72,
+                84
+            ],
+            "locks2": [
+                13,
+                26
+            ]
+        },
+        "20260229": {
+            "phrase": "__ ____, ____ _______e _____d, a________ _________ ___o____ __ _h_ _____, ___ __u__ _______ ___ __ ___ ____ _____c___ t___.",
+            "answer": "AtlastLordCucufacsighedmittingGenevievebelngedtotegirlswhowoldprotectherassheonceprotetedhem",
+            "solv": 96.93,
+            "author": "Ludwig Bemelmans",
+            "desc": "1898-1990",
+            "locks1": [
+                0,
+                9,
+                56
+            ],
+            "locks2": [
+                7,
+                31,
+                65,
+                79
+            ]
+        },
+        "20260230": {
+            "phrase": "____ ____ ___ _______, _e_______ ___ _l_____ __ ____ _______, ______g t__ _____ ____ _______r, ______, ___ h__ _o___ _a____.",
+            "answer": "FromthatdayforwardGnevievewasalowedtostayforeverfillinhehousewithlaughtesafetyanderlyalwrmth",
+            "solv": 96.82,
+            "author": "Ludwig Bemelmans",
+            "desc": "1898-1991",
+            "locks1": [
+                0,
+                42,
+                50,
+                64
+            ],
+            "locks2": [
+                13,
+                39,
+                44,
+                76
+            ]
+        },
+        "20260231": {
+            "phrase": "___ __, __ _h_ ___e-_______ _____ __ _____, _____i__, ___ ____n__, ___ _______v_ ____d _a_____ ____ ____r, _____ ______ ________.",
+            "answer": "AndsointevincoveredhouseinParisMadelneherfriedsandGenevieelivehppilyeveraftetheirfamilycomplete",
+            "solv": 96.71,
+            "author": "Ludwig Bemelmans",
+            "desc": "1898-1992",
+            "locks1": [
+                40,
+                49,
+                54,
+                77
+            ],
+            "locks2": [
+                1,
+                29,
+                82,
+                92
+            ]
+        }
+    }
+}

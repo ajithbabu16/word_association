@@ -1,0 +1,492 @@
+{
+    "sceneName": "Winnie-the-Pooh: The Honey Tree",
+    "bg_header": "e07d4d",
+    "bg_body": "fadcc6",
+    "bg_keyboard": "#e7ac56",
+    "keyboard_key_normal": "f5f1eb",
+    "keyboard_key_disabled": "#b28749",
+    "keyboard_text_normal": "37342d",
+    "keyboard_text_disabled": "#8f6e3f",
+    "keyboard_text_reveal": "#49B03B",
+    "hud_text_color": "250a05",
+    "hud_bg_light": "ffffff",
+    "hud_bg_dark": "2b2018",
+    "author": "A.A. Milne",
+    "desc": "1889-1956",
+    "puzzles": {
+        "20260101": {
+            "phrase": "_____e ___ ____ ____ __ ___ __i___ _______ _______ ____ __n___ ___ d______ __ ______ _ __t __ ______o__ h____ ___ _r_______.",
+            "answer": "WinnithePoohwokeuponebrghtmorningfeelingveryhugryandecidedheneededapoofdeliciusoneyforbeakfast",
+            "solv": 100.0,
+            "author": "A.A. Milne",
+            "desc": "1889-1956",
+            "locks1": [
+                17,
+                32,
+                33
+            ],
+            "locks2": [
+                27,
+                38
+            ]
+        },
+        "20260102": {
+            "phrase": "__ ________ _h_____ __e _______ _c__ ____, _______ __ _______, ________ __ ___ _____ t____ __ ___d__ __n__ ________ _r__ ___ _o__.",
+            "answer": "HewanderedtroughthHundredAreWoodhummingtohimselfdreamingofthesweetasteofgolenhoeydrippingfomthecmb",
+            "solv": 99.89,
+            "author": "A.A. Milne",
+            "desc": "1889-1957",
+            "locks1": [
+                38,
+                47,
+                83
+            ],
+            "locks2": [
+                29,
+                43,
+                50
+            ]
+        },
+        "20260103": {
+            "phrase": "____ __s____ ___ ______ _____t, ___i__ ___ ___e ______, ___ ______ _a____ h__ ____ _____ _o___ __ ______ __ ______ _______ _ ___n.",
+            "answer": "PoohviitedhisfriendPiglehopngforsomadvicebutPigletwrnedimthathoneyculdbetrickytoobtainwithoutapla",
+            "solv": 99.78,
+            "author": "A.A. Milne",
+            "desc": "1889-1958",
+            "locks2": [
+                1,
+                20,
+                36
+            ]
+        },
+        "20260104": {
+            "phrase": "__n_____ _h_ ______g, ____ ________ ______ _ ____ __ ____ _____ ____ _____, ________d __ _o___ r____ __ __ __ __i____ ___e_____.",
+            "answer": "IgoringtewarninPoohwanderedtowardatreeheknewmightholdhoneyconvinceheculdeachitifheclmbedcarfully",
+            "solv": 99.67,
+            "author": "A.A. Milne",
+            "desc": "1889-1959",
+            "locks1": [
+                27,
+                88
+            ],
+            "locks2": [
+                23,
+                30,
+                55
+            ]
+        },
+        "20260105": {
+            "phrase": "__ _____ ____a__ __e t___ ____, ______ __ ___ _______ ____ __ ___ ________, ___ __n_____ h__ __ ____d g__ ___ _____ _o__.",
+            "answer": "Hestoodbeneththalltreegazingatthebeehivehighinthebranchesandwoderedowhecouletthehoneydwn",
+            "solv": 99.56,
+            "author": "A.A. Milne",
+            "desc": "1889-1960",
+            "locks1": [
+                16,
+                19,
+                49
+            ],
+            "locks2": [
+                25,
+                34
+            ]
+        },
+        "20260106": {
+            "phrase": "\"_e_____ _ _______ ____ ____ __ ____t _p,\" _______ ____, r__________ ___________ _o___'_ _____ a____ ______ __l_____ __ _h_ ___.",
+            "answer": "PrhapsaballoonwillhelpmefloauthoughtPoohememberingChristopherRbinsstoryboutflyingbaloonsintesky",
+            "solv": 99.45,
+            "author": "A.A. Milne",
+            "desc": "1889-1961",
+            "locks1": [
+                7,
+                33,
+                92
+            ],
+            "locks2": [
+                9,
+                37,
+                59,
+                78
+            ]
+        },
+        "20260107": {
+            "phrase": "__ ________ _ ___ _______ ____ ___i_______ R____, ____ __ t______ __ h__ _a___, ___ _____ __ f____ ______ ______ __e ____ __o__.",
+            "answer": "HeborrowedaredballoonfromChrstopherobintieditightlytoiswistandbegantoloatslowlytowardthhiveabve",
+            "solv": 99.34,
+            "author": "A.A. Milne",
+            "desc": "1889-1962",
+            "locks1": [
+                2,
+                42,
+                66
+            ],
+            "locks2": [
+                18,
+                74
+            ]
+        },
+        "20260108": {
+            "phrase": "__ ____ _______ _p____, __ __a_____ t__ _____ h____ _______ ___ _i_, ___ _____ s_ _________ __ _o___ ______ ____ __ __ ___ _____e.",
+            "answer": "AsPoohfloateduwardheimginedhesweetoneywaitingforhmthetasteowonderfulheculdalmostfeelitonhistongu",
+            "solv": 99.23,
+            "author": "A.A. Milne",
+            "desc": "1889-1963",
+            "locks1": [
+                45,
+                83
+            ],
+            "locks2": [
+                3,
+                11,
+                56,
+                61
+            ]
+        },
+        "20260109": {
+            "phrase": "T__ _e__ ______ _______ ______ _____ ____, ___a___ ____ ___ _____i__ ____ _p_________ _____ _r______ _o_______ h___.",
+            "answer": "hebesbuzzedangrilyaroundtheirhiveunhppywiththefloatngbearaproachingtheirpecioushneycombome",
+            "solv": 99.12,
+            "author": "A.A. Milne",
+            "desc": "1889-1964",
+            "locks1": [
+                6,
+                53
+            ],
+            "locks2": [
+                9,
+                15,
+                22
+            ]
+        },
+        "20260110": {
+            "phrase": "____ __i__ __ __ ______, _______ ___ __ _______ t__ _e__ ___ _u__, b__ ___ _______ ____ ______ ___ __r_ _______ ___h _____ _o__.",
+            "answer": "Poohtredtobegentlecarefulnottodisturbhebestoomchutthebuzzinggrewlouderandmoefranticwiteverymve",
+            "solv": 99.01,
+            "author": "A.A. Milne",
+            "desc": "1889-1965",
+            "locks1": [
+                12,
+                19,
+                72,
+                82
+            ],
+            "locks2": [
+                1,
+                58,
+                68,
+                80
+            ]
+        },
+        "20260111": {
+            "phrase": "__ _a_____ __ r____ _h_ ____, ___ ___ ___ ___ _____ __ ___ ______ __n__, ___ __ ______'t ____ __ ____ __o_ ___ g_____ __e_____.",
+            "answer": "Hemnagedtoeachtehivebuthispawgotstuckinthestickyhoeyandhecouldnpullitfreefrmtheoldentrasure",
+            "solv": 98.9,
+            "author": "A.A. Milne",
+            "desc": "1889-1966",
+            "locks1": [
+                34,
+                45,
+                54,
+                65
+            ],
+            "locks2": [
+                43
+            ]
+        },
+        "20260112": {
+            "phrase": "___ _e__ ______ ____ __ __ _______ ____ _____d _h_ ______, _____ _____n_ __t_ ___ ______ _o___ ________ ____ __s _a_.",
+            "answer": "ThebeschasedPoohashefloatedbacktowartegroundstillholdigonothestickyhneydrippingfromhipw",
+            "solv": 98.79,
+            "author": "A.A. Milne",
+            "desc": "1889-1967",
+            "locks1": [
+                6,
+                21,
+                80
+            ],
+            "locks2": [
+                1,
+                10,
+                13,
+                73
+            ]
+        },
+        "20260113": {
+            "phrase": "_______ l______ __t_ _ s___ _____, _o__ ________ __ ___ _______ __ __n__ ___ _e__, ___ _h_ ____ ______ ____ ______ __a_ __ _________d.",
+            "answer": "FinallyandingwihaoftthumpPohrealizedhewascoveredinhoeyandbesandtetreelookedmuchtallerthnheremembere",
+            "solv": 98.68,
+            "author": "A.A. Milne",
+            "desc": "1889-1968",
+            "locks1": [
+                28,
+                92
+            ],
+            "locks2": [
+                2,
+                21,
+                30,
+                83
+            ]
+        },
+        "20260114": {
+            "phrase": "___l__ ______d __ ____, ___ __ _o___ __r___ ____ ____ _a______ __ ___h'_ ___e_ _______ _p________ ___ t__ _______ _____ ______ ___.",
+            "answer": "PigetarrivetohelpbutheculdhadlyholdbacklughteratPooshonycoveredapearanceandhebuzzingswarmaroundhim",
+            "solv": 98.57,
+            "author": "A.A. Milne",
+            "desc": "1889-1969",
+            "locks1": [
+                18,
+                37,
+                82,
+                96
+            ],
+            "locks2": [
+                14,
+                32,
+                86
+            ]
+        },
+        "20260115": {
+            "phrase": "\"I _n__ ______ _ ______ _____,\" ____ _a__ ____y, _______ ___ ___, \"__t _o_ _ ____ __ ____ ____ _______ ____ _ ______e_\".",
+            "answer": "olywantedalittlehoneyPoohsidsadllickinghispawbunwIseemtohavemoretroublethanIimagind",
+            "solv": 98.46,
+            "author": "A.A. Milne",
+            "desc": "1889-1970",
+            "locks1": [
+                8,
+                16,
+                41,
+                69
+            ],
+            "locks2": [
+                19,
+                33,
+                43
+            ]
+        },
+        "20260116": {
+            "phrase": "___i_______ _o___ ____ __ ___ _______ s___ __v___, __________ ____ _____ ____ ___ _____ ____ _ __r _______ ________ _h_ _e__.",
+            "answer": "ChrstopherRbincamebyandofferedomeadicesuggestingPoohcouldalsogethoneyfromajawithoutangeringtebes",
+            "solv": 98.35,
+            "author": "A.A. Milne",
+            "desc": "1889-1971",
+            "locks1": [
+                29,
+                44,
+                52,
+                84
+            ],
+            "locks2": [
+                15,
+                40,
+                49,
+                67
+            ]
+        },
+        "20260117": {
+            "phrase": "____'s e___ ______ _p __ ____ ____l_ ________, ____i____ _________ t__ _______ ___ __ ______ ____ _ _o_________ __a_.",
+            "answer": "Pooharsperkeduatthissimpesolutionrealzingsometimesheeasiestwayisbetterthanacmplicatedpln",
+            "solv": 98.24,
+            "author": "A.A. Milne",
+            "desc": "1889-1972",
+            "locks1": [
+                43,
+                73
+            ],
+            "locks2": [
+                8,
+                29,
+                54,
+                71
+            ]
+        },
+        "20260118": {
+            "phrase": "__ _____ ___ l___ __ __e ________, _______ _ _o_ __ h____ _______ ___ _i_, ___ __ _a_____ ___ _____ _r___ _________, ___ ___ ___t.",
+            "answer": "Hetriedhisuckatthcupboardfindingaptofoneywaitingforhmandhesvoredthesweetteatcarefullynottoofas",
+            "solv": 98.13,
+            "author": "A.A. Milne",
+            "desc": "1889-1973",
+            "locks1": [
+                9,
+                17,
+                28
+            ],
+            "locks2": [
+                22,
+                46,
+                79
+            ]
+        },
+        "20260119": {
+            "phrase": "T__ ___e___ ______d ________, s______ ___ ______, _______ ____ h____ ______ ____ ____ ___o___ _a____ ___ ____ ____ _____n_.",
+            "answer": "hefrindslaughetogetherharingthemomentknowingthatoneytastedbestwhenenjyedsfelyandwithgoodcompay",
+            "solv": 98.02,
+            "author": "A.A. Milne",
+            "desc": "1889-1974",
+            "locks1": [
+                41
+            ],
+            "locks2": [
+                16,
+                38,
+                56
+            ]
+        },
+        "20260120": {
+            "phrase": "____ ______ __s ____ _____, _________n_ ___ _e__ ___ ___ ____, d_______ ____ _____ ________ ___ t____ ____ _o_ ___ ____ ___h__.",
+            "answer": "Poohlickedhipawscleanrememberigthebesandthetreeecidingthatmaybeballoonsandreeswerentthebestmetod",
+            "solv": 97.91,
+            "author": "A.A. Milne",
+            "desc": "1889-1975",
+            "locks1": [
+                23,
+                49,
+                65,
+                80
+            ],
+            "locks2": [
+                8,
+                13,
+                61
+            ]
+        },
+        "20260121": {
+            "phrase": "P_____ _______ ____ _ _____ _____ __ _________ a_ _ ________ __ _h___ _____t___, _____ _o__ _______d ____ ___i___ ___ ________e.",
+            "answer": "igletofferedPoohasmallpieceofhoneycombsareminderofteiradvenurewhichPohacceptewithdelghtandgratitud",
+            "solv": 97.81,
+            "author": "A.A. Milne",
+            "desc": "1889-1976",
+            "locks1": [
+                6,
+                21,
+                65
+            ],
+            "locks2": [
+                13,
+                19,
+                32
+            ]
+        },
+        "20260122": {
+            "phrase": "T__ ___ b____ __ ___ ___r ___ _______ A___ ____, __s____ ____ _____ ____ ___ ___e___ __ _h__ ______ ____ ________ ______.",
+            "answer": "hesunegantosetovetheHundredcreWoodcatingwarmlightoverthefrindsasteywalkedhometogetherslowly",
+            "solv": 97.7,
+            "author": "A.A. Milne",
+            "desc": "1889-1977",
+            "locks1": [
+                4,
+                40,
+                79,
+                86
+            ],
+            "locks2": [
+                71,
+                81
+            ]
+        },
+        "20260123": {
+            "phrase": "P___ ____ ____y ___ _______, ______ _______ ____ _____n__, ____ ____ ___e___, ___ ______ ____t____ _o___ __ _h_ ________ ___a_.",
+            "answer": "oohfelthappandcontenthavinglearnedthatpatiecehelpfromfrindsandsimplesoluionsculdbetesweetesttret",
+            "solv": 97.59,
+            "author": "A.A. Milne",
+            "desc": "1889-1978",
+            "locks1": [
+                24,
+                33,
+                50,
+                62
+            ],
+            "locks2": [
+                17,
+                31,
+                66,
+                86
+            ]
+        },
+        "20260124": {
+            "phrase": "____ _____, __ _______ __ ____y _a__ ___ _____ t____, ____ _______r ___ __i_______ _____n_ __e ______ __ ___ ____ _______h_.",
+            "answer": "Thatnighthedreamedofhonejrsandquietreeswithlaughteandfrendshipfilligthforestinthesoftmoonligt",
+            "solv": 97.48,
+            "author": "A.A. Milne",
+            "desc": "1889-1979",
+            "locks1": [
+                29,
+                74
+            ],
+            "locks2": [
+                7,
+                13,
+                82
+            ]
+        },
+        "20260125": {
+            "phrase": "__ __e _______, ____ __k_ _____, ______g, _______ _________ h__ ____ ______ ____n____ __t_ __i____ __ ___ ____ __ ___ __a_____ _o__.",
+            "answer": "InthmorningPoohwoeagainsmilinalreadyimaginingisnextlittleadveturewihfrendsbyhissideinthepecefulwod",
+            "solv": 97.37,
+            "author": "A.A. Milne",
+            "desc": "1889-1980",
+            "locks1": [
+                34,
+                37,
+                51,
+                79
+            ],
+            "locks2": [
+                7,
+                20,
+                32,
+                40
+            ]
+        },
+        "20260126": {
+            "phrase": "___ s_, _____e ___ ____ _i________ ____ ____y __ _____, ___ _r________, _a______, ___ ____ ___ ____ _______, ___t___ ___ __n___.",
+            "answer": "AndoWinnithePoohdscoveredthathoneissweetbutfiendshiplughterandcareareevensweeterlasingfarloger",
+            "solv": 97.26,
+            "author": "A.A. Milne",
+            "desc": "1889-1981",
+            "locks1": [
+                2,
+                14
+            ],
+            "locks2": [
+                26,
+                63,
+                75
+            ]
+        },
+        "20260127": {
+            "phrase": "____ ____ ___ __, ____ ________e_ _o___ __t_ _a_____ ___ ______, ______ ___________ _h_ ______ ____ ___ _____ ____ ___ ___ ____.",
+            "answer": "FromthatdayonPoohapproachdhneywihcutionandwisdomalwaysrememberingtelessonfromthehoneytreeandthebees",
+            "solv": 97.15,
+            "author": "A.A. Milne",
+            "desc": "1889-1982",
+            "locks1": [
+                43,
+                56,
+                98
+            ],
+            "locks2": [
+                14,
+                45,
+                51,
+                96
+            ]
+        },
+        "20260128": {
+            "phrase": "___n _h__ _____a____ ______, __ ____ ____ ____ ___e___, ___i____, ___ _l____ ________, ___r_ _d_______ _____ ___ __ ___ ___ _____t__.",
+            "answer": "Evewentempttioncalledheknewthatwithfrindspatenceandceverthinkingeveyaventurecouldendinjoyandlaugher",
+            "solv": 97.04,
+            "author": "A.A. Milne",
+            "desc": "1889-1983",
+            "locks1": [
+                76
+            ],
+            "locks2": [
+                16,
+                25,
+                33,
+                59
+            ]
+        }
+    }
+}

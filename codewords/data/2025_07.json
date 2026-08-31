@@ -1,0 +1,527 @@
+{
+    "sceneName": "The Adventures of Robin Hood",
+    "bg_header": "#658c55",
+    "bg_body": "#ddebce",
+    "bg_keyboard": "#658c55",
+    "keyboard_key_normal": "#f5f1eb",
+    "keyboard_key_disabled": "#536c42",
+    "keyboard_text_normal": "#3d231c",
+    "keyboard_text_disabled": "#2e2a1d",
+    "keyboard_text_reveal": "#49B03B",
+    "hud_text_color": "#0b0d06",
+    "hud_bg_light": "#ffffff",
+    "hud_bg_dark": "#2b2018",
+    "author": "Howard Pyle",
+    "desc": "1853 - 1911",
+    "puzzles": {
+        "20250701": {
+            "phrase": "__ _______l __________ _____ ___ ____n __ _o______, _ ________ _____ __ ___ ______ ___ ___ _i______ ___ ______ _____ __ __s____.",
+            "answer": "InpeacefuNottinghamlivedSirRobiofLcksleyanoblemanlovedbythepeopleforhiskndnessandstrongsenseofjutice",
+            "solv": 100.0,
+            "author": "Howard Pyle",
+            "desc": "1853 - 1911",
+            "locks1": [
+                16,
+                32,
+                53,
+                54,
+                67
+            ],
+            "locks2": [
+                45,
+                50,
+                85,
+                90
+            ]
+        },
+        "20250702": {
+            "phrase": "___n ____ ____a__ ____ ___ _h_ ______e_, ___ ______ _______ ______ ____ __i___ ___ ______, ______ ____ ___s_ t____ ___ _r_____.",
+            "answer": "WheKingRichrdleftforteCrusadshisgreedybrotherPrinceJohnsezedthethronerulingwithharhaxesandcuelty",
+            "solv": 99.89,
+            "author": "Howard Pyle",
+            "desc": "1853 - 1911",
+            "locks1": [
+                13,
+                49,
+                74
+            ],
+            "locks2": [
+                34,
+                42,
+                65
+            ]
+        },
+        "20250703": {
+            "phrase": "_n___ __i___ ____, _h_ _e____'_ __r__ ____ _____, ___ t____ _____ ____ ______ __ ___ S______ __ __________ ________ ___ ___ _a__.",
+            "answer": "UderPrnceJohntepoplesfamsweretakenandheirlivesgrewharderastheheriffofNottinghamenforcedthenewlws",
+            "solv": 99.78,
+            "author": "Howard Pyle",
+            "desc": "1853 - 1911",
+            "locks1": [
+                41,
+                92
+            ],
+            "locks2": [
+                54,
+                74,
+                83
+            ]
+        },
+        "20250704": {
+            "phrase": "____n ___ _h_ _________ ___ ______ _i_ ___ _____ __ ____d ___ _____ s_____ _____ ___ _e________ ____ _____ _o___ ___ _r_____.",
+            "answer": "Robisawtesufferingallaroundhmandvowedhecoulnotstandilentwhilehisnighbourslosttheirhmesandfeedom",
+            "solv": 99.67,
+            "author": "Howard Pyle",
+            "desc": "1853 - 1911",
+            "locks1": [
+                10,
+                19,
+                77
+            ],
+            "locks2": [
+                16,
+                35,
+                48,
+                74
+            ]
+        },
+        "20250705": {
+            "phrase": "T__ ___r___, _o___ __ ______ J___, _____ ___________ ___ ____, _____n_ ___i_ __ ______ _______ __e____ __ ___h____ ____.",
+            "answer": "heSheifflyaltoPrinceohnbeganpersecutingthepoorforcigRobntochoosebetweenobyingorfigtingback",
+            "solv": 99.56,
+            "author": "Howard Pyle",
+            "desc": "1853 - 1911",
+            "locks1": [
+                6,
+                58,
+                86
+            ],
+            "locks2": [
+                17,
+                25,
+                29,
+                60
+            ]
+        },
+        "20250706": {
+            "phrase": "O__ ___, ___i_'_ ______s ________ ___, _________ ___ _f ___ _an__ ___ _____, ________ ___ __ ______ __ ___ ___ ___e.",
+            "answer": "nedayRobnsenemiebetrayedhimstrippinghimohisldsandtitlebrandinghimanoutlawinhisownhom",
+            "solv": 99.45,
+            "author": "Howard Pyle",
+            "desc": "1853 - 1911",
+            "locks1": [
+                24
+            ],
+            "locks2": [
+                17,
+                34,
+                59
+            ]
+        },
+        "20250707": {
+            "phrase": "F_____ __ ____, ___i_ ______e_ _n__ ________ ______, _______ ______ ___ ___l_ ____ __ ____ _____ t__ ______ _o__.",
+            "answer": "orcedtofleeRobnvanishditoSherwoodForestleavingbehindhisnobelifetoliveamonghecommonflk",
+            "solv": 99.34,
+            "author": "Howard Pyle",
+            "desc": "1853 - 1911",
+            "locks1": [
+                25,
+                35,
+                51,
+                52
+            ],
+            "locks2": [
+                9,
+                30,
+                43
+            ]
+        },
+        "20250708": {
+            "phrase": "_____, ___i_ ____ ___ _____ ___ ____ __ _ ___ _____o_: __ _____ _____t___ ___ _______ _h___ ______ ____ ____e____.",
+            "answer": "ThereRobnshedhistitleandtookupanewmissintofightinjusiceandprotecttosePrinceJohnopprssed",
+            "solv": 99.23,
+            "author": "Howard Pyle",
+            "desc": "1853 - 1911",
+            "locks1": [
+                3,
+                36,
+                80
+            ],
+            "locks2": [
+                11,
+                71
+            ]
+        },
+        "20250709": {
+            "phrase": "__ g_______ _ ____ __ _o___ ____a__ ___ ______ ___ __s____ ___ _____e__ ___ _______ ____ __r____.",
+            "answer": "Heatheredabandoflyaloutlwswhosharedhispasionforfairnssandfreedomfromtyanny",
+            "solv": 99.12,
+            "author": "Howard Pyle",
+            "desc": "1853 - 1911",
+            "locks1": [
+                27,
+                34,
+                64
+            ],
+            "locks2": [
+                12,
+                31,
+                62
+            ]
+        },
+        "20250710": {
+            "phrase": "_____h__, ____ _____ _r__ ___ ____ ___ ______t___ ___ ________ ________ ___ ______ __ ___ ________ ______e__.",
+            "answer": "Togetertheystolefomtherichtaxcollecorsandsecretlyreturnedthewealthtothestarvingvillagrs",
+            "solv": 99.01,
+            "author": "Howard Pyle",
+            "desc": "1853 - 1911",
+            "locks1": [
+                24,
+                27
+            ],
+            "locks2": [
+                44,
+                72
+            ]
+        },
+        "20250711": {
+            "phrase": "_h_ __o___ ________d __ _ _____ ______ __ ________, ___ ___ s____ ___ ___t___ ___ ______ ___ __e____'_ _r_____.",
+            "answer": "TepeplewhispereofabraveleaderinSherwoodonewhotoodforjusiceanddefiedtheShriffscuelty",
+            "solv": 98.9,
+            "author": "Howard Pyle",
+            "desc": "1853 - 1911",
+            "locks1": [
+                20,
+                23,
+                64,
+                74
+            ],
+            "locks2": [
+                26,
+                36,
+                62
+            ]
+        },
+        "20250712": {
+            "phrase": "___i_ ___ ___ ____ ____ _____ ___ ___r___, ______ __n_____ __ ____ _____ __ __e S______'_ __a__.",
+            "answer": "Robnledhisbandwithskillandcouagealwaysmaagingtostayaheadofthheriffstrps",
+            "solv": 98.79,
+            "author": "Howard Pyle",
+            "desc": "1853 - 1911",
+            "locks1": [
+                16,
+                21
+            ],
+            "locks2": [
+                54
+            ]
+        },
+        "20250713": {
+            "phrase": "____ _________ _r____ ___n'_ _____, __________ ___l__ ____s ___ _______ _____ ______d __ ____i_ ___e_.",
+            "answer": "TheydisruptedPinceJohsgreedreclaimingstoenlandandhelpingthosecrushebyunfartaxs",
+            "solv": 98.68,
+            "author": "Howard Pyle",
+            "desc": "1853 - 1911",
+            "locks1": [
+                0,
+                31,
+                57
+            ],
+            "locks2": [
+                6,
+                28,
+                54
+            ]
+        },
+        "20250714": {
+            "phrase": "__e S______, _______ __ _____ _______, _____ __ _______ R____ ___ ___ ___ ________n ____ ___ _o_ ___.",
+            "answer": "Thheriffenragedbytheirsuccessvowedtocaptureobinandendhisrebellioonceandfrall",
+            "solv": 98.57,
+            "author": "Howard Pyle",
+            "desc": "1853 - 1911",
+            "locks1": [
+                20,
+                36
+            ],
+            "locks2": [
+                13,
+                65
+            ]
+        },
+        "20250715": {
+            "phrase": "_______ d_____, ___i_ ___ ___ ___ ________ _______e_ _____ _______ __ _a___ t___.",
+            "answer": "DespiteangerRobnandhismencleverlyoutwittdeveryattempttoctchhem",
+            "solv": 98.46,
+            "author": "Howard Pyle",
+            "desc": "1853 - 1911",
+            "locks1": [
+                17,
+                30
+            ],
+            "locks2": [
+                5,
+                27
+            ]
+        },
+        "20250716": {
+            "phrase": "_____ ____s ______ ___, ________g ____r_ __ ___i__ ___ _______ ___e__ ___ _____ __t_______.",
+            "answer": "TheirdeedspreadfarinspirinothestoresstthecorruptrulrswhoruledNotingham",
+            "solv": 98.35,
+            "author": "Howard Pyle",
+            "desc": "1853 - 1911",
+            "locks1": [
+                19
+            ],
+            "locks2": [
+                43,
+                54,
+                59
+            ]
+        },
+        "20250717": {
+            "phrase": "___ _____ _o___'_ ___, ________ __r___, ___ _n_ __ ___ t______ ___ ____ _e_____ __ ___ S______.",
+            "answer": "YetamongRbinsownbetrayallukedandoeofhisrustedmensoldscretstotheheriff",
+            "solv": 98.24,
+            "author": "Howard Pyle",
+            "desc": "1853 - 1911",
+            "locks1": [
+                51,
+                61,
+                67
+            ],
+            "locks2": [
+                17,
+                49
+            ]
+        },
+        "20250718": {
+            "phrase": "W___ ____ ___________, _h_ ____i__ ______e_ _ ________ ______ __ ___ __t____' ______ _a__.",
+            "answer": "iththisinformationteSherfflaunchdasurpriseattackontheoulawshiddencmp",
+            "solv": 98.13,
+            "author": "Howard Pyle",
+            "desc": "1853 - 1911",
+            "locks1": [
+                11,
+                16,
+                34
+            ],
+            "locks2": [
+                13,
+                43
+            ]
+        },
+        "20250719": {
+            "phrase": "______g ____ __r_ _______e___, ____n ___ ___ ___d ____ ____ ________, _____ ___ _o____'_ ____ __ _____ ___t___.",
+            "answer": "KnowintheyweeoutnumbredRobiledhisbandeepintoSherwoodusingthefrestsmazetoevadecapure",
+            "solv": 98.02,
+            "author": "Howard Pyle",
+            "desc": "1853 - 1911",
+            "locks1": [
+                7,
+                40,
+                63,
+                74
+            ],
+            "locks2": [
+                46,
+                55
+            ]
+        },
+        "20250720": {
+            "phrase": "___ ____, __e S______'_ ___ _______ ___ _____ ___ f_____ __ ____ _o___ __ ___ ___a_ ___d.",
+            "answer": "FordaysthheriffsmenscouredthewoodsbutailedtofindRbinorhisloylban",
+            "solv": 97.91,
+            "author": "Howard Pyle",
+            "desc": "1853 - 1911",
+            "locks1": [
+                2,
+                54
+            ],
+            "locks2": [
+                21,
+                32,
+                45
+            ]
+        },
+        "20250721": {
+            "phrase": "__________, t__ _____f_ _____d ___ ___ ____, ______ __ _____ _____'s _____r____ __ ___ ___ ___e__.",
+            "answer": "FrustratedheSherifcalleoffthehuntunabletomatchRobinclevenessinhisownforst",
+            "solv": 97.81,
+            "author": "Howard Pyle",
+            "desc": "1853 - 1911",
+            "locks1": [
+                31,
+                40,
+                42
+            ],
+            "locks2": [
+                8
+            ]
+        },
+        "20250722": {
+            "phrase": "R____ ___ ___ ___e___ ________ s_____, ___i_ _______ ________ _______ ___ _____ ____.",
+            "answer": "obinandhisfrindsreturnedafelytherspiritsstrongerdespitetheclosecall",
+            "solv": 97.7,
+            "author": "Howard Pyle",
+            "desc": "1853 - 1911",
+            "locks1": [
+                4,
+                48,
+                65
+            ],
+            "locks2": [
+                21,
+                36,
+                46
+            ]
+        },
+        "20250723": {
+            "phrase": "___i_'_ ____l__ ____ _r__, ______ b_ ___ s________ __ _____ ___ __ ___ ______e_ ______ ___.",
+            "answer": "Robnsresoveonlygewfueledytheufferinghestillsawinthevillagsaroundhim",
+            "solv": 97.59,
+            "author": "Howard Pyle",
+            "desc": "1853 - 1911",
+            "locks1": [
+                11,
+                44,
+                64
+            ],
+            "locks2": [
+                20,
+                41,
+                62
+            ]
+        },
+        "20250724": {
+            "phrase": "__ _____ __ k___ ____t___ _____ ___n__ _o__'_ _r___ ____ ___ __________ ___ _______ _e______.",
+            "answer": "HesworetoeepfighinguntilPriceJhnscuelrulewasoverthrownandjusticerstored",
+            "solv": 97.48,
+            "author": "Howard Pyle",
+            "desc": "1853 - 1911",
+            "locks1": [
+                0,
+                43,
+                58
+            ],
+            "locks2": [
+                5,
+                46,
+                61
+            ]
+        },
+        "20250725": {
+            "phrase": "T__ _e____'_ _____ __ ____n ____, ___ _a__ _o____ ___ _____ __ _____ _______ ___ S______'_ _______i__.",
+            "answer": "hepoplesfaithinRobigrewandmnyjinedhiscausetostandagainsttheheriffsoppresson",
+            "solv": 97.37,
+            "author": "Howard Pyle",
+            "desc": "1853 - 1911",
+            "locks1": [
+                34,
+                48,
+                67
+            ],
+            "locks2": [
+                10,
+                21
+            ]
+        },
+        "20250726": {
+            "phrase": "_h__ __e _______ __n_______ _____ __ ___ ______, R____ _____ ___m, ________ __ ____ _o__.",
+            "answer": "WenthSheriffcofrontedRobinintheforestobinstoodfirrefusingtobackdwn",
+            "solv": 97.26,
+            "author": "Howard Pyle",
+            "desc": "1853 - 1911",
+            "locks1": [
+                5,
+                42
+            ],
+            "locks2": [
+                10,
+                22,
+                55
+            ]
+        },
+        "20250727": {
+            "phrase": "\"___ ___ ___e _____ __ _a___,\" R____ ________, \"___ ___ __l_ _____ _____ __ ______ __ __ ____ __ _i___.\"",
+            "answer": "Youmayhavtakenmylndsobindeclaredbutyouwilneverbreakmyspiritormywilltofght",
+            "solv": 97.15,
+            "author": "Howard Pyle",
+            "desc": "1853 - 1911",
+            "locks1": [
+                3,
+                13,
+                34
+            ],
+            "locks2": [
+                1,
+                25,
+                49
+            ]
+        },
+        "20250728": {
+            "phrase": "_______, ___ _______ ___a____ ____n'_ ____, __p___ __ _______ ___ r____ _e____'_ _____d.",
+            "answer": "EnragedtheSheriffdemndedRobisnamehoingtodestroytheebelladerslegen",
+            "solv": 97.04,
+            "author": "Howard Pyle",
+            "desc": "1853 - 1911",
+            "locks1": [
+                7,
+                45
+            ],
+            "locks2": [
+                5,
+                11
+            ]
+        },
+        "20250729": {
+            "phrase": "W___ _ _____, _____ _a__, \"I __ __b__ H___, ___ _ _____ ___ _______, _______, ___ t__ ____ __ _o________.\"",
+            "answer": "ithasmileRobinsidamRoinoodandIfightforjusticefreedomandhepoorofNttingham",
+            "solv": 96.93,
+            "author": "Howard Pyle",
+            "desc": "1853 - 1911",
+            "locks1": [
+                8,
+                27,
+                46
+            ],
+            "locks2": [
+                12,
+                50
+            ]
+        },
+        "20250730": {
+            "phrase": "_h_ _____f_ ________ R____ ___ _o__ ____ _ ___-_e ___ _ ___b__ __ ____ ___ ___ ___ ________ _____ _______.",
+            "answer": "TeSherifrealizedobinwasmrethanamanhwasasymolofhopeforallwhosufferedundertyranny",
+            "solv": 96.82,
+            "author": "Howard Pyle",
+            "desc": "1853 - 1911",
+            "locks1": [
+                54,
+                59,
+                69,
+                76
+            ],
+            "locks2": [
+                10,
+                63
+            ]
+        },
+        "20250731": {
+            "phrase": "____ ____ ___ __, ____n _o__'_ _____d _____ __, _________ ___r___ ___ _i______ __ t__ ______ __ ___ ______ ___e___.",
+            "answer": "FromthatdayonRobiHodslegenlivedoninspiringcouageandkndnessinheheartsofthepeopleforver",
+            "solv": 96.71,
+            "author": "Howard Pyle",
+            "desc": "1853 - 1911",
+            "locks1": [
+                0,
+                5,
+                56
+            ],
+            "locks2": [
+                34,
+                63,
+                75
+            ]
+        }
+    }
+}

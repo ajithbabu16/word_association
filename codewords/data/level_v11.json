@@ -1,0 +1,132 @@
+{
+    "1": {
+        "phrase": "I'm _____ ____, s__ __ fr_e, __d l__ m_ o_ __ t___ ___e_y.",
+        "answer": "outtaloveetmeeaneteutofhismisr",
+        "solv": 99.74,
+        "author": "Anastacia",
+        "desc": "American singer, Born 1968",
+        "locks2": [
+            7,
+            24
+        ]
+    },
+    "2": {
+        "phrase": "_____men_ __ a che__c__ _e____ _ou_d o_ __e __si__ _i__.",
+        "answer": "Sentitismialdfectfnnthlongsde",
+        "solv": 99.72,
+        "author": "Sherlock Holmes",
+        "desc": "Fictional detective, created 1887"
+    },
+    "3": {
+        "phrase": "Wri__rs _h_u__ b_ _e__, ___ _e_the_ s_e_ nor _ea_d.",
+        "answer": "tesolderadbutnirenhrr",
+        "solv": 99.9,
+        "author": "Daphne du Maurier",
+        "desc": "English author, 1907 - 1989",
+        "locks1": [
+            2,
+            5,
+            7
+        ]
+    },
+    "4": {
+        "phrase": "I _ut a do_l_r i_ _ ____ge _a__in_. _oth___ ch_____.",
+        "answer": "planachanmcheNinganged",
+        "solv": 99.82,
+        "author": "George Carlin",
+        "desc": "American comedian, 1937 - 2008",
+        "locks2": [
+            2,
+            7,
+            20
+        ]
+    },
+    "5": {
+        "phrase": "_h_ b_s_ w_y _o pred_c_ t__ f_t_re i_ to _r_at_ it.",
+        "answer": "Teetatitheuuscee",
+        "solv": 99.92,
+        "author": "Abraham Lincoln",
+        "desc": "16th President of the US, 1809 - 1965"
+    },
+    "6": {
+        "phrase": "Wri___s _h_u__ b_ _e__, ___ _e_the_ s_e_ nor _ea_d.",
+        "answer": "tersolderadbutnirenhr",
+        "solv": 99.9,
+        "author": "Daphne du Maurier",
+        "desc": "English author, 1907 - 1989",
+        "locks1": [
+            2,
+            5
+        ]
+    },
+    "7": {
+        "phrase": "F____ is not ___e_____ t_ g___p, i_ __ a __a_e __ grow i_to.",
+        "answer": "aithsomthingorastissttton",
+        "solv": 99.88,
+        "author": "Mahatma Gandhi",
+        "desc": "Indian leader, 1869 - 1948",
+        "locks1": [
+            3,
+            8
+        ]
+    },
+    "8": {
+        "phrase": "I__g_n___on _s _o_e _mport___ than k_o_l_dg_.",
+        "answer": "maiatiimriantnwee",
+        "solv": 99.86,
+        "author": "Albert Einstein",
+        "desc": "Theoretical physicist, 1879 - 1955",
+        "locks1": [
+            1,
+            11
+        ]
+    },
+    "9": {
+        "phrase": "__es th__ co__it. T_at _s wh__ I _m ____i_g ___.",
+        "answer": "Eyatmmhiatalooknfor",
+        "solv": 99.84,
+        "author": "Perry Brass",
+        "desc": "American writer, Born 1947",
+        "locks1": [
+            11
+        ]
+    },
+    "10": {
+        "phrase": "I _ut a do___r i_ _ ____ge _a__in_. _oth___ ch_____.",
+        "answer": "pllanachanmcheNinganged",
+        "solv": 99.82,
+        "author": "George Carlin",
+        "desc": "American comedian, 1937 - 2008",
+        "locks2": [
+            2,
+            7,
+            20
+        ]
+    },
+    "11": {
+        "phrase": "_ jus_ wan_ y___ __ice ai___ __ m_ ____n. _ ____ t_ a____b _he _________ __ _o__ __e_...",
+        "answer": "IttourvomedateagaiIwantobsortdirectionofyureys",
+        "solv": 99.8,
+        "author": "Haruki Murakami",
+        "desc": "Japanese writer, Born 1949",
+        "locks2": [
+            9,
+            21,
+            25,
+            33
+        ]
+    },
+    "12": {
+        "phrase": "_e___ __se _o__. __orms ma__ __o___ _t___ge_ a__ ne___ __st __r____.",
+        "answer": "NverlohpeStkepeplesronrndverlafoever",
+        "solv": 99.78,
+        "author": "Roy T. Bennett",
+        "desc": "Author",
+        "locks2": [
+            2,
+            20,
+            26,
+            33
+        ]
+    }
+}

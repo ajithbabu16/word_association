@@ -1,0 +1,514 @@
+{
+    "sceneName": "Jack and the Beanstalk",
+    "bg_header": "#aa6380",
+    "bg_body": "#ebc0d1",
+    "bg_keyboard": "#aa6380",
+    "keyboard_key_normal": "#f5f1eb",
+    "keyboard_key_disabled": "#91546a",
+    "keyboard_text_normal": "#3a181d",
+    "keyboard_text_disabled": "#42212b",
+    "keyboard_text_reveal": "#49B03B",
+    "hud_text_color": "#180507",
+    "hud_bg_light": "#ffffff",
+    "hud_bg_dark": "#2a1115",
+    "author": "Joseph Jacobs",
+    "desc": "1854 - 1916",
+    "puzzles": {
+        "20250601": {
+            "phrase": "____ _____ ____ ___ _____r __ _ ____l_ __t____ _h___ ______i_ ______ ____ __ ___a____ _____ ______ ________.",
+            "answer": "Jacklivedwithhismotheinahumbecotagewerehardshptaughtthemtotresureeverylittleblessing",
+            "solv": 100.0,
+            "author": "Joseph Jacobs",
+            "desc": "1854 - 1916",
+            "locks1": [
+                49,
+                55,
+                57,
+                79
+            ],
+            "locks2": [
+                7,
+                53
+            ]
+        },
+        "20250602": {
+            "phrase": "____ _____ _ ______ _o_ ____ ________ ____ ___t______ __e_ _h_____ _____ ______ _______i__ ___s.",
+            "answer": "Theyownedasinglecwthatprovidedmilksusainingthmtroughtheirmodeststrugglngday",
+            "solv": 99.89,
+            "author": "Joseph Jacobs",
+            "desc": "1854 - 1916",
+            "locks1": [
+                20,
+                39,
+                59
+            ],
+            "locks2": [
+                7,
+                13
+            ]
+        },
+        "20250603": {
+            "phrase": "_n_ _______ t__ _o_ ________ _______ g_____ ____ ____i__ ____ ____ _____ _____ _____ _____e.",
+            "answer": "Oemorninghecwsuddenlystoppedivingmilkfillngthemwithworryabouttheirfutur",
+            "solv": 99.78,
+            "author": "Joseph Jacobs",
+            "desc": "1854 - 1916",
+            "locks1": [
+                39,
+                44,
+                67
+            ],
+            "locks2": [
+                26,
+                34,
+                53
+            ]
+        },
+        "20250604": {
+            "phrase": "_a__'_ ______ _____ h__ __ ____ t__ _o_ __ ___k__ ___ ________ __ ___ ____-_e____ ________.",
+            "answer": "Jcksmotherurgedimtotakehecwtomaretandexchangeitformuchnededsupplies",
+            "solv": 99.67,
+            "author": "Joseph Jacobs",
+            "desc": "1854 - 1916",
+            "locks1": [
+                4,
+                11,
+                56
+            ],
+            "locks2": [
+                6,
+                39,
+                65
+            ]
+        },
+        "20250605": {
+            "phrase": "O_ ___ _____e_ ____ m__ _ ______i___ ___ ___ ____ _ ___________ _______ _n ___ ____ ___s.",
+            "answer": "nhisjournyJacketamysterousoldmanwithamischievousglimmerihiswiseeye",
+            "solv": 99.56,
+            "author": "Joseph Jacobs",
+            "desc": "1854 - 1916",
+            "locks1": [
+                1,
+                34,
+                54
+            ],
+            "locks2": [
+                11,
+                43,
+                50
+            ]
+        },
+        "20250606": {
+            "phrase": "___ ___ ___ ____r__ ____ ________ _a___ _e___ __ ________ ___ ___ _o_ _______n_ _________ _____i___.",
+            "answer": "Theoldmanoffeedfivedazzlingmgicbansinexchangeforthecwpromisigmarveloussurprses",
+            "solv": 99.45,
+            "author": "Joseph Jacobs",
+            "desc": "1854 - 1916",
+            "locks1": [
+                6,
+                10,
+                43,
+                69
+            ],
+            "locks2": [
+                24,
+                41,
+                65
+            ]
+        },
+        "20250607": {
+            "phrase": "_________ __ t__ _r_____ __ ___i_ ____ ______ ___ _o_ ___ ___ ________n_ ________ _e___.",
+            "answer": "IntriguedbyhepomiseofmagcJacktradedthecwfortheshimmerigwondrousbans",
+            "solv": 99.34,
+            "author": "Joseph Jacobs",
+            "desc": "1854 - 1916",
+            "locks1": [
+                47
+            ],
+            "locks2": [
+                7
+            ]
+        },
+        "20250608": {
+            "phrase": "___u_____ ____ ____ _h_ _e___ J___ _____ ___ ______ __________ ___r ___t ______ _ _______ _a_____.",
+            "answer": "Retrninghomewithtebansackfoundhismotherdistraughtovewhaseemedafoolishbrgain",
+            "solv": 99.23,
+            "author": "Joseph Jacobs",
+            "desc": "1854 - 1916",
+            "locks1": [
+                4,
+                32,
+                34,
+                66
+            ],
+            "locks2": [
+                47,
+                56
+            ]
+        },
+        "20250609": {
+            "phrase": "__ ___ ____t______ ___ ______ ___ _a___ _e___ ___ ___ ______ ____ ___ ____i__ _o__.",
+            "answer": "Inherfrusrationshetossedthemgicbansoutthewindowontothefertlesil",
+            "solv": 99.12,
+            "author": "Joseph Jacobs",
+            "desc": "1854 - 1916",
+            "locks1": [
+                15,
+                25
+            ],
+            "locks2": [
+                22,
+                49
+            ]
+        },
+        "20250610": {
+            "phrase": "___r_____ __ _n______ __a______ ___o____ ________ _______ _i__ _ _________ _______ ____e_.",
+            "answer": "Ovenightaneormousbenstalksprutedtwistingskywardlkeaspiralingemeraldladdr",
+            "solv": 99.01,
+            "author": "Joseph Jacobs",
+            "desc": "1854 - 1916",
+            "locks1": [
+                32,
+                56,
+                69
+            ],
+            "locks2": [
+                44,
+                62
+            ]
+        },
+        "20250611": {
+            "phrase": "__ _a__ ____ _____l__ __ t__ ________ ___n_____ _______i__ ____ ____ _ __________ _____-____e_ s__.",
+            "answer": "AtdwnJackmarveedathetoweringbeastalkstretchnghighintoamysteriouscloudfilldky",
+            "solv": 98.9,
+            "author": "Joseph Jacobs",
+            "desc": "1854 - 1916",
+            "locks1": [
+                24,
+                45,
+                61,
+                68
+            ],
+            "locks2": [
+                6,
+                58
+            ]
+        },
+        "20250612": {
+            "phrase": "____ __a__ _______ __ _____ __ __i__ __e _____t___ ____ b_ _______ ____ ____ _ r____ _n_____.",
+            "answer": "Withbrveresolvehebegantoclmbthbeansalkstepycarefulstepintoaealmuknown",
+            "solv": 98.79,
+            "author": "Joseph Jacobs",
+            "desc": "1854 - 1916",
+            "locks1": [
+                15,
+                49,
+                57
+            ],
+            "locks2": [
+                20,
+                46
+            ]
+        },
+        "20250613": {
+            "phrase": "__ __e ___ __ ___ _________ ____ s______ _ h___ ______ ________ __ ___ ___ l___ i_ ___ _a__ __ _______t.",
+            "answer": "AtthtopofthebeanstalkJackpottedaugecastlegleamingintheskyiketwasmdeofsunligh",
+            "solv": 98.68,
+            "author": "Joseph Jacobs",
+            "desc": "1854 - 1916",
+            "locks1": [
+                5,
+                20,
+                41,
+                47
+            ],
+            "locks2": [
+                17,
+                36,
+                43
+            ]
+        },
+        "20250614": {
+            "phrase": "______s ___ _______ __ ___p_ ______ ___r_ __________ ___ ______ ___n __ h__ ____ _e__.",
+            "answer": "Curiouandnervoushecretinsidewheeeverythingwaslargerthaheadeversen",
+            "solv": 98.57,
+            "author": "Joseph Jacobs",
+            "desc": "1854 - 1916",
+            "locks1": [
+                8,
+                22,
+                37
+            ],
+            "locks2": [
+                10,
+                35,
+                46
+            ]
+        },
+        "20250615": {
+            "phrase": "_ ____ __a__ _____ ____t__ __m ______ ____n_ \"__i__ ___ _________ ______ __ _______ _e_____.\"",
+            "answer": "AkindgintwomangreeedhiwarmlysayigQuckeatsomethingbeforemyhusbandrturns",
+            "solv": 98.46,
+            "author": "Joseph Jacobs",
+            "desc": "1854 - 1916",
+            "locks1": [
+                4,
+                48,
+                59
+            ],
+            "locks2": [
+                23,
+                53
+            ]
+        },
+        "20250616": {
+            "phrase": "___ _____d ____i___ __ _ ___-___e_ ____ ___ __r___ \"__ _______ __ __ ______ __ s________.\"",
+            "answer": "SheserveporrdgeinatubsizdbowlandwanedMyhusbandisnofriendtotrangers",
+            "solv": 98.35,
+            "author": "Joseph Jacobs",
+            "desc": "1854 - 1916",
+            "locks1": [
+                26,
+                43
+            ],
+            "locks2": [
+                30,
+                53
+            ]
+        },
+        "20250617": {
+            "phrase": "_____ ______i__ ___ _______ h____ ____ _____ _ ____ _o___ ______r \"__e __ __ ___ _ ___l_ ___ _____ __ _ ___a_!\"",
+            "answer": "WhilewanderngtheechoingallsJackheardadeepvicethundeFefifofumIsmelthebloodofahumn",
+            "solv": 98.24,
+            "author": "Joseph Jacobs",
+            "desc": "1854 - 1916",
+            "locks1": [
+                7,
+                37,
+                51
+            ],
+            "locks2": [
+                28
+            ]
+        },
+        "20250618": {
+            "phrase": "S_______ __ ______ ______ _ ______ __ _h_ _____ _t_____ ___o___ ___ ____ ____ _______ __e__.",
+            "answer": "tartledheduckedbehindateacupastegiantsompedthrughtheroomwithboomingstps",
+            "solv": 98.13,
+            "author": "Joseph Jacobs",
+            "desc": "1854 - 1916",
+            "locks1": [
+                20,
+                66
+            ],
+            "locks2": [
+                13,
+                34
+            ]
+        },
+        "20250619": {
+            "phrase": "____ __e _i___ ____ ______ _______ l___ ___n___ __c_ _____ ___o _ ________ ____ _____ ____ ______ ____t.",
+            "answer": "OncethgantfellasleepsnoringikethuderJakcreptintatreasureroomaglowwithgoldenligh",
+            "solv": 98.02,
+            "author": "Joseph Jacobs",
+            "desc": "1854 - 1916",
+            "locks1": [
+                23,
+                51,
+                68,
+                69
+            ],
+            "locks2": [
+                41,
+                62
+            ]
+        },
+        "20250620": {
+            "phrase": "_____ __ _____ _ ___ __ ___d __i__ __________ ___e ___r_ ___ __ _______ ______ _h__ _n___ ___ ___.",
+            "answer": "Therehefoundabagofgolconsshimmeringlikstasandhequicklytuckedtemuderhisarm",
+            "solv": 97.91,
+            "author": "Joseph Jacobs",
+            "desc": "1854 - 1916",
+            "locks1": [
+                16,
+                69,
+                72
+            ],
+            "locks2": [
+                1,
+                30
+            ]
+        },
+        "20250621": {
+            "phrase": "______ __a____ __ _______ _ _____ __n _____i__ __ __ ____ _ _______ g_____ e__.",
+            "answer": "Beforelevinghenoticedawhitehecluckngasitlaidaperfectoldengg",
+            "solv": 97.81,
+            "author": "Joseph Jacobs",
+            "desc": "1854 - 1916",
+            "locks1": [
+                25,
+                40
+            ],
+            "locks2": [
+                19,
+                42
+            ]
+        },
+        "20250622": {
+            "phrase": "__________ \"__e _____ ___p __ _______,\" ____ ______ s______ _h_ ___ ___ ____o__ ____.",
+            "answer": "WhisperingShcouldhelusforeverJackgentlycoopedtehenandtiptedaway",
+            "solv": 97.7,
+            "author": "Joseph Jacobs",
+            "desc": "1854 - 1916",
+            "locks1": [
+                16,
+                49,
+                59
+            ],
+            "locks2": [
+                5
+            ]
+        },
+        "20250623": {
+            "phrase": "____ ____ _h_ ___ ____ g_____ ____ _a__ ___ ___________ ___i_ _____ ____ _t____ ___e.",
+            "answer": "Backhometehenlaidoldeneggsechdaybrighteningtherliveswithseadyhop",
+            "solv": 97.59,
+            "author": "Joseph Jacobs",
+            "desc": "1854 - 1916",
+            "locks1": [
+                5,
+                12,
+                13
+            ],
+            "locks2": [
+                38
+            ]
+        },
+        "20250624": {
+            "phrase": "___ ___ _____e'_ _____r_ ________ _i_; ___ ____ ____s___ a______ __ _________ t____.",
+            "answer": "Yetthecastlsmysteybeckonedhmonelasttreaurewaitedinwhisperedales",
+            "solv": 97.48,
+            "author": "Joseph Jacobs",
+            "desc": "1854 - 1916",
+            "locks1": [
+                4,
+                23,
+                31
+            ],
+            "locks2": [
+                19
+            ]
+        },
+        "20250625": {
+            "phrase": "_a__ _____e_ _____ ___ __________ _ ___d__ ____ ____ ______ ____ _n________ ____c.",
+            "answer": "Jckclimbdagainanddiscoveredagolenharpthatplayedsoftechantingmusi",
+            "solv": 97.37,
+            "author": "Joseph Jacobs",
+            "desc": "1854 - 1916",
+            "locks1": [
+                10,
+                38,
+                50
+            ],
+            "locks2": [
+                18,
+                34
+            ]
+        },
+        "20250626": {
+            "phrase": "__ __ _____e_ ___ s______ ___ ____ _____ \"___t__ ____ __!\" ___ ___ ____ _______ ___ ________ _____ a____.",
+            "answer": "AshestrokdthetringstheharpcriedMaserhelpmeanditspleastirredthesleepinggiantwake",
+            "solv": 97.26,
+            "author": "Joseph Jacobs",
+            "desc": "1854 - 1916",
+            "locks1": [
+                30,
+                45,
+                48,
+                68
+            ],
+            "locks2": [
+                23
+            ]
+        },
+        "20250627": {
+            "phrase": "__e ___n_ ___ u_ _i__ _ ____ ____ _______ __ ____ ___ ____ __ _a___ ____ ___ ________ _____t___.",
+            "answer": "ThgiatsatpwtharoareyeslockingonJackwhofledinpnicdownthetwistingbeansalk",
+            "solv": 97.15,
+            "author": "Joseph Jacobs",
+            "desc": "1854 - 1916",
+            "locks1": [
+                6,
+                36,
+                56
+            ],
+            "locks2": [
+                16,
+                23,
+                61
+            ]
+        },
+        "20250628": {
+            "phrase": "W___ __________ _____ ___ _____ ____ ___s_ _a__ _____ _h_____ t__ __o___ __ ____ _____ ______ ___e.",
+            "answer": "iththunderousstepsthegiantgavechaeechstompsakinghecludsasJackracedtowardhom",
+            "solv": 97.04,
+            "author": "Joseph Jacobs",
+            "desc": "1854 - 1916",
+            "locks1": [
+                21,
+                59
+            ],
+            "locks2": [
+                8,
+                19,
+                62
+            ]
+        },
+        "20250629": {
+            "phrase": "__ t__ ____ _a__ _____e_ ___ __s ______ ___ ____ _______ ____ _ ______ ___ __ h___.",
+            "answer": "AthebaseJckshoutdforhimotherwhocamerushingwithasturdyaxeinand",
+            "solv": 96.93,
+            "author": "Joseph Jacobs",
+            "desc": "1854 - 1916",
+            "locks1": [
+                19,
+                30,
+                43
+            ],
+            "locks2": [
+                38
+            ]
+        },
+        "20250630": {
+            "phrase": "____ ___ ___h__ ___n_ ____ _______ t__ _________ ____i__ ___ g____ ________ __ ___ _____ _e___.",
+            "answer": "WithonemigtyswigJackseveredhebeanstalksendngtheiantcrashingtotheearthblow",
+            "solv": 96.82,
+            "author": "Joseph Jacobs",
+            "desc": "1854 - 1916",
+            "locks1": [
+                4,
+                33
+            ],
+            "locks2": [
+                30,
+                53,
+                67
+            ]
+        },
+        "20250631": {
+            "phrase": "__e ______ ____ ____ ___ ___ ______ _____ _a____ ____r ____ n_ ______ ______ __t_ _o___ __ ____",
+            "answer": "ThdangergoneJackandhismotherlivedsfelytheidaysolongerfilledwihwrryorwant",
+            "solv": 96.71,
+            "author": "Joseph Jacobs",
+            "desc": "1854 - 1916",
+            "locks1": [
+                19,
+                29,
+                55
+            ],
+            "locks2": [
+                6
+            ]
+        }
+    }
+}

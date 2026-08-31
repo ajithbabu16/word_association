@@ -1,0 +1,60 @@
+{
+    "CASCADE_TEST": {
+        "phrase": "___ _____ _____ ___ _____ ____ ___ ____ ___",
+        "answer": "thequickbrownfoxjumpsoverthelazydog",
+        "author": "Antigravity",
+        "desc": "High Cascade Test (Wide Open)",
+        "locks1": [],
+        "locks2": [],
+        "cloak": [],
+        "hints": []
+    },
+    "HARD_MODE_SOLVABLE": {
+        "phrase": "______ __ _____ ______ _____ __ ___",
+        "answer": "sphinxofblackquartzjudgemyvow",
+        "author": "Antigravity",
+        "desc": "Extreme Solvable Test (L1)",
+        "locks1": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            26,
+            27,
+            28
+        ],
+        "locks2": [],
+        "cloak": [
+            0,
+            3,
+            6,
+            9,
+            12,
+            15,
+            18,
+            21,
+            27
+        ],
+        "hints": []
+    }
+}

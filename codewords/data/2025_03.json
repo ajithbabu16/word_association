@@ -1,0 +1,577 @@
+{
+    "sceneName": "Cinderella",
+    "bg_header": "#34699e",
+    "bg_body": "#95bfe6",
+    "bg_keyboard": "#346993",
+    "keyboard_key_normal": "#f5f2eb",
+    "keyboard_key_disabled": "#1f4a80",
+    "keyboard_text_normal": "#2c364d",
+    "keyboard_text_disabled": "#183351",
+    "keyboard_text_reveal": "#49B03B",
+    "hud_text_color": "#243c54",
+    "hud_bg_light": "ffffff",
+    "hud_bg_dark": "#243c54",
+    "author": "Charles Perrault",
+    "desc": "1628 - 1703",
+    "puzzles": {
+        "20250301": {
+            "phrase": "____ ___n _ t___, _ k___ ___ ______ ____ _____ __________ _____ ____ __r c____ __________ ___ ___ ___ ____i__ __e________ __ _ __a__ ___s_.",
+            "answer": "OnceupoaimeaindandgentlegirlnamedCinderellalivedwithheruelstepmotherandhertwoselfshstpsistersinagrndhoue",
+            "solv": 100.0,
+            "author": "Charles Perrault",
+            "desc": "1628 - 1703",
+            "locks1": [
+                22,
+                24,
+                47,
+                51,
+                76
+            ],
+            "locks2": [
+                20,
+                29,
+                37,
+                44
+            ]
+        },
+        "20250302": {
+            "phrase": "___u__ h__ ______ __d l____ ___ ______, __ ___ ______ ____, _______ ___ __o__ ____ _ ______ ____ _______ ___ __r_ ___e _ _______ t___ _ _a______.",
+            "answer": "Thogherfatherhaovedherdearlyhehadpassedawayleavingheralnewithafamilythattreatedhermoelikaservanthanadughter",
+            "solv": 99.89,
+            "author": "Charles Perrault",
+            "desc": "1629 - 1703",
+            "locks1": [
+                35,
+                49,
+                58,
+                94
+            ],
+            "locks2": [
+                10,
+                24,
+                73,
+                90
+            ]
+        },
+        "20250303": {
+            "phrase": "_h__ ___e __r d_ ___ ___ ____i__, ________, ___ _a_____, _____ ____ _______ __ ____ _______ ___ _____ _____ ____ m______ ___ o_______ ___ ____n_.",
+            "answer": "Teymadheoallthecookngcleaningandwshingwhiletheydressedinfineclothesandspenttheirdaysockingandrderingheraroud",
+            "solv": 99.78,
+            "author": "Charles Perrault",
+            "desc": "1630 - 1703",
+            "locks1": [
+                10,
+                28,
+                50,
+                60,
+                75
+            ],
+            "locks2": [
+                23,
+                73,
+                81,
+                94
+            ]
+        },
+        "20250304": {
+            "phrase": "_____s_ ___ ___ ______ c______ __ ___e_ ____ _h_ _________, ____ l______ ___ ______ __r \"_________a!\" ______d __ _____ ___ ____ n___.",
+            "answer": "BecaueshewasalwaysoveredinashsfromtefireplacetheyaughedandcalledheCinderellinsteaofusingherrealame",
+            "solv": 99.67,
+            "author": "Charles Perrault",
+            "desc": "1631 - 1703",
+            "locks1": [
+                4,
+                24,
+                30,
+                45,
+                81
+            ],
+            "locks2": [
+                13,
+                39,
+                84,
+                93
+            ]
+        },
+        "20250305": {
+            "phrase": "___ ___, _ r___l _n________ _______ __________ ____ t__ ____ ___ _______ _ _____ _a__, _____ ___ ______ _o___ _h____ _i_ ______ ____e.",
+            "answer": "Onedayaoyaivitationarrivedannouncingthathekingwashostingagrandbllwheretheprincewuldcoosehsfuturebrid",
+            "solv": 99.56,
+            "author": "Charles Perrault",
+            "desc": "1632 - 1703",
+            "locks1": [
+                25,
+                48,
+                57,
+                77,
+                91
+            ],
+            "locks2": [
+                22,
+                38,
+                54,
+                67
+            ]
+        },
+        "20250306": {
+            "phrase": "____e_____'_ s__________ w___ ____t__, ______ __ __n__ _r_____, _____ ___ __________ _______ __i_, \"_o_ _a__ _______ ________ __ ____, __ ___ ___l_ ___ __!\"",
+            "answer": "CindrellastepsistersereexciedtryingonfacydesseswhileherstepmothercruellysadYuhvenothingsuitabletowearsoyoushalnotgo",
+            "solv": 99.45,
+            "author": "Charles Perrault",
+            "desc": "1633 - 1703",
+            "locks1": [
+                31,
+                65
+            ],
+            "locks2": [
+                13,
+                57,
+                61,
+                83,
+                111
+            ]
+        },
+        "20250307": {
+            "phrase": "_____b_____, __________ ______ __r __e________ ___ _____, ______n_ t___ __d_ ____ __ _ _a______, _______ ___ _____ __ ___ _____ _i_ h____.",
+            "answer": "HeartrokenCinderellahelpedhestpsistersgetreadywatchighemrieawayinacrriageleavingheraloneinthedimlyltouse",
+            "solv": 99.34,
+            "author": "Charles Perrault",
+            "desc": "1634 - 1703",
+            "locks1": [
+                22
+            ],
+            "locks2": [
+                14,
+                68,
+                75,
+                94
+            ]
+        },
+        "20250308": {
+            "phrase": "__ _h_ ___ ______, _ ____ _____ ________, ___ __r __i__ _____t___ _____ ___o__ ___ ____ _ _______ __ ___ ___ ___ _ _____ _n ___ _a__.",
+            "answer": "AssesatcryingawarmlightappearedandheFaryGodmoherstoodbefreherwithatwinkleinhereyeandasmileoherfce",
+            "solv": 99.23,
+            "author": "Charles Perrault",
+            "desc": "1635 - 1703",
+            "locks1": [
+                85
+            ],
+            "locks2": [
+                8,
+                15,
+                26,
+                42
+            ]
+        },
+        "20250309": {
+            "phrase": "\"_o ___ ___, __ ____,\" __e ___r_ _________ ____ ___t__. \"Y__ ___l_ __ __ ___ ____, ___ _____, __ ____ ____ _ ______ _a___!\"",
+            "answer": "DnotcrymydearthFaiyGodmothersaidgenlyoushalgototheballbutfirstwemustworkalittlemgic",
+            "solv": 99.12,
+            "author": "Charles Perrault",
+            "desc": "1636 - 1703",
+            "locks1": [
+                9,
+                19,
+                30
+            ],
+            "locks2": [
+                24,
+                51,
+                69
+            ]
+        },
+        "20250310": {
+            "phrase": "____ _ ____ __ ___ ____, _h_ ______ _ _______ ____ _ _o____ __r_____, _i__ ____ ______ ____e_, ___ _ __t ____ _ _____ __a_____.",
+            "answer": "Withawaveofherwandseturnedapumpkinintoagldencariagemceintostronghorssandaraintoanoblecochman",
+            "solv": 99.01,
+            "author": "Charles Perrault",
+            "desc": "1637 - 1703",
+            "locks1": [
+                25,
+                29,
+                49,
+                67
+            ],
+            "locks2": [
+                12,
+                15,
+                35
+            ]
+        },
+        "20250311": {
+            "phrase": "___n, ___ ______d ____e_____'_ ______ _____, ___ __ t__________ i___ _ ________ ____ ____, ____ __l_____ _a__ ___ _p_______ _____ s_______.",
+            "answer": "TheshetoucheCindrellasraggeddressanditransformedntoastunningballgownwithdeicatelceandsarklingglasslippers",
+            "solv": 98.9,
+            "author": "Charles Perrault",
+            "desc": "1638 - 1703",
+            "locks1": [
+                38,
+                93
+            ],
+            "locks2": [
+                26,
+                31,
+                55,
+                61
+            ]
+        },
+        "20250312": {
+            "phrase": "\"__t r_______, m_ _____,\" __e _____ _________ _____d, \"A_ ___ ______ __ _i______, ___ __g__ ____ ___, ___ __________ ____ ______ __ h__ __ ___.\"",
+            "answer": "BuememberychildthFairyGodmotherwarnetthestrokeofmdnightthemaicwillendandeverythingwillreturntoowitwas",
+            "solv": 98.79,
+            "author": "Charles Perrault",
+            "desc": "1639 - 1703",
+            "locks1": [
+                43,
+                64,
+                80,
+                98
+            ],
+            "locks2": [
+                20,
+                29,
+                41,
+                83
+            ]
+        },
+        "20250313": {
+            "phrase": "__________ ______d _t __e _a____, ___ ___n ___ ______ ___ ___, __ ___ _________, ____l_ __ ____ _i_ ____ ___ ___ _________ ___ ____ _____ _o___ ____r_ h__.",
+            "answer": "Cinderellaarriveathplaceandwhetheprincesawherhewasenchantedunabetotakehseyesoffthebeautifulandkindyoungwmanbefoeim",
+            "solv": 98.68,
+            "author": "Charles Perrault",
+            "desc": "1640 - 1703",
+            "locks1": [
+                41,
+                49,
+                88,
+                100
+            ],
+            "locks2": [
+                4,
+                36,
+                53,
+                61
+            ]
+        },
+        "20250314": {
+            "phrase": "T___ ______ ________ ___ ___n___, ___ _____r____ ____ ___e _h_ ___ __ _ d____, __________ __o__ ___ _i__ __ ___ _____ ______ ___ l_______ ______ ___ _a______.",
+            "answer": "heydancedtogetheralleveingandCindeellafeltliksewasinareamforgettingabutthetmeasthemusicplayedandaughterfilledthebllroom",
+            "solv": 98.57,
+            "author": "Charles Perrault",
+            "desc": "1641 - 1703",
+            "locks1": [
+                6,
+                49,
+                82,
+                103
+            ],
+            "locks2": [
+                4,
+                11,
+                13,
+                61,
+                88
+            ]
+        },
+        "20250315": {
+            "phrase": "________, t__ ____k _____ __ _h___ __d_____, ___ __________ ______, _________n_ __r __i__ _______e_'_ _______ ____ ___ _____ _o___ ____ ___a_____.",
+            "answer": "SuddenlyheclocbegantocimeminightandCinderellagaspedrememberigheFaryGodmothrswarningthatthemagicwuldsoondisppear",
+            "solv": 98.46,
+            "author": "Charles Perrault",
+            "desc": "1642 - 1703",
+            "locks1": [
+                6,
+                10,
+                53,
+                99,
+                106
+            ],
+            "locks2": [
+                2,
+                16,
+                39,
+                46,
+                93
+            ]
+        },
+        "20250316": {
+            "phrase": "___ ___ __w_ _h_ _____ _________, __t __ ___ __r____ __ ___ ________, o__ __ ___ _____a__ _____ _____e__ ______d ___ ___ ____ ___ ______ _n ___ s___.",
+            "answer": "Sherandontegrandstaircasebuasshehuriedtohercarriageneofherdelicteglassslipprsslippeoffherfootandlandedothetep",
+            "solv": 98.35,
+            "author": "Charles Perrault",
+            "desc": "1643 - 1703",
+            "locks1": [
+                11,
+                43,
+                66,
+                73,
+                89
+            ],
+            "locks2": [
+                20,
+                36,
+                68,
+                97
+            ]
+        },
+        "20250317": {
+            "phrase": "_h_ ______ ______ _p ___ ____ _______, _______ __ _a_______ _s __ w______ __________ _i_______ __t_ ___ _____ ______ __ _____ ___n ___ ___ ___e.",
+            "answer": "TeprincepickeduthetinyslipperholdingitcrefullyaheatchedCinderelladsappearinothenightbeforehecouldeveaskhernam",
+            "solv": 98.24,
+            "author": "Charles Perrault",
+            "desc": "1644 - 1703",
+            "locks1": [
+                10,
+                32,
+                88,
+                95
+            ],
+            "locks2": [
+                27,
+                52,
+                56,
+                107
+            ]
+        },
+        "20250318": {
+            "phrase": "T__ ____ ___, ___ ___n__ ____ ___a_ _e________ ______ ___ ___g___ __ ____ ___ ____ _h_ __d ______ ____ _i_ ___ ___ ___ ____ _____ s______.",
+            "answer": "henextdaythepricesentroylmssengersacrossthekindomtofindthegirlwohadancedwithhmandfitthelostglasslipper",
+            "solv": 98.13,
+            "author": "Charles Perrault",
+            "desc": "1645 - 1703",
+            "locks1": [
+                35,
+                60,
+                88,
+                92
+            ],
+            "locks2": [
+                3,
+                70,
+                74,
+                94
+            ]
+        },
+        "20250319": {
+            "phrase": "_h_ ___________ e___r__ ____d __ _______ _____ ____ i___ ___ _______, ___ __ ______ _o_ ____ ____ __s___, __ _a_ ____ ___ _____ ___ t___.",
+            "answer": "Testepsistersagelytrietosqueezetheirfeetntotheslipperbutnomatterhwhardtheypuheditwsmuchtoosmallforhem",
+            "solv": 98.02,
+            "author": "Charles Perrault",
+            "desc": "1646 - 1703",
+            "locks1": [
+                47,
+                83
+            ],
+            "locks2": [
+                3,
+                8,
+                51,
+                71
+            ]
+        },
+        "20250320": {
+            "phrase": "____ __ _h__ ____ a____ __ _____, __________ ______d _______, ___ __r __________ _____ __ __o_ ___, ______ s__ ___ ____ _ _______ ___ ____'t _e_____ __ ___ i_ _n.",
+            "answer": "JustasteywerebouttoleaveCinderellasteppeforwardbuthestepmothertriedtostphersayinghewasjustaservantanddidndservetotryto",
+            "solv": 97.91,
+            "author": "Charles Perrault",
+            "desc": "1647 - 1703",
+            "locks1": [
+                9,
+                31,
+                48,
+                77,
+                109
+            ],
+            "locks2": [
+                2,
+                28,
+                53,
+                93
+            ]
+        },
+        "20250321": {
+            "phrase": "\"E____ _____n ___t ___,\" _a__ ___ _____ ________r, ________ ______ __________ ___ ____l_ ____i__ ___ _______ __ ___ f___.",
+            "answer": "verymaidemustrysidtheroyalmessengekneelingbeforeCinderellaandgentyplacngtheslipperonheroot",
+            "solv": 97.81,
+            "author": "Charles Perrault",
+            "desc": "1648 - 1703",
+            "locks1": [
+                7,
+                23,
+                28,
+                41
+            ],
+            "locks2": [
+                2,
+                45,
+                50,
+                80
+            ]
+        },
+        "20250322": {
+            "phrase": "__ e_______'_ _____, t__ _______ _i_ h__ _________, ___ ____ ___ p_____, __________ ____ _u_ ___ _____ _____ _______, __o____ s__ ___ ___ _r____'_ _______ ___l.",
+            "answer": "ToveryonesshockheslipperfterperfectlyandfromherocketCinderellatookottheotherglassslipperprvinghewasthepincesmysterygir",
+            "solv": 97.7,
+            "author": "Charles Perrault",
+            "desc": "1649 - 1703",
+            "locks1": [
+                31,
+                54,
+                76,
+                97,
+                109
+            ],
+            "locks2": [
+                12,
+                22,
+                33,
+                57,
+                111
+            ]
+        },
+        "20250323": {
+            "phrase": "\"I_'_ __u!\" __e _r____ ____ ____ ___ _h__ __ _______, _____n_____ ___ ____ ___ _________ _____ _____ __o ___ ___t____ ___ _____ __ ___ _a__.",
+            "answer": "tsyothpincesaidwithjoywenhearrivedrecogizingthekindandbeautifulyoungwomanwhhadcapuredhisheartatthebll",
+            "solv": 97.59,
+            "author": "Charles Perrault",
+            "desc": "1650 - 1703",
+            "locks1": [
+                14,
+                15,
+                36
+            ],
+            "locks2": [
+                32,
+                45,
+                48,
+                56
+            ]
+        },
+        "20250324": {
+            "phrase": "__________ __i___, ___ __ ____ ____n_, __r _____ G__m_____ ___e____ ____ _o__, _________ ___ ____ __ _t_ _______ __a___.",
+            "answer": "CinderellasmledandatthatmometheFairyodotherapparedoncemrerestoringhergowntoismagicalbeuty",
+            "solv": 97.48,
+            "author": "Charles Perrault",
+            "desc": "1651 - 1703",
+            "locks1": [
+                7,
+                29,
+                52
+            ],
+            "locks2": [
+                3,
+                34,
+                58,
+                78
+            ]
+        },
+        "20250325": {
+            "phrase": "T__ _r____ ____ _i________ __ ___ ______, _h___ ____ __d _ _a_________ _____n_, ___ ___ ___ _______ __ ___ ______ __e__.",
+            "answer": "hepincetookCnderellatothepalaceweretheyhaamgnificentweddigandshewascrownedasthefuturequen",
+            "solv": 97.37,
+            "author": "Charles Perrault",
+            "desc": "1652 - 1703",
+            "locks1": [
+                8,
+                18,
+                61,
+                64
+            ],
+            "locks2": [
+                26,
+                59,
+                72
+            ]
+        },
+        "20250326": {
+            "phrase": "___n ____e__l__'_ _________r_, ____ __ ______s_, ______ ___ ___ _____v_____, ___ __________, _i__ ___ ____ _____, ____a__ ____.",
+            "answer": "EveCindrelasstepsistesfullofjealouybeggedforherforgienessandCinderellawthherkindheartforgvethem",
+            "solv": 97.26,
+            "author": "Charles Perrault",
+            "desc": "1653 - 1703",
+            "locks1": [
+                13,
+                26,
+                41,
+                80
+            ],
+            "locks2": [
+                83,
+                93
+            ]
+        },
+        "20250327": {
+            "phrase": "_h_ ___ __e ____c_ _____ ___ _______ _i__ ____, ____n___, ___ ___d____, ___ __________ _____ __r___ __a_ __ _____ __ __ ______ ___ ________.",
+            "answer": "SeandthprineruledthekingdomwthlovefairessandkinnessandCinderellaneverfogotwhtitmeanttobehumbleandgrateful",
+            "solv": 97.15,
+            "author": "Charles Perrault",
+            "desc": "1654 - 1703",
+            "locks1": [
+                14,
+                39,
+                70
+            ],
+            "locks2": [
+                35,
+                58,
+                82,
+                100
+            ]
+        },
+        "20250328": {
+            "phrase": "S__ ______ r_____e___ ___ _____ _______e_'_ ____ _____: \"_a__ _______ ___ __ __n_, ___ ___d_____ ______ w___ h_____.\"",
+            "answer": "healwaysemembredherFairyGodmothrswisewordsHvecourageandbekidandwonerfulthingsillappen",
+            "solv": 97.04,
+            "author": "Charles Perrault",
+            "desc": "1655 - 1703",
+            "locks1": [
+                9,
+                25,
+                50,
+                78
+            ],
+            "locks2": [
+                20,
+                34,
+                39
+            ]
+        },
+        "20250329": {
+            "phrase": "____ ___e __ h__ _____ ___ _________ __ ___ ____, __________'_ ___a__ ___ ____l__ ____ __u_, _____n_ ____ ______s_ ______ _i__.",
+            "answer": "WithlovinerheartandhappinessinherlifeCinderellasdremshadfinalycometreprovigthatkindnesalwayswns",
+            "solv": 96.93,
+            "author": "Charles Perrault",
+            "desc": "1656 - 1703",
+            "locks1": [
+                2,
+                5,
+                21,
+                55
+            ],
+            "locks2": [
+                13,
+                25,
+                34,
+                42
+            ]
+        },
+        "20250330": {
+            "phrase": "___ s_, _________a ___ ___ ______ ____d ____i__ ____ ____r, __ _ _______ _____ __n_____ ___ ____ _______ ___e___.",
+            "answer": "AndoCinderellandherprincelivehapplyeverafteinakingdomwherekidnessandlovereignedforver",
+            "solv": 96.82,
+            "author": "Charles Perrault",
+            "desc": "1657 - 1703",
+            "locks1": [
+                11,
+                51,
+                54,
+                70
+            ],
+            "locks2": [
+                8,
+                22,
+                73
+            ]
+        }
+    }
+}

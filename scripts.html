@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codewords Script Runner</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #9d4edd;
+            --secondary: #00f5d4;
+            --bg-color: #0b0914;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body, html {
+            width: 100%;
+            min-height: 100vh;
+            background-color: var(--bg-color);
+            background-image: url('bg.jpg');
+            background-size: cover;
+            background-position: center;
+            font-family: 'Outfit', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+        }
+
+        /* Glassmorphism UI */
+        .ui-container {
+            position: relative;
+            z-index: 10;
+            background: rgba(15, 12, 29, 0.65);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            border-left: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 24px;
+            padding: 3rem 4rem;
+            text-align: center;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(157, 78, 221, 0.2);
+            animation: fadeIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            max-width: 600px;
+            width: 90%;
+            transform: translateY(20px);
+            opacity: 0;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #fff, var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 2rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: rgba(255,255,255,0.8);
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        select, input[type="file"] {
+            width: 100%;
+            background: rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        
+        select:focus, input[type="file"]:focus {
+            border-color: var(--secondary);
+        }
+
+        select option {
+            background: #111;
+            color: white;
+        }
+
+        .glass-btn {
+            position: relative;
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            border-radius: 12px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            gap: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            overflow: hidden;
+            z-index: 1;
+            margin-top: 1rem;
+        }
+
+        .glass-btn::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(135deg, rgba(157, 78, 221, 0.4), rgba(0, 245, 212, 0.4));
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .glass-btn:hover {
+            transform: translateY(-2px);
+            border-color: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 10px 25px rgba(157, 78, 221, 0.4), 0 0 20px rgba(0, 245, 212, 0.2);
+        }
+
+        .glass-btn:hover::before {
+            opacity: 1;
+        }
+        
+        .glass-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        #status {
+            margin-top: 1.5rem;
+            font-weight: 300;
+            min-height: 24px;
+        }
+        
+        .error {
+            color: #ff4d4d;
+        }
+        
+        .success {
+            color: var(--secondary);
+        }
+        
+        .nav-back {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+        
+        .nav-back:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="nav-back">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        BACK TO LAUNCHER
+    </a>
+
+    <div class="ui-container">
+        <h1>Script Runner</h1>
+        <div class="subtitle">Convert CSV/Excel to JSON</div>
+        
+        <div class="form-group">
+            <label for="script-select">1. Select Python Script</label>
+            <select id="script-select">
+                <option value="">Loading scripts...</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="file-input">2. Upload Input File (.csv or .xlsx)</label>
+            <input type="file" id="file-input" accept=".csv,.xlsx">
+        </div>
+        
+        <button id="run-btn" class="glass-btn" onclick="runScript()">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+            EXECUTE SCRIPT
+        </button>
+        
+        <a id="download-btn" class="glass-btn" style="display: none; background: rgba(0, 245, 212, 0.1);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            DOWNLOAD RESULT JSON
+        </a>
+        
+        <div id="status">Ready</div>
+    </div>
+
+    <script>
+        // Load scripts on startup
+        async function loadScripts() {
+            const select = document.getElementById('script-select');
+            try {
+                const res = await fetch('http://localhost:8080/api/list-scripts');
+                if (!res.ok) throw new Error("Failed to connect to backend");
+                const data = await res.json();
+                
+                select.innerHTML = '';
+                if (data.scripts.length === 0) {
+                    select.innerHTML = '<option value="">No scripts found</option>';
+                    return;
+                }
+                
+                data.scripts.forEach(script => {
+                    const opt = document.createElement('option');
+                    opt.value = script;
+                    opt.textContent = script;
+                    select.appendChild(opt);
+                });
+            } catch (err) {
+                select.innerHTML = '<option value="">Error connecting to Codewords Server (Port 8080)</option>';
+                console.error(err);
+            }
+        }
+        
+        window.onload = loadScripts;
+        
+        async function runScript() {
+            const select = document.getElementById('script-select');
+            const fileInput = document.getElementById('file-input');
+            const statusDiv = document.getElementById('status');
+            const runBtn = document.getElementById('run-btn');
+            const downloadBtn = document.getElementById('download-btn');
+            
+            const scriptName = select.value;
+            const file = fileInput.files[0];
+            
+            if (!scriptName) {
+                statusDiv.innerHTML = '<span class="error">Please select a script.</span>';
+                return;
+            }
+            if (!file) {
+                statusDiv.innerHTML = '<span class="error">Please upload a file.</span>';
+                return;
+            }
+            
+            runBtn.disabled = true;
+            downloadBtn.style.display = 'none';
+            statusDiv.innerHTML = 'Reading file...';
+            
+            // Read file as Base64
+            const reader = new FileReader();
+            reader.onload = async (e) => {
+                const base64Data = e.target.result;
+                statusDiv.innerHTML = 'Executing script on server...';
+                
+                try {
+                    const res = await fetch('http://localhost:8080/api/run-script', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            script: scriptName,
+                            filename: file.name,
+                            content: base64Data
+                        })
+                    });
+                    
+                    const data = await res.json();
+                    
+                    if (!res.ok || data.error) {
+                        throw new Error(data.error || "Unknown server error");
+                    }
+                    
+                    // Success! Prepare download
+                    statusDiv.innerHTML = '<span class="success">Script executed successfully!</span>';
+                    
+                    const jsonBlob = new Blob([JSON.stringify(data.data, null, 4)], { type: 'application/json' });
+                    const downloadUrl = URL.createObjectURL(jsonBlob);
+                    
+                    downloadBtn.href = downloadUrl;
+                    downloadBtn.download = `output_${scriptName.replace('.py', '')}.json`;
+                    downloadBtn.style.display = 'inline-flex';
+                    
+                } catch (err) {
+                    statusDiv.innerHTML = `<span class="error">Error: ${err.message}</span>`;
+                } finally {
+                    runBtn.disabled = false;
+                }
+            };
+            
+            reader.onerror = () => {
+                statusDiv.innerHTML = '<span class="error">Failed to read the file.</span>';
+                runBtn.disabled = false;
+            };
+            
+            reader.readAsDataURL(file);
+        }
+    </script>
+</body>
+</html>

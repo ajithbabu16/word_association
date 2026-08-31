@@ -1,0 +1,549 @@
+{
+    "sceneName": "Pinocchio",
+    "bg_header": "#a18160",
+    "bg_body": "#f2dabf",
+    "bg_keyboard": "#a18160",
+    "keyboard_key_normal": "#f5f1eb",
+    "keyboard_key_disabled": "#8c6e4f",
+    "keyboard_text_normal": "#2e251b",
+    "keyboard_text_disabled": "#574430",
+    "keyboard_text_reveal": "#49B03B",
+    "hud_text_color": "#2d200a",
+    "hud_bg_light": "ffffff",
+    "hud_bg_dark": "#2d200a",
+    "author": "Carlo Collodi",
+    "desc": "1826 - 1890",
+    "puzzles": {
+        "20250401": {
+            "phrase": "_ ____ __________ ____d _______o _a__ _ ____e_ p_____ ___ _____ ___ __n______, _i_____ ___ _ ____ ___.",
+            "answer": "AkindwoodcarvernameGeppettmdeawoodnuppetandnamedhimPiocchiowshingforarealson",
+            "solv": 100.0,
+            "author": "Carlo Collodi",
+            "desc": "1826 - 1890",
+            "locks1": [
+                50,
+                54,
+                69
+            ],
+            "locks2": [
+                10,
+                20,
+                74
+            ]
+        },
+        "20250402": {
+            "phrase": "T___ _____, _ __i__ a_______ ___ _______ __n______ __ ____, ______, \"_e ___d, _r___, ___ ________, ___ ___ ___, ___ ____ ______ _ ____ _o_.\"",
+            "answer": "hatnightafaryppearedandbroughtPiocchiotolifesayingBkinbaveandtruthfulandonedayyouwillbecomearealby",
+            "solv": 99.89,
+            "author": "Carlo Collodi",
+            "desc": "1827 - 1890",
+            "locks1": [
+                6,
+                26,
+                78,
+                83
+            ],
+            "locks2": [
+                4,
+                45,
+                93
+            ]
+        },
+        "20250403": {
+            "phrase": "_e______ ___ _________ ___ ____ ___o_____ __ ______, ___ _n ___ ___, ___ p_____ ___ _ ___a__ ___ ___ _ c_____ __t.",
+            "answer": "GppettowasoverjoyedandsentPincchiotoschoolbutothewaytheuppetmetasnekyfoxandaleverca",
+            "solv": 99.78,
+            "author": "Carlo Collodi",
+            "desc": "1828 - 1890",
+            "locks1": [
+                9,
+                18,
+                47,
+                51
+            ],
+            "locks2": [
+                5,
+                12,
+                70
+            ]
+        },
+        "20250404": {
+            "phrase": "______ _s ___i__! C___ ____ u_ ___ ______ ____! ____ ______r__, ________ ___o_____ ____ ________ __h___.",
+            "answer": "SchooliborngomewithsandbecomerichtheywhispeedtrickingPincchiointoskippingscool",
+            "solv": 99.67,
+            "author": "Carlo Collodi",
+            "desc": "1829 - 1890",
+            "locks1": [
+                42,
+                51,
+                63,
+                68
+            ],
+            "locks2": [
+                26,
+                31,
+                47
+            ]
+        },
+        "20250405": {
+            "phrase": "T___ ____ _i_ __ _ ______ ____, _h___ ___ ______ ______ _____r _o____ ___ __, _______ __ ___p ___ ___e___.",
+            "answer": "heytookhmtoapuppetshowwerethegreedypuppetmastelckedhimupwantingtokeehimforver",
+            "solv": 99.56,
+            "author": "Carlo Collodi",
+            "desc": "1830 - 1890",
+            "locks2": [
+                14,
+                16,
+                59
+            ]
+        },
+        "20250406": {
+            "phrase": "T__ __i__ ___e____ ___ a____ ___ __ ____'_ __ ______, ___ ___n ______h__ ____, ___ _o__ ____ ____, ______ ___ ___ __ s____.",
+            "answer": "hefaryapparedandskedwhyhewasntatschoolbutwhePinoccioliedhisnsegrewlongmakinghimcryinhame",
+            "solv": 99.45,
+            "author": "Carlo Collodi",
+            "desc": "1831 - 1890",
+            "locks1": [
+                19,
+                65,
+                75,
+                80
+            ],
+            "locks2": [
+                21,
+                26,
+                48,
+                54
+            ]
+        },
+        "20250407": {
+            "phrase": "____ __k_ _o__ ____ ____, ______h__, t__ __i__ ____, ___ ___n __ ____ ___ _____, ___ _____ ___ ___ ____ ___ ___e.",
+            "answer": "LiesmaeyurnosegrowPinocciohefarysaidandwhehetoldthetruthshefreedhimandsenthimhom",
+            "solv": 99.34,
+            "author": "Carlo Collodi",
+            "desc": "1832 - 1890",
+            "locks1": [
+                15,
+                33,
+                56,
+                63
+            ],
+            "locks2": [
+                1,
+                54,
+                61
+            ]
+        },
+        "20250408": {
+            "phrase": "__ __e ___, __ ___ ___ ___ ___ __t _____, _h_ _________ _i_ __ ____ ____ _o___, _________ _ _a___ ____ ____ __ __n__.",
+            "answer": "Onthwayhemetthefoxandcaagainwoconvincedhmtoburygoldcinspromisingamgictreefullofmoey",
+            "solv": 99.23,
+            "author": "Carlo Collodi",
+            "desc": "1833 - 1890",
+            "locks1": [
+                20,
+                30,
+                47,
+                79
+            ],
+            "locks2": [
+                26,
+                37,
+                57
+            ]
+        },
+        "20250409": {
+            "phrase": "_h__ __ ________, __e ___n_ __r_ ____, ___ __ ________ __ ___ ____ _______ ____ ___i_.",
+            "answer": "Wenhereturnedthcoisweegoneandherealizedhehadbeentrickedonceagan",
+            "solv": 99.12,
+            "author": "Carlo Collodi",
+            "desc": "1834 - 1890",
+            "locks1": [
+                38,
+                42,
+                51
+            ],
+            "locks2": [
+                24,
+                53
+            ]
+        },
+        "20250410": {
+            "phrase": "_______ _____e_, __ _______ __ __ ____, ___ ____ _o__ _n_____ _i_ __ ________ ______, _____ ____ ___l_ ____ a__ d__.",
+            "answer": "FeelingashamdhedecidedtogohomebutsomebysivitedhmtoPleasureIslandwheretheycoudplayllay",
+            "solv": 99.01,
+            "author": "Carlo Collodi",
+            "desc": "1835 - 1890",
+            "locks1": [
+                28,
+                32,
+                33,
+                65
+            ],
+            "locks2": [
+                52,
+                61
+            ]
+        },
+        "20250411": {
+            "phrase": "__ _____, __ ______, ____ __n! _h__ c______, ___ ___o_____, __________ ___ _______, ____r__ __l_____ __e_.",
+            "answer": "NorulesnoschooljustfuteyheeredandPincchioforgettinghispromiseeagelyfolowedthm",
+            "solv": 98.9,
+            "author": "Carlo Collodi",
+            "desc": "1836 - 1890",
+            "locks1": [
+                32,
+                34,
+                47,
+                53
+            ],
+            "locks2": [
+                11,
+                45,
+                56
+            ]
+        },
+        "20250412": {
+            "phrase": "T__ ______ ___ ____ __ s_____, ___e_, ___ _____, ___ _____h___ ____n__ ___ _a_______ __ ___ ____.",
+            "answer": "heislandwasfullofweetsgamsandmusicbutsometingstragewashppeningtotheboys",
+            "solv": 98.79,
+            "author": "Carlo Collodi",
+            "desc": "1837 - 1890",
+            "locks1": [
+                2,
+                13,
+                68
+            ],
+            "locks2": [
+                18,
+                31
+            ]
+        },
+        "20250413": {
+            "phrase": "___ __ ___, t___ _____ _______ ___o ___k___, _______ _____ ___ e___ __ ___i______ ___ ___n_ ____ ___ _a_.",
+            "answer": "Onebyoneheybeganturningintdoneysgrowingtailsandarsaspunshmentforbeiglazyandbd",
+            "solv": 98.68,
+            "author": "Carlo Collodi",
+            "desc": "1838 - 1890",
+            "locks1": [
+                3,
+                22,
+                46,
+                51
+            ],
+            "locks2": [
+                12,
+                19,
+                40
+            ]
+        },
+        "20250414": {
+            "phrase": "_i_______'_ ____ __r______ __t_ ______ ____, ___ __ ________, _______n_ __ h__ ____ _______ ________ ____a__.",
+            "answer": "Pnocchiosearsstetchedinodonkeyearsandhepanickedrealizigheadmadeanotherterriblemistke",
+            "solv": 98.57,
+            "author": "Carlo Collodi",
+            "desc": "1839 - 1890",
+            "locks1": [
+                2,
+                61
+            ],
+            "locks2": [
+                19,
+                40,
+                74
+            ]
+        },
+        "20250415": {
+            "phrase": "__ _____ __ ___ _w__, __t ____ h__ _____ ______ _n__ ______, ___ __ _o___ __ ______ __e__.",
+            "answer": "Hetriedtorunaaybusoonishandsturneditohoovesandheculdnolongerspak",
+            "solv": 98.46,
+            "author": "Carlo Collodi",
+            "desc": "1840 - 1890",
+            "locks1": [
+                6,
+                9,
+                42
+            ],
+            "locks2": [
+                24,
+                31,
+                38
+            ]
+        },
+        "20250416": {
+            "phrase": "__f___ t__ ______ _o___ _i____, __ ______ _n__ ___ ___, ___ ___ _____ _a____ ____ ___ _____, _______ h__ ____ ____ _ ____e_.",
+            "answer": "Beorehechangeculdfnishhejumpeditotheseaandthewaterwshedawaythemagicturningimbackintoapuppt",
+            "solv": 98.35,
+            "author": "Carlo Collodi",
+            "desc": "1841 - 1890",
+            "locks1": [
+                41,
+                75
+            ],
+            "locks2": [
+                11,
+                28,
+                63,
+                69
+            ]
+        },
+        "20250417": {
+            "phrase": "_____ __i_____, __ ____d ____ _e______ ___ _o__ _______ ___ ___ ___ ___ ____ __a______ __ _ ____t _h___.",
+            "answer": "WhileswmminghehearthatGppettohadgnelookingforhimbuthadbeenswllowedbyagianwale",
+            "solv": 98.24,
+            "author": "Carlo Collodi",
+            "desc": "1842 - 1890",
+            "locks1": [
+                41,
+                57,
+                60,
+                63
+            ],
+            "locks2": [
+                1,
+                15,
+                30
+            ]
+        },
+        "20250418": {
+            "phrase": "__________ __ ____ ___ f_t___, ___o_____ _______ d____ ____ i___ ___ _____ ___ ___ __a______ __ ___ ____ ____e.",
+            "answer": "DeterminedtosavehisaherPincchiobravelyiveddeepntotheoceanandgotswllowedbythesamewhal",
+            "solv": 98.13,
+            "author": "Carlo Collodi",
+            "desc": "1843 - 1890",
+            "locks1": [
+                16,
+                56,
+                65,
+                76
+            ],
+            "locks2": [
+                1,
+                35
+            ]
+        },
+        "20250419": {
+            "phrase": "____d_ ___ ____e'_ _____, __ _____ _____t__, ____ ___ ______, ___ _____ o________ __ s__ ___ ___ ____n.",
+            "answer": "InsiethewhalsbellyhefoundGeppetoweakandhungrybutstillverjoyedtoeehissonagai",
+            "solv": 98.02,
+            "author": "Carlo Collodi",
+            "desc": "1844 - 1890",
+            "locks1": [
+                6,
+                16,
+                66
+            ],
+            "locks2": [
+                14,
+                34,
+                41
+            ]
+        },
+        "20250420": {
+            "phrase": "__ ____ ______, ____e_! ______h__ _a__, ______ __ ____ _ c_____ ____ __ ____ ___ _____ ______ ____ __t.",
+            "answer": "WemustescapeFathrPinocciosidcomingupwithaleverplantomakethewhalesneezethemou",
+            "solv": 97.91,
+            "author": "Carlo Collodi",
+            "desc": "1845 - 1890",
+            "locks1": [
+                2,
+                20,
+                65
+            ],
+            "locks2": [
+                31,
+                61,
+                67
+            ]
+        },
+        "20250421": {
+            "phrase": "__ ________ ____ ___ ___ _ _____ ____, _______ ___ ____e'_ __l__ ____ _____, _______ __ __ __t ___ a h___ ______.",
+            "answer": "Hegatheredwoodandsetasmallfirefillingthewhalsbelywithsmokecausingittoleoutugesneeze",
+            "solv": 97.81,
+            "author": "Carlo Collodi",
+            "desc": "1846 - 1890",
+            "locks1": [
+                15,
+                31,
+                64,
+                71
+            ],
+            "locks2": [
+                4,
+                8,
+                33
+            ]
+        },
+        "20250422": {
+            "phrase": "T__ _____ ___ ___ _ _i____ ____, ___ ___n_ ____h _______ ____ __ _ ________ ______ ____ ___o_____ ___ _e______ _____g ____ ___ __a.",
+            "answer": "hewhaleletoutamghtyroaritsgiatmoutopeningwideasapowerfulsneezesentPincchioandGppettoflyinintothese",
+            "solv": 97.7,
+            "author": "Carlo Collodi",
+            "desc": "1847 - 1890",
+            "locks1": [
+                11,
+                19,
+                25,
+                55
+            ],
+            "locks2": [
+                17,
+                38,
+                58,
+                79
+            ]
+        },
+        "20250423": {
+            "phrase": "_______i__ _______ ___ ____s, ______h__ ____ ____ ___ ___ ________, ______g _n__ _____t__ _____ ____ _______ r______ ___ ____e.",
+            "answer": "StrugglngagainstthewavePinoccioswamwithallhisstrengthholdinotoGeppetountiltheyfinallyeachedtheshor",
+            "solv": 97.59,
+            "author": "Carlo Collodi",
+            "desc": "1848 - 1890",
+            "locks1": [
+                26,
+                40
+            ],
+            "locks2": [
+                17,
+                33,
+                46,
+                76
+            ]
+        },
+        "20250424": {
+            "phrase": "_________ b__ ____, ______h__ _______ _e______ ____, ___ _____ ______ ____ __i__ ___ _l_ t__ __o____ __ ___ _a____.",
+            "answer": "ExhaustedutsafePinocciocarriedGppettohomehisheartfilledwithgultforalhetrublehehadcused",
+            "solv": 97.48,
+            "author": "Carlo Collodi",
+            "desc": "1849 - 1890",
+            "locks1": [
+                4,
+                19,
+                43,
+                65
+            ],
+            "locks2": [
+                2,
+                28,
+                53,
+                57
+            ]
+        },
+        "20250425": {
+            "phrase": "_r__ t___ ___ __, __ ______ ____, ____ ____ __ _______o, ___ _____ ____ _______ __e.",
+            "answer": "FomhatdayonheworkedhardtookcareofGeppettandnevertoldanotherli",
+            "solv": 97.37,
+            "author": "Carlo Collodi",
+            "desc": "1850 - 1890",
+            "locks1": [
+                6,
+                11,
+                20
+            ],
+            "locks2": [
+                17,
+                49
+            ]
+        },
+        "20250426": {
+            "phrase": "_he __i__, ________ ____ ____, ___ ___ __n_____ ___ ____ __ ___ _____ __a____.",
+            "answer": "Tfarywatchingfromafarsawhiskidnessandknewhehadtrulychnged",
+            "solv": 97.26,
+            "author": "Carlo Collodi",
+            "desc": "1851 - 1890",
+            "locks1": [
+                32,
+                45,
+                47
+            ],
+            "locks2": [
+                9,
+                19
+            ]
+        },
+        "20250427": {
+            "phrase": "___ __g__, __ __ s____, ___ ___e____ ______ _i_ ___ _________, \"_o_ ____ ______ ________, ______h__.\"",
+            "answer": "OnenihtasheleptsheapparedbesidehmandwhisperedYuhaveprovenyourselfPinoccio",
+            "solv": 97.15,
+            "author": "Carlo Collodi",
+            "desc": "1852 - 1890",
+            "locks1": [
+                44,
+                48,
+                56
+            ],
+            "locks2": [
+                12,
+                16,
+                40
+            ]
+        },
+        "20250428": {
+            "phrase": "____ _ ____ __ __r ____, _ ____ _____ ______n___ ___, ___ __e w_____ ______ ______ __a________ __t_ _ ____ _o_.",
+            "answer": "Withawaveofhewandawarmlightsurroudedhimandthoodenpuppetslowlytrnsformedinoarealby",
+            "solv": 97.04,
+            "author": "Carlo Collodi",
+            "desc": "1853 - 1890",
+            "locks1": [
+                1,
+                33,
+                36,
+                56
+            ],
+            "locks2": [
+                14,
+                45,
+                53
+            ]
+        },
+        "20250429": {
+            "phrase": "__ __e ______g ___ ____, _e_____o ____ __ __ ____ __n______ __ ______ m___ __ ____ ___ _ ______, ____t____ __i__.",
+            "answer": "AsthmorninsunroseGppettwokeuptofindPiocchionolongeradeofwoodbutalivingbreahingchld",
+            "solv": 96.93,
+            "author": "Carlo Collodi",
+            "desc": "1854 - 1890",
+            "locks1": [
+                0,
+                59
+            ],
+            "locks2": [
+                7,
+                24
+            ]
+        },
+        "20250430": {
+            "phrase": "__t___! _o__! I'_ _e__! _________ _r___, _______ ____ ________'_ ____ ____ ___.",
+            "answer": "FaherLokmralPinocchiociedrunningintoGeppettosarmswithjoy",
+            "solv": 96.82,
+            "author": "Carlo Collodi",
+            "desc": "1855 - 1890",
+            "locks1": [
+                27,
+                45
+            ],
+            "locks2": [
+                13,
+                42
+            ]
+        },
+        "20250431": {
+            "phrase": "__o_ ____ ___ __, _i_______ _____ _____l_ __ _ ____ ___, ______ ___________ t__ _e_____ ____ ____ ___ _____ _____a_.",
+            "answer": "FrmthatdayonPnocchiolivedhappiyasarealboyalwaysrememberinghelssonsthatmadehimtrulyspecil",
+            "solv": 96.71,
+            "author": "Carlo Collodi",
+            "desc": "1856 - 1890",
+            "locks1": [
+                11,
+                40,
+                51,
+                78
+            ],
+            "locks2": [
+                21,
+                36,
+                48,
+                62
+            ]
+        }
+    }
+}

@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeWords Genie - Advanced Puzzle Validator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=JetBrains+Mono:wght@500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="automation_styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="glass-bg"></div>
+
+    <!-- Landing Screen -->
+    <div id="landing-screen" class="landing-overlay">
+        <div class="landing-content">
+            <div class="logo large">
+                <img src="Qubit_logo.png" class="logo-icon">
+                <h1>CodeWords Genie</h1>
+            </div>
+            <p class="landing-sub">Precision Puzzle Validation Engines</p>
+
+            <!-- Main Menu (Phase 1) -->
+            <div id="main-menu" class="main-menu">
+                <button id="show-automation-btn" class="btn btn-primary btn-large">
+                    <span class="icon">🤖</span> PUZZLE AUTOMATION
+                </button>
+                <button id="show-comparison-btn" class="btn btn-primary btn-large">
+                    <span class="icon">🆚</span> VARIANT VS CONTROL JSON
+                </button>
+                <button id="show-csv-comparison-btn" class="btn btn-primary btn-large">
+                    <span class="icon">📊</span> VARIANT VS CONTROL CSV
+                </button>
+                <button id="show-phrase-check-btn" class="btn btn-primary btn-large">
+                    <span class="icon">📝</span> COMPLETE PHRASE CHECK CSV
+                </button>
+                <button id="show-duplicate-btn" class="btn btn-primary btn-large">
+                    <span class="icon">🔍</span> DUPLICATION CHECK
+                </button>
+                <button id="show-memory-check-btn" class="btn btn-primary btn-large">
+                    <span class="icon">🧠</span> MEMORY CHECK
+                </button>
+            </div>
+
+            <!-- Comparison Screen (Phase 3 - Hidden by Default) -->
+            <div id="comparison-setup" class="automation-modal hidden">
+                <div class="automation-content comparison-modal">
+                    <header class="auto-header">
+                        <h2>JSON Comparison Engine</h2>
+                    </header>
+
+                    <div class="auto-body">
+                        <!-- Upload Row -->
+                        <div class="auto-row">
+                            <div class="auto-group">
+                                <label>Variant JSON (Source 1)</label>
+                                <div class="file-control drag-zone" id="variant-drop-zone">
+                                    <span id="variant-filename" class="file-name">No file selected</span>
+                                    <label for="variant-upload" class="upload-btn">Upload</label>
+                                    <input type="file" id="variant-upload" accept=".json" class="hidden">
+                                </div>
+                                <p class="help-text">Drag & drop Variant JSON</p>
+                            </div>
+
+                            <div class="auto-group">
+                                <label>Control JSON (Source 2)</label>
+                                <div class="file-control drag-zone" id="control-drop-zone">
+                                    <span id="control-filename" class="file-name">No file selected</span>
+                                    <label for="control-upload" class="upload-btn">Upload</label>
+                                    <input type="file" id="control-upload" accept=".json" class="hidden">
+                                </div>
+                                <p class="help-text">Drag & drop Control JSON</p>
+                            </div>
+                        </div>
+
+                        <!-- Action Row -->
+                        <div id="comparison-results-container" class="results-wrapper hidden">
+                            <div class="results-header">
+                                <h3>Comparison Results</h3>
+                                <button id="download-results-btn" class="btn btn-small btn-success">
+                                    <span class="icon">📥</span> Download Report
+                                </button>
+                            </div>
+
+                            <div class="unmatched-banner hidden" id="unmatched-levels-banner">
+                                <label>Unmatched Levels (Structural/Content):</label>
+                                <div id="unmatched-levels-list" class="unmatched-list"></div>
+                            </div>
+
+                            <div class="unmatched-banner spacing-issue-banner hidden" id="gap-levels-banner">
+                                <label>Spacing/Gap Issue Levels:</label>
+                                <div id="gap-levels-list" class="unmatched-list"></div>
+                            </div>
+
+                            <div class="unmatched-banner variant-spacing-banner hidden" id="variant-spacing-banner">
+                                <label>Variant Spacing Issues (Double Spaces):</label>
+                                <div id="variant-spacing-list" class="unmatched-list"></div>
+                            </div>
+
+                            <div class="unmatched-banner control-spacing-banner hidden" id="control-spacing-banner">
+                                <label>Control Spacing Issues (Double Spaces):</label>
+                                <div id="control-spacing-list" class="unmatched-list"></div>
+                            </div>
+
+                            <div class="table-container">
+                                <table id="comparison-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Level</th>
+                                            <th>Variant Phrase</th>
+                                            <th>Control Phrase</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="comparison-table-body">
+                                        <!-- Results injected here -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <footer class="auto-footer">
+                        <button id="cancel-comparison-btn" class="btn btn-secondary">Cancel & Exit</button>
+                        <button id="start-comparison-btn" class="btn btn-primary">🆚 Compare JSON</button>
+                    </footer>
+                </div>
+            </div>
+
+            <!-- CSV Comparison Screen (New) -->
+            <div id="csv-comparison-setup" class="automation-modal hidden">
+                <div class="automation-content comparison-modal">
+                    <header class="auto-header">
+                        <h2>CSV Comparison Engine</h2>
+                        <p class="help-text">Compare Variant vs Control CSV based on Level No., Complete Phrase, Puzzle,
+                            Author, and About Author.</p>
+                    </header>
+
+                    <div class="auto-body">
+                        <!-- Upload Row -->
+                        <div class="auto-row">
+                            <div class="auto-group">
+                                <label>Variant CSV</label>
+                                <div class="file-control drag-zone" id="variant-csv-drop-zone">
+                                    <span id="variant-csv-filename" class="file-name">No file selected</span>
+                                    <label for="variant-csv-upload" class="upload-btn">Upload</label>
+                                    <input type="file" id="variant-csv-upload" accept=".csv" class="hidden">
+                                </div>
+                                <p class="help-text">Drag & drop Variant CSV</p>
+                            </div>
+
+                            <div class="auto-group">
+                                <label>Control CSV</label>
+                                <div class="file-control drag-zone" id="control-csv-drop-zone">
+                                    <span id="control-csv-filename" class="file-name">No file selected</span>
+                                    <label for="control-csv-upload" class="upload-btn">Upload</label>
+                                    <input type="file" id="control-csv-upload" accept=".csv" class="hidden">
+                                </div>
+                                <p class="help-text">Drag & drop Control CSV</p>
+                            </div>
+                        </div>
+
+                        <!-- Action Row -->
+                        <div id="csv-comparison-results-container" class="results-wrapper hidden">
+                            <div class="results-header">
+                                <div class="results-stats">
+                                    <span class="stat-badge total">Total: <i id="csv-total-count">0</i></span>
+                                    <span class="stat-badge success">Match: <i id="csv-match-count">0</i></span>
+                                    <span class="stat-badge fail">Mismatch: <i id="csv-mismatch-count">0</i></span>
+                                    <span class="stat-badge total"
+                                        style="background: rgba(16, 185, 129, 0.2); border-color: #10b981; color: #10b981;">V-Space:
+                                        <i id="csv-v-space-count">0</i></span>
+                                    <span class="stat-badge total"
+                                        style="background: rgba(99, 102, 241, 0.2); border-color: #818cf8; color: #818cf8;">C-Space:
+                                        <i id="csv-c-space-count">0</i></span>
+                                </div>
+                                <button id="download-csv-comparison-results-btn" class="btn btn-success">
+                                    <span class="icon">📥</span> Download CSV Report
+                                </button>
+                            </div>
+
+                            <div class="table-container">
+                                <table id="csv-comparison-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Level No.</th>
+                                            <th>Status</th>
+                                            <th>Field</th>
+                                            <th>Variant Value</th>
+                                            <th>Control Value</th>
+                                            <th>Space Issue</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="csv-comparison-table-body">
+                                        <!-- Results injected here -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <footer class="auto-footer">
+                        <button id="cancel-csv-comparison-btn" class="btn btn-secondary">Cancel & Exit</button>
+                        <button id="start-csv-comparison-btn" class="btn btn-primary">▶ Start Validate CSV</button>
+                    </footer>
+                </div>
+            </div>
+
+            <!-- Phrase Check Screen (New Feature) -->
+            <div id="phrase-check-setup" class="automation-modal hidden">
+                <div class="automation-content comparison-modal">
+                    <header class="auto-header">
+                        <h2>📝 Complete Phrase Check (CSV/Excel)</h2>
+                        <p class="help-text">Bulk validation based on 'Complete Phrase' and 'Puzzle' columns.</p>
+                    </header>
+
+                    <div class="auto-body">
+                        <div class="auto-row single-zone">
+                            <div class="auto-group">
+                                <label>Upload CSV File</label>
+                                <div class="file-control drag-zone" id="phrase-check-drop-zone">
+                                    <span id="phrase-check-file-name" class="file-name">No file selected</span>
+                                    <label for="phrase-check-file-input" class="upload-btn">Browse</label>
+                                    <input type="file" id="phrase-check-file-input" accept=".csv" class="hidden">
+                                </div>
+                                <p class="help-text">Drag & drop your CSV file here</p>
+                            </div>
+                        </div>
+
+                        <div id="phrase-check-results-container" class="results-wrapper hidden">
+                            <div class="results-header">
+                                <div class="results-stats">
+                                    <span class="stat-badge total">Total: <i id="pc-total-count">0</i></span>
+                                    <span class="stat-badge success">Valid: <i id="pc-valid-count">0</i></span>
+                                    <span class="stat-badge fail">Invalid: <i id="pc-invalid-count">0</i></span>
+                                </div>
+                                <button id="download-pc-results-btn" class="btn btn-success">
+                                    <span class="icon">📥</span> Download Results
+                                </button>
+                            </div>
+
+                            <div class="table-container">
+                                <table id="phrase-check-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Row</th>
+                                            <th>Complete Phrase</th>
+                                            <th>Puzzle</th>
+                                            <th>Error Code</th>
+                                            <th>Error Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="phrase-check-table-body">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <footer class="auto-footer">
+                        <button id="cancel-phrase-check-btn" class="btn btn-secondary">Cancel & Exit</button>
+                        <button id="start-phrase-check-btn" class="btn btn-primary" disabled>▶ Start Validation</button>
+                    </footer>
+                </div>
+            </div>
+
+            <!-- Duplication Check Screen -->
+            <div id="duplicate-check-setup" class="automation-modal hidden">
+                <div class="automation-content comparison-modal">
+                    <header class="auto-header">
+                        <h2>🔍 Duplication Check (Sentence Similarity)</h2>
+                        <p class="help-text">Identify exact and semantic duplicates using AI models.</p>
+                    </header>
+
+                    <div class="auto-body">
+                        <div class="auto-row single-zone">
+                            <div class="auto-group">
+                                <label>Upload CSV File</label>
+                                <div class="file-control drag-zone" id="duplicate-check-drop-zone">
+                                    <span id="duplicate-check-file-name" class="file-name">No file selected</span>
+                                    <label for="duplicate-check-file-input" class="upload-btn">Browse</label>
+                                    <input type="file" id="duplicate-check-file-input" accept=".csv" class="hidden">
+                                </div>
+                                <p class="help-text">Drag & drop your CSV file here</p>
+                            </div>
+                        </div>
+
+                        <!-- Progress Bar Section -->
+                        <div id="duplicate-progress-container" class="results-wrapper hidden">
+                            <div class="results-header">
+                                <h3 id="duplicate-status-text">Ready to validate...</h3>
+                                <button id="download-duplicate-results-btn" class="btn btn-success hidden">
+                                    <span class="icon">📥</span> Download Results
+                                </button>
+                            </div>
+                            <div class="progress-wrapper">
+                                <div class="progress-bar-bg">
+                                    <div id="duplicate-progress-fill" class="progress-bar-fill" style="width: 0%"></div>
+                                </div>
+                                <div class="progress-stats">
+                                    <span id="duplicate-progress-percent">0%</span>
+                                    <span id="duplicate-time-info"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="duplicate-results-summary" class="results-wrapper hidden">
+                            <div class="results-stats">
+                                <span class="stat-badge total">Total Phrases: <i id="dup-total-count">0</i></span>
+                                <span class="stat-badge fail">Duplicate Groups: <i id="dup-group-count">0</i></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <footer class="auto-footer">
+                        <button id="cancel-duplicate-btn" class="btn btn-secondary">Cancel & Exit</button>
+                        <button id="start-duplicate-btn" class="btn btn-primary" disabled>▶ Start Duplication
+                            Validation</button>
+                    </footer>
+                </div>
+            </div>
+
+            <!-- Automation Setup (Phase 2 - Hidden by Default) -->
+            <div id="automation-setup" class="automation-modal hidden">
+                <div class="automation-content">
+                    <header class="auto-header">
+                        <h2>Automator Pro <span
+                                style="font-size: 0.5em; opacity: 0.5; vertical-align: middle;">v21</span></h2>
+                    </header>
+
+                    <div class="auto-body">
+                        <!-- Row 1 -->
+                        <div class="auto-row">
+                            <div class="auto-group">
+                                <label>Validation Report Mode <span style="color: var(--danger);">*</span></label>
+                                <div class="report-mode-options">
+                                    <label class="radio-label">
+                                        <input type="radio" name="report-mode" value="new" checked>
+                                        <span>New</span>
+                                    </label>
+                                    <label class="radio-label">
+                                        <input type="radio" name="report-mode" value="reset">
+                                        <span>Reset</span>
+                                    </label>
+                                    <label class="radio-label">
+                                        <input type="radio" name="report-mode" value="continue">
+                                        <span>Continue</span>
+                                    </label>
+                                </div>
+                                <p class="help-text">New: Start fresh. Reset: Overwrite existing. Continue: Resume.</p>
+                            </div>
+
+                            <div class="auto-group" id="existing-reports-container" style="display: none;">
+                                <label>Select Existing Report <span style="color: var(--danger);">*</span></label>
+                                <div style="display: flex; gap: 10px; align-items: center;">
+                                    <select id="existing-reports" class="input-dark" style="flex: 1;">
+                                        <option value="">-- Select Report --</option>
+                                    </select>
+                                    <button id="delete-report-btn" class="btn btn-danger" title="Delete this report"
+                                        style="padding: 10px; min-width: auto;">
+                                        🗑️
+                                    </button>
+                                    <button id="download-report-btn" class="btn btn-secondary" title="Download CSV"
+                                        style="padding: 10px; min-width: auto; background: var(--success); border-color: var(--success);">
+                                        📥
+                                    </button>
+                                </div>
+                                <p class="help-text">Choose a session file from the server.</p>
+                            </div>
+
+                            <div class="auto-group" id="new-report-name-container">
+                                <label>New Report Name <span style="color: var(--danger);">*</span></label>
+                                <input type="text" id="report-name" placeholder="e.g. MyValidation" class="input-dark">
+                                <p class="help-text">Enter a unique name for your session.</p>
+                            </div>
+                        </div>
+
+                        <!-- Row 2 -->
+                        <div class="auto-row">
+                            <div class="auto-group">
+                                <label>JSON File</label>
+                                <div class="file-control">
+                                    <span id="json-filename" class="file-name"></span>
+                                    <label for="json-upload" class="upload-btn">Upload</label>
+                                    <input type="file" id="json-upload" accept=".json" class="hidden">
+                                </div>
+                                <p class="help-text">Drag & drop JSON supported</p>
+                            </div>
+                        </div>
+                        <!-- Row 3 -->
+                        <div class="auto-row">
+                            <div class="auto-group">
+                                <label>Batch Size</label>
+                                <input type="number" id="batch-size" value="2000" class="input-dark">
+                            </div>
+
+                            <div class="auto-group">
+                                <label>Start Level</label>
+                                <input type="number" id="start-level-input" value="1" min="1" class="input-dark">
+                            </div>
+                        </div>
+
+                        <!-- Row 4 -->
+                        <div class="auto-row">
+                            <div class="auto-group">
+                                <label>Typing Speed</label>
+                                <div class="slider-control">
+                                    <span>10ms</span>
+                                    <input type="range" id="typing-speed" min="10" max="10000" value="100" step="10">
+                                    <span>10000ms</span>
+                                </div>
+                                <p class="help-text">Current: <span id="speed-val">100ms</span></p>
+                            </div>
+                        </div>
+
+                        <!-- Row 5 -->
+                        <div class="auto-group full">
+                            <label>Report Forwarding (Email)</label>
+                            <div class="email-container input-dark">
+                                <div id="email-chips" class="chips-wrapper">
+                                    <!-- Chips added via JS -->
+                                </div>
+                                <input type="text" id="email-add-input" placeholder="+ Add recipient email...">
+                            </div>
+                        </div>
+
+                        <!-- Row 6 -->
+                        <div class="auto-group full">
+                            <label>Email Subject</label>
+                            <input type="text" id="email-subject" class="input-dark"
+                                value="VARIANT FULL REPORT: {report_name} - Loop {loop}, Level {level}">
+                            <p class="help-text">(Optional – uses default if empty)</p>
+                        </div>
+
+                        <!-- Row 7 -->
+                        <div class="auto-group full">
+                            <label>Email Body</label>
+                            <textarea id="email-body" class="input-dark" rows="4">Attached is the full cumulative report for session: {report_name}.
+Current Progress: Loop {loop}, Level {level}.
+Timestamp: {timestamp}</textarea>
+                            <p class="help-text">(Optional – fallback to hardcoded body if empty)</p>
+                        </div>
+                    </div>
+
+                    <footer class="auto-footer">
+                        <button id="cancel-automation-btn" class="btn btn-secondary">Cancel & Exit</button>
+                        <button id="start-automation-btn" class="btn btn-primary">▶ Start Automation</button>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="game-wrapper" class="hidden">
+        <header>
+            <div class="logo">
+                <img src="Qubit_logo.png" class="logo-icon">
+                <h1>CodeWords Genie</h1>
+            </div>
+            <div class="controls">
+                <!-- Live Report Actions -->
+                <div class="report-live-actions" style="display: flex; gap: 8px;">
+                    <button id="live-graph-btn" class="btn-small" style="background: var(--accent);"
+                        title="View Analytics Dashboard">📈 Live Graph</button>
+                    <button id="live-view-btn" class="btn-small" style="background: var(--cloaked);"
+                        title="View Live Report in New Tab">👁️ Live View</button>
+                    <button id="live-download-btn" class="btn-small" style="background: var(--success);"
+                        title="Download Current Report">📥 Download report</button>
+                </div>
+
+                <div class="level-jump">
+                    <input type="number" id="jump-level-input" placeholder="Lv #" min="1">
+                    <button id="jump-btn" class="btn-small">Go</button>
+                </div>
+                <div class="game-legend">
+                    <div class="legend-item" title="Identify one neighbor to unlock"><span class="legend-icon">🕒</span>
+                        Single</div>
+                    <div class="legend-item" title="Identify both neighbors to unlock"><span
+                            class="legend-icon">🕒🕒</span> Double</div>
+                    <div class="legend-item" title="Hidden letter - reveal by filling"><span
+                            class="legend-icon">☁️</span> Cloak</div>
+                </div>
+
+                <div class="level-indicator">Level <span id="current-level-num">1</span></div>
+                <button id="auto-play-btn" class="btn btn-primary pulse">
+                    <span class="icon">▶</span> Start Auto-Solve
+                </button>
+            </div>
+        </header>
+
+        <main id="game-container">
+            <!-- Puzzle Board rendering here -->
+            <div id="puzzle-board" class="fade-in"></div>
+
+            <div class="puzzle-footer">
+                <div id="author-info" class="author-box">
+                    <span class="quote-icon">“</span>
+                    <p id="quote-text"></p>
+                    <cite id="quote-author"></cite>
+                </div>
+            </div>
+        </main>
+
+        <!-- Stats Dashboard / Live Graph Section -->
+        <section id="stats-container" class="stats-dashboard hidden">
+            <div class="stats-header">
+                <h3>📊 Live Validation Analytics</h3>
+                <div class="stats-summary">
+                    <span class="stat-pill pass">Pass: <span id="stat-pass-count">0</span></span>
+                    <span class="stat-pill fail">Fail: <span id="stat-fail-count">0</span></span>
+                </div>
+            </div>
+            <div class="graph-wrapper">
+                <canvas id="live-results-chart"></canvas>
+            </div>
+        </section>
+
+        <div id="keyboard" class="keyboard-container">
+            <!-- Keyboard keys generated here -->
+        </div>
+
+        <!-- UI Overlay for Level Complete -->
+        <div id="completion-overlay" class="overlay hidden">
+            <div class="overlay-content">
+                <div class="success-icon">✨</div>
+                <h2>Level Cleared!</h2>
+                <p id="completed-phrase" class="completed-phrase"></p>
+                <div class="completed-meta">
+                    <p id="completed-author"></p>
+                    <p id="completed-desc" class="desc-text"></p>
+                </div>
+                <button id="continue-btn" class="btn btn-shine">Continue to Next Level</button>
+            </div>
+        </div>
+
+        <!-- UI Overlay for Validation Failed -->
+        <div id="validation-overlay" class="overlay hidden">
+            <div class="overlay-content error-border">
+                <div class="error-icon">❌</div>
+                <h2 class="error-text">Level <span id="failed-level-id"></span>: Validation FAILED</h2>
+                <p>This level contains structural errors:</p>
+                <div id="validation-errors-list" class="error-list"></div>
+                <button id="skip-failed-level-btn" class="btn btn-danger">Skip Level</button>
+            </div>
+        </div>
+
+        <!-- Automation Tooltip -->
+        <div id="solver-status" class="solver-status hidden">
+            <div class="status-header">
+                <span class="status-dot pulse-red"></span>
+                Solving...
+            </div>
+            <div class="status-body">
+                <div class="metric">Phase: <span id="solve-phase">Analyzing</span></div>
+                <div class="metric">Next: <span id="solve-move">-</span></div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="logic.js"></script>
+    <script src="automation.js"></script>
+    <script src="main.js?v=22"></script>
+</body>
+
+</html>

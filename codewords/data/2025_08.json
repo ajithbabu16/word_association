@@ -1,0 +1,504 @@
+{
+    "sceneName": "Puss in Boots",
+    "bg_header": "#e07d4d",
+    "bg_body": "#fadcc6",
+    "bg_keyboard": "#e07d4d",
+    "keyboard_key_normal": "#f5f1eb",
+    "keyboard_key_disabled": "#ac623d",
+    "keyboard_text_normal": "#3a1d15",
+    "keyboard_text_disabled": "#4c261c",
+    "keyboard_text_reveal": "#49B03B",
+    "hud_text_color": "#250a05",
+    "hud_bg_light": "#ffffff",
+    "hud_bg_dark": "#2b2018",
+    "author": "Charles Perrault",
+    "desc": "1628- 1703",
+    "puzzles": {
+        "20250801": {
+            "phrase": "__ _ __i__ _______, _ ____ ______ _____ ____ ___ _____ __n_, ______ ______ ____ __a_ _ ____, _ ______, ___ _ _l____ ___ ____ ______ ___ __e___.",
+            "answer": "Inaquetvillageapoormillerlivedwithhisthreesosowninglittlemorethnamilladonkeyandacevercatthatroamedthefilds",
+            "solv": 100.0,
+            "author": "Charles Perrault",
+            "desc": "1628- 1703",
+            "locks1": [
+                7,
+                19,
+                29,
+                36,
+                99
+            ],
+            "locks2": [
+                21,
+                48,
+                86,
+                96
+            ]
+        },
+        "20250802": {
+            "phrase": "_h__ __e ______ ____, ___ __d___ __n ____ ___ ____, ___ ______ ___ ___ _____y, ___ ___ _o______ ___ ____ ____ _______ ___ ___ ____l_'_ s______ ___ __t.",
+            "answer": "Wenthmillerdiedtheelestsotookthemillthesecondgotthedonkeandtheyungestwasleftwithnothingbutthefamiyscruffyoldca",
+            "solv": 99.89,
+            "author": "Charles Perrault",
+            "desc": "1628- 1703",
+            "locks1": [
+                5,
+                41,
+                45,
+                88,
+                102
+            ],
+            "locks2": [
+                13,
+                26,
+                70,
+                83
+            ]
+        },
+        "20250803": {
+            "phrase": "\"A __t?\" ___ _o______ _____e_. \"_h__ __ _ __ ____ _ c__-_____ __ ______ ___ ____ _______ ____ _______?\"",
+            "answer": "catheyungestgroandWatdoIdowithaatteachittricksandhopesomeonebuystickets",
+            "solv": 99.78,
+            "author": "Charles Perrault",
+            "desc": "1628- 1703",
+            "locks1": [
+                21,
+                45,
+                58
+            ],
+            "locks2": [
+                65
+            ]
+        },
+        "20250804": {
+            "phrase": "__e ___ ___ __, _______ ___ ____, ___ ____, \"_i__ __ _ ____ __ ___t_ ___ _ ___, ___ _ __o____ ___'l_ _____ __ __n___ a____.",
+            "answer": "ThcatsatupflickeditstailandsaidGvemeapairofboosandabagandIprmiseyoulnevergohugrygain",
+            "solv": 99.67,
+            "author": "Charles Perrault",
+            "desc": "1628- 1703",
+            "locks1": [
+                19,
+                30,
+                40,
+                53
+            ],
+            "locks2": [
+                12,
+                21,
+                69
+            ]
+        },
+        "20250805": {
+            "phrase": "____ _____ _ ___ __e_ ___ _______r, _______ __ ____ ____ ___ _______, ___ _a_____ ___ _i__ _ ______n_ o_ _ __s____.",
+            "answer": "Pussslungabagovrhisshouldestuffeditwithbranandparsleyandmrchedofflkeamerchatnamision",
+            "solv": 99.56,
+            "author": "Charles Perrault",
+            "desc": "1628- 1703",
+            "locks1": [
+                5,
+                16,
+                45,
+                63
+            ],
+            "locks2": [
+                2,
+                31,
+                47
+            ]
+        },
+        "20250806": {
+            "phrase": "__ ___ ___ t___ ___r _ ____i_ _____n ___ ______, ________ ___e _ ____ _____ __ _____a_.",
+            "answer": "Hesethisrapneaarabbtwarreandwaitedlounginglikalazynobleonholidy",
+            "solv": 99.45,
+            "author": "Charles Perrault",
+            "desc": "1628- 1703",
+            "locks1": [
+                17,
+                51
+            ],
+            "locks2": [
+                32,
+                47
+            ]
+        },
+        "20250807": {
+            "phrase": "_ ___ ______ _______ __s ___ __, ___ _n__-____ ____ ___ ___, ________ _i__ __'_ ____ ___ ___ __t____.",
+            "answer": "AfatrabbitsniffeditwayinandsapPussshutthebaggrinninglkehedjustwonthelotery",
+            "solv": 99.34,
+            "author": "Charles Perrault",
+            "desc": "1628- 1703",
+            "locks1": [
+                6,
+                16,
+                55
+            ],
+            "locks2": [
+                11
+            ]
+        },
+        "20250808": {
+            "phrase": "__ _______ __e _____t __ ___ _i__'_ ______ ___ _____, ______, \"A ____ ____ _y ______, ___ ______s __ __r____.\"",
+            "answer": "HecarriedthrabbitothekngscastleandbowedsayinggiftfrommmastertheMarquiofCaabas",
+            "solv": 99.23,
+            "author": "Charles Perrault",
+            "desc": "1628- 1703",
+            "locks1": [
+                0,
+                13,
+                35,
+                52
+            ],
+            "locks2": [
+                26,
+                37
+            ]
+        },
+        "20250809": {
+            "phrase": "\"___ _______s!\" __e ____ _a__, _______ ___r_____, ___ ____ _u____ __ ________ __ ___ ___ ___i__.",
+            "answer": "HowgraciouthkingsidclearlyimpessedandPussprredinapprovalofhisowngenus",
+            "solv": 99.12,
+            "author": "Charles Perrault",
+            "desc": "1628- 1703",
+            "locks1": [
+                36,
+                37
+            ],
+            "locks2": [
+                13,
+                39
+            ]
+        },
+        "20250810": {
+            "phrase": "___ __t__ ___, ____ ______ ___a_____, ____s, ___ _______, ______ d_________ __e_ ____ __y__ _____.",
+            "answer": "DayaferdayPusscaughtphesantsduckandrabbitsalwayseliveringthmwithroalflair",
+            "solv": 99.01,
+            "author": "Charles Perrault",
+            "desc": "1628- 1703",
+            "locks1": [
+                18,
+                43,
+                72
+            ],
+            "locks2": [
+                12,
+                39,
+                70
+            ]
+        },
+        "20250811": {
+            "phrase": "T__ ____ _____ __ _____ h_____ __ ___s ____e_____ _____i_, _____ ___ b__ ____ _____ ___ __ ____ _o______.",
+            "answer": "hekingbegantospeakighlyofthimystriousMarquswhiletheoyjusttriednottolookcnfused",
+            "solv": 98.9,
+            "author": "Charles Perrault",
+            "desc": "1628- 1703",
+            "locks1": [
+                8,
+                54,
+                62
+            ],
+            "locks2": [
+                15,
+                68
+            ]
+        },
+        "20250812": {
+            "phrase": "O__ ___, ____ h____ __e ____ ___ ______s_ ____d ____ __ ___ _____, ___ __ _______ _ ____ a_ _____ __ _ __n_.",
+            "answer": "nedayPusseardthkingandprinceswoulridebytheriverandhehatchedaplansquickasawik",
+            "solv": 98.79,
+            "author": "Charles Perrault",
+            "desc": "1628- 1703",
+            "locks1": [
+                11,
+                15,
+                34,
+                68
+            ],
+            "locks2": [
+                53
+            ]
+        },
+        "20250813": {
+            "phrase": "__ ____ ___ ______, \"____ _n__ t__ _____ __e_ _ ____ ___ _i____-___ __ ___ ___ __ __o__.\"",
+            "answer": "HetoldhismasterJumpitoheriverwhnIgivethesgnalanddotrynottodrwn",
+            "solv": 98.68,
+            "author": "Charles Perrault",
+            "desc": "1628- 1703",
+            "locks1": [
+                6,
+                48,
+                51
+            ],
+            "locks2": [
+                13
+            ]
+        },
+        "20250814": {
+            "phrase": "__ t__ _____ ________ ______, ____ s______, \"_e__! __ ______, ___ _______ __ _a_____, __ _r______!\"",
+            "answer": "AsheroyalcarriagenearedPusshoutedHlpMymastertheMarquisofCrabasisdowning",
+            "solv": 98.57,
+            "author": "Charles Perrault",
+            "desc": "1628- 1703",
+            "locks1": [
+                5,
+                22,
+                47
+            ],
+            "locks2": [
+                19,
+                52
+            ]
+        },
+        "20250815": {
+            "phrase": "T__ ____ __s___ __ ____, _______ ___ __n___ ____h__ ___ ___ ___, ___ ___ ________ __d_____ ______ __r_ ___e______.",
+            "answer": "hekingruhedtohelporderedhisfiestclotesfortheboyandtheprincesssudenlylookedveyintrested",
+            "solv": 98.46,
+            "author": "Charles Perrault",
+            "desc": "1628- 1703",
+            "locks1": [
+                45,
+                55,
+                68
+            ],
+            "locks2": [
+                19,
+                58
+            ]
+        },
+        "20250816": {
+            "phrase": "\"_o_ ____... _____,\" ___ _a__, __ __e ___ _____ ___, _____ ______ ___ __ ___ __ __n__ ____s.",
+            "answer": "Yulooknobleshesidasthboydriedoffstillunsurewhyhewasinfacypant",
+            "solv": 98.35,
+            "author": "Charles Perrault",
+            "desc": "1628- 1703",
+            "locks1": [
+                2,
+                12
+            ],
+            "locks2": [
+                27,
+                39
+            ]
+        },
+        "20250817": {
+            "phrase": "_________, ____ _a____ ____d, r_____ __ _ _____ __s___ __l__ __ _ ________, ___ ______ _n________, ___e.",
+            "answer": "MeanwhilePussdshedaheaacingtoagrandcatleruedbyapowerfulandratherupleasantogr",
+            "solv": 98.24,
+            "author": "Charles Perrault",
+            "desc": "1628- 1703",
+            "locks1": [
+                5,
+                27
+            ],
+            "locks2": [
+                2,
+                31,
+                50
+            ]
+        },
+        "20250818": {
+            "phrase": "\"I_ __ ____ ___ ___ ____ ____ ___ ____t___?\" __s_ _____ ___ __r_, ____ _________ ____ ______e_.",
+            "answer": "sittrueyoucanturnintoanycreaurePusaskedtheogetailtwitchingwithmischif",
+            "solv": 98.13,
+            "author": "Charles Perrault",
+            "desc": "1628- 1703",
+            "locks1": [
+                5,
+                10,
+                18
+            ],
+            "locks2": [
+                46,
+                51
+            ]
+        },
+        "20250819": {
+            "phrase": "\"O_ ___r__!\" ______ t__ ___e, _______ ____ _ ____ ____ _ _____ ____ _____ ___ f____.",
+            "answer": "fcouseroaredheogrturningintoalionwithagrowlthatshooktheloor",
+            "solv": 98.02,
+            "author": "Charles Perrault",
+            "desc": "1628- 1703",
+            "locks1": [
+                24,
+                45,
+                48
+            ],
+            "locks2": [
+                9,
+                40
+            ]
+        },
+        "20250820": {
+            "phrase": "\"_____s____,\" __i_ ____. \"___ ___ ___ ______ ___e_____... _m___?\"",
+            "answer": "ImpresivesadPussButcanyoubecomesomthingsall",
+            "solv": 97.91,
+            "author": "Charles Perrault",
+            "desc": "1628- 1703",
+            "locks1": [
+                23
+            ],
+            "locks2": [
+                14,
+                20
+            ]
+        },
+        "20250821": {
+            "phrase": "W___ _ _____, __e ____ _____k _n__ _ ___s_-____ ____ _______, _____o___ ___ _____, ___ _______ ___ ___ _h______.",
+            "answer": "ithasnortthogreshranitoamouethenPusspouncedswallwedhimwholeandbrushedoffhiswiskers",
+            "solv": 97.81,
+            "author": "Charles Perrault",
+            "desc": "1628- 1703",
+            "locks1": [
+                8,
+                13,
+                52,
+                59
+            ],
+            "locks2": [
+                34,
+                66
+            ]
+        },
+        "20250822": {
+            "phrase": "T__ ____'s ________ _______ ____ __ ____ ______ ___ ___e_: \"_______ __ ___ ______ __ ___ _______ __ _a_____!\"",
+            "answer": "hekingcarriagearrivedjustasPussopenedthegatsWelcometothecastleoftheMarquisofCrabas",
+            "solv": 97.7,
+            "author": "Charles Perrault",
+            "desc": "1628- 1703",
+            "locks1": [
+                6,
+                17
+            ],
+            "locks2": [
+                29,
+                57
+            ]
+        },
+        "20250823": {
+            "phrase": "\"_h__ __ _s____!\" ______ t__ ____, _____ ___ p_______ _________, \"__i_ _______ __ ____ __ _______e_.\"",
+            "answer": "WatanetategaspedhekingwhiletherincesswhisperedThsMarquisisfullofsurpriss",
+            "solv": 97.59,
+            "author": "Charles Perrault",
+            "desc": "1628- 1703",
+            "locks1": [
+                4,
+                60,
+                66
+            ],
+            "locks2": [
+                12,
+                42,
+                50
+            ]
+        },
+        "20250824": {
+            "phrase": "____ ______g, t__ ___ ___ __i_____ _____ _n___ ____ _____e_____, ___ __s_ _______ _____ d___ ____ ___ ___ __ ___ __a__.",
+            "answer": "ThateveninheboyandprncessdinedudergoldchandliersandPusnibbledroastuckwithonepawinthegrvy",
+            "solv": 97.48,
+            "author": "Charles Perrault",
+            "desc": "1628- 1703",
+            "locks1": [
+                56,
+                61,
+                73
+            ],
+            "locks2": [
+                27,
+                59
+            ]
+        },
+        "20250825": {
+            "phrase": "\"___l_ _o_ ____ __ ____ __ t__ ______ ___e___?\" ___ ____ _____, _______ ________ _____n_ ______.",
+            "answer": "Woudyuliketostayinhecastleforverthekingaskedalreadyplanningweddigfeasts",
+            "solv": 97.37,
+            "author": "Charles Perrault",
+            "desc": "1628- 1703",
+            "locks1": [
+                7,
+                58,
+                68
+            ],
+            "locks2": [
+                14
+            ]
+        },
+        "20250826": {
+            "phrase": "__e ___ _______ _____ ___ ______-_____ ___, ______ __ __ _____t_ __ __d _a_____.",
+            "answer": "Thboyblinkedtwiceandnoddedafterallsayingnotoroyalyisbamnners",
+            "solv": 97.26,
+            "author": "Charles Perrault",
+            "desc": "1628- 1703",
+            "locks1": [
+                14,
+                21,
+                32
+            ],
+            "locks2": [
+                8,
+                35
+            ]
+        },
+        "20250827": {
+            "phrase": "__e ________ _____d, ___ ____ _h_____, ___ ____ ____s___ ___ _______ _i__ _ _____ ___n.",
+            "answer": "ThprincesssmilethekingceeredandPusspolihedoffdessertlkeanoblebor",
+            "solv": 97.15,
+            "author": "Charles Perrault",
+            "desc": "1628- 1703",
+            "locks1": [
+                3,
+                31,
+                57
+            ],
+            "locks2": [
+                33,
+                46,
+                59
+            ]
+        },
+        "20250828": {
+            "phrase": "____ ____ ___, ___ ___ ____d l___ _ ____, ___ _____ _____ _o_ __ a__ ____e___.",
+            "answer": "Fromthatdaytheboyliveikealordandneveraskedhwitllhappned",
+            "solv": 97.04,
+            "author": "Charles Perrault",
+            "desc": "1628- 1703",
+            "locks1": [
+                12,
+                45
+            ],
+            "locks2": [
+                9,
+                40
+            ]
+        },
+        "20250829": {
+            "phrase": "__s_, __ ______, _____ __ c______, _______ _i__ ____ ____ __ ____ ___e __o__.",
+            "answer": "Pusofcourselivedinomfortchasingmceonlywhenhefeltliksprt",
+            "solv": 96.93,
+            "author": "Charles Perrault",
+            "desc": "1628- 1703",
+            "locks1": [
+                36,
+                41,
+                44
+            ],
+            "locks2": [
+                6,
+                14
+            ]
+        },
+        "20250830": {
+            "phrase": "_n_ __, t__ ___v__ ___ ____ _o___ ___ __a___ _____d ____ _________, ___ ___ ____ __ ______e___ ___ _ ______ ___.",
+            "answer": "Adsohecleercatwithbotsandbrinsprovethatsometimesallyouneedisconfidnceandalittlefur",
+            "solv": 96.82,
+            "author": "Charles Perrault",
+            "desc": "1628- 1703",
+            "locks1": [
+                2,
+                11,
+                15,
+                49
+            ],
+            "locks2": [
+                42
+            ]
+        }
+    }
+}

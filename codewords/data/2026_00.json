@@ -1,0 +1,540 @@
+{
+    "sceneName": "Charlie and the Chocolate Factory",
+    "bg_header": "e07d4d",
+    "bg_body": "fadcc6",
+    "bg_keyboard": "#984b31",
+    "keyboard_key_normal": "f5f1eb",
+    "keyboard_key_disabled": "#6b3b2b",
+    "keyboard_text_normal": "37342d",
+    "keyboard_text_disabled": "#413328",
+    "keyboard_text_reveal": "#49B03B",
+    "hud_text_color": "250a05",
+    "hud_bg_light": "ffffff",
+    "hud_bg_dark": "2b2018",
+    "author": "Roald Dahl",
+    "desc": "1916-1990",
+    "puzzles": {
+        "20260001": {
+            "phrase": "_h_____ _____t ___ _ ___r ___ ___ _____ ____ _i_ _a_____ ___ ________e___ __ _ _____, ______ _____ n___ _ __s____ _________ ____o__.",
+            "answer": "CarlieBuckewasapooboywholivedwithhsprentsandgrandparntsinasmallshabbyhouseearamasivechocolatefactry",
+            "solv": 100.0,
+            "author": "Roald Dahl",
+            "desc": "1916-1990",
+            "locks1": [
+                24,
+                43,
+                84
+            ],
+            "locks2": [
+                19,
+                65
+            ]
+        },
+        "20260002": {
+            "phrase": "___ ______ ___ s_ ____ ___y _o___ __r___ ______ _e___, ___ __a____ l____ t___ ______ ___ _________ _____ ______ ____ _____ _____h__.",
+            "answer": "HisfamilywasopoortheculdbaelyaffordmalsbutChrlieovedhemdearlyandcherishedeverymomenttheyspenttogeter",
+            "solv": 99.89,
+            "author": "Roald Dahl",
+            "desc": "1916-1991",
+            "locks1": [
+                3,
+                34
+            ],
+            "locks2": [
+                56,
+                65,
+                79
+            ]
+        },
+        "20260003": {
+            "phrase": "N_____ _____ _____ _____'s _h_______ _______, ____ __ _y_____, ____ _e_____ a____ _______ ____t_ ___ __________ _______o__ i_____.",
+            "answer": "earbystoodWillyWonkacocolatefactoryfullofmsterywithlgendsboutmagicalsweesandimpossibleinventinsnside",
+            "solv": 99.78,
+            "author": "Roald Dahl",
+            "desc": "1916-1992",
+            "locks1": [
+                9,
+                30,
+                47,
+                84
+            ],
+            "locks2": [
+                11,
+                32
+            ]
+        },
+        "20260004": {
+            "phrase": "N_ ___ _a_ _v__ ____ __e ______ __ ___ _______, ___ ___ ____ __t__ ________ _____d, _______ ____i__ __ ______ ___ ____o____.",
+            "answer": "oonehdeerseenthinsideofthefactoryandthehugegaesremainedlockefuelingstoresofwonderandcurisity",
+            "solv": 99.67,
+            "author": "Roald Dahl",
+            "desc": "1916-1993",
+            "locks1": [
+                17,
+                26,
+                39
+            ],
+            "locks2": [
+                30,
+                62,
+                77
+            ]
+        },
+        "20260005": {
+            "phrase": "___ ___, ____y __n__ _________ _ ____e__: ____ ______ _i_____ ______ ______ __o______ _a__ ____d____ ___l_ _____ _ _____ _____.",
+            "answer": "OnedayWillWokaannouncedacontstfivegoldentcketshiddeninsidechcolatebrsworlwidewoudgrantagrandprize",
+            "solv": 99.56,
+            "author": "Roald Dahl",
+            "desc": "1916-1994",
+            "locks1": [
+                20,
+                93
+            ],
+            "locks2": [
+                37
+            ]
+        },
+        "20260006": {
+            "phrase": "___ __c__ ________ ___ _____ ___ ____e__ _____ ____ ___ a______ _______ ___ _______ _ _i______ ______ __ __o______ ___ t_____.",
+            "answer": "Thelukychildrenwhofoundtheticktswouldtourhismazingfactoryandreceivealfetimesupplyofchcolateandreats",
+            "solv": 99.45,
+            "author": "Roald Dahl",
+            "desc": "1916-1995",
+            "locks1": [
+                36,
+                40,
+                58,
+                76
+            ],
+            "locks2": [
+                51,
+                61,
+                79
+            ]
+        },
+        "20260007": {
+            "phrase": "__a____ _______ __ _ __l___ t_____, ___ __ ____ h__ _____e_ ____ ____, ___ ___ ___i__'_ _______ __d_ __ ______ ____s_____.",
+            "answer": "Chrliedreamedofagodenicketbutheknewischancsweretinyandhisfamlyspovertymaeitalmostimposible",
+            "solv": 99.34,
+            "author": "Roald Dahl",
+            "desc": "1916-1996",
+            "locks1": [
+                64
+            ],
+            "locks2": [
+                8,
+                48
+            ]
+        },
+        "20260008": {
+            "phrase": "_a__ ___ __ ______ t__ _____ ____, __z___ __ ___ ___i_____ ________e_, _________ _h__ __ _o___ __ ____ __ __s__ ____ ______.",
+            "answer": "Echdayhepassedhecandyshopgaingatthedelciouschocolatsimaginingwatitwuldbeliketotatethemfreely",
+            "solv": 99.23,
+            "author": "Roald Dahl",
+            "desc": "1916-1997",
+            "locks1": [
+                19,
+                60,
+                90
+            ],
+            "locks2": [
+                54,
+                88
+            ]
+        },
+        "20260009": {
+            "phrase": "O_ ___ ___t____, ______e __c_____ _ ______ ______a__ ___ _r__ ___ ______, _ ____ ____ ____ _______ ___i______ ___ ____ __ h__.",
+            "answer": "nhisbirhdayCharlireeivedasinglechocoltebarfomhisfatherararegiftthatbroughtexctementandhopetoim",
+            "solv": 99.12,
+            "author": "Roald Dahl",
+            "desc": "1916-1998",
+            "locks1": [
+                61,
+                71,
+                85
+            ],
+            "locks2": [
+                27,
+                40
+            ]
+        },
+        "20260010": {
+            "phrase": "_________ _______i__ _t, __ __________ _ _____ ___d__ ____e_ ______, _____n_ h__ ____ _________, ___, ___ _________ a_ ___ l___.",
+            "answer": "Carefullyunwrappngihediscoveredashinygolenticktinsidefilligimwithamazementjoyanddisbeliefthisuck",
+            "solv": 99.01,
+            "author": "Roald Dahl",
+            "desc": "1916-1999",
+            "locks1": [
+                4
+            ],
+            "locks2": [
+                23,
+                35,
+                69,
+                81
+            ]
+        },
+        "20260011": {
+            "phrase": "____l__ c____ ______ _______ _i_ _____n___, _______ _e _____ ____ ____ __s___ _____ ____a'_ _______ ___ _________ _h_______ ____o__.",
+            "answer": "CharieouldhardlycontainhshappiessknowinghwouldsoonstepinideWillyWonksmagicalandlegendarycocolatefactry",
+            "solv": 98.9,
+            "author": "Roald Dahl",
+            "desc": "1916-2000",
+            "locks1": [
+                12,
+                19,
+                36,
+                45,
+                63
+            ],
+            "locks2": [
+                17,
+                34,
+                60,
+                85
+            ]
+        },
+        "20260012": {
+            "phrase": "__e ___ __ ___ _o__ _______, ___ _h_____ j_____ ____ _____ ________, __t______ _________ __ ___ _n______ _a___ __ ___ _____r_.",
+            "answer": "ThdayoftheturarrivedandCarlieoinedfourotherchildrengaheringnervouslyattheeormousgtesofthefactoy",
+            "solv": 98.79,
+            "author": "Roald Dahl",
+            "desc": "1916-2001",
+            "locks1": [
+                16,
+                43,
+                64
+            ],
+            "locks2": [
+                14,
+                35,
+                47,
+                60
+            ]
+        },
+        "20260013": {
+            "phrase": "____y ____a ____t__ ____ ______, ____i__ _ ________ ____ ___ _ ___________ ___l_ ____ ____ ___ _____r__ _o__ n______ ___ e______.",
+            "answer": "WillWonkgreeedthemwarmlywearngacolorfulsuitandamischievoussmiethatmadethechildenbthervousandxcited",
+            "solv": 98.68,
+            "author": "Roald Dahl",
+            "desc": "1916-2002",
+            "locks1": [
+                15,
+                17,
+                39,
+                50,
+                68
+            ],
+            "locks2": [
+                19,
+                41,
+                53
+            ]
+        },
+        "20260014": {
+            "phrase": "____ s______ ______ ___ ___p__ __ ___e__ __ c________, ___d_ t____, ___ __n________ _a______ ____ ______ _____ ______ __ ___ _____r_.",
+            "answer": "Theyteppedinsideandgasedatrivrsofhocolatecanyreesandfatasticalmchinesthatfilledeverycornerofthefactoy",
+            "solv": 98.57,
+            "author": "Roald Dahl",
+            "desc": "1916-2003",
+            "locks1": [
+                32,
+                34,
+                74,
+                93
+            ],
+            "locks2": [
+                71,
+                88
+            ]
+        },
+        "20260015": {
+            "phrase": "_h_ _____r_ ______ __i__, ____ ___e______ ___d_____ ____t_ ____ ______ __a________, _______ ___ ________ __ ___ ___ __n___.",
+            "answer": "Tefactoyseemedalvewithinvntionsproucingsweesthatdefiedimginationleavingthechildreninaweandwoder",
+            "solv": 98.46,
+            "author": "Roald Dahl",
+            "desc": "1916-2004",
+            "locks1": [
+                8,
+                18,
+                70,
+                74
+            ],
+            "locks2": [
+                49,
+                68
+            ]
+        },
+        "20260016": {
+            "phrase": "A_______ __o__, ___ ______ __y, ______ ___ _____ __ t__ _____l___ _____ ___ ____ __, c______ ____s __ __ ___ ______ ____ _ ___e.",
+            "answer": "ugustusGlopthegreedyboleanedtooclosetohechocoateriverandfellinausingchaoashewassuckedintoapip",
+            "solv": 98.35,
+            "author": "Roald Dahl",
+            "desc": "1916-2005",
+            "locks1": [
+                2,
+                18,
+                85
+            ],
+            "locks2": [
+                12,
+                16,
+                24,
+                33
+            ]
+        },
+        "20260017": {
+            "phrase": "___l__ _e_________ ____r__ ___n____ ___ ______ __ ____________ g__, _____i__ ___o _ ____t _________ ___ _______ ______ a___.",
+            "answer": "VioetBauregardeignoedwaringsandchewedanexperimentalumswellngintagianblueberryandrollingwildlyway",
+            "solv": 98.24,
+            "author": "Roald Dahl",
+            "desc": "1916-2006",
+            "locks1": [
+                36,
+                91
+            ],
+            "locks2": [
+                49,
+                71,
+                82,
+                88
+            ]
+        },
+        "20260018": {
+            "phrase": "_e____ ___t ________ _____ ______ _____ ___ ___, ___ ___n ___ _____ __ s____ o__, ___ ____ ____ _ _____, __a____ __ __r ____d.",
+            "answer": "VrucaSaldemandedeverygoldengooseshesawandwheshetriedtoeizeneshefelldownachutetrppedbyhegree",
+            "solv": 98.13,
+            "author": "Roald Dahl",
+            "desc": "1916-2007",
+            "locks1": [
+                23,
+                27,
+                72
+            ],
+            "locks2": [
+                13,
+                33,
+                36
+            ]
+        },
+        "20260019": {
+            "phrase": "____ _e____, ________ ____ ______s___, ______ __ _ __n_ ____ a____ _____ _ __o______ ________i__ __v___, ___________ ___r____ ______t.",
+            "answer": "MikeTaveeobsessedwithteleviionshranktoatiysizefterusingachcolateteleportngdeiceastonishingeveyonepresen",
+            "solv": 98.02,
+            "author": "Roald Dahl",
+            "desc": "1916-2008",
+            "locks1": [
+                20
+            ],
+            "locks2": [
+                1,
+                12,
+                81
+            ]
+        },
+        "20260020": {
+            "phrase": "_h_____ _l_ __e ____a__, ___r___ ________ _u____, _______, ___ ____, ____i__ _____ __n__'_ _____ __________ ___ _____ __________ ___ t___.",
+            "answer": "TroughalthmishpsChalieremainedhmblecarefulandkindearnngWillyWokasquietadmirationandtrustthroughouttheour",
+            "solv": 97.91,
+            "author": "Roald Dahl",
+            "desc": "1916-2009",
+            "locks1": [
+                10,
+                29,
+                78
+            ],
+            "locks2": [
+                38,
+                75,
+                89
+            ]
+        },
+        "20260021": {
+            "phrase": "T__ ____r ______e_'_ __a__-_____, __________, ___ __n___ ______ _________ _l___, _____ _h_____'_ ____s__ ___ ________ _____ __i_____.",
+            "answer": "heothechildrnsflwsgreedimpatienceandvaitybecamepainfullycearwhileCarlieshonetyandgoodnessshonebrghtly",
+            "solv": 97.81,
+            "author": "Roald Dahl",
+            "desc": "1916-2010",
+            "locks1": [
+                31,
+                55,
+                84
+            ],
+            "locks2": [
+                29,
+                48,
+                61,
+                92
+            ]
+        },
+        "20260022": {
+            "phrase": "_____ _o___ ______ ____ _____ __ ___________ ________e__, _____ _______ _____s, ___ _________ ____i__ __a_ ______ __________ ______l.",
+            "answer": "WillyWnkashowedthemroomsofeverlastinggobstopprsfizzyliftingdrinkandmarvelouscandesthtseemedcompletelymagica",
+            "solv": 97.7,
+            "author": "Roald Dahl",
+            "desc": "1916-2011",
+            "locks1": [
+                14,
+                18,
+                36,
+                91
+            ],
+            "locks2": [
+                20,
+                32,
+                71
+            ]
+        },
+        "20260023": {
+            "phrase": "______e ________ __ _____ i________, ___ __ ________ __________, _____ _a_____ _____l_ o_ __n_____ t__ _____ __ ___ _____r_.",
+            "answer": "Charlimarveledateverynventionyetheremainedrespectfulnevercusingtrouberigoringherulesofthefactoy",
+            "solv": 97.59,
+            "author": "Roald Dahl",
+            "desc": "1916-2012",
+            "locks1": [
+                32,
+                49,
+                80
+            ],
+            "locks2": [
+                10,
+                39
+            ]
+        },
+        "20260024": {
+            "phrase": "T__ _____ ______s ____ ______ __n__, _______ __ ___ ____e__ __ _____, ___________, ___ ______ ____ ___o_ ___ ________ _h____.",
+            "answer": "heOompaLoompasangcleversogswarningofthedangrsofgreedselfishnessandvanitywithhumrandrhythmicrymes",
+            "solv": 97.48,
+            "author": "Roald Dahl",
+            "desc": "1916-2013",
+            "locks1": [
+                4,
+                33,
+                65,
+                69
+            ],
+            "locks2": [
+                53
+            ]
+        },
+        "20260025": {
+            "phrase": "__ ____, _h_____ ___ t__ __l_ __i__ ____ _____c___ __ __________, _____n_ __ ___ ___ _____, _a______, ___ ___r_____ __ _______ ___ ____e.",
+            "answer": "AtlastCarliewasheonychldleftuntouhedbymisfortuneprovighehadtheheartptienceandchaactertoinheritthepriz",
+            "solv": 97.37,
+            "author": "Roald Dahl",
+            "desc": "1916-2014",
+            "locks1": [
+                31,
+                40,
+                58
+            ],
+            "locks2": [
+                3,
+                44,
+                90
+            ]
+        },
+        "20260026": {
+            "phrase": "_____ ____a ________ h__ ____ ___n: __ ______ _ ____-_e_____ __i_ __ ____ o___ ___ ________ _______t_ _____r_ ___ ________ ___ ____c_.",
+            "answer": "WillyWonkrevealedistrueplahewantedakindhartedhertotakeverhiswondrouschocolaefactoyandcontinuehislegay",
+            "solv": 97.26,
+            "author": "Roald Dahl",
+            "desc": "1916-2015",
+            "locks1": [
+                28,
+                38,
+                52,
+                67
+            ],
+            "locks2": [
+                13,
+                61,
+                87
+            ]
+        },
+        "20260027": {
+            "phrase": "_____i_ __d ___ ______ ____ ____t__ __ ____ __ _h_ _______, __l____ ___ __ _____ _n______ _ ____ __r_______ __ __e___, _a___, ___ ___.",
+            "answer": "Charleanhisfamilywereinviedtoliveintefactoryhepingrunitwhileejoyingalifesuroundedbyswetsmgicandjoy",
+            "solv": 97.15,
+            "author": "Roald Dahl",
+            "desc": "1916-2016",
+            "locks1": [
+                10,
+                43,
+                96
+            ],
+            "locks2": [
+                14,
+                38
+            ]
+        },
+        "20260028": {
+            "phrase": "_______s_ __l___ ______e'_ _____ __ __ _____n__ a_________ __ _h_ ___t___, ___r___ ___ ______ ____ ___ ______ ___ ________ ___ __i___.",
+            "answer": "HappinesfiledCharlisheartasheimagieddventuresintefacoryshaingthewonderwithhisfamilyandlearningnewthngs",
+            "solv": 97.04,
+            "author": "Roald Dahl",
+            "desc": "1916-2017",
+            "locks1": [
+                77,
+                93,
+                96
+            ],
+            "locks2": [
+                22,
+                68,
+                91
+            ]
+        },
+        "20260029": {
+            "phrase": "__e ____ ___ ___ ___ ____ ___ _______ _o_ ___ ________n_, ___ __ _____d ___b__, __a_____, ___ ____ __ ____ ___ t____ ______ h__.",
+            "answer": "Thpoorboywhohadoncehadnothingnwhadeverythigyethestayehumlegrtefulandfullofloveforhosearoundim",
+            "solv": 96.93,
+            "author": "Roald Dahl",
+            "desc": "1916-2018",
+            "locks1": [
+                68,
+                80,
+                88
+            ],
+            "locks2": [
+                7,
+                25,
+                70
+            ]
+        },
+        "20260030": {
+            "phrase": "_____ ____a ______, _______ ___ _______'s ______ ___ ____ ____ _____i_, _ b__ _____ _o_____, __n____, ___ ________ w___ _______e_.",
+            "answer": "WillyWonksmiledknowingthefactoryfuturewassafewithCharleaoywhosecuragehoestyandkindnessereunmatchd",
+            "solv": 96.82,
+            "author": "Roald Dahl",
+            "desc": "1916-2019",
+            "locks1": [
+                22,
+                36
+            ],
+            "locks2": [
+                16,
+                42,
+                59,
+                83
+            ]
+        },
+        "20260031": {
+            "phrase": "___ s_, ____l__ ____e_'_ ____ _______ _______, __o____ ____ ___a__, ___d____, ___ __t_____ ___ ____ __ _ _____ _______ _____n_.",
+            "answer": "AndoCharieBucktslifechangedforeverprvingthatdremsgoonessandpaiencecanleadtoatrulymagicaldestiy",
+            "solv": 96.71,
+            "author": "Roald Dahl",
+            "desc": "1916-2020",
+            "locks1": [
+                33,
+                41,
+                84
+            ],
+            "locks2": [
+                23,
+                30,
+                82
+            ]
+        }
+    }
+}
