@@ -129,6 +129,7 @@ export function JsonCompareView({ onClose }: { onClose?: () => void }) {
       <head>
       <meta charset="utf-8" />
       <style>
+        body, table { font-family: "Times New Roman", Times, serif; }
         table { border-collapse: collapse; }
         th, td { border: 1px solid #ccc; padding: 8px; vertical-align: top; }
       </style>
@@ -153,12 +154,12 @@ export function JsonCompareView({ onClose }: { onClose?: () => void }) {
 
       change.categories.forEach(c => {
         let prevStyle = '';
-        if (c.status === 'Removed') prevStyle = 'color: #ef4444; text-decoration: line-through;';
-        else if (c.status === 'Modified') prevStyle = 'color: #ef4444;';
+        if (c.status === 'Removed') prevStyle = 'color: #ef4444; text-decoration: line-through; font-weight: bold;';
+        else if (c.status === 'Modified') prevStyle = 'color: #ef4444; font-weight: bold;';
         
         let currStyle = '';
-        if (c.status === 'Added') currStyle = 'color: #10b981;';
-        else if (c.status === 'Modified') currStyle = 'color: #10b981;';
+        if (c.status === 'Added') currStyle = 'color: #10b981; font-weight: bold;';
+        else if (c.status === 'Modified') currStyle = 'color: #10b981; font-weight: bold;';
         
         prevCellHtml += `<div style="${prevStyle}">${c.prevWords}</div>`;
         currCellHtml += `<div style="${currStyle}">${c.currWords}</div>`;
