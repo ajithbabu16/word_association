@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { UploadCloud, CheckCircle, AlertTriangle, ArrowRight, GitCommit } from 'lucide-react';
+import React, { useState, useMemo } from 'react';
+import { UploadCloud, CheckCircle, AlertTriangle, ArrowRight, GitCommit, Download } from 'lucide-react';
 
 export function JsonCompareView({ onClose }: { onClose?: () => void }) {
   const [prevJson, setPrevJson] = useState<any>(null);
@@ -29,10 +29,9 @@ export function JsonCompareView({ onClose }: { onClose?: () => void }) {
     reader.readAsText(file);
   };
 
-  const renderDiff = () => {
-    if (!prevJson || !currentJson) return null;
+  const changes = useMemo(() => {
+    if (!prevJson || !currentJson) return [];
 
-    // Normalize input to arrays of levels
     const getLevels = (data: any) => {
       if (Array.isArray(data)) return data;
       if (data && Array.isArray(data.levels)) return data.levels;
@@ -42,15 +41,20 @@ export function JsonCompareView({ onClose }: { onClose?: () => void }) {
     const prevLevels = getLevels(prevJson);
     const currLevels = getLevels(currentJson);
 
-    const changes: {
-      levelId: string;
+    interface CategoryDiff {
       category: string;
       prevWords: string;
       currWords: string;
       status: 'Added' | 'Removed' | 'Modified' | 'Unchanged';
+    }
+
+    const diffs: {
+      levelId: string;
+      levelNumber: number | string;
+      status: 'Added' | 'Removed' | 'Modified' | 'Unchanged';
+      categories: CategoryDiff[];
     }[] = [];
 
-    // Map by level ID
     const prevMap = new Map<string, any>();
     prevLevels.forEach((l: any) => {
       const id = l.id || `${l.levelNumber}-${l.stageNumber || 1}`;
@@ -63,13 +67,14 @@ export function JsonCompareView({ onClose }: { onClose?: () => void }) {
       currMap.set(id, l);
     });
 
-    // Compare
     const allLevelIds = Array.from(new Set([...prevMap.keys(), ...currMap.keys()]));
     allLevelIds.sort();
 
     allLevelIds.forEach(id => {
       const pLevel = prevMap.get(id);
       const cLevel = currMap.get(id);
+
+      const levelNumber = pLevel?.levelNumber || cLevel?.levelNumber || '-';
 
       const pGroups = pLevel?.groups || [];
       const cGroups = cLevel?.groups || [];
@@ -80,23 +85,115 @@ export function JsonCompareView({ onClose }: { onClose?: () => void }) {
       const allCats = Array.from(new Set([...pCatMap.keys(), ...cCatMap.keys()]));
       allCats.sort();
 
-      allCats.forEach((cat: string) => {
+      const catDiffs: CategoryDiff[] = [];
+      let hasModifications = false;
+
+      allCats.forEach(cat => {
         const pGroup = pCatMap.get(cat);
         const cGroup = cCatMap.get(cat);
-
-        const pWords = pGroup ? (pGroup.words || []).join(', ') : '';
-        const cWords = cGroup ? (cGroup.words || []).join(', ') : '';
-
+        const pWordsStr = pGroup ? `[${cat}:${(pGroup.words || []).join(',')}]` : '-';
+        const cWordsStr = cGroup ? `[${cat}:${(cGroup.words || []).join(',')}]` : '-';
+        
+        let catStatus: 'Added' | 'Removed' | 'Modified' | 'Unchanged' = 'Unchanged';
+        
         if (!pGroup && cGroup) {
-          changes.push({ levelId: id, category: cat, prevWords: '-', currWords: cWords, status: 'Added' });
+          catStatus = 'Added';
+          hasModifications = true;
         } else if (pGroup && !cGroup) {
-          changes.push({ levelId: id, category: cat, prevWords: pWords, currWords: '-', status: 'Removed' });
-        } else if (pWords !== cWords) {
-          changes.push({ levelId: id, category: cat, prevWords: pWords, currWords: cWords, status: 'Modified' });
+          catStatus = 'Removed';
+          hasModifications = true;
+        } else if (pWordsStr !== cWordsStr) {
+          catStatus = 'Modified';
+          hasModifications = true;
         }
-        // Optionally omit 'Unchanged' to only show diffs
+
+        catDiffs.push({ category: cat, prevWords: pWordsStr, currWords: cWordsStr, status: catStatus });
       });
+
+      let levelStatus: 'Added' | 'Removed' | 'Modified' | 'Unchanged' = 'Unchanged';
+      if (!pLevel && cLevel) levelStatus = 'Added';
+      else if (pLevel && !cLevel) levelStatus = 'Removed';
+      else if (hasModifications) levelStatus = 'Modified';
+
+      diffs.push({ levelId: id, levelNumber, status: levelStatus, categories: catDiffs });
     });
+
+    return diffs;
+  }, [prevJson, currentJson]);
+
+  const downloadExcel = () => {
+    if (changes.length === 0) return;
+    
+    let htmlContent = `
+      <html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">
+      <head>
+      <meta charset="utf-8" />
+      <style>
+        table { border-collapse: collapse; }
+        th, td { border: 1px solid #ccc; padding: 8px; vertical-align: top; }
+      </style>
+      </head>
+      <body>
+      <table>
+        <thead>
+          <tr>
+            <th style="background-color: #f1f5f9; font-weight: bold;">Level ID</th>
+            <th style="background-color: #f1f5f9; font-weight: bold;">Level Number</th>
+            <th style="background-color: #f1f5f9; font-weight: bold;">Changes</th>
+            <th style="background-color: #f1f5f9; font-weight: bold;">Previous Build (Words)</th>
+            <th style="background-color: #f1f5f9; font-weight: bold;">Current Build (Words)</th>
+          </tr>
+        </thead>
+        <tbody>
+    `;
+    
+    changes.forEach(change => {
+      let prevCellHtml = '';
+      let currCellHtml = '';
+
+      change.categories.forEach(c => {
+        let prevStyle = '';
+        if (c.status === 'Removed') prevStyle = 'color: #ef4444; text-decoration: line-through;';
+        else if (c.status === 'Modified') prevStyle = 'color: #ef4444;';
+        
+        let currStyle = '';
+        if (c.status === 'Added') currStyle = 'color: #10b981;';
+        else if (c.status === 'Modified') currStyle = 'color: #10b981;';
+        
+        prevCellHtml += `<div style="${prevStyle}">${c.prevWords}</div>`;
+        currCellHtml += `<div style="${currStyle}">${c.currWords}</div>`;
+      });
+
+      htmlContent += `
+        <tr>
+          <td>${change.levelId}</td>
+          <td>${change.levelNumber}</td>
+          <td>${change.status}</td>
+          <td>${prevCellHtml}</td>
+          <td>${currCellHtml}</td>
+        </tr>
+      `;
+    });
+    
+    htmlContent += `
+        </tbody>
+      </table>
+      </body>
+      </html>
+    `;
+    
+    const blob = new Blob([htmlContent], { type: 'application/vnd.ms-excel;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.setAttribute("href", url);
+    link.setAttribute("download", "json_comparison.xls");
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  const renderDiff = () => {
+    if (!prevJson || !currentJson) return null;
 
     if (changes.length === 0) {
       return (
@@ -110,17 +207,32 @@ export function JsonCompareView({ onClose }: { onClose?: () => void }) {
 
     return (
       <div style={{ marginTop: '32px', backgroundColor: '#0f172a', borderRadius: '16px', overflow: 'hidden', border: '1px solid #334155', boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)' }}>
-        <div style={{ backgroundColor: '#1e293b', padding: '16px 24px', borderBottom: '1px solid #334155', display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <GitCommit size={24} color="#3b82f6" />
-          <h2 style={{ fontSize: '20px', margin: 0, fontWeight: 600 }}>Structured Level Comparison</h2>
+        <div style={{ backgroundColor: '#1e293b', padding: '16px 24px', borderBottom: '1px solid #334155', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+            <GitCommit size={24} color="#3b82f6" />
+            <h2 style={{ fontSize: '20px', margin: 0, fontWeight: 600 }}>Structured Level Comparison</h2>
+          </div>
+          <button 
+            onClick={downloadExcel}
+            style={{ 
+              display: 'flex', alignItems: 'center', gap: '8px', 
+              padding: '8px 16px', backgroundColor: '#10b981', color: '#fff', 
+              border: 'none', borderRadius: '8px', cursor: 'pointer', 
+              fontWeight: 600, fontSize: '14px', transition: 'background-color 0.2s'
+            }}
+            onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#059669'}
+            onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#10b981'}
+          >
+            <Download size={16} /> Download Excel
+          </button>
         </div>
         
-        <div style={{ overflowX: 'auto', maxHeight: '600px', overflowY: 'auto' }}>
-          <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: '800px' }}>
+        <div style={{ overflowX: 'auto', maxHeight: 'calc(100vh - 350px)', overflowY: 'auto' }}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: '1000px' }}>
             <thead style={{ backgroundColor: '#0f172a', position: 'sticky', top: 0, zIndex: 1, boxShadow: '0 2px 4px rgba(0,0,0,0.2)' }}>
               <tr>
                 <th style={{ padding: '16px', borderBottom: '2px solid #334155', color: '#94a3b8', whiteSpace: 'nowrap' }}>Level ID</th>
-                <th style={{ padding: '16px', borderBottom: '2px solid #334155', color: '#94a3b8', whiteSpace: 'nowrap' }}>Category Name</th>
+                <th style={{ padding: '16px', borderBottom: '2px solid #334155', color: '#94a3b8', whiteSpace: 'nowrap' }}>Level Number</th>
                 <th style={{ padding: '16px', borderBottom: '2px solid #334155', color: '#94a3b8', whiteSpace: 'nowrap' }}>Changes</th>
                 <th style={{ padding: '16px', borderBottom: '2px solid #334155', color: '#94a3b8' }}>Previous Build (Words)</th>
                 <th style={{ padding: '16px', borderBottom: '2px solid #334155', color: '#94a3b8' }}>Current Build (Words)</th>
@@ -145,13 +257,34 @@ export function JsonCompareView({ onClose }: { onClose?: () => void }) {
                 return (
                   <tr key={idx} style={{ backgroundColor: bgColor, borderBottom: '1px solid #1e293b' }}>
                     <td style={{ padding: '16px', borderRight: '1px solid #1e293b', fontWeight: 600, color: '#e2e8f0' }}>{change.levelId}</td>
-                    <td style={{ padding: '16px', borderRight: '1px solid #1e293b', fontWeight: 600, color: '#e2e8f0' }}>{change.category}</td>
+                    <td style={{ padding: '16px', borderRight: '1px solid #1e293b', fontWeight: 600, color: '#e2e8f0' }}>{change.levelNumber}</td>
                     <td style={{ padding: '16px', borderRight: '1px solid #1e293b', color: statusColor, fontWeight: 700 }}>{change.status}</td>
-                    <td style={{ padding: '16px', borderRight: '1px solid #1e293b', color: change.status === 'Removed' ? '#ef4444' : '#94a3b8', textDecoration: change.status === 'Removed' ? 'line-through' : 'none' }}>
-                      {change.prevWords}
+                    <td style={{ padding: '16px', borderRight: '1px solid #1e293b', wordBreak: 'break-word' }}>
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                        {change.categories.map((cat, i) => (
+                          <div key={i} style={{ 
+                            color: cat.status === 'Removed' || cat.status === 'Modified' ? '#ef4444' : '#94a3b8',
+                            textDecoration: cat.status === 'Removed' ? 'line-through' : 'none',
+                            backgroundColor: cat.status === 'Modified' ? 'rgba(239, 68, 68, 0.1)' : 'transparent',
+                            padding: '4px', borderRadius: '4px'
+                          }}>
+                            {cat.prevWords}
+                          </div>
+                        ))}
+                      </div>
                     </td>
-                    <td style={{ padding: '16px', color: change.status === 'Added' ? '#10b981' : change.status === 'Modified' ? '#10b981' : '#e2e8f0' }}>
-                      {change.currWords}
+                    <td style={{ padding: '16px', wordBreak: 'break-word' }}>
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                        {change.categories.map((cat, i) => (
+                          <div key={i} style={{ 
+                            color: cat.status === 'Added' || cat.status === 'Modified' ? '#10b981' : '#94a3b8',
+                            backgroundColor: cat.status === 'Modified' ? 'rgba(16, 185, 129, 0.1)' : 'transparent',
+                            padding: '4px', borderRadius: '4px'
+                          }}>
+                            {cat.currWords}
+                          </div>
+                        ))}
+                      </div>
                     </td>
                   </tr>
                 );
@@ -164,7 +297,7 @@ export function JsonCompareView({ onClose }: { onClose?: () => void }) {
   };
 
   return (
-    <div style={{ padding: '20px', maxWidth: '1000px', margin: '0 auto', color: '#fff' }}>
+    <div style={{ padding: '20px', width: '100%', maxWidth: '100%', margin: '0', boxSizing: 'border-box', color: '#fff' }}>
       {onClose && (
         <button onClick={onClose} style={{ marginBottom: '20px', padding: '10px 20px', borderRadius: '12px', border: '1px solid #334155', backgroundColor: '#1e293b', color: '#fff', cursor: 'pointer', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '8px', transition: 'all 0.2s' }}>
           Back to Mode Selection
