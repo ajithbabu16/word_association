@@ -2,7 +2,7 @@
   "ver": "1.0.27",
   "importer": "image",
   "imported": true,
-  "uuid": "e1ffc744-9466-4211-8536-a519d6d550c9",
+  "uuid": "45b2907c-6134-42e5-b5a6-4eec5ed06d53",
   "files": [
     ".json",
     ".png"
@@ -10,14 +10,14 @@
   "subMetas": {
     "6c48a": {
       "importer": "texture",
-      "uuid": "e1ffc744-9466-4211-8536-a519d6d550c9@6c48a",
+      "uuid": "45b2907c-6134-42e5-b5a6-4eec5ed06d53@6c48a",
       "displayName": "Counselling",
       "id": "6c48a",
       "name": "texture",
       "userData": {
         "wrapModeS": "clamp-to-edge",
         "wrapModeT": "clamp-to-edge",
-        "imageUuidOrDatabaseUri": "e1ffc744-9466-4211-8536-a519d6d550c9",
+        "imageUuidOrDatabaseUri": "45b2907c-6134-42e5-b5a6-4eec5ed06d53",
         "isUuid": true,
         "visible": false,
         "minfilter": "linear",
@@ -34,7 +34,7 @@
     },
     "f9941": {
       "importer": "sprite-frame",
-      "uuid": "e1ffc744-9466-4211-8536-a519d6d550c9@f9941",
+      "uuid": "45b2907c-6134-42e5-b5a6-4eec5ed06d53@f9941",
       "displayName": "Counselling",
       "id": "f9941",
       "name": "spriteFrame",
@@ -43,10 +43,10 @@
         "rotated": false,
         "offsetX": 0,
         "offsetY": 0,
-        "trimX": 0,
-        "trimY": 0,
-        "width": 128,
-        "height": 128,
+        "trimX": 24,
+        "trimY": 3,
+        "width": 80,
+        "height": 122,
         "rawWidth": 128,
         "rawHeight": 128,
         "borderTop": 0,
@@ -60,17 +60,17 @@
         "meshType": 0,
         "vertices": {
           "rawPosition": [
-            -64,
-            -64,
+            -40,
+            -61,
             0,
-            64,
-            -64,
+            40,
+            -61,
             0,
-            -64,
-            64,
+            -40,
+            61,
             0,
-            64,
-            64,
+            40,
+            61,
             0
           ],
           "indexes": [
@@ -82,40 +82,40 @@
             3
           ],
           "uv": [
-            0,
-            128,
-            128,
-            128,
-            0,
-            0,
-            128,
-            0
+            24,
+            125,
+            104,
+            125,
+            24,
+            3,
+            104,
+            3
           ],
           "nuv": [
-            0,
-            0,
-            1,
-            0,
-            0,
-            1,
-            1,
-            1
+            0.1875,
+            0.0234375,
+            0.8125,
+            0.0234375,
+            0.1875,
+            0.9765625,
+            0.8125,
+            0.9765625
           ],
           "minPos": [
-            -64,
-            -64,
+            -40,
+            -61,
             0
           ],
           "maxPos": [
-            64,
-            64,
+            40,
+            61,
             0
           ]
         },
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "e1ffc744-9466-4211-8536-a519d6d550c9@6c48a",
+        "imageUuidOrDatabaseUri": "45b2907c-6134-42e5-b5a6-4eec5ed06d53@6c48a",
         "atlasUuid": "",
-        "trimType": "none"
+        "trimType": "auto"
       },
       "ver": "1.0.12",
       "imported": true,
@@ -129,10 +129,6 @@
     "type": "sprite-frame",
     "fixAlphaTransparencyArtifacts": false,
     "hasAlpha": true,
-    "redirect": "e1ffc744-9466-4211-8536-a519d6d550c9@6c48a",
-    "compressSettings": {
-      "useCompressTexture": true,
-      "presetId": "7338w0tqBO4pYqyiJNakvf"
-    }
+    "redirect": "45b2907c-6134-42e5-b5a6-4eec5ed06d53@6c48a"
   }
 }

@@ -2,7 +2,7 @@
   "ver": "1.0.27",
   "importer": "image",
   "imported": true,
-  "uuid": "59c7c5b5-e23a-469e-bab9-1369878a5c6d",
+  "uuid": "f2e7ce4f-84fe-4d5d-acb0-156baed3386e",
   "files": [
     ".json",
     ".png"
@@ -10,14 +10,14 @@
   "subMetas": {
     "6c48a": {
       "importer": "texture",
-      "uuid": "59c7c5b5-e23a-469e-bab9-1369878a5c6d@6c48a",
+      "uuid": "f2e7ce4f-84fe-4d5d-acb0-156baed3386e@6c48a",
       "displayName": "Cookie",
       "id": "6c48a",
       "name": "texture",
       "userData": {
         "wrapModeS": "clamp-to-edge",
         "wrapModeT": "clamp-to-edge",
-        "imageUuidOrDatabaseUri": "59c7c5b5-e23a-469e-bab9-1369878a5c6d",
+        "imageUuidOrDatabaseUri": "f2e7ce4f-84fe-4d5d-acb0-156baed3386e",
         "isUuid": true,
         "visible": false,
         "minfilter": "linear",
@@ -34,7 +34,7 @@
     },
     "f9941": {
       "importer": "sprite-frame",
-      "uuid": "59c7c5b5-e23a-469e-bab9-1369878a5c6d@f9941",
+      "uuid": "f2e7ce4f-84fe-4d5d-acb0-156baed3386e@f9941",
       "displayName": "Cookie",
       "id": "f9941",
       "name": "spriteFrame",
@@ -42,11 +42,11 @@
         "trimThreshold": 1,
         "rotated": false,
         "offsetX": 0,
-        "offsetY": 0,
-        "trimX": 0,
-        "trimY": 0,
-        "width": 128,
-        "height": 128,
+        "offsetY": -3,
+        "trimX": 12,
+        "trimY": 15,
+        "width": 104,
+        "height": 104,
         "rawWidth": 128,
         "rawHeight": 128,
         "borderTop": 0,
@@ -60,17 +60,17 @@
         "meshType": 0,
         "vertices": {
           "rawPosition": [
-            -64,
-            -64,
+            -52,
+            -52,
             0,
-            64,
-            -64,
+            52,
+            -52,
             0,
-            -64,
-            64,
+            -52,
+            52,
             0,
-            64,
-            64,
+            52,
+            52,
             0
           ],
           "indexes": [
@@ -82,40 +82,40 @@
             3
           ],
           "uv": [
-            0,
-            128,
-            128,
-            128,
-            0,
-            0,
-            128,
-            0
+            12,
+            113,
+            116,
+            113,
+            12,
+            9,
+            116,
+            9
           ],
           "nuv": [
-            0,
-            0,
-            1,
-            0,
-            0,
-            1,
-            1,
-            1
+            0.09375,
+            0.0703125,
+            0.90625,
+            0.0703125,
+            0.09375,
+            0.8828125,
+            0.90625,
+            0.8828125
           ],
           "minPos": [
-            -64,
-            -64,
+            -52,
+            -52,
             0
           ],
           "maxPos": [
-            64,
-            64,
+            52,
+            52,
             0
           ]
         },
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "59c7c5b5-e23a-469e-bab9-1369878a5c6d@6c48a",
+        "imageUuidOrDatabaseUri": "f2e7ce4f-84fe-4d5d-acb0-156baed3386e@6c48a",
         "atlasUuid": "",
-        "trimType": "none"
+        "trimType": "auto"
       },
       "ver": "1.0.12",
       "imported": true,
@@ -129,10 +129,6 @@
     "type": "sprite-frame",
     "fixAlphaTransparencyArtifacts": false,
     "hasAlpha": true,
-    "redirect": "59c7c5b5-e23a-469e-bab9-1369878a5c6d@6c48a",
-    "compressSettings": {
-      "useCompressTexture": true,
-      "presetId": "7338w0tqBO4pYqyiJNakvf"
-    }
+    "redirect": "f2e7ce4f-84fe-4d5d-acb0-156baed3386e@6c48a"
   }
 }

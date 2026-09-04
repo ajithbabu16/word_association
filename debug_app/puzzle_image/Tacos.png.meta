@@ -2,7 +2,7 @@
   "ver": "1.0.27",
   "importer": "image",
   "imported": true,
-  "uuid": "b59a4a1e-e687-4397-bb3e-55c10d4a6e6e",
+  "uuid": "c1da2c7a-4405-4f14-8e1c-d4cb87ccbd5b",
   "files": [
     ".json",
     ".png"
@@ -10,14 +10,14 @@
   "subMetas": {
     "6c48a": {
       "importer": "texture",
-      "uuid": "b59a4a1e-e687-4397-bb3e-55c10d4a6e6e@6c48a",
+      "uuid": "c1da2c7a-4405-4f14-8e1c-d4cb87ccbd5b@6c48a",
       "displayName": "Tacos",
       "id": "6c48a",
       "name": "texture",
       "userData": {
         "wrapModeS": "clamp-to-edge",
         "wrapModeT": "clamp-to-edge",
-        "imageUuidOrDatabaseUri": "b59a4a1e-e687-4397-bb3e-55c10d4a6e6e",
+        "imageUuidOrDatabaseUri": "c1da2c7a-4405-4f14-8e1c-d4cb87ccbd5b",
         "isUuid": true,
         "visible": false,
         "minfilter": "linear",
@@ -34,7 +34,7 @@
     },
     "f9941": {
       "importer": "sprite-frame",
-      "uuid": "b59a4a1e-e687-4397-bb3e-55c10d4a6e6e@f9941",
+      "uuid": "c1da2c7a-4405-4f14-8e1c-d4cb87ccbd5b@f9941",
       "displayName": "Tacos",
       "id": "f9941",
       "name": "spriteFrame",
@@ -43,10 +43,10 @@
         "rotated": false,
         "offsetX": 0,
         "offsetY": 0,
-        "trimX": 0,
-        "trimY": 0,
-        "width": 128,
-        "height": 128,
+        "trimX": 3,
+        "trimY": 11,
+        "width": 122,
+        "height": 106,
         "rawWidth": 128,
         "rawHeight": 128,
         "borderTop": 0,
@@ -60,17 +60,17 @@
         "meshType": 0,
         "vertices": {
           "rawPosition": [
-            -64,
-            -64,
+            -61,
+            -53,
             0,
-            64,
-            -64,
+            61,
+            -53,
             0,
-            -64,
-            64,
+            -61,
+            53,
             0,
-            64,
-            64,
+            61,
+            53,
             0
           ],
           "indexes": [
@@ -82,40 +82,40 @@
             3
           ],
           "uv": [
-            0,
-            128,
-            128,
-            128,
-            0,
-            0,
-            128,
-            0
+            3,
+            117,
+            125,
+            117,
+            3,
+            11,
+            125,
+            11
           ],
           "nuv": [
-            0,
-            0,
-            1,
-            0,
-            0,
-            1,
-            1,
-            1
+            0.0234375,
+            0.0859375,
+            0.9765625,
+            0.0859375,
+            0.0234375,
+            0.9140625,
+            0.9765625,
+            0.9140625
           ],
           "minPos": [
-            -64,
-            -64,
+            -61,
+            -53,
             0
           ],
           "maxPos": [
-            64,
-            64,
+            61,
+            53,
             0
           ]
         },
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "b59a4a1e-e687-4397-bb3e-55c10d4a6e6e@6c48a",
+        "imageUuidOrDatabaseUri": "c1da2c7a-4405-4f14-8e1c-d4cb87ccbd5b@6c48a",
         "atlasUuid": "",
-        "trimType": "none"
+        "trimType": "auto"
       },
       "ver": "1.0.12",
       "imported": true,
@@ -129,10 +129,6 @@
     "type": "sprite-frame",
     "fixAlphaTransparencyArtifacts": false,
     "hasAlpha": true,
-    "redirect": "b59a4a1e-e687-4397-bb3e-55c10d4a6e6e@6c48a",
-    "compressSettings": {
-      "useCompressTexture": true,
-      "presetId": "7338w0tqBO4pYqyiJNakvf"
-    }
+    "redirect": "c1da2c7a-4405-4f14-8e1c-d4cb87ccbd5b@6c48a"
   }
 }

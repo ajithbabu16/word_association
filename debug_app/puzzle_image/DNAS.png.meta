@@ -11,7 +11,7 @@
     "6c48a": {
       "importer": "texture",
       "uuid": "27899872-f8c2-4cd3-863d-f59cf4486bf6@6c48a",
-      "displayName": "DNAs",
+      "displayName": "DNAS",
       "id": "6c48a",
       "name": "texture",
       "userData": {
@@ -35,7 +35,7 @@
     "f9941": {
       "importer": "sprite-frame",
       "uuid": "27899872-f8c2-4cd3-863d-f59cf4486bf6@f9941",
-      "displayName": "DNAs",
+      "displayName": "DNAS",
       "id": "f9941",
       "name": "spriteFrame",
       "userData": {

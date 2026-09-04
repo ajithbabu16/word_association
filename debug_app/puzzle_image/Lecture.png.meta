@@ -2,7 +2,7 @@
   "ver": "1.0.27",
   "importer": "image",
   "imported": true,
-  "uuid": "976eb715-a52f-4c00-ac6e-f923a7a8c6f8",
+  "uuid": "0e42f4e9-da11-4205-98ea-7d194f49e7a1",
   "files": [
     ".json",
     ".png"
@@ -10,14 +10,14 @@
   "subMetas": {
     "6c48a": {
       "importer": "texture",
-      "uuid": "976eb715-a52f-4c00-ac6e-f923a7a8c6f8@6c48a",
+      "uuid": "0e42f4e9-da11-4205-98ea-7d194f49e7a1@6c48a",
       "displayName": "Lecture",
       "id": "6c48a",
       "name": "texture",
       "userData": {
         "wrapModeS": "clamp-to-edge",
         "wrapModeT": "clamp-to-edge",
-        "imageUuidOrDatabaseUri": "976eb715-a52f-4c00-ac6e-f923a7a8c6f8",
+        "imageUuidOrDatabaseUri": "0e42f4e9-da11-4205-98ea-7d194f49e7a1",
         "isUuid": true,
         "visible": false,
         "minfilter": "linear",
@@ -34,7 +34,7 @@
     },
     "f9941": {
       "importer": "sprite-frame",
-      "uuid": "976eb715-a52f-4c00-ac6e-f923a7a8c6f8@f9941",
+      "uuid": "0e42f4e9-da11-4205-98ea-7d194f49e7a1@f9941",
       "displayName": "Lecture",
       "id": "f9941",
       "name": "spriteFrame",
@@ -43,10 +43,10 @@
         "rotated": false,
         "offsetX": 0,
         "offsetY": 0,
-        "trimX": 0,
-        "trimY": 0,
-        "width": 128,
-        "height": 128,
+        "trimX": 5,
+        "trimY": 6,
+        "width": 118,
+        "height": 116,
         "rawWidth": 128,
         "rawHeight": 128,
         "borderTop": 0,
@@ -60,17 +60,17 @@
         "meshType": 0,
         "vertices": {
           "rawPosition": [
-            -64,
-            -64,
+            -59,
+            -58,
             0,
-            64,
-            -64,
+            59,
+            -58,
             0,
-            -64,
-            64,
+            -59,
+            58,
             0,
-            64,
-            64,
+            59,
+            58,
             0
           ],
           "indexes": [
@@ -82,40 +82,40 @@
             3
           ],
           "uv": [
-            0,
-            128,
-            128,
-            128,
-            0,
-            0,
-            128,
-            0
+            5,
+            122,
+            123,
+            122,
+            5,
+            6,
+            123,
+            6
           ],
           "nuv": [
-            0,
-            0,
-            1,
-            0,
-            0,
-            1,
-            1,
-            1
+            0.0390625,
+            0.046875,
+            0.9609375,
+            0.046875,
+            0.0390625,
+            0.953125,
+            0.9609375,
+            0.953125
           ],
           "minPos": [
-            -64,
-            -64,
+            -59,
+            -58,
             0
           ],
           "maxPos": [
-            64,
-            64,
+            59,
+            58,
             0
           ]
         },
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "976eb715-a52f-4c00-ac6e-f923a7a8c6f8@6c48a",
+        "imageUuidOrDatabaseUri": "0e42f4e9-da11-4205-98ea-7d194f49e7a1@6c48a",
         "atlasUuid": "",
-        "trimType": "none"
+        "trimType": "auto"
       },
       "ver": "1.0.12",
       "imported": true,
@@ -129,10 +129,6 @@
     "type": "sprite-frame",
     "fixAlphaTransparencyArtifacts": false,
     "hasAlpha": true,
-    "redirect": "976eb715-a52f-4c00-ac6e-f923a7a8c6f8@6c48a",
-    "compressSettings": {
-      "useCompressTexture": true,
-      "presetId": "7338w0tqBO4pYqyiJNakvf"
-    }
+    "redirect": "0e42f4e9-da11-4205-98ea-7d194f49e7a1@6c48a"
   }
 }

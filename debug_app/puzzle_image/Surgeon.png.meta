@@ -2,7 +2,7 @@
   "ver": "1.0.27",
   "importer": "image",
   "imported": true,
-  "uuid": "7dabfe4b-fbac-4308-8fa4-2060a3afccfc",
+  "uuid": "5574db61-6a11-430e-bd13-26f1dfc60949",
   "files": [
     ".json",
     ".png"
@@ -10,14 +10,14 @@
   "subMetas": {
     "6c48a": {
       "importer": "texture",
-      "uuid": "7dabfe4b-fbac-4308-8fa4-2060a3afccfc@6c48a",
+      "uuid": "5574db61-6a11-430e-bd13-26f1dfc60949@6c48a",
       "displayName": "Surgeon",
       "id": "6c48a",
       "name": "texture",
       "userData": {
         "wrapModeS": "clamp-to-edge",
         "wrapModeT": "clamp-to-edge",
-        "imageUuidOrDatabaseUri": "7dabfe4b-fbac-4308-8fa4-2060a3afccfc",
+        "imageUuidOrDatabaseUri": "5574db61-6a11-430e-bd13-26f1dfc60949",
         "isUuid": true,
         "visible": false,
         "minfilter": "linear",
@@ -34,7 +34,7 @@
     },
     "f9941": {
       "importer": "sprite-frame",
-      "uuid": "7dabfe4b-fbac-4308-8fa4-2060a3afccfc@f9941",
+      "uuid": "5574db61-6a11-430e-bd13-26f1dfc60949@f9941",
       "displayName": "Surgeon",
       "id": "f9941",
       "name": "spriteFrame",
@@ -43,10 +43,10 @@
         "rotated": false,
         "offsetX": 0,
         "offsetY": 0,
-        "trimX": 0,
-        "trimY": 0,
-        "width": 128,
-        "height": 128,
+        "trimX": 8,
+        "trimY": 8,
+        "width": 112,
+        "height": 112,
         "rawWidth": 128,
         "rawHeight": 128,
         "borderTop": 0,
@@ -60,17 +60,17 @@
         "meshType": 0,
         "vertices": {
           "rawPosition": [
-            -64,
-            -64,
+            -56,
+            -56,
             0,
-            64,
-            -64,
+            56,
+            -56,
             0,
-            -64,
-            64,
+            -56,
+            56,
             0,
-            64,
-            64,
+            56,
+            56,
             0
           ],
           "indexes": [
@@ -82,40 +82,40 @@
             3
           ],
           "uv": [
-            0,
-            128,
-            128,
-            128,
-            0,
-            0,
-            128,
-            0
+            8,
+            120,
+            120,
+            120,
+            8,
+            8,
+            120,
+            8
           ],
           "nuv": [
-            0,
-            0,
-            1,
-            0,
-            0,
-            1,
-            1,
-            1
+            0.0625,
+            0.0625,
+            0.9375,
+            0.0625,
+            0.0625,
+            0.9375,
+            0.9375,
+            0.9375
           ],
           "minPos": [
-            -64,
-            -64,
+            -56,
+            -56,
             0
           ],
           "maxPos": [
-            64,
-            64,
+            56,
+            56,
             0
           ]
         },
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "7dabfe4b-fbac-4308-8fa4-2060a3afccfc@6c48a",
+        "imageUuidOrDatabaseUri": "5574db61-6a11-430e-bd13-26f1dfc60949@6c48a",
         "atlasUuid": "",
-        "trimType": "none"
+        "trimType": "auto"
       },
       "ver": "1.0.12",
       "imported": true,
@@ -129,10 +129,6 @@
     "type": "sprite-frame",
     "fixAlphaTransparencyArtifacts": false,
     "hasAlpha": true,
-    "redirect": "7dabfe4b-fbac-4308-8fa4-2060a3afccfc@6c48a",
-    "compressSettings": {
-      "useCompressTexture": true,
-      "presetId": "7338w0tqBO4pYqyiJNakvf"
-    }
+    "redirect": "5574db61-6a11-430e-bd13-26f1dfc60949@6c48a"
   }
 }

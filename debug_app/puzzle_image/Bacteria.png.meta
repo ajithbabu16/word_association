@@ -2,7 +2,7 @@
   "ver": "1.0.27",
   "importer": "image",
   "imported": true,
-  "uuid": "0425c643-d07b-453b-858c-d3138f9eaf1f",
+  "uuid": "c0231383-3d36-4e23-a8c6-983eee78e889",
   "files": [
     ".json",
     ".png"
@@ -10,14 +10,14 @@
   "subMetas": {
     "6c48a": {
       "importer": "texture",
-      "uuid": "0425c643-d07b-453b-858c-d3138f9eaf1f@6c48a",
+      "uuid": "c0231383-3d36-4e23-a8c6-983eee78e889@6c48a",
       "displayName": "Bacteria",
       "id": "6c48a",
       "name": "texture",
       "userData": {
         "wrapModeS": "clamp-to-edge",
         "wrapModeT": "clamp-to-edge",
-        "imageUuidOrDatabaseUri": "0425c643-d07b-453b-858c-d3138f9eaf1f",
+        "imageUuidOrDatabaseUri": "c0231383-3d36-4e23-a8c6-983eee78e889",
         "isUuid": true,
         "visible": false,
         "minfilter": "linear",
@@ -34,7 +34,7 @@
     },
     "f9941": {
       "importer": "sprite-frame",
-      "uuid": "0425c643-d07b-453b-858c-d3138f9eaf1f@f9941",
+      "uuid": "c0231383-3d36-4e23-a8c6-983eee78e889@f9941",
       "displayName": "Bacteria",
       "id": "f9941",
       "name": "spriteFrame",
@@ -44,9 +44,9 @@
         "offsetX": 0,
         "offsetY": 0,
         "trimX": 0,
-        "trimY": 0,
+        "trimY": 14,
         "width": 128,
-        "height": 128,
+        "height": 100,
         "rawWidth": 128,
         "rawHeight": 128,
         "borderTop": 0,
@@ -61,16 +61,16 @@
         "vertices": {
           "rawPosition": [
             -64,
-            -64,
+            -50,
             0,
             64,
-            -64,
+            -50,
             0,
             -64,
-            64,
+            50,
             0,
             64,
-            64,
+            50,
             0
           ],
           "indexes": [
@@ -83,39 +83,39 @@
           ],
           "uv": [
             0,
+            114,
             128,
-            128,
-            128,
+            114,
             0,
-            0,
+            14,
             128,
-            0
+            14
           ],
           "nuv": [
             0,
-            0,
+            0.109375,
             1,
+            0.109375,
             0,
-            0,
+            0.890625,
             1,
-            1,
-            1
+            0.890625
           ],
           "minPos": [
             -64,
-            -64,
+            -50,
             0
           ],
           "maxPos": [
             64,
-            64,
+            50,
             0
           ]
         },
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "0425c643-d07b-453b-858c-d3138f9eaf1f@6c48a",
+        "imageUuidOrDatabaseUri": "c0231383-3d36-4e23-a8c6-983eee78e889@6c48a",
         "atlasUuid": "",
-        "trimType": "none"
+        "trimType": "auto"
       },
       "ver": "1.0.12",
       "imported": true,
@@ -129,10 +129,6 @@
     "type": "sprite-frame",
     "fixAlphaTransparencyArtifacts": false,
     "hasAlpha": true,
-    "redirect": "0425c643-d07b-453b-858c-d3138f9eaf1f@6c48a",
-    "compressSettings": {
-      "useCompressTexture": true,
-      "presetId": "7338w0tqBO4pYqyiJNakvf"
-    }
+    "redirect": "c0231383-3d36-4e23-a8c6-983eee78e889@6c48a"
   }
 }

@@ -2,7 +2,7 @@
   "ver": "1.0.27",
   "importer": "image",
   "imported": true,
-  "uuid": "ba5b6468-870b-457b-853d-ab431f5d0b6e",
+  "uuid": "76fafd98-67c7-4f41-b5e7-8aef92c6379f",
   "files": [
     ".json",
     ".png"
@@ -10,14 +10,14 @@
   "subMetas": {
     "6c48a": {
       "importer": "texture",
-      "uuid": "ba5b6468-870b-457b-853d-ab431f5d0b6e@6c48a",
+      "uuid": "76fafd98-67c7-4f41-b5e7-8aef92c6379f@6c48a",
       "displayName": "STATUE OF LIBERTY",
       "id": "6c48a",
       "name": "texture",
       "userData": {
         "wrapModeS": "clamp-to-edge",
         "wrapModeT": "clamp-to-edge",
-        "imageUuidOrDatabaseUri": "ba5b6468-870b-457b-853d-ab431f5d0b6e",
+        "imageUuidOrDatabaseUri": "76fafd98-67c7-4f41-b5e7-8aef92c6379f",
         "isUuid": true,
         "visible": false,
         "minfilter": "linear",
@@ -34,7 +34,7 @@
     },
     "f9941": {
       "importer": "sprite-frame",
-      "uuid": "ba5b6468-870b-457b-853d-ab431f5d0b6e@f9941",
+      "uuid": "76fafd98-67c7-4f41-b5e7-8aef92c6379f@f9941",
       "displayName": "STATUE OF LIBERTY",
       "id": "f9941",
       "name": "spriteFrame",
@@ -113,7 +113,7 @@
           ]
         },
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "ba5b6468-870b-457b-853d-ab431f5d0b6e@6c48a",
+        "imageUuidOrDatabaseUri": "76fafd98-67c7-4f41-b5e7-8aef92c6379f@6c48a",
         "atlasUuid": "",
         "trimType": "none"
       },
@@ -129,7 +129,7 @@
     "type": "sprite-frame",
     "fixAlphaTransparencyArtifacts": false,
     "hasAlpha": true,
-    "redirect": "ba5b6468-870b-457b-853d-ab431f5d0b6e@6c48a",
+    "redirect": "76fafd98-67c7-4f41-b5e7-8aef92c6379f@6c48a",
     "compressSettings": {
       "useCompressTexture": true,
       "presetId": "7338w0tqBO4pYqyiJNakvf"

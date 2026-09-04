@@ -2,7 +2,7 @@
   "ver": "1.0.27",
   "importer": "image",
   "imported": true,
-  "uuid": "9cb89a69-6f2f-41bc-a044-2f93e2dd34dc",
+  "uuid": "20775b23-ad43-4107-abd0-17f821526d3c",
   "files": [
     ".json",
     ".png"
@@ -10,14 +10,14 @@
   "subMetas": {
     "6c48a": {
       "importer": "texture",
-      "uuid": "9cb89a69-6f2f-41bc-a044-2f93e2dd34dc@6c48a",
+      "uuid": "20775b23-ad43-4107-abd0-17f821526d3c@6c48a",
       "displayName": "PASTRY BAG",
       "id": "6c48a",
       "name": "texture",
       "userData": {
         "wrapModeS": "clamp-to-edge",
         "wrapModeT": "clamp-to-edge",
-        "imageUuidOrDatabaseUri": "9cb89a69-6f2f-41bc-a044-2f93e2dd34dc",
+        "imageUuidOrDatabaseUri": "20775b23-ad43-4107-abd0-17f821526d3c",
         "isUuid": true,
         "visible": false,
         "minfilter": "linear",
@@ -34,7 +34,7 @@
     },
     "f9941": {
       "importer": "sprite-frame",
-      "uuid": "9cb89a69-6f2f-41bc-a044-2f93e2dd34dc@f9941",
+      "uuid": "20775b23-ad43-4107-abd0-17f821526d3c@f9941",
       "displayName": "PASTRY BAG",
       "id": "f9941",
       "name": "spriteFrame",
@@ -113,7 +113,7 @@
           ]
         },
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "9cb89a69-6f2f-41bc-a044-2f93e2dd34dc@6c48a",
+        "imageUuidOrDatabaseUri": "20775b23-ad43-4107-abd0-17f821526d3c@6c48a",
         "atlasUuid": "",
         "trimType": "none"
       },
@@ -129,7 +129,7 @@
     "type": "sprite-frame",
     "fixAlphaTransparencyArtifacts": false,
     "hasAlpha": true,
-    "redirect": "9cb89a69-6f2f-41bc-a044-2f93e2dd34dc@6c48a",
+    "redirect": "20775b23-ad43-4107-abd0-17f821526d3c@6c48a",
     "compressSettings": {
       "useCompressTexture": true,
       "presetId": "7338w0tqBO4pYqyiJNakvf"

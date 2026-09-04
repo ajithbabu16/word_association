@@ -2,7 +2,7 @@
   "ver": "1.0.27",
   "importer": "image",
   "imported": true,
-  "uuid": "22ecdaee-982f-4aea-8705-69e0d4778c34",
+  "uuid": "7956f911-8af2-4452-9a04-01f2bd64ec17",
   "files": [
     ".json",
     ".png"
@@ -10,14 +10,14 @@
   "subMetas": {
     "6c48a": {
       "importer": "texture",
-      "uuid": "22ecdaee-982f-4aea-8705-69e0d4778c34@6c48a",
+      "uuid": "7956f911-8af2-4452-9a04-01f2bd64ec17@6c48a",
       "displayName": "Dizziness",
       "id": "6c48a",
       "name": "texture",
       "userData": {
         "wrapModeS": "clamp-to-edge",
         "wrapModeT": "clamp-to-edge",
-        "imageUuidOrDatabaseUri": "22ecdaee-982f-4aea-8705-69e0d4778c34",
+        "imageUuidOrDatabaseUri": "7956f911-8af2-4452-9a04-01f2bd64ec17",
         "isUuid": true,
         "visible": false,
         "minfilter": "linear",
@@ -34,7 +34,7 @@
     },
     "f9941": {
       "importer": "sprite-frame",
-      "uuid": "22ecdaee-982f-4aea-8705-69e0d4778c34@f9941",
+      "uuid": "7956f911-8af2-4452-9a04-01f2bd64ec17@f9941",
       "displayName": "Dizziness",
       "id": "f9941",
       "name": "spriteFrame",
@@ -43,10 +43,10 @@
         "rotated": false,
         "offsetX": 0,
         "offsetY": 0,
-        "trimX": 0,
-        "trimY": 0,
-        "width": 128,
-        "height": 128,
+        "trimX": 2,
+        "trimY": 8,
+        "width": 124,
+        "height": 112,
         "rawWidth": 128,
         "rawHeight": 128,
         "borderTop": 0,
@@ -60,17 +60,17 @@
         "meshType": 0,
         "vertices": {
           "rawPosition": [
-            -64,
-            -64,
+            -62,
+            -56,
             0,
-            64,
-            -64,
+            62,
+            -56,
             0,
-            -64,
-            64,
+            -62,
+            56,
             0,
-            64,
-            64,
+            62,
+            56,
             0
           ],
           "indexes": [
@@ -82,40 +82,40 @@
             3
           ],
           "uv": [
-            0,
-            128,
-            128,
-            128,
-            0,
-            0,
-            128,
-            0
+            2,
+            120,
+            126,
+            120,
+            2,
+            8,
+            126,
+            8
           ],
           "nuv": [
-            0,
-            0,
-            1,
-            0,
-            0,
-            1,
-            1,
-            1
+            0.015625,
+            0.0625,
+            0.984375,
+            0.0625,
+            0.015625,
+            0.9375,
+            0.984375,
+            0.9375
           ],
           "minPos": [
-            -64,
-            -64,
+            -62,
+            -56,
             0
           ],
           "maxPos": [
-            64,
-            64,
+            62,
+            56,
             0
           ]
         },
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "22ecdaee-982f-4aea-8705-69e0d4778c34@6c48a",
+        "imageUuidOrDatabaseUri": "7956f911-8af2-4452-9a04-01f2bd64ec17@6c48a",
         "atlasUuid": "",
-        "trimType": "none"
+        "trimType": "auto"
       },
       "ver": "1.0.12",
       "imported": true,
@@ -129,10 +129,6 @@
     "type": "sprite-frame",
     "fixAlphaTransparencyArtifacts": false,
     "hasAlpha": true,
-    "redirect": "22ecdaee-982f-4aea-8705-69e0d4778c34@6c48a",
-    "compressSettings": {
-      "useCompressTexture": true,
-      "presetId": "7338w0tqBO4pYqyiJNakvf"
-    }
+    "redirect": "7956f911-8af2-4452-9a04-01f2bd64ec17@6c48a"
   }
 }

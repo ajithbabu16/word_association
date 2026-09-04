@@ -2,7 +2,7 @@
   "ver": "1.0.27",
   "importer": "image",
   "imported": true,
-  "uuid": "38979214-1c7f-4161-9a57-504a219be591",
+  "uuid": "ef8f0ca3-12f7-4812-8b15-4c1e87682d5b",
   "files": [
     ".json",
     ".png"
@@ -10,14 +10,14 @@
   "subMetas": {
     "6c48a": {
       "importer": "texture",
-      "uuid": "38979214-1c7f-4161-9a57-504a219be591@6c48a",
+      "uuid": "ef8f0ca3-12f7-4812-8b15-4c1e87682d5b@6c48a",
       "displayName": "Prisoners",
       "id": "6c48a",
       "name": "texture",
       "userData": {
         "wrapModeS": "clamp-to-edge",
         "wrapModeT": "clamp-to-edge",
-        "imageUuidOrDatabaseUri": "38979214-1c7f-4161-9a57-504a219be591",
+        "imageUuidOrDatabaseUri": "ef8f0ca3-12f7-4812-8b15-4c1e87682d5b",
         "isUuid": true,
         "visible": false,
         "minfilter": "linear",
@@ -34,7 +34,7 @@
     },
     "f9941": {
       "importer": "sprite-frame",
-      "uuid": "38979214-1c7f-4161-9a57-504a219be591@f9941",
+      "uuid": "ef8f0ca3-12f7-4812-8b15-4c1e87682d5b@f9941",
       "displayName": "Prisoners",
       "id": "f9941",
       "name": "spriteFrame",
@@ -43,10 +43,10 @@
         "rotated": false,
         "offsetX": 0,
         "offsetY": 0,
-        "trimX": 0,
-        "trimY": 0,
-        "width": 128,
-        "height": 128,
+        "trimX": 7,
+        "trimY": 19,
+        "width": 114,
+        "height": 90,
         "rawWidth": 128,
         "rawHeight": 128,
         "borderTop": 0,
@@ -60,17 +60,17 @@
         "meshType": 0,
         "vertices": {
           "rawPosition": [
-            -64,
-            -64,
+            -57,
+            -45,
             0,
-            64,
-            -64,
+            57,
+            -45,
             0,
-            -64,
-            64,
+            -57,
+            45,
             0,
-            64,
-            64,
+            57,
+            45,
             0
           ],
           "indexes": [
@@ -82,40 +82,40 @@
             3
           ],
           "uv": [
-            0,
-            128,
-            128,
-            128,
-            0,
-            0,
-            128,
-            0
+            7,
+            109,
+            121,
+            109,
+            7,
+            19,
+            121,
+            19
           ],
           "nuv": [
-            0,
-            0,
-            1,
-            0,
-            0,
-            1,
-            1,
-            1
+            0.0546875,
+            0.1484375,
+            0.9453125,
+            0.1484375,
+            0.0546875,
+            0.8515625,
+            0.9453125,
+            0.8515625
           ],
           "minPos": [
-            -64,
-            -64,
+            -57,
+            -45,
             0
           ],
           "maxPos": [
-            64,
-            64,
+            57,
+            45,
             0
           ]
         },
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "38979214-1c7f-4161-9a57-504a219be591@6c48a",
+        "imageUuidOrDatabaseUri": "ef8f0ca3-12f7-4812-8b15-4c1e87682d5b@6c48a",
         "atlasUuid": "",
-        "trimType": "none"
+        "trimType": "auto"
       },
       "ver": "1.0.12",
       "imported": true,
@@ -129,10 +129,6 @@
     "type": "sprite-frame",
     "fixAlphaTransparencyArtifacts": false,
     "hasAlpha": true,
-    "redirect": "38979214-1c7f-4161-9a57-504a219be591@6c48a",
-    "compressSettings": {
-      "useCompressTexture": true,
-      "presetId": "7338w0tqBO4pYqyiJNakvf"
-    }
+    "redirect": "ef8f0ca3-12f7-4812-8b15-4c1e87682d5b@6c48a"
   }
 }

@@ -18,6 +18,7 @@ import { AutoSolveModal, AutoSolveMode } from './components/AutoSolveModal';
 import { ModeSelectionModal } from './components/ModeSelectionModal';
 import { PrefabCreationView } from './components/PrefabCreationView';
 import { TestCaseGenerator } from './components/TestCaseGenerator';
+import { JsonCompareView } from './components/JsonCompareView';
 
 const engine = new PuzzleEngine();
 const decoder = new PuzzleLevelDecoder();
@@ -176,8 +177,8 @@ function StackedCategoryPill({ formed, total, isAnimating }: { formed: number; t
 }
 
 export default function App() {
-  // Active Mode: 'daily' | 'main' | 'prefab' | 'special' | 'testcase'
-  const [activeMode, setActiveMode] = useState<'daily' | 'main' | 'prefab' | 'special' | 'testcase'>('daily');
+  // Active Mode: 'daily' | 'main' | 'prefab' | 'special' | 'testcase' | 'json_compare'
+  const [activeMode, setActiveMode] = useState<'daily' | 'main' | 'prefab' | 'special' | 'testcase' | 'json_compare'>('daily');
   const [showModeModal, setShowModeModal] = useState<boolean>(true);
   const [isPillAnimating, setIsPillAnimating] = useState<boolean>(false);
 
@@ -327,7 +328,7 @@ export default function App() {
   }, []);
 
   // Mode change handler
-  const handleSelectMode = (mode: 'daily' | 'main' | 'prefab' | 'special' | 'testcase') => {
+  const handleSelectMode = (mode: 'daily' | 'main' | 'prefab' | 'special' | 'testcase' | 'json_compare') => {
     setActiveMode(mode);
     setIsAutoSolving(false);
     setIsRangeAutoSolving(false);
@@ -1165,20 +1166,24 @@ export default function App() {
             }}
           >
             {activeMode === 'main' || activeMode === 'special' ? <Layers size={16} /> : <Calendar size={16} />}
-            Mode: {activeMode === 'main' ? 'Main Puzzle (MP)' : activeMode === 'special' ? 'Special Puzzle (SP)' : activeMode === 'testcase' ? 'Qubit Gen Automation' : 'Daily Puzzle (DP)'} 🔄
+            Mode: {activeMode === 'main' ? 'Main Puzzle (MP)' : activeMode === 'special' ? 'Special Puzzle (SP)' : activeMode === 'testcase' ? 'Qubit Gen Automation' : activeMode === 'json_compare' ? 'JSON Comparison' : 'Daily Puzzle (DP)'} 🔄
           </button>
         </div>
 
         <div style={{ display: 'flex', gap: '10px' }}>
-          <button className="button" onClick={() => setShowLiveView(true)} style={{ backgroundColor: '#059669', color: 'white', border: 'none', fontWeight: 'bold' }}>
-            Live View Table
-          </button>
-          <button className="button" onClick={() => setShowErrorView(true)} style={{ backgroundColor: '#d97706', color: 'white', border: 'none', fontWeight: 'bold' }}>
-            Puzzle Error View
-          </button>
-          <button className="button" onClick={() => setShowImageIssueView(true)} style={{ backgroundColor: '#ef4444', color: 'white', border: 'none', fontWeight: 'bold' }}>
-            Image Issues 🖼️
-          </button>
+          {activeMode !== 'json_compare' && (
+            <>
+              <button className="button" onClick={() => setShowLiveView(true)} style={{ backgroundColor: '#059669', color: 'white', border: 'none', fontWeight: 'bold' }}>
+                Live View Table
+              </button>
+              <button className="button" onClick={() => setShowErrorView(true)} style={{ backgroundColor: '#d97706', color: 'white', border: 'none', fontWeight: 'bold' }}>
+                Puzzle Error View
+              </button>
+              <button className="button" onClick={() => setShowImageIssueView(true)} style={{ backgroundColor: '#ef4444', color: 'white', border: 'none', fontWeight: 'bold' }}>
+                Image Issues 🖼️
+              </button>
+            </>
+          )}
         </div>
       </div>
 
@@ -1187,6 +1192,8 @@ export default function App() {
           <PrefabCreationView />
         ) : activeMode === 'testcase' ? (
           <TestCaseGenerator onClose={() => setActiveMode('daily')} />
+        ) : activeMode === 'json_compare' ? (
+          <JsonCompareView onClose={() => setActiveMode('daily')} />
         ) : (
           <div className="device-simulator" ref={captureRef}>
             {/* SIMULATOR HEADER */}
@@ -1295,7 +1302,7 @@ export default function App() {
           </div>
         )}
 
-        {activeMode !== 'prefab' && activeMode !== 'testcase' && (
+        {activeMode !== 'prefab' && activeMode !== 'testcase' && activeMode !== 'json_compare' && (
           <DebugDashboard
             activeMode={activeMode as 'daily' | 'main' | 'special'}
             currentDate={currentDate}

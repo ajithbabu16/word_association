@@ -2,7 +2,7 @@
   "ver": "1.0.27",
   "importer": "image",
   "imported": true,
-  "uuid": "6fe7c31d-cbf0-4905-a09a-349073661dec",
+  "uuid": "e96bfd32-e4aa-4f62-91a7-8ed545661cf2",
   "files": [
     ".json",
     ".png"
@@ -10,14 +10,14 @@
   "subMetas": {
     "6c48a": {
       "importer": "texture",
-      "uuid": "6fe7c31d-cbf0-4905-a09a-349073661dec@6c48a",
+      "uuid": "e96bfd32-e4aa-4f62-91a7-8ed545661cf2@6c48a",
       "displayName": "Keto",
       "id": "6c48a",
       "name": "texture",
       "userData": {
         "wrapModeS": "clamp-to-edge",
         "wrapModeT": "clamp-to-edge",
-        "imageUuidOrDatabaseUri": "6fe7c31d-cbf0-4905-a09a-349073661dec",
+        "imageUuidOrDatabaseUri": "e96bfd32-e4aa-4f62-91a7-8ed545661cf2",
         "isUuid": true,
         "visible": false,
         "minfilter": "linear",
@@ -34,19 +34,19 @@
     },
     "f9941": {
       "importer": "sprite-frame",
-      "uuid": "6fe7c31d-cbf0-4905-a09a-349073661dec@f9941",
+      "uuid": "e96bfd32-e4aa-4f62-91a7-8ed545661cf2@f9941",
       "displayName": "Keto",
       "id": "f9941",
       "name": "spriteFrame",
       "userData": {
         "trimThreshold": 1,
         "rotated": false,
-        "offsetX": 0,
-        "offsetY": 0,
-        "trimX": 0,
-        "trimY": 0,
-        "width": 128,
-        "height": 128,
+        "offsetX": -2.5,
+        "offsetY": 1.5,
+        "trimX": 20,
+        "trimY": 6,
+        "width": 83,
+        "height": 113,
         "rawWidth": 128,
         "rawHeight": 128,
         "borderTop": 0,
@@ -60,17 +60,17 @@
         "meshType": 0,
         "vertices": {
           "rawPosition": [
-            -64,
-            -64,
+            -41.5,
+            -56.5,
             0,
-            64,
-            -64,
+            41.5,
+            -56.5,
             0,
-            -64,
-            64,
+            -41.5,
+            56.5,
             0,
-            64,
-            64,
+            41.5,
+            56.5,
             0
           ],
           "indexes": [
@@ -82,40 +82,40 @@
             3
           ],
           "uv": [
-            0,
-            128,
-            128,
-            128,
-            0,
-            0,
-            128,
-            0
+            20,
+            122,
+            103,
+            122,
+            20,
+            9,
+            103,
+            9
           ],
           "nuv": [
-            0,
-            0,
-            1,
-            0,
-            0,
-            1,
-            1,
-            1
+            0.15625,
+            0.0703125,
+            0.8046875,
+            0.0703125,
+            0.15625,
+            0.953125,
+            0.8046875,
+            0.953125
           ],
           "minPos": [
-            -64,
-            -64,
+            -41.5,
+            -56.5,
             0
           ],
           "maxPos": [
-            64,
-            64,
+            41.5,
+            56.5,
             0
           ]
         },
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "6fe7c31d-cbf0-4905-a09a-349073661dec@6c48a",
+        "imageUuidOrDatabaseUri": "e96bfd32-e4aa-4f62-91a7-8ed545661cf2@6c48a",
         "atlasUuid": "",
-        "trimType": "none"
+        "trimType": "auto"
       },
       "ver": "1.0.12",
       "imported": true,
@@ -129,10 +129,6 @@
     "type": "sprite-frame",
     "fixAlphaTransparencyArtifacts": false,
     "hasAlpha": true,
-    "redirect": "6fe7c31d-cbf0-4905-a09a-349073661dec@6c48a",
-    "compressSettings": {
-      "useCompressTexture": true,
-      "presetId": "7338w0tqBO4pYqyiJNakvf"
-    }
+    "redirect": "e96bfd32-e4aa-4f62-91a7-8ed545661cf2@6c48a"
   }
 }

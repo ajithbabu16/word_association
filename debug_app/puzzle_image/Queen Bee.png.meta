@@ -2,7 +2,7 @@
   "ver": "1.0.27",
   "importer": "image",
   "imported": true,
-  "uuid": "7159e038-a094-4510-b249-b7df714c6b89",
+  "uuid": "08825960-e3b0-43f9-8253-594440a12cd7",
   "files": [
     ".json",
     ".png"
@@ -10,14 +10,14 @@
   "subMetas": {
     "6c48a": {
       "importer": "texture",
-      "uuid": "7159e038-a094-4510-b249-b7df714c6b89@6c48a",
-      "displayName": "Queen Bee",
+      "uuid": "08825960-e3b0-43f9-8253-594440a12cd7@6c48a",
+      "displayName": "QUEEN BEE",
       "id": "6c48a",
       "name": "texture",
       "userData": {
         "wrapModeS": "clamp-to-edge",
         "wrapModeT": "clamp-to-edge",
-        "imageUuidOrDatabaseUri": "7159e038-a094-4510-b249-b7df714c6b89",
+        "imageUuidOrDatabaseUri": "08825960-e3b0-43f9-8253-594440a12cd7",
         "isUuid": true,
         "visible": false,
         "minfilter": "linear",
@@ -34,8 +34,8 @@
     },
     "f9941": {
       "importer": "sprite-frame",
-      "uuid": "7159e038-a094-4510-b249-b7df714c6b89@f9941",
-      "displayName": "Queen Bee",
+      "uuid": "08825960-e3b0-43f9-8253-594440a12cd7@f9941",
+      "displayName": "QUEEN BEE",
       "id": "f9941",
       "name": "spriteFrame",
       "userData": {
@@ -113,7 +113,7 @@
           ]
         },
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "7159e038-a094-4510-b249-b7df714c6b89@6c48a",
+        "imageUuidOrDatabaseUri": "08825960-e3b0-43f9-8253-594440a12cd7@6c48a",
         "atlasUuid": "",
         "trimType": "auto"
       },
@@ -129,6 +129,10 @@
     "type": "sprite-frame",
     "fixAlphaTransparencyArtifacts": false,
     "hasAlpha": true,
-    "redirect": "7159e038-a094-4510-b249-b7df714c6b89@6c48a"
+    "redirect": "08825960-e3b0-43f9-8253-594440a12cd7@6c48a",
+    "compressSettings": {
+      "useCompressTexture": true,
+      "presetId": "7338w0tqBO4pYqyiJNakvf"
+    }
   }
 }

@@ -2,7 +2,7 @@
   "ver": "1.0.27",
   "importer": "image",
   "imported": true,
-  "uuid": "3f105679-ab86-4e6a-a295-e5a44d558c72",
+  "uuid": "f17106c5-cfe1-4b64-b5c3-fb5c4f88ef58",
   "files": [
     ".json",
     ".png"
@@ -10,14 +10,14 @@
   "subMetas": {
     "6c48a": {
       "importer": "texture",
-      "uuid": "3f105679-ab86-4e6a-a295-e5a44d558c72@6c48a",
+      "uuid": "f17106c5-cfe1-4b64-b5c3-fb5c4f88ef58@6c48a",
       "displayName": "Neuron",
       "id": "6c48a",
       "name": "texture",
       "userData": {
         "wrapModeS": "clamp-to-edge",
         "wrapModeT": "clamp-to-edge",
-        "imageUuidOrDatabaseUri": "3f105679-ab86-4e6a-a295-e5a44d558c72",
+        "imageUuidOrDatabaseUri": "f17106c5-cfe1-4b64-b5c3-fb5c4f88ef58",
         "isUuid": true,
         "visible": false,
         "minfilter": "linear",
@@ -34,19 +34,19 @@
     },
     "f9941": {
       "importer": "sprite-frame",
-      "uuid": "3f105679-ab86-4e6a-a295-e5a44d558c72@f9941",
+      "uuid": "f17106c5-cfe1-4b64-b5c3-fb5c4f88ef58@f9941",
       "displayName": "Neuron",
       "id": "f9941",
       "name": "spriteFrame",
       "userData": {
         "trimThreshold": 1,
         "rotated": false,
-        "offsetX": 0,
-        "offsetY": 0,
-        "trimX": 0,
-        "trimY": 0,
-        "width": 128,
-        "height": 128,
+        "offsetX": -1,
+        "offsetY": -3,
+        "trimX": 3,
+        "trimY": 6,
+        "width": 120,
+        "height": 122,
         "rawWidth": 128,
         "rawHeight": 128,
         "borderTop": 0,
@@ -60,17 +60,17 @@
         "meshType": 0,
         "vertices": {
           "rawPosition": [
-            -64,
-            -64,
+            -60,
+            -61,
             0,
-            64,
-            -64,
+            60,
+            -61,
             0,
-            -64,
-            64,
+            -60,
+            61,
             0,
-            64,
-            64,
+            60,
+            61,
             0
           ],
           "indexes": [
@@ -82,40 +82,40 @@
             3
           ],
           "uv": [
+            3,
+            122,
+            123,
+            122,
+            3,
             0,
-            128,
-            128,
-            128,
-            0,
-            0,
-            128,
+            123,
             0
           ],
           "nuv": [
+            0.0234375,
             0,
+            0.9609375,
             0,
-            1,
-            0,
-            0,
-            1,
-            1,
-            1
+            0.0234375,
+            0.953125,
+            0.9609375,
+            0.953125
           ],
           "minPos": [
-            -64,
-            -64,
+            -60,
+            -61,
             0
           ],
           "maxPos": [
-            64,
-            64,
+            60,
+            61,
             0
           ]
         },
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "3f105679-ab86-4e6a-a295-e5a44d558c72@6c48a",
+        "imageUuidOrDatabaseUri": "f17106c5-cfe1-4b64-b5c3-fb5c4f88ef58@6c48a",
         "atlasUuid": "",
-        "trimType": "none"
+        "trimType": "auto"
       },
       "ver": "1.0.12",
       "imported": true,
@@ -129,10 +129,6 @@
     "type": "sprite-frame",
     "fixAlphaTransparencyArtifacts": false,
     "hasAlpha": true,
-    "redirect": "3f105679-ab86-4e6a-a295-e5a44d558c72@6c48a",
-    "compressSettings": {
-      "useCompressTexture": true,
-      "presetId": "7338w0tqBO4pYqyiJNakvf"
-    }
+    "redirect": "f17106c5-cfe1-4b64-b5c3-fb5c4f88ef58@6c48a"
   }
 }

@@ -3,8 +3,8 @@ import { Calendar, Layers, CheckCircle2, Sparkles, Play } from 'lucide-react';
 
 interface ModeSelectionModalProps {
   isOpen: boolean;
-  activeMode: 'daily' | 'main' | 'prefab' | 'special' | 'testcase';
-  onSelectMode: (mode: 'daily' | 'main' | 'prefab' | 'special' | 'testcase') => void;
+  activeMode: 'daily' | 'main' | 'prefab' | 'special' | 'testcase' | 'json_compare';
+  onSelectMode: (mode: 'daily' | 'main' | 'prefab' | 'special' | 'testcase' | 'json_compare') => void;
   onClose?: () => void;
 }
 
@@ -110,6 +110,53 @@ export function ModeSelectionModal({
                 • 3 progressive stages per calendar day<br />
                 • Calendar Hack date picker & range solver<br />
                 • Stage tracking & skip controls
+              </p>
+            </div>
+          </div>
+
+          {/* JSON Comparison Option */}
+          <div 
+            onClick={() => onSelectMode('json_compare')}
+            style={{
+              padding: '20px',
+              borderRadius: '16px',
+              border: `2px solid ${activeMode === 'json_compare' ? '#f59e0b' : '#e2e8f0'}`,
+              backgroundColor: activeMode === 'json_compare' ? '#fffbeb' : '#ffffff',
+              cursor: 'pointer',
+              transition: 'all 0.2s ease',
+              display: 'flex',
+              alignItems: 'flex-start',
+              gap: '16px',
+              position: 'relative'
+            }}
+          >
+            <div style={{
+              width: '44px',
+              height: '44px',
+              borderRadius: '12px',
+              backgroundColor: activeMode === 'json_compare' ? '#f59e0b' : '#f1f5f9',
+              color: activeMode === 'json_compare' ? '#ffffff' : '#64748b',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              flexShrink: 0
+            }}>
+              <Layers size={24} />
+            </div>
+            <div style={{ flex: 1 }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                <h3 style={{ margin: 0, fontSize: '18px', fontWeight: 700, color: '#0f172a' }}>
+                  JSON Comparison
+                </h3>
+                {activeMode === 'json_compare' && (
+                  <span style={{ display: 'flex', alignItems: 'center', gap: '4px', fontSize: '13px', fontWeight: 700, color: '#f59e0b' }}>
+                    <CheckCircle2 size={18} /> Active
+                  </span>
+                )}
+              </div>
+              <p style={{ margin: '6px 0 0 0', fontSize: '13px', color: '#475569', lineHeight: 1.5 }}>
+                • Upload previous and current JSON<br />
+                • Compare Word Association puzzle files
               </p>
             </div>
           </div>
@@ -348,7 +395,7 @@ export function ModeSelectionModal({
               boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
             }}
           >
-            <Play size={18} /> Continue with {activeMode === 'main' ? 'Main Puzzle' : activeMode === 'special' ? 'Special Puzzle' : activeMode === 'prefab' ? 'Prefab Creation' : activeMode === 'testcase' ? 'Qubit Gen Automation' : 'Daily Puzzle'} Mode
+            <Play size={18} /> Continue with {activeMode === 'main' ? 'Main Puzzle' : activeMode === 'special' ? 'Special Puzzle' : activeMode === 'prefab' ? 'Prefab Creation' : activeMode === 'testcase' ? 'Qubit Gen Automation' : activeMode === 'json_compare' ? 'JSON Comparison' : 'Daily Puzzle'} Mode
           </button>
         </div>
       </div>

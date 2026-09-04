@@ -2,7 +2,7 @@
   "ver": "1.0.27",
   "importer": "image",
   "imported": true,
-  "uuid": "9ecc1b15-8210-4234-8fbc-7c53090317cc",
+  "uuid": "e0006e4d-d862-4f77-8c5b-d3ddfbca5046",
   "files": [
     ".json",
     ".png"
@@ -10,14 +10,14 @@
   "subMetas": {
     "6c48a": {
       "importer": "texture",
-      "uuid": "9ecc1b15-8210-4234-8fbc-7c53090317cc@6c48a",
+      "uuid": "e0006e4d-d862-4f77-8c5b-d3ddfbca5046@6c48a",
       "displayName": "Hollywood",
       "id": "6c48a",
       "name": "texture",
       "userData": {
         "wrapModeS": "clamp-to-edge",
         "wrapModeT": "clamp-to-edge",
-        "imageUuidOrDatabaseUri": "9ecc1b15-8210-4234-8fbc-7c53090317cc",
+        "imageUuidOrDatabaseUri": "e0006e4d-d862-4f77-8c5b-d3ddfbca5046",
         "isUuid": true,
         "visible": false,
         "minfilter": "linear",
@@ -34,7 +34,7 @@
     },
     "f9941": {
       "importer": "sprite-frame",
-      "uuid": "9ecc1b15-8210-4234-8fbc-7c53090317cc@f9941",
+      "uuid": "e0006e4d-d862-4f77-8c5b-d3ddfbca5046@f9941",
       "displayName": "Hollywood",
       "id": "f9941",
       "name": "spriteFrame",
@@ -43,10 +43,10 @@
         "rotated": false,
         "offsetX": 0,
         "offsetY": 0,
-        "trimX": 0,
-        "trimY": 0,
-        "width": 128,
-        "height": 128,
+        "trimX": 6,
+        "trimY": 39,
+        "width": 116,
+        "height": 50,
         "rawWidth": 128,
         "rawHeight": 128,
         "borderTop": 0,
@@ -60,17 +60,17 @@
         "meshType": 0,
         "vertices": {
           "rawPosition": [
-            -64,
-            -64,
+            -58,
+            -25,
             0,
-            64,
-            -64,
+            58,
+            -25,
             0,
-            -64,
-            64,
+            -58,
+            25,
             0,
-            64,
-            64,
+            58,
+            25,
             0
           ],
           "indexes": [
@@ -82,40 +82,40 @@
             3
           ],
           "uv": [
-            0,
-            128,
-            128,
-            128,
-            0,
-            0,
-            128,
-            0
+            6,
+            89,
+            122,
+            89,
+            6,
+            39,
+            122,
+            39
           ],
           "nuv": [
-            0,
-            0,
-            1,
-            0,
-            0,
-            1,
-            1,
-            1
+            0.046875,
+            0.3046875,
+            0.953125,
+            0.3046875,
+            0.046875,
+            0.6953125,
+            0.953125,
+            0.6953125
           ],
           "minPos": [
-            -64,
-            -64,
+            -58,
+            -25,
             0
           ],
           "maxPos": [
-            64,
-            64,
+            58,
+            25,
             0
           ]
         },
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "9ecc1b15-8210-4234-8fbc-7c53090317cc@6c48a",
+        "imageUuidOrDatabaseUri": "e0006e4d-d862-4f77-8c5b-d3ddfbca5046@6c48a",
         "atlasUuid": "",
-        "trimType": "none"
+        "trimType": "auto"
       },
       "ver": "1.0.12",
       "imported": true,
@@ -129,10 +129,6 @@
     "type": "sprite-frame",
     "fixAlphaTransparencyArtifacts": false,
     "hasAlpha": true,
-    "redirect": "9ecc1b15-8210-4234-8fbc-7c53090317cc@6c48a",
-    "compressSettings": {
-      "useCompressTexture": true,
-      "presetId": "7338w0tqBO4pYqyiJNakvf"
-    }
+    "redirect": "e0006e4d-d862-4f77-8c5b-d3ddfbca5046@6c48a"
   }
 }

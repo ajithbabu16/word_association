@@ -2,7 +2,7 @@
   "ver": "1.0.27",
   "importer": "image",
   "imported": true,
-  "uuid": "8bb198b7-bd05-40d1-adef-7b4d8fe6ba66",
+  "uuid": "de56afeb-ca7f-4d78-841a-7494035b94aa",
   "files": [
     ".json",
     ".png"
@@ -10,14 +10,14 @@
   "subMetas": {
     "6c48a": {
       "importer": "texture",
-      "uuid": "8bb198b7-bd05-40d1-adef-7b4d8fe6ba66@6c48a",
+      "uuid": "de56afeb-ca7f-4d78-841a-7494035b94aa@6c48a",
       "displayName": "POTTEDPLANT",
       "id": "6c48a",
       "name": "texture",
       "userData": {
         "wrapModeS": "clamp-to-edge",
         "wrapModeT": "clamp-to-edge",
-        "imageUuidOrDatabaseUri": "8bb198b7-bd05-40d1-adef-7b4d8fe6ba66",
+        "imageUuidOrDatabaseUri": "de56afeb-ca7f-4d78-841a-7494035b94aa",
         "isUuid": true,
         "visible": false,
         "minfilter": "linear",
@@ -34,7 +34,7 @@
     },
     "f9941": {
       "importer": "sprite-frame",
-      "uuid": "8bb198b7-bd05-40d1-adef-7b4d8fe6ba66@f9941",
+      "uuid": "de56afeb-ca7f-4d78-841a-7494035b94aa@f9941",
       "displayName": "POTTEDPLANT",
       "id": "f9941",
       "name": "spriteFrame",
@@ -42,11 +42,11 @@
         "trimThreshold": 1,
         "rotated": false,
         "offsetX": 0,
-        "offsetY": 0,
-        "trimX": 0,
-        "trimY": 0,
-        "width": 128,
-        "height": 128,
+        "offsetY": -0.5,
+        "trimX": 18,
+        "trimY": 3,
+        "width": 92,
+        "height": 123,
         "rawWidth": 128,
         "rawHeight": 128,
         "borderTop": 0,
@@ -60,17 +60,17 @@
         "meshType": 0,
         "vertices": {
           "rawPosition": [
-            -64,
-            -64,
+            -46,
+            -61.5,
             0,
-            64,
-            -64,
+            46,
+            -61.5,
             0,
-            -64,
-            64,
+            -46,
+            61.5,
             0,
-            64,
-            64,
+            46,
+            61.5,
             0
           ],
           "indexes": [
@@ -82,40 +82,40 @@
             3
           ],
           "uv": [
-            0,
-            128,
-            128,
-            128,
-            0,
-            0,
-            128,
-            0
+            18,
+            125,
+            110,
+            125,
+            18,
+            2,
+            110,
+            2
           ],
           "nuv": [
-            0,
-            0,
-            1,
-            0,
-            0,
-            1,
-            1,
-            1
+            0.140625,
+            0.015625,
+            0.859375,
+            0.015625,
+            0.140625,
+            0.9765625,
+            0.859375,
+            0.9765625
           ],
           "minPos": [
-            -64,
-            -64,
+            -46,
+            -61.5,
             0
           ],
           "maxPos": [
-            64,
-            64,
+            46,
+            61.5,
             0
           ]
         },
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "8bb198b7-bd05-40d1-adef-7b4d8fe6ba66@6c48a",
+        "imageUuidOrDatabaseUri": "de56afeb-ca7f-4d78-841a-7494035b94aa@6c48a",
         "atlasUuid": "",
-        "trimType": "none"
+        "trimType": "auto"
       },
       "ver": "1.0.12",
       "imported": true,
@@ -129,10 +129,6 @@
     "type": "sprite-frame",
     "fixAlphaTransparencyArtifacts": false,
     "hasAlpha": true,
-    "redirect": "8bb198b7-bd05-40d1-adef-7b4d8fe6ba66@6c48a",
-    "compressSettings": {
-      "useCompressTexture": true,
-      "presetId": "7338w0tqBO4pYqyiJNakvf"
-    }
+    "redirect": "de56afeb-ca7f-4d78-841a-7494035b94aa@6c48a"
   }
 }

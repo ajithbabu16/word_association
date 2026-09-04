@@ -2,7 +2,7 @@
   "ver": "1.0.27",
   "importer": "image",
   "imported": true,
-  "uuid": "d5f3e2cf-0b30-4261-8ad1-7661d50feaf0",
+  "uuid": "04d3e2ef-bb80-4436-b289-f46525e75214",
   "files": [
     ".json",
     ".png"
@@ -10,14 +10,14 @@
   "subMetas": {
     "6c48a": {
       "importer": "texture",
-      "uuid": "d5f3e2cf-0b30-4261-8ad1-7661d50feaf0@6c48a",
-      "displayName": "Tennisball",
+      "uuid": "04d3e2ef-bb80-4436-b289-f46525e75214@6c48a",
+      "displayName": "TENNISBALL",
       "id": "6c48a",
       "name": "texture",
       "userData": {
         "wrapModeS": "clamp-to-edge",
         "wrapModeT": "clamp-to-edge",
-        "imageUuidOrDatabaseUri": "d5f3e2cf-0b30-4261-8ad1-7661d50feaf0",
+        "imageUuidOrDatabaseUri": "04d3e2ef-bb80-4436-b289-f46525e75214",
         "isUuid": true,
         "visible": false,
         "minfilter": "linear",
@@ -34,8 +34,8 @@
     },
     "f9941": {
       "importer": "sprite-frame",
-      "uuid": "d5f3e2cf-0b30-4261-8ad1-7661d50feaf0@f9941",
-      "displayName": "Tennisball",
+      "uuid": "04d3e2ef-bb80-4436-b289-f46525e75214@f9941",
+      "displayName": "TENNISBALL",
       "id": "f9941",
       "name": "spriteFrame",
       "userData": {
@@ -43,10 +43,10 @@
         "rotated": false,
         "offsetX": 0,
         "offsetY": 0,
-        "trimX": 0,
-        "trimY": 0,
-        "width": 128,
-        "height": 128,
+        "trimX": 22,
+        "trimY": 22,
+        "width": 84,
+        "height": 84,
         "rawWidth": 128,
         "rawHeight": 128,
         "borderTop": 0,
@@ -60,17 +60,17 @@
         "meshType": 0,
         "vertices": {
           "rawPosition": [
-            -64,
-            -64,
+            -42,
+            -42,
             0,
-            64,
-            -64,
+            42,
+            -42,
             0,
-            -64,
-            64,
+            -42,
+            42,
             0,
-            64,
-            64,
+            42,
+            42,
             0
           ],
           "indexes": [
@@ -82,40 +82,40 @@
             3
           ],
           "uv": [
-            0,
-            128,
-            128,
-            128,
-            0,
-            0,
-            128,
-            0
+            22,
+            106,
+            106,
+            106,
+            22,
+            22,
+            106,
+            22
           ],
           "nuv": [
-            0,
-            0,
-            1,
-            0,
-            0,
-            1,
-            1,
-            1
+            0.171875,
+            0.171875,
+            0.828125,
+            0.171875,
+            0.171875,
+            0.828125,
+            0.828125,
+            0.828125
           ],
           "minPos": [
-            -64,
-            -64,
+            -42,
+            -42,
             0
           ],
           "maxPos": [
-            64,
-            64,
+            42,
+            42,
             0
           ]
         },
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "d5f3e2cf-0b30-4261-8ad1-7661d50feaf0@6c48a",
+        "imageUuidOrDatabaseUri": "04d3e2ef-bb80-4436-b289-f46525e75214@6c48a",
         "atlasUuid": "",
-        "trimType": "none"
+        "trimType": "auto"
       },
       "ver": "1.0.12",
       "imported": true,
@@ -129,7 +129,7 @@
     "type": "sprite-frame",
     "fixAlphaTransparencyArtifacts": false,
     "hasAlpha": true,
-    "redirect": "d5f3e2cf-0b30-4261-8ad1-7661d50feaf0@6c48a",
+    "redirect": "04d3e2ef-bb80-4436-b289-f46525e75214@6c48a",
     "compressSettings": {
       "useCompressTexture": true,
       "presetId": "7338w0tqBO4pYqyiJNakvf"

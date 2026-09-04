@@ -2,7 +2,7 @@
   "ver": "1.0.27",
   "importer": "image",
   "imported": true,
-  "uuid": "ecea6bdc-ba11-4295-b402-b88fe36e25a7",
+  "uuid": "b16b14f8-f805-4101-9c3e-329abc35b3ae",
   "files": [
     ".json",
     ".png"
@@ -10,14 +10,14 @@
   "subMetas": {
     "6c48a": {
       "importer": "texture",
-      "uuid": "ecea6bdc-ba11-4295-b402-b88fe36e25a7@6c48a",
+      "uuid": "b16b14f8-f805-4101-9c3e-329abc35b3ae@6c48a",
       "displayName": "CEREAL BAR",
       "id": "6c48a",
       "name": "texture",
       "userData": {
         "wrapModeS": "clamp-to-edge",
         "wrapModeT": "clamp-to-edge",
-        "imageUuidOrDatabaseUri": "ecea6bdc-ba11-4295-b402-b88fe36e25a7",
+        "imageUuidOrDatabaseUri": "b16b14f8-f805-4101-9c3e-329abc35b3ae",
         "isUuid": true,
         "visible": false,
         "minfilter": "linear",
@@ -34,7 +34,7 @@
     },
     "f9941": {
       "importer": "sprite-frame",
-      "uuid": "ecea6bdc-ba11-4295-b402-b88fe36e25a7@f9941",
+      "uuid": "b16b14f8-f805-4101-9c3e-329abc35b3ae@f9941",
       "displayName": "CEREAL BAR",
       "id": "f9941",
       "name": "spriteFrame",
@@ -113,7 +113,7 @@
           ]
         },
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "ecea6bdc-ba11-4295-b402-b88fe36e25a7@6c48a",
+        "imageUuidOrDatabaseUri": "b16b14f8-f805-4101-9c3e-329abc35b3ae@6c48a",
         "atlasUuid": "",
         "trimType": "none"
       },
@@ -129,7 +129,7 @@
     "type": "sprite-frame",
     "fixAlphaTransparencyArtifacts": false,
     "hasAlpha": true,
-    "redirect": "ecea6bdc-ba11-4295-b402-b88fe36e25a7@6c48a",
+    "redirect": "b16b14f8-f805-4101-9c3e-329abc35b3ae@6c48a",
     "compressSettings": {
       "useCompressTexture": true,
       "presetId": "7338w0tqBO4pYqyiJNakvf"

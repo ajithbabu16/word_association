@@ -2,7 +2,7 @@
   "ver": "1.0.27",
   "importer": "image",
   "imported": true,
-  "uuid": "252afe4d-57f2-45da-bf56-29e8f864d8b3",
+  "uuid": "34d43f9f-4e7d-4b29-98c8-f8f0ed037790",
   "files": [
     ".json",
     ".png"
@@ -10,14 +10,14 @@
   "subMetas": {
     "6c48a": {
       "importer": "texture",
-      "uuid": "252afe4d-57f2-45da-bf56-29e8f864d8b3@6c48a",
+      "uuid": "34d43f9f-4e7d-4b29-98c8-f8f0ed037790@6c48a",
       "displayName": "Cough",
       "id": "6c48a",
       "name": "texture",
       "userData": {
         "wrapModeS": "clamp-to-edge",
         "wrapModeT": "clamp-to-edge",
-        "imageUuidOrDatabaseUri": "252afe4d-57f2-45da-bf56-29e8f864d8b3",
+        "imageUuidOrDatabaseUri": "34d43f9f-4e7d-4b29-98c8-f8f0ed037790",
         "isUuid": true,
         "visible": false,
         "minfilter": "linear",
@@ -34,18 +34,18 @@
     },
     "f9941": {
       "importer": "sprite-frame",
-      "uuid": "252afe4d-57f2-45da-bf56-29e8f864d8b3@f9941",
+      "uuid": "34d43f9f-4e7d-4b29-98c8-f8f0ed037790@f9941",
       "displayName": "Cough",
       "id": "f9941",
       "name": "spriteFrame",
       "userData": {
         "trimThreshold": 1,
         "rotated": false,
-        "offsetX": 0,
+        "offsetX": -0.5,
         "offsetY": 0,
-        "trimX": 0,
+        "trimX": 11,
         "trimY": 0,
-        "width": 128,
+        "width": 105,
         "height": 128,
         "rawWidth": 128,
         "rawHeight": 128,
@@ -60,16 +60,16 @@
         "meshType": 0,
         "vertices": {
           "rawPosition": [
-            -64,
-            -64,
-            0,
-            64,
+            -52.5,
             -64,
             0,
+            52.5,
             -64,
+            0,
+            -52.5,
             64,
             0,
-            64,
+            52.5,
             64,
             0
           ],
@@ -82,40 +82,40 @@
             3
           ],
           "uv": [
+            11,
+            128,
+            116,
+            128,
+            11,
             0,
-            128,
-            128,
-            128,
-            0,
-            0,
-            128,
+            116,
             0
           ],
           "nuv": [
+            0.0859375,
             0,
+            0.90625,
             0,
+            0.0859375,
             1,
-            0,
-            0,
-            1,
-            1,
+            0.90625,
             1
           ],
           "minPos": [
-            -64,
+            -52.5,
             -64,
             0
           ],
           "maxPos": [
-            64,
+            52.5,
             64,
             0
           ]
         },
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "252afe4d-57f2-45da-bf56-29e8f864d8b3@6c48a",
+        "imageUuidOrDatabaseUri": "34d43f9f-4e7d-4b29-98c8-f8f0ed037790@6c48a",
         "atlasUuid": "",
-        "trimType": "none"
+        "trimType": "auto"
       },
       "ver": "1.0.12",
       "imported": true,
@@ -129,10 +129,6 @@
     "type": "sprite-frame",
     "fixAlphaTransparencyArtifacts": false,
     "hasAlpha": true,
-    "redirect": "252afe4d-57f2-45da-bf56-29e8f864d8b3@6c48a",
-    "compressSettings": {
-      "useCompressTexture": true,
-      "presetId": "7338w0tqBO4pYqyiJNakvf"
-    }
+    "redirect": "34d43f9f-4e7d-4b29-98c8-f8f0ed037790@6c48a"
   }
 }

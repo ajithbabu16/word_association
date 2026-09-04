@@ -2,7 +2,7 @@
   "ver": "1.0.27",
   "importer": "image",
   "imported": true,
-  "uuid": "23492712-6c9b-4bcc-805c-ae4158c8a467",
+  "uuid": "9f9f03d9-46c9-408b-bbc3-df3b08849fcf",
   "files": [
     ".json",
     ".png"
@@ -10,14 +10,14 @@
   "subMetas": {
     "6c48a": {
       "importer": "texture",
-      "uuid": "23492712-6c9b-4bcc-805c-ae4158c8a467@6c48a",
+      "uuid": "9f9f03d9-46c9-408b-bbc3-df3b08849fcf@6c48a",
       "displayName": "Mail",
       "id": "6c48a",
       "name": "texture",
       "userData": {
         "wrapModeS": "clamp-to-edge",
         "wrapModeT": "clamp-to-edge",
-        "imageUuidOrDatabaseUri": "23492712-6c9b-4bcc-805c-ae4158c8a467",
+        "imageUuidOrDatabaseUri": "9f9f03d9-46c9-408b-bbc3-df3b08849fcf",
         "isUuid": true,
         "visible": false,
         "minfilter": "linear",
@@ -34,7 +34,7 @@
     },
     "f9941": {
       "importer": "sprite-frame",
-      "uuid": "23492712-6c9b-4bcc-805c-ae4158c8a467@f9941",
+      "uuid": "9f9f03d9-46c9-408b-bbc3-df3b08849fcf@f9941",
       "displayName": "Mail",
       "id": "f9941",
       "name": "spriteFrame",
@@ -42,11 +42,11 @@
         "trimThreshold": 1,
         "rotated": false,
         "offsetX": 0,
-        "offsetY": 0,
-        "trimX": 0,
-        "trimY": 0,
-        "width": 128,
-        "height": 128,
+        "offsetY": -0.5,
+        "trimX": 10,
+        "trimY": 24,
+        "width": 108,
+        "height": 81,
         "rawWidth": 128,
         "rawHeight": 128,
         "borderTop": 0,
@@ -60,17 +60,17 @@
         "meshType": 0,
         "vertices": {
           "rawPosition": [
-            -64,
-            -64,
+            -54,
+            -40.5,
             0,
-            64,
-            -64,
+            54,
+            -40.5,
             0,
-            -64,
-            64,
+            -54,
+            40.5,
             0,
-            64,
-            64,
+            54,
+            40.5,
             0
           ],
           "indexes": [
@@ -82,40 +82,40 @@
             3
           ],
           "uv": [
-            0,
-            128,
-            128,
-            128,
-            0,
-            0,
-            128,
-            0
+            10,
+            104,
+            118,
+            104,
+            10,
+            23,
+            118,
+            23
           ],
           "nuv": [
-            0,
-            0,
-            1,
-            0,
-            0,
-            1,
-            1,
-            1
+            0.078125,
+            0.1796875,
+            0.921875,
+            0.1796875,
+            0.078125,
+            0.8125,
+            0.921875,
+            0.8125
           ],
           "minPos": [
-            -64,
-            -64,
+            -54,
+            -40.5,
             0
           ],
           "maxPos": [
-            64,
-            64,
+            54,
+            40.5,
             0
           ]
         },
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "23492712-6c9b-4bcc-805c-ae4158c8a467@6c48a",
+        "imageUuidOrDatabaseUri": "9f9f03d9-46c9-408b-bbc3-df3b08849fcf@6c48a",
         "atlasUuid": "",
-        "trimType": "none"
+        "trimType": "auto"
       },
       "ver": "1.0.12",
       "imported": true,
@@ -129,10 +129,6 @@
     "type": "sprite-frame",
     "fixAlphaTransparencyArtifacts": false,
     "hasAlpha": true,
-    "redirect": "23492712-6c9b-4bcc-805c-ae4158c8a467@6c48a",
-    "compressSettings": {
-      "useCompressTexture": true,
-      "presetId": "7338w0tqBO4pYqyiJNakvf"
-    }
+    "redirect": "9f9f03d9-46c9-408b-bbc3-df3b08849fcf@6c48a"
   }
 }
