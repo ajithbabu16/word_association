@@ -862,7 +862,18 @@
             27
           ]
         }
-      ]
+      ],
+      "extraCategory": {
+        "label": "WORDS START WITH 'S'",
+        "words": [
+          "SPAGHETTI",
+          "STOPWATCH",
+          "SHOULDER",
+          "SIM CARD",
+          "SAPPHIRE",
+          "SAUSAGE ROLL"
+        ]
+      }
     },
     {
       "id": 600007,
@@ -1621,7 +1632,18 @@
             23
           ]
         }
-      ]
+      ],
+      "extraCategory": {
+        "label": "4-LETTER WORDS",
+        "words": [
+          "CAKE",
+          "OVEN",
+          "RAFT",
+          "OVER-",
+          "RAIN",
+          "ENVY"
+        ]
+      }
     },
     {
       "id": 600011,
@@ -2790,6 +2812,17 @@
           ]
         }
       ],
+      "extraCategory": {
+        "label": "WORDS WITH DOUBLE LETTERS",
+        "words": [
+          "ELLIPSE",
+          "GREEK",
+          "PUZZLE GAMES",
+          "PROFESSOR",
+          "PEPPER",
+          "PARROT"
+        ]
+      },
       "difficulty": "hard"
     },
     {
@@ -3959,7 +3992,18 @@
             27
           ]
         }
-      ]
+      ],
+      "extraCategory": {
+        "label": "ASSOCIATED WITH COLORS",
+        "words": [
+          "BLACK BEAN",
+          "RED CHILI",
+          "BLACK CAT",
+          "GHOST",
+          "BLEACH",
+          "PAINTING"
+        ]
+      }
     },
     {
       "id": 600021,
@@ -5051,7 +5095,7 @@
             "RETRIEVER",
             "DOBERMAN",
             "BULLDOG",
-            "GRAYHOUND"
+            "GRAY HOUND"
           ]
         },
         {
@@ -5182,6 +5226,17 @@
           ]
         }
       ],
+      "extraCategory": {
+        "label": "THINGS ASSOCIATED WITH GOLD",
+        "words": [
+          "OSCARS",
+          "TICKET",
+          "RETRIEVER",
+          "COINS",
+          "OILS",
+          "ALCHEMY"
+        ]
+      },
       "difficulty": "hard"
     },
     {
@@ -5884,7 +5939,7 @@
         {
           "category": "DAIRY",
           "words": [
-            "BUTTERMILK",
+            "BUTTER",
             "YOGURT",
             "MILK",
             "CHEESE"
@@ -5990,7 +6045,18 @@
             43
           ]
         }
-      ]
+      ],
+      "extraCategory": {
+        "label": "SMALLEST WORD",
+        "words": [
+          "RINGS",
+          "FLU",
+          "BANK",
+          "CAR",
+          "DIGIT",
+          "MILK"
+        ]
+      }
     },
     {
       "id": 600031,
@@ -6961,6 +7027,17 @@
           ]
         }
       ],
+      "extraCategory": {
+        "label": "ENDS WITH VOWEL",
+        "words": [
+          "THREE",
+          "TATTOO",
+          "ZEBRA",
+          "PASTA",
+          "RADIO",
+          "NURSE"
+        ]
+      },
       "difficulty": "hard"
     },
     {
@@ -7051,7 +7128,7 @@
           "category": "MATH TOPICS",
           "words": [
             "GEOMETRY",
-            "EQUATIONS",
+            "ALGORITHM",
             "CALCULUS",
             "ALGEBRA"
           ]
@@ -8184,6 +8261,17 @@
           ]
         }
       ],
+      "extraCategory": {
+        "label": "HAS SHAPE IN IT",
+        "words": [
+          "CRESCENT",
+          "STARFISH",
+          "PARALLEL UNIVERSE",
+          "HUMAN PYRAMID",
+          "STAR CRUISER",
+          "FIGURE SKATING"
+        ]
+      },
       "difficulty": "hard"
     },
     {
@@ -9353,6 +9441,17 @@
           ]
         }
       ],
+      "extraCategory": {
+        "label": "STARTS WITH VOWEL",
+        "words": [
+          "EGG",
+          "OCEAN",
+          "ANEMOMETER",
+          "INVESTMENTS",
+          "OYSTER FRITTERS",
+          "ISLAND"
+        ]
+      },
       "difficulty": "hard"
     },
     {
@@ -9662,7 +9761,7 @@
           "words": [
             "PILOT",
             "COCKPIT",
-            "ENGINE",
+            "LANDING GEAR",
             "RUNWAY"
           ],
           "picture": true
@@ -10467,7 +10566,18 @@
             31
           ]
         }
-      ]
+      ],
+      "extraCategory": {
+        "label": "ENDS WITH 'S'",
+        "words": [
+          "TUSKS",
+          "DEGREES",
+          "GLOVES",
+          "IRIS",
+          "HORSES",
+          "US"
+        ]
+      }
     },
     {
       "id": 600051,
@@ -11294,7 +11404,18 @@
             35
           ]
         }
-      ]
+      ],
+      "extraCategory": {
+        "label": "WORDS CONTAIN 'G'",
+        "words": [
+          "AMUSING",
+          "FURLONG",
+          "RECTANGLE",
+          "GUINEA PIG",
+          "HYDROENERGY",
+          "ROAD SIGN"
+        ]
+      }
     },
     {
       "id": 600056,
@@ -12104,9 +12225,9 @@
           "category": "SHOES",
           "words": [
             "BOOTS",
-            "SLIPPERS",
+            "SNEAKERS",
             "LOAFERS",
-            "HIGH HEELS"
+            "HEELS"
           ],
           "picture": true
         },
@@ -12283,6 +12404,17 @@
           ]
         }
       ],
+      "extraCategory": {
+        "label": "HAS PLANT OR ANIMAL IN IT",
+        "words": [
+          "PLANT-BASED",
+          "SWANS",
+          "BONSAI",
+          "FISHING",
+          "THE LION KING",
+          "COWBOY HAT"
+        ]
+      },
       "difficulty": "hard"
     },
     {
@@ -13001,7 +13133,18 @@
             43
           ]
         }
-      ]
+      ],
+      "extraCategory": {
+        "label": "SAME FIRST & LAST LETTER",
+        "words": [
+          "ENGINE",
+          "GLASSBLOWING",
+          "EYE",
+          "ECLIPSE",
+          "TEXT",
+          "STAINED GLASS"
+        ]
+      }
     },
     {
       "id": 600066,
@@ -13581,7 +13724,7 @@
             "YAWN",
             "SLEEPY",
             "HEAVY",
-            "NOD"
+            "DREAMY"
           ],
           "picture": true
         },
@@ -13900,7 +14043,18 @@
             23
           ]
         }
-      ]
+      ],
+      "extraCategory": {
+        "label": "WORDS WITH DOUBLE LETTERS",
+        "words": [
+          "CANTEEN",
+          "FERRY",
+          "GLOSSARY",
+          "BLOODY MARY",
+          "TRAFFIC",
+          "SATELLITE"
+        ]
+      }
     },
     {
       "id": 600071,
@@ -14356,7 +14510,7 @@
             "PARIS",
             "FRANCE",
             "IRON",
-            "PARIS"
+            "STEEL"
           ],
           "picture": true
         },
@@ -14364,7 +14518,7 @@
           "category": "STATUE OF LIBERTY",
           "words": [
             "NEW YORK",
-            "FRANCE",
+            "COPPOR",
             "TORCH",
             "FREEDOM"
           ],
@@ -15069,6 +15223,17 @@
           ]
         }
       ],
+      "extraCategory": {
+        "label": "WORDS WITH 4 VOWELS",
+        "words": [
+          "CAPACITOR",
+          "ELECTROLYTES",
+          "TREASURE",
+          "MICROPHONE",
+          "SUPERPOWER",
+          "BACKSTAGE PASS"
+        ]
+      },
       "difficulty": "hard"
     },
     {
@@ -16238,7 +16403,18 @@
             27
           ]
         }
-      ]
+      ],
+      "extraCategory": {
+        "label": "ROUND IN SHAPE",
+        "words": [
+          "ORANGE",
+          "EARRINGS",
+          "COMPASS",
+          "CRYSTAL BALL",
+          "DONUT",
+          "SPEECH BUBBLE"
+        ]
+      }
     },
     {
       "id": 600081,
@@ -16282,7 +16458,7 @@
             "CHARGE",
             "POWER",
             "PERCENTAGE",
-            "CHARGER"
+            "CELL"
           ],
           "picture": true
         },
@@ -17353,6 +17529,17 @@
           ]
         }
       ],
+      "extraCategory": {
+        "label": "WORDS WITH 'TRACK'",
+        "words": [
+          "TRACK CAR",
+          "TRACKPAD",
+          "TRACK EDITOR",
+          "RAILWAY TRACK",
+          "TRACK SHOES",
+          "TRACKLIST"
+        ]
+      },
       "difficulty": "hard"
     },
     {
@@ -17706,7 +17893,7 @@
           "category": "NOODLES",
           "words": [
             "BROTH",
-            "NOODLES",
+            "MEAT",
             "CHOPSTICKS",
             "TOPPINGS"
           ]
@@ -18270,6 +18457,17 @@
           ]
         }
       ],
+      "extraCategory": {
+        "label": "HAS COLOR IN IT",
+        "words": [
+          "BLUEPRINT",
+          "YELLOW FEVER",
+          "BLUE JEANS",
+          "NEON SIGN",
+          "GOLDFISH",
+          "RED SANDPAPER"
+        ]
+      },
       "difficulty": "hard"
     },
     {
@@ -18728,7 +18926,7 @@
           "category": "UTILITIES",
           "words": [
             "ELECTRICITY",
-            "WATER",
+            "HEATING",
             "GAS",
             "INTERNET"
           ],
@@ -19240,7 +19438,18 @@
             43
           ]
         }
-      ]
+      ],
+      "extraCategory": {
+        "label": "CAN BE BROKEN",
+        "words": [
+          "PROMISES",
+          "EGGS",
+          "CRACK",
+          "RULES",
+          "SILENCE",
+          "VASE"
+        ]
+      }
     },
     {
       "id": 600096,
@@ -19721,7 +19930,7 @@
         {
           "category": "BREAKFAST",
           "words": [
-            "EGGS",
+            "BACON",
             "TOAST",
             "CEREAL",
             "PANCAKES"
@@ -19771,7 +19980,7 @@
         {
           "category": "TONGS",
           "words": [
-            "METAL",
+            "RUBBER TIP",
             "GRIP",
             "PINCH",
             "HEAT"
@@ -20463,6 +20672,17 @@
           ]
         }
       ],
+      "extraCategory": {
+        "label": "4-LETTER WORDS",
+        "words": [
+          "CASH",
+          "MULE",
+          "TENT",
+          "GRID",
+          "HOUR",
+          "CITY"
+        ]
+      },
       "difficulty": "hard"
     },
     {
@@ -20767,8 +20987,7 @@
             "NICKEL",
             "DIME",
             "QUARTER"
-          ],
-          "picture": true
+          ]
         },
         {
           "category": "PUNCTUATION MARKS",
@@ -21183,6 +21402,17 @@
           ]
         }
       ],
+      "extraCategory": {
+        "label": "LOCATION NAME",
+        "words": [
+          "BUFFALO",
+          "BATMAN",
+          "AMAZON",
+          "ORANGE",
+          "ROSES",
+          "OTTOMAN"
+        ]
+      },
       "difficulty": "hard"
     },
     {
@@ -22081,7 +22311,18 @@
             23
           ]
         }
-      ]
+      ],
+      "extraCategory": {
+        "label": "STARTS WITH P",
+        "words": [
+          "PETER PARKER",
+          "PIPER",
+          "PISTACHIO",
+          "PESTO",
+          "PAGANINI",
+          "PINTEREST"
+        ]
+      }
     },
     {
       "id": 600111,
@@ -23249,7 +23490,18 @@
             55
           ]
         }
-      ]
+      ],
+      "extraCategory": {
+        "label": "WITH WHEELS",
+        "words": [
+          "SHOPPING CART",
+          "LAWNMOWER",
+          "ROLLER SKATING",
+          "STEERING WHEEL",
+          "BALANCE WHEEL",
+          "PASTRY CUTTER"
+        ]
+      }
     },
     {
       "id": 600116,
@@ -24401,6 +24653,17 @@
           ]
         }
       ],
+      "extraCategory": {
+        "label": "WORDS WITH RING",
+        "words": [
+          "RINGMASTER",
+          "BOXING RING",
+          "NOSE RING",
+          "RING IT",
+          "RING TOSS",
+          "RINGWORM"
+        ]
+      },
       "difficulty": "hard"
     },
     {
@@ -25420,7 +25683,7 @@
           "words": [
             "RING SYSTEM",
             "TITAN MOON",
-            "GAS GIANT",
+            "HYDROGEN",
             "PLANETARY DISK"
           ],
           "picture": true
@@ -25440,7 +25703,7 @@
           "words": [
             "WINDY ATMOSPHERE",
             "ICE GIANT",
-            "GREAT DARK SPOT",
+            "DARK SPOT",
             "TRITON MOON"
           ],
           "picture": true
@@ -25623,7 +25886,18 @@
             55
           ]
         }
-      ]
+      ],
+      "extraCategory": {
+        "label": "RELATED WITH WATER",
+        "words": [
+          "WATERCRESS",
+          "NEPTUNE",
+          "WATER FILTER",
+          "VANILLA EXTRACT",
+          "GREEN FLORETS",
+          "THICK STALK"
+        ]
+      }
     },
     {
       "id": 600126,
@@ -26432,7 +26706,18 @@
             43
           ]
         }
-      ]
+      ],
+      "extraCategory": {
+        "label": "FAMOUS BRANDS",
+        "words": [
+          "EAGLE",
+          "COBRA LILY",
+          "BONGO",
+          "SCOUT",
+          "CORVETTE",
+          "MOKA POT"
+        ]
+      }
     },
     {
       "id": 600131,
@@ -26443,7 +26728,7 @@
         {
           "category": "CAP",
           "words": [
-            "VISOR",
+            "SUN SHADE",
             "SNAPBACK",
             "BRIM",
             "ADJUSTMENT STRAP"
@@ -27402,7 +27687,18 @@
             43
           ]
         }
-      ]
+      ],
+      "extraCategory": {
+        "label": "GOLDAN SUFFIXES",
+        "words": [
+          "COMPASS",
+          "ROSE",
+          "GLOVE",
+          "HARP",
+          "PANCAKE",
+          "GLOBE"
+        ]
+      }
     },
     {
       "id": 600136,
@@ -28589,7 +28885,18 @@
             47
           ]
         }
-      ]
+      ],
+      "extraCategory": {
+        "label": "THINGS WITH A NECK",
+        "words": [
+          "WATERING CAN",
+          "NIGHTSTAND LAMP",
+          "PIPE CUTTER",
+          "LEEK",
+          "SPICE JAR",
+          "LEATHER SEAT"
+        ]
+      }
     },
     {
       "id": 600141,
@@ -29177,7 +29484,7 @@
             "POTATO DOUGH",
             "SOFT DUMPLINGS",
             "RIDGED PILLOWS",
-            "BOILED PASTA"
+            "DUMPLINGS"
           ],
           "picture": true
         },
@@ -29793,7 +30100,18 @@
             55
           ]
         }
-      ]
+      ],
+      "extraCategory": {
+        "label": "MAKES SOUND",
+        "words": [
+          "ELEPHANT",
+          "AUDITORIUM",
+          "AIR PUMP",
+          "TURNTABLE",
+          "POLE SAW",
+          "KETTLE"
+        ]
+      }
     },
     {
       "id": 600146,
@@ -30908,6 +31226,17 @@
           ]
         }
       ],
+      "extraCategory": {
+        "label": "MADE OF WOOD",
+        "words": [
+          "THREAD SPOOL",
+          "GAME BOARD",
+          "TANKARD",
+          "BOOMERANG",
+          "EASEL",
+          "BROOMSTICK"
+        ]
+      },
       "difficulty": "hard"
     },
     {
