@@ -52,6 +52,97 @@ def init_model():
 threading.Thread(target=init_model, daemon=True).start()
 
 
+def parse_validation_results(file_path):
+    try:
+        ext = os.path.splitext(file_path)[1].lower()
+        if ext == '.pdf':
+            return None
+        elif ext == '.csv':
+            try:
+                df = pd.read_csv(file_path, encoding='utf-8')
+            except:
+                df = pd.read_csv(file_path, encoding='cp1252')
+        else:
+            df = pd.read_excel(file_path)
+            
+        df = df.fillna('')
+        
+        total_puzzles = len(df)
+        passed_count = 0
+        failed_count = 0
+        errors_list = []
+        error_categories = {
+            "Lock Logic": 0,
+            "Cleanliness / Forbidden Chars": 0,
+            "Structural / Length": 0,
+            "Capitalization": 0,
+            "Character Mismatches": 0,
+            "Duplication": 0,
+            "Missing Letters": 0,
+            "Other": 0
+        }
+        
+        for idx, row in df.iterrows():
+            level_no = row.get('Level_Number', row.get('Level', idx + 1))
+            phrase = str(row.get('Phrase', row.get('Answer', '')))
+            row_has_error = False
+            
+            for col in df.columns:
+                val = str(row[col]).strip()
+                if not val or val == 'Pass' or val == 'No Duplicates' or 'With Spaces' in col or 'Without Spaces' in col:
+                    continue
+                    
+                if 'Validation' in col or 'Status' in col or 'Check' in col or col == 'Missing Letters':
+                    if val != 'Pass' and val != '':
+                        row_has_error = True
+                        err_parts = [e.strip() for e in val.split(';') if e.strip() and e.strip() != 'Pass']
+                        for err in err_parts:
+                            cat = "Other"
+                            err_lower = err.lower()
+                            if 'lock' in err_lower:
+                                cat = "Lock Logic"
+                            elif 'forbidden' in err_lower or 'quote' in err_lower or 'period' in err_lower:
+                                cat = "Cleanliness / Forbidden Chars"
+                            elif 'length' in err_lower or 'exceeds' in err_lower or 'structural' in err_lower:
+                                cat = "Structural / Length"
+                            elif 'capitalization' in err_lower or 'capitalized' in err_lower:
+                                cat = "Capitalization"
+                            elif 'mismatch' in err_lower or 'invalid character' in err_lower:
+                                cat = "Character Mismatches"
+                            elif 'dup' in err_lower or 'duplicate' in err_lower:
+                                cat = "Duplication"
+                            elif 'missing' in err_lower:
+                                cat = "Missing Letters"
+                                
+                            error_categories[cat] = error_categories.get(cat, 0) + 1
+                            errors_list.append({
+                                "level": str(level_no),
+                                "phrase": phrase,
+                                "column": col,
+                                "error": err,
+                                "category": cat
+                            })
+                            
+            if row_has_error:
+                failed_count += 1
+            else:
+                passed_count += 1
+                
+        pass_rate = round((passed_count / total_puzzles * 100), 1) if total_puzzles > 0 else 0
+        
+        return {
+            "total_puzzles": total_puzzles,
+            "passed_puzzles": passed_count,
+            "failed_puzzles": failed_count,
+            "pass_rate": pass_rate,
+            "errors": errors_list,
+            "categories": error_categories
+        }
+    except Exception as e:
+        print(f"Error parsing validation results: {e}")
+        return None
+
+
 class ThreadingHTTPServer(socketserver.ThreadingMixIn, http.server.HTTPServer):
     daemon_threads = True
 
@@ -224,12 +315,14 @@ class CombinedHandler(http.server.SimpleHTTPRequestHandler):
                         out_bytes = f.read()
                         
                     out_b64 = base64.b64encode(out_bytes).decode('utf-8')
+                    parsed_analysis = parse_validation_results(output_file_path)
                     
                     self._set_headers()
                     self.wfile.write(json.dumps({
                         "status": "success", 
                         "output_filename": os.path.basename(output_file_path),
-                        "output_content": out_b64
+                        "output_content": out_b64,
+                        "analysis": parsed_analysis
                     }).encode())
                 finally:
                     # Cleanup

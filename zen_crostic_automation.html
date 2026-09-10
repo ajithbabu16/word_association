@@ -101,6 +101,10 @@ body{
 .cb-neutral:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.3);}
 .cb-danger{background:rgba(239,68,68,.14);color:#f87171;border-color:rgba(239,68,68,.35);}
 .cb-danger:hover{background:rgba(239,68,68,.25);}
+.cb-gold{background:rgba(255,215,0,.15);color:#ffd700;border-color:rgba(255,215,0,.4);}
+.cb-gold:hover{background:rgba(255,215,0,.25);box-shadow:0 0 12px rgba(255,215,0,.4);}
+.cb-cyan{background:rgba(0,245,212,.15);color:#00f5d4;border-color:rgba(0,245,212,.4);}
+.cb-cyan:hover{background:rgba(0,245,212,.25);box-shadow:0 0 12px rgba(0,245,212,.4);}
 .speed-sel{background:rgba(255,255,255,.08);border:1px solid var(--border);border-radius:8px;color:#fff;padding:6px 12px;font-family:inherit;font-size:.8rem;cursor:pointer;outline:none;}
 .speed-sel option{background:#110e20;}
 .sep{width:1px;height:22px;background:var(--border);flex-shrink:0;}
@@ -115,7 +119,10 @@ body{
 .tablet-header{background:rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.1);padding:14px 18px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
 .th-level{font-size:14px;font-weight:800;color:var(--secondary);background:rgba(0,245,212,.1);padding:5px 14px;border-radius:10px;border:1px solid rgba(0,245,212,.3);display:flex;align-items:center;gap:6px;}
 .prog-pill{background:rgba(255,255,255,.08);color:#fff;padding:4px 14px 4px 8px;border-radius:20px;display:flex;align-items:center;gap:8px;font-size:13px;font-weight:800;border:1px solid rgba(255,255,255,.15);}
-.puzzle-area{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:14px;max-height:720px;}
+.puzzle-area{flex:1;overflow-y:auto;padding:16px 16px 60px 16px;display:flex;flex-direction:column;gap:14px;max-height:calc(100vh - 140px);scrollbar-width:thin;scrollbar-color:var(--secondary) rgba(0,0,0,0.3);}
+.puzzle-area::-webkit-scrollbar{width:6px;}
+.puzzle-area::-webkit-scrollbar-track{background:rgba(0,0,0,0.2);border-radius:10px;}
+.puzzle-area::-webkit-scrollbar-thumb{background:var(--secondary);border-radius:10px;}
 
 /* Phrase */
 .phrase-strip{background:rgba(255,255,255,.04);border-radius:16px;border:1px solid rgba(255,255,255,.1);padding:16px 18px;box-shadow:0 4px 16px rgba(0,0,0,.25);}
@@ -290,6 +297,10 @@ body{
   </select>
   <div class="sep"></div>
   <button class="cb cb-danger" onclick="resetLvl()">&#8635; Reset</button>
+  <div class="sep"></div>
+  <button class="cb cb-gold" onclick="openLiveViewModal()">👁️ Live View</button>
+  <button class="cb cb-danger" onclick="openPuzzleErrorsModal()">⚠️ Puzzle Error View</button>
+  <button class="cb cb-cyan" onclick="openLiveGraphModal()">📊 Live Graph</button>
   <div style="flex:1"></div>
   <span style="font-size:.75rem;color:var(--muted);">Levels: <strong id="total-lbl">&#8212;</strong></span>
  </div>
@@ -991,6 +1002,341 @@ function setSpeed(v){
 function showGov(e,t,s){showOv(e,t,s);}
 function showOv(e,t,s){document.getElementById('ov-e').textContent=e;document.getElementById('ov-t').textContent=t;document.getElementById('ov-s').textContent=s;document.getElementById('overlay').style.display='flex';}
 function hideOv(){document.getElementById('overlay').style.display='none';}
+
+// --- DIAGNOSTIC MODALS FOR AUTOMATION CONTROL STRIP ---
+var diagModalErrors = [];
+
+function openDiagModal(title, bodyHtml) {
+ var modal = document.getElementById('diag-modal');
+ if(!modal) {
+  modal = document.createElement('div');
+  modal.id = 'diag-modal';
+  modal.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.85);backdrop-filter:blur(16px);z-index:9999;display:flex;align-items:center;justify-content:center;padding:2rem;';
+  document.body.appendChild(modal);
+ }
+ modal.innerHTML = '<div style="background:rgba(18,14,34,0.95);border:1px solid rgba(255,255,255,0.2);border-radius:24px;padding:2rem;max-width:1000px;width:95%;max-height:90vh;overflow-y:auto;box-shadow:0 25px 65px rgba(0,0,0,0.8);color:#fff;position:relative;">' +
+  '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:1rem;">' +
+  '<h2 style="color:var(--secondary);margin:0;">' + title + '</h2>' +
+  '<button onclick="closeDiagModal()" style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:#fff;padding:6px 16px;border-radius:10px;cursor:pointer;font-weight:700;">✕ CLOSE</button>' +
+  '</div>' +
+  '<div id="diag-modal-body">' + bodyHtml + '</div>' +
+  '</div>';
+ modal.style.display = 'flex';
+}
+
+function closeDiagModal() {
+ var modal = document.getElementById('diag-modal');
+ if(modal) modal.style.display = 'none';
+}
+
+function jumpToLevelIdx(idx) {
+ if (idx < 0 || idx >= levelKeys.length) return;
+ closeDiagModal();
+ stopAuto();
+ curLvl = idx;
+ curClue = 0;
+ revStep = 0;
+ initLevelState();
+ renderLevel();
+}
+
+function checkLockLogicInJS(phrase, puzzle, levelK, colName, errorsList) {
+    if (!phrase || !puzzle) return;
+    for (var i = 0; i < puzzle.length; i++) {
+        var pChar = puzzle[i];
+        if (pChar !== '@' && pChar !== '#') continue;
+
+        var start = i, end = i;
+        while (start > 0 && /[a-zA-Z]/.test(phrase[start - 1])) start--;
+        while (end < phrase.length - 1 && /[a-zA-Z]/.test(phrase[end + 1])) end++;
+
+        if (!/[a-zA-Z]/.test(phrase[i])) {
+            errorsList.push({ level: levelK, phrase: phrase, column: colName, category: 'Lock Logic', desc: "Lock character '" + pChar + "' at position " + i + " is incorrectly placed on a non-alphabetic character." });
+            continue;
+        }
+
+        var wordLen = end - start + 1;
+        if (pChar === '@') {
+            if (wordLen === 1) {
+                errorsList.push({ level: levelK, phrase: phrase, column: colName, category: 'Lock Logic', desc: "Single lock '@' at position " + i + " cannot be on a single-letter word." });
+            }
+            var prevMissing = (i > start && ['_', '@', '#', '$'].indexOf(puzzle[i - 1]) !== -1);
+            var nextMissing = (i < end && ['_', '@', '#', '$'].indexOf(puzzle[i + 1]) !== -1);
+            if (!prevMissing && !nextMissing) {
+                errorsList.push({ level: levelK, phrase: phrase, column: colName, category: 'Lock Logic', desc: "Single lock '@' at position " + i + " must be adjacent to another missing letter." });
+            }
+        } else if (pChar === '#') {
+            if (wordLen <= 2) {
+                errorsList.push({ level: levelK, phrase: phrase, column: colName, category: 'Lock Logic', desc: "Double lock '#' at position " + i + " cannot be on a word of length 1 or 2." });
+            }
+            if (i === start || i === end) {
+                errorsList.push({ level: levelK, phrase: phrase, column: colName, category: 'Lock Logic', desc: "Double lock '#' at position " + i + " cannot be at the start or end of a word." });
+            }
+            if (i > start && i < end) {
+                var prevMissing2 = (['_', '@', '#', '$'].indexOf(puzzle[i - 1]) !== -1);
+                var nextMissing2 = (['_', '@', '#', '$'].indexOf(puzzle[i + 1]) !== -1);
+                if (!prevMissing2 || !nextMissing2) {
+                    errorsList.push({ level: levelK, phrase: phrase, column: colName, category: 'Lock Logic', desc: "Double lock '#' at position " + i + " must be between two other missing letters." });
+                }
+            }
+        }
+    }
+}
+
+function getLevelValidationErrors(k) {
+ var lvl = puzzleData[k];
+ if (!lvl) return [];
+ var errors = [];
+ var ph = lvl.phrase || {};
+ var disp = ph.display || '';
+ var pattern = ph.phrase || '';
+ var clues = lvl.clues || [];
+ var forbidden = ['`', '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '=', '{', '[', '}', ']', '|', '\\', ':', ';', '<', '>', '?', '/', '“', '”', '‘', '’', '—', '–', '…', '©', '®', '™', '€', '£', '¥', '——', '--', 'ö'];
+
+ // Phrase Cleanliness & Length checks
+ var foundForbidden = [];
+ for (var i = 0; i < disp.length; i++) {
+  if (forbidden.indexOf(disp[i]) !== -1 && foundForbidden.indexOf(disp[i]) === -1) {
+   foundForbidden.push(disp[i]);
+  }
+ }
+ if (foundForbidden.length > 0) {
+  errors.push({ level: k, phrase: disp, column: 'Phrase Validation', category: 'Cleanliness / Forbidden Chars', desc: "Forbidden characters found: " + foundForbidden.map(function(c){return "'"+c+"'";}).join(", ") + ". Use standard quotes, hyphens, and ellipses (...)." });
+ }
+ if (disp && !disp.trim().endsWith('.')) {
+  errors.push({ level: k, phrase: disp, column: 'Phrase Validation', category: 'Cleanliness / Forbidden Chars', desc: "Phrase must end with a period ('.')." });
+ }
+
+ var phraseNoSpace = disp.replace(/\s+/g, '');
+ if (phraseNoSpace.length > 35) {
+  errors.push({ level: k, phrase: disp, column: 'Phrase Validation', category: 'Structural / Length', desc: "Phrase length (" + phraseNoSpace.length + ") exceeds max 35." });
+ }
+
+ var words = disp.split(/\s+/);
+ var maxW = 0;
+ words.forEach(function(w){ if(w.length > maxW) maxW = w.length; });
+ if (maxW > 13) {
+  errors.push({ level: k, phrase: disp, column: 'Phrase Validation', category: 'Structural / Length', desc: "Max word length (" + maxW + ") exceeds max 13." });
+ }
+
+ checkLockLogicInJS(disp, pattern, k, 'Phrase Validation', errors);
+
+ // Q1-Q10 & A1-A10 & Puzzle 1-10 checks
+ clues.forEach(function(clue, idx){
+  var qNo = idx + 1;
+  var qCol = 'Q' + qNo;
+  var aCol = 'A' + qNo + ' Validation';
+  var qStr = (clue.question || '').trim();
+  var aStr = (clue.display || clue.answer || '').trim();
+  var pStr = clue.phrase || clue.answer || '';
+
+  if (qStr) {
+   var qNoSpace = qStr.replace(/\s+/g, '');
+   if (qNoSpace.length > 50) {
+    errors.push({ level: k, phrase: disp, column: aCol, category: 'Structural / Length', desc: qCol + ": Length (" + qNoSpace.length + ") exceeds max 50." });
+   }
+   if (qStr.indexOf('_____') !== -1 || qStr.indexOf('-----') !== -1) {
+    errors.push({ level: k, phrase: disp, column: aCol, category: 'Cleanliness / Forbidden Chars', desc: qCol + ": Contains 5 or more consecutive dashes/underscores (should be exactly 4)." });
+   }
+   var firstLetter = null;
+   for (var c = 0; c < qStr.length; c++) {
+    if (/[a-zA-Z]/.test(qStr[c])) { firstLetter = qStr[c]; break; }
+   }
+   if (firstLetter && firstLetter !== firstLetter.toUpperCase()) {
+    errors.push({ level: k, phrase: disp, column: aCol, category: 'Capitalization', desc: qCol + ": First letter is not capitalized." });
+   }
+  }
+
+  if (aStr) {
+   var aNoSpace = aStr.replace(/\s+/g, '');
+   if (aNoSpace.length > 13) {
+    errors.push({ level: k, phrase: disp, column: aCol, category: 'Structural / Length', desc: "A" + qNo + ": Length (" + aNoSpace.length + ") exceeds max 13." });
+   }
+  }
+
+  if (aStr && pStr) {
+   if (aStr.length !== pStr.length) {
+    errors.push({ level: k, phrase: disp, column: aCol, category: 'Structural / Length', desc: "Length mismatch: Answer has " + aStr.length + " chars, Puzzle has " + pStr.length + "." });
+   } else {
+    checkLockLogicInJS(aStr, pStr, k, aCol, errors);
+   }
+  }
+ });
+
+ return errors;
+}
+
+function filterLiveViewRows() {
+ var searchVal = (document.getElementById('live-search-input').value || '').toLowerCase().trim();
+ var filterVal = document.getElementById('live-status-filter').value;
+ var rows = document.querySelectorAll('.live-view-row');
+ rows.forEach(function(row) {
+  var rowStatus = row.getAttribute('data-status');
+  var rowSearch = row.getAttribute('data-search').toLowerCase();
+  var matchesStatus = (filterVal === 'ALL' || rowStatus === filterVal);
+  var matchesSearch = (!searchVal || rowSearch.indexOf(searchVal) !== -1);
+  if (matchesStatus && matchesSearch) {
+   row.style.display = 'block';
+  } else {
+   row.style.display = 'none';
+  }
+ });
+}
+
+function openLiveViewModal() {
+ var keys = levelKeys.length > 0 ? levelKeys : Object.keys(puzzleData);
+ var totalLevels = keys.length;
+ var passCount = 0;
+ var failCount = 0;
+ var rowsHtml = '';
+
+ keys.forEach(function(k, idx){
+  var lvl = puzzleData[k];
+  var ph = (lvl && lvl.phrase) ? lvl.phrase : {};
+  var disp = ph.display || '';
+  var pattern = ph.phrase || '';
+  var clues = (lvl && lvl.clues) ? lvl.clues : [];
+  var errors = getLevelValidationErrors(k);
+  var isPass = (errors.length === 0);
+
+  if (isPass) passCount++; else failCount++;
+
+  var statusBadge = isPass 
+   ? '<span style="background:rgba(0,245,212,0.18);border:1px solid #00f5d4;color:#00f5d4;padding:4px 12px;border-radius:12px;font-weight:800;font-size:0.85rem;">✅ PASS</span>'
+   : '<span style="background:rgba(255,77,77,0.18);border:1px solid #ff4d4d;color:#ff4d4d;padding:4px 12px;border-radius:12px;font-weight:800;font-size:0.85rem;">❌ FAIL (' + errors.length + ' ERRORS)</span>';
+
+  var errListHtml = '';
+  if (!isPass) {
+   errListHtml = '<div style="background:rgba(255,77,77,0.08);border:1px solid rgba(255,77,77,0.25);border-radius:8px;padding:10px;margin-top:8px;">' +
+    '<strong style="color:#ff9999;font-size:0.85rem;display:block;margin-bottom:6px;">❌ Failure Reasons:</strong>' +
+    '<ul style="margin:0;padding-left:20px;color:#ff9999;font-size:0.85rem;">' +
+    errors.map(function(e){ return '<li style="margin-bottom:4px;"><strong style="color:#ffb3b3;">[' + e.category + ']</strong> ' + e.desc + '</li>'; }).join('') +
+    '</ul></div>';
+  } else {
+   errListHtml = '<div style="color:#00f5d4;font-size:0.85rem;margin-top:6px;display:flex;align-items:center;gap:6px;"><span>✓</span> All checks passed cleanly (Phrase cleanliness, length, lock logic & Q&A rules).</div>';
+  }
+
+  rowsHtml += '<div class="live-view-row" data-level="' + k + '" data-status="' + (isPass ? 'PASS' : 'FAIL') + '" data-search="' + k + ' ' + disp.toLowerCase() + ' ' + (isPass ? 'pass' : 'fail') + '" style="background:rgba(255,255,255,0.03);border:1px solid ' + (isPass ? 'rgba(0,245,212,0.2)' : 'rgba(255,77,77,0.3)') + ';border-radius:12px;padding:1rem;margin-bottom:1rem;">' +
+   '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap;gap:8px;">' +
+   '<div style="display:flex;align-items:center;gap:10px;">' +
+   '<span style="background:rgba(157,78,221,0.25);border:1px solid rgba(157,78,221,0.5);color:#d8b4fe;padding:4px 10px;border-radius:8px;font-weight:800;font-size:0.85rem;">Level ' + k + '</span>' +
+   '<strong style="color:#fff;font-size:1.05rem;">' + disp + '</strong>' +
+   '<span style="color:rgba(255,255,255,0.5);font-size:0.8rem;">(' + clues.length + ' Clues)</span>' +
+   '</div>' +
+   '<div style="display:flex;align-items:center;gap:10px;">' +
+   statusBadge +
+   '<button onclick="jumpToLevelIdx(' + idx + ')" style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:#fff;padding:4px 12px;border-radius:8px;cursor:pointer;font-size:0.8rem;font-weight:600;">🎮 Open in Editor</button>' +
+   '</div>' +
+   '</div>' +
+   '<div style="font-family:monospace;letter-spacing:2px;font-size:0.85rem;color:rgba(255,255,255,0.7);background:rgba(0,0,0,0.25);padding:6px 10px;border-radius:6px;margin-bottom:4px;">Pattern: ' + (pattern || disp) + '</div>' +
+   errListHtml +
+   '</div>';
+ });
+
+ var headerHtml = '<div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);padding:1rem;border-radius:12px;margin-bottom:1rem;">' +
+  '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;flex-wrap:wrap;gap:10px;">' +
+  '<div><strong style="font-size:1.1rem;color:#fff;">Continuous Live View (' + totalLevels + ' Levels)</strong></div>' +
+  '<div style="display:flex;gap:8px;">' +
+  '<span style="background:rgba(0,245,212,0.15);color:#00f5d4;padding:4px 12px;border-radius:10px;font-weight:700;font-size:0.85rem;">Passed: ' + passCount + '</span>' +
+  '<span style="background:rgba(255,77,77,0.15);color:#ff4d4d;padding:4px 12px;border-radius:10px;font-weight:700;font-size:0.85rem;">Failed: ' + failCount + '</span>' +
+  '</div>' +
+  '</div>' +
+  '<div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">' +
+  '<input type="text" id="live-search-input" onkeyup="filterLiveViewRows()" placeholder="🔍 Search level #, phrase, or error reason..." style="flex:1;min-width:200px;background:rgba(0,0,0,0.4);border:1px solid rgba(255,255,255,0.2);color:#fff;padding:8px 14px;border-radius:8px;font-size:0.9rem;">' +
+  '<select id="live-status-filter" onchange="filterLiveViewRows()" style="background:rgba(0,0,0,0.4);border:1px solid rgba(255,255,255,0.2);color:#fff;padding:8px 14px;border-radius:8px;font-size:0.9rem;">' +
+  '<option value="ALL">All Levels (' + totalLevels + ')</option>' +
+  '<option value="FAIL">Only Failed (' + failCount + ')</option>' +
+  '<option value="PASS">Only Passed (' + passCount + ')</option>' +
+  '</select>' +
+  '</div>' +
+  '</div>';
+
+ openDiagModal('👁️ Continuous Live View (All Level Rows)', headerHtml + rowsHtml);
+}
+
+function openPuzzleErrorsModal() {
+ diagModalErrors = [];
+ var keys = Object.keys(puzzleData);
+ keys.forEach(function(k){
+  var errs = getLevelValidationErrors(k);
+  errs.forEach(function(e){ diagModalErrors.push(e); });
+ });
+
+ var html = '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">' +
+  '<div>Total Errors Found: <strong>' + diagModalErrors.length + '</strong> across ' + keys.length + ' levels</div>' +
+  '<button onclick="downloadModalErrorsCSV()" style="background:rgba(0,245,212,0.2);border:1px solid #00f5d4;color:#00f5d4;padding:8px 16px;border-radius:10px;cursor:pointer;font-weight:700;">📥 DOWNLOAD ERRORS CSV</button>' +
+  '</div>';
+
+ if(diagModalErrors.length === 0) {
+  html += '<div style="text-align:center;color:#00f5d4;padding:3rem;font-size:1.2rem;">🎉 All loaded levels passed main validator rules cleanly! No errors found.</div>';
+ } else {
+  html += '<table style="width:100%;border-collapse:collapse;text-align:left;">' +
+   '<thead><tr style="background:rgba(157,78,221,0.3);"><th style="padding:10px;">Lvl #</th><th>Phrase</th><th>Check Column</th><th>Category</th><th>Error Description</th></tr></thead><tbody>';
+  diagModalErrors.forEach(function(e){
+   html += '<tr style="border-bottom:1px solid rgba(255,255,255,0.08);">' +
+    '<td style="padding:10px;"><strong>Lvl ' + e.level + '</strong></td>' +
+    '<td>' + e.phrase + '</td>' +
+    '<td><span style="background:rgba(157,78,221,0.2);color:#d8b4fe;padding:2px 8px;border-radius:10px;font-size:0.75rem;">' + e.column + '</span></td>' +
+    '<td><span style="background:rgba(255,77,77,0.2);color:#ff9999;padding:2px 8px;border-radius:10px;font-size:0.75rem;">' + e.category + '</span></td>' +
+    '<td style="color:#ff9999;">' + e.desc + '</td>' +
+    '</tr>';
+  });
+  html += '</tbody></table>';
+ }
+
+ openDiagModal('⚠️ Puzzle Error View (Main Validator Rules)', html);
+}
+
+function openLiveGraphModal() {
+ var keys = Object.keys(puzzleData);
+ var total = keys.length;
+ diagModalErrors = [];
+ keys.forEach(function(k){
+  var errs = getLevelValidationErrors(k);
+  errs.forEach(function(e){ diagModalErrors.push(e); });
+ });
+
+ var failCount = diagModalErrors.length;
+ var passCount = Math.max(0, total - failCount);
+ var passRate = total > 0 ? Math.round((passCount / total) * 100) : 100;
+
+ var html = '<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:1.5rem;">' +
+  '<div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:1rem;text-align:center;"><div style="font-size:0.8rem;color:rgba(255,255,255,0.6);">Total Analyzed</div><div style="font-size:1.8rem;font-weight:700;color:#fff;">' + total + '</div></div>' +
+  '<div style="background:rgba(0,245,212,0.08);border:1px solid rgba(0,245,212,0.3);border-radius:12px;padding:1rem;text-align:center;"><div style="font-size:0.8rem;color:rgba(255,255,255,0.6);">Passed</div><div style="font-size:1.8rem;font-weight:700;color:#00f5d4;">' + passCount + '</div></div>' +
+  '<div style="background:rgba(255,77,77,0.08);border:1px solid rgba(255,77,77,0.3);border-radius:12px;padding:1rem;text-align:center;"><div style="font-size:0.8rem;color:rgba(255,255,255,0.6);">Failed</div><div style="font-size:1.8rem;font-weight:700;color:#ff4d4d;">' + failCount + '</div></div>' +
+  '<div style="background:rgba(157,78,221,0.08);border:1px solid rgba(157,78,221,0.3);border-radius:12px;padding:1rem;text-align:center;"><div style="font-size:0.8rem;color:rgba(255,255,255,0.6);">Pass Rate</div><div style="font-size:1.8rem;font-weight:700;color:#d8b4fe;">' + passRate + '%</div></div>' +
+  '</div>';
+
+ html += '<div style="background:rgba(0,0,0,0.3);padding:1.5rem;border-radius:16px;border:1px solid rgba(255,255,255,0.1);"><h3 style="color:#ff9999;margin-bottom:1rem;">Failure Reasons Breakdown</h3>';
+ if(failCount === 0) {
+  html += '<div style="color:#00f5d4;font-size:1.1rem;">🎉 100% Pass Rate! All loaded levels satisfy single lock, double lock, cloak, and phrase rules.</div>';
+ } else {
+  diagModalErrors.forEach(function(e){
+   html += '<div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.08);">' +
+    '<div><strong style="color:#ff9999;">Level ' + e.level + ':</strong> ' + e.desc + '</div>' +
+    '<span style="background:rgba(255,77,77,0.2);color:#ff9999;padding:2px 8px;border-radius:10px;font-size:0.75rem;">' + e.category + '</span>' +
+    '</div>';
+  });
+ }
+ html += '</div>';
+
+ openDiagModal('📊 Live Graph & Pass/Fail Metrics', html);
+}
+
+function downloadModalErrorsCSV() {
+ if(!diagModalErrors || diagModalErrors.length === 0) { alert('No errors to export.'); return; }
+ var csv = 'Level_Number,Phrase,Check_Column,Error_Category,Error_Description\n';
+ diagModalErrors.forEach(function(e){
+  csv += e.level + ',"' + (e.phrase||'').replace(/"/g,'""') + '","' + (e.column||'') + '","' + (e.category||'') + '","' + (e.desc||'') + '"\n';
+ });
+ var blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+ var url = URL.createObjectURL(blob);
+ var a = document.createElement('a');
+ a.href = url;
+ a.download = 'puzzle_errors.csv';
+ a.click();
+ URL.revokeObjectURL(url);
+}
 
 showScreen('mode');
 </script>

@@ -3,94 +3,332 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zen Crostics - Script Execute</title>
+    <title>Zen Crostics - Script Execute & Live Inspector</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #9d4edd; --secondary: #00f5d4; --bg-color: #0b0914; }
+        :root { --primary: #9d4edd; --secondary: #00f5d4; --danger: #ff4d4d; --bg-color: #0b0914; }
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body, html { width: 100%; min-height: 100vh; background-color: var(--bg-color); background-image: url('bg.jpg'); background-size: cover; background-position: center; font-family: 'Outfit', sans-serif; display: flex; align-items: center; justify-content: center; color: #ffffff; }
-        .ui-container { position: relative; z-index: 10; background: rgba(15, 12, 29, 0.65); backdrop-filter: blur(24px); border: 1px solid rgba(255, 255, 255, 0.1); border-top: 1px solid rgba(255, 255, 255, 0.3); border-left: 1px solid rgba(255, 255, 255, 0.2); border-radius: 24px; padding: 3rem 4rem; text-align: center; box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(157, 78, 221, 0.2); max-width: 650px; width: 90%; animation: fadeIn 0.8s forwards; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem; background: linear-gradient(135deg, #fff, var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .subtitle { font-size: 1rem; font-weight: 300; color: rgba(255, 255, 255, 0.7); margin-bottom: 2rem; letter-spacing: 3px; text-transform: uppercase; }
+        body, html { width: 100%; min-height: 100vh; background-color: var(--bg-color); background-image: url('bg.jpg'); background-size: cover; background-position: center; background-attachment: fixed; font-family: 'Outfit', sans-serif; color: #ffffff; }
+
+        .view-section { display: none; width: 100%; min-height: 100vh; padding: 2rem; align-items: center; justify-content: center; }
+        .view-section.active { display: flex; flex-direction: column; }
+
+        .ui-container { position: relative; z-index: 10; background: rgba(15, 12, 29, 0.75); backdrop-filter: blur(24px); border: 1px solid rgba(255, 255, 255, 0.1); border-top: 1px solid rgba(255, 255, 255, 0.3); border-left: 1px solid rgba(255, 255, 255, 0.2); border-radius: 24px; padding: 2.5rem 3.5rem; text-align: center; box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(157, 78, 221, 0.2); max-width: 850px; width: 95%; animation: fadeIn 0.4s ease-out forwards; }
+        .ui-container.wide { max-width: 1150px; text-align: left; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+        h1 { font-size: 2.3rem; font-weight: 700; margin-bottom: 0.5rem; background: linear-gradient(135deg, #fff, var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .subtitle { font-size: 0.95rem; font-weight: 300; color: rgba(255, 255, 255, 0.7); margin-bottom: 2rem; letter-spacing: 2px; text-transform: uppercase; }
+
         .form-group { margin-bottom: 1.5rem; text-align: left; }
         label { display: block; margin-bottom: 0.5rem; color: rgba(255,255,255,0.8); font-weight: 500; letter-spacing: 1px; }
-        select, input[type="file"] { width: 100%; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 1rem; border-radius: 8px; font-family: 'Outfit', sans-serif; font-size: 1rem; outline: none; transition: border-color 0.3s; }
-        select:focus, input[type="file"]:focus { border-color: var(--secondary); }
+        select, input[type="file"], input[type="text"] { width: 100%; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 0.9rem 1rem; border-radius: 8px; font-family: 'Outfit', sans-serif; font-size: 1rem; outline: none; transition: border-color 0.3s; }
+        select:focus, input[type="file"]:focus, input[type="text"]:focus { border-color: var(--secondary); }
         select option { background: #111; color: white; }
-        .glass-btn { position: relative; background: rgba(255, 255, 255, 0.05); color: #fff; padding: 1rem 2rem; font-size: 1.1rem; font-weight: 500; letter-spacing: 2px; border-radius: 12px; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; width: 100%; gap: 12px; border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); transition: all 0.4s; margin-top: 1rem; }
-        .glass-btn::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(157, 78, 221, 0.4), rgba(0, 245, 212, 0.4)); z-index: -1; opacity: 0; transition: opacity 0.4s; }
-        .glass-btn:hover { transform: translateY(-2px); border-color: rgba(255, 255, 255, 0.4); box-shadow: 0 10px 25px rgba(157, 78, 221, 0.4); }
-        .glass-btn:hover::before { opacity: 1; }
-        .glass-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        .glass-btn { position: relative; background: rgba(255, 255, 255, 0.05); color: #fff; padding: 0.85rem 1.6rem; font-size: 0.95rem; font-weight: 500; letter-spacing: 1px; border-radius: 12px; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); transition: all 0.3s; }
+        .glass-btn:hover { transform: translateY(-2px); border-color: var(--secondary); box-shadow: 0 10px 25px rgba(0, 245, 212, 0.3); }
+        .glass-btn.btn-cyan { background: rgba(0, 245, 212, 0.15); border-color: rgba(0, 245, 212, 0.4); color: var(--secondary); }
+        .glass-btn.btn-purple { background: rgba(157, 78, 221, 0.25); border-color: rgba(157, 78, 221, 0.5); color: #d8b4fe; }
+        .glass-btn.btn-red { background: rgba(255, 77, 77, 0.15); border-color: rgba(255, 77, 77, 0.4); color: #ff9999; }
+        .glass-btn.btn-gold { background: rgba(255, 215, 0, 0.15); border-color: rgba(255, 215, 0, 0.4); color: #ffd700; }
+        .glass-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none !important; }
+
+        .btn-grid { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 1.5rem; justify-content: center; }
+
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+        .stat-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 1.2rem; text-align: center; }
+        .stat-card .val { font-size: 2rem; font-weight: 700; margin-top: 4px; }
+        .stat-card.pass .val { color: var(--secondary); }
+        .stat-card.fail .val { color: var(--danger); }
+        .stat-card.rate .val { color: #d8b4fe; }
+        .stat-card .lbl { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.6); }
+
+        .nav-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem; }
+        .nav-back-btn { color: white; text-decoration: none; font-weight: 500; letter-spacing: 1px; display: flex; align-items: center; gap: 8px; cursor: pointer; background: rgba(255,255,255,0.05); padding: 0.6rem 1.2rem; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); transition: all 0.3s; }
+        .nav-back-btn:hover { background: rgba(255,255,255,0.15); border-color: var(--secondary); }
+
+        /* Error Table */
+        .table-responsive { width: 100%; overflow-x: auto; max-height: 480px; overflow-y: auto; margin-top: 1rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); }
+        table.err-table { width: 100%; border-collapse: collapse; text-align: left; }
+        table.err-table th, table.err-table td { padding: 0.9rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.07); font-size: 0.92rem; }
+        table.err-table th { background: rgba(157, 78, 221, 0.2); color: #fff; position: sticky; top: 0; z-index: 2; font-weight: 600; }
+        table.err-table tr:hover { background: rgba(255,255,255,0.03); }
+
+        .badge { display: inline-block; padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; }
+        .badge-err { background: rgba(255, 77, 77, 0.2); color: #ff9999; border: 1px solid rgba(255, 77, 77, 0.4); }
+        .badge-pass { background: rgba(0, 245, 212, 0.2); color: var(--secondary); border: 1px solid rgba(0, 245, 212, 0.4); }
+        .badge-col { background: rgba(157, 78, 221, 0.2); color: #d8b4fe; border: 1px solid rgba(157, 78, 221, 0.4); }
+
+        /* Live Level Preview Cards */
+        .lvl-nav-bar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; background: rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 0.8rem 1.2rem; margin-bottom: 1.5rem; }
+        .phrase-preview-board { background: rgba(11, 9, 20, 0.6); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 1.5rem; margin-bottom: 1.5rem; }
+        .phrase-preview-cells { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 1rem; }
+        .prev-cell { width: 34px; height: 38px; border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.1rem; background: rgba(255,255,255,0.05); position: relative; }
+        .prev-cell.lock1 { border-color: #f39c12; background: rgba(243, 156, 18, 0.15); color: #f39c12; }
+        .prev-cell.lock2 { border-color: #e74c3c; background: rgba(231, 76, 60, 0.15); color: #e74c3c; }
+        .prev-cell.cloak { border-color: #3498db; background: rgba(52, 152, 219, 0.15); color: #3498db; }
+        .prev-cell.space { border: none; background: transparent; width: 14px; }
+
+        .clues-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1rem; }
+        .clue-item-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1rem; }
+        .clue-item-card.fail { border-color: rgba(255, 77, 77, 0.4); background: rgba(255, 77, 77, 0.05); }
+
+        /* Graph Canvas */
+        .chart-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 2rem; margin-top: 1.5rem; }
+        @media(max-width: 850px) { .chart-grid { grid-template-columns: 1fr; } }
+        .chart-card { background: rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 1.5rem; text-align: center; }
+        .chart-card h3 { font-size: 1.1rem; color: rgba(255,255,255,0.9); margin-bottom: 1rem; font-weight: 500; }
+        canvas { max-width: 100%; }
+
+        .reasons-list { margin-top: 1.5rem; background: rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 1.5rem; text-align: left; }
+        .reason-item { display: flex; align-items: flex-start; justify-content: space-between; padding: 0.8rem 0; border-bottom: 1px solid rgba(255,255,255,0.07); gap: 1rem; }
+        .reason-item:last-child { border-bottom: none; }
+
+        .progress-bar-container { width: 100%; background: rgba(255,255,255,0.1); border-radius: 8px; margin-top: 1rem; display: none; overflow: hidden; }
+        .progress-bar { height: 6px; background: var(--secondary); width: 0%; transition: width 0.3s ease; box-shadow: 0 0 10px var(--secondary); }
         #status { margin-top: 1.5rem; font-weight: 300; min-height: 24px; }
         .error { color: #ff4d4d; }
         .success { color: var(--secondary); }
-        .nav-back { position: absolute; top: 2rem; left: 2rem; color: white; text-decoration: none; font-weight: 500; letter-spacing: 1px; display: flex; align-items: center; gap: 8px; opacity: 0.7; transition: opacity 0.3s; }
-        .nav-back:hover { opacity: 1; }
-        .progress-bar-container { width: 100%; background: rgba(255,255,255,0.1); border-radius: 8px; margin-top: 1rem; display: none; overflow: hidden; }
-        .progress-bar { height: 6px; background: var(--secondary); width: 0%; transition: width 0.3s ease; box-shadow: 0 0 10px var(--secondary); }
     </style>
 </head>
 <body>
 
-    <a href="zen_crostic.html" class="nav-back">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="19" y1="12" x2="5" y2="12"></line>
-            <polyline points="12 19 5 12 12 5"></polyline>
-        </svg>
-        BACK
-    </a>
-
-    <div class="ui-container">
-        <h1>Script Execute</h1>
-        <div class="subtitle">Zen Crostics Validators</div>
-        
-        <div class="form-group">
-            <label>1. Select Validator Script</label>
-            <select id="script-select" onchange="toggleFolders()">
-                <option value="zencrostic_mainvalidator.py">Main Validator (CSV/XLSX to CSV)</option>
-                <option value="zencrostic_dailypuzzlevalidator.py">Daily Puzzle Validator (CSV/XLSX to CSV)</option>
-                <option value="zencrostic_packspuzzlevalidator.py">Pack Validator (CSV/XLSX to CSV)</option>
-                <option value="zenvalidatorBonus.py">Bonus Validator (CSV/XLSX to CSV)</option>
-                <option value="generate_bonus_pdf.py">Bonus PDF Validator (CSV to PDF)</option>
-            </select>
-        </div>
-        
-        <div class="form-group">
-            <label>2. Upload Input File (.csv or .xlsx)</label>
-            <input type="file" id="file-input" accept=".csv,.xlsx">
-        </div>
-        
-        <div class="form-group" id="folder-group" style="display: none;">
-            <label>3. Upload "Bonus Puzzle images" Folder</label>
-            <input type="file" id="folder-input" webkitdirectory directory multiple>
-        </div>
-        
-        <button id="run-btn" class="glass-btn" onclick="runScript()">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-            EXECUTE
-        </button>
-        
-        <div class="progress-bar-container" id="progress-container">
-            <div class="progress-bar" id="progress-bar"></div>
-        </div>
-        
-        <a id="download-btn" class="glass-btn" style="display: none; background: rgba(0, 245, 212, 0.1);">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                <polyline points="7 10 12 15 17 10"></polyline>
-                <line x1="12" y1="15" x2="12" y2="3"></line>
-            </svg>
-            DOWNLOAD RESULT
+    <!-- SECTION 1: MAIN SCRIPT EXECUTION -->
+    <div id="view-main" class="view-section active">
+        <a href="zen_crostic.html" class="nav-back-btn" style="position: absolute; top: 2rem; left: 2rem;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            BACK TO GAME
         </a>
-        
-        <div id="status">Ready</div>
+
+        <div class="ui-container">
+            <h1>Script Execute</h1>
+            <div class="subtitle">Zen Crostics Validator Suite</div>
+            
+            <div class="form-group">
+                <label>1. Select Validator Script</label>
+                <select id="script-select" onchange="toggleFolders()">
+                    <option value="zencrostic_mainvalidator.py">Main Validator (CSV/XLSX to CSV)</option>
+                    <option value="zencrostic_dailypuzzlevalidator.py">Daily Puzzle Validator (CSV/XLSX to CSV)</option>
+                    <option value="zencrostic_packspuzzlevalidator.py">Pack Validator (CSV/XLSX to CSV)</option>
+                    <option value="zenvalidatorBonus.py">Bonus Validator (CSV/XLSX to CSV)</option>
+                    <option value="generate_bonus_pdf.py">Bonus PDF Validator (CSV to PDF)</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>2. Upload Input File (.csv or .xlsx)</label>
+                <input type="file" id="file-input" accept=".csv,.xlsx">
+            </div>
+            
+            <div class="form-group" id="folder-group" style="display: none;">
+                <label>3. Upload "Bonus Puzzle images" Folder</label>
+                <input type="file" id="folder-input" webkitdirectory directory multiple>
+            </div>
+            
+            <button id="run-btn" class="glass-btn btn-purple" style="width: 100%; font-size: 1.05rem;" onclick="runScript()">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                EXECUTE VALIDATOR
+            </button>
+            
+            <div class="progress-bar-container" id="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+
+            <div id="status">Ready</div>
+
+            <!-- SUMMARY DASHBOARD (Always Visible) -->
+            <div id="summary-section" style="display: block; margin-top: 2rem;">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="lbl">Total Puzzles</div>
+                        <div class="val" id="stat-total">0</div>
+                    </div>
+                    <div class="stat-card pass">
+                        <div class="lbl">Passed</div>
+                        <div class="val" id="stat-pass">0</div>
+                    </div>
+                    <div class="stat-card fail">
+                        <div class="lbl">Failed</div>
+                        <div class="val" id="stat-fail">0</div>
+                    </div>
+                    <div class="stat-card rate">
+                        <div class="lbl">Pass Rate</div>
+                        <div class="val" id="stat-rate">0%</div>
+                    </div>
+                </div>
+
+                <div class="btn-grid">
+                    <!-- 3 REQUIRED BUTTONS -->
+                    <button id="btn-live-view" class="glass-btn btn-gold" onclick="showView('view-live')">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+                        LIVE VIEW
+                    </button>
+                    <button id="btn-puzzle-errors" class="glass-btn btn-red" onclick="showView('view-errors')">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                        PUZZLE ERROR VIEW
+                    </button>
+                    <button id="btn-live-graph" class="glass-btn btn-cyan" onclick="showView('view-graph')">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                        LIVE GRAPH
+                    </button>
+                    <a id="download-btn" class="glass-btn" style="background: rgba(255,255,255,0.1);">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                        DOWNLOAD RESULT CSV
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 
+
+    <!-- SECTION 2: LIVE VIEW LEVEL BY LEVEL -->
+    <div id="view-live" class="view-section">
+        <div class="ui-container wide">
+            <div class="nav-header">
+                <button class="nav-back-btn" onclick="showView('view-main')">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                    BACK TO VALIDATOR
+                </button>
+                <h2>Live Level-by-Level Preview</h2>
+                <div style="width: 120px;"></div>
+            </div>
+
+            <div class="lvl-nav-bar">
+                <button class="glass-btn" onclick="prevLevel()">&lt; PREV LEVEL</button>
+                <div style="text-align: center;">
+                    <span style="font-size: 1.1rem; font-weight: 700;" id="live-lvl-title">Level 1 of 1</span>
+                    <select id="lvl-select" onchange="jumpToLevel(this.value)" style="width: 130px; margin-left: 10px; padding: 4px 8px; display: inline-block;"></select>
+                </div>
+                <button class="glass-btn" onclick="nextLevel()">NEXT LEVEL &gt;</button>
+            </div>
+
+            <div class="phrase-preview-board">
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <div>
+                        <span style="color: rgba(255,255,255,0.6); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px;">Target Phrase</span>
+                        <h3 id="live-phrase-display" style="font-size: 1.4rem; color: var(--secondary); margin-top: 2px;">—</h3>
+                    </div>
+                    <div id="live-status-badge"></div>
+                </div>
+
+                <div class="phrase-preview-cells" id="live-phrase-cells"></div>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 0.8rem;">
+                <h3 style="font-size: 1.1rem; font-weight: 500;">Clue Questions & Answers</h3>
+            </div>
+            <div class="clues-grid" id="live-clues-grid"></div>
+        </div>
+    </div>
+
+
+    <!-- SECTION 3: PUZZLE ERROR VIEW PAGE -->
+    <div id="view-errors" class="view-section">
+        <div class="ui-container wide">
+            <div class="nav-header">
+                <button class="nav-back-btn" onclick="showView('view-main')">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                    BACK TO VALIDATOR
+                </button>
+                <h2>Puzzle Error View (All Levels)</h2>
+                <button class="glass-btn btn-cyan" onclick="downloadErrorsCSV()">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    DOWNLOAD ERRORS CSV
+                </button>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 1rem;">
+                <input type="text" id="error-search" placeholder="Filter errors by Level Number, Keyword, Column or Reason..." oninput="renderErrorsTable()">
+            </div>
+
+            <div class="table-responsive">
+                <table class="err-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 80px;">Level #</th>
+                            <th>Phrase / Sentence</th>
+                            <th>Column Check</th>
+                            <th>Category</th>
+                            <th>Error Description & Reason</th>
+                        </tr>
+                    </thead>
+                    <tbody id="errors-tbody">
+                        <tr><td colspan="5" style="text-align: center; color: rgba(255,255,255,0.5);">No errors loaded. Run validator first.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- SECTION 4: LIVE PASS / FAIL GRAPH PAGE -->
+    <div id="view-graph" class="view-section">
+        <div class="ui-container wide">
+            <div class="nav-header">
+                <button class="nav-back-btn" onclick="showView('view-main')">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                    BACK TO VALIDATOR
+                </button>
+                <h2>Live Validation Graph & Failure Reasons</h2>
+                <div style="width: 120px;"></div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="lbl">Total Analyzed</div>
+                    <div class="val" id="graph-stat-total">0</div>
+                </div>
+                <div class="stat-card pass">
+                    <div class="lbl">Passed</div>
+                    <div class="val" id="graph-stat-pass">0</div>
+                </div>
+                <div class="stat-card fail">
+                    <div class="lbl">Failed</div>
+                    <div class="val" id="graph-stat-fail">0</div>
+                </div>
+                <div class="stat-card rate">
+                    <div class="lbl">Pass Rate</div>
+                    <div class="val" id="graph-stat-rate">0%</div>
+                </div>
+            </div>
+
+            <div class="chart-grid">
+                <div class="chart-card">
+                    <h3>Pass vs. Fail Graph</h3>
+                    <canvas id="pie-canvas" width="300" height="280"></canvas>
+                </div>
+                <div class="chart-card">
+                    <h3>Failure Categories Distribution</h3>
+                    <canvas id="bar-canvas" width="400" height="280"></canvas>
+                </div>
+            </div>
+
+            <!-- PRINT REASONS IF FAILED -->
+            <div class="reasons-list" id="failure-reasons-container">
+                <h3 style="font-size: 1.1rem; color: #ff9999; margin-bottom: 1rem;">Failure Reasons Details</h3>
+                <div id="reasons-list-content">
+                    <div style="color: rgba(255,255,255,0.5);">Run validator to view specific failure reasons.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <script>
+        let currentAnalysis = null;
+        let parsedRows = [];
+        let curLevelIdx = 0;
+
+        function showView(viewId) {
+            document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
+            document.getElementById(viewId).classList.add('active');
+            if(viewId === 'view-graph') renderGraphCharts();
+            if(viewId === 'view-errors') renderErrorsTable();
+            if(viewId === 'view-live') renderLiveLevel();
+        }
+
         function toggleFolders() {
             const script = document.getElementById('script-select').value;
             const folderGroup = document.getElementById('folder-group');
@@ -101,7 +339,6 @@
             }
         }
         
-        // Convert a file to Base64
         function fileToBase64(file) {
             return new Promise((resolve, reject) => {
                 const reader = new FileReader();
@@ -111,12 +348,49 @@
             });
         }
 
+        // CSV String Parser
+        function parseCSV(csvText) {
+            const lines = csvText.split(/\r\n|\n/);
+            if (lines.length === 0) return [];
+            
+            function parseLine(line) {
+                const result = [];
+                let cell = '';
+                let inQuotes = false;
+                for (let i = 0; i < line.length; i++) {
+                    const c = line[i];
+                    if (c === '"') {
+                        if (inQuotes && line[i+1] === '"') { cell += '"'; i++; }
+                        else { inQuotes = !inQuotes; }
+                    } else if (c === ',' && !inQuotes) {
+                        result.push(cell); cell = '';
+                    } else {
+                        cell += c;
+                    }
+                }
+                result.push(cell);
+                return result;
+            }
+
+            const headers = parseLine(lines[0]);
+            const rows = [];
+            for (let i = 1; i < lines.length; i++) {
+                if (!lines[i].trim()) continue;
+                const vals = parseLine(lines[i]);
+                const obj = {};
+                headers.forEach((h, idx) => { obj[h.trim()] = vals[idx] ? vals[idx].trim() : ''; });
+                rows.push(obj);
+            }
+            return rows;
+        }
+
         async function runScript() {
             const scriptName = document.getElementById('script-select').value;
             const fileInput = document.getElementById('file-input');
             const folderInput = document.getElementById('folder-input');
             const statusDiv = document.getElementById('status');
             const runBtn = document.getElementById('run-btn');
+            const summarySec = document.getElementById('summary-section');
             const downloadBtn = document.getElementById('download-btn');
             const pContainer = document.getElementById('progress-container');
             const pBar = document.getElementById('progress-bar');
@@ -133,17 +407,17 @@
             }
 
             runBtn.disabled = true;
-            downloadBtn.style.display = 'none';
+            summarySec.style.display = 'none';
             pContainer.style.display = 'block';
             pBar.style.width = '10%';
-            statusDiv.innerHTML = 'Reading files...';
+            statusDiv.innerHTML = 'Reading input file...';
             
             try {
                 let mainFile = await fileToBase64(fileInput.files[0]);
                 let imageFiles = [];
                 
                 if (requiresFolder) {
-                    statusDiv.innerHTML = 'Processing images (this may take a moment)...';
+                    statusDiv.innerHTML = 'Processing images...';
                     for (let i = 0; i < folderInput.files.length; i++) {
                         let f = folderInput.files[i];
                         if (f.name.endsWith('.png') || f.name.endsWith('.jpg')) {
@@ -174,34 +448,407 @@
                 }
                 
                 pBar.style.width = '100%';
-                statusDiv.innerHTML = '<span class="success">Script executed successfully!</span>';
+                statusDiv.innerHTML = '<span class="success">Validator executed successfully!</span>';
                 
-                // Decode base64 and trigger download
-                const byteCharacters = atob(data.output_content);
-                const byteNumbers = new Array(byteCharacters.length);
-                for (let i = 0; i < byteCharacters.length; i++) {
-                    byteNumbers[i] = byteCharacters.charCodeAt(i);
-                }
+                currentAnalysis = data.analysis;
+
+                // Decode CSV text & parse rows for Live View
+                const csvText = atob(data.output_content);
+                parsedRows = parseCSV(csvText);
+
+                // Setup download button
+                const byteNumbers = new Array(csvText.length);
+                for (let i = 0; i < csvText.length; i++) byteNumbers[i] = csvText.charCodeAt(i);
                 const byteArray = new Uint8Array(byteNumbers);
-                let mimeType = data.output_filename.endsWith('.pdf') ? 'application/pdf' : 
-                               data.output_filename.endsWith('.xlsx') ? 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' : 
-                               'text/csv';
+                let mimeType = data.output_filename.endsWith('.pdf') ? 'application/pdf' : 'text/csv';
                 
                 const blob = new Blob([byteArray], { type: mimeType });
-                const downloadUrl = URL.createObjectURL(blob);
-                
-                downloadBtn.href = downloadUrl;
+                downloadBtn.href = URL.createObjectURL(blob);
                 downloadBtn.download = data.output_filename;
-                downloadBtn.style.display = 'inline-flex';
+
+                // Update summary stats
+                if (currentAnalysis) {
+                    document.getElementById('stat-total').textContent = currentAnalysis.total_puzzles;
+                    document.getElementById('stat-pass').textContent = currentAnalysis.passed_puzzles;
+                    document.getElementById('stat-fail').textContent = currentAnalysis.failed_puzzles;
+                    document.getElementById('stat-rate').textContent = currentAnalysis.pass_rate + '%';
+
+                    document.getElementById('graph-stat-total').textContent = currentAnalysis.total_puzzles;
+                    document.getElementById('graph-stat-pass').textContent = currentAnalysis.passed_puzzles;
+                    document.getElementById('graph-stat-fail').textContent = currentAnalysis.failed_puzzles;
+                    document.getElementById('graph-stat-rate').textContent = currentAnalysis.pass_rate + '%';
+                }
+
+                // Populate Level Dropdown for Live View
+                const lvlSel = document.getElementById('lvl-select');
+                lvlSel.innerHTML = '';
+                parsedRows.forEach((r, idx) => {
+                    const opt = document.createElement('option');
+                    opt.value = idx;
+                    opt.textContent = `Lvl ${r.Level_Number || r.Level || (idx+1)}`;
+                    lvlSel.appendChild(opt);
+                });
+
+                curLevelIdx = 0;
+                summarySec.style.display = 'block';
                 
             } catch (err) {
                 pBar.style.width = '0%';
                 statusDiv.innerHTML = `<span class="error">Error: ${err.message}</span>`;
             } finally {
                 runBtn.disabled = false;
-                setTimeout(() => { pContainer.style.display = 'none'; pBar.style.width = '0%'; }, 2000);
+                setTimeout(() => { pContainer.style.display = 'none'; pBar.style.width = '0%'; }, 1500);
             }
         }
+
+        // --- LIVE VIEW LEVEL BY LEVEL LOGIC ---
+        function renderLiveLevel() {
+            if (!parsedRows || parsedRows.length === 0) return;
+            const r = parsedRows[curLevelIdx];
+            if (!r) return;
+
+            document.getElementById('live-lvl-title').textContent = `Level ${r.Level_Number || r.Level || (curLevelIdx+1)} of ${parsedRows.length}`;
+            document.getElementById('lvl-select').value = curLevelIdx;
+
+            const phrase = r.Phrase || r.Answer || '';
+            const puzzle = r.Puzzle || r.Phrase_Pattern || phrase;
+            document.getElementById('live-phrase-display').textContent = phrase;
+
+            // Status Badge
+            const phraseVal = r['Phrase Validation'] || r['Validation'] || '';
+            const lenStatus = r['Length Status'] || '';
+            const dupCheck = r['Duplication Check'] || '';
+            
+            let isPass = (!phraseVal || phraseVal === 'Pass') && (!lenStatus || lenStatus === 'Pass') && (!dupCheck || dupCheck === 'Pass');
+            const badgeDiv = document.getElementById('live-status-badge');
+            if (isPass) {
+                badgeDiv.innerHTML = '<span class="badge badge-pass">PASSED</span>';
+            } else {
+                badgeDiv.innerHTML = `<span class="badge badge-err">FAILED: ${(phraseVal !== 'Pass' ? phraseVal : lenStatus)}</span>`;
+            }
+
+            // Render Phrase Cells
+            const cellsDiv = document.getElementById('live-phrase-cells');
+            cellsDiv.innerHTML = '';
+            for (let i = 0; i < phrase.length; i++) {
+                const ch = phrase[i];
+                const p = puzzle[i] || '_';
+                const cell = document.createElement('div');
+                
+                if (ch === ' ') {
+                    cell.className = 'prev-cell space';
+                } else if (p === '@') {
+                    cell.className = 'prev-cell lock1';
+                    cell.textContent = '⬡';
+                } else if (p === '#') {
+                    cell.className = 'prev-cell lock2';
+                    cell.textContent = '⬡⬡';
+                } else if (p === '$') {
+                    cell.className = 'prev-cell cloak';
+                    cell.textContent = '☁';
+                } else {
+                    cell.className = 'prev-cell';
+                    cell.textContent = ch;
+                }
+                cellsDiv.appendChild(cell);
+            }
+
+            // Render Clues
+            const cluesDiv = document.getElementById('live-clues-grid');
+            cluesDiv.innerHTML = '';
+            for (let i = 1; i <= 10; i++) {
+                const q = r[`Q${i}`];
+                const a = r[`A${i}`];
+                const val = r[`A${i} Validation`];
+                if (!q && !a) continue;
+
+                const card = document.createElement('div');
+                card.className = 'clue-item-card' + (val && val !== 'Pass' ? ' fail' : '');
+                
+                let valBadge = (!val || val === 'Pass') ? '<span class="badge badge-pass">PASS</span>' : `<span class="badge badge-err">${escapeHtml(val)}</span>`;
+                
+                card.innerHTML = `
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                        <strong style="color: #d8b4fe;">Q${i}. ${escapeHtml(q || '')}</strong>
+                        ${valBadge}
+                    </div>
+                    <div style="font-size: 1.1rem; font-weight: 700; color: var(--secondary);">${escapeHtml(a || '')}</div>
+                `;
+                cluesDiv.appendChild(card);
+            }
+        }
+
+        function prevLevel() {
+            if (curLevelIdx > 0) { curLevelIdx--; renderLiveLevel(); }
+        }
+        function nextLevel() {
+            if (curLevelIdx < parsedRows.length - 1) { curLevelIdx++; renderLiveLevel(); }
+        }
+        function jumpToLevel(idx) {
+            curLevelIdx = parseInt(idx); renderLiveLevel();
+        }
+
+
+        // --- PUZZLE ERROR VIEW LOGIC ---
+        function renderErrorsTable() {
+            const tbody = document.getElementById('errors-tbody');
+            tbody.innerHTML = '';
+            if (!currentAnalysis || !currentAnalysis.errors || currentAnalysis.errors.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="5" style="text-align: center; color: #00f5d4; padding: 2rem;">🎉 No puzzle errors found! All levels passed validation.</td></tr>';
+                return;
+            }
+
+            const searchKey = (document.getElementById('error-search').value || '').toLowerCase();
+            const filtered = currentAnalysis.errors.filter(e => 
+                !searchKey || 
+                e.level.toLowerCase().includes(searchKey) ||
+                e.phrase.toLowerCase().includes(searchKey) ||
+                e.column.toLowerCase().includes(searchKey) ||
+                e.error.toLowerCase().includes(searchKey) ||
+                e.category.toLowerCase().includes(searchKey)
+            );
+
+            if (filtered.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="5" style="text-align: center; color: rgba(255,255,255,0.5);">No matching errors found for filter.</td></tr>';
+                return;
+            }
+
+            filtered.forEach(err => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td><strong>Lvl ${err.level}</strong></td>
+                    <td>${escapeHtml(err.phrase)}</td>
+                    <td><span class="badge badge-col">${escapeHtml(err.column)}</span></td>
+                    <td><span class="badge badge-err">${escapeHtml(err.category)}</span></td>
+                    <td style="color: #ff9999;">${escapeHtml(err.error)}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function escapeHtml(str) {
+            return (str || '').replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+        }
+
+        function downloadErrorsCSV() {
+            if (!currentAnalysis || !currentAnalysis.errors || currentAnalysis.errors.length === 0) {
+                alert('No errors to export.');
+                return;
+            }
+
+            let csvContent = 'Level_Number,Phrase,Check_Column,Error_Category,Error_Description\n';
+            currentAnalysis.errors.forEach(e => {
+                const p = '"' + (e.phrase || '').replace(/"/g, '""') + '"';
+                const col = '"' + (e.column || '').replace(/"/g, '""') + '"';
+                const cat = '"' + (e.category || '').replace(/"/g, '""') + '"';
+                const desc = '"' + (e.error || '').replace(/"/g, '""') + '"';
+                csvContent += `${e.level},${p},${col},${cat},${desc}\n`;
+            });
+
+            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `puzzle_errors_${new Date().getTime()}.csv`;
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+
+        // --- LIVE GRAPH & PRINT FAILURE REASONS ---
+        function renderGraphCharts() {
+            if (!currentAnalysis) return;
+            renderPieChart();
+            renderBarChart();
+            renderFailureReasonsList();
+        }
+
+        function renderPieChart() {
+            const canvas = document.getElementById('pie-canvas');
+            const ctx = canvas.getContext('2d');
+            const w = canvas.width; const h = canvas.height;
+            ctx.clearRect(0, 0, w, h);
+
+            const pass = currentAnalysis.passed_puzzles || 0;
+            const fail = currentAnalysis.failed_puzzles || 0;
+            const total = pass + fail;
+            if (total === 0) return;
+
+            const cx = w / 2; const cy = h / 2 - 15; const r = 85;
+            const passAngle = (pass / total) * 2 * Math.PI;
+
+            // Pass Slice (Cyan)
+            ctx.beginPath();
+            ctx.moveTo(cx, cy);
+            ctx.arc(cx, cy, r, 0, passAngle);
+            ctx.fillStyle = '#00f5d4';
+            ctx.fill();
+
+            // Fail Slice (Red)
+            if (fail > 0) {
+                ctx.beginPath();
+                ctx.moveTo(cx, cy);
+                ctx.arc(cx, cy, r, passAngle, 2 * Math.PI);
+                ctx.fillStyle = '#ff4d4d';
+                ctx.fill();
+            }
+
+            // Inner Donut Cutout
+            ctx.beginPath();
+            ctx.arc(cx, cy, 55, 0, 2 * Math.PI);
+            ctx.fillStyle = '#0f0c1d';
+            ctx.fill();
+
+            // Text
+            ctx.fillStyle = '#ffffff';
+            ctx.font = 'bold 20px Outfit';
+            ctx.textAlign = 'center';
+            ctx.fillText(currentAnalysis.pass_rate + '%', cx, cy + 5);
+            ctx.font = '12px Outfit';
+            ctx.fillStyle = 'rgba(255,255,255,0.7)';
+            ctx.fillText('Pass Rate', cx, cy + 22);
+
+            // Legend
+            ctx.font = '13px Outfit';
+            ctx.fillStyle = '#00f5d4';
+            ctx.fillRect(cx - 90, h - 25, 12, 12);
+            ctx.fillText(`Passed (${pass})`, cx - 40, h - 15);
+
+            ctx.fillStyle = '#ff4d4d';
+            ctx.fillRect(cx + 20, h - 25, 12, 12);
+            ctx.fillText(`Failed (${fail})`, cx + 65, h - 15);
+        }
+
+        function renderBarChart() {
+            const canvas = document.getElementById('bar-canvas');
+            const ctx = canvas.getContext('2d');
+            const w = canvas.width; const h = canvas.height;
+            ctx.clearRect(0, 0, w, h);
+
+            const cats = currentAnalysis.categories || {};
+            const labels = Object.keys(cats).filter(k => cats[k] > 0);
+            if (labels.length === 0) {
+                ctx.fillStyle = '#00f5d4';
+                ctx.font = '15px Outfit';
+                ctx.textAlign = 'center';
+                ctx.fillText('✨ Zero Errors Detected!', w / 2, h / 2);
+                return;
+            }
+
+            const maxVal = Math.max(...labels.map(k => cats[k]), 1);
+            const barHeight = 22;
+            const startY = 20;
+            const labelX = 150;
+            const barMaxW = w - labelX - 50;
+
+            labels.forEach((label, idx) => {
+                const val = cats[label];
+                const y = startY + idx * 32;
+                const barW = (val / maxVal) * barMaxW;
+
+                ctx.fillStyle = 'rgba(255,255,255,0.8)';
+                ctx.font = '12px Outfit';
+                ctx.textAlign = 'right';
+                let shortLabel = label.length > 20 ? label.substring(0, 18) + '..' : label;
+                ctx.fillText(shortLabel, labelX - 10, y + 16);
+
+                ctx.fillStyle = 'rgba(255,255,255,0.05)';
+                ctx.fillRect(labelX, y, barMaxW, barHeight);
+
+                const grad = ctx.createLinearGradient(labelX, 0, labelX + barW, 0);
+                grad.addColorStop(0, '#9d4edd');
+                grad.addColorStop(1, '#ff4d4d');
+                ctx.fillStyle = grad;
+                ctx.fillRect(labelX, y, barW, barHeight);
+
+                ctx.fillStyle = '#ffffff';
+                ctx.font = 'bold 12px Outfit';
+                ctx.textAlign = 'left';
+                ctx.fillText(val, labelX + barW + 8, y + 16);
+            });
+        }
+
+        // PRINT REASONS WHEN FAILED
+        function renderFailureReasonsList() {
+            const container = document.getElementById('reasons-list-content');
+            container.innerHTML = '';
+
+            if (!currentAnalysis || !currentAnalysis.errors || currentAnalysis.errors.length === 0) {
+                container.innerHTML = '<div style="color: #00f5d4; font-weight: 500;">🎉 All Puzzles Passed Validation! No failure reasons to report.</div>';
+                return;
+            }
+
+            // Group errors by reason text
+            const reasonGroups = {};
+            currentAnalysis.errors.forEach(e => {
+                const key = `${e.category}: ${e.error}`;
+                if (!reasonGroups[key]) reasonGroups[key] = { count: 0, levels: [], category: e.category, error: e.error };
+                reasonGroups[key].count++;
+                if (reasonGroups[key].levels.length < 8) reasonGroups[key].levels.push(e.level);
+            });
+
+            Object.values(reasonGroups).forEach(grp => {
+                const div = document.createElement('div');
+                div.className = 'reason-item';
+                div.innerHTML = `
+                    <div>
+                        <div style="font-weight: 600; color: #ff9999; margin-bottom: 2px;">${escapeHtml(grp.error)}</div>
+                        <div style="font-size: 0.85rem; color: rgba(255,255,255,0.6);">
+                            Category: <span class="badge badge-col">${escapeHtml(grp.category)}</span> &bull; 
+                            Affected Levels: <strong>${grp.levels.join(', ')}${grp.count > grp.levels.length ? '...' : ''}</strong>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="badge badge-err" style="font-size: 0.85rem; padding: 6px 12px;">${grp.count} Occurrences</span>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        // Initialize default sample dataset on load
+        function initDefaultData() {
+            parsedRows = [
+                { Level_Number: '1', Phrase: 'ALL IS WELL.', Puzzle: 'A@L I# S W$LL.', 'Phrase Validation': 'Pass', Q1: 'Smart, perceptive', A1: 'WISE', 'A1 Validation': 'Pass', Q2: "Boat's fabric canvas", A2: 'SAIL', 'A2 Validation': 'Pass', Q3: 'Deep hole dug for water', A3: 'WELL', 'A3 Validation': 'Pass' },
+                { Level_Number: '2', Phrase: 'SILENCE IS GOLDEN.', Puzzle: '@ILENCE I# GO$DEN.', 'Phrase Validation': 'Single lock @ index 0 must be adjacent to another missing letter.', Q1: 'Sound of quiet', A1: 'CALM', 'A1 Validation': 'Pass', Q2: 'Precious yellow metal', A2: 'GOLD', 'A2 Validation': 'Pass' }
+            ];
+
+            currentAnalysis = {
+                total_puzzles: 2,
+                passed_puzzles: 1,
+                failed_puzzles: 1,
+                pass_rate: 50.0,
+                errors: [
+                    { level: '2', phrase: 'SILENCE IS GOLDEN.', column: 'Phrase Validation', category: 'Lock Logic', error: 'Single lock @ index 0 must be adjacent to another missing letter.' }
+                ],
+                categories: { 'Lock Logic': 1, 'Cleanliness / Forbidden Chars': 0, 'Structural / Length': 0 }
+            };
+
+            document.getElementById('stat-total').textContent = currentAnalysis.total_puzzles;
+            document.getElementById('stat-pass').textContent = currentAnalysis.passed_puzzles;
+            document.getElementById('stat-fail').textContent = currentAnalysis.failed_puzzles;
+            document.getElementById('stat-rate').textContent = currentAnalysis.pass_rate + '%';
+
+            document.getElementById('graph-stat-total').textContent = currentAnalysis.total_puzzles;
+            document.getElementById('graph-stat-pass').textContent = currentAnalysis.passed_puzzles;
+            document.getElementById('graph-stat-fail').textContent = currentAnalysis.failed_puzzles;
+            document.getElementById('graph-stat-rate').textContent = currentAnalysis.pass_rate + '%';
+
+            const lvlSel = document.getElementById('lvl-select');
+            lvlSel.innerHTML = '';
+            parsedRows.forEach((r, idx) => {
+                const opt = document.createElement('option');
+                opt.value = idx;
+                opt.textContent = `Lvl ${r.Level_Number}`;
+                lvlSel.appendChild(opt);
+            });
+
+            renderLiveLevel();
+            renderErrorsTable();
+            renderGraphCharts();
+        }
+
+        window.onload = initDefaultData;
     </script>
 </body>
 </html>
