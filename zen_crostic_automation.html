@@ -224,15 +224,15 @@ body{
   <div class="mode-title">Automation Execute</div>
   <div class="mode-sub">Zen Crostics &bull; Select Puzzle Type</div>
   <div class="mode-cards">
-   <div class="mode-card" onclick="startMode()">
+   <div class="mode-card" onclick="selectAutomationMode('main')">
     <div class="mode-card-icon" style="background:rgba(124,58,237,.25);">&#129529;</div>
     <h3>Main Puzzle</h3>
-    <p>Upload <code>level_v1.json</code> &mdash; auto-play every level with phrase fill, neighbor lock unlocking, Cloak reveal &amp; per-letter encryption numbers.</p>
+    <p>Upload or use preloaded <code>level_v1.json</code> &mdash; auto-play every level with phrase fill, neighbor lock unlocking, Cloak reveal &amp; per-letter encryption numbers.</p>
    </div>
-   <div class="mode-card disabled">
-    <div class="mode-card-icon" style="background:rgba(239,68,68,.1);">&#128444;</div>
-    <h3>Bonus Puzzle <span class="badge-soon">Soon</span></h3>
-    <p>Icon-based automation using <code>bonus_levels.json</code>.</p>
+   <div class="mode-card" onclick="selectAutomationMode('bonus')">
+    <div class="mode-card-icon" style="background:rgba(0,245,212,.2);color:#00f5d4;">🎁</div>
+    <h3>Bonus Puzzle <span class="badge-soon" style="background:rgba(0,245,212,0.2);color:#00f5d4;border:1px solid #00f5d4;">ACTIVE</span></h3>
+    <p>Icon &amp; picture-based crostic automation using <code>bonus_levels.json</code> and image assets.</p>
    </div>
   </div>
  </div>
@@ -240,21 +240,52 @@ body{
 
 <!-- SCREEN 2: UPLOAD -->
 <div id="screen-upload">
- <div class="upload-box">
+ <div class="upload-box" style="max-width:640px;width:90%;">
   <a href="#" onclick="showScreen('mode')" style="position:absolute;top:1.2rem;left:1.5rem;color:var(--muted);text-decoration:none;font-size:.75rem;letter-spacing:1px;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--muted)'">&#8592; BACK</a>
-  <div style="font-size:2rem;margin-bottom:.5rem;">&#129529;</div>
-  <div class="mode-title" style="font-size:1.9rem;">Main Puzzle</div>
-  <div class="mode-sub" style="margin-bottom:1.5rem;">Upload level_v1.json to begin</div>
-  <div class="upload-zone" id="upload-zone"
-    onclick="document.getElementById('json-input').click()"
-    ondragover="event.preventDefault();this.classList.add('over')"
-    ondrop="handleDrop(event)"
-    ondragleave="this.classList.remove('over')">
-   <div style="font-size:2.5rem;margin-bottom:.8rem;">&#128193;</div>
-   <div id="upload-text" style="font-size:1rem;margin-bottom:.4rem;">Click or drag &amp; drop</div>
-   <div style="font-size:.78rem;color:var(--muted);">level_v1.json &mdash; Zen Crostics Main Puzzle</div>
+  <div style="font-size:2rem;margin-bottom:.5rem;" id="upload-icon">&#129529;</div>
+  <div class="mode-title" style="font-size:1.9rem;" id="upload-mode-title">Main Puzzle Automation</div>
+  <div class="mode-sub" style="margin-bottom:1.5rem;" id="upload-mode-sub">Upload level_v1.json to begin</div>
+
+  <div style="display:flex;flex-direction:column;gap:1rem;width:100%;margin-bottom:1.5rem;">
+   <!-- JSON UPLOAD ZONE -->
+   <div style="text-align:left;font-weight:700;font-size:0.85rem;color:#d8b4fe;margin-bottom:-6px;display:flex;justify-content:space-between;align-items:center;">
+    <span>1. JSON File Upload:</span>
+    <button onclick="loadDefaultPresetJSON()" style="background:rgba(157,78,221,0.2);border:1px solid #d8b4fe;color:#d8b4fe;padding:2px 8px;border-radius:6px;font-size:0.75rem;cursor:pointer;">⚡ Load Default JSON</button>
+   </div>
+   <div class="upload-zone" id="upload-zone"
+     onclick="document.getElementById('json-input').click()"
+     ondragover="event.preventDefault();this.classList.add('over')"
+     ondrop="handleDrop(event)"
+     ondragleave="this.classList.remove('over')" style="padding:1.2rem;">
+    <div style="font-size:2rem;margin-bottom:.4rem;">📄</div>
+    <div id="upload-text" style="font-size:0.95rem;margin-bottom:.3rem;font-weight:600;">Click or drag &amp; drop JSON file</div>
+    <div style="font-size:.78rem;color:var(--muted);" id="upload-filename">level_v1.json / bonus_levels.json</div>
+   </div>
+   <input type="file" id="json-input" accept=".json" onchange="handleFileSelect(event)">
+
+   <!-- IMAGE FOLDER UPLOAD ZONE (Bonus Mode) -->
+   <div id="bonus-img-upload-container" style="display:none;flex-direction:column;gap:6px;">
+    <div style="text-align:left;font-weight:700;font-size:0.85rem;color:#00f5d4;display:flex;justify-content:space-between;align-items:center;">
+     <span>2. Image Folder / PNG Assets Upload:</span>
+     <div style="display:flex;gap:6px;">
+      <button onclick="document.getElementById('images-file-input').click()" style="background:rgba(0,245,212,0.15);border:1px solid #00f5d4;color:#00f5d4;padding:2px 8px;border-radius:6px;font-size:0.75rem;cursor:pointer;">📄 Select Files</button>
+      <button onclick="document.getElementById('images-input').click()" style="background:rgba(0,245,212,0.2);border:1px solid #00f5d4;color:#00f5d4;padding:2px 8px;border-radius:6px;font-size:0.75rem;cursor:pointer;">📁 Select Folder</button>
+     </div>
+    </div>
+    <div class="upload-zone" id="img-upload-zone"
+      onclick="document.getElementById('images-input').click()"
+      ondragover="event.preventDefault();this.classList.add('over')"
+      ondrop="handleImageDrop(event)"
+      ondragleave="this.classList.remove('over')" style="border-color:rgba(0,245,212,0.3);padding:1.2rem;">
+     <div style="font-size:2rem;margin-bottom:.4rem;">🖼️</div>
+     <div id="img-upload-text" style="font-size:0.95rem;margin-bottom:.3rem;font-weight:600;">Click to select 'Bonus Puzzle images' folder or PNG image files</div>
+     <div style="font-size:.78rem;color:var(--muted);" id="img-upload-filename">Supports PNG / JPG image assets for clue icons</div>
+    </div>
+    <input type="file" id="images-input" webkitdirectory directory multiple accept="image/*" onchange="handleImageFolderSelect(event)" style="display:none;">
+    <input type="file" id="images-file-input" multiple accept="image/*" onchange="handleImageFolderSelect(event)" style="display:none;">
+   </div>
   </div>
-  <input type="file" id="json-input" accept=".json" onchange="handleFileSelect(event)">
+
   <button class="primary-btn" id="start-btn" disabled onclick="startAutomation()">&#9654; START AUTOMATION</button>
  </div>
 </div>
@@ -265,7 +296,7 @@ body{
   <div class="ah-left">
    <button class="back-btn" onclick="stopAuto();showScreen('upload')">&#8592; Back</button>
    <span class="hdr-title">ZEN CROSTICS</span>
-   <span style="font-size:.7rem;color:var(--muted);letter-spacing:2px;">MAIN PUZZLE</span>
+   <span style="font-size:.7rem;color:var(--secondary);letter-spacing:2px;font-weight:800;" id="hdr-mode-badge">MAIN PUZZLE</span>
   </div>
   <div class="ah-center">
    <div class="lvl-pill" id="hdr-lvl">Level 1</div>
@@ -431,6 +462,103 @@ function showScreen(n){
 }
 function startMode(){showScreen('upload');}
 
+var currentMode = 'main';
+var uploadedImageMap = {};
+
+function selectAutomationMode(mode) {
+ currentMode = mode;
+ showScreen('upload');
+
+ var modeTitle = document.getElementById('upload-mode-title');
+ var modeSub = document.getElementById('upload-mode-sub');
+ var uploadFilename = document.getElementById('upload-filename');
+ var modeBadge = document.getElementById('hdr-mode-badge');
+ var uploadIcon = document.getElementById('upload-icon');
+ var bonusImgContainer = document.getElementById('bonus-img-upload-container');
+
+ puzzleData = {};
+ levelKeys = [];
+ document.getElementById('start-btn').disabled = true;
+
+ if (mode === 'bonus') {
+  if (modeTitle) modeTitle.textContent = '🎁 Bonus Puzzle Automation';
+  if (modeSub) modeSub.textContent = 'Upload bonus_levels.json & Bonus Puzzle Images Folder';
+  if (uploadFilename) uploadFilename.textContent = 'bonus_levels.json — Zen Crostics Bonus Puzzle';
+  if (modeBadge) modeBadge.textContent = 'BONUS PUZZLE';
+  if (uploadIcon) uploadIcon.textContent = '🎁';
+  if (bonusImgContainer) bonusImgContainer.style.display = 'flex';
+  document.getElementById('upload-text').textContent = 'Click or drag & drop bonus_levels.json';
+ } else {
+  if (modeTitle) modeTitle.textContent = '🧩 Main Puzzle Automation';
+  if (modeSub) modeSub.textContent = 'Upload level_v1.json to begin';
+  if (uploadFilename) uploadFilename.textContent = 'level_v1.json — Zen Crostics Main Puzzle';
+  if (modeBadge) modeBadge.textContent = 'MAIN PUZZLE';
+  if (uploadIcon) uploadIcon.textContent = '🧩';
+  if (bonusImgContainer) bonusImgContainer.style.display = 'none';
+  document.getElementById('upload-text').textContent = 'Click or drag & drop level_v1.json';
+ }
+}
+
+function loadDefaultPresetJSON() {
+ var fileToFetch = (currentMode === 'bonus') ? 'zen_crostic/Automation/bonus_levels.json' : 'zen_crostic/Automation/level_v1.json';
+ fetch(fileToFetch)
+  .then(function(res){ return res.json(); })
+  .then(function(data){
+   puzzleData = data;
+   levelKeys = Object.keys(puzzleData).sort(function(a,b){return Number(a)-Number(b);});
+   document.getElementById('upload-text').textContent = '✅ Preloaded default ' + (currentMode === 'bonus' ? 'bonus_levels.json' : 'level_v1.json') + ' · ' + levelKeys.length + ' levels';
+   checkStartButtonState();
+  })
+  .catch(function(err){
+   alert('Could not fetch default JSON file: ' + err.message);
+  });
+}
+
+function checkStartButtonState() {
+ var startBtn = document.getElementById('start-btn');
+ if (!startBtn) return;
+ if (levelKeys && levelKeys.length > 0) {
+  startBtn.disabled = false;
+ } else {
+  startBtn.disabled = true;
+ }
+}
+
+function handleImageDrop(e) {
+ e.preventDefault();
+ var zone = document.getElementById('img-upload-zone');
+ if (zone) zone.classList.remove('over');
+ if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+  handleImageFilesList(e.dataTransfer.files);
+ }
+}
+
+function handleImageFolderSelect(e) {
+ if (e.target && e.target.files && e.target.files.length > 0) {
+  handleImageFilesList(e.target.files);
+ }
+}
+
+function handleImageFilesList(files) {
+ var count = 0;
+ for (var i = 0; i < files.length; i++) {
+  var f = files[i];
+  var fname = f.name.toUpperCase();
+  if (fname.endsWith('.PNG') || fname.endsWith('.JPG') || fname.endsWith('.WEBP') || f.type.startsWith('image/')) {
+   var baseKey = fname.replace(/\.[^/.]+$/, "");
+   var url = URL.createObjectURL(f);
+   uploadedImageMap[baseKey] = url;
+   uploadedImageMap[fname] = url;
+   count++;
+  }
+ }
+ var txt = document.getElementById('img-upload-text');
+ if (txt) txt.innerHTML = '<span style="color:#00f5d4;font-weight:700;">✅ Loaded ' + count + ' Image Assets</span>';
+ var lbl = document.getElementById('img-upload-filename');
+ if (lbl) lbl.textContent = count + ' image assets ready for clue icons.';
+ checkStartButtonState();
+}
+
 function handleDrop(e){e.preventDefault();document.getElementById('upload-zone').classList.remove('over');if(e.dataTransfer.files[0])processFile(e.dataTransfer.files[0]);}
 function handleFileSelect(e){if(e.target.files[0])processFile(e.target.files[0]);}
 function processFile(f){
@@ -440,8 +568,8 @@ function processFile(f){
   try{
    puzzleData=JSON.parse(ev.target.result);
    levelKeys=Object.keys(puzzleData).sort(function(a,b){return Number(a)-Number(b);});
-   document.getElementById('upload-text').textContent='\u2705 '+f.name+' \u00b7 '+levelKeys.length+' levels';
-   document.getElementById('start-btn').disabled=false;
+   document.getElementById('upload-text').textContent='✅ '+f.name+' · '+levelKeys.length+' levels';
+   checkStartButtonState();
   }catch(err){alert('Invalid JSON: '+err.message);}
  };
  r.readAsText(f);
@@ -763,7 +891,22 @@ function renderClues(lvl,k){
   body.className='clue-body';
   var q=document.createElement('div');
   q.className='clue-q';
-  q.textContent=clue.question||'';
+
+  var iconName = clue.icon || (currentMode === 'bonus' ? clue.answer || clue.display : null);
+  if (iconName) {
+   var upperIcon = String(iconName).toUpperCase();
+   var imgSrc = uploadedImageMap[upperIcon] || uploadedImageMap[upperIcon + '.PNG'] || ('zen_crostic/Bonus Puzzle images/' + upperIcon + '.png');
+   q.innerHTML = '<div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;background:rgba(0,245,212,0.08);border:1px solid rgba(0,245,212,0.25);padding:6px 10px;border-radius:8px;">' +
+    '<img src="' + imgSrc + '" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'inline-block\';" style="height:32px;width:32px;object-fit:contain;border-radius:4px;" />' +
+    '<span style="display:none;font-size:1.4rem;">🖼️</span>' +
+    '<div>' +
+    '<div style="color:#00f5d4;font-weight:800;font-size:0.95rem;">Picture ' + (idx + 1) + ': ' + iconName + '</div>' +
+    '<div style="font-size:0.75rem;color:rgba(255,255,255,0.6);">Asset: ' + upperIcon + '.png</div>' +
+    '</div>' +
+    '</div>';
+  } else {
+   q.textContent = clue.question || '';
+  }
   body.appendChild(q);
 
   var cells=document.createElement('div');
@@ -1083,9 +1226,77 @@ function checkLockLogicInJS(phrase, puzzle, levelK, colName, errorsList) {
     }
 }
 
+function getLevelValidationErrorsBonus(k) {
+ var lvl = puzzleData[k];
+ if (!lvl) return [];
+ var errors = [];
+ var ph = lvl.phrase || {};
+ var disp = ph.display || '';
+ var pattern = ph.phrase || '';
+ var clues = lvl.clues || [];
+ var forbidden = ['`', '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '=', '{', '[', '}', ']', '|', '\\', ':', ';', '<', '>', '?', '/', '“', '”', '‘', '’', '—', '–', '…', '©', '®', '™', '€', '£', '¥', '——', '--', 'ö'];
+
+ // Phrase Cleanliness & Trailing period
+ var foundForbidden = [];
+ for (var i = 0; i < disp.length; i++) {
+  if (forbidden.indexOf(disp[i]) !== -1 && foundForbidden.indexOf(disp[i]) === -1) {
+   foundForbidden.push(disp[i]);
+  }
+ }
+ if (foundForbidden.length > 0) {
+  errors.push({ level: k, phrase: disp, column: 'Phrase Validation', category: 'Cleanliness / Forbidden Chars', desc: "Forbidden characters found: " + foundForbidden.map(function(c){return "'"+c+"'";}).join(", ") + ". Use standard quotes, hyphens, and ellipses (...)." });
+ }
+ if (disp && !disp.trim().endsWith('.')) {
+  errors.push({ level: k, phrase: disp, column: 'Phrase Validation', category: 'Cleanliness / Forbidden Chars', desc: "Phrase must end with a period ('.')." });
+ }
+
+ var phraseNoSpace = disp.replace(/\s+/g, '');
+ if (phraseNoSpace.length > 35) {
+  errors.push({ level: k, phrase: disp, column: 'Phrase Validation', category: 'Structural / Length', desc: "Phrase length (" + phraseNoSpace.length + ") exceeds max 35." });
+ }
+
+ var words = disp.split(/\s+/);
+ var maxW = 0;
+ words.forEach(function(w){ if(w.length > maxW) maxW = w.length; });
+ if (maxW > 13) {
+  errors.push({ level: k, phrase: disp, column: 'Phrase Validation', category: 'Structural / Length', desc: "Max word length (" + maxW + ") exceeds max 13." });
+ }
+
+ checkLockLogicInJS(disp, pattern, k, 'Phrase Validation', errors);
+
+ // Picture 1..10 checks
+ clues.forEach(function(clue, idx){
+  var pNo = idx + 1;
+  var pCol = 'Picture ' + pNo + ' Validation';
+  var aStr = (clue.display || clue.answer || clue.icon || '').trim();
+  var pStr = clue.phrase || clue.answer || '';
+
+  if (aStr) {
+   var aNoSpace = aStr.replace(/\s+/g, '');
+   if (aNoSpace.length > 13) {
+    errors.push({ level: k, phrase: disp, column: pCol, category: 'Structural / Length', desc: "Picture " + pNo + ": Length (" + aNoSpace.length + ") exceeds max 13." });
+   }
+  }
+
+  if (aStr && pStr) {
+   if (aStr.length !== pStr.length) {
+    errors.push({ level: k, phrase: disp, column: pCol, category: 'Structural / Length', desc: "Picture " + pNo + ": Length mismatch (" + aStr.length + " vs " + pStr.length + ")." });
+   } else {
+    checkLockLogicInJS(aStr, pStr, k, pCol, errors);
+   }
+  }
+ });
+
+ return errors;
+}
+
 function getLevelValidationErrors(k) {
  var lvl = puzzleData[k];
  if (!lvl) return [];
+ if (currentMode === 'bonus' || (lvl.clues && lvl.clues.some(function(c){ return c.icon || !c.question; }))) {
+  return getLevelValidationErrorsBonus(k);
+ }
+
  var errors = [];
  var ph = lvl.phrase || {};
  var disp = ph.display || '';
