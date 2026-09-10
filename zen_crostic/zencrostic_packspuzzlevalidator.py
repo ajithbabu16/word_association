@@ -187,12 +187,12 @@ def main():
             input_file = os.path.join(base_dir, input_file)
     else:
         # Default fallback
-        if os.path.exists(os.path.join(base_dir, "ZenCrosticBonus.xlsx")):
-            input_file = os.path.join(base_dir, "ZenCrosticBonus.xlsx")
-        elif os.path.exists(os.path.join(base_dir, "ZenCrosticBonus.csv")):
-            input_file = os.path.join(base_dir, "ZenCrosticBonus.csv")
+        if os.path.exists(os.path.join(base_dir, "ZenCrost.xlsx")):
+            input_file = os.path.join(base_dir, "ZenCrost.xlsx")
+        elif os.path.exists(os.path.join(base_dir, "ZenCrost.csv")):
+            input_file = os.path.join(base_dir, "ZenCrost.csv")
         else:
-            print("Error: No input file provided and default ZenCrosticBonus.xlsx or ZenCrosticBonus.csv not found.")
+            print("Error: No input file provided and default ZenCrost.xlsx or ZenCrost.csv not found.")
             return
             
     if not os.path.exists(input_file):
@@ -209,9 +209,10 @@ def main():
         return
     
     # Define constants for length rules
-    MAX_PHRASE_LEN = 35
+    MAX_PHRASE_LEN = 50
     MAX_WORD_LEN = 13
-    MAX_PIC_LEN = 13
+    MAX_Q_LEN = 50
+    MAX_A_LEN = 13
 
     # Process "Complete Phrase" and "Puzzle" (which in this excel is Phrase and Puzzle)
     def validate_phrase_row(row):
@@ -240,43 +241,56 @@ def main():
 
     df['Phrase Validation'] = df.apply(validate_phrase_row, axis=1)
     
-    # Process Picture 1-10 and Puzzle 1-10
-    image_dir = os.path.join(base_dir, "Bonus Puzzle images")
-    
+    # Process A1-A10 and Puzzle 1-10 (and Q1-Q10 for capitalization and length)
     for i in range(1, 11):
-        ans_col = f'Picture {i}'
+        ans_col = f'A{i}'
         puz_col = f'Puzzle {i}'
+        q_col = f'Q{i}'
         
         if ans_col in df.columns and puz_col in df.columns:
-            out_col = f'Picture {i} Validation'
+            out_col = f'A{i} Validation'
             
-            def validate_row_item(row, a_c=ans_col, p_c=puz_col):
+            def validate_row_item(row, a_c=ans_col, p_c=puz_col, q_c=q_col):
                 a_val = row.get(a_c)
                 p_val = row.get(p_c)
+                q_val = row.get(q_c)
                 
-                # Get the existing validation for Picture and Puzzle
+                # Get the existing validation for A and Puzzle
                 res = validate_pair(a_val, p_val, is_complete_phrase=False)
                 
-                pic_errors = []
+                # Check Q capitalization, dash length, and general lengths
+                q_errors = []
+                q_str = str(q_val).strip() if pd.notna(q_val) else ""
                 a_str = str(a_val).strip() if pd.notna(a_val) else ""
                 
+                if q_str:
+                    q_no_space = q_str.replace(" ", "")
+                    if len(q_no_space) > MAX_Q_LEN:
+                        q_errors.append(f"{q_c}: Length ({len(q_no_space)}) exceeds max {MAX_Q_LEN}.")
+                        
                 if a_str:
                     a_no_space = a_str.replace(" ", "")
-                    if len(a_no_space) > MAX_PIC_LEN:
-                        pic_errors.append(f"{a_c}: Length ({len(a_no_space)}) exceeds max {MAX_PIC_LEN}.")
+                    if len(a_no_space) > MAX_A_LEN:
+                        q_errors.append(f"{a_c}: Length ({len(a_no_space)}) exceeds max {MAX_A_LEN}.")
                 
-                # Image check
-                if a_str:
-                    img_name = f"{a_str.upper()}.png"
-                    img_path = os.path.join(image_dir, img_name)
-                    if not os.path.exists(img_path):
-                        pic_errors.append(f"{a_c}: Image '{img_name}' not found in Bonus Puzzle images folder.")
+                # Check for 5 or more consecutive underscores or dashes
+                if '_____' in q_str or '-----' in q_str:
+                    q_errors.append(f"{q_c}: Contains 5 or more consecutive dashes/underscores (should be exactly 4).")
+                
+                # Find the first letter to check if it's capitalized
+                first_letter_found = False
+                for char in q_str:
+                    if char.isalpha():
+                        if not char.isupper():
+                            q_errors.append(f"{q_c}: First letter is not capitalized.")
+                        first_letter_found = True
+                        break
                         
-                if pic_errors:
+                if q_errors:
                     if res == "Pass" or not res:
-                        return "; ".join(pic_errors)
+                        return "; ".join(q_errors)
                     else:
-                        return res + "; " + "; ".join(pic_errors)
+                        return res + "; " + "; ".join(q_errors)
                 return res if res else ""
                 
             df[out_col] = df.apply(validate_row_item, axis=1)
@@ -292,10 +306,12 @@ def main():
             stats.append(f"Phrase={p_len}, Word={max_w}")
             
         for i in range(1, 11):
-            pic_val = str(row.get(f'Picture {i}', '')) if pd.notna(row.get(f'Picture {i}')) else ""
-            if pic_val:
-                pic_len = len(pic_val) if with_spaces else len(pic_val.replace(" ", ""))
-                stats.append(f"Pic{i}={pic_len}")
+            q_val = str(row.get(f'Q{i}', '')) if pd.notna(row.get(f'Q{i}')) else ""
+            a_val = str(row.get(f'A{i}', '')) if pd.notna(row.get(f'A{i}')) else ""
+            if q_val or a_val:
+                q_len = len(q_val) if with_spaces else len(q_val.replace(" ", ""))
+                a_len = len(a_val) if with_spaces else len(a_val.replace(" ", ""))
+                stats.append(f"Q{i}<>A{i}={q_len}<>{a_len}")
                 
         return ", ".join(stats)
         
@@ -314,9 +330,13 @@ def main():
                 return "Fail"
                 
         for i in range(1, 11):
-            pic_val = str(row.get(f'Picture {i}', '')) if pd.notna(row.get(f'Picture {i}')) else ""
-            if pic_val:
-                if len(pic_val.replace(" ", "")) > MAX_PIC_LEN:
+            q_val = str(row.get(f'Q{i}', '')) if pd.notna(row.get(f'Q{i}')) else ""
+            a_val = str(row.get(f'A{i}', '')) if pd.notna(row.get(f'A{i}')) else ""
+            if q_val:
+                if len(q_val.replace(" ", "")) > MAX_Q_LEN:
+                    return "Fail"
+            if a_val:
+                if len(a_val.replace(" ", "")) > MAX_A_LEN:
                     return "Fail"
         return "Pass"
         
@@ -329,7 +349,7 @@ def main():
     # Define columns to check for duplicates
     cols_to_check = ['Phrase']
     for i in range(1, 11):
-        cols_to_check.extend([f'Picture {i}'])
+        cols_to_check.extend([f'Q{i}', f'A{i}'])
         
     # Check each column
     for col in cols_to_check:
