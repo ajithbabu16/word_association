@@ -223,21 +223,31 @@ body{
   <a href="zen_crostic.html" style="position:absolute;top:1.2rem;left:1.5rem;color:var(--muted);text-decoration:none;font-size:.75rem;letter-spacing:1px;display:flex;align-items:center;gap:5px;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--muted)'">&#8592; BACK</a>
   <div class="mode-title">Automation &amp; JSON Conversion</div>
   <div class="mode-sub">Zen Crostics &bull; Select Mode</div>
-  <div class="mode-cards" style="grid-template-columns:repeat(auto-fit,minmax(250px,1fr));">
+  <div class="mode-cards" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;">
    <div class="mode-card" onclick="selectAutomationMode('main')">
     <div class="mode-card-icon" style="background:rgba(124,58,237,.25);">&#129529;</div>
     <h3>Main Puzzle</h3>
-    <p>Upload or use preloaded <code>level_v1.json</code> &mdash; auto-play every level with phrase fill, neighbor lock unlocking, Cloak reveal &amp; per-letter encryption numbers.</p>
+    <p>Upload or use preloaded <code>level_v1.json</code> &mdash; auto-play every level with phrase fill, neighbor lock unlocking, Cloak reveal &amp; encryption numbers.</p>
    </div>
    <div class="mode-card" onclick="selectAutomationMode('bonus')">
     <div class="mode-card-icon" style="background:rgba(0,245,212,.2);color:#00f5d4;">🎁</div>
     <h3>Bonus Puzzle <span class="badge-soon" style="background:rgba(0,245,212,0.2);color:#00f5d4;border:1px solid #00f5d4;">ACTIVE</span></h3>
     <p>Icon &amp; picture-based crostic automation using <code>bonus_levels.json</code> and image assets.</p>
    </div>
+   <div class="mode-card" onclick="selectAutomationMode('daily')">
+    <div class="mode-card-icon" style="background:rgba(255,0,127,.2);color:#ff007f;">📅</div>
+    <h3>Daily Puzzle <span class="badge-soon" style="background:rgba(255,0,127,0.2);color:#ff007f;border:1px solid #ff007f;">ACTIVE</span></h3>
+    <p>Daily puzzle crostic automation using <code>daily_puzzle.json</code> (Max phrase length: 50).</p>
+   </div>
+   <div class="mode-card" onclick="selectAutomationMode('packs')">
+    <div class="mode-card-icon" style="background:rgba(255,183,3,.2);color:#ffb703;">📦</div>
+    <h3>Packs Puzzle <span class="badge-soon" style="background:rgba(255,183,3,0.2);color:#ffb703;border:1px solid #ffb703;">ACTIVE</span></h3>
+    <p>Packs bundle crostic automation using <code>packs_data.json</code> (Max phrase length: 50).</p>
+   </div>
    <div class="mode-card" onclick="openJSONConverterScreen()" style="border-color:rgba(251,191,36,0.4);">
     <div class="mode-card-icon" style="background:rgba(251,191,36,.2);color:#fbbf24;">🔄</div>
     <h3>JSON Converter <span class="badge-soon" style="background:rgba(251,191,36,0.2);color:#fbbf24;border:1px solid #fbbf24;">NEW</span></h3>
-    <p>Upload CSV / XLSX for Main or Bonus &mdash; convert and download <code>level_v1.json</code> or <code>bonus_levels.json</code> format.</p>
+    <p>Upload CSV / XLSX for Main, Bonus, Daily, or Packs &mdash; convert and download JSON format.</p>
    </div>
   </div>
  </div>
@@ -872,7 +882,7 @@ function downloadConvertedJSON() {
 function loadConvertedJSONToAutomation() {
  if (!convertedJSONData) return;
  puzzleData = convertedJSONData;
- levelKeys = Object.keys(puzzleData).sort(function(a,b){return Number(a)-Number(b);});
+ levelKeys = Object.keys(puzzleData).sort(function(a,b){ var na = Number(a), nb = Number(b); if (!isNaN(na) && !isNaN(nb)) return na - nb; return a.localeCompare(b); });
  currentMode = convertPuzzleType;
  startAutomation();
 }
@@ -900,6 +910,22 @@ function selectAutomationMode(mode) {
   if (uploadIcon) uploadIcon.textContent = '🎁';
   if (bonusImgContainer) bonusImgContainer.style.display = 'flex';
   document.getElementById('upload-text').textContent = 'Click or drag & drop bonus_levels.json';
+ } else if (mode === 'daily') {
+  if (modeTitle) modeTitle.textContent = '📅 Daily Puzzle Automation';
+  if (modeSub) modeSub.textContent = 'Upload daily_puzzle.json to begin';
+  if (uploadFilename) uploadFilename.textContent = 'daily_puzzle.json — Zen Crostics Daily Puzzle';
+  if (modeBadge) modeBadge.textContent = 'DAILY PUZZLE';
+  if (uploadIcon) uploadIcon.textContent = '📅';
+  if (bonusImgContainer) bonusImgContainer.style.display = 'none';
+  document.getElementById('upload-text').textContent = 'Click or drag & drop daily_puzzle.json';
+ } else if (mode === 'packs') {
+  if (modeTitle) modeTitle.textContent = '📦 Packs Puzzle Automation';
+  if (modeSub) modeSub.textContent = 'Upload packs_data.json to begin';
+  if (uploadFilename) uploadFilename.textContent = 'packs_data.json — Zen Crostics Packs Puzzle';
+  if (modeBadge) modeBadge.textContent = 'PACKS PUZZLE';
+  if (uploadIcon) uploadIcon.textContent = '📦';
+  if (bonusImgContainer) bonusImgContainer.style.display = 'none';
+  document.getElementById('upload-text').textContent = 'Click or drag & drop packs_data.json';
  } else {
   if (modeTitle) modeTitle.textContent = '🧩 Main Puzzle Automation';
   if (modeSub) modeSub.textContent = 'Upload level_v1.json to begin';
@@ -912,17 +938,31 @@ function selectAutomationMode(mode) {
 }
 
 function loadDefaultPresetJSON() {
- var fileToFetch = (currentMode === 'bonus') ? 'zen_crostic/Automation/bonus_levels.json' : 'zen_crostic/Automation/level_v1.json';
+ var fileMap = {
+  main: 'zen_crostic/Automation/level_v1.json',
+  bonus: 'zen_crostic/Automation/bonus_levels.json',
+  daily: 'zen_crostic/Automation/daily_puzzle.json',
+  packs: 'zen_crostic/Automation/packs_data.json'
+ };
+ var nameMap = {
+  main: 'level_v1.json',
+  bonus: 'bonus_levels.json',
+  daily: 'daily_puzzle.json',
+  packs: 'packs_data.json'
+ };
+ var fileToFetch = fileMap[currentMode] || fileMap.main;
+ var filename = nameMap[currentMode] || nameMap.main;
+
  fetch(fileToFetch)
   .then(function(res){ return res.json(); })
   .then(function(data){
    puzzleData = data;
-   levelKeys = Object.keys(puzzleData).sort(function(a,b){return Number(a)-Number(b);});
-   document.getElementById('upload-text').textContent = '✅ Preloaded default ' + (currentMode === 'bonus' ? 'bonus_levels.json' : 'level_v1.json') + ' · ' + levelKeys.length + ' levels';
+   levelKeys = Object.keys(puzzleData).sort(function(a,b){ var na = Number(a), nb = Number(b); if (!isNaN(na) && !isNaN(nb)) return na - nb; return a.localeCompare(b); });
+   document.getElementById('upload-text').textContent = '✅ Preloaded default ' + filename + ' · ' + levelKeys.length + ' levels';
    checkStartButtonState();
   })
   .catch(function(err){
-   alert('Could not fetch default JSON file: ' + err.message);
+   alert('Could not fetch default JSON file (' + filename + '): ' + err.message);
   });
 }
 
@@ -1663,8 +1703,9 @@ function getLevelValidationErrorsBonus(k) {
  }
 
  var phraseNoSpace = disp.replace(/\s+/g, '');
- if (phraseNoSpace.length > 35) {
-  errors.push({ level: k, phrase: disp, column: 'Phrase Validation', category: 'Structural / Length', desc: "Phrase length (" + phraseNoSpace.length + ") exceeds max 35." });
+ var maxPhraseLen = (currentMode === 'daily' || currentMode === 'packs') ? 50 : 35;
+ if (phraseNoSpace.length > maxPhraseLen) {
+  errors.push({ level: k, phrase: disp, column: 'Phrase Validation', category: 'Structural / Length', desc: "Phrase length (" + phraseNoSpace.length + ") exceeds max " + maxPhraseLen + "." });
  }
 
  var words = disp.split(/\s+/);
@@ -1731,8 +1772,9 @@ function getLevelValidationErrors(k) {
  }
 
  var phraseNoSpace = disp.replace(/\s+/g, '');
- if (phraseNoSpace.length > 35) {
-  errors.push({ level: k, phrase: disp, column: 'Phrase Validation', category: 'Structural / Length', desc: "Phrase length (" + phraseNoSpace.length + ") exceeds max 35." });
+ var maxPhraseLen = (currentMode === 'daily' || currentMode === 'packs') ? 50 : 35;
+ if (phraseNoSpace.length > maxPhraseLen) {
+  errors.push({ level: k, phrase: disp, column: 'Phrase Validation', category: 'Structural / Length', desc: "Phrase length (" + phraseNoSpace.length + ") exceeds max " + maxPhraseLen + "." });
  }
 
  var words = disp.split(/\s+/);
