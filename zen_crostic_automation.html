@@ -1490,6 +1490,60 @@ function stopAuto(){
  var btn=document.getElementById('btn-play');
  if(btn){btn.textContent='\u25B6 START';btn.className='cb cb-play';}
 }
+
+function getPhraseUncoveredByClues(lvl) {
+ if (!lvl || !lvl.phrase) return [];
+ var disp = lvl.phrase.display || '';
+ var pattern = lvl.phrase.phrase || disp;
+ var clues = lvl.clues || [];
+
+ var clueChars = new Set();
+ clues.forEach(function(c) {
+  var str = ((c.display || c.answer || c.icon || '') + '').toUpperCase();
+  for (var i = 0; i < str.length; i++) {
+   if (str[i] >= 'A' && str[i] <= 'Z') clueChars.add(str[i]);
+  }
+ });
+
+ var missingSet = new Set();
+ for (var i = 0; i < disp.length; i++) {
+  var ch = disp[i].toUpperCase();
+  if (ch >= 'A' && ch <= 'Z') {
+   var pCh = pattern[i] || '_';
+   var isPrefilled = (pCh !== '_' && pCh !== '@' && pCh !== '#' && pCh !== '$');
+   if (!isPrefilled && !clueChars.has(ch)) {
+    missingSet.add(ch);
+   }
+  }
+ }
+ return Array.from(missingSet);
+}
+
+function getPhraseUnfilledDetails(lvl, currentRevealed) {
+ if (!lvl || !lvl.phrase) return { isComplete: true, missingChars: [] };
+ var disp = lvl.phrase.display || '';
+ var pattern = lvl.phrase.phrase || disp;
+ var missingSet = new Set();
+
+ for (var i = 0; i < disp.length; i++) {
+  var ch = disp[i].toUpperCase();
+  if (ch >= 'A' && ch <= 'Z') {
+   var pCh = pattern[i] || '_';
+   var isPrefilled = (pCh !== '_' && pCh !== '@' && pCh !== '#' && pCh !== '$');
+   var isRevealed = currentRevealed ? currentRevealed.has(ch) : false;
+   if (!isPrefilled && !isRevealed) {
+    missingSet.add(ch);
+   }
+  }
+ }
+
+ var missingChars = Array.from(missingSet);
+ return {
+  isComplete: (missingChars.length === 0),
+  missingChars: missingChars
+ };
+}
+
 function tick(){
  if(!running)return;
  timer=setTimeout(function(){
@@ -1504,7 +1558,7 @@ function step(){
  var k=levelKeys[curLvl];
 
  if(curClue>=clues.length){
-  completeLvl();
+  checkAndCompleteLevel(lvl, k);
   return;
  }
 
@@ -1523,14 +1577,7 @@ function step(){
   revStep=0;
   activeEntryLetter=null;
   if(curClue>=clues.length){
-   var pd=(lvl.phrase&&lvl.phrase.display)||'';
-   for(var i=0;i<pd.length;i++){
-    var ch=pd[i].toUpperCase();
-    if(ch>='A'&&ch<='Z')revealedLetters.add(ch);
-   }
-   renderPhrase(lvl,k);
-   renderClues(lvl,k);
-   completeLvl();
+   checkAndCompleteLevel(lvl, k);
   }else{
    renderPhrase(lvl,k);
    renderClues(lvl,k);
@@ -1539,14 +1586,36 @@ function step(){
  updateStats();
 }
 
-function completeLvl(){
+function checkAndCompleteLevel(lvl, k) {
+ renderPhrase(lvl, k);
+ renderClues(lvl, k);
+ var status = getPhraseUnfilledDetails(lvl, revealedLetters);
+ if (status.isComplete) {
+  completeLvl(true);
+ } else {
+  completeLvl(false, status.missingChars);
+ }
+}
+
+function completeLvl(isSuccess, missingChars){
  stopAuto();
  activeEntryLetter=null;
  var k=levelKeys[curLvl];var lvl=getLvl();
  var ph=(lvl&&lvl.phrase&&lvl.phrase.display)?lvl.phrase.display.substring(0,30)+'...':'';
- historyData.push({level:k,phrase:ph,clues:(lvl&&lvl.clues?lvl.clues.length:0),s:'Done'});
- updateHistory();updateStats();
- showOv('\uD83C\uDF89','Level '+k+' Complete!',curLvl+1<levelKeys.length?'Loading next level...':'All levels completed!');
+ 
+ if (isSuccess === undefined) isSuccess = true;
+
+ if (isSuccess) {
+  historyData.push({level:k,phrase:ph,clues:(lvl&&lvl.clues?lvl.clues.length:0),s:'Done',reason:'Completed'});
+  updateHistory();updateStats();
+  showOv('🎉','Level '+k+' Complete!',curLvl+1<levelKeys.length?'Loading next level...':'All levels completed!');
+ } else {
+  var reasonStr = 'Incomplete: Phrase sentence not fully filled (missing ' + (missingChars ? missingChars.join(', ') : 'letters') + ')';
+  historyData.push({level:k,phrase:ph,clues:(lvl&&lvl.clues?lvl.clues.length:0),s:'Incomplete',reason:reasonStr});
+  updateHistory();updateStats();
+  showOv('⚠️','Level '+k+' Incomplete!',reasonStr + '. Moving to next level...');
+ }
+
  setTimeout(function(){
   hideOv();
   if(curLvl+1<levelKeys.length){
@@ -1555,16 +1624,22 @@ function completeLvl(){
    renderLevel();
    startAuto();
   }else{
-   showOv('\uD83C\uDFC6','All Done!',levelKeys.length+' levels completed!');
+   showOv('🏆','All Done!',levelKeys.length+' levels completed!');
   }
- },1500);
+ },1800);
 }
 
 function updateHistory(){
- var body=document.getElementById('hist-body');body.innerHTML='';
+ var body=document.getElementById('hist-body');
+ if(!body) return;
+ body.innerHTML='';
  historyData.slice().reverse().forEach(function(h){
   var row=document.createElement('tr');
-  row.innerHTML='<td><strong>Level '+h.level+'</strong></td><td style="color:var(--muted);font-size:.75rem;max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">'+h.phrase+'</td><td>'+h.clues+'</td><td class="st-pass">Done</td>';
+  var isDone = (h.s === 'Done');
+  var stBadge = isDone 
+   ? '<span style="color:#00f5d4;font-weight:700;">✅ Done</span>'
+   : '<span style="color:#ff4d4d;font-weight:700;" title="' + (h.reason || '') + '">❌ Incomplete</span>';
+  row.innerHTML='<td><strong>Level '+h.level+'</strong></td><td style="color:var(--muted);font-size:.75rem;max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">'+h.phrase+'</td><td>'+h.clues+'</td><td>'+stBadge+'</td>';
   body.appendChild(row);
  });
 }
@@ -1717,6 +1792,17 @@ function getLevelValidationErrorsBonus(k) {
 
  checkLockLogicInJS(disp, pattern, k, 'Phrase Validation', errors);
 
+ var missingClueChars = getPhraseUncoveredByClues(lvl);
+ if (missingClueChars.length > 0) {
+  errors.push({
+   level: k,
+   phrase: disp,
+   column: 'Phrase Validation',
+   category: 'Structural / Completeness',
+   desc: "Phrase sentence incomplete: missing letter(s) " + missingClueChars.map(function(c){return "'"+c+"'";}).join(", ") + " not present in any clue answer."
+  });
+ }
+
  // Picture 1..10 checks
  clues.forEach(function(clue, idx){
   var pNo = idx + 1;
@@ -1785,6 +1871,17 @@ function getLevelValidationErrors(k) {
  }
 
  checkLockLogicInJS(disp, pattern, k, 'Phrase Validation', errors);
+
+ var missingClueChars = getPhraseUncoveredByClues(lvl);
+ if (missingClueChars.length > 0) {
+  errors.push({
+   level: k,
+   phrase: disp,
+   column: 'Phrase Validation',
+   category: 'Structural / Completeness',
+   desc: "Phrase sentence incomplete: missing letter(s) " + missingClueChars.map(function(c){return "'"+c+"'";}).join(", ") + " not present in any clue answer."
+  });
+ }
 
  // Q1-Q10 & A1-A10 & Puzzle 1-10 checks
  clues.forEach(function(clue, idx){
