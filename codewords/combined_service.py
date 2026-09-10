@@ -204,6 +204,62 @@ class CombinedHandler(http.server.SimpleHTTPRequestHandler):
                 finally:
                     if os.path.exists(temp_in): os.remove(temp_in)
                     if os.path.exists(temp_out): os.remove(temp_out)
+
+            elif self.path == '/api/convert-json':
+                import uuid, base64
+                content_length = int(self.headers['Content-Length'])
+                data = json.loads(self.rfile.read(content_length))
+                puzzle_type = data.get('puzzle_type', 'main')
+                filename = data.get('filename', 'input.csv')
+                b64content = data.get('content')
+                
+                if not b64content:
+                    raise Exception("Missing file content for JSON conversion")
+                    
+                if ',' in b64content:
+                    b64content = b64content.split(',')[1]
+                    
+                file_bytes = base64.b64decode(b64content)
+                zen_auto = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'zen_crostic', 'Automation')
+                
+                if puzzle_type == 'bonus':
+                    script_name = 'generate_bonus_levels_json.py'
+                elif puzzle_type == 'daily':
+                    script_name = 'generate_daily_puzzle_json.py'
+                elif puzzle_type == 'packs':
+                    script_name = 'generate_packs_json.py'
+                else:
+                    script_name = 'generate_crostics_level_v1_json.py'
+                    
+                script_path = os.path.join(zen_auto, script_name)
+                
+                if not os.path.exists(script_path):
+                    raise Exception(f"Conversion script {script_name} not found in {zen_auto}")
+                    
+                uid = str(uuid.uuid4())
+                ext = os.path.splitext(filename)[1] or '.csv'
+                temp_in = os.path.join(zen_auto, f"temp_conv_{uid}{ext}")
+                temp_out = os.path.join(zen_auto, f"temp_out_{uid}.json")
+                
+                with open(temp_in, 'wb') as f:
+                    f.write(file_bytes)
+                    
+                try:
+                    res = subprocess.run(['python', script_name, temp_in, temp_out], cwd=zen_auto, capture_output=True, text=True)
+                    if res.returncode != 0:
+                        raise Exception(f"Conversion script failed:\n{res.stderr or res.stdout}")
+                        
+                    if not os.path.exists(temp_out):
+                        raise Exception("Conversion script executed but output JSON was not generated.")
+                        
+                    with open(temp_out, 'r', encoding='utf-8') as f:
+                        result_json = json.load(f)
+                        
+                    self._set_headers()
+                    self.wfile.write(json.dumps({"status": "success", "data": result_json, "message": res.stdout}).encode())
+                finally:
+                    if os.path.exists(temp_in): os.remove(temp_in)
+                    if os.path.exists(temp_out): os.remove(temp_out)
                     
             elif self.path == '/configure':
                 content_length = int(self.headers['Content-Length'])

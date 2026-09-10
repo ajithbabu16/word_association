@@ -219,11 +219,11 @@ body{
 
 <!-- SCREEN 1: MODE -->
 <div id="screen-mode">
- <div class="mode-box">
+ <div class="mode-box" style="max-width:900px;width:95%;">
   <a href="zen_crostic.html" style="position:absolute;top:1.2rem;left:1.5rem;color:var(--muted);text-decoration:none;font-size:.75rem;letter-spacing:1px;display:flex;align-items:center;gap:5px;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--muted)'">&#8592; BACK</a>
-  <div class="mode-title">Automation Execute</div>
-  <div class="mode-sub">Zen Crostics &bull; Select Puzzle Type</div>
-  <div class="mode-cards">
+  <div class="mode-title">Automation &amp; JSON Conversion</div>
+  <div class="mode-sub">Zen Crostics &bull; Select Mode</div>
+  <div class="mode-cards" style="grid-template-columns:repeat(auto-fit,minmax(250px,1fr));">
    <div class="mode-card" onclick="selectAutomationMode('main')">
     <div class="mode-card-icon" style="background:rgba(124,58,237,.25);">&#129529;</div>
     <h3>Main Puzzle</h3>
@@ -233,6 +233,11 @@ body{
     <div class="mode-card-icon" style="background:rgba(0,245,212,.2);color:#00f5d4;">🎁</div>
     <h3>Bonus Puzzle <span class="badge-soon" style="background:rgba(0,245,212,0.2);color:#00f5d4;border:1px solid #00f5d4;">ACTIVE</span></h3>
     <p>Icon &amp; picture-based crostic automation using <code>bonus_levels.json</code> and image assets.</p>
+   </div>
+   <div class="mode-card" onclick="openJSONConverterScreen()" style="border-color:rgba(251,191,36,0.4);">
+    <div class="mode-card-icon" style="background:rgba(251,191,36,.2);color:#fbbf24;">🔄</div>
+    <h3>JSON Converter <span class="badge-soon" style="background:rgba(251,191,36,0.2);color:#fbbf24;border:1px solid #fbbf24;">NEW</span></h3>
+    <p>Upload CSV / XLSX for Main or Bonus &mdash; convert and download <code>level_v1.json</code> or <code>bonus_levels.json</code> format.</p>
    </div>
   </div>
  </div>
@@ -290,7 +295,54 @@ body{
  </div>
 </div>
 
-<!-- SCREEN 3: AUTOMATION -->
+<!-- SCREEN 3: JSON CONVERTER -->
+<div id="screen-json-convert">
+ <div class="upload-box" style="max-width:700px;width:92%;">
+  <a href="#" onclick="showScreen('mode')" style="position:absolute;top:1.2rem;left:1.5rem;color:var(--muted);text-decoration:none;font-size:.75rem;letter-spacing:1px;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--muted)'">&#8592; BACK TO MODES</a>
+  
+  <div style="font-size:2.2rem;margin-bottom:.4rem;">🔄</div>
+  <div class="mode-title" style="font-size:1.9rem;">JSON Conversion Mode</div>
+  <div class="mode-sub" style="margin-bottom:1.5rem;">Select puzzle type &amp; upload CSV / XLSX to generate JSON format</div>
+
+  <!-- TYPE SELECTOR -->
+  <div style="display:flex;gap:10px;margin-bottom:1.5rem;width:100%;flex-wrap:wrap;">
+   <button id="btn-type-main" onclick="selectConvertType('main')" style="flex:1;min-width:130px;padding:10px 6px;border-radius:10px;border:2px solid #a855f7;background:rgba(168,85,247,0.25);color:#fff;font-weight:700;cursor:pointer;font-size:0.85rem;">🧩 Main Puzzle<br><span style="font-size:0.72rem;opacity:0.8;font-weight:normal;">(level_v1.json)</span></button>
+   <button id="btn-type-bonus" onclick="selectConvertType('bonus')" style="flex:1;min-width:130px;padding:10px 6px;border-radius:10px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.05);color:var(--muted);font-weight:700;cursor:pointer;font-size:0.85rem;">🎁 Bonus Puzzle<br><span style="font-size:0.72rem;opacity:0.8;font-weight:normal;">(bonus_levels.json)</span></button>
+   <button id="btn-type-daily" onclick="selectConvertType('daily')" style="flex:1;min-width:130px;padding:10px 6px;border-radius:10px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.05);color:var(--muted);font-weight:700;cursor:pointer;font-size:0.85rem;">📅 Daily Puzzle<br><span style="font-size:0.72rem;opacity:0.8;font-weight:normal;">(daily_puzzle.json)</span></button>
+   <button id="btn-type-packs" onclick="selectConvertType('packs')" style="flex:1;min-width:130px;padding:10px 6px;border-radius:10px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.05);color:var(--muted);font-weight:700;cursor:pointer;font-size:0.85rem;">📦 Packs Puzzle<br><span style="font-size:0.72rem;opacity:0.8;font-weight:normal;">(packs_data.json)</span></button>
+  </div>
+
+  <!-- UPLOAD DROP ZONE (NO DEFAULT FILE LOADED ON LOAD) -->
+  <div class="upload-zone" id="convert-upload-zone"
+    onclick="document.getElementById('convert-file-input').click()"
+    ondragover="event.preventDefault();this.classList.add('over')"
+    ondrop="handleConvertDrop(event)"
+    ondragleave="this.classList.remove('over')" style="padding:1.5rem;margin-bottom:1.2rem;">
+   <div style="font-size:2.5rem;margin-bottom:.5rem;">📂</div>
+   <div id="convert-upload-text" style="font-size:1rem;margin-bottom:.3rem;font-weight:700;">Click or drag &amp; drop CSV or XLSX file</div>
+   <div style="font-size:.8rem;color:var(--muted);" id="convert-filename">Supports .csv and .xlsx files (No default file loaded)</div>
+  </div>
+  <input type="file" id="convert-file-input" accept=".csv,.xlsx,.xls" onchange="handleConvertFileSelect(event)" style="display:none;">
+
+  <button class="primary-btn" id="execute-convert-btn" disabled onclick="executeJSONConversion()" style="width:100%;padding:14px;font-size:1rem;font-weight:800;margin-top:0.5rem;">⚡ EXECUTE CONVERSION</button>
+
+  <!-- RESULT BOX -->
+  <div id="convert-result-container" style="display:none;margin-top:1.5rem;background:rgba(0,0,0,0.3);border:1px solid rgba(0,245,212,0.3);border-radius:12px;padding:1.2rem;text-align:left;">
+   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+    <strong style="color:#00f5d4;font-size:1.1rem;" id="convert-result-title">✅ Conversion Complete</strong>
+    <span style="color:rgba(255,255,255,0.6);font-size:0.85rem;" id="convert-result-count">0 levels generated</span>
+   </div>
+   <pre id="convert-json-preview" style="max-height:180px;overflow-y:auto;background:rgba(0,0,0,0.5);color:#d8b4fe;padding:10px;border-radius:8px;font-size:0.8rem;font-family:monospace;margin-bottom:12px;"></pre>
+   
+   <div style="display:flex;gap:10px;">
+    <button onclick="downloadConvertedJSON()" style="flex:1;background:rgba(0,245,212,0.2);border:1px solid #00f5d4;color:#00f5d4;padding:10px;border-radius:8px;font-weight:700;cursor:pointer;">📥 DOWNLOAD JSON FILE</button>
+    <button onclick="loadConvertedJSONToAutomation()" style="flex:1;background:rgba(157,78,221,0.2);border:1px solid #d8b4fe;color:#d8b4fe;padding:10px;border-radius:8px;font-weight:700;cursor:pointer;">▶ LOAD &amp; RUN AUTOMATION</button>
+   </div>
+  </div>
+ </div>
+</div>
+
+<!-- SCREEN 4: AUTOMATION -->
 <div id="screen-auto">
  <div class="auto-header">
   <div class="ah-left">
@@ -456,14 +508,374 @@ var levelEncMap={}, revealedLetters=new Set();
 var activeEntryLetter=null; // Currently entering letter for pulse animation
 
 function showScreen(n){
- ['mode','upload','auto'].forEach(function(s){var e=document.getElementById('screen-'+s);if(e)e.style.display='none';});
+ ['mode','upload','json-convert','auto'].forEach(function(s){var e=document.getElementById('screen-'+s);if(e)e.style.display='none';});
  var t=document.getElementById('screen-'+n);
  if(t)t.style.display='flex';
 }
 function startMode(){showScreen('upload');}
 
 var currentMode = 'main';
+var convertPuzzleType = 'main';
+var selectedConvertFile = null;
+var convertedJSONData = null;
 var uploadedImageMap = {};
+
+function openJSONConverterScreen() {
+ showScreen('json-convert');
+ selectedConvertFile = null;
+ convertedJSONData = null;
+ document.getElementById('execute-convert-btn').disabled = true;
+ document.getElementById('convert-result-container').style.display = 'none';
+ document.getElementById('convert-upload-text').textContent = 'Click or drag & drop CSV or XLSX file';
+ document.getElementById('convert-filename').textContent = 'Supports .csv and .xlsx files (No default file loaded)';
+ selectConvertType('main');
+}
+
+function selectConvertType(type) {
+ convertPuzzleType = type;
+ var btns = {
+  main: document.getElementById('btn-type-main'),
+  bonus: document.getElementById('btn-type-bonus'),
+  daily: document.getElementById('btn-type-daily'),
+  packs: document.getElementById('btn-type-packs')
+ };
+ var styles = {
+  main: { border: '2px solid #a855f7', bg: 'rgba(168,85,247,0.25)' },
+  bonus: { border: '2px solid #00f5d4', bg: 'rgba(0,245,212,0.25)' },
+  daily: { border: '2px solid #ff007f', bg: 'rgba(255,0,127,0.25)' },
+  packs: { border: '2px solid #ffb703', bg: 'rgba(255,183,3,0.25)' }
+ };
+
+ Object.keys(btns).forEach(function(k) {
+  var b = btns[k];
+  if (!b) return;
+  if (k === type) {
+   b.style.border = styles[k].border;
+   b.style.background = styles[k].bg;
+   b.style.color = '#fff';
+  } else {
+   b.style.border = '1px solid rgba(255,255,255,0.2)';
+   b.style.background = 'rgba(255,255,255,0.05)';
+   b.style.color = 'var(--muted)';
+  }
+ });
+
+ var fileNames = { main: 'level_v1.json', bonus: 'bonus_levels.json', daily: 'daily_puzzle.json', packs: 'packs_data.json' };
+ if (selectedConvertFile) {
+  document.getElementById('convert-filename').textContent = (selectedConvertFile.size / 1024).toFixed(1) + ' KB · Ready for ' + fileNames[type] + ' conversion';
+ }
+}
+
+function handleConvertDrop(e) {
+ e.preventDefault();
+ var zone = document.getElementById('convert-upload-zone');
+ if (zone) zone.classList.remove('over');
+ if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]) {
+  processConvertFile(e.dataTransfer.files[0]);
+ }
+}
+
+function handleConvertFileSelect(e) {
+ if (e.target && e.target.files && e.target.files[0]) {
+  processConvertFile(e.target.files[0]);
+ }
+}
+
+function processConvertFile(f) {
+ selectedConvertFile = f;
+ var fileNames = { main: 'level_v1.json', bonus: 'bonus_levels.json', daily: 'daily_puzzle.json', packs: 'packs_data.json' };
+ document.getElementById('convert-upload-text').innerHTML = '<span style="color:#00f5d4;font-weight:700;">✅ Selected: ' + f.name + '</span>';
+ document.getElementById('convert-filename').textContent = (f.size / 1024).toFixed(1) + ' KB · Ready for ' + fileNames[convertPuzzleType] + ' conversion';
+ document.getElementById('execute-convert-btn').disabled = false;
+}
+
+function parseCSVToRows(text) {
+ var lines = text.split(/\r?\n/);
+ var rows = [];
+ lines.forEach(function(line){
+  if (!line.trim()) return;
+  var row = [];
+  var inQuotes = false;
+  var curCell = '';
+  for (var i = 0; i < line.length; i++) {
+   var c = line[i];
+   if (c === '"') {
+    if (inQuotes && i + 1 < line.length && line[i+1] === '"') {
+     curCell += '"';
+     i++;
+    } else {
+     inQuotes = !inQuotes;
+    }
+   } else if (c === ',' && !inQuotes) {
+    row.push(curCell.trim());
+    curCell = '';
+   } else {
+    curCell += c;
+   }
+  }
+  row.push(curCell.trim());
+  rows.push(row);
+ });
+ return rows;
+}
+
+function parseMaskedText(display, masked) {
+ var phraseChars = [];
+ var locks1 = [];
+ var locks2 = [];
+ var cloak = [];
+ var blankIndex = 0;
+
+ display = (display || '').trim();
+ masked = (masked || display).trim();
+
+ for (var i = 0; i < masked.length; i++) {
+  var m = masked[i];
+  if (m === '_' || m === '@' || m === '#' || m === '$') {
+   phraseChars.push('_');
+   if (m === '@') locks1.push(blankIndex);
+   else if (m === '#') locks2.push(blankIndex);
+   else if (m === '$') cloak.push(blankIndex);
+   blankIndex++;
+  } else {
+   phraseChars.push(m);
+  }
+ }
+
+ var answer = '';
+ for (var i = 0; i < display.length; i++) {
+  if (/[a-zA-Z]/.test(display[i])) {
+   answer += display[i].toUpperCase();
+  }
+ }
+
+ var res = {
+  display: display,
+  phrase: phraseChars.join(''),
+  answer: answer
+ };
+ if (locks1.length > 0) res.locks1 = locks1;
+ if (locks2.length > 0) res.locks2 = locks2;
+ if (cloak.length > 0) res.cloak = cloak;
+ return res;
+}
+
+function convertCSVClientSide(text, mode) {
+ var rows = parseCSVToRows(text);
+ if (rows.length < 2) throw new Error("CSV file is empty or missing headers.");
+
+ var headerRowIndex = -1;
+ for (var r = 0; r < rows.length; r++) {
+  var rJoined = rows[r].join(',').toLowerCase();
+  if (rJoined.indexOf('level_number') !== -1 || rJoined.indexOf('phrase') !== -1 || rJoined.indexOf('date') !== -1 || rJoined.indexOf('theme') !== -1) {
+   headerRowIndex = r;
+   break;
+  }
+ }
+ if (headerRowIndex === -1) headerRowIndex = 0;
+
+ var headers = rows[headerRowIndex].map(function(h){ return h.trim(); });
+ var puzzles = {};
+
+ for (var r = headerRowIndex + 1; r < rows.length; r++) {
+  var rowVals = rows[r];
+  if (!rowVals || rowVals.length === 0 || !rowVals.some(function(v){ return v.trim(); })) continue;
+
+  var rowObj = {};
+  headers.forEach(function(h, idx){
+   rowObj[h] = rowVals[idx] || '';
+  });
+
+  if (mode === 'daily') {
+   var dateVal = (rowObj['Date'] || '').trim();
+   if (!dateVal) continue;
+   var phraseObj = parseMaskedText(rowObj['Phrase'] || '', rowObj['Puzzle'] || '');
+   var clues = [];
+   for (var i = 1; i <= 15; i++) {
+    var q = (rowObj['Q' + i] || '').trim();
+    var a = (rowObj['A' + i] || '').trim();
+    var puz = (rowObj['Puzzle ' + i] || rowObj['Puzzle' + i] || '').trim();
+    if (!q && !a) continue;
+    var maskedClue = parseMaskedText(a, puz || a);
+    var clueObj = {
+     question: q,
+     display: maskedClue.display,
+     phrase: maskedClue.phrase,
+     answer: maskedClue.answer
+    };
+    if (maskedClue.locks1) clueObj.locks1 = maskedClue.locks1;
+    if (maskedClue.locks2) clueObj.locks2 = maskedClue.locks2;
+    if (maskedClue.cloak) clueObj.cloak = maskedClue.cloak;
+    clues.push(clueObj);
+   }
+   puzzles[dateVal] = {
+    phrase: phraseObj,
+    clues: clues,
+    solv: 0.0
+   };
+  } else if (mode === 'packs') {
+   var themeVal = (rowObj['Theme'] || 'Pack').trim();
+   var phraseText = rowObj['Complete Phrase'] || rowObj['Phrase'] || '';
+   var puzText = rowObj['Puzzle'] || '';
+   var phraseObj = parseMaskedText(phraseText, puzText || phraseText);
+   var key = (rowObj['Level_Number'] || rowObj['Level'] || (r - headerRowIndex)).toString().trim();
+   puzzles[key] = {
+    phrase: phraseObj,
+    author: (rowObj['About phrase'] || rowObj['Author'] || '').trim(),
+    desc: (rowObj['Desc'] || '').trim()
+   };
+  } else {
+   var lvlNum = (rowObj['Level_Number'] || rowObj['Level'] || (r - headerRowIndex)).trim();
+   if (!lvlNum) continue;
+
+   var phraseObj = parseMaskedText(rowObj['Phrase'] || '', rowObj['Puzzle'] || '');
+
+   var clues = [];
+   if (mode === 'bonus') {
+    for (var i = 1; i <= 15; i++) {
+     var pic = (rowObj['Picture ' + i] || rowObj['Picture' + i] || '').trim();
+     var puz = (rowObj['Puzzle ' + i] || rowObj['Puzzle' + i] || '').trim();
+     if (!pic) continue;
+     var maskedClue = parseMaskedText(pic, puz || pic);
+     var clueObj = {
+      question: "",
+      display: maskedClue.display,
+      phrase: maskedClue.phrase,
+      answer: maskedClue.answer,
+      icon: pic.charAt(0).toUpperCase() + pic.slice(1).toLowerCase()
+     };
+     clues.push(clueObj);
+    }
+   } else {
+    for (var i = 1; i <= 15; i++) {
+     var q = (rowObj['Q' + i] || '').trim();
+     var a = (rowObj['A' + i] || '').trim();
+     var puz = (rowObj['Puzzle ' + i] || rowObj['Puzzle' + i] || '').trim();
+     if (!q && !a) continue;
+     var maskedClue = parseMaskedText(a, puz || a);
+     var clueObj = {
+      question: q,
+      display: maskedClue.display,
+      phrase: maskedClue.phrase,
+      answer: maskedClue.answer
+     };
+     if (maskedClue.locks1) clueObj.locks1 = maskedClue.locks1;
+     if (maskedClue.locks2) clueObj.locks2 = maskedClue.locks2;
+     if (maskedClue.cloak) clueObj.cloak = maskedClue.cloak;
+     clues.push(clueObj);
+    }
+   }
+
+   puzzles[lvlNum] = {
+    phrase: phraseObj,
+    author: (rowObj['Author'] || rowObj['author'] || '').trim(),
+    desc: (rowObj['Desc'] || rowObj['desc'] || '').trim(),
+    clues: clues
+   };
+  }
+ }
+
+ return puzzles;
+}
+
+function displayConvertedJSONResult(data) {
+ convertedJSONData = data;
+ var keys = Object.keys(convertedJSONData);
+ var countLbl = document.getElementById('convert-result-count');
+ var titleLbl = document.getElementById('convert-result-title');
+ var previewBox = document.getElementById('convert-json-preview');
+ var container = document.getElementById('convert-result-container');
+ var executeBtn = document.getElementById('execute-convert-btn');
+
+ executeBtn.disabled = false;
+ executeBtn.textContent = '⚡ EXECUTE CONVERSION';
+
+ if (titleLbl) titleLbl.textContent = '✅ Conversion Successful!';
+ if (countLbl) countLbl.textContent = keys.length + ' levels generated';
+ if (previewBox) previewBox.textContent = JSON.stringify(convertedJSONData, null, 2);
+ if (container) container.style.display = 'block';
+}
+
+function executeJSONConversion() {
+ if (!selectedConvertFile) { alert('Please select a CSV or XLSX file first.'); return; }
+
+ var executeBtn = document.getElementById('execute-convert-btn');
+ executeBtn.disabled = true;
+ executeBtn.textContent = '⏳ CONVERTING...';
+
+ var fileName = selectedConvertFile.name.toLowerCase();
+ 
+ // If CSV file, run instant client-side conversion with optional backend fallback
+ if (fileName.endsWith('.csv')) {
+  var textReader = new FileReader();
+  textReader.onload = function(ev) {
+   try {
+    var resultJSON = convertCSVClientSide(ev.target.result, convertPuzzleType);
+    displayConvertedJSONResult(resultJSON);
+   } catch (clientErr) {
+    // Try Python backend endpoint as fallback
+    tryBackendConversion();
+   }
+  };
+  textReader.readAsText(selectedConvertFile);
+ } else {
+  tryBackendConversion();
+ }
+
+ function tryBackendConversion() {
+  var reader = new FileReader();
+  reader.onload = function(ev) {
+   var b64 = ev.target.result;
+   
+   fetch('/api/convert-json', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+     puzzle_type: convertPuzzleType,
+     filename: selectedConvertFile.name,
+     content: b64
+    })
+   })
+   .then(function(res){ return res.json(); })
+   .then(function(resData){
+    if (resData.status === 'success' && resData.data) {
+     displayConvertedJSONResult(resData.data);
+    } else {
+     executeBtn.disabled = false;
+     executeBtn.textContent = '⚡ EXECUTE CONVERSION';
+     alert('Conversion Error: ' + (resData.message || resData.error || 'Failed to convert file'));
+    }
+   })
+   .catch(function(err){
+    executeBtn.disabled = false;
+    executeBtn.textContent = '⚡ EXECUTE CONVERSION';
+    alert('Conversion Error: ' + err.message);
+   });
+  };
+  reader.readAsDataURL(selectedConvertFile);
+ }
+}
+
+function downloadConvertedJSON() {
+ if (!convertedJSONData) return;
+ var jsonStr = JSON.stringify(convertedJSONData, null, 2);
+ var blob = new Blob([jsonStr], { type: 'application/json' });
+ var url = URL.createObjectURL(blob);
+ var a = document.createElement('a');
+ a.href = url;
+ var fileNames = { main: 'level_v1.json', bonus: 'bonus_levels.json', daily: 'daily_puzzle.json', packs: 'packs_data.json' };
+ a.download = fileNames[convertPuzzleType] || 'level_v1.json';
+ a.click();
+ URL.revokeObjectURL(url);
+}
+
+function loadConvertedJSONToAutomation() {
+ if (!convertedJSONData) return;
+ puzzleData = convertedJSONData;
+ levelKeys = Object.keys(puzzleData).sort(function(a,b){return Number(a)-Number(b);});
+ currentMode = convertPuzzleType;
+ startAutomation();
+}
 
 function selectAutomationMode(mode) {
  currentMode = mode;

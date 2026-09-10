@@ -1,0 +1,813 @@
+{
+  "1": {
+    "phrase": {
+      "display": "Octopuses have 3 hearts and blue blood.",
+      "phrase": "_________ ____ 3 ______ ___ ____ _____.",
+      "answer": "OCTOPUSESHAVEHEARTSANDBLUEBLOOD",
+      "locks2": [
+        17,
+        20
+      ]
+    },
+    "author": "",
+    "desc": ""
+  },
+  "2": {
+    "phrase": {
+      "display": "Male seahorses give birth to babies.",
+      "phrase": "____ _________ ____ _____ __ ______.",
+      "answer": "MALESEAHORSESGIVEBIRTHTOBABIES",
+      "locks1": [
+        1,
+        27
+      ],
+      "locks2": [
+        15
+      ]
+    },
+    "author": "",
+    "desc": ""
+  },
+  "3": {
+    "phrase": {
+      "display": "Wombats produce cube-shaped poop.",
+      "phrase": "_______ _______ ____-______ ____.",
+      "answer": "WOMBATSPRODUCECUBESHAPEDPOOP",
+      "locks1": [
+        14,
+        22,
+        27
+      ],
+      "locks2": [
+        1
+      ]
+    },
+    "author": "",
+    "desc": ""
+  },
+  "4": {
+    "phrase": {
+      "display": "Sloths hold breath longer than dolphins.",
+      "phrase": "______ ____ ______ ______ ____ ________.",
+      "answer": "SLOTHSHOLDBREATHLONGERTHANDOLPHINS",
+      "locks1": [
+        2,
+        15,
+        29
+      ],
+      "locks2": [
+        17,
+        20
+      ]
+    },
+    "author": "",
+    "desc": ""
+  },
+  "5": {
+    "phrase": {
+      "display": "Koalas have human-like fingerprints.",
+      "phrase": "______ ____ _____-____ ____________.",
+      "answer": "KOALASHAVEHUMANLIKEFINGERPRINTS",
+      "locks1": [
+        10
+      ],
+      "locks2": [
+        16,
+        21,
+        25
+      ]
+    },
+    "author": "",
+    "desc": ""
+  },
+  "6": {
+    "phrase": {
+      "display": "Crows remember and recognize human faces.",
+      "phrase": "_____ ________ ___ _________ _____ _____.",
+      "answer": "CROWSREMEMBERANDRECOGNIZEHUMANFACES",
+      "locks1": [
+        5
+      ],
+      "locks2": [
+        9,
+        33
+      ]
+    },
+    "author": "",
+    "desc": ""
+  },
+  "7": {
+    "phrase": {
+      "display": "Dolphins use unique whistles as names.",
+      "phrase": "________ ___ ______ ________ __ _____.",
+      "answer": "DOLPHINSUSEUNIQUEWHISTLESASNAMES",
+      "locks1": [
+        27
+      ],
+      "locks2": [
+        2,
+        14
+      ]
+    },
+    "author": "",
+    "desc": ""
+  },
+  "8": {
+    "phrase": {
+      "display": "Octopuses can taste with their arms.",
+      "phrase": "_________ ___ _____ ____ _____ ____.",
+      "answer": "OCTOPUSESCANTASTEWITHTHEIRARMS",
+      "locks1": [
+        7,
+        28
+      ],
+      "locks2": [
+        4,
+        10
+      ]
+    },
+    "author": "",
+    "desc": ""
+  },
+  "9": {
+    "phrase": {
+      "display": "Sharks are older than dinosaurs.",
+      "phrase": "______ ___ _____ ____ _________.",
+      "answer": "SHARKSAREOLDERTHANDINOSAURS",
+      "locks1": [
+        6
+      ],
+      "locks2": [
+        12,
+        25
+      ]
+    },
+    "author": "",
+    "desc": ""
+  },
+  "10": {
+    "phrase": {
+      "display": "Hummingbirds can fly backward.",
+      "phrase": "____________ ___ ___ ________.",
+      "answer": "HUMMINGBIRDSCANFLYBACKWARD",
+      "locks2": [
+        7,
+        19
+      ]
+    },
+    "author": "",
+    "desc": ""
+  },
+  "11": {
+    "phrase": {
+      "display": "Penguins give pebbles to court mates.",
+      "phrase": "________ ____ _______ __ _____ _____.",
+      "answer": "PENGUINSGIVEPEBBLESTOCOURTMATES",
+      "locks1": [
+        20,
+        28
+      ],
+      "locks2": [
+        2,
+        10,
+        14
+      ]
+    },
+    "author": "",
+    "desc": ""
+  },
+  "12": {
+    "phrase": {
+      "display": "Giraffes sleep just minutes at a time.",
+      "phrase": "________ _____ ____ _______ __ _ ____.",
+      "answer": "GIRAFFESSLEEPJUSTMINUTESATATIME",
+      "locks1": [
+        3,
+        10
+      ],
+      "locks2": [
+        15,
+        29
+      ]
+    },
+    "author": "",
+    "desc": ""
+  },
+  "13": {
+    "phrase": {
+      "display": "Butterflies taste food with their feet.",
+      "phrase": "___________ _____ ____ ____ _____ ____.",
+      "answer": "BUTTERFLIESTASTEFOODWITHTHEIRFEET",
+      "locks1": [
+        14
+      ],
+      "locks2": [
+        4,
+        8
+      ]
+    },
+    "author": "",
+    "desc": ""
+  },
+  "14": {
+    "phrase": {
+      "display": "Snakes smell using their tongues.",
+      "phrase": "______ _____ _____ _____ _______.",
+      "answer": "SNAKESSMELLUSINGTHEIRTONGUES",
+      "locks2": [
+        1,
+        25
+      ]
+    },
+    "author": "",
+    "desc": ""
+  },
+  "15": {
+    "phrase": {
+      "display": "Owls can turn their heads 270 degrees.",
+      "phrase": "____ ___ ____ _____ _____ 270 _______.",
+      "answer": "OWLSCANTURNTHEIRHEADSDEGREES",
+      "locks1": [
+        22
+      ],
+      "locks2": [
+        9,
+        24
+      ]
+    },
+    "author": "",
+    "desc": ""
+  },
+  "16": {
+    "phrase": {
+      "display": "Cheetahs go 0 to 60 mph in 3 seconds.",
+      "phrase": "________ __ 0 __ 60 ___ __ 3 _______.",
+      "answer": "CHEETAHSGOTOMPHINSECONDS",
+      "locks1": [
+        6
+      ],
+      "locks2": [
+        3,
+        13,
+        22
+      ]
+    },
+    "author": "",
+    "desc": ""
+  },
+  "17": {
+    "phrase": {
+      "display": "Sea otters hold hands while sleeping.",
+      "phrase": "___ ______ ____ _____ _____ ________.",
+      "answer": "SEAOTTERSHOLDHANDSWHILESLEEPING",
+      "locks1": [
+        17
+      ],
+      "locks2": [
+        7,
+        21
+      ]
+    },
+    "author": "",
+    "desc": ""
+  },
+  "18": {
+    "phrase": {
+      "display": "Platypuses glow under UV light.",
+      "phrase": "__________ ____ _____ __ _____.",
+      "answer": "PLATYPUSESGLOWUNDERUVLIGHT",
+      "locks1": [
+        18,
+        22
+      ],
+      "locks2": [
+        2
+      ]
+    },
+    "author": "",
+    "desc": ""
+  },
+  "19": {
+    "phrase": {
+      "display": "Camels have 3 eyelids to block sand.",
+      "phrase": "______ ____ 3 _______ __ _____ ____.",
+      "answer": "CAMELSHAVEEYELIDSTOBLOCKSAND",
+      "locks1": [
+        1,
+        21
+      ],
+      "locks2": [
+        13
+      ]
+    },
+    "author": "",
+    "desc": ""
+  },
+  "20": {
+    "phrase": {
+      "display": "Frogs absorb water through their skin.",
+      "phrase": "_____ ______ _____ _______ _____ ____.",
+      "answer": "FROGSABSORBWATERTHROUGHTHEIRSKIN",
+      "locks1": [
+        3,
+        20
+      ],
+      "locks2": [
+        8,
+        12
+      ]
+    },
+    "author": "",
+    "desc": ""
+  },
+  "21": {
+    "phrase": {
+      "display": "Electric eels stun prey with shocks.",
+      "phrase": "________ ____ ____ ____ ____ ______.",
+      "answer": "ELECTRICEELSSTUNPREYWITHSHOCKS",
+      "locks1": [
+        0,
+        6
+      ],
+      "locks2": [
+        25
+      ]
+    },
+    "author": "",
+    "desc": ""
+  },
+  "22": {
+    "phrase": {
+      "display": "Jellyfish have no brain or heart.",
+      "phrase": "_________ ____ __ _____ __ _____.",
+      "answer": "JELLYFISHHAVENOBRAINORHEART",
+      "locks1": [
+        17
+      ],
+      "locks2": [
+        2,
+        11
+      ]
+    },
+    "author": "",
+    "desc": ""
+  },
+  "23": {
+    "phrase": {
+      "display": "Flamingos turn pink from their food.",
+      "phrase": "_________ ____ ____ ____ _____ ____.",
+      "answer": "FLAMINGOSTURNPINKFROMTHEIRFOOD",
+      "locks1": [
+        7,
+        12
+      ],
+      "locks2": [
+        22,
+        28
+      ]
+    },
+    "author": "",
+    "desc": ""
+  },
+  "24": {
+    "phrase": {
+      "display": "Woodpeckers have shock-absorbing skulls.",
+      "phrase": "___________ ____ _____-_________ ______.",
+      "answer": "WOODPECKERSHAVESHOCKABSORBINGSKULLS",
+      "locks1": [
+        18,
+        23
+      ],
+      "locks2": [
+        4,
+        8
+      ]
+    },
+    "author": "",
+    "desc": ""
+  },
+  "25": {
+    "phrase": {
+      "display": "Red pandas use tails as warm blankets.",
+      "phrase": "___ ______ ___ _____ __ ____ ________.",
+      "answer": "REDPANDASUSETAILSASWARMBLANKETS",
+      "locks1": [
+        26
+      ],
+      "locks2": [
+        4,
+        14
+      ]
+    },
+    "author": "",
+    "desc": ""
+  },
+  "26": {
+    "phrase": {
+      "display": "Kangaroos cannot walk backward.",
+      "phrase": "_________ ______ ____ ________.",
+      "answer": "KANGAROOSCANNOTWALKBACKWARD",
+      "locks1": [
+        2,
+        20
+      ],
+      "locks2": [
+        10
+      ]
+    },
+    "author": "",
+    "desc": ""
+  },
+  "27": {
+    "phrase": {
+      "display": "Pufferfish make sand art for mates.",
+      "phrase": "__________ ____ ____ ___ ___ _____.",
+      "answer": "PUFFERFISHMAKESANDARTFORMATES",
+      "locks1": [
+        4,
+        25
+      ],
+      "locks2": [
+        12,
+        15
+      ]
+    },
+    "author": "",
+    "desc": ""
+  },
+  "28": {
+    "phrase": {
+      "display": "Ants lift objects 50x their weight.",
+      "phrase": "____ ____ _______ 50_ _____ ______.",
+      "answer": "ANTSLIFTOBJECTSXTHEIRWEIGHT",
+      "locks1": [
+        3,
+        25
+      ],
+      "locks2": [
+        12
+      ]
+    },
+    "author": "",
+    "desc": ""
+  },
+  "29": {
+    "phrase": {
+      "display": "Ravens solve puzzles and use tools.",
+      "phrase": "______ _____ _______ ___ ___ _____.",
+      "answer": "RAVENSSOLVEPUZZLESANDUSETOOLS",
+      "locks1": [
+        24
+      ],
+      "locks2": [
+        16
+      ]
+    },
+    "author": "",
+    "desc": ""
+  },
+  "30": {
+    "phrase": {
+      "display": "Crocodiles swallow stones to digest.",
+      "phrase": "__________ _______ ______ __ ______.",
+      "answer": "CROCODILESSWALLOWSTONESTODIGEST",
+      "locks1": [
+        18,
+        22
+      ],
+      "locks2": [
+        2,
+        5
+      ]
+    },
+    "author": "",
+    "desc": ""
+  },
+  "31": {
+    "phrase": {
+      "display": "Cheetahs are the fastest land animal.",
+      "phrase": "________ ___ ___ _______ ____ ______.",
+      "answer": "CHEETAHSARETHEFASTESTLANDANIMAL",
+      "locks1": [
+        3,
+        19
+      ],
+      "locks2": [
+        22
+      ]
+    },
+    "author": "",
+    "desc": ""
+  },
+  "32": {
+    "phrase": {
+      "display": "Moose are surprisingly good swimmers.",
+      "phrase": "_____ ___ ____________ ____ ________.",
+      "answer": "MOOSEARESURPRISINGLYGOODSWIMMERS",
+      "locks1": [
+        14,
+        27
+      ],
+      "locks2": [
+        6,
+        17,
+        21
+      ]
+    },
+    "author": "",
+    "desc": ""
+  },
+  "33": {
+    "phrase": {
+      "display": "Fireflies glow to attract mates.",
+      "phrase": "_________ ____ __ _______ _____.",
+      "answer": "FIREFLIESGLOWTOATTRACTMATES",
+      "locks1": [
+        14,
+        17
+      ],
+      "locks2": [
+        1
+      ]
+    },
+    "author": "",
+    "desc": ""
+  },
+  "34": {
+    "phrase": {
+      "display": "Hedgehogs are born with soft spines.",
+      "phrase": "_________ ___ ____ ____ ____ ______.",
+      "answer": "HEDGEHOGSAREBORNWITHSOFTSPINES",
+      "locks1": [
+        3,
+        20,
+        22
+      ],
+      "locks2": [
+        27
+      ]
+    },
+    "author": "",
+    "desc": ""
+  },
+  "35": {
+    "phrase": {
+      "display": "Orcas teach hunting skills to calves.",
+      "phrase": "_____ _____ _______ ______ __ ______.",
+      "answer": "ORCASTEACHHUNTINGSKILLSTOCALVES",
+      "locks1": [
+        5,
+        11,
+        28
+      ],
+      "locks2": [
+        13,
+        18
+      ]
+    },
+    "author": "",
+    "desc": ""
+  },
+  "36": {
+    "phrase": {
+      "display": "Bats are the only flying mammals.",
+      "phrase": "____ ___ ___ ____ ______ _______.",
+      "answer": "BATSARETHEONLYFLYINGMAMMALS",
+      "locks1": [
+        2,
+        7
+      ],
+      "locks2": [
+        17,
+        24
+      ]
+    },
+    "author": "",
+    "desc": ""
+  },
+  "37": {
+    "phrase": {
+      "display": "Chameleons shift color for mood & temp.",
+      "phrase": "__________ _____ _____ ___ ____ & ____.",
+      "answer": "CHAMELEONSSHIFTCOLORFORMOODTEMP",
+      "locks1": [
+        16,
+        21,
+        28
+      ],
+      "locks2": [
+        4
+      ]
+    },
+    "author": "",
+    "desc": ""
+  },
+  "38": {
+    "phrase": {
+      "display": "Tigers have unique striped skin.",
+      "phrase": "______ ____ ______ _______ ____.",
+      "answer": "TIGERSHAVEUNIQUESTRIPEDSKIN",
+      "locks1": [
+        5,
+        19
+      ],
+      "locks2": [
+        13,
+        17
+      ]
+    },
+    "author": "",
+    "desc": ""
+  },
+  "39": {
+    "phrase": {
+      "display": "Horseshoe crabs have copper blue blood.",
+      "phrase": "_________ _____ ____ ______ ____ _____.",
+      "answer": "HORSESHOECRABSHAVECOPPERBLUEBLOOD",
+      "locks1": [
+        0,
+        3,
+        18
+      ],
+      "locks2": [
+        6,
+        29
+      ]
+    },
+    "author": "",
+    "desc": ""
+  },
+  "40": {
+    "phrase": {
+      "display": "Lemurs sunbathe to warm up.",
+      "phrase": "______ ________ __ ____ __.",
+      "answer": "LEMURSSUNBATHETOWARMUP",
+      "locks1": [
+        10
+      ]
+    },
+    "author": "",
+    "desc": ""
+  },
+  "41": {
+    "phrase": {
+      "display": "Spiders eat old webs to recycle silk.",
+      "phrase": "_______ ___ ___ ____ __ _______ ____.",
+      "answer": "SPIDERSEATOLDWEBSTORECYCLESILK",
+      "locks2": [
+        8,
+        23,
+        27
+      ]
+    },
+    "author": "",
+    "desc": ""
+  },
+  "42": {
+    "phrase": {
+      "display": "Peacocks display tail feathers for mates.",
+      "phrase": "________ _______ ____ ________ ___ _____.",
+      "answer": "PEACOCKSDISPLAYTAILFEATHERSFORMATES",
+      "locks1": [
+        2,
+        15
+      ],
+      "locks2": [
+        6,
+        9,
+        12
+      ]
+    },
+    "author": "",
+    "desc": ""
+  },
+  "43": {
+    "phrase": {
+      "display": "Emperor penguins huddle for warmth.",
+      "phrase": "_______ ________ ______ ___ ______.",
+      "answer": "EMPERORPENGUINSHUDDLEFORWARMTH",
+      "locks1": [
+        7,
+        15,
+        26
+      ],
+      "locks2": [
+        1,
+        13,
+        18
+      ]
+    },
+    "author": "",
+    "desc": ""
+  },
+  "44": {
+    "phrase": {
+      "display": "Forgotten squirrel nuts grow trees.",
+      "phrase": "_________ ________ ____ ____ _____.",
+      "answer": "FORGOTTENSQUIRRELNUTSGROWTREES",
+      "locks1": [
+        14,
+        22
+      ],
+      "locks2": [
+        5,
+        27
+      ]
+    },
+    "author": "",
+    "desc": ""
+  },
+  "45": {
+    "phrase": {
+      "display": "Barn owls hunt using precise hearing.",
+      "phrase": "____ ____ ____ _____ _______ _______.",
+      "answer": "BARNOWLSHUNTUSINGPRECISEHEARING",
+      "locks1": [
+        23,
+        26
+      ],
+      "locks2": [
+        20
+      ]
+    },
+    "author": "",
+    "desc": ""
+  },
+  "46": {
+    "phrase": {
+      "display": "Crabs can regrow lost claws.",
+      "phrase": "_____ ___ ______ ____ _____.",
+      "answer": "CRABSCANREGROWLOSTCLAWS",
+      "locks1": [
+        1,
+        3
+      ],
+      "locks2": [
+        12
+      ]
+    },
+    "author": "",
+    "desc": ""
+  },
+  "47": {
+    "phrase": {
+      "display": "Puffins hold many fish in their beak.",
+      "phrase": "_______ ____ ____ ____ __ _____ ____.",
+      "answer": "PUFFINSHOLDMANYFISHINTHEIRBEAK",
+      "locks1": [
+        4
+      ],
+      "locks2": [
+        16
+      ]
+    },
+    "author": "",
+    "desc": ""
+  },
+  "48": {
+    "phrase": {
+      "display": "Elephants use low-frequency rumbles.",
+      "phrase": "_________ ___ ___-_________ _______.",
+      "answer": "ELEPHANTSUSELOWFREQUENCYRUMBLES",
+      "locks1": [
+        9,
+        24
+      ]
+    },
+    "author": "",
+    "desc": ""
+  },
+  "49": {
+    "phrase": {
+      "display": "Wolves howl to connect with their pack.",
+      "phrase": "______ ____ __ _______ ____ _____ ____.",
+      "answer": "WOLVESHOWLTOCONNECTWITHTHEIRPACK",
+      "locks1": [
+        6,
+        19
+      ],
+      "locks2": [
+        15,
+        24,
+        30
+      ]
+    },
+    "author": "",
+    "desc": ""
+  },
+  "50": {
+    "phrase": {
+      "display": "Seahorses swim upright with small fins.",
+      "phrase": "_________ ____ _______ ____ _____ ____.",
+      "answer": "SEAHORSESSWIMUPRIGHTWITHSMALLFINS",
+      "locks1": [
+        8
+      ],
+      "locks2": [
+        18
+      ]
+    },
+    "author": "",
+    "desc": ""
+  }
+}

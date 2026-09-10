@@ -1,0 +1,1436 @@
+{
+  "20260901": {
+    "phrase": {
+      "display": "Cinderella lived with her cruel, mean stepmother.",
+      "phrase": "__________ _____ ____ ___ _____, ____ __________.",
+      "answer": "CINDERELLALIVEDWITHHERCRUELMEANSTEPMOTHER",
+      "locks1": [
+        21,
+        29
+      ],
+      "locks2": [
+        16
+      ]
+    },
+    "clues": [
+      {
+        "question": "A comfortable, light shoe worn indoors",
+        "display": "SLIPPER",
+        "phrase": "_______",
+        "answer": "SLIPPER",
+        "locks2": [
+          4
+        ]
+      },
+      {
+        "question": "A person employed to perform domestic duties",
+        "display": "SERVANT",
+        "phrase": "_______",
+        "answer": "SERVANT",
+        "locks2": [
+          2
+        ]
+      },
+      {
+        "question": "A large fortified building or residence",
+        "display": "CASTLE",
+        "phrase": "______",
+        "answer": "CASTLE",
+        "locks1": [
+          5
+        ]
+      },
+      {
+        "question": "The son of a monarch",
+        "display": "PRINCE",
+        "phrase": "______",
+        "answer": "PRINCE"
+      }
+    ],
+    "solv": 0
+  },
+  "20260902": {
+    "phrase": {
+      "display": "Her selfish stepsisters treated her very poorly.",
+      "phrase": "___ _______ ___________ _______ ___ ____ ______.",
+      "answer": "HERSELFISHSTEPSISTERSTREATEDHERVERYPOORLY",
+      "locks1": [
+        9,
+        16,
+        22
+      ],
+      "locks2": [
+        24,
+        39
+      ]
+    },
+    "clues": [
+      {
+        "question": "A period or event of public celebration",
+        "display": "FESTIVAL",
+        "phrase": "________",
+        "answer": "FESTIVAL"
+      },
+      {
+        "question": "People of royal status or bloodline",
+        "display": "ROYALTY",
+        "phrase": "_______",
+        "answer": "ROYALTY"
+      },
+      {
+        "question": "Intense dislike or ill will toward someone",
+        "display": "HATRED",
+        "phrase": "______",
+        "answer": "HATRED",
+        "locks2": [
+          1
+        ]
+      },
+      {
+        "question": "A social gathering of invited guests",
+        "display": "PARTY",
+        "phrase": "_____",
+        "answer": "PARTY"
+      }
+    ],
+    "solv": 0
+  },
+  "20260903": {
+    "phrase": {
+      "display": "Her dear father died, leaving her totally alone.",
+      "phrase": "___ ____ ______ ____, _______ ___ _______ _____.",
+      "answer": "HERDEARFATHERDIEDLEAVINGHERTOTALLYALONE",
+      "locks1": [
+        7,
+        20,
+        28
+      ],
+      "locks2": [
+        11,
+        32
+      ]
+    },
+    "clues": [
+      {
+        "question": "A children's story about magical creatures",
+        "display": "FAIRYTALE",
+        "phrase": "_________",
+        "answer": "FAIRYTALE"
+      },
+      {
+        "question": "Ready or willing to pardon offenses",
+        "display": "FORGIVING",
+        "phrase": "_________",
+        "answer": "FORGIVING"
+      },
+      {
+        "question": "An official messenger bringing news",
+        "display": "HERALD",
+        "phrase": "______",
+        "answer": "HERALD",
+        "locks2": [
+          2
+        ]
+      }
+    ],
+    "solv": 0
+  },
+  "20260904": {
+    "phrase": {
+      "display": "They made her clean, cook, and wash all day long.",
+      "phrase": "____ ____ ___ _____, ____, ___ ____ ___ ___ ____.",
+      "answer": "THEYMADEHERCLEANCOOKANDWASHALLDAYLONG",
+      "locks1": [
+        3,
+        20
+      ],
+      "locks2": [
+        35
+      ]
+    },
+    "clues": [
+      {
+        "question": "A mechanism with a spring and geared wheels",
+        "display": "CLOCKWORK",
+        "phrase": "_________",
+        "answer": "CLOCKWORK"
+      },
+      {
+        "question": "Good-looking or attractive in appearance",
+        "display": "HANDSOME",
+        "phrase": "________",
+        "answer": "HANDSOME",
+        "locks2": [
+          6
+        ]
+      },
+      {
+        "question": "An item of clothing",
+        "display": "GARMENT",
+        "phrase": "_______",
+        "answer": "GARMENT"
+      },
+      {
+        "question": "Chords pleasing to hear",
+        "display": "HARMONY",
+        "phrase": "_______",
+        "answer": "HARMONY",
+        "locks1": [
+          6
+        ],
+        "locks2": [
+          3
+        ]
+      }
+    ],
+    "solv": 0
+  },
+  "20260905": {
+    "phrase": {
+      "display": "Covered in dark fireplace soot, she got her name.",
+      "phrase": "_______ __ ____ _________ ____, ___ ___ ___ ____.",
+      "answer": "COVEREDINDARKFIREPLACESOOTSHEGOTHERNAME",
+      "locks1": [
+        8,
+        35
+      ],
+      "locks2": [
+        4,
+        16
+      ]
+    },
+    "clues": [
+      {
+        "question": "A fairy tale heroine who escapes hardship",
+        "display": "CINDERELLA",
+        "phrase": "__________",
+        "answer": "CINDERELLA",
+        "locks2": [
+          8
+        ]
+      },
+      {
+        "question": "The wife of one's father by later marriage",
+        "display": "STEPMOTHER",
+        "phrase": "__________",
+        "answer": "STEPMOTHER"
+      },
+      {
+        "question": "A country or state ruled by a king or queen",
+        "display": "KINGDOM",
+        "phrase": "_______",
+        "answer": "KINGDOM",
+        "locks1": [
+          3
+        ]
+      },
+      {
+        "question": "To stop feeling angry at someone",
+        "display": "FORGIVE",
+        "phrase": "_______",
+        "answer": "FORGIVE"
+      }
+    ],
+    "solv": 0
+  },
+  "20260906": {
+    "phrase": {
+      "display": "Once, a royal letter invited maidens to a ball.",
+      "phrase": "____, _ _____ ______ _______ _______ __ _ ____.",
+      "answer": "ONCEAROYALLETTERINVITEDMAIDENSTOABALL",
+      "locks1": [
+        14,
+        26
+      ],
+      "locks2": [
+        6
+      ]
+    },
+    "clues": [
+      {
+        "question": "A large room used for formal dancing",
+        "display": "BALLROOM",
+        "phrase": "________",
+        "answer": "BALLROOM",
+        "locks1": [
+          1
+        ]
+      },
+      {
+        "question": "An act of defeating an enemy or opponent",
+        "display": "VICTORY",
+        "phrase": "_______",
+        "answer": "VICTORY"
+      },
+      {
+        "question": "The events that will happen to a person",
+        "display": "DESTINY",
+        "phrase": "_______",
+        "answer": "DESTINY",
+        "locks2": [
+          1
+        ]
+      },
+      {
+        "question": "The quality of being noble in character",
+        "display": "NOBILITY",
+        "phrase": "________",
+        "answer": "NOBILITY",
+        "locks2": [
+          4
+        ]
+      }
+    ],
+    "solv": 0
+  },
+  "20260907": {
+    "phrase": {
+      "display": "The prince was looking for his future bride.",
+      "phrase": "___ ______ ___ _______ ___ ___ ______ _____.",
+      "answer": "THEPRINCEWASLOOKINGFORHISFUTUREBRIDE",
+      "locks1": [
+        26
+      ],
+      "locks2": [
+        16,
+        32
+      ]
+    },
+    "clues": [
+      {
+        "question": "Pleasing the senses or mind aesthetically",
+        "display": "BEAUTIFUL",
+        "phrase": "_________",
+        "answer": "BEAUTIFUL"
+      },
+      {
+        "question": "A period of romantic dating before marriage",
+        "display": "COURTSHIP",
+        "phrase": "_________",
+        "answer": "COURTSHIP"
+      },
+      {
+        "question": "Articles or ornaments made of glass",
+        "display": "GLASSWORK",
+        "phrase": "_________",
+        "answer": "GLASSWORK",
+        "locks2": [
+          6
+        ]
+      },
+      {
+        "question": "A flat handheld pan for swept dust",
+        "display": "DUSTPAN",
+        "phrase": "_______",
+        "answer": "DUSTPAN",
+        "locks1": [
+          2,
+          6
+        ]
+      }
+    ],
+    "solv": 0
+  },
+  "20260908": {
+    "phrase": {
+      "display": "You have no dress to wear! her stepmother sneered.",
+      "phrase": "___ ____ __ _____ __ ____! ___ __________ _______.",
+      "answer": "YOUHAVENODRESSTOWEARHERSTEPMOTHERSNEERED",
+      "locks1": [
+        20,
+        29
+      ],
+      "locks2": [
+        17
+      ]
+    },
+    "clues": [
+      {
+        "question": "A loved person or romantic partner",
+        "display": "SWEETHEART",
+        "phrase": "__________",
+        "answer": "SWEETHEART",
+        "locks1": [
+          9
+        ]
+      },
+      {
+        "question": "Feelings of pity and sorrow for others",
+        "display": "SYMPATHY",
+        "phrase": "________",
+        "answer": "SYMPATHY",
+        "locks2": [
+          3,
+          6
+        ]
+      },
+      {
+        "question": "Inspiring a feeling of wonder or delight",
+        "display": "WONDROUS",
+        "phrase": "________",
+        "answer": "WONDROUS"
+      },
+      {
+        "question": "The state of being extremely poor",
+        "display": "POVERTY",
+        "phrase": "_______",
+        "answer": "POVERTY"
+      }
+    ],
+    "solv": 0
+  },
+  "20260909": {
+    "phrase": {
+      "display": "The sisters rode away, leaving her in deep tears.",
+      "phrase": "___ _______ ____ ____, _______ ___ __ ____ _____.",
+      "answer": "THESISTERSRODEAWAYLEAVINGHERINDEEPTEARS",
+      "locks1": [
+        34,
+        37
+      ],
+      "locks2": [
+        21
+      ]
+    },
+    "clues": [
+      {
+        "question": "Desiring to know something or curious",
+        "display": "WONDERING",
+        "phrase": "_________",
+        "answer": "WONDERING",
+        "locks1": [
+          7
+        ],
+        "locks2": [
+          5
+        ]
+      },
+      {
+        "question": "Magnificent and splendid appearance",
+        "display": "SPLENDOR",
+        "phrase": "________",
+        "answer": "SPLENDOR"
+      },
+      {
+        "question": "The natural light of the day",
+        "display": "DAYLIGHT",
+        "phrase": "________",
+        "answer": "DAYLIGHT",
+        "locks2": [
+          6
+        ]
+      },
+      {
+        "question": "A wicked or evil character",
+        "display": "VILLAIN",
+        "phrase": "_______",
+        "answer": "VILLAIN"
+      }
+    ],
+    "solv": 0
+  },
+  "20260910": {
+    "phrase": {
+      "display": "Suddenly, a bright, caring Fairy Godmother came.",
+      "phrase": "________, _ ______, ______ _____ _________ ____.",
+      "answer": "SUDDENLYABRIGHTCARINGFAIRYGODMOTHERCAME",
+      "locks1": [
+        24,
+        32
+      ],
+      "locks2": [
+        5
+      ]
+    },
+    "clues": [
+      {
+        "question": "Twelve o'clock at night",
+        "display": "MIDNIGHT",
+        "phrase": "________",
+        "answer": "MIDNIGHT",
+        "locks2": [
+          1
+        ]
+      },
+      {
+        "question": "Routine household tasks or duties",
+        "display": "CHORES",
+        "phrase": "______",
+        "answer": "CHORES",
+        "locks1": [
+          0
+        ],
+        "locks2": [
+          4
+        ]
+      },
+      {
+        "question": "In a pleasing or attractive manner",
+        "display": "BEAUTIFULLY",
+        "phrase": "___________",
+        "answer": "BEAUTIFULLY"
+      }
+    ],
+    "solv": 0
+  },
+  "20260911": {
+    "phrase": {
+      "display": "Do not cry, my dear child, she said with a smile.",
+      "phrase": "__ ___ ___, __ ____ _____, ___ ____ ____ _ _____.",
+      "answer": "DONOTCRYMYDEARCHILDSHESAIDWITHASMILE",
+      "locks1": [
+        14,
+        24,
+        35
+      ],
+      "locks2": [
+        12
+      ]
+    },
+    "clues": [
+      {
+        "question": "Small pieces of partly burned coal or wood",
+        "display": "CINDERS",
+        "phrase": "_______",
+        "answer": "CINDERS"
+      },
+      {
+        "question": "A pipe that conducts smoke from a fireplace",
+        "display": "CHIMNEY",
+        "phrase": "_______",
+        "answer": "CHIMNEY",
+        "locks2": [
+          3
+        ]
+      },
+      {
+        "question": "Having a great deal of money or assets",
+        "display": "WEALTHY",
+        "phrase": "_______",
+        "answer": "WEALTHY",
+        "locks2": [
+          5
+        ]
+      },
+      {
+        "question": "Dark areas formed by blocking light",
+        "display": "SHADOWS",
+        "phrase": "_______",
+        "answer": "SHADOWS"
+      }
+    ],
+    "solv": 0
+  },
+  "20260912": {
+    "phrase": {
+      "display": "A round pumpkin quickly became a golden carriage.",
+      "phrase": "_ _____ _______ _______ ______ _ ______ ________.",
+      "answer": "AROUNDPUMPKINQUICKLYBECAMEAGOLDENCARRIAGE",
+      "locks1": [
+        24,
+        33
+      ],
+      "locks2": [
+        3,
+        36
+      ]
+    },
+    "clues": [
+      {
+        "question": "Relating to or affecting horses",
+        "display": "EQUINE",
+        "phrase": "______",
+        "answer": "EQUINE",
+        "locks1": [
+          3
+        ]
+      },
+      {
+        "question": "A young male attendant or servant",
+        "display": "PAGEBOY",
+        "phrase": "_______",
+        "answer": "PAGEBOY"
+      },
+      {
+        "question": "An outer garment that hangs loosely",
+        "display": "CLOAK",
+        "phrase": "_ERROR!",
+        "answer": "CLOAK",
+        "locks2": [
+          0
+        ]
+      },
+      {
+        "question": "A person who regards someone warmly",
+        "display": "ADMIRER",
+        "phrase": "_______",
+        "answer": "ADMIRER"
+      }
+    ],
+    "solv": 0
+  },
+  "20260913": {
+    "phrase": {
+      "display": "Small grey mice turned into strong, noble horses.",
+      "phrase": "_____ ____ ____ ______ ____ ______, _____ ______.",
+      "answer": "SMALLGREYMICETURNEDINTOSTRONGNOBLEHORSES",
+      "locks1": [
+        1
+      ],
+      "locks2": [
+        3
+      ]
+    },
+    "clues": [
+      {
+        "question": "Sleeping deeply or peacefully",
+        "display": "SLUMBERING",
+        "phrase": "__________",
+        "answer": "SLUMBERING",
+        "locks1": [
+          5
+        ],
+        "locks2": [
+          1
+        ]
+      },
+      {
+        "question": "A state or government ruled by a monarch",
+        "display": "MONARCHY",
+        "phrase": "________",
+        "answer": "MONARCHY"
+      },
+      {
+        "question": "A female child in relation to her parents",
+        "display": "DAUGHTER",
+        "phrase": "________",
+        "answer": "DAUGHTER",
+        "locks1": [
+          5
+        ],
+        "locks2": [
+          3
+        ]
+      }
+    ],
+    "solv": 0
+  },
+  "20260914": {
+    "phrase": {
+      "display": "Her dirty rags transformed into a fine, silk gown.",
+      "phrase": "___ _____ ____ ___________ ____ _ ____, ____ ____.",
+      "answer": "HERDIRTYRAGSTRANSFORMEDINTOAFINESILKGOWN",
+      "locks1": [
+        39
+      ],
+      "locks2": [
+        19
+      ]
+    },
+    "clues": [
+      {
+        "question": "A woman who acts as a sponsor at baptism",
+        "display": "GODMOTHER",
+        "phrase": "_________",
+        "answer": "GODMOTHER",
+        "locks1": [
+          3,
+          7
+        ],
+        "locks2": [
+          1
+        ]
+      },
+      {
+        "question": "The inhabitants of a particular town",
+        "display": "TOWNSFOLK",
+        "phrase": "_________",
+        "answer": "TOWNSFOLK"
+      },
+      {
+        "question": "The quality of being friendly and generous",
+        "display": "KINDNESS",
+        "phrase": "________",
+        "answer": "KINDNESS",
+        "locks2": [
+          6
+        ]
+      },
+      {
+        "question": "Like or characteristic of a father",
+        "display": "FATHERLY",
+        "phrase": "________",
+        "answer": "FATHERLY"
+      }
+    ],
+    "solv": 0
+  },
+  "20260915": {
+    "phrase": {
+      "display": "She got glowing, shiny glass shoes for her feet.",
+      "phrase": "___ ___ _______, _____ _____ _____ ___ ___ ____.",
+      "answer": "SHEGOTGLOWINGSHINYGLASSSHOESFORHERFEET",
+      "locks1": [
+        9
+      ]
+    },
+    "clues": [
+      {
+        "question": "Buoyant and resting on liquid or in air",
+        "display": "FLOATING",
+        "phrase": "________",
+        "answer": "FLOATING",
+        "locks2": [
+          2
+        ]
+      },
+      {
+        "question": "A feeling of intense longing for something",
+        "display": "YEARNING",
+        "phrase": "________",
+        "answer": "YEARNING",
+        "locks2": [
+          6
+        ]
+      },
+      {
+        "question": "Expressing a strong desire or hope",
+        "display": "WISHING",
+        "phrase": "_______",
+        "answer": "WISHING",
+        "locks1": [
+          1,
+          3
+        ],
+        "locks2": [
+          5
+        ]
+      },
+      {
+        "question": "A large area covered chiefly with trees",
+        "display": "FOREST",
+        "phrase": "______",
+        "answer": "FOREST"
+      }
+    ],
+    "solv": 0
+  },
+  "20260916": {
+    "phrase": {
+      "display": "Return before midnight, the godmother warned her.",
+      "phrase": "______ ______ ________, ___ _________ ______ ___.",
+      "answer": "RETURNBEFOREMIDNIGHTTHEGODMOTHERWARNEDHER",
+      "locks1": [
+        9,
+        13
+      ],
+      "locks2": [
+        30
+      ]
+    },
+    "clues": [
+      {
+        "question": "Warned beforehand about a future event",
+        "display": "FOREWARNED",
+        "phrase": "__________",
+        "answer": "FOREWARNED",
+        "locks1": [
+          0
+        ],
+        "locks2": [
+          7
+        ]
+      },
+      {
+        "question": "Favored by or involving good luck",
+        "display": "FORTUNATE",
+        "phrase": "_________",
+        "answer": "FORTUNATE",
+        "locks2": [
+          1
+        ]
+      },
+      {
+        "question": "A person living near or next door",
+        "display": "NEIGHBOR",
+        "phrase": "________",
+        "answer": "NEIGHBOR"
+      },
+      {
+        "question": "The usual time when someone goes to bed",
+        "display": "BEDTIME",
+        "phrase": "_______",
+        "answer": "BEDTIME"
+      }
+    ],
+    "solv": 0
+  },
+  "20260917": {
+    "phrase": {
+      "display": "At the palace ballroom, the prince saw her beauty.",
+      "phrase": "__ ___ ______ ________, ___ ______ ___ ___ ______.",
+      "answer": "ATTHEPALACEBALLROOMTHEPRINCESAWHERBEAUTY",
+      "locks1": [
+        12,
+        14
+      ],
+      "locks2": [
+        8
+      ]
+    },
+    "clues": [
+      {
+        "question": "A son of one's stepparent",
+        "display": "STEPBROTHER",
+        "phrase": "___________",
+        "answer": "STEPBROTHER"
+      },
+      {
+        "question": "The residents or inhabitants of a town",
+        "display": "TOWNSPEOPLE",
+        "phrase": "___________",
+        "answer": "TOWNSPEOPLE",
+        "locks2": [
+          2
+        ]
+      },
+      {
+        "question": "A book or document written by hand",
+        "display": "MANUSCRIPT",
+        "phrase": "__________",
+        "answer": "MANUSCRIPT",
+        "locks2": [
+          2
+        ]
+      },
+      {
+        "question": "A prediction of what will happen",
+        "display": "PROPHECY",
+        "phrase": "________",
+        "answer": "PROPHECY",
+        "locks1": [
+          6
+        ]
+      }
+    ],
+    "solv": 0
+  },
+  "20260918": {
+    "phrase": {
+      "display": "They danced together throughout the happy night.",
+      "phrase": "____ ______ ________ __________ ___ _____ _____.",
+      "answer": "THEYDANCEDTOGETHERTHROUGHOUTTHEHAPPYNIGHT",
+      "locks1": [
+        1,
+        18
+      ],
+      "locks2": [
+        11,
+        16,
+        25
+      ]
+    },
+    "clues": [
+      {
+        "question": "Delightfully charming or captivating",
+        "display": "ENCHANTING",
+        "phrase": "__________",
+        "answer": "ENCHANTING"
+      },
+      {
+        "question": "Exerting a fascinating or hypnotic spell",
+        "display": "HYPNOTIC",
+        "phrase": "________",
+        "answer": "HYPNOTIC",
+        "locks1": [
+          0
+        ]
+      },
+      {
+        "question": "Bravery in the face of pain or danger",
+        "display": "COURAGE",
+        "phrase": "_______",
+        "answer": "COURAGE"
+      },
+      {
+        "question": "A mythical fire-breathing creature",
+        "display": "DRAGON",
+        "phrase": "______",
+        "answer": "DRAGON"
+      }
+    ],
+    "solv": 0
+  },
+  "20260919": {
+    "phrase": {
+      "display": "Cinderella forgot the time while spinning around.",
+      "phrase": "__________ ______ ___ ____ _____ ________ ______.",
+      "answer": "CINDERELLAFORGOTTHETIMEWHILESPINNINGAROUND",
+      "locks1": [
+        32
+      ],
+      "locks2": [
+        4
+      ]
+    },
+    "clues": [
+      {
+        "question": "Growing or developing successfully",
+        "display": "FLOURISHING",
+        "phrase": "___________",
+        "answer": "FLOURISHING",
+        "locks1": [
+          5
+        ]
+      },
+      {
+        "question": "The practice of magic or spellcasting",
+        "display": "WITCHCRAFT",
+        "phrase": "__________",
+        "answer": "WITCHCRAFT",
+        "locks1": [
+          7
+        ]
+      },
+      {
+        "question": "Relating to an empire or an emperor",
+        "display": "IMPERIAL",
+        "phrase": "________",
+        "answer": "IMPERIAL",
+        "locks2": [
+          2
+        ]
+      },
+      {
+        "question": "A slender rod for spinning thread",
+        "display": "SPINDLE",
+        "phrase": "_______",
+        "answer": "SPINDLE",
+        "locks2": [
+          5
+        ]
+      }
+    ],
+    "solv": 0
+  },
+  "20260920": {
+    "phrase": {
+      "display": "The giant clock chimed midnight, scaring the girl.",
+      "phrase": "___ _____ _____ ______ ________, _______ ___ ____.",
+      "answer": "THEGIANTCLOCKCHIMEDMIDNIGHTSCARINGTHEGIRL",
+      "locks2": [
+        15,
+        21
+      ]
+    },
+    "clues": [
+      {
+        "question": "Mounted soldiers serving a noble or king",
+        "display": "KNIGHTS",
+        "phrase": "_______",
+        "answer": "KNIGHTS",
+        "locks1": [
+          4
+        ]
+      },
+      {
+        "question": "A specialist in a particular academic field",
+        "display": "SCHOLAR",
+        "phrase": "_______",
+        "answer": "SCHOLAR",
+        "locks1": [
+          3
+        ]
+      },
+      {
+        "question": "The partial or total absence of light",
+        "display": "DARKNESS",
+        "phrase": "________",
+        "answer": "DARKNESS"
+      },
+      {
+        "question": "An imaginary terrifying creature",
+        "display": "MONSTER",
+        "phrase": "_______",
+        "answer": "MONSTER",
+        "locks1": [
+          6
+        ],
+        "locks2": [
+          2
+        ]
+      }
+    ],
+    "solv": 0
+  },
+  "20260921": {
+    "phrase": {
+      "display": "She fled down the grand palace staircase rapidly.",
+      "phrase": "___ ____ ____ ___ _____ ______ _________ _______.",
+      "answer": "SHEFLEDDOWNTHEGRANDPALACESTAIRCASERAPIDLY",
+      "locks1": [
+        1,
+        24
+      ],
+      "locks2": [
+        5,
+        37
+      ]
+    },
+    "clues": [
+      {
+        "question": "The practice of magic or witchcraft",
+        "display": "WITCHERY",
+        "phrase": "________",
+        "answer": "WITCHERY"
+      },
+      {
+        "question": "Plots of ground used for growing plants",
+        "display": "GARDENS",
+        "phrase": "_______",
+        "answer": "GARDENS",
+        "locks2": [
+          3
+        ]
+      },
+      {
+        "question": "A child whose parents are deceased",
+        "display": "ORPHAN",
+        "phrase": "_ERROR!",
+        "answer": "ORPHAN",
+        "locks2": [
+          0
+        ]
+      },
+      {
+        "question": "The action or process of flying",
+        "display": "FLIGHT",
+        "phrase": "______",
+        "answer": "FLIGHT"
+      }
+    ],
+    "solv": 0
+  },
+  "20260922": {
+    "phrase": {
+      "display": "A glass slipper slipped off her foot as she ran.",
+      "phrase": "_ _____ _______ _______ ___ ___ ____ __ ___ ___.",
+      "answer": "AGLASSSLIPPERSLIPPEDOFFHERFOOTASSHERAN",
+      "locks1": [
+        31,
+        37
+      ],
+      "locks2": [
+        2,
+        16,
+        27
+      ]
+    },
+    "clues": [
+      {
+        "question": "A residential institution for orphans",
+        "display": "ORPHANAGE",
+        "phrase": "_________",
+        "answer": "ORPHANAGE"
+      },
+      {
+        "question": "A heavily fortified building or position",
+        "display": "FORTRESS",
+        "phrase": "________",
+        "answer": "FORTRESS",
+        "locks1": [
+          3
+        ]
+      },
+      {
+        "question": "The authority or status of a lord",
+        "display": "LORDSHIP",
+        "phrase": "________",
+        "answer": "LORDSHIP"
+      },
+      {
+        "question": "Set or placed firmly in position",
+        "display": "PLANTED",
+        "phrase": "_______",
+        "answer": "PLANTED"
+      }
+    ],
+    "solv": 0
+  },
+  "20260923": {
+    "phrase": {
+      "display": "The prince found the tiny glass shoe on the step.",
+      "phrase": "___ ______ _____ ___ ____ _____ ____ __ ___ ____.",
+      "answer": "THEPRINCEFOUNDTHETINYGLASSSHOEONTHESTEP",
+      "locks2": [
+        10
+      ]
+    },
+    "clues": [
+      {
+        "question": "An abandoned infant found by others",
+        "display": "FOUNDLING",
+        "phrase": "_________",
+        "answer": "FOUNDLING",
+        "locks1": [
+          5
+        ]
+      },
+      {
+        "question": "In a loyal, reliable, and devoted manner",
+        "display": "FAITHFULLY",
+        "phrase": "__________",
+        "answer": "FAITHFULLY",
+        "locks1": [
+          4
+        ],
+        "locks2": [
+          7
+        ]
+      },
+      {
+        "question": "The daughter of a monarch",
+        "display": "PRINCESS",
+        "phrase": "________",
+        "answer": "PRINCESS",
+        "locks1": [
+          0
+        ],
+        "locks2": [
+          3
+        ]
+      }
+    ],
+    "solv": 0
+  },
+  "20260924": {
+    "phrase": {
+      "display": "Messengers tried the shoe on every young maiden.",
+      "phrase": "__________ _____ ___ ____ __ _____ _____ ______.",
+      "answer": "MESSENGERSTRIEDTHESHOEONEVERYYOUNGMAIDEN",
+      "locks2": [
+        2,
+        13
+      ]
+    },
+    "clues": [
+      {
+        "question": "Tuneful or forming a pleasing whole",
+        "display": "HARMONIOUS",
+        "phrase": "__________",
+        "answer": "HARMONIOUS",
+        "locks1": [
+          3,
+          8
+        ]
+      },
+      {
+        "question": "A supreme ruler, especially a monarch",
+        "display": "SOVEREIGN",
+        "phrase": "_________",
+        "answer": "SOVEREIGN",
+        "locks2": [
+          3
+        ]
+      },
+      {
+        "question": "Altered in appearance to hide identity",
+        "display": "DISGUISED",
+        "phrase": "_________",
+        "answer": "DISGUISED"
+      },
+      {
+        "question": "A line of hereditary rulers",
+        "display": "DYNASTY",
+        "phrase": "_______",
+        "answer": "DYNASTY",
+        "locks1": [
+          0
+        ]
+      }
+    ],
+    "solv": 0
+  },
+  "20260925": {
+    "phrase": {
+      "display": "The stepsisters tried hard to force their feet in.",
+      "phrase": "___ ___________ _____ ____ __ _____ _____ ____ __.",
+      "answer": "THESTEPSISTERSTRIEDHARDTOFORCETHEIRFEETIN",
+      "locks1": [
+        13,
+        19,
+        22
+      ],
+      "locks2": [
+        26
+      ]
+    },
+    "clues": [
+      {
+        "question": "A female supporter or protector",
+        "display": "PATRONESS",
+        "phrase": "_________",
+        "answer": "PATRONESS",
+        "locks2": [
+          2
+        ]
+      },
+      {
+        "question": "Two-wheeled horse-drawn ancient vehicles",
+        "display": "CHARIOTS",
+        "phrase": "________",
+        "answer": "CHARIOTS",
+        "locks2": [
+          5
+        ]
+      },
+      {
+        "question": "Very young children or babies",
+        "display": "INFANTS",
+        "phrase": "_______",
+        "answer": "INFANTS"
+      },
+      {
+        "question": "A person who dances",
+        "display": "DANCER",
+        "phrase": "______",
+        "answer": "DANCER"
+      }
+    ],
+    "solv": 0
+  },
+  "20260926": {
+    "phrase": {
+      "display": "Cinderella tried the shoe, fitting it perfectly.",
+      "phrase": "__________ _____ ___ ____, _______ __ _________.",
+      "answer": "CINDERELLATRIEDTHESHOEFITTINGITPERFECTLY",
+      "locks1": [
+        34,
+        37
+      ],
+      "locks2": [
+        1
+      ]
+    },
+    "clues": [
+      {
+        "question": "A daughter of one's stepparent",
+        "display": "STEPSISTER",
+        "phrase": "__________",
+        "answer": "STEPSISTER",
+        "locks2": [
+          6
+        ]
+      },
+      {
+        "question": "A child of one's spouse by prior marriage",
+        "display": "STEPCHILD",
+        "phrase": "_________",
+        "answer": "STEPCHILD",
+        "locks1": [
+          3
+        ],
+        "locks2": [
+          6
+        ]
+      },
+      {
+        "question": "Large areas covered chiefly with trees",
+        "display": "FORESTS",
+        "phrase": "_______",
+        "answer": "FORESTS"
+      },
+      {
+        "question": "Offering prayers to a deity",
+        "display": "PRAYING",
+        "phrase": "_______",
+        "answer": "PRAYING"
+      }
+    ],
+    "solv": 0
+  },
+  "20260927": {
+    "phrase": {
+      "display": "She pulled out the matching shoe from her pocket.",
+      "phrase": "___ ______ ___ ___ ________ ____ ____ ___ ______.",
+      "answer": "SHEPULLEDOUTTHEMATCHINGSHOEFROMHERPOCKET",
+      "locks1": [
+        2,
+        10
+      ],
+      "locks2": [
+        7,
+        16,
+        21
+      ]
+    },
+    "clues": [
+      {
+        "question": "A person who accompanies and supervises",
+        "display": "CHAPERONE",
+        "phrase": "_________",
+        "answer": "CHAPERONE",
+        "locks2": [
+          6
+        ]
+      },
+      {
+        "question": "A person who makes and repairs locks",
+        "display": "LOCKSMITH",
+        "phrase": "_________",
+        "answer": "LOCKSMITH",
+        "locks1": [
+          0,
+          4
+        ]
+      },
+      {
+        "question": "The act of establishing an organization",
+        "display": "FOUNDING",
+        "phrase": "________",
+        "answer": "FOUNDING"
+      }
+    ],
+    "solv": 0
+  },
+  "20260928": {
+    "phrase": {
+      "display": "The prince gladly recognized his true, sweet love.",
+      "phrase": "___ ______ ______ __________ ___ ____, _____ ____.",
+      "answer": "THEPRINCEGLADLYRECOGNIZEDHISTRUESWEETLOVE",
+      "locks1": [
+        6,
+        24
+      ],
+      "locks2": [
+        11,
+        19
+      ]
+    },
+    "clues": [
+      {
+        "question": "Having won a victory or triumph",
+        "display": "VICTORIOUS",
+        "phrase": "__________",
+        "answer": "VICTORIOUS"
+      },
+      {
+        "question": "Protected from danger or harsh realities",
+        "display": "SHELTERED",
+        "phrase": "_________",
+        "answer": "SHELTERED"
+      },
+      {
+        "question": "Difficult to hold because smooth or wet",
+        "display": "SLIPPERY",
+        "phrase": "________",
+        "answer": "SLIPPERY",
+        "locks1": [
+          0
+        ]
+      },
+      {
+        "question": "Dancing a formal ballroom dance",
+        "display": "WALTZING",
+        "phrase": "________",
+        "answer": "WALTZING",
+        "locks2": [
+          6
+        ]
+      }
+    ],
+    "solv": 0
+  },
+  "20260929": {
+    "phrase": {
+      "display": "She forgave her mean sisters with a gentle heart.",
+      "phrase": "___ _______ ___ ____ _______ ____ _ ______ _____.",
+      "answer": "SHEFORGAVEHERMEANSISTERSWITHAGENTLEHEART",
+      "locks1": [
+        21,
+        24
+      ],
+      "locks2": [
+        1,
+        7
+      ]
+    },
+    "clues": [
+      {
+        "question": "Mythological beings with magical powers",
+        "display": "FAIRIES",
+        "phrase": "_______",
+        "answer": "FAIRIES"
+      },
+      {
+        "question": "An official appointed to govern a region",
+        "display": "GOVERNOR",
+        "phrase": "________",
+        "answer": "GOVERNOR"
+      },
+      {
+        "question": "Items of clothing",
+        "display": "GARMENTS",
+        "phrase": "________",
+        "answer": "GARMENTS",
+        "locks2": [
+          6
+        ]
+      },
+      {
+        "question": "An abundance of valuable possessions",
+        "display": "WEALTH",
+        "phrase": "______",
+        "answer": "WEALTH",
+        "locks1": [
+          4
+        ]
+      }
+    ],
+    "solv": 0
+  },
+  "20260930": {
+    "phrase": {
+      "display": "Prince and Cinderella married and lived happily",
+      "phrase": "______ ___ __________ _______ ___ _____ _______",
+      "answer": "PRINCEANDCINDERELLAMARRIEDANDLIVEDHAPPILY",
+      "locks1": [
+        11,
+        25
+      ],
+      "locks2": [
+        37
+      ]
+    },
+    "clues": [
+      {
+        "question": "The first public performance or showing",
+        "display": "PREMIERE",
+        "phrase": "________",
+        "answer": "PREMIERE"
+      },
+      {
+        "question": "The medieval code of knightly behavior",
+        "display": "CHIVALRY",
+        "phrase": "________",
+        "answer": "CHIVALRY",
+        "locks2": [
+          4
+        ]
+      },
+      {
+        "question": "Characteristic of or suitable for a maiden",
+        "display": "MAIDENLY",
+        "phrase": "________",
+        "answer": "MAIDENLY",
+        "locks1": [
+          0
+        ],
+        "locks2": [
+          5
+        ]
+      }
+    ],
+    "solv": 0
+  }
+}
