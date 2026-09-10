@@ -1,0 +1,2096 @@
+{
+  "1": {
+    "phrase": {
+      "display": "All is well",
+      "phrase": "All is wel_",
+      "answer": "ALLISWELL"
+    },
+    "clues": [
+      {
+        "question": "Smart, perceptive, or shrewd",
+        "display": "WISE",
+        "phrase": "____",
+        "answer": "WISE"
+      },
+      {
+        "question": "Boat's fabric canvas for catching wind",
+        "display": "SAIL",
+        "phrase": "S_IL",
+        "answer": "SAIL"
+      },
+      {
+        "question": "Broad, deep hole dug for water",
+        "display": "WELL",
+        "phrase": "wel_",
+        "answer": "WELL"
+      }
+    ]
+  },
+  "2": {
+    "phrase": {
+      "display": "Believe you can",
+      "phrase": "_______ ___ ___",
+      "answer": "BELIEVEYOUCAN"
+    },
+    "clues": [
+      {
+        "question": "Young male child",
+        "display": "BOY",
+        "phrase": "___",
+        "answer": "BOY"
+      },
+      {
+        "question": "Full of energy, active, and vibrant",
+        "display": "ALIVE",
+        "phrase": "_____",
+        "answer": "ALIVE"
+      },
+      {
+        "question": "Spring back up after a drop",
+        "display": "BOUNCE",
+        "phrase": "______",
+        "answer": "BOUNCE"
+      }
+    ]
+  },
+  "3": {
+    "phrase": {
+      "display": "No pressure, no diamonds.",
+      "phrase": "__ ________, __ ________.",
+      "answer": "NOPRESSURENODIAMONDS"
+    },
+    "clues": [
+      {
+        "question": "Human consciousness",
+        "display": "MIND",
+        "phrase": "____",
+        "answer": "MIND"
+      },
+      {
+        "question": "Used with water for washing",
+        "display": "SOAP",
+        "phrase": "____",
+        "answer": "SOAP"
+      },
+      {
+        "question": "Behaving without manners or respect",
+        "display": "RUDE",
+        "phrase": "____",
+        "answer": "RUDE"
+      },
+      {
+        "question": "Water falling straight from clouds",
+        "display": "RAIN",
+        "phrase": "____",
+        "answer": "RAIN"
+      }
+    ]
+  },
+  "4": {
+    "phrase": {
+      "display": "Humans share 60% DNA with bananas.",
+      "phrase": "______ _____ 60% ___ ____ _______.",
+      "answer": "HUMANSSHAREDNAWITHBANANAS"
+    },
+    "clues": [
+      {
+        "question": "The only species that cooks its own food",
+        "display": "HUMANS",
+        "phrase": "______",
+        "answer": "HUMANS"
+      },
+      {
+        "question": "In front of (Opposite)",
+        "display": "BEHIND",
+        "phrase": "______",
+        "answer": "BEHIND"
+      },
+      {
+        "question": "It quenches thirst",
+        "display": "WATER",
+        "phrase": "_____",
+        "answer": "WATER"
+      },
+      {
+        "question": "5th finger",
+        "display": "THUMB",
+        "phrase": "_____",
+        "answer": "THUMB"
+      }
+    ]
+  },
+  "5": {
+    "phrase": {
+      "display": "Great things take time.",
+      "phrase": "_____ ______ ____ ____.",
+      "answer": "GREATTHINGSTAKETIME"
+    },
+    "clues": [
+      {
+        "question": "Great strength or power to overcome",
+        "display": "MIGHT",
+        "phrase": "_____",
+        "answer": "MIGHT"
+      },
+      {
+        "question": "A slithering reptile",
+        "display": "SNAKE",
+        "phrase": "_____",
+        "answer": "SNAKE"
+      },
+      {
+        "question": "A strong feeling of rage",
+        "display": "ANGER",
+        "phrase": "_____",
+        "answer": "ANGER"
+      },
+      {
+        "question": "A place to sit down",
+        "display": "SEAT",
+        "phrase": "____",
+        "answer": "SEAT"
+      }
+    ]
+  },
+  "6": {
+    "phrase": {
+      "display": "Every cloud has a silver lining.",
+      "phrase": "_____ _____ ___ _ ______ ______.",
+      "answer": "EVERYCLOUDHASASILVERLINING"
+    },
+    "clues": [
+      {
+        "question": "Sky pillows",
+        "display": "CLOUDS",
+        "phrase": "______",
+        "answer": "CLOUDS",
+        "locks1": [
+          3
+        ]
+      },
+      {
+        "question": "Hard to lift due to immense weight",
+        "display": "HEAVY",
+        "phrase": "_____",
+        "answer": "HEAVY"
+      },
+      {
+        "question": "Moving in a hurry with no time to waste",
+        "display": "RUSHING",
+        "phrase": "_______",
+        "answer": "RUSHING",
+        "locks1": [
+          0
+        ]
+      }
+    ]
+  },
+  "7": {
+    "phrase": {
+      "display": "Bananas are naturally radioactive.",
+      "phrase": "_______ ___ _________ ___________.",
+      "answer": "BANANASARENATURALLYRADIOACTIVE",
+      "locks1": [
+        10
+      ]
+    },
+    "clues": [
+      {
+        "question": "Triumph celebrated at the finish line",
+        "display": "VICTORY",
+        "phrase": "_______",
+        "answer": "VICTORY"
+      },
+      {
+        "question": "Goldan hair color",
+        "display": "BLONDE",
+        "phrase": "______",
+        "answer": "BLONDE",
+        "locks1": [
+          5
+        ]
+      },
+      {
+        "question": "Weekend",
+        "display": "SUNDAY",
+        "phrase": "______",
+        "answer": "SUNDAY"
+      }
+    ]
+  },
+  "8": {
+    "phrase": {
+      "display": "Life is a journey, not a goal.",
+      "phrase": "____ __ _ _______, ___ _ ____.",
+      "answer": "LIFEISAJOURNEYNOTAGOAL",
+      "locks1": [
+        1,
+        20
+      ]
+    },
+    "clues": [
+      {
+        "question": "Traveling from one place to another",
+        "display": "JOURNEY",
+        "phrase": "_______",
+        "answer": "JOURNEY"
+      },
+      {
+        "question": "A legendary creature of massive size",
+        "display": "GIANT",
+        "phrase": "_____",
+        "answer": "GIANT"
+      },
+      {
+        "question": "Country's Identity",
+        "display": "FLAGS",
+        "phrase": "_____",
+        "answer": "FLAGS"
+      }
+    ]
+  },
+  "9": {
+    "phrase": {
+      "display": "Don't bite the hand that feeds you.",
+      "phrase": "___'_ ____ ___ ____ ____ _____ ___.",
+      "answer": "DONTBITETHEHANDTHATFEEDSYOU",
+      "locks1": [
+        11
+      ]
+    },
+    "clues": [
+      {
+        "question": "____ lies in the eye",
+        "display": "BEAUTY",
+        "phrase": "______",
+        "answer": "BEAUTY"
+      },
+      {
+        "question": "Popular trends in clothing",
+        "display": "FASHION",
+        "phrase": "_______",
+        "answer": "FASHION"
+      },
+      {
+        "question": "With five fingers",
+        "display": "HAND",
+        "phrase": "____",
+        "answer": "HAND"
+      }
+    ]
+  },
+  "10": {
+    "phrase": {
+      "display": "There is no place like home.",
+      "phrase": "_____ __ __ _____ ____ ____.",
+      "answer": "THEREISNOPLACELIKEHOME",
+      "locks2": [
+        15
+      ]
+    },
+    "clues": [
+      {
+        "question": "The organ contains hydrochloric acid",
+        "display": "STOMACH",
+        "phrase": "_______",
+        "answer": "STOMACH",
+        "locks2": [
+          4
+        ]
+      },
+      {
+        "question": "A celestial body orbiting a star",
+        "display": "PLANET",
+        "phrase": "______",
+        "answer": "PLANET"
+      },
+      {
+        "question": "A royal son",
+        "display": "PRINCE",
+        "phrase": "______",
+        "answer": "PRINCE",
+        "locks2": [
+          4
+        ]
+      },
+      {
+        "question": "stick used on blackboards",
+        "display": "CHALK",
+        "phrase": "_____",
+        "answer": "CHALK"
+      }
+    ]
+  },
+  "11": {
+    "phrase": {
+      "display": "As cool as a cucumber.",
+      "phrase": "__ ____ __ _ ________.",
+      "answer": "ASCOOLASACUCUMBER",
+      "locks2": [
+        10,
+        14
+      ]
+    },
+    "clues": [
+      {
+        "question": "____ eggs",
+        "display": "SCRAMBLE",
+        "phrase": "________",
+        "answer": "SCRAMBLE"
+      },
+      {
+        "question": "Upper garment worn by women",
+        "display": "BLOUSE",
+        "phrase": "______",
+        "answer": "BLOUSE",
+        "locks2": [
+          4
+        ]
+      },
+      {
+        "question": "deep and peaceful sleep",
+        "display": "SLUMBER",
+        "phrase": "_______",
+        "answer": "SLUMBER",
+        "locks2": [
+          5
+        ]
+      },
+      {
+        "question": "Desert animal with humps",
+        "display": "CAMEL",
+        "phrase": "_____",
+        "answer": "CAMEL"
+      },
+      {
+        "question": "Words spoken to bring bad luck",
+        "display": "CURSE",
+        "phrase": "_____",
+        "answer": "CURSE"
+      }
+    ]
+  },
+  "12": {
+    "phrase": {
+      "display": "To be is to be perceived.",
+      "phrase": "__ __ __ __ __ _________.",
+      "answer": "TOBEISTOBEPERCEIVED"
+    },
+    "clues": [
+      {
+        "question": "Superior to all others in quality",
+        "display": "BEST",
+        "phrase": "____",
+        "answer": "BEST",
+        "locks2": [
+          2
+        ]
+      },
+      {
+        "question": "To travel as a passenger",
+        "display": "RIDE",
+        "phrase": "____",
+        "answer": "RIDE",
+        "locks2": [
+          2
+        ]
+      },
+      {
+        "question": "Moving pictures",
+        "display": "VIDEO",
+        "phrase": "_____",
+        "answer": "VIDEO",
+        "locks2": [
+          3
+        ]
+      },
+      {
+        "question": "Amount required to buy an item",
+        "display": "PRICE",
+        "phrase": "_____",
+        "answer": "PRICE",
+        "locks2": [
+          3
+        ]
+      },
+      {
+        "question": "To come to an end",
+        "display": "STOP",
+        "phrase": "____",
+        "answer": "STOP"
+      }
+    ]
+  },
+  "13": {
+    "phrase": {
+      "display": "Billie Jean is not my lover.",
+      "phrase": "______ ____ __ ___ __ _____.",
+      "answer": "BILLIEJEANISNOTMYLOVER",
+      "locks1": [
+        7,
+        16
+      ],
+      "locks2": [
+        2
+      ]
+    },
+    "clues": [
+      {
+        "question": "Shiny precious metal second to gold",
+        "display": "SILVER",
+        "phrase": "______",
+        "answer": "SILVER",
+        "locks2": [
+          1
+        ]
+      },
+      {
+        "question": "To go on a journey",
+        "display": "TRAVEL",
+        "phrase": "______",
+        "answer": "TRAVEL"
+      },
+      {
+        "question": "Use to buy Things",
+        "display": "MONEY",
+        "phrase": "_____",
+        "answer": "MONEY",
+        "locks2": [
+          1
+        ]
+      },
+      {
+        "question": "pleasure or delight in something",
+        "display": "ENJOY",
+        "phrase": "_____",
+        "answer": "ENJOY"
+      },
+      {
+        "question": "Mammal that loves honey",
+        "display": "BEAR",
+        "phrase": "____",
+        "answer": "BEAR"
+      }
+    ]
+  },
+  "14": {
+    "phrase": {
+      "display": "Put all your cards on the table.",
+      "phrase": "___ ___ ____ _____ __ ___ _____.",
+      "answer": "PUTALLYOURCARDSONTHETABLE",
+      "locks2": [
+        22
+      ]
+    },
+    "clues": [
+      {
+        "question": "Physical contact",
+        "display": "TOUCH",
+        "phrase": "_____",
+        "answer": "TOUCH"
+      },
+      {
+        "question": "Baked staple food",
+        "display": "BREAD",
+        "phrase": "_____",
+        "answer": "BREAD"
+      },
+      {
+        "question": "Detailed ideas arranged for the future",
+        "display": "PLAN",
+        "phrase": "____",
+        "answer": "PLAN"
+      },
+      {
+        "question": "A tale told to entertain",
+        "display": "STORY",
+        "phrase": "_____",
+        "answer": "STORY",
+        "locks2": [
+          1
+        ]
+      }
+    ]
+  },
+  "15": {
+    "phrase": {
+      "display": "Life's only constant is change.",
+      "phrase": "____'_ ____ ________ __ ______.",
+      "answer": "LIFESONLYCONSTANTISCHANGE"
+    },
+    "clues": [
+      {
+        "question": "After sunset",
+        "display": "NIGHT",
+        "phrase": "_____",
+        "answer": "NIGHT"
+      },
+      {
+        "question": "A phantom spirit",
+        "display": "GHOST",
+        "phrase": "_____",
+        "answer": "GHOST"
+      },
+      {
+        "question": "Elegant or sophisticated",
+        "display": "FANCY",
+        "phrase": "_____",
+        "answer": "FANCY"
+      },
+      {
+        "question": "Way of dressing or acting",
+        "display": "STYLE",
+        "phrase": "_____",
+        "answer": "STYLE"
+      }
+    ]
+  },
+  "16": {
+    "phrase": {
+      "display": "What you seek is seeking you.",
+      "phrase": "____ ___ ____ __ _______ ___.",
+      "answer": "WHATYOUSEEKISSEEKINGYOU",
+      "locks1": [
+        0,
+        18
+      ]
+    },
+    "clues": [
+      {
+        "question": "Golden grain",
+        "display": "WHEAT",
+        "phrase": "_____",
+        "answer": "WHEAT"
+      },
+      {
+        "question": "____ pole",
+        "display": "SOUTH",
+        "phrase": "_____",
+        "answer": "SOUTH"
+      },
+      {
+        "question": "Lived for only a short time",
+        "display": "YOUNG",
+        "phrase": "_____",
+        "answer": "YOUNG",
+        "locks1": [
+          2
+        ]
+      },
+      {
+        "question": "Male monarch with a crown",
+        "display": "KING",
+        "phrase": "____",
+        "answer": "KING"
+      }
+    ]
+  },
+  "17": {
+    "phrase": {
+      "display": "Keep your fingers crossed.",
+      "phrase": "____ ____ _______ _______.",
+      "answer": "KEEPYOURFINGERSCROSSED",
+      "locks1": [
+        4,
+        12
+      ]
+    },
+    "clues": [
+      {
+        "question": "Similar in position or purpose",
+        "display": "CORRESPONDING",
+        "phrase": "_____________",
+        "answer": "CORRESPONDING",
+        "locks1": [
+          6,
+          9
+        ]
+      },
+      {
+        "question": "Bring together into one",
+        "display": "UNIFY",
+        "phrase": "_____",
+        "answer": "UNIFY"
+      },
+      {
+        "question": "What's a moment of truth or judgment?",
+        "display": "RECKONING",
+        "phrase": "_________",
+        "answer": "RECKONING",
+        "locks1": [
+          4
+        ]
+      },
+      {
+        "question": "Needle-leaf trees",
+        "display": "PINES",
+        "phrase": "_____",
+        "answer": "PINES"
+      },
+      {
+        "question": "A quick wash or cleaning process",
+        "display": "RINSE",
+        "phrase": "_____",
+        "answer": "RINSE",
+        "locks1": [
+          3
+        ]
+      }
+    ]
+  },
+  "18": {
+    "phrase": {
+      "display": "Stay hungry, stay foolish.",
+      "phrase": "____ ______, ____ _______.",
+      "answer": "STAYHUNGRYSTAYFOOLISH",
+      "locks1": [
+        7
+      ]
+    },
+    "clues": [
+      {
+        "question": "White powder made by grinding grain",
+        "display": "FLOUR",
+        "phrase": "_____",
+        "answer": "FLOUR"
+      },
+      {
+        "question": "A board displaying directions",
+        "display": "SIGN",
+        "phrase": "____",
+        "answer": "SIGN",
+        "locks1": [
+          2
+        ]
+      },
+      {
+        "question": "Acting too quickly",
+        "display": "HASTY",
+        "phrase": "_____",
+        "answer": "HASTY"
+      },
+      {
+        "question": "A green croaking amphibian",
+        "display": "FROG",
+        "phrase": "____",
+        "answer": "FROG",
+        "locks1": [
+          3
+        ]
+      }
+    ]
+  },
+  "19": {
+    "phrase": {
+      "display": "The calm before the storm.",
+      "phrase": "___ ____ ______ ___ _____.",
+      "answer": "THECALMBEFORETHESTORM",
+      "locks2": [
+        4,
+        10,
+        19
+      ]
+    },
+    "clues": [
+      {
+        "question": "An attractive quality",
+        "display": "CHARM",
+        "phrase": "_____",
+        "answer": "CHARM"
+      },
+      {
+        "question": "To stay suspended on liquid",
+        "display": "FLOAT",
+        "phrase": "_____",
+        "answer": "FLOAT"
+      },
+      {
+        "question": "Explosion",
+        "display": "BLAST",
+        "phrase": "_____",
+        "answer": "BLAST"
+      },
+      {
+        "question": "Add ____ sugar",
+        "display": "MORE",
+        "phrase": "____",
+        "answer": "MORE"
+      }
+    ]
+  },
+  "20": {
+    "phrase": {
+      "display": "Believe you can and you're halfway.",
+      "phrase": "_______ ___ ___ ___ ___'__ _______.",
+      "answer": "BELIEVEYOUCANANDYOUREHALFWAY",
+      "locks1": [
+        9
+      ]
+    },
+    "clues": [
+      {
+        "question": "Taste of a food",
+        "display": "FLAVOR",
+        "phrase": "______",
+        "answer": "FLAVOR",
+        "locks2": [
+          1
+        ]
+      },
+      {
+        "question": "high-pitched complaining sound",
+        "display": "WHINE",
+        "phrase": "_____",
+        "answer": "WHINE"
+      },
+      {
+        "question": "Large group of people",
+        "display": "CROWD",
+        "phrase": "_____",
+        "answer": "CROWD"
+      },
+      {
+        "question": "The color of deep ocean",
+        "display": "BLUE",
+        "phrase": "____",
+        "answer": "BLUE"
+      },
+      {
+        "question": "The person being spoken to",
+        "display": "YOU",
+        "phrase": "___",
+        "answer": "YOU"
+      }
+    ]
+  },
+  "21": {
+    "phrase": {
+      "display": "You are my favorite distraction.",
+      "phrase": "___ ___ __ ________ ___________.",
+      "answer": "YOUAREMYFAVORITEDISTRACTION"
+    },
+    "clues": [
+      {
+        "question": "Line when bends",
+        "display": "CURVE",
+        "phrase": "_____",
+        "answer": "CURVE"
+      },
+      {
+        "question": "Growing crops and livestock",
+        "display": "FARM",
+        "phrase": "____",
+        "answer": "FARM"
+      },
+      {
+        "question": "The predetermined course of your life",
+        "display": "DESTINY",
+        "phrase": "_______",
+        "answer": "DESTINY"
+      },
+      {
+        "question": "A brief message",
+        "display": "NOTE",
+        "phrase": "____",
+        "answer": "NOTE"
+      },
+      {
+        "question": "Cube with upto 6 dots",
+        "display": "DICE",
+        "phrase": "____",
+        "answer": "DICE"
+      }
+    ]
+  },
+  "22": {
+    "phrase": {
+      "display": "Let sleeping dogs lie.",
+      "phrase": "___ ________ ____ ___.",
+      "answer": "LETSLEEPINGDOGSLIE"
+    },
+    "clues": [
+      {
+        "question": "A sharp end",
+        "display": "POINT",
+        "phrase": "_____",
+        "answer": "POINT"
+      },
+      {
+        "question": "Used to stand and walk",
+        "display": "LEGS",
+        "phrase": "____",
+        "answer": "LEGS"
+      },
+      {
+        "question": "A small body of still water",
+        "display": "POND",
+        "phrase": "____",
+        "answer": "POND"
+      },
+      {
+        "question": "Turn around rapidly",
+        "display": "SPIN",
+        "phrase": "____",
+        "answer": "SPIN"
+      },
+      {
+        "question": "Rising and falling of the sea",
+        "display": "TIDE",
+        "phrase": "____",
+        "answer": "TIDE"
+      }
+    ]
+  },
+  "23": {
+    "phrase": {
+      "display": "Action eliminates doubt.",
+      "phrase": "______ __________ _____.",
+      "answer": "ACTIONELIMINATESDOUBT",
+      "locks2": [
+        9,
+        13
+      ]
+    },
+    "clues": [
+      {
+        "question": "A large sweet fruit with a thick skin",
+        "display": "MELON",
+        "phrase": "_____",
+        "answer": "MELON"
+      },
+      {
+        "question": "Smaller than a minute",
+        "display": "SECOND",
+        "phrase": "______",
+        "answer": "SECOND",
+        "locks2": [
+          1
+        ]
+      },
+      {
+        "question": "Free from disturbance",
+        "display": "CALM",
+        "phrase": "____",
+        "answer": "CALM"
+      },
+      {
+        "question": "Understated in a quiet way",
+        "display": "SUBTLE",
+        "phrase": "______",
+        "answer": "SUBTLE",
+        "locks2": [
+          2
+        ]
+      },
+      {
+        "question": "Inspection of financial accounts",
+        "display": "AUDIT",
+        "phrase": "_____",
+        "answer": "AUDIT"
+      }
+    ]
+  },
+  "24": {
+    "phrase": {
+      "display": "Rain contains vitamin B12.",
+      "phrase": "____ ________ _______ _12.",
+      "answer": "RAINCONTAINSVITAMINB",
+      "locks2": [
+        8,
+        13
+      ]
+    },
+    "clues": [
+      {
+        "question": "A form of affection",
+        "display": "ROMANTIC",
+        "phrase": "________",
+        "answer": "ROMANTIC",
+        "locks2": [
+          1
+        ]
+      },
+      {
+        "question": "Being colorful",
+        "display": "VIBRANT",
+        "phrase": "_______",
+        "answer": "VIBRANT",
+        "locks2": [
+          1,
+          5
+        ]
+      },
+      {
+        "question": "F.R.I.E.N.D.S is a ____",
+        "display": "SITCOM",
+        "phrase": "______",
+        "answer": "SITCOM",
+        "locks2": [
+          4
+        ]
+      },
+      {
+        "question": "A small wooden house",
+        "display": "CABIN",
+        "phrase": "_____",
+        "answer": "CABIN",
+        "locks2": [
+          1
+        ]
+      }
+    ]
+  },
+  "25": {
+    "phrase": {
+      "display": "Chasing rainbows in the sky.",
+      "phrase": "_______ ________ __ ___ ___.",
+      "answer": "CHASINGRAINBOWSINTHESKY",
+      "locks2": [
+        3,
+        9,
+        13
+      ]
+    },
+    "clues": [
+      {
+        "question": "Observing something",
+        "display": "WATCHING",
+        "phrase": "________",
+        "answer": "WATCHING",
+        "locks2": [
+          4
+        ]
+      },
+      {
+        "question": "Fractured",
+        "display": "BROKEN",
+        "phrase": "______",
+        "answer": "BROKEN"
+      },
+      {
+        "question": "Blue atmospheric",
+        "display": "SKY",
+        "phrase": "___",
+        "answer": "SKY"
+      },
+      {
+        "question": "Connected to nature",
+        "display": "EARTHY",
+        "phrase": "______",
+        "answer": "EARTHY"
+      }
+    ]
+  },
+  "26": {
+    "phrase": {
+      "display": "Dream big. Work hard. Stay humble.",
+      "phrase": "_____ ___. ____ ____. ____ ______.",
+      "answer": "DREAMBIGWORKHARDSTAYHUMBLE",
+      "locks1": [
+        20
+      ],
+      "locks2": [
+        9
+      ]
+    },
+    "clues": [
+      {
+        "question": "Teenage to adult",
+        "display": "GROWTH",
+        "phrase": "______",
+        "answer": "GROWTH",
+        "locks1": [
+          2
+        ]
+      },
+      {
+        "question": "Happy expression",
+        "display": "SMILED",
+        "phrase": "______",
+        "answer": "SMILED",
+        "locks2": [
+          3
+        ]
+      },
+      {
+        "question": "Selling fresh bread",
+        "display": "BAKERY",
+        "phrase": "______",
+        "answer": "BAKERY"
+      },
+      {
+        "question": "Workspace for an artist",
+        "display": "STUDIO",
+        "phrase": "______",
+        "answer": "STUDIO"
+      }
+    ]
+  },
+  "27": {
+    "phrase": {
+      "display": "Venus rotates clockwise.",
+      "phrase": "_____ _______ _________.",
+      "answer": "VENUSROTATESCLOCKWISE",
+      "cloak": [
+        3,
+        8
+      ]
+    },
+    "clues": [
+      {
+        "question": "Connected group of computers",
+        "display": "NETWORK",
+        "phrase": "_______",
+        "answer": "NETWORK"
+      },
+      {
+        "question": "A winner in a battle",
+        "display": "VICTOR",
+        "phrase": "______",
+        "answer": "VICTOR"
+      },
+      {
+        "question": "Relaxed, informal, and unconcerned",
+        "display": "CASUAL",
+        "phrase": "______",
+        "answer": "CASUAL",
+        "cloak": [
+          1,
+          3,
+          4
+        ]
+      },
+      {
+        "question": "Pin drop ____",
+        "display": "SILENCE",
+        "phrase": "_______",
+        "answer": "SILENCE"
+      },
+      {
+        "question": "Not fast",
+        "display": "SLOW",
+        "phrase": "____",
+        "answer": "SLOW"
+      }
+    ]
+  },
+  "28": {
+    "phrase": {
+      "display": "Everything you need is inside you.",
+      "phrase": "__________ ___ ____ __ ______ ___.",
+      "answer": "EVERYTHINGYOUNEEDISINSIDEYOU",
+      "locks2": [
+        3,
+        21
+      ]
+    },
+    "clues": [
+      {
+        "question": "To remain floating",
+        "display": "HOVER",
+        "phrase": "_____",
+        "answer": "HOVER"
+      },
+      {
+        "question": "Ceasing to live",
+        "display": "DYING",
+        "phrase": "_____",
+        "answer": "DYING",
+        "locks2": [
+          3
+        ]
+      },
+      {
+        "question": "To speak or cry out",
+        "display": "SHOUT",
+        "phrase": "_____",
+        "answer": "SHOUT",
+        "locks2": [
+          3
+        ]
+      },
+      {
+        "question": "Daily ____",
+        "display": "ROUTINE",
+        "phrase": "_______",
+        "answer": "ROUTINE",
+        "locks2": [
+          3
+        ]
+      }
+    ]
+  },
+  "29": {
+    "phrase": {
+      "display": "Strawberries aren't berries.",
+      "phrase": "____________ ____'_ _______.",
+      "answer": "STRAWBERRIESARENTBERRIES",
+      "locks1": [
+        2
+      ]
+    },
+    "clues": [
+      {
+        "question": "Who serves food",
+        "display": "WAITER",
+        "phrase": "______",
+        "answer": "WAITER",
+        "locks1": [
+          2
+        ]
+      },
+      {
+        "question": "Beauty and the ____",
+        "display": "BEAST",
+        "phrase": "_____",
+        "answer": "BEAST",
+        "locks1": [
+          1
+        ]
+      },
+      {
+        "question": "Taste of sugar",
+        "display": "SWEET",
+        "phrase": "_____",
+        "answer": "SWEET",
+        "locks1": [
+          0
+        ]
+      },
+      {
+        "question": "Strict, serious, and severe in manner",
+        "display": "STERN",
+        "phrase": "_____",
+        "answer": "STERN",
+        "locks1": [
+          4
+        ]
+      }
+    ]
+  },
+  "30": {
+    "phrase": {
+      "display": "Dragonflies have 360-degree vision.",
+      "phrase": "___________ ____ 360-______ ______.",
+      "answer": "DRAGONFLIESHAVEDEGREEVISION",
+      "locks2": [
+        2,
+        5,
+        8,
+        19,
+        24
+      ]
+    },
+    "clues": [
+      {
+        "question": "A device used to shave facial hair",
+        "display": "SHAVER",
+        "phrase": "______",
+        "answer": "SHAVER"
+      },
+      {
+        "question": "A cover used to hold papers",
+        "display": "FOLDER",
+        "phrase": "______",
+        "answer": "FOLDER"
+      },
+      {
+        "question": "A sign or gesture",
+        "display": "SIGNAL",
+        "phrase": "______",
+        "answer": "SIGNAL",
+        "locks2": [
+          3
+        ]
+      },
+      {
+        "question": "Land surrounded by water",
+        "display": "ISLAND",
+        "phrase": "______",
+        "answer": "ISLAND"
+      },
+      {
+        "question": "Broadcast signals",
+        "display": "RADIO",
+        "phrase": "_____",
+        "answer": "RADIO"
+      }
+    ]
+  },
+  "31": {
+    "phrase": {
+      "display": "Fall seven times, stand up eight.",
+      "phrase": "____ _____ _____, _____ __ _____.",
+      "answer": "FALLSEVENTIMESSTANDUPEIGHT"
+    },
+    "clues": [
+      {
+        "question": "Extent of something",
+        "display": "MAGNITUDE",
+        "phrase": "_________",
+        "answer": "MAGNITUDE"
+      },
+      {
+        "question": "To disappear",
+        "display": "VANISH",
+        "phrase": "______",
+        "answer": "VANISH"
+      },
+      {
+        "question": "Flower made up of ____",
+        "display": "PETAL",
+        "phrase": "_____",
+        "answer": "PETAL"
+      },
+      {
+        "question": "Wind instrument",
+        "display": "FLUTE",
+        "phrase": "_____",
+        "answer": "FLUTE"
+      },
+      {
+        "question": "A hard hat worn for head protection",
+        "display": "HELMET",
+        "phrase": "______",
+        "answer": "HELMET"
+      }
+    ]
+  },
+  "32": {
+    "phrase": {
+      "display": "Butterflies taste with their feet.",
+      "phrase": "___________ _____ ____ _____ ____.",
+      "answer": "BUTTERFLIESTASTEWITHTHEIRFEET",
+      "cloak": [
+        12,
+        16
+      ]
+    },
+    "clues": [
+      {
+        "question": "Device used by the referee",
+        "display": "WHISTLE",
+        "phrase": "_______",
+        "answer": "WHISTLE",
+        "cloak": [
+          0
+        ]
+      },
+      {
+        "question": "Birds covered with ____",
+        "display": "FEATHER",
+        "phrase": "_______",
+        "answer": "FEATHER",
+        "cloak": [
+          2
+        ]
+      },
+      {
+        "question": "Tool with bristles",
+        "display": "BRUSH",
+        "phrase": "_____",
+        "answer": "BRUSH"
+      },
+      {
+        "question": "Furniture with a flat top",
+        "display": "TABLE",
+        "phrase": "_____",
+        "answer": "TABLE",
+        "cloak": [
+          1
+        ]
+      },
+      {
+        "question": "Byproduct of a tree",
+        "display": "FRUIT",
+        "phrase": "_____",
+        "answer": "FRUIT"
+      }
+    ]
+  },
+  "33": {
+    "phrase": {
+      "display": "Make each day your masterpiece.",
+      "phrase": "____ ____ ___ ____ ___________.",
+      "answer": "MAKEEACHDAYYOURMASTERPIECE",
+      "locks2": [
+        18,
+        24
+      ]
+    },
+    "clues": [
+      {
+        "question": "Quickly make a rough ____",
+        "display": "SKETCH",
+        "phrase": "______",
+        "answer": "SKETCH"
+      },
+      {
+        "question": "Feeling deep satisfaction with oneself",
+        "display": "PROUD",
+        "phrase": "_____",
+        "answer": "PROUD"
+      },
+      {
+        "question": "The forest is covered with ____",
+        "display": "MISTY",
+        "phrase": "_____",
+        "answer": "MISTY"
+      },
+      {
+        "question": "Who stays in a tent on vacation",
+        "display": "CAMPER",
+        "phrase": "______",
+        "answer": "CAMPER"
+      },
+      {
+        "question": "A writer of a book",
+        "display": "AUTHOR",
+        "phrase": "______",
+        "answer": "AUTHOR"
+      }
+    ]
+  },
+  "34": {
+    "phrase": {
+      "display": "Only hard work beats talent.",
+      "phrase": "____ ____ ____ _____ ______.",
+      "answer": "ONLYHARDWORKBEATSTALENT",
+      "locks2": [
+        9,
+        15
+      ]
+    },
+    "clues": [
+      {
+        "question": "Cover used to keep warm",
+        "display": "BLANKET",
+        "phrase": "_______",
+        "answer": "BLANKET"
+      },
+      {
+        "question": "It always follows",
+        "display": "SHADOW",
+        "phrase": "______",
+        "answer": "SHADOW",
+        "locks2": [
+          4
+        ]
+      },
+      {
+        "question": "Covered with sharp points",
+        "display": "THORNY",
+        "phrase": "______",
+        "answer": "THORNY",
+        "locks2": [
+          1
+        ]
+      },
+      {
+        "question": "A deep dish",
+        "display": "BOWL",
+        "phrase": "____",
+        "answer": "BOWL"
+      },
+      {
+        "question": "No light visible",
+        "display": "DARK",
+        "phrase": "____",
+        "answer": "DARK"
+      }
+    ]
+  },
+  "35": {
+    "phrase": {
+      "display": "Snails can sleep for 3 years.",
+      "phrase": "______ ___ _____ ___ 3 _____.",
+      "answer": "SNAILSCANSLEEPFORYEARS",
+      "locks2": [
+        12,
+        19
+      ]
+    },
+    "clues": [
+      {
+        "question": "Edible kernels",
+        "display": "CORN",
+        "phrase": "____",
+        "answer": "CORN",
+        "locks2": [
+          1
+        ]
+      },
+      {
+        "question": "Folding or fluttering motions",
+        "display": "FLAPS",
+        "phrase": "_____",
+        "answer": "FLAPS"
+      },
+      {
+        "question": "Small hole or loop (as in a needle)",
+        "display": "EYE",
+        "phrase": "___",
+        "answer": "EYE"
+      },
+      {
+        "question": "Stack of items",
+        "display": "PILE",
+        "phrase": "____",
+        "answer": "PILE",
+        "locks2": [
+          1
+        ]
+      }
+    ]
+  },
+  "36": {
+    "phrase": {
+      "display": "Bananas curve toward the sun.",
+      "phrase": "_______ _____ ______ ___ ___.",
+      "answer": "BANANASCURVETOWARDTHESUN",
+      "locks1": [
+        3,
+        11,
+        15
+      ]
+    },
+    "clues": [
+      {
+        "question": "____ fiber",
+        "display": "CARBON",
+        "phrase": "______",
+        "answer": "CARBON"
+      },
+      {
+        "question": "Quiet, calm, or subdued in volume",
+        "display": "HUSHED",
+        "phrase": "______",
+        "answer": "HUSHED",
+        "locks1": [
+          1
+        ]
+      },
+      {
+        "question": "Form of greeting",
+        "display": "BOW",
+        "phrase": "___",
+        "answer": "BOW"
+      },
+      {
+        "question": "What's an opening for gas to escape?",
+        "display": "VENT",
+        "phrase": "____",
+        "answer": "VENT",
+        "locks1": [
+          1
+        ]
+      }
+    ]
+  },
+  "37": {
+    "phrase": {
+      "display": "Let the cat out of the bag.",
+      "phrase": "___ ___ ___ ___ __ ___ ___.",
+      "answer": "LETTHECATOUTOFTHEBAG",
+      "cloak": [
+        6,
+        10
+      ]
+    },
+    "clues": [
+      {
+        "question": "Garment worn to stay warm",
+        "display": "COAT",
+        "phrase": "____",
+        "answer": "COAT",
+        "cloak": [
+          0
+        ]
+      },
+      {
+        "question": "To shuffle in pain",
+        "display": "HOBBLE",
+        "phrase": "______",
+        "answer": "HOBBLE"
+      },
+      {
+        "question": "A violation of rules in sports",
+        "display": "FOUL",
+        "phrase": "____",
+        "answer": "FOUL"
+      },
+      {
+        "question": "Limb used for standing and walking",
+        "display": "LEG",
+        "phrase": "___",
+        "answer": "LEG"
+      },
+      {
+        "question": "A shoe covering the foot and ankle",
+        "display": "BOOT",
+        "phrase": "____",
+        "answer": "BOOT"
+      }
+    ]
+  },
+  "38": {
+    "phrase": {
+      "display": "The rain begins with a single drop.",
+      "phrase": "___ ____ ______ ____ _ ______ ____.",
+      "answer": "THERAINBEGINSWITHASINGLEDROP",
+      "locks2": [
+        1,
+        9
+      ]
+    },
+    "clues": [
+      {
+        "question": "A metal pin used to fasten objects",
+        "display": "BOLT",
+        "phrase": "____",
+        "answer": "BOLT"
+      },
+      {
+        "question": "Moving or extending in a wide, curving motion",
+        "display": "SWEEPING",
+        "phrase": "________",
+        "answer": "SWEEPING",
+        "locks2": [
+          1
+        ]
+      },
+      {
+        "question": "A title at the top of a page",
+        "display": "HEADING",
+        "phrase": "_______",
+        "answer": "HEADING",
+        "locks2": [
+          5
+        ]
+      },
+      {
+        "question": "To engage in a practice boxing match",
+        "display": "SPAR",
+        "phrase": "____",
+        "answer": "SPAR",
+        "locks2": [
+          1
+        ]
+      }
+    ]
+  },
+  "39": {
+    "phrase": {
+      "display": "Beating around the bush.",
+      "phrase": "_______ ______ ___ ____.",
+      "answer": "BEATINGAROUNDTHEBUSH",
+      "locks2": [
+        1
+      ]
+    },
+    "clues": [
+      {
+        "question": "To offer a higher price",
+        "display": "OUTBID",
+        "phrase": "______",
+        "answer": "OUTBID",
+        "locks2": [
+          2
+        ]
+      },
+      {
+        "question": "You feel it when you want to eat",
+        "display": "HUNGER",
+        "phrase": "______",
+        "answer": "HUNGER"
+      },
+      {
+        "question": "Stocks or claims",
+        "display": "SHARES",
+        "phrase": "______",
+        "answer": "SHARES",
+        "locks2": [
+          1
+        ]
+      },
+      {
+        "question": "Green and covers land",
+        "display": "GRASS",
+        "phrase": "_____",
+        "answer": "GRASS"
+      }
+    ]
+  },
+  "40": {
+    "phrase": {
+      "display": "Honeybees can recognize human face.",
+      "phrase": "_________ ___ _________ _____ ____.",
+      "answer": "HONEYBEESCANRECOGNIZEHUMANFACE",
+      "locks2": [
+        22
+      ]
+    },
+    "clues": [
+      {
+        "question": "Causing great surprise",
+        "display": "AMAZING",
+        "phrase": "_______",
+        "answer": "AMAZING",
+        "locks2": [
+          1
+        ]
+      },
+      {
+        "question": "Extremely large",
+        "display": "HUGE",
+        "phrase": "____",
+        "answer": "HUGE",
+        "locks2": [
+          2
+        ]
+      },
+      {
+        "question": "Earlier in time",
+        "display": "BEFORE",
+        "phrase": "______",
+        "answer": "BEFORE"
+      },
+      {
+        "question": "Expresses in words",
+        "display": "SAYS",
+        "phrase": "____",
+        "answer": "SAYS"
+      },
+      {
+        "question": "What means rising to power/office?",
+        "display": "ACCESSION",
+        "phrase": "_________",
+        "answer": "ACCESSION",
+        "locks2": [
+          5
+        ]
+      }
+    ]
+  },
+  "41": {
+    "phrase": {
+      "display": "Bananas are actually berries.",
+      "phrase": "_______ ___ ________ _______.",
+      "answer": "BANANASAREACTUALLYBERRIES"
+    },
+    "clues": [
+      {
+        "question": "The state of being clear",
+        "display": "CLARITY",
+        "phrase": "_______",
+        "answer": "CLARITY"
+      },
+      {
+        "question": "Sphere of gas",
+        "display": "BUBBLE",
+        "phrase": "______",
+        "answer": "BUBBLE"
+      },
+      {
+        "question": "Opposite of calm and relaxed",
+        "display": "UNEASY",
+        "phrase": "______",
+        "answer": "UNEASY"
+      },
+      {
+        "question": "Add into a document or file",
+        "display": "INSERT",
+        "phrase": "______",
+        "answer": "INSERT"
+      },
+      {
+        "question": "Continue in a place, position, or situation",
+        "display": "STAY",
+        "phrase": "____",
+        "answer": "STAY"
+      }
+    ]
+  },
+  "42": {
+    "phrase": {
+      "display": "The tail wagging the dog.",
+      "phrase": "___ ____ _______ ___ ___.",
+      "answer": "THETAILWAGGINGTHEDOG",
+      "cloak": [
+        2,
+        12
+      ]
+    },
+    "clues": [
+      {
+        "question": "Something that makes things visible",
+        "display": "LIGHT",
+        "phrase": "_____",
+        "answer": "LIGHT"
+      },
+      {
+        "question": "Romantic meeting",
+        "display": "DATE",
+        "phrase": "____",
+        "answer": "DATE"
+      },
+      {
+        "question": "Furniture is made of ____",
+        "display": "WOOD",
+        "phrase": "____",
+        "answer": "WOOD",
+        "cloak": [
+          2
+        ]
+      },
+      {
+        "question": "At that time",
+        "display": "THEN",
+        "phrase": "____",
+        "answer": "THEN",
+        "cloak": [
+          3
+        ]
+      }
+    ]
+  },
+  "43": {
+    "phrase": {
+      "display": "The human tongue have zero bones.",
+      "phrase": "___ _____ ______ ____ ____ _____.",
+      "answer": "THEHUMANTONGUEHAVEZEROBONES",
+      "locks2": [
+        6,
+        25
+      ]
+    },
+    "clues": [
+      {
+        "question": "Body parts with specific function",
+        "display": "ORGAN",
+        "phrase": "_____",
+        "answer": "ORGAN"
+      },
+      {
+        "question": "Excited murmur or stir",
+        "display": "BUZZ",
+        "phrase": "____",
+        "answer": "BUZZ"
+      },
+      {
+        "question": "The season for gathering crops",
+        "display": "HARVEST",
+        "phrase": "_______",
+        "answer": "HARVEST"
+      },
+      {
+        "question": "Change of position or group with a common aim",
+        "display": "MOVEMENT",
+        "phrase": "________",
+        "answer": "MOVEMENT",
+        "locks1": [
+          7
+        ]
+      }
+    ]
+  },
+  "44": {
+    "phrase": {
+      "display": "Your only limit is your mind.",
+      "phrase": "____ ____ _____ __ ____ ____.",
+      "answer": "YOURONLYLIMITISYOURMIND"
+    },
+    "clues": [
+      {
+        "question": "Extremely small in size",
+        "display": "TINY",
+        "phrase": "____",
+        "answer": "TINY"
+      },
+      {
+        "question": "Shape by forming",
+        "display": "MOLD",
+        "phrase": "____",
+        "answer": "MOLD"
+      },
+      {
+        "question": "Belonging to us",
+        "display": "OUR",
+        "phrase": "___",
+        "answer": "OUR"
+      },
+      {
+        "question": "Fail to hit",
+        "display": "MISS",
+        "phrase": "____",
+        "answer": "MISS"
+      },
+      {
+        "question": "The edge of a drinking glass",
+        "display": "RIM",
+        "phrase": "___",
+        "answer": "RIM"
+      }
+    ]
+  },
+  "45": {
+    "phrase": {
+      "display": "Flamingos are naturally white.",
+      "phrase": "_________ ___ _________ _____.",
+      "answer": "FLAMINGOSARENATURALLYWHITE"
+    },
+    "clues": [
+      {
+        "question": "Promoting growth or development",
+        "display": "FOSTERING",
+        "phrase": "_________",
+        "answer": "FOSTERING"
+      },
+      {
+        "question": "In good physical or mental condition",
+        "display": "HEALTHY",
+        "phrase": "_______",
+        "answer": "HEALTHY",
+        "locks2": [
+          1,
+          4
+        ]
+      },
+      {
+        "question": "To silence, eliminate sound",
+        "display": "MUTE",
+        "phrase": "____",
+        "answer": "MUTE"
+      },
+      {
+        "question": "A caution or alert",
+        "display": "WARNING",
+        "phrase": "_______",
+        "answer": "WARNING",
+        "locks2": [
+          5
+        ]
+      }
+    ]
+  },
+  "46": {
+    "phrase": {
+      "display": "Put your money where your mouth is.",
+      "phrase": "___ ____ _____ _____ ____ _____ __.",
+      "answer": "PUTYOURMONEYWHEREYOURMOUTHIS",
+      "locks1": [
+        16,
+        20
+      ]
+    },
+    "clues": [
+      {
+        "question": "What leaves an effect on the mind?",
+        "display": "IMPRESSION",
+        "phrase": "__________",
+        "answer": "IMPRESSION"
+      },
+      {
+        "question": "Be in a rush",
+        "display": "HURRY",
+        "phrase": "_____",
+        "answer": "HURRY",
+        "locks1": [
+          2
+        ]
+      },
+      {
+        "question": "Lowest in quality or performance",
+        "display": "WORST",
+        "phrase": "_____",
+        "answer": "WORST"
+      },
+      {
+        "question": "To cause pain",
+        "display": "HURT",
+        "phrase": "____",
+        "answer": "HURT"
+      }
+    ]
+  },
+  "47": {
+    "phrase": {
+      "display": "Sloths can hold breath 40 mins.",
+      "phrase": "______ ___ ____ ______ 40 ____.",
+      "answer": "SLOTHSCANHOLDBREATHMINS",
+      "cloak": [
+        14,
+        20
+      ]
+    },
+    "clues": [
+      {
+        "question": "Dogs are ____ animals",
+        "display": "DOMESTIC",
+        "phrase": "________",
+        "answer": "DOMESTIC",
+        "cloak": [
+          6
+        ]
+      },
+      {
+        "question": "What's a sign of life?",
+        "display": "BREATH",
+        "phrase": "______",
+        "answer": "BREATH",
+        "cloak": [
+          1
+        ]
+      },
+      {
+        "question": "Suggested for an award",
+        "display": "NOMINATED",
+        "phrase": "_________",
+        "answer": "NOMINATED",
+        "cloak": [
+          3
+        ]
+      },
+      {
+        "question": "What is done with detailed care?",
+        "display": "ELABORATED",
+        "phrase": "__________",
+        "answer": "ELABORATED",
+        "cloak": [
+          5
+        ]
+      },
+      {
+        "question": "Adjusted to fit needs",
+        "display": "ACCOMMODATED",
+        "phrase": "____________",
+        "answer": "ACCOMMODATED"
+      }
+    ]
+  },
+  "48": {
+    "phrase": {
+      "display": "Where there is life, there is hope.",
+      "phrase": "_____ _____ __ ____, _____ __ ____.",
+      "answer": "WHERETHEREISLIFETHEREISHOPE",
+      "locks1": [
+        1,
+        4,
+        26
+      ]
+    },
+    "clues": [
+      {
+        "question": "A stall for washing the body",
+        "display": "SHOWER",
+        "phrase": "______",
+        "answer": "SHOWER"
+      },
+      {
+        "question": "Assigned positions",
+        "display": "POSTS",
+        "phrase": "_____",
+        "answer": "POSTS",
+        "locks1": [
+          2,
+          4
+        ]
+      },
+      {
+        "question": "The upper covering of a building or structure",
+        "display": "ROOF",
+        "phrase": "____",
+        "answer": "ROOF"
+      },
+      {
+        "question": "Set of related records kept together",
+        "display": "FILE",
+        "phrase": "____",
+        "answer": "FILE"
+      }
+    ]
+  },
+  "49": {
+    "phrase": {
+      "display": "Straight from the horse's mouth.",
+      "phrase": "________ ____ ___ _____'_ _____.",
+      "answer": "STRAIGHTFROMTHEHORSESMOUTH",
+      "locks1": [
+        3,
+        14,
+        25
+      ]
+    },
+    "clues": [
+      {
+        "question": "A small, narrow river",
+        "display": "STREAM",
+        "phrase": "______",
+        "answer": "STREAM"
+      },
+      {
+        "question": "Physical struggle",
+        "display": "FIGHT",
+        "phrase": "_____",
+        "answer": "FIGHT"
+      },
+      {
+        "question": "To give a guarantee, promise",
+        "display": "ASSURE",
+        "phrase": "______",
+        "answer": "ASSURE",
+        "locks1": [
+          1
+        ]
+      },
+      {
+        "question": "Plant’s base part",
+        "display": "ROOT",
+        "phrase": "____",
+        "answer": "ROOT",
+        "locks1": [
+          3
+        ]
+      }
+    ]
+  },
+  "50": {
+    "phrase": {
+      "display": "Avocados are giant berries.",
+      "phrase": "________ ___ _____ _______.",
+      "answer": "AVOCADOSAREGIANTBERRIES"
+    },
+    "clues": [
+      {
+        "question": "I am ____ a machine",
+        "display": "CREATING",
+        "phrase": "________",
+        "answer": "CREATING"
+      },
+      {
+        "question": "Securing together",
+        "display": "BINDING",
+        "phrase": "_______",
+        "answer": "BINDING"
+      },
+      {
+        "question": "Variation from a standard",
+        "display": "DEVIATION",
+        "phrase": "_________",
+        "answer": "DEVIATION"
+      },
+      {
+        "question": "Before any deductions",
+        "display": "GROSS",
+        "phrase": "_____",
+        "answer": "GROSS"
+      },
+      {
+        "question": "Great or large",
+        "display": "BIG",
+        "phrase": "___",
+        "answer": "BIG"
+      }
+    ]
+  }
+}

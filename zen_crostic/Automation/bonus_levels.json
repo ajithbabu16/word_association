@@ -1,0 +1,406 @@
+{
+  "1": {
+    "phrase": {
+      "display": "Elephants cannot jump.",
+      "phrase": "_________ ______ ____.",
+      "answer": "ELEPHANTSCANNOTJUMP"
+    },
+    "author": "",
+    "desc": "",
+    "clues": [
+      {
+        "question": "",
+        "display": "JEANS",
+        "phrase": "_____",
+        "answer": "JEANS",
+        "icon": "Jeans"
+      },
+      {
+        "question": "",
+        "display": "POUCH",
+        "phrase": "_____",
+        "answer": "POUCH",
+        "icon": "Pouch"
+      },
+      {
+        "question": "",
+        "display": "MALLET",
+        "phrase": "______",
+        "answer": "MALLET",
+        "icon": "Mallet"
+      }
+    ]
+  },
+  "2": {
+    "phrase": {
+      "display": "A big black bug bit a big bear.",
+      "phrase": "_ ___ _____ ___ ___ _ ___ ____.",
+      "answer": "ABIGBLACKBUGBITABIGBEAR"
+    },
+    "author": "",
+    "desc": "",
+    "clues": [
+      {
+        "question": "",
+        "display": "BRICK",
+        "phrase": "_____",
+        "answer": "BRICK",
+        "icon": "Brick"
+      },
+      {
+        "question": "",
+        "display": "GLUE",
+        "phrase": "____",
+        "answer": "GLUE",
+        "icon": "Glue"
+      },
+      {
+        "question": "",
+        "display": "CAT",
+        "phrase": "___",
+        "answer": "CAT",
+        "icon": "Cat"
+      },
+      {
+        "question": "",
+        "display": "BELT",
+        "phrase": "____",
+        "answer": "BELT",
+        "icon": "Belt"
+      }
+    ]
+  },
+  "3": {
+    "phrase": {
+      "display": "Humpty Dumpty sat on a wall.",
+      "phrase": "______ ______ ___ __ _ ____.",
+      "answer": "HUMPTYDUMPTYSATONAWALL"
+    },
+    "author": "",
+    "desc": "",
+    "clues": [
+      {
+        "question": "",
+        "display": "PYTHON",
+        "phrase": "______",
+        "answer": "PYTHON",
+        "icon": "Python"
+      },
+      {
+        "question": "",
+        "display": "WALNUT",
+        "phrase": "______",
+        "answer": "WALNUT",
+        "icon": "Walnut"
+      },
+      {
+        "question": "",
+        "display": "SHADOW",
+        "phrase": "______",
+        "answer": "SHADOW",
+        "icon": "Shadow"
+      },
+      {
+        "question": "",
+        "display": "MONDAY",
+        "phrase": "______",
+        "answer": "MONDAY",
+        "icon": "Monday"
+      }
+    ]
+  },
+  "4": {
+    "phrase": {
+      "display": "Four fine fresh fish for you.",
+      "phrase": "____ ____ _____ ____ ___ ___.",
+      "answer": "FOURFINEFRESHFISHFORYOU"
+    },
+    "author": "",
+    "desc": "",
+    "clues": [
+      {
+        "question": "",
+        "display": "HORSE",
+        "phrase": "_____",
+        "answer": "HORSE",
+        "icon": "Horse"
+      },
+      {
+        "question": "",
+        "display": "HONEY",
+        "phrase": "_____",
+        "answer": "HONEY",
+        "icon": "Honey"
+      },
+      {
+        "question": "",
+        "display": "SHOE",
+        "phrase": "____",
+        "answer": "SHOE",
+        "icon": "Shoe"
+      },
+      {
+        "question": "",
+        "display": "IRON",
+        "phrase": "____",
+        "answer": "IRON",
+        "icon": "Iron"
+      },
+      {
+        "question": "",
+        "display": "FUR",
+        "phrase": "___",
+        "answer": "FUR",
+        "icon": "Fur"
+      }
+    ]
+  },
+  "5": {
+    "phrase": {
+      "display": "Goldfish can see ultraviolet light.",
+      "phrase": "________ ___ ___ ___________ _____.",
+      "answer": "GOLDFISHCANSEEULTRAVIOLETLIGHT"
+    },
+    "author": "",
+    "desc": "",
+    "clues": [
+      {
+        "question": "",
+        "display": "GUITAR",
+        "phrase": "______",
+        "answer": "GUITAR",
+        "icon": "Guitar"
+      },
+      {
+        "question": "",
+        "display": "VIOLIN",
+        "phrase": "______",
+        "answer": "VIOLIN",
+        "icon": "Violin"
+      },
+      {
+        "question": "",
+        "display": "OSTRICH",
+        "phrase": "_______",
+        "answer": "OSTRICH",
+        "icon": "Ostrich"
+      },
+      {
+        "question": "",
+        "display": "FOLDER",
+        "phrase": "______",
+        "answer": "FOLDER",
+        "icon": "Folder"
+      }
+    ]
+  },
+  "6": {
+    "phrase": {
+      "display": "Six slippery snails slid slowly.",
+      "phrase": "___ ________ ______ ____ ______.",
+      "answer": "SIXSLIPPERYSNAILSSLIDSLOWLY"
+    },
+    "author": "",
+    "desc": "",
+    "clues": [
+      {
+        "question": "",
+        "display": "LEOPARD",
+        "phrase": "_______",
+        "answer": "LEOPARD",
+        "icon": "Leopard"
+      },
+      {
+        "question": "",
+        "display": "WINDOW",
+        "phrase": "______",
+        "answer": "WINDOW",
+        "icon": "Window"
+      },
+      {
+        "question": "",
+        "display": "DAISY",
+        "phrase": "_____",
+        "answer": "DAISY",
+        "icon": "Daisy"
+      },
+      {
+        "question": "",
+        "display": "AXLE",
+        "phrase": "____",
+        "answer": "AXLE",
+        "icon": "Axle"
+      }
+    ]
+  },
+  "7": {
+    "phrase": {
+      "display": "Little Miss Muffet sat on a tuffet.",
+      "phrase": "______ ____ ______ ___ __ _ ______.",
+      "answer": "LITTLEMISSMUFFETSATONATUFFET"
+    },
+    "author": "",
+    "desc": "",
+    "clues": [
+      {
+        "question": "",
+        "display": "FOUNTAIN",
+        "phrase": "________",
+        "answer": "FOUNTAIN",
+        "icon": "Fountain"
+      },
+      {
+        "question": "",
+        "display": "SALMON",
+        "phrase": "______",
+        "answer": "SALMON",
+        "icon": "Salmon"
+      },
+      {
+        "question": "",
+        "display": "MUFFIN",
+        "phrase": "______",
+        "answer": "MUFFIN",
+        "icon": "Muffin"
+      },
+      {
+        "question": "",
+        "display": "FLUTE",
+        "phrase": "_____",
+        "answer": "FLUTE",
+        "icon": "Flute"
+      },
+      {
+        "question": "",
+        "display": "STONE",
+        "phrase": "_____",
+        "answer": "STONE",
+        "icon": "Stone"
+      }
+    ]
+  },
+  "8": {
+    "phrase": {
+      "display": "Lesser leather never weathered.",
+      "phrase": "______ _______ _____ _________.",
+      "answer": "LESSERLEATHERNEVERWEATHERED"
+    },
+    "author": "",
+    "desc": "",
+    "clues": [
+      {
+        "question": "",
+        "display": "LANTERN",
+        "phrase": "_______",
+        "answer": "LANTERN",
+        "icon": "Lantern"
+      },
+      {
+        "question": "",
+        "display": "SWEATER",
+        "phrase": "_______",
+        "answer": "SWEATER",
+        "icon": "Sweater"
+      },
+      {
+        "question": "",
+        "display": "NEEDLE",
+        "phrase": "______",
+        "answer": "NEEDLE",
+        "icon": "Needle"
+      },
+      {
+        "question": "",
+        "display": "RAVEN",
+        "phrase": "_____",
+        "answer": "RAVEN",
+        "icon": "Raven"
+      },
+      {
+        "question": "",
+        "display": "WHALE",
+        "phrase": "_____",
+        "answer": "WHALE",
+        "icon": "Whale"
+      }
+    ]
+  },
+  "9": {
+    "phrase": {
+      "display": "Sharks are older than trees.",
+      "phrase": "______ ___ _____ ____ _____.",
+      "answer": "SHARKSAREOLDERTHANTREES"
+    },
+    "author": "",
+    "desc": "",
+    "clues": [
+      {
+        "question": "",
+        "display": "HORNET",
+        "phrase": "______",
+        "answer": "HORNET",
+        "icon": "Hornet"
+      },
+      {
+        "question": "",
+        "display": "HANDLE",
+        "phrase": "______",
+        "answer": "HANDLE",
+        "icon": "Handle"
+      },
+      {
+        "question": "",
+        "display": "KETTLE",
+        "phrase": "______",
+        "answer": "KETTLE",
+        "icon": "Kettle"
+      },
+      {
+        "question": "",
+        "display": "STORK",
+        "phrase": "_____",
+        "answer": "STORK",
+        "icon": "Stork"
+      }
+    ]
+  },
+  "10": {
+    "phrase": {
+      "display": "Fuzzy Wuzzy was a bear.",
+      "phrase": "_____ _____ ___ _ ____.",
+      "answer": "FUZZYWUZZYWASABEAR"
+    },
+    "author": "",
+    "desc": "",
+    "clues": [
+      {
+        "question": "",
+        "display": "ZEBRAS",
+        "phrase": "______",
+        "answer": "ZEBRAS",
+        "icon": "Zebras"
+      },
+      {
+        "question": "",
+        "display": "SUBWAY",
+        "phrase": "______",
+        "answer": "SUBWAY",
+        "icon": "Subway"
+      },
+      {
+        "question": "",
+        "display": "FERRY",
+        "phrase": "_____",
+        "answer": "FERRY",
+        "icon": "Ferry"
+      },
+      {
+        "question": "",
+        "display": "WAFER",
+        "phrase": "_____",
+        "answer": "WAFER",
+        "icon": "Wafer"
+      }
+    ]
+  }
+}
