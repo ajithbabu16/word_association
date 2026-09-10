@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zen Crostics - Automation</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary:#7c3aed;--primary-light:#a855f7;--secondary:#00f5d4;
+  --bg:#0b0914;--surface:rgba(255,255,255,0.06);--surface2:rgba(255,255,255,0.1);
+  --border:rgba(255,255,255,0.14);--text:#f1f5f9;--muted:rgba(255,255,255,0.55);
+  --lock1:#f59e0b;--lock2:#3b82f6;--cloak:#10b981;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+  font-family:"Outfit",sans-serif;
+  background-color:var(--bg);
+  background-image:url('bg.jpg');
+  background-size:cover;
+  background-position:center;
+  background-attachment:fixed;
+  color:var(--text);
+  overflow-x:hidden;
+  user-select:none;
+  min-height:100vh;
+}
+#bg-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;}
+#app{position:relative;z-index:1;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes popIn{from{transform:scale(0.75);opacity:0}to{transform:scale(1);opacity:1}}
+@keyframes reveal{from{transform:scale(0.85);opacity:0}to{transform:scale(1);opacity:1}}
+
+/* Entry Pulse Animation for Active & Repeated Letter */
+@keyframes enterPulse {
+  0% {
+    transform: scale(1.25);
+    background: rgba(0, 245, 212, 0.45);
+    border-color: #00f5d4;
+    color: #ffffff;
+    box-shadow: 0 0 20px rgba(0, 245, 212, 0.85);
+  }
+  50% {
+    transform: scale(1.12);
+    background: rgba(168, 85, 247, 0.4);
+    border-color: #a855f7;
+    color: #00f5d4;
+    box-shadow: 0 0 24px rgba(168, 85, 247, 0.9);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 6px rgba(0, 245, 212, 0.3);
+  }
+}
+
+/* MODE SELECTION */
+#screen-mode{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2rem;}
+.mode-box{background:rgba(13,10,26,.85);backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,.18);border-top-color:rgba(255,255,255,.35);border-radius:24px;padding:3rem 3.5rem;max-width:700px;width:100%;text-align:center;box-shadow:0 40px 80px rgba(0,0,0,.7),inset 0 0 40px rgba(124,58,237,.1);animation:fadeUp .5s ease forwards;position:relative;}
+.mode-title{font-size:2.6rem;font-weight:800;background:linear-gradient(135deg,#fff 30%,var(--secondary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:.3rem;}
+.mode-sub{font-size:.8rem;letter-spacing:4px;color:var(--muted);text-transform:uppercase;margin-bottom:2.5rem;}
+.mode-cards{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;}
+.mode-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:1.8rem 1.5rem;cursor:pointer;text-align:left;transition:all .3s;position:relative;}
+.mode-card:hover{border-color:rgba(255,255,255,.35);transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,.5);}
+.mode-card.disabled{opacity:.4;cursor:not-allowed;}
+.mode-card.disabled:hover{transform:none;box-shadow:none;}
+.mode-card-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;font-size:1.5rem;}
+.mode-card h3{font-size:1.1rem;font-weight:700;margin-bottom:.4rem;}
+.mode-card p{font-size:.78rem;color:var(--muted);line-height:1.6;}
+.badge-soon{display:inline-block;font-size:.6rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border-radius:20px;padding:2px 10px;margin-left:8px;background:rgba(239,68,68,.2);color:#f87171;border:1px solid rgba(239,68,68,.3);}
+
+/* UPLOAD */
+#screen-upload{display:none;min-height:100vh;align-items:center;justify-content:center;padding:2rem;}
+.upload-box{background:rgba(13,10,26,.88);backdrop-filter:blur(28px);border:1px solid rgba(255,255,255,.18);border-top-color:rgba(255,255,255,.35);border-radius:24px;padding:3rem 3.5rem;max-width:560px;width:100%;text-align:center;animation:fadeUp .4s ease forwards;position:relative;}
+.upload-zone{border:2px dashed rgba(124,58,237,.6);border-radius:16px;padding:3rem 2rem;margin:1.5rem 0;cursor:pointer;transition:all .3s;background:rgba(124,58,237,.08);}
+.upload-zone:hover,.upload-zone.over{border-color:var(--secondary);background:rgba(124,58,237,.16);}
+#json-input{display:none;}
+.primary-btn{background:linear-gradient(135deg,var(--primary),var(--primary-light));color:white;border:none;border-radius:12px;padding:.9rem 2rem;font-family:inherit;font-size:1rem;font-weight:700;letter-spacing:1px;cursor:pointer;width:100%;margin-top:.8rem;transition:all .3s;box-shadow:0 8px 24px rgba(124,58,237,.4);}
+.primary-btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(124,58,237,.5);}
+.primary-btn:disabled{opacity:.35;cursor:not-allowed;transform:none;}
+
+/* AUTOMATION SCREEN */
+#screen-auto{display:none;min-height:100vh;flex-direction:column;}
+.auto-header{position:sticky;top:0;z-index:200;background:rgba(11,9,20,.94);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:.75rem 1.5rem;display:flex;align-items:center;gap:1rem;}
+.ah-left{display:flex;align-items:center;gap:.8rem;flex:1;}
+.ah-center{display:flex;align-items:center;gap:.8rem;}
+.ah-right{display:flex;align-items:center;gap:.8rem;flex:1;justify-content:flex-end;}
+.back-btn{background:none;border:1px solid var(--border);border-radius:8px;color:var(--muted);padding:5px 12px;cursor:pointer;font-family:inherit;font-size:.78rem;letter-spacing:1px;display:flex;align-items:center;gap:6px;transition:all .2s;}
+.back-btn:hover{border-color:rgba(255,255,255,.35);color:#fff;}
+.hdr-title{font-size:1.05rem;font-weight:800;color:var(--secondary);letter-spacing:3px;}
+.lvl-pill{background:rgba(124,58,237,.35);border:1px solid rgba(124,58,237,.6);border-radius:20px;padding:4px 16px;font-size:.85rem;font-weight:800;color:var(--primary-light);}
+.pb-wrap{background:rgba(255,255,255,.08);border-radius:100px;height:6px;width:150px;}
+.pb-fill{height:100%;border-radius:100px;background:linear-gradient(90deg,var(--primary),var(--secondary));transition:width .4s ease;}
+
+/* Controls */
+.ctrl-strip{background:rgba(13,10,26,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:.65rem 1.5rem;display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;}
+.cb{border:1px solid var(--border);border-radius:8px;padding:6px 16px;font-family:inherit;font-size:.8rem;font-weight:700;letter-spacing:1px;cursor:pointer;display:flex;align-items:center;gap:5px;transition:all .2s;}
+.cb-play{background:var(--primary);color:#fff;border-color:var(--primary);box-shadow:0 0 15px rgba(124,58,237,.4);}
+.cb-play:hover{background:var(--primary-light);}
+.cb-pause{background:rgba(239,68,68,.25);color:#fca5a5;border-color:rgba(239,68,68,.5);}
+.cb-neutral{background:rgba(255,255,255,.06);color:var(--text);}
+.cb-neutral:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.3);}
+.cb-danger{background:rgba(239,68,68,.14);color:#f87171;border-color:rgba(239,68,68,.35);}
+.cb-danger:hover{background:rgba(239,68,68,.25);}
+.speed-sel{background:rgba(255,255,255,.08);border:1px solid var(--border);border-radius:8px;color:#fff;padding:6px 12px;font-family:inherit;font-size:.8rem;cursor:pointer;outline:none;}
+.speed-sel option{background:#110e20;}
+.sep{width:1px;height:22px;background:var(--border);flex-shrink:0;}
+.lvl-jump{background:rgba(255,255,255,.08);border:1px solid var(--border);border-radius:8px;color:#fff;padding:5px 10px;font-family:inherit;font-size:.82rem;width:70px;outline:none;text-align:center;}
+.lvl-jump:focus{border-color:var(--secondary);}
+
+/* Body layout */
+.auto-body{display:flex;flex-direction:row;gap:24px;padding:24px;max-width:1450px;width:100%;margin:0 auto;align-items:flex-start;}
+
+/* TABLET - Wide & modern glass design matching Codewords */
+.tablet{width:560px;flex-shrink:0;background:rgba(18,14,34,.95);backdrop-filter:blur(24px);border-radius:28px;box-shadow:0 25px 65px rgba(0,0,0,.7);overflow:hidden;border:2px solid rgba(255,255,255,.15);display:flex;flex-direction:column;}
+.tablet-header{background:rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.1);padding:14px 18px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
+.th-level{font-size:14px;font-weight:800;color:var(--secondary);background:rgba(0,245,212,.1);padding:5px 14px;border-radius:10px;border:1px solid rgba(0,245,212,.3);display:flex;align-items:center;gap:6px;}
+.prog-pill{background:rgba(255,255,255,.08);color:#fff;padding:4px 14px 4px 8px;border-radius:20px;display:flex;align-items:center;gap:8px;font-size:13px;font-weight:800;border:1px solid rgba(255,255,255,.15);}
+.puzzle-area{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:14px;max-height:720px;}
+
+/* Phrase */
+.phrase-strip{background:rgba(255,255,255,.04);border-radius:16px;border:1px solid rgba(255,255,255,.1);padding:16px 18px;box-shadow:0 4px 16px rgba(0,0,0,.25);}
+.phrase-label{font-size:.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--secondary);font-weight:800;margin-bottom:12px;}
+.phrase-chars{display:flex;flex-wrap:wrap;gap:6px 5px;align-items:flex-end;line-height:1;}
+.pc-wrap,.ac-wrap{display:flex;flex-direction:column;align-items:center;gap:3px;position:relative;}
+
+/* Cell Dimensions & Styles */
+.pc-char,.ac-char{
+  width:34px;height:40px;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:15px;font-weight:800;letter-spacing:.5px;
+  position:relative;transition:all .2s ease;
+  border:1.5px solid rgba(255,255,255,.16);
+  background:rgba(255,255,255,.04);
+  overflow:hidden;
+}
+.pc-num,.ac-num{
+  font-family:'JetBrains Mono',monospace;
+  font-size:9px;font-weight:700;color:#94a3b8;
+  line-height:1;height:12px;text-align:center;
+}
+.pc-space{width:12px;height:40px;}
+
+/* Char Cell States */
+.pc-char.visible,.ac-char.visible{background:transparent;color:var(--text);border-color:transparent;}
+.cell-blank{background:rgba(255,255,255,.03);border-color:rgba(255,255,255,.2);color:transparent;}
+.cell-prefilled{background:rgba(124,58,237,.25);border-color:rgba(168,85,247,.6);color:#a855f7;}
+.cell-revealed{background:rgba(0,245,212,.18);border-color:var(--secondary);color:var(--secondary);}
+
+/* Active Entering Letter & Matching Repeated Letters */
+.pc-char.just-entered,.ac-char.just-entered{
+  animation: enterPulse 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+  background: rgba(0, 245, 212, 0.25) !important;
+  border-color: #00f5d4 !important;
+  color: #00f5d4 !important;
+  box-shadow: 0 0 14px rgba(0, 245, 212, 0.6) !important;
+  z-index: 10;
+}
+
+/* Lock & Cloak Cell Styles */
+.cell-lock1{background:rgba(245,158,11,.08);border-color:var(--lock1);}
+.cell-lock2{background:rgba(59,130,246,.08);border-color:var(--lock2);}
+.cell-cloak{background:rgba(16,185,129,.08);border-color:var(--cloak);}
+
+/* SVG Lock & Cloak Icon Layouts */
+.lock-vertical-stack{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;width:100%;height:100%;}
+.lock-single-center{display:flex;align-items:center;justify-content:center;width:100%;height:100%;}
+.cloak-center{display:flex;align-items:center;justify-content:center;width:100%;height:100%;}
+
+/* Legend */
+.legend-row{display:flex;gap:16px;flex-wrap:wrap;margin-top:14px;padding-top:10px;border-top:1px solid rgba(255,255,255,.08);align-items:center;}
+.leg{display:flex;align-items:center;gap:6px;font-size:.72rem;color:var(--muted);font-weight:600;}
+
+/* Clue Cards */
+.clue-card{background:rgba(255,255,255,.03);border-radius:14px;border:1.5px solid rgba(255,255,255,.1);padding:12px 14px;display:flex;gap:12px;align-items:flex-start;transition:all .3s;box-shadow:0 2px 8px rgba(0,0,0,.2);}
+.clue-card.active{border-color:var(--secondary);box-shadow:0 0 0 2px rgba(0,245,212,.3);background:rgba(0,245,212,.03);}
+.clue-card.solved{border-color:rgba(16,185,129,.4);background:rgba(16,185,129,.05);}
+.clue-num{min-width:30px;height:30px;border-radius:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:800;color:var(--muted);flex-shrink:0;}
+.clue-card.solved .clue-num{background:rgba(16,185,129,.2);border-color:var(--cloak);color:var(--cloak);}
+.clue-card.active .clue-num{background:rgba(0,245,212,.2);border-color:var(--secondary);color:var(--secondary);}
+.clue-body{flex:1;min-width:0;}
+.clue-q{font-size:.82rem;color:var(--text);margin-bottom:8px;line-height:1.4;font-weight:500;}
+.clue-cells{display:flex;gap:4px;flex-wrap:wrap;}
+
+/* DASHBOARD */
+.dashboard{flex:1;display:flex;flex-direction:column;gap:18px;min-width:0;}
+.dash-card{background:rgba(13,10,26,.85);backdrop-filter:blur(20px);border:1px solid var(--border);border-radius:18px;padding:1.4rem;}
+.dash-title{font-size:.7rem;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:1.2rem;display:flex;align-items:center;gap:10px;font-weight:700;}
+.dash-title::after{content:"";flex:1;height:1px;background:var(--border);}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;}
+.stat{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:12px;padding:1rem;text-align:center;}
+.stat-val{font-size:1.7rem;font-weight:800;}
+.stat-lbl{font-size:.65rem;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;margin-top:4px;}
+.htbl{width:100%;border-collapse:collapse;font-size:.8rem;}
+.htbl th{text-align:left;padding:9px 12px;background:rgba(255,255,255,.04);color:var(--muted);font-size:.68rem;letter-spacing:2px;text-transform:uppercase;border-bottom:1px solid var(--border);}
+.htbl td{padding:9px 12px;border-bottom:1px solid rgba(255,255,255,.04);}
+.htbl tr:hover td{background:rgba(255,255,255,.03);}
+.st-pass{color:#34d399;font-weight:700;}
+
+/* Overlay */
+.overlay{position:fixed;inset:0;background:rgba(5,2,15,.88);backdrop-filter:blur(10px);z-index:500;display:flex;align-items:center;justify-content:center;}
+.ov-card{background:rgba(18,10,36,.97);border:1px solid var(--secondary);border-radius:24px;padding:2.8rem 3.2rem;text-align:center;box-shadow:0 0 80px rgba(0,245,212,.4);animation:popIn .35s cubic-bezier(0.34,1.56,.64,1);}
+.ov-emoji{font-size:3.8rem;margin-bottom:.8rem;}
+.ov-title{font-size:1.6rem;font-weight:800;margin-bottom:.4rem;color:#fff;}
+.ov-sub{font-size:.9rem;color:var(--muted);}
+
+@media(max-width:1024px){.auto-body{flex-direction:column}.tablet{width:100%;max-width:560px;margin:0 auto}.stats-grid{grid-template-columns:repeat(2,1fr)}.mode-cards{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<canvas id="bg-canvas"></canvas>
+<div id="app">
+
+<!-- SCREEN 1: MODE -->
+<div id="screen-mode">
+ <div class="mode-box">
+  <a href="zen_crostic.html" style="position:absolute;top:1.2rem;left:1.5rem;color:var(--muted);text-decoration:none;font-size:.75rem;letter-spacing:1px;display:flex;align-items:center;gap:5px;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--muted)'">&#8592; BACK</a>
+  <div class="mode-title">Automation Execute</div>
+  <div class="mode-sub">Zen Crostics &bull; Select Puzzle Type</div>
+  <div class="mode-cards">
+   <div class="mode-card" onclick="startMode()">
+    <div class="mode-card-icon" style="background:rgba(124,58,237,.25);">&#129529;</div>
+    <h3>Main Puzzle</h3>
+    <p>Upload <code>level_v1.json</code> &mdash; auto-play every level with phrase fill, neighbor lock unlocking, Cloak reveal &amp; per-letter encryption numbers.</p>
+   </div>
+   <div class="mode-card disabled">
+    <div class="mode-card-icon" style="background:rgba(239,68,68,.1);">&#128444;</div>
+    <h3>Bonus Puzzle <span class="badge-soon">Soon</span></h3>
+    <p>Icon-based automation using <code>bonus_levels.json</code>.</p>
+   </div>
+  </div>
+ </div>
+</div>
+
+<!-- SCREEN 2: UPLOAD -->
+<div id="screen-upload">
+ <div class="upload-box">
+  <a href="#" onclick="showScreen('mode')" style="position:absolute;top:1.2rem;left:1.5rem;color:var(--muted);text-decoration:none;font-size:.75rem;letter-spacing:1px;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--muted)'">&#8592; BACK</a>
+  <div style="font-size:2rem;margin-bottom:.5rem;">&#129529;</div>
+  <div class="mode-title" style="font-size:1.9rem;">Main Puzzle</div>
+  <div class="mode-sub" style="margin-bottom:1.5rem;">Upload level_v1.json to begin</div>
+  <div class="upload-zone" id="upload-zone"
+    onclick="document.getElementById('json-input').click()"
+    ondragover="event.preventDefault();this.classList.add('over')"
+    ondrop="handleDrop(event)"
+    ondragleave="this.classList.remove('over')">
+   <div style="font-size:2.5rem;margin-bottom:.8rem;">&#128193;</div>
+   <div id="upload-text" style="font-size:1rem;margin-bottom:.4rem;">Click or drag &amp; drop</div>
+   <div style="font-size:.78rem;color:var(--muted);">level_v1.json &mdash; Zen Crostics Main Puzzle</div>
+  </div>
+  <input type="file" id="json-input" accept=".json" onchange="handleFileSelect(event)">
+  <button class="primary-btn" id="start-btn" disabled onclick="startAutomation()">&#9654; START AUTOMATION</button>
+ </div>
+</div>
+
+<!-- SCREEN 3: AUTOMATION -->
+<div id="screen-auto">
+ <div class="auto-header">
+  <div class="ah-left">
+   <button class="back-btn" onclick="stopAuto();showScreen('upload')">&#8592; Back</button>
+   <span class="hdr-title">ZEN CROSTICS</span>
+   <span style="font-size:.7rem;color:var(--muted);letter-spacing:2px;">MAIN PUZZLE</span>
+  </div>
+  <div class="ah-center">
+   <div class="lvl-pill" id="hdr-lvl">Level 1</div>
+   <div class="pb-wrap"><div class="pb-fill" id="hdr-pb" style="width:0%"></div></div>
+   <span style="font-size:.78rem;color:var(--muted);" id="hdr-pct">0 / 0</span>
+  </div>
+  <div class="ah-right">
+   <span style="font-size:.78rem;color:var(--muted);" id="hdr-clues"></span>
+  </div>
+ </div>
+
+ <div class="ctrl-strip">
+  <button class="cb cb-play" id="btn-play" onclick="toggleAuto()">&#9654; START</button>
+  <button class="cb cb-neutral" onclick="step()">&#9197; STEP</button>
+  <button class="cb cb-neutral" onclick="prevLvl()">&#9664; PREV</button>
+  <button class="cb cb-neutral" onclick="nextLvl()">&#9654; NEXT</button>
+  <div class="sep"></div>
+  <span style="font-size:.72rem;color:var(--muted);">Jump:</span>
+  <input class="lvl-jump" id="jump-input" type="number" min="1" placeholder="#" onkeydown="if(event.key==='Enter')jumpToLevel()">
+  <button class="cb cb-neutral" onclick="jumpToLevel()" style="padding:5px 10px;font-size:.75rem;">GO</button>
+  <div class="sep"></div>
+  <span style="font-size:.72rem;color:var(--muted);">Speed:</span>
+  <select class="speed-sel" onchange="setSpeed(this.value)">
+   <option value="1200">Slow</option>
+   <option value="700" selected>Normal</option>
+   <option value="350">Fast</option>
+   <option value="150">Turbo</option>
+   <option value="30">Max</option>
+  </select>
+  <div class="sep"></div>
+  <button class="cb cb-danger" onclick="resetLvl()">&#8635; Reset</button>
+  <div style="flex:1"></div>
+  <span style="font-size:.75rem;color:var(--muted);">Levels: <strong id="total-lbl">&#8212;</strong></span>
+ </div>
+
+ <div class="auto-body">
+
+  <!-- TABLET -->
+  <div class="tablet">
+   <div class="tablet-header">
+    <div class="th-level" id="tab-lvl">
+     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+     Level 1
+    </div>
+    <div class="prog-pill">
+     <svg width="18" height="18" viewBox="0 0 32 32" fill="none">
+      <path d="M16 26L4 20L16 14L28 20L16 26Z" fill="#3880a6"/>
+      <path d="M16 20L4 14L16 8L28 14L16 20Z" fill="#e07e43"/>
+      <path d="M16 14L4 8L16 2L28 8L16 14Z" fill="#6ba34b"/>
+     </svg>
+     <span id="tab-cprog">0/0</span>
+    </div>
+   </div>
+   <div class="puzzle-area">
+    <div class="phrase-strip">
+     <div class="phrase-label">PHRASE</div>
+     <div class="phrase-chars" id="phrase-chars">&#8212;</div>
+     <div class="legend-row">
+      <div class="leg"><div style="width:14px;height:14px;border-radius:3px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.2);"></div> Blank</div>
+      <div class="leg"><span id="leg-single-icon"></span> Single Lock</div>
+      <div class="leg"><span id="leg-double-icon"></span> Double Lock</div>
+      <div class="leg"><span id="leg-cloak-icon"></span> Cloak</div>
+     </div>
+    </div>
+    <div id="clues-wrap">&#8212;</div>
+   </div>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div class="dashboard">
+   <div class="dash-card">
+    <div class="dash-title">Progress Analytics</div>
+    <div class="stats-grid">
+     <div class="stat"><div class="stat-val" id="s-done" style="color:var(--secondary);">0</div><div class="stat-lbl">Completed</div></div>
+     <div class="stat"><div class="stat-val" id="s-total" style="color:var(--primary-light);">&#8212;</div><div class="stat-lbl">Total</div></div>
+     <div class="stat"><div class="stat-val" id="s-clue" style="color:var(--lock1);">1</div><div class="stat-lbl">Active Clue</div></div>
+     <div class="stat"><div class="stat-val" id="s-spd">1x</div><div class="stat-lbl">Speed</div></div>
+    </div>
+   </div>
+   <div class="dash-card">
+    <div class="dash-title">Level History</div>
+    <table class="htbl">
+     <thead><tr><th>Level</th><th>Phrase</th><th>Clues</th><th>Status</th></tr></thead>
+     <tbody id="hist-body">
+      <tr><td colspan="4" style="color:var(--muted);text-align:center;padding:2rem;">Start automation to see history...</td></tr>
+     </tbody>
+    </table>
+   </div>
+  </div>
+
+ </div>
+</div>
+
+<div class="overlay" id="overlay" style="display:none;">
+ <div class="ov-card">
+  <div class="ov-emoji" id="ov-e">&#127881;</div>
+  <div class="ov-title" id="ov-t">Level Complete!</div>
+  <div class="ov-sub" id="ov-s">Loading next level...</div>
+ </div>
+</div>
+</div>
+
+<script>
+// Ambient Background Particle Canvas
+(function(){
+ var c=document.getElementById('bg-canvas'),ctx=c.getContext('2d'),W,H,pts;
+ function init(){
+  W=c.width=window.innerWidth;H=c.height=window.innerHeight;pts=[];
+  for(var i=0;i<50;i++){
+   pts.push({
+    x:Math.random()*W,y:Math.random()*H,
+    vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3,
+    r:Math.random()*1.8+.5,
+    col:Math.random()>.5?'#7c3aed':'#00f5d4'
+   });
+  }
+ }
+ function draw(){
+  ctx.clearRect(0,0,W,H);
+  for(var i=0;i<pts.length;i++){
+   var p=pts[i];p.x+=p.vx;p.y+=p.vy;
+   if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;
+   ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+   ctx.fillStyle=p.col;ctx.fill();
+  }
+  for(var i=0;i<pts.length;i++){
+   for(var j=i+1;j<pts.length;j++){
+    var dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);
+    if(d<120){
+     ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);
+     ctx.strokeStyle='rgba(124,58,237,'+(0.18*(1-d/120))+')';ctx.lineWidth=.6;
+     ctx.stroke();
+    }
+   }
+  }
+  requestAnimationFrame(draw);
+ }
+ window.addEventListener('resize',init);init();draw();
+})();
+
+// SVG Icons matching reference image (screenshot 2)
+var HEX_KEYHOLE_SVG = '<svg width="13" height="13" viewBox="0 0 24 24" fill="#94a3b8" stroke="#475569" stroke-width="1.5"><polygon points="12 2, 21 7, 21 17, 12 22, 3 17, 3 7"/><circle cx="12" cy="10" r="2.3" fill="#0f172a"/><line x1="12" y1="12" x2="12" y2="16" stroke="#0f172a" stroke-width="2" stroke-linecap="round"/></svg>';
+var CLOAK_SVG = '<svg width="17" height="17" viewBox="0 0 24 24" fill="#38bdf8"><path d="M12 2C8 2 5 5 5 9C5 14 3 17 3 19C3 20.5 4.5 21.5 12 21.5C19.5 21.5 21 20.5 21 19C21 17 19 14 19 9C19 5 16 2 12 2Z" opacity="0.85"/><path d="M12 4C10 4 8 6 8 9C8 13 6 15 6 17C9 17 10 15.5 12 15.5C14 15.5 15 17 18 17C18 15 16 13 16 9C16 6 14 4 12 4Z" fill="#7dd3fc"/></svg>';
+
+// Populate Legend Icons
+document.getElementById('leg-single-icon').innerHTML = '<div class="lock-single-center">' + HEX_KEYHOLE_SVG + '</div>';
+document.getElementById('leg-double-icon').innerHTML = '<div class="lock-vertical-stack">' + HEX_KEYHOLE_SVG + HEX_KEYHOLE_SVG + '</div>';
+document.getElementById('leg-cloak-icon').innerHTML = '<div class="cloak-center">' + CLOAK_SVG + '</div>';
+
+var puzzleData={}, levelKeys=[], curLvl=0, curClue=0, revStep=0;
+var running=false, timer=null, speed=700, historyData=[];
+var levelEncMap={}, revealedLetters=new Set();
+var activeEntryLetter=null; // Currently entering letter for pulse animation
+
+function showScreen(n){
+ ['mode','upload','auto'].forEach(function(s){var e=document.getElementById('screen-'+s);if(e)e.style.display='none';});
+ var t=document.getElementById('screen-'+n);
+ if(t)t.style.display='flex';
+}
+function startMode(){showScreen('upload');}
+
+function handleDrop(e){e.preventDefault();document.getElementById('upload-zone').classList.remove('over');if(e.dataTransfer.files[0])processFile(e.dataTransfer.files[0]);}
+function handleFileSelect(e){if(e.target.files[0])processFile(e.target.files[0]);}
+function processFile(f){
+ if(!f.name.endsWith('.json')){alert('Please upload a .json file');return;}
+ var r=new FileReader();
+ r.onload=function(ev){
+  try{
+   puzzleData=JSON.parse(ev.target.result);
+   levelKeys=Object.keys(puzzleData).sort(function(a,b){return Number(a)-Number(b);});
+   document.getElementById('upload-text').textContent='\u2705 '+f.name+' \u00b7 '+levelKeys.length+' levels';
+   document.getElementById('start-btn').disabled=false;
+  }catch(err){alert('Invalid JSON: '+err.message);}
+ };
+ r.readAsText(f);
+}
+
+// Generate Encryption Map (1..26 randomly assigned per letter A-Z for the level)
+function generateLevelEncMap(lvl, levelNum){
+ var lettersSet=new Set();
+ if(lvl.phrase && lvl.phrase.display){
+  var str=lvl.phrase.display.toUpperCase();
+  for(var i=0;i<str.length;i++){
+   if(str[i]>='A'&&str[i]<='Z')lettersSet.add(str[i]);
+  }
+ }
+ (lvl.clues||[]).forEach(function(clue){
+  var str=(clue.answer||clue.display||'').toUpperCase();
+  for(var i=0;i<str.length;i++){
+   if(str[i]>='A'&&str[i]<='Z')lettersSet.add(str[i]);
+  }
+ });
+
+ var nums=[];
+ for(var i=1;i<=26;i++)nums.push(i);
+
+ var seed=Number(levelNum||1)*9301+49297;
+ function pseudoRand(){
+  seed=(seed*9301+49297)%233280;
+  return seed/233280;
+ }
+ for(var i=nums.length-1;i>0;i--){
+  var j=Math.floor(pseudoRand()*(i+1));
+  var tmp=nums[i];nums[i]=nums[j];nums[j]=tmp;
+ }
+
+ var encMap={};
+ var sortedLetters=Array.from(lettersSet).sort();
+ sortedLetters.forEach(function(ch,idx){
+  encMap[ch]=nums[idx];
+ });
+ return encMap;
+}
+
+function initLevelState(){
+ var lvl=getLvl();if(!lvl)return;
+ var k=levelKeys[curLvl];
+ levelEncMap=generateLevelEncMap(lvl,k);
+ revealedLetters=new Set();
+ activeEntryLetter=null;
+
+ // Pre-fill any given letters in phrase
+ var ph=lvl.phrase||{};
+ var ps=ph.phrase||'';
+ var pd=ph.display||'';
+ for(var i=0;i<ps.length;i++){
+  var p=ps[i];
+  var targetCh=(pd[i]||'').toUpperCase();
+  if(p!=='_'&&p!=='@'&&p!=='#'&&p!=='$'&&targetCh>='A'&&targetCh<='Z'){
+   revealedLetters.add(targetCh);
+  }
+ }
+}
+
+function startAutomation(){
+ curLvl=0;curClue=0;revStep=0;historyData=[];stopAuto();
+ showScreen('auto');
+ document.getElementById('s-total').textContent=levelKeys.length;
+ document.getElementById('total-lbl').textContent=levelKeys.length;
+ initLevelState();
+ renderLevel();
+}
+
+function getLvl(){return puzzleData[levelKeys[curLvl]];}
+
+// A neighbor is filled if its target letter is revealed on board OR if it was prefilled at start!
+function isNeighborFilled(str, display, idx, revealedSet, prefilledIndices){
+ if(idx<0 || idx>=str.length) return false;
+ var p=str[idx];
+ if(p===' ') return false;
+ var targetCh=(display[idx]||'').toUpperCase();
+ if(targetCh<'A' || targetCh>'Z') return false;
+
+ var isPrefilled=prefilledIndices?prefilledIndices.has(idx):(p!=='_' && p!=='@' && p!=='#' && p!=='$');
+ var isRevealed=revealedSet?revealedSet.has(targetCh):false;
+
+ return isPrefilled || isRevealed;
+}
+
+function getBlankLockType(p, blankIndex, locks1Arr, locks2Arr, cloakArr){
+ var l1Set=new Set(locks1Arr||[]);
+ var l2Set=new Set(locks2Arr||[]);
+ var clkSet=new Set(cloakArr||[]);
+
+ if(l1Set.has(blankIndex) || p==='@') return 1; // Single Lock
+ if(l2Set.has(blankIndex) || p==='#') return 2; // Double Lock
+ if(clkSet.has(blankIndex) || p==='$') return 3; // Cloak
+ return 0;
+}
+
+function findNextMoveInClue(clue, clueIdx){
+ var cp=clue.phrase||'';
+ var cd=clue.display||clue.answer||'';
+ var locks1=clue.locks1||[];
+ var locks2=clue.locks2||[];
+ var cloak=clue.cloak||[];
+
+ var prefilledIndices=new Set();
+ for(var i=0;i<cp.length;i++){
+  var p=cp[i];
+  var targetCh=(cd[i]||'').toUpperCase();
+  if(p!=='_'&&p!=='@'&&p!=='#'&&p!=='$'&&targetCh>='A'&&targetCh<='Z'){
+   prefilledIndices.add(i);
+  }
+ }
+
+ var candidates=[];
+ var blankCounter=0;
+
+ for(var i=0;i<cd.length;i++){
+  var p=cp[i]||'_';
+  var targetCh=(cd[i]||'').toUpperCase();
+  var isAlpha=targetCh>='A'&&targetCh<='Z';
+  if(!isAlpha) continue;
+
+  var isPrefilled=prefilledIndices.has(i);
+  var curBlankIndex=isPrefilled?-1:blankCounter++;
+  var isRevealed=revealedLetters.has(targetCh);
+
+  if(isPrefilled || isRevealed) continue;
+
+  var lockType=getBlankLockType(p,curBlankIndex,locks1,locks2,cloak);
+  var leftFilled=isNeighborFilled(cp, cd, i-1, revealedLetters, prefilledIndices);
+  var rightFilled=isNeighborFilled(cp, cd, i+1, revealedLetters, prefilledIndices);
+  var neighborCount=(leftFilled?1:0)+(rightFilled?1:0);
+
+  var lockStrength=0;
+  if(lockType===1){
+   lockStrength = (neighborCount>=1)?0:1;
+  }else if(lockType===2){
+   lockStrength = Math.max(0, 2 - neighborCount);
+  }
+
+  candidates.push({
+   charIndex: i,
+   targetChar: targetCh,
+   lockType: lockType,
+   lockStrength: lockStrength,
+   isCloaked: (lockType===3),
+   isKnown: revealedLetters.has(targetCh)
+  });
+ }
+
+ if(candidates.length===0) return null;
+
+ // Codewords Move Selection Rules:
+ // Rule 1: Known Unlocked
+ var move = candidates.find(function(c){ return c.lockStrength===0 && c.isKnown; });
+ if(move) return move;
+
+ // Rule 2: Unknown Unlocked (Not cloaked)
+ move = candidates.find(function(c){ return c.lockStrength===0 && !c.isCloaked; });
+ if(move) return move;
+
+ // Rule 3: Cloaked Unlocked
+ move = candidates.find(function(c){ return c.lockStrength===0 && c.isCloaked; });
+ if(move) return move;
+
+ // Rule 4: Emergency Fallback / Lock Breaker (Pick first blank to break lock chain)
+ return candidates[0];
+}
+
+function renderLevel(){
+ var lvl=getLvl();if(!lvl)return;
+ var k=levelKeys[curLvl];
+ document.getElementById('hdr-lvl').textContent='Level '+k;
+ document.getElementById('tab-lvl').innerHTML='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg> Level '+k;
+ var pct=Math.round((curLvl/levelKeys.length)*100);
+ document.getElementById('hdr-pb').style.width=pct+'%';
+ document.getElementById('hdr-pct').textContent=curLvl+' / '+levelKeys.length;
+ renderPhrase(lvl,k);
+ renderClues(lvl,k);
+ updateStats();
+}
+
+function renderPhrase(lvl,k){
+ var ph=lvl.phrase||{};
+ var display=ph.display||'';
+ var ps=ph.phrase||'';
+ var container=document.getElementById('phrase-chars');
+ container.innerHTML='';
+
+ var locks1=ph.locks1||[];
+ var locks2=ph.locks2||[];
+ var cloak=ph.cloak||[];
+
+ var prefilledIndices=new Set();
+ for(var i=0;i<ps.length;i++){
+  var p=ps[i];
+  var targetCh=(display[i]||'').toUpperCase();
+  if(p!=='_'&&p!=='@'&&p!=='#'&&p!=='$'&&targetCh>='A'&&targetCh<='Z'){
+   prefilledIndices.add(i);
+  }
+ }
+
+ var blankCounter=0;
+
+ for(var i=0;i<ps.length;i++){
+  var p=ps[i];
+  var targetCh=(display[i]||'').toUpperCase();
+  var isAlpha=targetCh>='A'&&targetCh<='Z';
+
+  if(p===' '){
+   var sp=document.createElement('div');
+   sp.className='pc-space';
+   container.appendChild(sp);
+   continue;
+  }
+
+  if(!isAlpha){
+   var w=document.createElement('div');
+   w.className='pc-wrap';
+   var ch=document.createElement('div');
+   ch.className='pc-char visible';
+   ch.textContent=display[i]||p;
+   var nm=document.createElement('div');
+   nm.className='pc-num';
+   nm.textContent='';
+   w.appendChild(ch);w.appendChild(nm);
+   container.appendChild(w);
+   continue;
+  }
+
+  var encNum=levelEncMap[targetCh]||'';
+  var isRevealed=revealedLetters.has(targetCh);
+  var isPrefilled=prefilledIndices.has(i);
+
+  var curBlankIndex=isPrefilled?-1:blankCounter++;
+  var lockType=isPrefilled?0:getBlankLockType(p,curBlankIndex,locks1,locks2,cloak);
+
+  // Neighbor lock unlocking calculation (Codewords exact logic)
+  var leftFilled=isNeighborFilled(ps, display, i-1, revealedLetters, prefilledIndices);
+  var rightFilled=isNeighborFilled(ps, display, i+1, revealedLetters, prefilledIndices);
+  var neighborFilledCount=(leftFilled?1:0)+(rightFilled?1:0);
+
+  var lockStrength=0;
+  if(lockType===1){
+   lockStrength = (neighborFilledCount>=1)?0:1;
+  }else if(lockType===2){
+   lockStrength = Math.max(0, 2 - neighborFilledCount);
+  }
+
+  var effectiveLockType = lockType;
+  if(effectiveLockType===1 && lockStrength===0) effectiveLockType = 0;
+  if(effectiveLockType===2 && lockStrength===0) effectiveLockType = 0;
+
+  var w=document.createElement('div');
+  w.className='pc-wrap';
+  var ch=document.createElement('div');
+  var nm=document.createElement('div');
+  nm.className='pc-num';
+  nm.textContent=encNum;
+
+  var isJustEntered = (activeEntryLetter && targetCh === activeEntryLetter);
+
+  // Letter is displayed if prefilled OR if letter is revealed
+  var canShowLetter = isPrefilled || isRevealed;
+
+  if(canShowLetter && (effectiveLockType===0 || effectiveLockType===3)){
+   ch.className=isPrefilled?'pc-char cell-prefilled':'pc-char cell-revealed';
+   if(isJustEntered)ch.classList.add('just-entered');
+   ch.innerHTML='<span class="cell-text">'+targetCh+'</span>';
+  }else if(effectiveLockType===1){
+   // Single Lock (Locked!)
+   ch.className='pc-char cell-lock1'+(isJustEntered?' just-entered':'');
+   ch.innerHTML='<div class="lock-single-center">'+HEX_KEYHOLE_SVG+'</div>';
+  }else if(effectiveLockType===2){
+   // Double Lock (Locked!)
+   ch.className='pc-char cell-lock2'+(isJustEntered?' just-entered':'');
+   if(lockStrength===2){
+    ch.innerHTML='<div class="lock-vertical-stack">'+HEX_KEYHOLE_SVG+HEX_KEYHOLE_SVG+'</div>';
+   }else{
+    ch.innerHTML='<div class="lock-single-center">'+HEX_KEYHOLE_SVG+'</div>';
+   }
+  }else if(effectiveLockType===3){
+   // Cloak
+   ch.className='pc-char cell-cloak'+(isJustEntered?' just-entered':'');
+   ch.innerHTML='<div class="cloak-center">'+CLOAK_SVG+'</div>';
+  }else{
+   // Normal blank '_'
+   ch.className='pc-char cell-blank'+(isJustEntered?' just-entered':'');
+   ch.innerHTML='';
+  }
+
+  w.appendChild(ch);
+  w.appendChild(nm);
+  container.appendChild(w);
+ }
+}
+
+function renderClues(lvl,k){
+ var clues=lvl.clues||[];
+ var wrap=document.getElementById('clues-wrap');
+ wrap.innerHTML='';
+
+ document.getElementById('hdr-clues').textContent=Math.min(curClue,clues.length)+'/'+clues.length+' clues';
+ document.getElementById('tab-cprog').textContent=Math.min(curClue,clues.length)+'/'+clues.length;
+
+ clues.forEach(function(clue,idx){
+  var card=document.createElement('div');
+  card.className='clue-card';
+  if(idx===curClue)card.classList.add('active');
+  if(idx<curClue)card.classList.add('solved');
+
+  var num=document.createElement('div');
+  num.className='clue-num';
+  num.textContent=idx+1;
+  card.appendChild(num);
+
+  var body=document.createElement('div');
+  body.className='clue-body';
+  var q=document.createElement('div');
+  q.className='clue-q';
+  q.textContent=clue.question||'';
+  body.appendChild(q);
+
+  var cells=document.createElement('div');
+  cells.className='clue-cells';
+
+  var cp=clue.phrase||'';
+  var cd=clue.display||clue.answer||'';
+  var locks1=clue.locks1||[];
+  var locks2=clue.locks2||[];
+  var cloak=clue.cloak||[];
+
+  var prefilledIndices=new Set();
+  for(var i=0;i<cp.length;i++){
+   var p=cp[i];
+   var targetCh=(cd[i]||'').toUpperCase();
+   if(p!=='_'&&p!=='@'&&p!=='#'&&p!=='$'&&targetCh>='A'&&targetCh<='Z'){
+    prefilledIndices.add(i);
+   }
+  }
+
+  var blankCounter=0;
+
+  for(var i=0;i<cd.length;i++){
+   var p=cp[i]||'_';
+   var targetCh=(cd[i]||'').toUpperCase();
+   var isAlpha=targetCh>='A'&&targetCh<='Z';
+
+   var aw=document.createElement('div');
+   aw.className='ac-wrap';
+   var ac=document.createElement('div');
+   var en=document.createElement('div');
+   en.className='ac-num';
+
+   if(!isAlpha){
+    ac.className='ac-char visible';
+    ac.textContent=cd[i]||p;
+    en.textContent='';
+    aw.appendChild(ac);aw.appendChild(en);
+    cells.appendChild(aw);
+    continue;
+   }
+
+   var encNum=levelEncMap[targetCh]||'';
+   en.textContent=encNum;
+
+   var isRevealed=revealedLetters.has(targetCh);
+   var isPrefilled=prefilledIndices.has(i);
+
+   var curBlankIndex=isPrefilled?-1:blankCounter++;
+   var lockType=isPrefilled?0:getBlankLockType(p,curBlankIndex,locks1,locks2,cloak);
+
+   // Neighbor lock logic for clue cells
+   var leftFilled=isNeighborFilled(cp, cd, i-1, revealedLetters, prefilledIndices);
+   var rightFilled=isNeighborFilled(cp, cd, i+1, revealedLetters, prefilledIndices);
+   var neighborFilledCount=(leftFilled?1:0)+(rightFilled?1:0);
+
+   var lockStrength=0;
+   if(lockType===1){
+    lockStrength = (neighborFilledCount>=1)?0:1;
+   }else if(lockType===2){
+    lockStrength = Math.max(0, 2 - neighborFilledCount);
+   }
+
+   var effectiveLockType = lockType;
+   if(effectiveLockType===1 && lockStrength===0) effectiveLockType = 0;
+   if(effectiveLockType===2 && lockStrength===0) effectiveLockType = 0;
+
+   var isClueSolved=idx<curClue;
+   var isStepRevealed=(idx===curClue&&i<revStep);
+   var isJustEntered = (activeEntryLetter && targetCh === activeEntryLetter);
+
+   var canShowLetter = isPrefilled || isRevealed || isClueSolved;
+
+   if(canShowLetter && (effectiveLockType===0 || effectiveLockType===3)){
+    ac.className=isPrefilled?'ac-char cell-prefilled':'ac-char cell-revealed';
+    if(isJustEntered)ac.classList.add('just-entered');
+    ac.innerHTML='<span class="cell-text">'+targetCh+'</span>';
+   }else if(effectiveLockType===1){
+    // Single Lock (Locked!)
+    ac.className='ac-char cell-lock1'+(isJustEntered?' just-entered':'');
+    ac.innerHTML='<div class="lock-single-center">'+HEX_KEYHOLE_SVG+'</div>';
+   }else if(effectiveLockType===2){
+    // Double Lock (Locked!)
+    ac.className='ac-char cell-lock2'+(isJustEntered?' just-entered':'');
+    if(lockStrength===2){
+     ac.innerHTML='<div class="lock-vertical-stack">'+HEX_KEYHOLE_SVG+HEX_KEYHOLE_SVG+'</div>';
+    }else{
+     ac.innerHTML='<div class="lock-single-center">'+HEX_KEYHOLE_SVG+'</div>';
+    }
+   }else if(effectiveLockType===3){
+    // Cloak
+    ac.className='ac-char cell-cloak'+(isJustEntered?' just-entered':'');
+    ac.innerHTML='<div class="cloak-center">'+CLOAK_SVG+'</div>';
+   }else{
+    ac.className='ac-char cell-blank'+(isJustEntered?' just-entered':'');
+    ac.innerHTML='';
+   }
+
+   aw.appendChild(ac);
+   aw.appendChild(en);
+   cells.appendChild(aw);
+  }
+
+  body.appendChild(cells);
+  card.appendChild(body);
+  wrap.appendChild(card);
+
+  if(idx===curClue){
+   setTimeout(function(){card.scrollIntoView({behavior:'smooth',block:'nearest'});},80);
+  }
+ });
+}
+
+function updateStats(){
+ document.getElementById('s-done').textContent=historyData.filter(function(h){return h.s==='Done';}).length;
+ document.getElementById('s-clue').textContent=curClue+1;
+}
+
+function toggleAuto(){if(running)stopAuto();else startAuto();}
+function startAuto(){
+ running=true;
+ var btn=document.getElementById('btn-play');
+ btn.textContent='\u23F8 PAUSE';
+ btn.className='cb cb-pause';
+ tick();
+}
+function stopAuto(){
+ running=false;clearTimeout(timer);timer=null;
+ var btn=document.getElementById('btn-play');
+ if(btn){btn.textContent='\u25B6 START';btn.className='cb cb-play';}
+}
+function tick(){
+ if(!running)return;
+ timer=setTimeout(function(){
+  step();
+  if(running)tick();
+ },speed);
+}
+
+function step(){
+ var lvl=getLvl();if(!lvl)return;
+ var clues=lvl.clues||[];
+ var k=levelKeys[curLvl];
+
+ if(curClue>=clues.length){
+  completeLvl();
+  return;
+ }
+
+ var clue=clues[curClue];
+ var move=findNextMoveInClue(clue, curClue);
+
+ if(move){
+  var targetCh=move.targetChar;
+  revealedLetters.add(targetCh);
+  activeEntryLetter=targetCh;
+  revStep++;
+  renderPhrase(lvl,k);
+  renderClues(lvl,k);
+ }else{
+  curClue++;
+  revStep=0;
+  activeEntryLetter=null;
+  if(curClue>=clues.length){
+   var pd=(lvl.phrase&&lvl.phrase.display)||'';
+   for(var i=0;i<pd.length;i++){
+    var ch=pd[i].toUpperCase();
+    if(ch>='A'&&ch<='Z')revealedLetters.add(ch);
+   }
+   renderPhrase(lvl,k);
+   renderClues(lvl,k);
+   completeLvl();
+  }else{
+   renderPhrase(lvl,k);
+   renderClues(lvl,k);
+  }
+ }
+ updateStats();
+}
+
+function completeLvl(){
+ stopAuto();
+ activeEntryLetter=null;
+ var k=levelKeys[curLvl];var lvl=getLvl();
+ var ph=(lvl&&lvl.phrase&&lvl.phrase.display)?lvl.phrase.display.substring(0,30)+'...':'';
+ historyData.push({level:k,phrase:ph,clues:(lvl&&lvl.clues?lvl.clues.length:0),s:'Done'});
+ updateHistory();updateStats();
+ showOv('\uD83C\uDF89','Level '+k+' Complete!',curLvl+1<levelKeys.length?'Loading next level...':'All levels completed!');
+ setTimeout(function(){
+  hideOv();
+  if(curLvl+1<levelKeys.length){
+   curLvl++;curClue=0;revStep=0;
+   initLevelState();
+   renderLevel();
+   startAuto();
+  }else{
+   showOv('\uD83C\uDFC6','All Done!',levelKeys.length+' levels completed!');
+  }
+ },1500);
+}
+
+function updateHistory(){
+ var body=document.getElementById('hist-body');body.innerHTML='';
+ historyData.slice().reverse().forEach(function(h){
+  var row=document.createElement('tr');
+  row.innerHTML='<td><strong>Level '+h.level+'</strong></td><td style="color:var(--muted);font-size:.75rem;max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">'+h.phrase+'</td><td>'+h.clues+'</td><td class="st-pass">Done</td>';
+  body.appendChild(row);
+ });
+}
+
+function prevLvl(){if(curLvl<=0)return;stopAuto();curLvl--;curClue=0;revStep=0;initLevelState();renderLevel();}
+function nextLvl(){if(curLvl>=levelKeys.length-1)return;stopAuto();curLvl++;curClue=0;revStep=0;initLevelState();renderLevel();}
+function resetLvl(){stopAuto();curClue=0;revStep=0;initLevelState();var k=levelKeys[curLvl];renderLevel();}
+function jumpToLevel(){
+ var val=document.getElementById('jump-input').value;
+ if(!val)return;
+ var targetNum=parseInt(val,10);
+ if(isNaN(targetNum))return;
+ var idx=levelKeys.findIndex(function(k){return Number(k)===targetNum;});
+ if(idx!==-1){
+  stopAuto();curLvl=idx;curClue=0;revStep=0;
+  initLevelState();
+  renderLevel();
+ }else{
+  alert('Level '+targetNum+' not found!');
+ }
+}
+
+function setSpeed(v){
+ speed=parseInt(v);
+ var m={'1200':'0.6x','700':'1x','350':'2x','150':'4x','30':'\uD83D\uDE80'};
+ document.getElementById('s-spd').textContent=m[String(speed)]||'1x';
+ if(running){clearTimeout(timer);tick();}
+}
+
+function showGov(e,t,s){showOv(e,t,s);}
+function showOv(e,t,s){document.getElementById('ov-e').textContent=e;document.getElementById('ov-t').textContent=t;document.getElementById('ov-s').textContent=s;document.getElementById('overlay').style.display='flex';}
+function hideOv(){document.getElementById('overlay').style.display='none';}
+
+showScreen('mode');
+</script>
+</body>
+</html>
