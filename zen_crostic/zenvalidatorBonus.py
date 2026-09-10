@@ -57,15 +57,36 @@ def find_capitalization_errors(phrase):
     errors = []
     if not phrase:
         return errors
+        
+    first_alpha_idx = -1
+    first_underscore_idx = -1
+    
+    for i, char in enumerate(phrase):
+        if char.isalpha() and first_alpha_idx == -1:
+            first_alpha_idx = i
+        if char == '_' and first_underscore_idx == -1:
+            first_underscore_idx = i
+            
+    require_first_cap = True
+    if first_alpha_idx != -1 and first_underscore_idx != -1:
+        if first_underscore_idx < first_alpha_idx:
+            require_first_cap = False
+            
+    stripped = phrase.lstrip(' "\'“‘[({')
+    if stripped.startswith('.'):
+        require_first_cap = False
+        
     first_letter_found = False
     for char in phrase:
         if char.isalpha():
-            if not char.isupper():
+            if require_first_cap and not char.isupper():
                 errors.append("First letter is not capitalized.")
             first_letter_found = True
             break
+            
     if not first_letter_found:
         return errors
+        
     expect_uppercase = False
     for char in phrase:
         if char == '.':
@@ -75,8 +96,9 @@ def find_capitalization_errors(phrase):
                 if "Capitalization missing after a period." not in errors:
                     errors.append("Capitalization missing after a period.")
             expect_uppercase = False
-        elif expect_uppercase and not char.isspace():
+        elif expect_uppercase and not char.isspace() and char not in ['"', "'", '“', '”', '‘', '’', '_']:
             expect_uppercase = False
+            
     return errors
 
 def find_character_mismatches(phrase, puzzle):
@@ -201,7 +223,10 @@ def main():
         
     file_ext = os.path.splitext(input_file)[1].lower()
     if file_ext == '.csv':
-        df = pd.read_csv(input_file)
+        try:
+            df = pd.read_csv(input_file, encoding='utf-8')
+        except UnicodeDecodeError:
+            df = pd.read_csv(input_file, encoding='cp1252')
     elif file_ext in ['.xlsx', '.xls']:
         df = pd.read_excel(input_file)
     else:
@@ -373,6 +398,25 @@ def main():
     print("Duplication check complete.")
             
     # Save output with timestamp
+    def calculate_missing_letters(row):
+        phrase = str(row.get('Phrase', '')) if pd.notna(row.get('Phrase')) else ""
+        phrase_letters = set(char.upper() for char in phrase if char.isalpha())
+        
+        answer_letters = set()
+        for i in range(1, 11):
+            ans_col = f'Picture {i}'
+            if ans_col in row and pd.notna(row[ans_col]):
+                ans = str(row[ans_col])
+                answer_letters.update(char.upper() for char in ans if char.isalpha())
+                
+        missing_letters = sorted(list(phrase_letters - answer_letters))
+        unique_str = ", ".join(sorted(list(phrase_letters)))
+        missing_str = ", ".join(missing_letters) if missing_letters else "Pass"
+        
+        return pd.Series([unique_str, missing_str])
+
+    df[['Unique Letters', 'Missing Letters']] = df.apply(calculate_missing_letters, axis=1)
+
     output_dir = os.path.join(base_dir, "output")
     os.makedirs(output_dir, exist_ok=True)
     

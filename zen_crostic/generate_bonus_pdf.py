@@ -13,7 +13,10 @@ def generate_pdf():
         print(f"Error: {csv_path} not found.")
         return
         
-    df = pd.read_csv(csv_path)
+    try:
+        df = pd.read_csv(csv_path, encoding='utf-8')
+    except UnicodeDecodeError:
+        df = pd.read_csv(csv_path, encoding='cp1252')
     
     c = canvas.Canvas(output_pdf, pagesize=letter)
     width, height = letter

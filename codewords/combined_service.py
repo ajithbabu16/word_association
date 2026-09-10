@@ -131,6 +131,113 @@ class CombinedHandler(http.server.SimpleHTTPRequestHandler):
                 self._set_headers()
                 self.wfile.write(json.dumps({"status": "updated", "session": name}).encode())
 
+            elif self.path == '/api/zen-crostic-run':
+                import uuid, base64, shutil
+                content_length = int(self.headers['Content-Length'])
+                data = json.loads(self.rfile.read(content_length))
+                script_name = data.get('script')
+                filename = data.get('filename')
+                b64content = data.get('content')
+                images = data.get('images', [])
+                
+                if not script_name or not b64content:
+                    raise Exception("Missing script or file content")
+                
+                zen_base = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'zen_crostic')
+                master_script = os.path.join(zen_base, script_name)
+                if not os.path.exists(master_script):
+                    raise Exception(f"Script {script_name} not found in zen_crostic")
+                
+                # Create isolated run directory
+                uid = str(uuid.uuid4())
+                run_dir = os.path.join(zen_base, f"temp_run_{uid}")
+                os.makedirs(run_dir, exist_ok=True)
+                
+                # Output directory for validators
+                os.makedirs(os.path.join(run_dir, "output"), exist_ok=True)
+                
+                try:
+                    # Write input file
+                    in_path = os.path.join(run_dir, filename)
+                    with open(in_path, 'wb') as f:
+                        f.write(base64.b64decode(b64content))
+                        
+                    # Also write it as ZenCrosticBonus.csv / ZenCrost.csv etc depending on script so hardcoded fallbacks work
+                    if "Bonus" in script_name or "bonus" in script_name:
+                        with open(os.path.join(run_dir, "ZenCrosticBonus" + os.path.splitext(filename)[1]), 'wb') as f:
+                            f.write(base64.b64decode(b64content))
+                    else:
+                        with open(os.path.join(run_dir, "ZenCrost" + os.path.splitext(filename)[1]), 'wb') as f:
+                            f.write(base64.b64decode(b64content))
+                    
+                    # Write images if provided
+                    if images:
+                        img_dir = os.path.join(run_dir, "Bonus Puzzle images")
+                        os.makedirs(img_dir, exist_ok=True)
+                        for img in images:
+                            try:
+                                img_name = os.path.basename(img['name'].replace('\\', '/'))
+                                with open(os.path.join(img_dir, img_name), 'wb') as f:
+                                    f.write(base64.b64decode(img['content']))
+                            except Exception as img_e:
+                                print(f"Failed to write image {img['name']}: {img_e}")
+                    
+                    # Copy the script and patch the base_dir to point to this isolated folder
+                    patched_script = os.path.join(run_dir, "run_" + script_name)
+                    with open(master_script, 'r', encoding='utf-8') as f:
+                        script_code = f.read()
+                    
+                    # Patch base_dir hardcodings safely using repr(run_dir)
+                    # We use a lambda to avoid backslash escape processing in re.sub replacement string
+                    script_code = re.sub(r'base_dir\s*=\s*r?["\'].*?zen_crostic["\']', lambda m: f'base_dir = r"{run_dir}"', script_code)
+                    
+                    with open(patched_script, 'w', encoding='utf-8') as f:
+                        f.write(script_code)
+                    
+                    # Execute
+                    # Pass the filename so scripts that parse sys.argv[1] can use it
+                    res = subprocess.run(['python', "run_" + script_name, filename], cwd=run_dir, capture_output=True, text=True)
+                    if res.returncode != 0:
+                        raise Exception(f"Script failed: {res.stderr}\nOutput: {res.stdout}")
+                        
+                    # Find output
+                    # Validators write to run_dir/output/...
+                    # PDF generator writes to run_dir/ZenCrostic_Bonus_Visuals.pdf
+                    output_file_path = None
+                    out_dir = os.path.join(run_dir, "output")
+                    if os.path.exists(out_dir):
+                        files = os.listdir(out_dir)
+                        if files:
+                            # get the most recently created file
+                            output_file_path = max([os.path.join(out_dir, f) for f in files], key=os.path.getctime)
+                            
+                    if not output_file_path:
+                        # Check root run_dir for PDF
+                        files = [f for f in os.listdir(run_dir) if f.endswith('.pdf')]
+                        if files:
+                            output_file_path = os.path.join(run_dir, files[0])
+                            
+                    if not output_file_path or not os.path.exists(output_file_path):
+                        raise Exception(f"Script succeeded but no output file found. Output log: {res.stdout}")
+                        
+                    with open(output_file_path, 'rb') as f:
+                        out_bytes = f.read()
+                        
+                    out_b64 = base64.b64encode(out_bytes).decode('utf-8')
+                    
+                    self._set_headers()
+                    self.wfile.write(json.dumps({
+                        "status": "success", 
+                        "output_filename": os.path.basename(output_file_path),
+                        "output_content": out_b64
+                    }).encode())
+                finally:
+                    # Cleanup
+                    try:
+                        shutil.rmtree(run_dir)
+                    except Exception as e:
+                        print(f"Warning: Failed to cleanup {run_dir}: {e}")
+
             elif self.path == '/log':
                 content_length = int(self.headers['Content-Length'])
                 data = json.loads(self.rfile.read(content_length))
@@ -143,7 +250,8 @@ class CombinedHandler(http.server.SimpleHTTPRequestHandler):
                 self.wfile.write(json.dumps({"status": "logged", "loop": loop, "level": level}).encode())
 
         except Exception as e:
-            self._set_headers(500); self.wfile.write(json.dumps({"error": str(e)}).encode())
+            self._set_headers(500)
+            self.wfile.write(json.dumps({"error": str(e)}).encode())
 
     def do_GET(self):
         try:

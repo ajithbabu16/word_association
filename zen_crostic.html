@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zen Crostics - Genie QuriousBit</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #9d4edd;
+            --secondary: #00f5d4;
+            --bg-color: #0b0914;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body, html {
+            width: 100%; height: 100%;
+            background-color: var(--bg-color);
+            background-image: url('bg.jpg');
+            background-size: cover; background-position: center;
+            font-family: 'Outfit', sans-serif;
+            overflow: hidden;
+            display: flex; align-items: center; justify-content: center;
+            color: #ffffff;
+        }
+
+        #canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
+
+        .ui-container {
+            position: relative; z-index: 10;
+            background: rgba(15, 12, 29, 0.5);
+            backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1); border-top: 1px solid rgba(255, 255, 255, 0.3); border-left: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 24px; padding: 4rem 5rem; text-align: center;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(157, 78, 221, 0.2);
+            animation: fadeIn 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            max-width: 800px; width: 90%; transform: translateY(20px); opacity: 0;
+        }
+
+        @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
+
+        h1 {
+            font-size: 3.5rem; font-weight: 700; margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #fff, var(--secondary));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            letter-spacing: 1px; text-shadow: 0 0 40px rgba(0, 245, 212, 0.3);
+        }
+
+        .subtitle { font-size: 1.2rem; font-weight: 300; color: rgba(255, 255, 255, 0.7); margin-bottom: 3.5rem; letter-spacing: 5px; text-transform: uppercase; }
+
+        .btn-group { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; }
+
+        .glass-btn {
+            position: relative; background: rgba(255, 255, 255, 0.03); color: #fff;
+            padding: 1.2rem 2rem; font-size: 1.1rem; font-weight: 500; letter-spacing: 2px;
+            border-radius: 12px; cursor: pointer; text-decoration: none;
+            display: inline-flex; align-items: center; gap: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); overflow: hidden; z-index: 1;
+        }
+
+        .glass-btn::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(135deg, rgba(157, 78, 221, 0.4), rgba(0, 245, 212, 0.4));
+            z-index: -1; opacity: 0; transition: opacity 0.4s ease;
+        }
+
+        .glass-btn:hover {
+            transform: translateY(-5px); border-color: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 15px 35px rgba(157, 78, 221, 0.4), 0 0 20px rgba(0, 245, 212, 0.2);
+        }
+
+        .glass-btn:hover::before { opacity: 1; }
+        .glass-btn:hover .icon { transform: scale(1.1) rotate(5deg); }
+        .icon { width: 36px; height: 36px; transition: transform 0.3s; }
+        
+        .nav-back {
+            position: absolute; top: 2rem; left: 2rem; color: white; text-decoration: none;
+            font-weight: 500; letter-spacing: 1px; display: flex; align-items: center; gap: 8px;
+            opacity: 0.7; transition: opacity 0.3s; z-index: 20;
+        }
+        .nav-back:hover { opacity: 1; }
+        
+        /* Modal Overlay */
+        .modal-overlay {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.8); z-index: 100;
+            justify-content: center; align-items: center; backdrop-filter: blur(5px);
+        }
+        .modal-content {
+            background: rgba(15, 12, 29, 0.9); padding: 3rem; border-radius: 16px;
+            border: 1px solid var(--secondary); text-align: center;
+            box-shadow: 0 0 30px rgba(0, 245, 212, 0.2); animation: popIn 0.3s ease;
+        }
+        @keyframes popIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        .modal-btn {
+            margin-top: 2rem; padding: 0.8rem 2rem; background: var(--secondary);
+            color: #000; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="nav-back">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        BACK
+    </a>
+
+    <canvas id="canvas"></canvas>
+
+    <div class="ui-container">
+        <h1>Zen Crostics</h1>
+        <div class="subtitle">Select Execution Mode</div>
+        
+        <div class="btn-group">
+            <a href="zen_crostic_scripts.html" class="glass-btn" style="border-color: #9d4edd;">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+                SCRIPT EXECUTE
+            </a>
+            
+            <a href="#" onclick="showModal()" class="glass-btn">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                </svg>
+                AUTOMATION EXECUTE
+            </a>
+        </div>
+    </div>
+    
+    <div class="modal-overlay" id="comingSoonModal">
+        <div class="modal-content">
+            <h2 style="color: var(--secondary); margin-bottom: 1rem; font-size: 2.5rem;">Coming Soon</h2>
+            <p style="font-size: 1.2rem; opacity: 0.8;">The automation pipeline for Zen Crostics is currently under construction.</p>
+            <button class="modal-btn" onclick="hideModal()">Awesome!</button>
+        </div>
+    </div>
+
+    <script>
+        function showModal() { document.getElementById('comingSoonModal').style.display = 'flex'; }
+        function hideModal() { document.getElementById('comingSoonModal').style.display = 'none'; }
+        
+        // Background particles
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        let width, height, particles;
+        function init() {
+            width = canvas.width = window.innerWidth; height = canvas.height = window.innerHeight;
+            particles = [];
+            for (let i = 0; i < 50; i++) particles.push({ x: Math.random() * width, y: Math.random() * height, vx: (Math.random()-0.5), vy: (Math.random()-0.5), c: Math.random() > 0.5 ? '#9d4edd' : '#00f5d4' });
+        }
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            for (let p of particles) {
+                p.x += p.vx; p.y += p.vy;
+                if(p.x<0 || p.x>width) p.vx*=-1; if(p.y<0 || p.y>height) p.vy*=-1;
+                ctx.beginPath(); ctx.arc(p.x, p.y, 1.5, 0, Math.PI*2); ctx.fillStyle=p.c; ctx.fill();
+            }
+            requestAnimationFrame(animate);
+        }
+        window.addEventListener('resize', init);
+        init(); animate();
+    </script>
+</body>
+</html>
