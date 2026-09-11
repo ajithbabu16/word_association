@@ -280,43 +280,46 @@ def main():
                 p_val = row.get(p_c)
                 q_val = row.get(q_c)
                 
-                # Get the existing validation for A and Puzzle
-                res = validate_pair(a_val, p_val, is_complete_phrase=False)
-                
-                # Check Q capitalization, dash length, and general lengths
-                q_errors = []
-                q_str = str(q_val).strip() if pd.notna(q_val) else ""
                 a_str = str(a_val).strip() if pd.notna(a_val) else ""
+                q_str = str(q_val).strip() if pd.notna(q_val) else ""
+
+                if not a_str and not q_str:
+                    return ""
+                
+                q_errors = []
+                if q_str and not a_str:
+                    q_errors.append(f"{q_c}: Question exists but answer {a_c} is missing.")
+
+                if a_str and not q_str:
+                    q_errors.append(f"{q_c}: Question is missing for answer {a_c}.")
+
+                res = validate_pair(a_val, p_val, is_complete_phrase=False) if a_str else ""
                 
                 if q_str:
                     q_no_space = q_str.replace(" ", "")
                     if len(q_no_space) > MAX_Q_LEN:
                         q_errors.append(f"{q_c}: Length ({len(q_no_space)}) exceeds max {MAX_Q_LEN}.")
                         
+                    if '_____' in q_str or '-----' in q_str:
+                        q_errors.append(f"{q_c}: Contains 5 or more consecutive dashes/underscores (should be exactly 4).")
+                    
+                    for char in q_str:
+                        if char.isalpha():
+                            if not char.isupper():
+                                q_errors.append(f"{q_c}: First letter is not capitalized.")
+                            break
+
                 if a_str:
                     a_no_space = a_str.replace(" ", "")
                     if len(a_no_space) > MAX_A_LEN:
                         q_errors.append(f"{a_c}: Length ({len(a_no_space)}) exceeds max {MAX_A_LEN}.")
-                
-                # Check for 5 or more consecutive underscores or dashes
-                if '_____' in q_str or '-----' in q_str:
-                    q_errors.append(f"{q_c}: Contains 5 or more consecutive dashes/underscores (should be exactly 4).")
-                
-                # Find the first letter to check if it's capitalized
-                first_letter_found = False
-                for char in q_str:
-                    if char.isalpha():
-                        if not char.isupper():
-                            q_errors.append(f"{q_c}: First letter is not capitalized.")
-                        first_letter_found = True
-                        break
-                        
+
                 if q_errors:
                     if res == "Pass" or not res:
                         return "; ".join(q_errors)
                     else:
                         return res + "; " + "; ".join(q_errors)
-                return res if res else ""
+                return res if res else "Pass"
                 
             df[out_col] = df.apply(validate_row_item, axis=1)
 

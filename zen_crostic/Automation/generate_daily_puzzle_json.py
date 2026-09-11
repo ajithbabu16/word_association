@@ -92,23 +92,25 @@ def convert_text(display: str, masked: str, row_number: int, field: str) -> dict
     return result
 
 
-def convert_clues(row: dict[str, str], clue_indexes: list[int], row_number: int) -> list[dict]:
+def convert_clues(row: dict[str, str], clue_indexes: list[int], row_number: int, level_str: str = "") -> list[dict]:
     clues = []
+    lvl_lbl = f"Level {level_str}" if level_str else f"row {row_number}"
     for index in clue_indexes:
-        question = (row.get(f"Q{index}") or "").strip()
-        answer = (row.get(f"A{index}") or "").strip()
-        masked = (row.get(f"Puzzle {index}") or "").strip()
+        question = (row.get(f"Q{index}") or row.get(f"Q {index}") or "").strip()
+        answer = (row.get(f"A{index}") or row.get(f"A {index}") or "").strip()
+        masked = (row.get(f"Puzzle {index}") or row.get(f"Puzzle{index}") or "").strip()
         if not question and not answer:
             continue
-        if not question or not answer:
-            print(f"Warning: row {row_number} Q{index}/A{index} is incomplete; skipping that clue")
+        if not answer:
+            print(f"Warning: {lvl_lbl} Q{index} has question {question!r} but answer A{index} is missing; skipping clue")
             continue
+        if not question:
+            print(f"Warning: {lvl_lbl} clue {index} has answer {answer!r} but question Q{index} is empty; preserving clue with empty question")
         if not masked or masked.startswith(("#ERROR", "#REF")):
             masked = "".join("_" if char.isascii() and char.isalpha() else char for char in answer)
-            print(f"Warning: row {row_number} Puzzle {index} is invalid; using a fully masked clue")
         clues.append({"question": question, **convert_text(answer, masked, row_number, f"A{index}")})
     if not clues:
-        raise ContentError(f"row {row_number}: no clues")
+        raise ContentError(f"{lvl_lbl}: no valid clues")
     return clues
 
 

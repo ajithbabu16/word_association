@@ -279,30 +279,28 @@ def main():
                 a_val = row.get(a_c)
                 p_val = row.get(p_c)
                 
-                # Get the existing validation for Picture and Puzzle
+                a_str = str(a_val).strip() if pd.notna(a_val) else ""
+                if not a_str:
+                    return ""
+
                 res = validate_pair(a_val, p_val, is_complete_phrase=False)
                 
                 pic_errors = []
-                a_str = str(a_val).strip() if pd.notna(a_val) else ""
+                a_no_space = a_str.replace(" ", "")
+                if len(a_no_space) > MAX_PIC_LEN:
+                    pic_errors.append(f"{a_c}: Length ({len(a_no_space)}) exceeds max {MAX_PIC_LEN}.")
                 
-                if a_str:
-                    a_no_space = a_str.replace(" ", "")
-                    if len(a_no_space) > MAX_PIC_LEN:
-                        pic_errors.append(f"{a_c}: Length ({len(a_no_space)}) exceeds max {MAX_PIC_LEN}.")
-                
-                # Image check
-                if a_str:
-                    img_name = f"{a_str.upper()}.png"
-                    img_path = os.path.join(image_dir, img_name)
-                    if not os.path.exists(img_path):
-                        pic_errors.append(f"{a_c}: Image '{img_name}' not found in Bonus Puzzle images folder.")
+                img_name = f"{a_str.upper()}.png"
+                img_path = os.path.join(image_dir, img_name)
+                if not os.path.exists(img_path):
+                    pic_errors.append(f"{a_c}: Image '{img_name}' not found in Bonus Puzzle images folder.")
                         
                 if pic_errors:
                     if res == "Pass" or not res:
                         return "; ".join(pic_errors)
                     else:
                         return res + "; " + "; ".join(pic_errors)
-                return res if res else ""
+                return res if res else "Pass"
                 
             df[out_col] = df.apply(validate_row_item, axis=1)
 

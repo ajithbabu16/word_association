@@ -670,6 +670,88 @@ function parseMaskedText(display, masked) {
  return res;
 }
 
+function checkDatasetForWarnings(dataset, mode) {
+ var warnings = [];
+ if (!dataset) return warnings;
+
+ var pMap = extractPuzzlesMap(dataset);
+ var keys = Object.keys(pMap);
+
+ keys.forEach(function(k) {
+  var lvl = pMap[k];
+  if (!lvl) return;
+  var clues = lvl.clues || [];
+
+  if (clues.length === 0) {
+   warnings.push("Level " + k + ": No valid clues found for this level.");
+  }
+
+  var clueLetters = new Set();
+  clues.forEach(function(c, cIdx) {
+   var q = (c.question || '').trim();
+   var a = (c.answer || c.display || '').trim().toUpperCase();
+
+   if (a && !q && mode !== 'bonus') {
+    warnings.push("Level " + k + " (Clue " + (cIdx + 1) + "): Answer '" + a + "' exists but question is empty (included with empty question).");
+   }
+
+   for (var i = 0; i < a.length; i++) {
+    if (a[i] >= 'A' && a[i] <= 'Z') clueLetters.add(a[i]);
+   }
+  });
+
+  if (lvl.phrase && lvl.phrase.display) {
+   var disp = lvl.phrase.display.toUpperCase();
+   var pStr = lvl.phrase.phrase || disp;
+   var missingSet = new Set();
+
+   for (var i = 0; i < disp.length; i++) {
+    var ch = disp[i];
+    if (ch >= 'A' && ch <= 'Z') {
+     var pCh = pStr[i] || '_';
+     var isPrefilled = (pCh !== '_' && pCh !== '@' && pCh !== '#' && pCh !== '$');
+     if (!isPrefilled && !clueLetters.has(ch)) {
+      missingSet.add(ch);
+     }
+    }
+   }
+
+   if (missingSet.size > 0) {
+    warnings.push("Level " + k + ": Phrase sentence requires letter(s) (" + Array.from(missingSet).join(', ') + ") which are NOT provided by any clue answers.");
+   }
+  }
+ });
+
+ return warnings;
+}
+
+function showConversionWarningsModal(warnings) {
+ if (!warnings || warnings.length === 0) return;
+ var modal = document.getElementById('warning-modal');
+ if (!modal) {
+  modal = document.createElement('div');
+  modal.id = 'warning-modal';
+  modal.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.85);backdrop-filter:blur(16px);z-index:99999;display:flex;align-items:center;justify-content:center;padding:2rem;';
+  document.body.appendChild(modal);
+ }
+ var listItems = warnings.map(function(w) {
+  return '<li style="margin-bottom:8px;line-height:1.4;color:#fca5a5;">' + w + '</li>';
+ }).join('');
+
+ modal.innerHTML = '<div style="background:rgba(24,12,20,0.98);border:2px solid #ef4444;border-radius:24px;padding:2rem;max-width:850px;width:95%;max-height:85vh;overflow-y:auto;box-shadow:0 25px 65px rgba(239,68,68,0.4);color:#fff;position:relative;">' +
+  '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.2rem;border-bottom:1px solid rgba(239,68,68,0.3);padding-bottom:1rem;">' +
+  '<h2 style="color:#f87171;margin:0;display:flex;align-items:center;gap:10px;">⚠️ Level Warning(s) Detected (' + warnings.length + ')</h2>' +
+  '<button onclick="document.getElementById(\'warning-modal\').style.display=\'none\'" style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:#fff;padding:6px 16px;border-radius:10px;cursor:pointer;font-weight:700;">✕ CLOSE</button>' +
+  '</div>' +
+  '<p style="font-size:0.9rem;color:rgba(255,255,255,0.8);margin-bottom:1rem;">The following warnings / issues were identified in your level data:</p>' +
+  '<ul style="padding-left:1.4rem;font-size:0.85rem;font-family:monospace;">' + listItems + '</ul>' +
+  '<div style="margin-top:1.5rem;text-align:right;">' +
+  '<button onclick="document.getElementById(\'warning-modal\').style.display=\'none\'" style="background:linear-gradient(135deg,#ef4444,#dc2626);color:#fff;border:none;padding:10px 24px;border-radius:12px;font-weight:800;cursor:pointer;">ACKNOWLEDGE &amp; CONTINUE</button>' +
+  '</div>' +
+  '</div>';
+ modal.style.display = 'flex';
+}
+
 function convertCSVClientSide(text, mode) {
  var rows = parseCSVToRows(text);
  if (rows.length < 2) throw new Error("CSV file is empty or missing headers.");
@@ -703,10 +785,11 @@ function convertCSVClientSide(text, mode) {
    var phraseObj = parseMaskedText(rowObj['Phrase'] || '', rowObj['Puzzle'] || '');
    var clues = [];
    for (var i = 1; i <= 15; i++) {
-    var q = (rowObj['Q' + i] || '').trim();
-    var a = (rowObj['A' + i] || '').trim();
+    var q = (rowObj['Q' + i] || rowObj['Q ' + i] || '').trim();
+    var a = (rowObj['A' + i] || rowObj['A ' + i] || '').trim();
     var puz = (rowObj['Puzzle ' + i] || rowObj['Puzzle' + i] || '').trim();
     if (!q && !a) continue;
+    if (!a) continue;
     var maskedClue = parseMaskedText(a, puz || a);
     var clueObj = {
      question: q,
@@ -734,10 +817,11 @@ function convertCSVClientSide(text, mode) {
 
    var clues = [];
    for (var i = 1; i <= 15; i++) {
-    var q = (rowObj['Q' + i] || '').trim();
-    var a = (rowObj['A' + i] || '').trim();
+    var q = (rowObj['Q' + i] || rowObj['Q ' + i] || '').trim();
+    var a = (rowObj['A' + i] || rowObj['A ' + i] || '').trim();
     var puz = (rowObj['Puzzle ' + i] || rowObj['Puzzle' + i] || '').trim();
     if (!q && !a) continue;
+    if (!a) continue;
     var maskedClue = parseMaskedText(a, puz || a);
     var clueObj = {
      question: q,
@@ -785,10 +869,11 @@ function convertCSVClientSide(text, mode) {
     }
    } else {
     for (var i = 1; i <= 15; i++) {
-     var q = (rowObj['Q' + i] || '').trim();
-     var a = (rowObj['A' + i] || '').trim();
+     var q = (rowObj['Q' + i] || rowObj['Q ' + i] || '').trim();
+     var a = (rowObj['A' + i] || rowObj['A ' + i] || '').trim();
      var puz = (rowObj['Puzzle ' + i] || rowObj['Puzzle' + i] || '').trim();
      if (!q && !a) continue;
+     if (!a) continue;
      var maskedClue = parseMaskedText(a, puz || a);
      var clueObj = {
       question: q,
@@ -834,7 +919,20 @@ function displayConvertedJSONResult(data) {
  executeBtn.disabled = false;
  executeBtn.textContent = '⚡ EXECUTE CONVERSION';
 
- if (titleLbl) titleLbl.textContent = '✅ Conversion Successful!';
+ var warnings = checkDatasetForWarnings(convertedJSONData, convertPuzzleType);
+ if (warnings.length > 0) {
+  showConversionWarningsModal(warnings);
+ }
+
+ if (titleLbl) {
+  if (warnings.length > 0) {
+   titleLbl.innerHTML = '⚠️ Conversion Complete with ' + warnings.length + ' Warning(s)';
+   titleLbl.style.color = '#f87171';
+  } else {
+   titleLbl.innerHTML = '✅ Conversion Successful!';
+   titleLbl.style.color = '#00f5d4';
+  }
+ }
  if (countLbl) countLbl.textContent = keys.length + ' levels generated';
  if (previewBox) previewBox.textContent = JSON.stringify(convertedJSONData, null, 2);
  if (container) container.style.display = 'block';
@@ -1078,6 +1176,11 @@ function processFile(f){
     levelKeys = Object.keys(puzzleData).sort(function(a,b){ var na = Number(a), nb = Number(b); if (!isNaN(na) && !isNaN(nb)) return na - nb; return a.localeCompare(b); });
     document.getElementById('upload-text').textContent = '✅ Converted ' + f.name + ' · ' + levelKeys.length + ' levels';
     checkStartButtonState();
+
+    var warnings = checkDatasetForWarnings(puzzleData, currentMode);
+    if (warnings.length > 0) {
+     showConversionWarningsModal(warnings);
+    }
    } catch(err) { alert('CSV Conversion Error: ' + err.message); }
   };
   r.readAsText(f);
@@ -1096,6 +1199,11 @@ function processFile(f){
    levelKeys = Object.keys(puzzleData).sort(function(a,b){ var na = Number(a), nb = Number(b); if (!isNaN(na) && !isNaN(nb)) return na - nb; return a.localeCompare(b); });
    document.getElementById('upload-text').textContent = '✅ ' + f.name + ' · ' + levelKeys.length + ' levels';
    checkStartButtonState();
+
+   var warnings = checkDatasetForWarnings(puzzleData, currentMode);
+   if (warnings.length > 0) {
+    showConversionWarningsModal(warnings);
+   }
   } catch(err) { alert('Invalid JSON: ' + err.message); }
  };
  r.readAsText(f);

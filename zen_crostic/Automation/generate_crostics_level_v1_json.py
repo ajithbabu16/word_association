@@ -134,13 +134,18 @@ def load_file(path: Path) -> OrderedDict[str, dict]:
 
         clues = []
         for index in clue_indexes:
-            question = (row.get(f"Q{index}") or "").strip()
-            clue_answer = (row.get(f"A{index}") or "").strip()
-            clue_puzzle = (row.get(f"Puzzle {index}") or "").strip()
+            question = (row.get(f"Q{index}") or row.get(f"Q {index}") or "").strip()
+            clue_answer = (row.get(f"A{index}") or row.get(f"A {index}") or "").strip()
+            clue_puzzle = (row.get(f"Puzzle {index}") or row.get(f"Puzzle{index}") or "").strip()
             if not question and not clue_answer:
                 continue
-            if not question or not clue_answer:
-                raise ContentError(f"row {row_number}: Q{index}/A{index} must both be present")
+            if not clue_answer:
+                print(f"Warning: Level {level} Q{index} has question {question!r} but answer A{index} is missing; skipping clue")
+                continue
+            if not question:
+                print(f"Warning: Level {level} clue {index} has answer {clue_answer!r} but question Q{index} is empty; preserving clue with empty question")
+            if not clue_puzzle or clue_puzzle.startswith(("#ERROR", "#REF")):
+                clue_puzzle = "".join("_" if char.isascii() and char.isalpha() else char for char in clue_answer)
             clue = convert_text(clue_answer, clue_puzzle, row_number, f"A{index}")
             clues.append({"question": question, **clue})
 

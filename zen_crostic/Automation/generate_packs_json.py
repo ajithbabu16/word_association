@@ -8,7 +8,8 @@ Theme, Author, Phrase, Puzzle, Q1, A1, Puzzle 1, Q2, A2, Puzzle 2, ...
 This script:
 1. Parses Packs CSV or XLSX files
 2. Converts phrase and clue masks (_ = blank, @ = locks1, # = locks2, $ = cloak)
-3. Outputs JSON format: {"sceneName": theme, "puzzles": {"1": {...}, "2": {...}}}
+3. Keeps clues with answer even if question is empty ("")
+4. Outputs JSON format: {"sceneName": theme, "puzzles": {"1": {...}, "2": {...}}}
 """
 
 from __future__ import annotations
@@ -93,24 +94,33 @@ def convert_text(display: str, masked: str, row_number: int, field: str) -> dict
     return result
 
 
-def convert_clues(row: dict[str, str], clue_indexes: list[int], row_number: int) -> list[dict]:
+def convert_clues(row: dict[str, str], clue_indexes: list[int], row_number: int, level_num: str = "") -> list[dict]:
     """Convert QN/AN/Puzzle N clue triples into clue objects."""
     clues = []
+    lvl_lbl = f"Level {level_num}" if level_num else f"row {row_number}"
+
     for index in clue_indexes:
-        question = (row.get(f"Q{index}") or "").strip()
-        answer = (row.get(f"A{index}") or "").strip()
+        question = (row.get(f"Q{index}") or row.get(f"Q {index}") or "").strip()
+        answer = (row.get(f"A{index}") or row.get(f"A {index}") or "").strip()
         masked = (row.get(f"Puzzle {index}") or row.get(f"Puzzle{index}") or "").strip()
+
         if not question and not answer:
             continue
-        if not question or not answer:
-            print(f"Warning: row {row_number} Q{index}/A{index} is incomplete; skipping clue")
+
+        if not answer:
+            print(f"Warning: {lvl_lbl} Q{index} has question {question!r} but answer A{index} is missing; skipping clue")
             continue
+
+        if not question:
+            print(f"Warning: {lvl_lbl} clue {index} has answer {answer!r} but question Q{index} is empty; preserving clue with empty question")
+
         if not masked or masked.startswith(("#ERROR", "#REF")):
             masked = "".join("_" if char.isascii() and char.isalpha() else char for char in answer)
-            print(f"Warning: row {row_number} Puzzle {index} is invalid; using fully masked clue")
+
         clues.append({"question": question, **convert_text(answer, masked, row_number, f"A{index}")})
+
     if not clues:
-        raise ContentError(f"row {row_number}: no clues found")
+        raise ContentError(f"{lvl_lbl}: no valid clues found")
     return clues
 
 
@@ -131,7 +141,7 @@ def load_pack_csv(path: Path) -> dict:
         {
             int(match.group(1))
             for name in header
-            if name and (match := re.fullmatch(r"Q(\d+)", name))
+            if name and (match := re.fullmatch(r"Q\s*(\d+)", name))
         }
     )
 
@@ -148,11 +158,11 @@ def load_pack_csv(path: Path) -> dict:
         if row_theme and not theme_name:
             theme_name = row_theme
 
+        level_key = str(len(puzzles) + 1)
         author = row.get("Author", "").strip()
         phrase = convert_text(row["Phrase"], row["Puzzle"], row_number, "Phrase")
-        clues = convert_clues(row, clue_indexes, row_number)
+        clues = convert_clues(row, clue_indexes, row_number, level_num=level_key)
 
-        level_key = str(len(puzzles) + 1)
         puzzle_entry: dict = {
             "phrase": phrase,
             "clues": clues,
