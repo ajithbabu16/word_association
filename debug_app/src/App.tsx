@@ -177,9 +177,21 @@ function StackedCategoryPill({ formed, total, isAnimating }: { formed: number; t
 }
 
 export default function App() {
+  const getInitialMode = (): 'daily' | 'main' | 'prefab' | 'special' | 'testcase' | 'json_compare' => {
+    const params = new URLSearchParams(window.location.search);
+    const mode = params.get('mode');
+    if (mode === 'prefab' || mode === 'main' || mode === 'daily' || mode === 'special' || mode === 'testcase' || mode === 'json_compare') {
+      return mode;
+    }
+    return 'daily';
+  };
+
+  const initialMode = getInitialMode();
+  const hasUrlMode = new URLSearchParams(window.location.search).has('mode');
+
   // Active Mode: 'daily' | 'main' | 'prefab' | 'special' | 'testcase' | 'json_compare'
-  const [activeMode, setActiveMode] = useState<'daily' | 'main' | 'prefab' | 'special' | 'testcase' | 'json_compare'>('daily');
-  const [showModeModal, setShowModeModal] = useState<boolean>(true);
+  const [activeMode, setActiveMode] = useState<'daily' | 'main' | 'prefab' | 'special' | 'testcase' | 'json_compare'>(initialMode);
+  const [showModeModal, setShowModeModal] = useState<boolean>(!hasUrlMode);
   const [isPillAnimating, setIsPillAnimating] = useState<boolean>(false);
 
   // Daily Puzzle States
