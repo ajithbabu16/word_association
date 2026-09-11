@@ -456,7 +456,7 @@ body{
  </div>
 </div>
 
-<div class="overlay" id="overlay" style="display:none;">
+<div class="overlay" id="overlay" style="display:none;" onclick="hideOv()">
  <div class="ov-card">
   <div class="ov-emoji" id="ov-e">&#127881;</div>
   <div class="ov-title" id="ov-t">Level Complete!</div>
@@ -686,6 +686,7 @@ function convertCSVClientSide(text, mode) {
 
  var headers = rows[headerRowIndex].map(function(h){ return h.trim(); });
  var puzzles = {};
+ var packTheme = "";
 
  for (var r = headerRowIndex + 1; r < rows.length; r++) {
   var rowVals = rows[r];
@@ -724,16 +725,42 @@ function convertCSVClientSide(text, mode) {
     solv: 0.0
    };
   } else if (mode === 'packs') {
-   var themeVal = (rowObj['Theme'] || 'Pack').trim();
-   var phraseText = rowObj['Complete Phrase'] || rowObj['Phrase'] || '';
+   var themeVal = (rowObj['Theme'] || '').trim();
+   if (themeVal && !packTheme) packTheme = themeVal;
+
+   var phraseText = rowObj['Phrase'] || rowObj['Complete Phrase'] || '';
    var puzText = rowObj['Puzzle'] || '';
    var phraseObj = parseMaskedText(phraseText, puzText || phraseText);
-   var key = (rowObj['Level_Number'] || rowObj['Level'] || (r - headerRowIndex)).toString().trim();
-   puzzles[key] = {
+
+   var clues = [];
+   for (var i = 1; i <= 15; i++) {
+    var q = (rowObj['Q' + i] || '').trim();
+    var a = (rowObj['A' + i] || '').trim();
+    var puz = (rowObj['Puzzle ' + i] || rowObj['Puzzle' + i] || '').trim();
+    if (!q && !a) continue;
+    var maskedClue = parseMaskedText(a, puz || a);
+    var clueObj = {
+     question: q,
+     display: maskedClue.display,
+     phrase: maskedClue.phrase,
+     answer: maskedClue.answer
+    };
+    if (maskedClue.locks1) clueObj.locks1 = maskedClue.locks1;
+    if (maskedClue.locks2) clueObj.locks2 = maskedClue.locks2;
+    if (maskedClue.cloak) clueObj.cloak = maskedClue.cloak;
+    clues.push(clueObj);
+   }
+
+   var key = (Object.keys(puzzles).length + 1).toString();
+   var puzzleEntry = {
     phrase: phraseObj,
-    author: (rowObj['About phrase'] || rowObj['Author'] || '').trim(),
-    desc: (rowObj['Desc'] || '').trim()
+    clues: clues,
+    solv: 0.0
    };
+   var authorVal = (rowObj['Author'] || rowObj['About phrase'] || '').trim();
+   if (authorVal) puzzleEntry.author = authorVal;
+
+   puzzles[key] = puzzleEntry;
   } else {
    var lvlNum = (rowObj['Level_Number'] || rowObj['Level'] || (r - headerRowIndex)).trim();
    if (!lvlNum) continue;
@@ -785,12 +812,19 @@ function convertCSVClientSide(text, mode) {
   }
  }
 
+ if (mode === 'packs') {
+  return {
+   sceneName: packTheme || "Pack",
+   puzzles: puzzles
+  };
+ }
+
  return puzzles;
 }
 
 function displayConvertedJSONResult(data) {
  convertedJSONData = data;
- var keys = Object.keys(convertedJSONData);
+ var keys = (data && data.puzzles) ? Object.keys(data.puzzles) : Object.keys(convertedJSONData || {});
  var countLbl = document.getElementById('convert-result-count');
  var titleLbl = document.getElementById('convert-result-title');
  var previewBox = document.getElementById('convert-json-preview');
@@ -937,6 +971,24 @@ function selectAutomationMode(mode) {
  }
 }
 
+function extractPuzzlesMap(raw) {
+ if (!raw || typeof raw !== 'object') return {};
+ if (raw.puzzles && typeof raw.puzzles === 'object') {
+  return raw.puzzles;
+ }
+ var keys = Object.keys(raw);
+ if (keys.length > 0 && raw[keys[0]] && typeof raw[keys[0]] === 'object' && raw[keys[0]].puzzles) {
+  var combined = {};
+  keys.forEach(function(k) {
+   if (raw[k] && raw[k].puzzles && typeof raw[k].puzzles === 'object') {
+    Object.assign(combined, raw[k].puzzles);
+   }
+  });
+  return combined;
+ }
+ return raw;
+}
+
 function loadDefaultPresetJSON() {
  var fileMap = {
   main: 'zen_crostic/Automation/level_v1.json',
@@ -956,7 +1008,7 @@ function loadDefaultPresetJSON() {
  fetch(fileToFetch)
   .then(function(res){ return res.json(); })
   .then(function(data){
-   puzzleData = data;
+   puzzleData = extractPuzzlesMap(data);
    levelKeys = Object.keys(puzzleData).sort(function(a,b){ var na = Number(a), nb = Number(b); if (!isNaN(na) && !isNaN(nb)) return na - nb; return a.localeCompare(b); });
    document.getElementById('upload-text').textContent = '✅ Preloaded default ' + filename + ' · ' + levelKeys.length + ' levels';
    checkStartButtonState();
@@ -1013,16 +1065,38 @@ function handleImageFilesList(files) {
 
 function handleDrop(e){e.preventDefault();document.getElementById('upload-zone').classList.remove('over');if(e.dataTransfer.files[0])processFile(e.dataTransfer.files[0]);}
 function handleFileSelect(e){if(e.target.files[0])processFile(e.target.files[0]);}
+
 function processFile(f){
- if(!f.name.endsWith('.json')){alert('Please upload a .json file');return;}
- var r=new FileReader();
- r.onload=function(ev){
-  try{
-   puzzleData=JSON.parse(ev.target.result);
-   levelKeys=Object.keys(puzzleData).sort(function(a,b){return Number(a)-Number(b);});
-   document.getElementById('upload-text').textContent='✅ '+f.name+' · '+levelKeys.length+' levels';
+ var fname = f.name.toLowerCase();
+ var r = new FileReader();
+
+ if (fname.endsWith('.csv')) {
+  r.onload = function(ev) {
+   try {
+    var converted = convertCSVClientSide(ev.target.result, currentMode);
+    puzzleData = extractPuzzlesMap(converted);
+    levelKeys = Object.keys(puzzleData).sort(function(a,b){ var na = Number(a), nb = Number(b); if (!isNaN(na) && !isNaN(nb)) return na - nb; return a.localeCompare(b); });
+    document.getElementById('upload-text').textContent = '✅ Converted ' + f.name + ' · ' + levelKeys.length + ' levels';
+    checkStartButtonState();
+   } catch(err) { alert('CSV Conversion Error: ' + err.message); }
+  };
+  r.readAsText(f);
+  return;
+ }
+
+ if (!fname.endsWith('.json')) {
+  alert('Please upload a .json or .csv file');
+  return;
+ }
+
+ r.onload = function(ev) {
+  try {
+   var parsed = JSON.parse(ev.target.result);
+   puzzleData = extractPuzzlesMap(parsed);
+   levelKeys = Object.keys(puzzleData).sort(function(a,b){ var na = Number(a), nb = Number(b); if (!isNaN(na) && !isNaN(nb)) return na - nb; return a.localeCompare(b); });
+   document.getElementById('upload-text').textContent = '✅ ' + f.name + ' · ' + levelKeys.length + ' levels';
    checkStartButtonState();
-  }catch(err){alert('Invalid JSON: '+err.message);}
+  } catch(err) { alert('Invalid JSON: ' + err.message); }
  };
  r.readAsText(f);
 }
@@ -1624,9 +1698,34 @@ function completeLvl(isSuccess, missingChars){
    renderLevel();
    startAuto();
   }else{
-   showOv('🏆','All Done!',levelKeys.length+' levels completed!');
+   stopAuto();
+   hideOv();
+   showCompletionBanner();
   }
- },1800);
+ },1500);
+}
+
+function showCompletionBanner() {
+ hideOv();
+ var statusBanner = document.getElementById('auto-complete-banner');
+ if (!statusBanner) {
+  statusBanner = document.createElement('div');
+  statusBanner.id = 'auto-complete-banner';
+  statusBanner.style.cssText = 'background:linear-gradient(135deg, rgba(0,245,212,0.18), rgba(124,58,237,0.25));border:1px solid #00f5d4;border-radius:14px;padding:14px 22px;margin-bottom:1.5rem;display:flex;align-items:center;justify-content:space-between;color:#fff;box-shadow:0 10px 30px rgba(0,245,212,0.15);width:100%;box-sizing:border-box;';
+  var mainContainer = document.querySelector('.auto-main') || document.getElementById('screen-auto');
+  if (mainContainer) mainContainer.insertBefore(statusBanner, mainContainer.firstChild);
+ }
+ var doneCount = historyData.filter(function(h){return h.s==='Done';}).length;
+
+ statusBanner.innerHTML = '<div style="display:flex;align-items:center;gap:14px;">' +
+  '<div style="font-size:2rem;">🏆</div>' +
+  '<div>' +
+  '<div style="font-weight:800;font-size:1.15rem;color:#00f5d4;">Automation Complete! ' + doneCount + '/' + levelKeys.length + ' Levels Processed</div>' +
+  '<div style="font-size:0.82rem;color:rgba(255,255,255,0.75);margin-top:2px;">All levels processed. Click any row in <strong>Level History</strong> or use the top control strip to inspect Live Board, Errors, & Graphs.</div>' +
+  '</div>' +
+  '</div>' +
+  '<button onclick="this.parentElement.style.display=\'none\'" style="background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);color:#fff;padding:6px 14px;border-radius:8px;cursor:pointer;font-size:0.8rem;font-weight:700;margin-left:1rem;">✕ Dismiss</button>';
+ statusBanner.style.display = 'flex';
 }
 
 function updateHistory(){
@@ -1639,6 +1738,19 @@ function updateHistory(){
   var stBadge = isDone 
    ? '<span style="color:#00f5d4;font-weight:700;">✅ Done</span>'
    : '<span style="color:#ff4d4d;font-weight:700;" title="' + (h.reason || '') + '">❌ Incomplete</span>';
+  row.style.cursor = 'pointer';
+  row.title = 'Click to inspect Level ' + h.level + ' in Live View';
+  row.onclick = function() {
+   var idx = levelKeys.indexOf(h.level);
+   if (idx !== -1) {
+    stopAuto();
+    curLvl = idx;
+    curClue = 0;
+    revStep = 0;
+    initLevelState();
+    renderLevel();
+   }
+  };
   row.innerHTML='<td><strong>Level '+h.level+'</strong></td><td style="color:var(--muted);font-size:.75rem;max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">'+h.phrase+'</td><td>'+h.clues+'</td><td>'+stBadge+'</td>';
   body.appendChild(row);
  });

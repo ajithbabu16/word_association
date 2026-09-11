@@ -1,5 +1,15 @@
 #!/usr/bin/env python3
-"""Convert the Packs content CSV into deterministic Cocos bundle data files."""
+"""Generate Packs resource JSON from authored CSV or XLSX.
+
+The CSV has columns:
+Theme, Author, Phrase, Puzzle, Q1, A1, Puzzle 1, Q2, A2, Puzzle 2, ...
+(and optional extra columns like Total words in quote, Total words).
+
+This script:
+1. Parses Packs CSV or XLSX files
+2. Converts phrase and clue masks (_ = blank, @ = locks1, # = locks2, $ = cloak)
+3. Outputs JSON format: {"sceneName": theme, "puzzles": {"1": {...}, "2": {...}}}
+"""
 
 from __future__ import annotations
 
@@ -10,147 +20,195 @@ import re
 from collections import OrderedDict
 from pathlib import Path
 
-
-THEME_PATTERN = re.compile(r"^(?P<name>.+?)\s+-\s+(?P<number>\d+)$")
-MASKS = {"_", "@", "#"}
+MASKS = {"_", "@", "#", "$"}
 
 
 class ContentError(ValueError):
     pass
 
 
-def find_header(rows: list[list[str]]) -> int:
-    required = {"Theme", "Complete Phrase", "Puzzle", "About phrase"}
+def find_header(rows: list[list[str]]) -> tuple[int, list[str]]:
+    """Find header row containing required Packs columns."""
+    required = {"Theme", "Phrase", "Puzzle", "Q1", "A1"}
     for index, row in enumerate(rows):
-        if required.issubset({cell.strip() for cell in row}):
-            return index
+        normalized = {cell.strip() if cell else "" for cell in row}
+        if required.issubset(normalized):
+            return index, [cell.strip() if cell else "" for cell in row]
     raise ContentError(f"CSV is missing required headers: {sorted(required)}")
 
 
-def convert_puzzle(complete: str, masked: str, row_number: int) -> dict:
-    if len(complete) != len(masked):
+def convert_text(display: str, masked: str, row_number: int, field: str) -> dict:
+    """Convert display text and masked puzzle text into game text structure."""
+    display = display.strip()
+    masked = masked.strip()
+    if not display:
+        raise ContentError(f"row {row_number}: {field} is empty")
+    if not masked or masked.startswith('#ERROR') or masked.startswith('#REF'):
+        raise ContentError(f"row {row_number}: Puzzle for {field} contains error or is empty: {masked!r}")
+    if len(display) != len(masked):
         raise ContentError(
-            f"row {row_number}: Complete Phrase and Puzzle lengths differ "
-            f"({len(complete)} != {len(masked)})"
+            f"row {row_number}: {field} and its Puzzle length differ "
+            f"({len(display)} != {len(masked)}): {display!r} vs {masked!r}"
         )
 
-    phrase: list[str] = []
-    answer: list[str] = []
+    phrase_chars: list[str] = []
     locks1: list[int] = []
     locks2: list[int] = []
+    cloak: list[int] = []
     blank_index = 0
 
-    for char_index, (complete_char, masked_char) in enumerate(zip(complete, masked)):
+    for char_index, (display_char, masked_char) in enumerate(zip(display, masked)):
         if masked_char in MASKS:
-            phrase.append("_")
-            answer.append(complete_char)
+            phrase_chars.append("_")
             if masked_char == "@":
                 locks1.append(blank_index)
             elif masked_char == "#":
                 locks2.append(blank_index)
+            elif masked_char == "$":
+                cloak.append(blank_index)
             blank_index += 1
         else:
-            if complete_char.casefold() != masked_char.casefold():
+            if display_char.casefold() != masked_char.casefold():
                 raise ContentError(
-                    f"row {row_number}, character {char_index + 1}: visible character "
-                    f"{masked_char!r} does not match {complete_char!r}"
+                    f"row {row_number}, {field} character {char_index + 1}: "
+                    f"visible character {masked_char!r} does not match {display_char!r}"
                 )
-            phrase.append(masked_char)
+            phrase_chars.append(masked_char)
 
+    answer = "".join(char.upper() for char in display if char.isalpha() and char.isascii())
     if not answer:
-        raise ContentError(f"row {row_number}: puzzle has no missing letters")
+        raise ContentError(f"row {row_number}: {field} has no ASCII letters")
 
-    return {
-        "phrase": "".join(phrase),
-        "answer": "".join(answer),
-        "locks1": locks1,
-        "locks2": locks2,
+    result: dict = {
+        "display": display,
+        "phrase": "".join(phrase_chars),
+        "answer": answer,
     }
-
-
-def load_packs(csv_path: Path) -> list[tuple[str, OrderedDict[str, dict]]]:
-    if csv_path.suffix.lower() in ['.xlsx', '.xls']:
-        import pandas as pd
-        df = pd.read_excel(csv_path)
-        rows = [df.columns.values.tolist()] + df.fillna("").values.tolist()
-        rows = [[str(cell) for cell in row] for row in rows]
-    else:
-        with csv_path.open(newline="", encoding="utf-8-sig") as handle:
-            rows = list(csv.reader(handle))
-
-    header_index = find_header(rows)
-    header = [cell.strip() for cell in rows[header_index]]
-    groups: OrderedDict[str, OrderedDict[str, dict]] = OrderedDict()
-
-    for row_number, values in enumerate(rows[header_index + 1 :], header_index + 2):
-        if not any(cell.strip() for cell in values):
-            continue
-        values += [""] * (len(header) - len(values))
-        row = dict(zip(header, values))
-        raw_theme = row["Theme"].strip()
-        match = THEME_PATTERN.fullmatch(raw_theme)
-        if not match:
-            # Fallback for themes without trailing "- number"
-            theme_name = raw_theme
-            puzzle_number = len(groups.get(theme_name, {})) + 1
-        else:
-            theme_name = match.group("name").strip()
-            puzzle_number = int(match.group("number"))
-
-        puzzles = groups.setdefault(theme_name, OrderedDict())
-        puzzle_key = str(puzzle_number)
-
-        puzzle = convert_puzzle(
-            row["Complete Phrase"], row["Puzzle"], row_number
-        )
-        puzzle["author"] = row.get("About phrase", "").strip()
-        puzzle["desc"] = ""
-        puzzles[puzzle_key] = puzzle
-
-    if not groups:
-        raise ContentError("File contains no Packs puzzles")
-
-    result: list[tuple[str, OrderedDict[str, dict]]] = []
-    for theme_name, puzzles in groups.items():
-        result.append((theme_name, puzzles))
+    if locks1:
+        result["locks1"] = locks1
+    if locks2:
+        result["locks2"] = locks2
+    if cloak:
+        result["cloak"] = cloak
     return result
 
 
-def write_packs(packs: list[tuple[str, OrderedDict[str, dict]]], output_dir: Path) -> None:
-    for event_id, (theme_name, puzzles) in enumerate(packs, 1):
-        data_dir = output_dir / f"packs_{event_id}_v1" / "Data"
-        data_dir.mkdir(parents=True, exist_ok=True)
-        output_path = data_dir / "data.json"
-        with output_path.open("w", encoding="utf-8") as handle:
-            json.dump({"sceneName": theme_name, "puzzles": puzzles}, handle, indent=2)
-            handle.write("\n")
-        print(f"generated {output_path} ({theme_name}, {len(puzzles)} puzzles)")
+def convert_clues(row: dict[str, str], clue_indexes: list[int], row_number: int) -> list[dict]:
+    """Convert QN/AN/Puzzle N clue triples into clue objects."""
+    clues = []
+    for index in clue_indexes:
+        question = (row.get(f"Q{index}") or "").strip()
+        answer = (row.get(f"A{index}") or "").strip()
+        masked = (row.get(f"Puzzle {index}") or row.get(f"Puzzle{index}") or "").strip()
+        if not question and not answer:
+            continue
+        if not question or not answer:
+            print(f"Warning: row {row_number} Q{index}/A{index} is incomplete; skipping clue")
+            continue
+        if not masked or masked.startswith(("#ERROR", "#REF")):
+            masked = "".join("_" if char.isascii() and char.isalpha() else char for char in answer)
+            print(f"Warning: row {row_number} Puzzle {index} is invalid; using fully masked clue")
+        clues.append({"question": question, **convert_text(answer, masked, row_number, f"A{index}")})
+    if not clues:
+        raise ContentError(f"row {row_number}: no clues found")
+    return clues
+
+
+def load_pack_csv(path: Path) -> dict:
+    """Load CSV or XLSX file and extract Packs level data."""
+    if path.suffix.lower() in ['.xlsx', '.xls']:
+        import pandas as pd
+        df = pd.read_excel(path)
+        rows = [df.columns.values.tolist()] + df.fillna("").values.tolist()
+        rows = [[str(cell) for cell in row] for row in rows]
+    else:
+        with path.open(newline="", encoding="utf-8-sig") as handle:
+            rows = list(csv.reader(handle))
+
+    header_index, header = find_header(rows)
+
+    clue_indexes = sorted(
+        {
+            int(match.group(1))
+            for name in header
+            if name and (match := re.fullmatch(r"Q(\d+)", name))
+        }
+    )
+
+    puzzles: OrderedDict[str, dict] = OrderedDict()
+    theme_name = ""
+
+    for row_number, values in enumerate(rows[header_index + 1:], header_index + 2):
+        if not any(cell.strip() for cell in values):
+            continue
+        values = values + [""] * (len(header) - len(values))
+        row = dict(zip(header, values))
+
+        row_theme = row.get("Theme", "").strip()
+        if row_theme and not theme_name:
+            theme_name = row_theme
+
+        author = row.get("Author", "").strip()
+        phrase = convert_text(row["Phrase"], row["Puzzle"], row_number, "Phrase")
+        clues = convert_clues(row, clue_indexes, row_number)
+
+        level_key = str(len(puzzles) + 1)
+        puzzle_entry: dict = {
+            "phrase": phrase,
+            "clues": clues,
+            "solv": 0.0,
+        }
+        if author:
+            puzzle_entry["author"] = author
+
+        puzzles[level_key] = puzzle_entry
+
+    if not puzzles:
+        raise ContentError("CSV contains no valid pack puzzles")
+
+    return {
+        "sceneName": theme_name if theme_name else "Pack",
+        "puzzles": puzzles,
+    }
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(
-        description="Generate packs_N_v1/Data/data.json files from Packs CSV or XLSX."
-    )
-    parser.add_argument("csv_path", type=Path)
-    parser.add_argument("output_path", nargs="?", type=Path, default=None)
-    parser.add_argument("--output-dir", required=False, type=Path, default=None)
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("csv_path", type=Path, help="Packs Level CSV or XLSX")
+    parser.add_argument("output_path", type=Path, nargs="?", help="Output JSON file or target directory")
+    parser.add_argument("--pack-id", type=int, default=1, help="Pack bundle ID (default: 1)")
+    parser.add_argument("--packs-output", type=Path, help="Base directory for asset bundles")
     args = parser.parse_args()
 
     try:
-        packs = load_packs(args.csv_path)
+        pack_data = load_pack_csv(args.csv_path)
+
         if args.output_path:
-            args.output_path.parent.mkdir(parents=True, exist_ok=True)
-            combined_packs = {}
-            for idx, (theme_name, puzzles) in enumerate(packs, 1):
-                combined_packs[f"pack_{idx}"] = {"sceneName": theme_name, "puzzles": puzzles}
-            with args.output_path.open("w", encoding="utf-8") as handle:
-                json.dump(combined_packs, handle, ensure_ascii=False, indent=2)
+            out_path = args.output_path
+            if out_path.suffix.lower() == ".json" or not out_path.is_dir():
+                out_path.parent.mkdir(parents=True, exist_ok=True)
+                target_file = out_path
+            else:
+                out_path.mkdir(parents=True, exist_ok=True)
+                target_file = out_path / "packs_data.json"
+
+            with target_file.open("w", encoding="utf-8") as handle:
+                json.dump(pack_data, handle, ensure_ascii=False, indent=2)
                 handle.write("\n")
-            print(f"generated {args.output_path}")
-        elif args.output_dir:
-            write_packs(packs, args.output_dir)
-        else:
-            parser.error("provide output_path or --output-dir")
+            print(f"Generated {target_file} ({len(pack_data['puzzles'])} puzzles)")
+
+        if args.packs_output:
+            bundle_dir = args.packs_output / f"packs_{args.pack_id}_v1" / "Data"
+            bundle_dir.mkdir(parents=True, exist_ok=True)
+            bundle_file = bundle_dir / "data.json"
+            with bundle_file.open("w", encoding="utf-8") as handle:
+                json.dump(pack_data, handle, ensure_ascii=False, indent=2)
+                handle.write("\n")
+            print(f"Generated {bundle_file} ({len(pack_data['puzzles'])} puzzles)")
+
+        if not args.output_path and not args.packs_output:
+            print(json.dumps(pack_data, ensure_ascii=False, indent=2))
+
     except (ContentError, OSError, csv.Error) as error:
         raise SystemExit(f"error: {error}")
 
