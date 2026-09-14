@@ -30,7 +30,7 @@ export function ensurePieceUuids(pieces: CutPieceResult[]) {
       piece.textureUuid = generateUUID();
     }
     if (!piece.spriteFrameUuid) {
-      piece.spriteFrameUuid = generateUUID();
+      piece.spriteFrameUuid = `${piece.textureUuid}@f9941`;
     }
   });
 }
@@ -411,7 +411,7 @@ export function generateCocos2xPrefab(
  */
 export function generateTextureMeta(piece: CutPieceResult): { metaContent: string; uuid: string } {
   const texUuid = piece.textureUuid || generateUUID();
-  const sfUuid = piece.spriteFrameUuid || generateUUID();
+  const sfUuid = piece.spriteFrameUuid || `${texUuid}@f9941`;
 
   const metaObj = {
     "ver": "1.0.22",

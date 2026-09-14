@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Upload, FileImage, Settings, Play, CheckCircle2, Loader2, Sparkles, FolderDown, Scissors, Grid, Circle, Puzzle, Layers, Triangle } from 'lucide-react';
+import { Upload, FileImage, Settings, Play, CheckCircle2, Loader2, Sparkles, FolderDown, Scissors, Grid, Circle, Puzzle, Layers, Triangle, Eye, Search, Maximize2, X, Download, Sliders, LayoutGrid, Check } from 'lucide-react';
 import JSZip from 'jszip';
 import { readPsd } from 'ag-psd';
 import {
@@ -67,7 +67,28 @@ export function PrefabCreationView() {
   const [extractedPieces, setExtractedPieces] = useState<CutPieceResult[]>([]);
   const [hoveredPieceId, setHoveredPieceId] = useState<string | null>(null);
 
+  // Gallery View & Modal States
+  const [galleryBg, setGalleryBg] = useState<'checkered_dark' | 'checkered_light' | 'dark' | 'light'>('checkered_dark');
+  const [cardSize, setCardSize] = useState<'compact' | 'medium' | 'large'>('medium');
+  const [searchQuery, setSearchQuery] = useState<string>('');
+  const [selectedPieceForModal, setSelectedPieceForModal] = useState<CutPieceResult | null>(null);
+
+  // Reassembled Full Image & Exploded Assembly Preview Modes
+  const [previewMode, setPreviewMode] = useState<'reassembled' | 'exploded' | 'source_overlay' | 'source_only'>('source_overlay');
+  const [explodedGap, setExplodedGap] = useState<number>(14);
+  const [showPieceBorders, setShowPieceBorders] = useState<boolean>(true);
+
   const previewCanvasRef = useRef<HTMLCanvasElement | null>(null);
+
+  // Download a single piece PNG file
+  const handleDownloadSinglePiece = (piece: CutPieceResult) => {
+    const a = document.createElement('a');
+    a.href = piece.dataUrl;
+    a.download = `${piece.name}.png`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  };
 
   // Handle File Upload (.psd, .png, .jpg, .webp)
   const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -201,6 +222,7 @@ export function PrefabCreationView() {
       }
 
       setExtractedPieces(pieces);
+      setPreviewMode('reassembled');
       setProgress(100);
       setStatus(`Shape Cutting Complete! ${pieces.length} shaped asset pieces generated.`);
       setIsProcessing(false);
@@ -286,7 +308,7 @@ export function PrefabCreationView() {
     URL.revokeObjectURL(url);
   };
 
-  // Render visual preview canvas with overlay bounding boxes
+  // Render visual preview canvas (Reassembled Pieces, Exploded View, Wireframe Overlay, or Source Image)
   useEffect(() => {
     if (!sourceCanvas || !previewCanvasRef.current) return;
     const canvas = previewCanvasRef.current;
@@ -295,24 +317,90 @@ export function PrefabCreationView() {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    // Draw source background
-    ctx.drawImage(sourceCanvas, 0, 0);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Draw overlay boxes for extracted pieces
-    if (extractedPieces.length > 0) {
-      extractedPieces.forEach((piece) => {
-        const isHovered = piece.id === hoveredPieceId;
-        ctx.strokeStyle = isHovered ? '#10b981' : 'rgba(59, 130, 246, 0.7)';
-        ctx.lineWidth = isHovered ? 4 : 2;
-        ctx.strokeRect(piece.x, piece.y, piece.width, piece.height);
-
-        if (isHovered) {
-          ctx.fillStyle = 'rgba(16, 185, 129, 0.2)';
-          ctx.fillRect(piece.x, piece.y, piece.width, piece.height);
-        }
-      });
+    // 1. Raw Source Image Only
+    if (previewMode === 'source_only') {
+      ctx.drawImage(sourceCanvas, 0, 0);
+      return;
     }
-  }, [sourceCanvas, extractedPieces, hoveredPieceId]);
+
+    // 2. Wireframe Overlay Mode (Original image + cut outlines)
+    if (previewMode === 'source_overlay' || extractedPieces.length === 0) {
+      ctx.drawImage(sourceCanvas, 0, 0);
+
+      if (extractedPieces.length > 0) {
+        extractedPieces.forEach((piece) => {
+          const isHovered = piece.id === hoveredPieceId;
+          ctx.strokeStyle = isHovered ? '#10b981' : 'rgba(59, 130, 246, 0.75)';
+          ctx.lineWidth = isHovered ? 4 : 2;
+          ctx.strokeRect(piece.x, piece.y, piece.width, piece.height);
+
+          if (isHovered) {
+            ctx.fillStyle = 'rgba(16, 185, 129, 0.25)';
+            ctx.fillRect(piece.x, piece.y, piece.width, piece.height);
+          }
+        });
+      }
+      return;
+    }
+
+    // 3. Modes 'reassembled' and 'exploded' (Reconstructing full image using extracted piece canvases)
+    // Fill canvas background with subtle dark checkered pattern for transparent alpha transparency visibility
+    const patternCanvas = document.createElement('canvas');
+    patternCanvas.width = 16;
+    patternCanvas.height = 16;
+    const pCtx = patternCanvas.getContext('2d');
+    if (pCtx) {
+      pCtx.fillStyle = '#0f172a';
+      pCtx.fillRect(0, 0, 16, 16);
+      pCtx.fillStyle = '#1e293b';
+      pCtx.fillRect(0, 0, 8, 8);
+      pCtx.fillRect(8, 8, 8, 8);
+      const pattern = ctx.createPattern(patternCanvas, 'repeat');
+      if (pattern) {
+        ctx.fillStyle = pattern;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+      }
+    }
+
+    const centerX = canvas.width / 2;
+    const centerY = canvas.height / 2;
+
+    extractedPieces.forEach((piece) => {
+      const isHovered = piece.id === hoveredPieceId;
+      let drawX = piece.x;
+      let drawY = piece.y;
+
+      if (previewMode === 'exploded') {
+        const pCenterX = piece.x + piece.width / 2;
+        const pCenterY = piece.y + piece.height / 2;
+        const dirX = pCenterX - centerX;
+        const dirY = pCenterY - centerY;
+        const dist = Math.hypot(dirX, dirY) || 1;
+        drawX = piece.x + (dirX / dist) * explodedGap;
+        drawY = piece.y + (dirY / dist) * explodedGap;
+      }
+
+      // Draw the extracted cut piece onto the composite canvas!
+      if (piece.canvas) {
+        ctx.drawImage(piece.canvas, drawX, drawY);
+      }
+
+      // Draw piece seam outline borders
+      if (showPieceBorders || isHovered || previewMode === 'exploded') {
+        ctx.strokeStyle = isHovered ? '#10b981' : showPieceBorders ? 'rgba(255, 255, 255, 0.35)' : 'transparent';
+        ctx.lineWidth = isHovered ? 4 : 1.5;
+        ctx.strokeRect(drawX, drawY, piece.width, piece.height);
+      }
+
+      // Hover highlight overlay
+      if (isHovered) {
+        ctx.fillStyle = 'rgba(16, 185, 129, 0.3)';
+        ctx.fillRect(drawX, drawY, piece.width, piece.height);
+      }
+    });
+  }, [sourceCanvas, extractedPieces, hoveredPieceId, previewMode, explodedGap, showPieceBorders]);
 
   return (
     <div style={{
@@ -643,32 +731,118 @@ export function PrefabCreationView() {
         </div>
       )}
 
-      {/* Interactive Visual Canvas Preview & Piece Inspector */}
+      {/* Interactive Visual Canvas Preview & Quick Inspector */}
       {sourceCanvas && (
         <div style={{ marginTop: '28px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px' }}>
           
           {/* Visual Canvas Overlay Preview */}
-          <div style={{ backgroundColor: '#f8fafc', padding: '16px', borderRadius: '16px', border: '1px solid #e2e8f0' }}>
-            <h4 style={{ margin: '0 0 12px 0', fontSize: '15px', color: '#0f172a', fontWeight: 700 }}>
-              Live Shape Overlay Preview
-            </h4>
-            <div style={{ width: '100%', overflow: 'auto', textAlign: 'center', maxHeight: '420px' }}>
-              <canvas ref={previewCanvasRef} style={{ maxWidth: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }} />
+          <div style={{ backgroundColor: '#f8fafc', padding: '20px', borderRadius: '20px', border: '1px solid #e2e8f0' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '14px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <h4 style={{ margin: 0, fontSize: '16px', color: '#0f172a', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <Eye size={18} color="#10b981" /> Live Canvas & Piece Composite Preview
+                </h4>
+                <span style={{ fontSize: '12px', color: '#64748b', fontWeight: 600 }}>
+                  {sourceCanvas.width} x {sourceCanvas.height} px
+                </span>
+              </div>
+
+              {/* Preview Mode Switcher Buttons */}
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', alignItems: 'center' }}>
+                <button
+                  onClick={() => setPreviewMode('reassembled')}
+                  style={{
+                    padding: '6px 12px', borderRadius: '8px', border: `1.5px solid ${previewMode === 'reassembled' ? '#10b981' : '#cbd5e1'}`,
+                    backgroundColor: previewMode === 'reassembled' ? '#10b981' : '#ffffff',
+                    color: previewMode === 'reassembled' ? '#ffffff' : '#334155',
+                    fontSize: '12px', fontWeight: 700, cursor: 'pointer'
+                  }}
+                >
+                  🧩 Reassembled Full Image
+                </button>
+                <button
+                  onClick={() => setPreviewMode('exploded')}
+                  style={{
+                    padding: '6px 12px', borderRadius: '8px', border: `1.5px solid ${previewMode === 'exploded' ? '#10b981' : '#cbd5e1'}`,
+                    backgroundColor: previewMode === 'exploded' ? '#10b981' : '#ffffff',
+                    color: previewMode === 'exploded' ? '#ffffff' : '#334155',
+                    fontSize: '12px', fontWeight: 700, cursor: 'pointer'
+                  }}
+                >
+                  💥 Exploded Assembly
+                </button>
+                <button
+                  onClick={() => setPreviewMode('source_overlay')}
+                  style={{
+                    padding: '6px 12px', borderRadius: '8px', border: `1.5px solid ${previewMode === 'source_overlay' ? '#10b981' : '#cbd5e1'}`,
+                    backgroundColor: previewMode === 'source_overlay' ? '#10b981' : '#ffffff',
+                    color: previewMode === 'source_overlay' ? '#ffffff' : '#334155',
+                    fontSize: '12px', fontWeight: 700, cursor: 'pointer'
+                  }}
+                >
+                  📐 Wireframe Overlay
+                </button>
+                <button
+                  onClick={() => setPreviewMode('source_only')}
+                  style={{
+                    padding: '6px 12px', borderRadius: '8px', border: `1.5px solid ${previewMode === 'source_only' ? '#10b981' : '#cbd5e1'}`,
+                    backgroundColor: previewMode === 'source_only' ? '#10b981' : '#ffffff',
+                    color: previewMode === 'source_only' ? '#ffffff' : '#334155',
+                    fontSize: '12px', fontWeight: 700, cursor: 'pointer'
+                  }}
+                >
+                  🖼️ Source Image
+                </button>
+              </div>
+
+              {/* Secondary Options (Gap slider & Seam Outlines toggle) */}
+              {(previewMode === 'reassembled' || previewMode === 'exploded') && (
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', backgroundColor: '#ffffff', padding: '6px 12px', borderRadius: '8px', border: '1px solid #e2e8f0', fontSize: '12px' }}>
+                  <label style={{ display: 'flex', alignItems: 'center', gap: '6px', cursor: 'pointer', fontWeight: 600, color: '#334155' }}>
+                    <input
+                      type="checkbox"
+                      checked={showPieceBorders}
+                      onChange={(e) => setShowPieceBorders(e.target.checked)}
+                      style={{ width: '15px', height: '15px' }}
+                    />
+                    Show Piece Seam Outlines
+                  </label>
+
+                  {previewMode === 'exploded' && (
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <span style={{ fontWeight: 600, color: '#64748b' }}>Explode Gap: {explodedGap}px</span>
+                      <input
+                        type="range"
+                        min="2"
+                        max="50"
+                        value={explodedGap}
+                        onChange={(e) => setExplodedGap(parseInt(e.target.value))}
+                        style={{ width: '90px' }}
+                      />
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+
+            <div style={{ width: '100%', overflow: 'auto', textAlign: 'center', maxHeight: '420px', backgroundColor: '#0f172a', borderRadius: '12px', padding: '12px' }}>
+              <canvas ref={previewCanvasRef} style={{ maxWidth: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 8px 24px rgba(0,0,0,0.3)' }} />
             </div>
           </div>
 
-          {/* Piece Inspector Thumbnails Grid */}
-          <div style={{ backgroundColor: '#f8fafc', padding: '16px', borderRadius: '16px', border: '1px solid #e2e8f0', display: 'flex', flexDirection: 'column' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
-              <h4 style={{ margin: 0, fontSize: '15px', color: '#0f172a', fontWeight: 700 }}>
-                Extracted Pieces ({extractedPieces.length})
+          {/* Piece Overview Summary Box */}
+          <div style={{ backgroundColor: '#f8fafc', padding: '20px', borderRadius: '20px', border: '1px solid #e2e8f0', display: 'flex', flexDirection: 'column' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
+              <h4 style={{ margin: 0, fontSize: '16px', color: '#0f172a', fontWeight: 700 }}>
+                Extracted Pieces Summary ({extractedPieces.length})
               </h4>
               {completed && (
                 <button
                   onClick={handleDownloadPackage}
                   style={{
-                    padding: '8px 16px', borderRadius: '8px', border: 'none', backgroundColor: '#10b981', color: '#fff',
-                    fontWeight: 700, fontSize: '13px', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px'
+                    padding: '8px 16px', borderRadius: '10px', border: 'none', backgroundColor: '#10b981', color: '#fff',
+                    fontWeight: 700, fontSize: '13px', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px',
+                    boxShadow: '0 4px 12px rgba(16, 185, 129, 0.25)'
                   }}
                 >
                   <FolderDown size={16} /> Download ZIP Package
@@ -676,26 +850,373 @@ export function PrefabCreationView() {
               )}
             </div>
 
-            <div style={{ flex: 1, overflowY: 'auto', maxHeight: '380px', display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(110px, 1fr))', gap: '10px' }}>
-              {extractedPieces.map((piece) => (
+            <div style={{ flex: 1, overflowY: 'auto', maxHeight: '380px', display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(100px, 1fr))', gap: '10px', paddingRight: '4px' }}>
+              {extractedPieces.slice(0, 30).map((piece, idx) => (
                 <div
                   key={piece.id}
+                  onClick={() => setSelectedPieceForModal(piece)}
                   onMouseEnter={() => setHoveredPieceId(piece.id)}
                   onMouseLeave={() => setHoveredPieceId(null)}
                   style={{
                     padding: '8px', borderRadius: '10px', backgroundColor: hoveredPieceId === piece.id ? '#ecfdf5' : '#ffffff',
-                    border: `1px solid ${hoveredPieceId === piece.id ? '#10b981' : '#e2e8f0'}`, textAlign: 'center', cursor: 'pointer'
+                    border: `1.5px solid ${hoveredPieceId === piece.id ? '#10b981' : '#e2e8f0'}`, textAlign: 'center', cursor: 'pointer',
+                    transition: 'all 0.15s ease'
                   }}
                 >
-                  <img src={piece.dataUrl} alt={piece.name} style={{ width: '60px', height: '60px', objectFit: 'contain', marginBottom: '4px' }} />
-                  <div style={{ fontSize: '11px', fontWeight: 700, color: '#1e293b', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                    {piece.name}
+                  <div style={{
+                    width: '100%', height: '56px', borderRadius: '6px', overflow: 'hidden', marginBottom: '4px',
+                    backgroundColor: '#1e293b', backgroundImage: 'repeating-conic-gradient(#0f172a 0% 25%, #1e293b 0% 50%)', backgroundSize: '12px 12px',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center'
+                  }}>
+                    <img src={piece.dataUrl} alt={piece.name} style={{ maxWidth: '90%', maxHeight: '90%', objectFit: 'contain' }} />
                   </div>
-                  <div style={{ fontSize: '10px', color: '#64748b' }}>
-                    {piece.width}x{piece.height} px
+                  <div style={{ fontSize: '11px', fontWeight: 700, color: '#1e293b', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                    #{idx + 1} {piece.name}
                   </div>
                 </div>
               ))}
+            </div>
+            {extractedPieces.length > 30 && (
+              <div style={{ textAlign: 'center', marginTop: '10px', fontSize: '12px', color: '#64748b', fontWeight: 600 }}>
+                + {extractedPieces.length - 30} more pieces (See full gallery below 👇)
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* FULL EXTRACTED PIECES VISUAL GALLERY & INSPECTOR */}
+      {extractedPieces.length > 0 && (
+        <div style={{ marginTop: '36px', padding: '28px', backgroundColor: '#f8fafc', borderRadius: '24px', border: '1.5px solid #e2e8f0' }}>
+          
+          {/* Gallery Header & Filter Controls */}
+          <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '16px', marginBottom: '24px' }}>
+            <div>
+              <h3 style={{ margin: 0, fontSize: '20px', color: '#0f172a', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <LayoutGrid size={22} color="#10b981" /> Cut Pieces Inspection Gallery
+              </h3>
+              <p style={{ margin: '4px 0 0 0', color: '#64748b', fontSize: '13px' }}>
+                Showing {extractedPieces.filter(p => p.name.toLowerCase().includes(searchQuery.toLowerCase())).length} of {extractedPieces.length} generated cut shapes. Click any piece for full size inspect.
+              </p>
+            </div>
+
+            {/* Controls Toolbar */}
+            <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '12px' }}>
+              
+              {/* Search Bar */}
+              <div style={{ position: 'relative', minWidth: '200px' }}>
+                <Search size={16} color="#64748b" style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)' }} />
+                <input
+                  type="text"
+                  placeholder="Filter pieces..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  style={{
+                    width: '100%', padding: '8px 12px 8px 36px', borderRadius: '10px',
+                    border: '1px solid #cbd5e1', fontSize: '13px', fontWeight: 600, outline: 'none'
+                  }}
+                />
+              </div>
+
+              {/* Background Picker */}
+              <div style={{ display: 'flex', alignItems: 'center', backgroundColor: '#ffffff', borderRadius: '10px', padding: '4px', border: '1px solid #cbd5e1' }}>
+                <span style={{ fontSize: '12px', fontWeight: 700, color: '#64748b', margin: '0 8px' }}>Bg:</span>
+                <button
+                  onClick={() => setGalleryBg('checkered_dark')}
+                  title="Checkered Dark Background"
+                  style={{
+                    padding: '6px 10px', borderRadius: '6px', border: 'none', cursor: 'pointer', fontSize: '12px', fontWeight: 700,
+                    backgroundColor: galleryBg === 'checkered_dark' ? '#0f172a' : 'transparent',
+                    color: galleryBg === 'checkered_dark' ? '#ffffff' : '#475569'
+                  }}
+                >
+                  🏁 Dark
+                </button>
+                <button
+                  onClick={() => setGalleryBg('checkered_light')}
+                  title="Checkered Light Background"
+                  style={{
+                    padding: '6px 10px', borderRadius: '6px', border: 'none', cursor: 'pointer', fontSize: '12px', fontWeight: 700,
+                    backgroundColor: galleryBg === 'checkered_light' ? '#e2e8f0' : 'transparent',
+                    color: galleryBg === 'checkered_light' ? '#0f172a' : '#475569'
+                  }}
+                >
+                  🏁 Light
+                </button>
+                <button
+                  onClick={() => setGalleryBg('dark')}
+                  title="Solid Dark Background"
+                  style={{
+                    padding: '6px 10px', borderRadius: '6px', border: 'none', cursor: 'pointer', fontSize: '12px', fontWeight: 700,
+                    backgroundColor: galleryBg === 'dark' ? '#1e293b' : 'transparent',
+                    color: galleryBg === 'dark' ? '#ffffff' : '#475569'
+                  }}
+                >
+                  ⬛ Solid
+                </button>
+              </div>
+
+              {/* Card Size Selector */}
+              <div style={{ display: 'flex', alignItems: 'center', backgroundColor: '#ffffff', borderRadius: '10px', padding: '4px', border: '1px solid #cbd5e1' }}>
+                <span style={{ fontSize: '12px', fontWeight: 700, color: '#64748b', margin: '0 8px' }}>Card:</span>
+                {(['compact', 'medium', 'large'] as const).map((size) => (
+                  <button
+                    key={size}
+                    onClick={() => setCardSize(size)}
+                    style={{
+                      padding: '6px 10px', borderRadius: '6px', border: 'none', cursor: 'pointer', fontSize: '12px', fontWeight: 700,
+                      backgroundColor: cardSize === size ? '#10b981' : 'transparent',
+                      color: cardSize === size ? '#ffffff' : '#475569', textTransform: 'capitalize'
+                    }}
+                  >
+                    {size}
+                  </button>
+                ))}
+              </div>
+
+              {/* Download Package Action */}
+              <button
+                onClick={handleDownloadPackage}
+                style={{
+                  padding: '9px 18px', borderRadius: '10px', border: 'none', backgroundColor: '#10b981', color: '#ffffff',
+                  fontWeight: 700, fontSize: '13px', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px',
+                  boxShadow: '0 4px 12px rgba(16, 185, 129, 0.3)'
+                }}
+              >
+                <FolderDown size={16} /> Download ZIP
+              </button>
+            </div>
+          </div>
+
+          {/* Grid Layout of Pieces */}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: cardSize === 'compact' ? 'repeat(auto-fill, minmax(130px, 1fr))' : cardSize === 'medium' ? 'repeat(auto-fill, minmax(180px, 1fr))' : 'repeat(auto-fill, minmax(240px, 1fr))',
+            gap: '16px'
+          }}>
+            {extractedPieces
+              .filter((piece) => piece.name.toLowerCase().includes(searchQuery.toLowerCase()))
+              .map((piece, index) => {
+                const bgStyle =
+                  galleryBg === 'checkered_dark'
+                    ? { backgroundColor: '#1e293b', backgroundImage: 'repeating-conic-gradient(#0f172a 0% 25%, #1e293b 0% 50%)', backgroundSize: '16px 16px' }
+                    : galleryBg === 'checkered_light'
+                    ? { backgroundColor: '#f1f5f9', backgroundImage: 'repeating-conic-gradient(#e2e8f0 0% 25%, #f1f5f9 0% 50%)', backgroundSize: '16px 16px' }
+                    : galleryBg === 'dark'
+                    ? { backgroundColor: '#0f172a' }
+                    : { backgroundColor: '#ffffff', border: '1px solid #e2e8f0' };
+
+                const isHovered = piece.id === hoveredPieceId;
+
+                return (
+                  <div
+                    key={piece.id}
+                    onMouseEnter={() => setHoveredPieceId(piece.id)}
+                    onMouseLeave={() => setHoveredPieceId(null)}
+                    style={{
+                      backgroundColor: '#ffffff',
+                      borderRadius: '16px',
+                      border: `2px solid ${isHovered ? '#10b981' : '#e2e8f0'}`,
+                      overflow: 'hidden',
+                      boxShadow: isHovered ? '0 10px 25px rgba(16, 185, 129, 0.15)' : '0 2px 8px rgba(0,0,0,0.04)',
+                      transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)',
+                      display: 'flex',
+                      flexDirection: 'column'
+                    }}
+                  >
+                    {/* Piece Image Display Area */}
+                    <div
+                      onClick={() => setSelectedPieceForModal(piece)}
+                      style={{
+                        height: cardSize === 'compact' ? '110px' : cardSize === 'medium' ? '150px' : '190px',
+                        width: '100%',
+                        ...bgStyle,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        padding: '12px',
+                        position: 'relative',
+                        cursor: 'pointer'
+                      }}
+                    >
+                      <img
+                        src={piece.dataUrl}
+                        alt={piece.name}
+                        style={{
+                          maxWidth: '100%',
+                          maxHeight: '100%',
+                          objectFit: 'contain',
+                          transition: 'transform 0.2s ease',
+                          transform: isHovered ? 'scale(1.08)' : 'scale(1)',
+                          filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.3))'
+                        }}
+                      />
+
+                      {/* Index Badge */}
+                      <span style={{
+                        position: 'absolute', top: '8px', left: '8px',
+                        backgroundColor: 'rgba(15, 23, 42, 0.85)', color: '#10b981',
+                        fontSize: '11px', fontWeight: 800, padding: '2px 8px', borderRadius: '6px',
+                        backdropFilter: 'blur(4px)', border: '1px solid rgba(16, 185, 129, 0.3)'
+                      }}>
+                        #{index + 1}
+                      </span>
+
+                      {/* Hover Overlay Button */}
+                      {isHovered && (
+                        <div style={{
+                          position: 'absolute', inset: 0, backgroundColor: 'rgba(15, 23, 42, 0.4)',
+                          display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
+                          backdropFilter: 'blur(2px)'
+                        }}>
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setSelectedPieceForModal(piece);
+                            }}
+                            style={{
+                              padding: '8px', borderRadius: '50%', border: 'none', backgroundColor: '#10b981',
+                              color: '#ffffff', cursor: 'pointer', boxShadow: '0 4px 10px rgba(0,0,0,0.2)'
+                            }}
+                            title="Inspect Piece"
+                          >
+                            <Maximize2 size={16} />
+                          </button>
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleDownloadSinglePiece(piece);
+                            }}
+                            style={{
+                              padding: '8px', borderRadius: '50%', border: 'none', backgroundColor: '#ffffff',
+                              color: '#0f172a', cursor: 'pointer', boxShadow: '0 4px 10px rgba(0,0,0,0.2)'
+                            }}
+                            title="Download PNG"
+                          >
+                            <Download size={16} />
+                          </button>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Card Info Details */}
+                    <div style={{ padding: '10px 12px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                      <div style={{ fontSize: '13px', fontWeight: 800, color: '#0f172a', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                        {piece.name}.png
+                      </div>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '6px', fontSize: '11px', color: '#64748b', fontWeight: 600 }}>
+                        <span>📐 {piece.width}×{piece.height}px</span>
+                        <span>📍 X:{piece.x} Y:{piece.y}</span>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+          </div>
+        </div>
+      )}
+
+      {/* PIECE INSPECTION & HIGH-RES ZOOM MODAL */}
+      {selectedPieceForModal && (
+        <div style={{
+          position: 'fixed', inset: 0, zIndex: 9999,
+          backgroundColor: 'rgba(15, 23, 42, 0.75)', backdropFilter: 'blur(8px)',
+          display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '24px'
+        }}
+        onClick={() => setSelectedPieceForModal(null)}
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              backgroundColor: '#ffffff', borderRadius: '24px', maxWidth: '750px', width: '100%',
+              overflow: 'hidden', boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.35)',
+              display: 'flex', flexDirection: 'column'
+            }}
+          >
+            {/* Modal Header */}
+            <div style={{ padding: '20px 24px', borderBottom: '1px solid #e2e8f0', display: 'flex', alignItems: 'center', justifyContent: 'space-between', backgroundColor: '#f8fafc' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                <div style={{ width: '40px', height: '40px', borderRadius: '10px', backgroundColor: '#ecfdf5', color: '#10b981', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <Scissors size={20} />
+                </div>
+                <div>
+                  <h3 style={{ margin: 0, fontSize: '18px', color: '#0f172a', fontWeight: 800 }}>
+                    {selectedPieceForModal.name}.png
+                  </h3>
+                  <span style={{ fontSize: '12px', color: '#64748b', fontWeight: 600 }}>
+                    Shape Type: {selectedPieceForModal.shapeType.toUpperCase()}
+                  </span>
+                </div>
+              </div>
+
+              <button
+                onClick={() => setSelectedPieceForModal(null)}
+                style={{ width: '36px', height: '36px', borderRadius: '50%', border: 'none', backgroundColor: '#e2e8f0', color: '#0f172a', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+              >
+                <X size={18} />
+              </button>
+            </div>
+
+            {/* Modal Content Body */}
+            <div style={{ padding: '24px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px' }}>
+              
+              {/* Image Preview Canvas Box */}
+              <div style={{
+                height: '280px', borderRadius: '16px', padding: '16px',
+                backgroundColor: '#1e293b', backgroundImage: 'repeating-conic-gradient(#0f172a 0% 25%, #1e293b 0% 50%)', backgroundSize: '16px 16px',
+                display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid #334155'
+              }}>
+                <img
+                  src={selectedPieceForModal.dataUrl}
+                  alt={selectedPieceForModal.name}
+                  style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', filter: 'drop-shadow(0 10px 15px rgba(0,0,0,0.5))' }}
+                />
+              </div>
+
+              {/* Piece Metadata Info */}
+              <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                <div>
+                  <h4 style={{ margin: '0 0 12px 0', fontSize: '15px', color: '#0f172a', fontWeight: 700 }}>
+                    Asset Technical Properties
+                  </h4>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '13px' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', padding: '8px 12px', borderRadius: '8px', backgroundColor: '#f8fafc' }}>
+                      <span style={{ color: '#64748b', fontWeight: 600 }}>Resolution:</span>
+                      <strong style={{ color: '#0f172a' }}>{selectedPieceForModal.width} × {selectedPieceForModal.height} px</strong>
+                    </div>
+
+                    <div style={{ display: 'flex', justifyContent: 'space-between', padding: '8px 12px', borderRadius: '8px', backgroundColor: '#f8fafc' }}>
+                      <span style={{ color: '#64748b', fontWeight: 600 }}>Canvas Offset:</span>
+                      <strong style={{ color: '#0f172a' }}>X: {selectedPieceForModal.x}px, Y: {selectedPieceForModal.y}px</strong>
+                    </div>
+
+                    <div style={{ display: 'flex', justifyContent: 'space-between', padding: '8px 12px', borderRadius: '8px', backgroundColor: '#f8fafc' }}>
+                      <span style={{ color: '#64748b', fontWeight: 600 }}>Original Cell Tile:</span>
+                      <strong style={{ color: '#0f172a' }}>{selectedPieceForModal.originalWidth} × {selectedPieceForModal.originalHeight} px</strong>
+                    </div>
+
+                    {selectedPieceForModal.spriteFrameUuid && (
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', padding: '8px 12px', borderRadius: '8px', backgroundColor: '#ecfdf5', border: '1px solid #a7f3d0' }}>
+                        <span style={{ color: '#065f46', fontWeight: 600, fontSize: '11px' }}>Cocos SpriteFrame UUID:</span>
+                        <code style={{ fontSize: '11px', color: '#047857', wordBreak: 'break-all' }}>{selectedPieceForModal.spriteFrameUuid}</code>
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+                {/* Download Button inside Modal */}
+                <button
+                  onClick={() => handleDownloadSinglePiece(selectedPieceForModal)}
+                  style={{
+                    width: '100%', padding: '12px', borderRadius: '12px', border: 'none',
+                    backgroundColor: '#10b981', color: '#ffffff', fontWeight: 700, fontSize: '14px',
+                    cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
+                    boxShadow: '0 4px 12px rgba(16, 185, 129, 0.3)', marginTop: '16px'
+                  }}
+                >
+                  <Download size={18} /> Download Piece PNG ({selectedPieceForModal.name}.png)
+                </button>
+              </div>
             </div>
           </div>
         </div>
