@@ -31,7 +31,7 @@ Write-Host ""
 Read-Host "PRESS ENTER IN THIS WINDOW WHEN YOU WANT TO SHUT DOWN THE SERVERS"
 
 Write-Host "Stopping servers..." -ForegroundColor Yellow
-taskkill /PID $p1.Id /T /F 2>&1 | Out-Null
-taskkill /PID $p2.Id /T /F 2>&1 | Out-Null
-taskkill /PID $p3.Id /T /F 2>&1 | Out-Null
+if ($p1 -and $p1.Id) { Stop-Process -Id $p1.Id -Force -ErrorAction SilentlyContinue }
+if ($p2 -and $p2.Id) { Stop-Process -Id $p2.Id -Force -ErrorAction SilentlyContinue }
+if ($p3 -and $p3.Id) { Stop-Process -Id $p3.Id -Force -ErrorAction SilentlyContinue }
 Write-Host "All servers stopped." -ForegroundColor Green

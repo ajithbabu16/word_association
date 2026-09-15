@@ -52,6 +52,7 @@ def init_tracking_db():
             start_date TEXT NOT NULL,
             end_date TEXT NOT NULL,
             trigger_days_before INTEGER DEFAULT 5,
+            trigger_time TEXT DEFAULT '09:00',
             recipient_emails TEXT DEFAULT 'ajith@quriousbit.com, rajeev@quriousbit.com',
             status TEXT DEFAULT 'ACTIVE',
             notes TEXT DEFAULT '',
@@ -60,64 +61,120 @@ def init_tracking_db():
             updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         )
     ''')
+    try:
+        cursor.execute("ALTER TABLE tracking_items ADD COLUMN trigger_time TEXT DEFAULT '09:00'")
+    except Exception:
+        pass
     conn.commit()
     conn.close()
 
 init_tracking_db()
 
-def send_tracking_alert_email(name, start_date, end_date, days_remaining, recipient_emails, is_expired=False):
+from email.header import Header
+
+def send_tracking_alert_email(name, start_date, end_date, days_remaining, recipient_emails, trigger_time='09:00', is_expired=False):
     try:
         receivers = [r.strip() for r in recipient_emails.split(',') if r.strip()]
         if not receivers:
             receivers = ["ajith@quriousbit.com", "rajeev@quriousbit.com"]
             
-        m = MIMEMultipart()
-        m['From'] = EMAIL_SENDER
-        m['To'] = ", ".join(receivers)
+        m = MIMEMultipart('alternative')
         
+        # 12-hour formatted time for display
+        try:
+            t_obj = datetime.strptime(trigger_time, "%H:%M")
+            trigger_time_formatted = t_obj.strftime("%I:%M %p")
+        except:
+            trigger_time_formatted = trigger_time
+
         if is_expired:
             days_overdue = abs(days_remaining)
-            subject = f"[EXPIRED ALERT] Pack / Item '{name}' Has Exceeded End Date ({end_date})!"
-            body = f"""⚠️ URGENT TRACKING EXPIRED ALERT ⚠️
-
-The product item '{name}' has exceeded its scheduled end date of {end_date}!
-
-Item Details:
-• Item Name: {name}
-• Start Date: {start_date}
-• End Date: {end_date}
-• Status: EXPIRED ({days_overdue} day(s) past end date)
-• Recipients Notified: {', '.join(receivers)}
-
-Please log in to the Tracking Studio (http://localhost:3000/tracking_date.html) to renew the end date or mark the item complete.
-
-Automated Genie Notification Core - QuriousBit Games
-"""
+            subject = f"[QuriousBit Product Team] URGENT EXPIRED ALERT: '{name}' passed end date ({end_date})"
+            badge_class = "badge-danger"
+            badge_text = "⚠️ URGENT: EXPIRED / OVERDUE"
+            alert_message = f"The product item <strong>'{name}'</strong> has exceeded its scheduled end date of <strong>{end_date}</strong> by {days_overdue} day(s). Please review and update the schedule."
+            days_status_formatted = f"<span style='color: #dc2626; font-weight: 800;'>🚨 {days_overdue} day(s) overdue</span>"
         else:
-            subject = f"[REMINDER] Pack / Item '{name}' Is Ending Soon on {end_date} ({days_remaining} Days Left)"
-            body = f"""🔔 PRODUCT ITEM EXPIRATION REMINDER 🔔
+            subject = f"[QuriousBit Product Team] Expiry Reminder: '{name}' ends on {end_date} ({days_remaining} day(s) left)"
+            badge_class = "badge-warning"
+            badge_text = "🔔 REMINDER: ENDING SOON"
+            alert_message = f"This is an automated reminder that product item <strong>'{name}'</strong> is ending soon on <strong>{end_date}</strong> ({days_remaining} day(s) remaining)."
+            days_status_formatted = f"<span style='color: #d97706; font-weight: 800;'>🔔 {days_remaining} day(s) remaining</span>"
 
-Your tracked product item '{name}' is ending soon in {days_remaining} day(s)!
+        # Explicit UTF-8 Header encoding to guarantee Subject header is never dropped in SMTP
+        m['Subject'] = Header(subject, 'utf-8')
+        m['From'] = Header(f"QuriousBit Product Team <{EMAIL_SENDER}>", 'utf-8')
+        m['To'] = ", ".join(receivers)
 
-Item Details:
-• Item Name: {name}
-• Start Date: {start_date}
-• End Date: {end_date}
-• Days Remaining: {days_remaining} day(s)
-• Recipients Notified: {', '.join(receivers)}
-
-Manage or edit this item at: http://localhost:3000/tracking_date.html
-
-Automated Genie Notification Core - QuriousBit Games
+        # Plain text fallback
+        plain_body = f"""[QuriousBit Product Team Alert]
+Item Name: {name}
+Start Date: {start_date}
+End Date: {end_date}
+Days Status: {'EXPIRED (' + str(abs(days_remaining)) + ' days overdue)' if is_expired else str(days_remaining) + ' days remaining'}
+Scheduled Trigger Time: {trigger_time_formatted}
+Recipients: {', '.join(receivers)}
 """
+        m.attach(MIMEText(plain_body, 'plain', 'utf-8'))
 
-        m.attach(MIMEText(body, 'plain'))
+        # Professional HTML Email Body
+        html_body = f"""<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f1f5f9; color: #0f172a; margin: 0; padding: 24px; }}
+  .email-card {{ max-width: 580px; margin: 0 auto; background: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.06); border: 1px solid #e2e8f0; }}
+  .header {{ background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%); padding: 28px 24px; text-align: center; color: #ffffff; }}
+  .header h1 {{ margin: 0; font-size: 20px; font-weight: 800; letter-spacing: 0.5px; color: #ffffff; }}
+  .header p {{ margin: 6px 0 0 0; color: #94a3b8; font-size: 13px; font-weight: 500; }}
+  .badge {{ display: inline-block; padding: 6px 16px; border-radius: 20px; font-size: 11px; font-weight: 800; text-transform: uppercase; margin-top: 14px; letter-spacing: 0.5px; }}
+  .badge-warning {{ background-color: #fef3c7; color: #b45309; border: 1px solid #fde68a; }}
+  .badge-danger {{ background-color: #fee2e2; color: #b91c1c; border: 1px solid #fca5a5; }}
+  .body-content {{ padding: 28px 24px; }}
+  .alert-banner {{ background-color: #f8fafc; border-left: 4px solid #3b82f6; padding: 14px 16px; border-radius: 8px; margin-bottom: 24px; font-size: 14px; color: #334155; line-height: 1.5; }}
+  .details-table {{ width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 14px; }}
+  .details-table td {{ padding: 12px 14px; border-bottom: 1px solid #f1f5f9; }}
+  .details-table tr:last-child td {{ border-bottom: none; }}
+  .label-col {{ font-weight: 700; color: #64748b; width: 40%; background-color: #f8fafc; border-radius: 6px; }}
+  .val-col {{ font-weight: 700; color: #0f172a; }}
+  .footer {{ padding: 20px; text-align: center; background-color: #f8fafc; border-top: 1px solid #e2e8f0; font-size: 12px; color: #64748b; font-weight: 600; }}
+</style>
+</head>
+<body>
+  <div class="email-card">
+    <div class="header">
+      <h1>QuriousBit Product Team</h1>
+      <p>Automated Feature Expiry & Schedule Tracker</p>
+      <div class="badge {badge_class}">{badge_text}</div>
+    </div>
+    <div class="body-content">
+      <div class="alert-banner">
+        {alert_message}
+      </div>
+      <table class="details-table">
+        <tr><td class="label-col">Item / Feature Name</td><td class="val-col">{name}</td></tr>
+        <tr><td class="label-col">Start Date</td><td class="val-col">📅 {start_date}</td></tr>
+        <tr><td class="label-col">End Date</td><td class="val-col" style="color: #e11d48;">📅 {end_date}</td></tr>
+        <tr><td class="label-col">Days Status</td><td class="val-col">{days_status_formatted}</td></tr>
+        <tr><td class="label-col">Scheduled Trigger Time</td><td class="val-col">⏰ {trigger_time_formatted}</td></tr>
+      </table>
+    </div>
+    <div class="footer">
+      Automated Genie Notification Core • QuriousBit Games
+    </div>
+  </div>
+</body>
+</html>
+"""
+        m.attach(MIMEText(html_body, 'html', 'utf-8'))
+
         s = smtplib.SMTP('smtp.gmail.com', 587)
         s.starttls()
         s.login(EMAIL_SENDER, EMAIL_PASSWORD)
         s.send_message(m)
         s.quit()
-        print(f"Tracking alert email sent for '{name}' to {receivers}")
+        print(f"Tracking alert email sent for '{name}' to {receivers} with subject: {subject}")
         return True
     except Exception as e:
         print(f"Failed to send tracking alert email for '{name}': {e}")
@@ -129,41 +186,48 @@ def tracking_email_scheduler():
         try:
             conn = sqlite3.connect(TRACKING_DB_PATH)
             cursor = conn.cursor()
-            cursor.execute("SELECT id, name, start_date, end_date, trigger_days_before, recipient_emails, status, last_email_sent FROM tracking_items WHERE status != 'COMPLETED'")
+            cursor.execute("SELECT id, name, start_date, end_date, trigger_days_before, trigger_time, recipient_emails, status, last_email_sent FROM tracking_items WHERE status != 'COMPLETED'")
             rows = cursor.fetchall()
             
-            today = datetime.now(IST).date()
-            today_str = today.strftime("%Y-%m-%d")
-            now_ts = datetime.now(IST).strftime("%Y-%m-%d %H:%M:%S")
+            now_dt = datetime.now(IST)
+            today_str = now_dt.strftime("%Y-%m-%d")
+            now_time_str = now_dt.strftime("%H:%M")
+            now_ts = now_dt.strftime("%Y-%m-%d %H:%M:%S")
             
             for row in rows:
-                item_id, name, start_date, end_date, trigger_days, recipients, status, last_email = row
+                item_id, name, start_date, end_date, trigger_days, trigger_time, recipients, status, last_email = row
                 try:
                     end_dt = datetime.strptime(end_date, "%Y-%m-%d").date()
-                    days_remaining = (end_dt - today).days
+                    days_remaining = (end_dt - now_dt.date()).days
+                    item_trigger_time = trigger_time if trigger_time else '09:00'
                     
                     if days_remaining < 0:
+                        # Expired -> Alert 3x per day (at or past trigger_time, or if last email > 8 hours ago)
                         should_send = False
                         if not last_email:
                             should_send = True
                         else:
                             try:
-                                last_dt = datetime.strptime(last_email[:10], "%Y-%m-%d")
-                                if last_dt.date() < today:
+                                last_dt = datetime.strptime(last_email, "%Y-%m-%d %H:%M:%S")
+                                hours_diff = (now_dt.replace(tzinfo=None) - last_dt).total_seconds() / 3600.0
+                                if hours_diff >= 8.0:
                                     should_send = True
                             except:
-                                should_send = True
+                                if last_email[:10] != today_str:
+                                    should_send = True
                         
                         if should_send:
-                            if send_tracking_alert_email(name, start_date, end_date, days_remaining, recipients, is_expired=True):
+                            if send_tracking_alert_email(name, start_date, end_date, days_remaining, recipients, trigger_time=item_trigger_time, is_expired=True):
                                 cursor.execute("UPDATE tracking_items SET status = 'EXPIRED', last_email_sent = ? WHERE id = ?", (now_ts, item_id))
                                 conn.commit()
                                 
                     elif days_remaining <= trigger_days:
-                        if not last_email or last_email[:10] != today_str:
-                            if send_tracking_alert_email(name, start_date, end_date, days_remaining, recipients, is_expired=False):
-                                cursor.execute("UPDATE tracking_items SET status = 'ENDING_SOON', last_email_sent = ? WHERE id = ?", (now_ts, item_id))
-                                conn.commit()
+                        # Ending soon -> Trigger once per day when current time >= trigger_time
+                        if now_time_str >= item_trigger_time:
+                            if not last_email or last_email[:10] != today_str:
+                                if send_tracking_alert_email(name, start_date, end_date, days_remaining, recipients, trigger_time=item_trigger_time, is_expired=False):
+                                    cursor.execute("UPDATE tracking_items SET status = 'ENDING_SOON', last_email_sent = ? WHERE id = ?", (now_ts, item_id))
+                                    conn.commit()
                                 
                 except Exception as ex:
                     print(f"Error checking tracking item {item_id}: {ex}")
@@ -171,7 +235,7 @@ def tracking_email_scheduler():
             conn.close()
         except Exception as e:
             print(f"Error in tracking scheduler: {e}")
-        time.sleep(3600)
+        time.sleep(60) # Check every 60 seconds for precise time triggers
 
 import threading
 threading.Thread(target=tracking_email_scheduler, daemon=True).start()
@@ -541,12 +605,13 @@ class CombinedHandler(http.server.SimpleHTTPRequestHandler):
                 conn = sqlite3.connect(TRACKING_DB_PATH)
                 cursor = conn.cursor()
                 cursor.execute(
-                    "INSERT INTO tracking_items (name, start_date, end_date, trigger_days_before, recipient_emails, notes, status) VALUES (?, ?, ?, ?, ?, ?, ?)",
+                    "INSERT INTO tracking_items (name, start_date, end_date, trigger_days_before, trigger_time, recipient_emails, notes, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
                     (
                         data.get('name', 'Unnamed Item'),
                         data.get('start_date', datetime.now(IST).strftime("%Y-%m-%d")),
                         data.get('end_date', datetime.now(IST).strftime("%Y-%m-%d")),
                         int(data.get('trigger_days_before', 5)),
+                        data.get('trigger_time', '09:00'),
                         data.get('recipient_emails', 'ajith@quriousbit.com, rajeev@quriousbit.com'),
                         data.get('notes', ''),
                         data.get('status', 'ACTIVE')
@@ -564,12 +629,13 @@ class CombinedHandler(http.server.SimpleHTTPRequestHandler):
                 conn = sqlite3.connect(TRACKING_DB_PATH)
                 cursor = conn.cursor()
                 cursor.execute(
-                    "UPDATE tracking_items SET name=?, start_date=?, end_date=?, trigger_days_before=?, recipient_emails=?, notes=?, status=?, updated_at=CURRENT_TIMESTAMP WHERE id=?",
+                    "UPDATE tracking_items SET name=?, start_date=?, end_date=?, trigger_days_before=?, trigger_time=?, recipient_emails=?, notes=?, status=?, updated_at=CURRENT_TIMESTAMP WHERE id=?",
                     (
                         data.get('name'),
                         data.get('start_date'),
                         data.get('end_date'),
                         int(data.get('trigger_days_before', 5)),
+                        data.get('trigger_time', '09:00'),
                         data.get('recipient_emails'),
                         data.get('notes', ''),
                         data.get('status', 'ACTIVE'),
@@ -606,17 +672,17 @@ class CombinedHandler(http.server.SimpleHTTPRequestHandler):
                 item_id = data.get('id')
                 conn = sqlite3.connect(TRACKING_DB_PATH)
                 cursor = conn.cursor()
-                cursor.execute("SELECT id, name, start_date, end_date, trigger_days_before, recipient_emails, status FROM tracking_items WHERE id=?", (int(item_id),))
+                cursor.execute("SELECT id, name, start_date, end_date, trigger_days_before, trigger_time, recipient_emails, status FROM tracking_items WHERE id=?", (int(item_id),))
                 row = cursor.fetchone()
                 conn.close()
                 
                 if row:
-                    item_id, name, start_date, end_date, trigger_days, recipients, status = row
+                    item_id, name, start_date, end_date, trigger_days, item_trigger_time, recipients, status = row
                     today = datetime.now(IST).date()
                     end_dt = datetime.strptime(end_date, "%Y-%m-%d").date()
                     days_remaining = (end_dt - today).days
                     is_expired = days_remaining < 0
-                    sent = send_tracking_alert_email(name, start_date, end_date, days_remaining, recipients, is_expired=is_expired)
+                    sent = send_tracking_alert_email(name, start_date, end_date, days_remaining, recipients, trigger_time=item_trigger_time, is_expired=is_expired)
                     self._set_headers()
                     self.wfile.write(json.dumps({"status": "success" if sent else "error", "sent": sent}).encode())
                 else:
@@ -633,7 +699,7 @@ class CombinedHandler(http.server.SimpleHTTPRequestHandler):
                 conn = sqlite3.connect(TRACKING_DB_PATH)
                 conn.row_factory = sqlite3.Row
                 cursor = conn.cursor()
-                cursor.execute("SELECT id, name, start_date, end_date, trigger_days_before, recipient_emails, status, notes, last_email_sent, created_at, updated_at FROM tracking_items ORDER BY end_date ASC")
+                cursor.execute("SELECT id, name, start_date, end_date, trigger_days_before, trigger_time, recipient_emails, status, notes, last_email_sent, created_at, updated_at FROM tracking_items ORDER BY end_date ASC")
                 rows = cursor.fetchall()
                 conn.close()
                 

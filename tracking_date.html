@@ -462,9 +462,16 @@
                 </h1>
                 <p>Track feature start/end dates, automated email trigger thresholds, and expiry alerts for Product Team.</p>
             </div>
-            <a href="index.html" class="back-btn">
-                ← MAIN MENU
-            </a>
+            
+            <div style="display: flex; align-items: center; gap: 16px;">
+                <div style="background: rgba(59, 130, 246, 0.12); border: 1px solid rgba(59, 130, 246, 0.3); padding: 8px 16px; border-radius: 20px; font-size: 0.85rem; color: #60a5fa; font-weight: 700; display: flex; align-items: center; gap: 8px;">
+                    <span style="width: 8px; height: 8px; border-radius: 50%; background: #3b82f6; display: inline-block; box-shadow: 0 0 10px #3b82f6;"></span>
+                    <span id="live-clock">🕒 IST: Loading clock...</span>
+                </div>
+                <a href="index.html" class="back-btn">
+                    ← MAIN MENU
+                </a>
+            </div>
         </div>
 
         <!-- Dashboard Stats -->
@@ -565,8 +572,8 @@
                         <select id="item-trigger-days" class="form-select">
                             <option value="1">1 Day Before</option>
                             <option value="2">2 Days Before</option>
-                            <option value="3">3 Days Before</option>
-                            <option value="5" selected>5 Days Before (Recommended)</option>
+                            <option value="3" selected>3 Days Before</option>
+                            <option value="5">5 Days Before (Recommended)</option>
                             <option value="7">7 Days Before</option>
                             <option value="10">10 Days Before</option>
                             <option value="14">14 Days Before</option>
@@ -574,12 +581,23 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Status</label>
-                        <select id="item-status" class="form-select">
-                            <option value="ACTIVE">ACTIVE</option>
-                            <option value="COMPLETED">COMPLETED</option>
-                        </select>
+                        <label>⏰ Daily Trigger Time (IST) *</label>
+                        <input type="time" id="item-trigger-time" class="form-input" value="09:00" required>
+                        <div style="display: flex; gap: 6px; margin-top: 6px; flex-wrap: wrap;">
+                            <button type="button" class="preset-time-btn" onclick="setTimePreset('09:00')">🌅 09:00 AM</button>
+                            <button type="button" class="preset-time-btn" onclick="setTimePreset('12:00')">☀️ 12:00 PM</button>
+                            <button type="button" class="preset-time-btn" onclick="setTimePreset('15:00')">🌤️ 03:00 PM</button>
+                            <button type="button" class="preset-time-btn" onclick="setTimePreset('19:00')">🌙 07:00 PM</button>
+                        </div>
                     </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Status</label>
+                    <select id="item-status" class="form-select">
+                        <option value="ACTIVE">ACTIVE</option>
+                        <option value="COMPLETED">COMPLETED</option>
+                    </select>
                 </div>
 
                 <div class="form-group">
@@ -745,7 +763,7 @@
                     </td>
                     <td>
                         ${countdownHtml}
-                        <div style="font-size: 0.75rem; color: #64748b; margin-top: 2px;">Triggers ${item.trigger_days_before} days prior</div>
+                        <div style="font-size: 0.75rem; color: #94a3b8; margin-top: 3px;">⏰ Triggers ${item.trigger_days_before} days prior at <strong>${formatTime12h(item.trigger_time || '09:00')}</strong></div>
                     </td>
                     <td style="font-size: 0.85rem; color: #cbd5e1;">
                         ${escapeHtml(item.recipient_emails || 'Default')}
@@ -763,6 +781,20 @@
             });
         }
 
+        function formatTime12h(timeStr) {
+            if (!timeStr) return '09:00 AM';
+            try {
+                const parts = timeStr.split(':');
+                const h = parseInt(parts[0], 10);
+                const m = parseInt(parts[1], 10);
+                const ampm = h >= 12 ? 'PM' : 'AM';
+                const h12 = h % 12 || 12;
+                return `${h12.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')} ${ampm}`;
+            } catch(e) {
+                return timeStr;
+            }
+        }
+
         // Modal Handlers
         function openAddModal() {
             document.getElementById('modal-title').textContent = 'Create Tracking Item';
@@ -774,7 +806,8 @@
             nextMonth.setDate(nextMonth.getDate() + 15);
             document.getElementById('item-end-date').value = nextMonth.toISOString().split('T')[0];
             
-            document.getElementById('item-trigger-days').value = '5';
+            document.getElementById('item-trigger-days').value = '3';
+            document.getElementById('item-trigger-time').value = '09:00';
             document.getElementById('item-recipients').value = 'ajith@quriousbit.com, rajeev@quriousbit.com';
             document.getElementById('item-notes').value = '';
             document.getElementById('item-status').value = 'ACTIVE';
@@ -791,7 +824,8 @@
             document.getElementById('item-name').value = item.name;
             document.getElementById('item-start-date').value = item.start_date;
             document.getElementById('item-end-date').value = item.end_date;
-            document.getElementById('item-trigger-days').value = item.trigger_days_before || '5';
+            document.getElementById('item-trigger-days').value = item.trigger_days_before || '3';
+            document.getElementById('item-trigger-time').value = item.trigger_time || '09:00';
             document.getElementById('item-recipients').value = item.recipient_emails || 'ajith@quriousbit.com, rajeev@quriousbit.com';
             document.getElementById('item-notes').value = item.notes || '';
             document.getElementById('item-status').value = item.status || 'ACTIVE';
@@ -811,6 +845,7 @@
                 start_date: document.getElementById('item-start-date').value,
                 end_date: document.getElementById('item-end-date').value,
                 trigger_days_before: parseInt(document.getElementById('item-trigger-days').value),
+                trigger_time: document.getElementById('item-trigger-time').value || '09:00',
                 recipient_emails: document.getElementById('item-recipients').value,
                 notes: document.getElementById('item-notes').value,
                 status: document.getElementById('item-status').value
@@ -874,6 +909,18 @@
                 showToast('📧 Test email queued locally for recipients.');
             }
         }
+
+        function setTimePreset(timeStr) {
+            document.getElementById('item-trigger-time').value = timeStr;
+        }
+
+        function updateLiveClock() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('en-US', { hour12: true, hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            document.getElementById('live-clock').textContent = `🕒 IST Clock: ${timeString}`;
+        }
+        setInterval(updateLiveClock, 1000);
+        updateLiveClock();
 
         function showToast(msg) {
             const toast = document.getElementById('toast');
