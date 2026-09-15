@@ -1,0 +1,1005 @@
+{
+  "sceneName": "Ancient History",
+  "puzzles": {
+    "1": {
+      "phrase": "T__ ____r____ __ve_____ ____ __ _h_ ________ _n___ ___i__ __ _____ _______.",
+      "answer": "heSumeiansdelopedsomeofteearliestkowncitesinhumanhistory",
+      "locks1": [
+        6,
+        9,
+        22,
+        35,
+        43
+      ],
+      "locks2": [
+        18,
+        27,
+        31,
+        46,
+        51
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "2": {
+      "phrase": "___ _______ ______ _____ _____ ____ _________ ______ ___o__ t____ ____ e_____.",
+      "answer": "TheancientRomansbuiltroadsthatconnectedcitiesacrssheirvastmpire",
+      "locks1": [
+        9,
+        28,
+        44,
+        47,
+        55
+      ],
+      "locks2": [
+        11,
+        14,
+        23,
+        31,
+        41
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "3": {
+      "phrase": "___ _______ ____ ______p__ _______ _________ _as__ o_ _______ _____v______.",
+      "answer": "TheancientMayadeveloedcomplexcalendarsbedncarefulobserations",
+      "locks1": [
+        6,
+        22,
+        49,
+        54,
+        59
+      ],
+      "locks2": [
+        15,
+        26,
+        34,
+        43,
+        46
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "4": {
+      "phrase": "_______ _____ ________ ____ ________ __ _______e_ c____ ____ _is____ ______.",
+      "answer": "AncientGreektheatersweredesignedsoaudiencsouldheardtantvoices",
+      "locks1": [
+        1,
+        9,
+        18,
+        34,
+        48
+      ],
+      "locks2": [
+        3,
+        27,
+        30,
+        38,
+        52
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "5": {
+      "phrase": "_____'_ _______ ________ a ____c_ ____ ______ B______, _______ __y __ ___ _______.",
+      "answer": "Japanssamuraifollowedstritcodecalledushidomeaningwaofthewarrior",
+      "locks1": [
+        23,
+        28,
+        51,
+        53,
+        57
+      ],
+      "locks2": [
+        9,
+        16,
+        40,
+        47,
+        60
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "6": {
+      "phrase": "_______ ______ s___t____ ____ ______ ______ __ ____ _______ _____.",
+      "answer": "AncientRomansomeimesusedheatedfloorstowarmwealthyhomes",
+      "locks1": [
+        6,
+        21,
+        29,
+        32,
+        46
+      ],
+      "locks2": [
+        11,
+        17,
+        40,
+        43,
+        51
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "7": {
+      "phrase": "___ _______ B___ ______d _h___ ____i__, ___ t__ ___c_ __u__ _______ _______.",
+      "answer": "TheLibertyellcrackewileringngbutheexatcaseremainsunknown",
+      "locks1": [
+        2,
+        14,
+        38,
+        50,
+        53
+      ],
+      "locks2": [
+        11,
+        25,
+        30,
+        43,
+        46
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "8": {
+      "phrase": "_________ _______ ___ _r_____ ____ ___ ____ _____ a w____ s_____ ____.",
+      "answer": "Cuneiformwritingwaspessedintowetclayusingedgehapedtool",
+      "locks1": [
+        24,
+        33,
+        35,
+        50,
+        53
+      ],
+      "locks2": [
+        6,
+        26,
+        30,
+        38,
+        47
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "9": {
+      "phrase": "___ _____ _____y ____________ h__ ______ ____ _______ _______ ___ ________ s______.",
+      "answer": "TheIndusVallecivilizationadcitieswithplannedstreetsanddrainageystems",
+      "locks1": [
+        4,
+        9,
+        28,
+        36,
+        46
+      ],
+      "locks2": [
+        16,
+        41,
+        48,
+        52,
+        57
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "10": {
+      "phrase": "_______ _________ _________ a _______ ______ __i__ ___d____ o_ _______.",
+      "answer": "AncientEgyptiansdevelopedwritingsystemusnghunredsfsymbols",
+      "locks1": [
+        12,
+        25,
+        35,
+        39,
+        40
+      ],
+      "locks2": [
+        17,
+        23,
+        33,
+        52,
+        55
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "11": {
+      "phrase": "_______ _________ ____ _ 365 d__ ________ _____ __ t__ s____ ____.",
+      "answer": "AncientEgyptiansusedaaycalendarbasedonheolaryear",
+      "locks1": [
+        15,
+        26,
+        29,
+        37,
+        41
+      ],
+      "locks2": [
+        3,
+        12,
+        17,
+        33,
+        46
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "12": {
+      "phrase": "___ _____ ___i__ ____ __r______ ______ _a__s __ ______ ______ ___ ____.",
+      "answer": "TheRomanEmpreoncestetchedacrossprtofEuropeAfricaandAsia",
+      "locks1": [
+        2,
+        13,
+        21,
+        35,
+        54
+      ],
+      "locks2": [
+        4,
+        23,
+        28,
+        39,
+        49
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "13": {
+      "phrase": "_______ G_____ ______d ________ l___ ______ ______ __t________.",
+      "answer": "Ancientreeksstudiegeometryongbeforemodernmahematics",
+      "locks1": [
+        2,
+        16,
+        19,
+        34,
+        46
+      ],
+      "locks2": [
+        5,
+        21,
+        24,
+        38,
+        49
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "14": {
+      "phrase": "___ _______ ______ ____ t__ ___s_ ______c _____ i_ _______ ______ 776 B__.",
+      "answer": "TheancientGreeksheldhefirtOlympiGamesnOlympiaaroundCE",
+      "locks1": [
+        7,
+        10,
+        35,
+        40,
+        46
+      ],
+      "locks2": [
+        4,
+        13,
+        23,
+        33,
+        48
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "15": {
+      "phrase": "_______ ______ u___ ________ t_ ________ ___ ____ ba___ __ ___d___.",
+      "answer": "Ancientpeoplesedsundialsoestimatethetimesedonshaows",
+      "locks1": [
+        6,
+        19,
+        23,
+        35,
+        44
+      ],
+      "locks2": [
+        10,
+        17,
+        27,
+        46,
+        49
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "16": {
+      "phrase": "_______ _________ ________ ____ ____ ______ __d _____i____ __e_ w___ g__s.",
+      "answer": "AncientEgyptiansbelievedcatsweresacredanassocatedthmithod",
+      "locks1": [
+        11,
+        20,
+        28,
+        38,
+        46
+      ],
+      "locks2": [
+        8,
+        22,
+        25,
+        33,
+        43
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "17": {
+      "phrase": "___ _______ _t___ ___p__ ________ ________ _______n ___________.",
+      "answer": "TheRosettaSoneheledscholarsdecipherEgyptiahieroglyphs",
+      "locks1": [
+        2,
+        13,
+        17,
+        27,
+        42
+      ],
+      "locks2": [
+        8,
+        15,
+        24,
+        36,
+        40
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "18": {
+      "phrase": "_______ _____________ _________ ___ _f ___ ________ _n_w_ __i____ s______.",
+      "answer": "AncientMesopotamiansdevelopedoneotheearliestkonwrtingystems",
+      "locks1": [
+        7,
+        10,
+        21,
+        27,
+        35
+      ],
+      "locks2": [
+        3,
+        15,
+        37,
+        42,
+        51
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "19": {
+      "phrase": "___ _______ _________ __a______ _________ ___ t______ _______ _____ p_______.",
+      "answer": "TheancientEgyptiansprcticeddentistryandreatedpainfultoothroblems",
+      "locks1": [
+        7,
+        28,
+        32,
+        34,
+        56
+      ],
+      "locks2": [
+        5,
+        25,
+        41,
+        48,
+        53
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "20": {
+      "phrase": "_______ ___ ___ __ ___ _______ ___ ____ ___________ ______ o_ _______ M_s________.",
+      "answer": "Babylonwasoneofthelargestandmostinfluentialcitiesfancienteopotamia",
+      "locks1": [
+        13,
+        29,
+        36,
+        39,
+        50
+      ],
+      "locks2": [
+        4,
+        11,
+        20,
+        26,
+        55
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "21": {
+      "phrase": "_______ _______n_ ____t _____ ____ _______ o_ _______ _e___.",
+      "answer": "AncientEgyptiasbuilboatsfrombundlesfpapyrusreds",
+      "locks1": [
+        6,
+        27,
+        29,
+        33,
+        38
+      ],
+      "locks2": [
+        1,
+        8,
+        16,
+        21,
+        31
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "22": {
+      "phrase": "___ ____ __ _________ __ ___ __ t__ ______ ______i__ ______n ___ c____.",
+      "answer": "TheCodeofHammurabiisoneofheoldestsurvivngwrittelawodes",
+      "locks1": [
+        13,
+        31,
+        33,
+        36,
+        46
+      ],
+      "locks2": [
+        1,
+        21,
+        29,
+        43,
+        48
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "23": {
+      "phrase": "________ _______ ____ f__ ____a__ ____ _ ___n_ ___ _____ ______ ____s.",
+      "answer": "Spartanstrainedboysorwarfrefromayougageunderstrictrule",
+      "locks1": [
+        7,
+        10,
+        14,
+        17,
+        28
+      ],
+      "locks2": [
+        33,
+        37,
+        40,
+        48,
+        52
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "24": {
+      "phrase": "_______ ______ _________ a_ _____ ____ o_ ____c____ ___ ___e ________.",
+      "answer": "AncientAthensdevelopednearlyformfdemoracyformalcitizens",
+      "locks1": [
+        13,
+        25,
+        27,
+        31,
+        46
+      ],
+      "locks2": [
+        4,
+        10,
+        34,
+        42,
+        51
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "25": {
+      "phrase": "_______ _________ _____ ____e_ t____ _____ a__ _o__ wi__ f__ _________ _______.",
+      "answer": "AncientEgyptiansoftenshavdheirheadsndwregsorpracticalreasons",
+      "locks1": [
+        2,
+        12,
+        39,
+        53,
+        59
+      ],
+      "locks2": [
+        18,
+        32,
+        46,
+        51,
+        56
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "26": {
+      "phrase": "_______ _______ ______ c______ p_______ __________ ________ w______ ___ v______.",
+      "answer": "AncientChinesebronzeastingroducedremarkablydetailedeaponsandessels",
+      "locks1": [
+        13,
+        19,
+        43,
+        47,
+        59
+      ],
+      "locks2": [
+        10,
+        31,
+        39,
+        49,
+        55
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "27": {
+      "phrase": "_______d__ _________ ________ ___ ____________ _____ ___t __m___ ______ _____.",
+      "answer": "Archimeesdevelopedmachinesandmathematicalideasthareainfamoustoday",
+      "locks1": [
+        37,
+        47,
+        50,
+        53,
+        59
+      ],
+      "locks2": [
+        20,
+        27,
+        32,
+        43,
+        61
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "28": {
+      "phrase": "___ _______ __ __________ ______ ___ __ t__ _______ ______ g____ _______ o_ _e______.",
+      "answer": "TheLibraryofAlexandriabecameoneofheancientworldsreatcentersflarning",
+      "locks1": [
+        14,
+        28,
+        35,
+        40,
+        53
+      ],
+      "locks2": [
+        6,
+        19,
+        23,
+        43,
+        64
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "29": {
+      "phrase": "___ _____ _______ __ ____ w__ t__ _______ _u___ ____ _________ ___ _________.",
+      "answer": "TheGreatPyramidofGizaashetallesthmanmadestructureforcenturies",
+      "locks1": [
+        2,
+        39,
+        44,
+        50,
+        52
+      ],
+      "locks2": [
+        4,
+        26,
+        29,
+        34,
+        41
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "30": {
+      "phrase": "______ _a______ ____ ______ s_ _______ ______ _____ _____ ______ ___l_ _i____.",
+      "answer": "Mongolwrriorsusedhorsesoskilledriderscouldshootarrowswhierding",
+      "locks1": [
+        26,
+        35,
+        38,
+        47,
+        55
+      ],
+      "locks2": [
+        4,
+        15,
+        18,
+        28,
+        44
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "31": {
+      "phrase": "_______ _______ _____ _u___ a_ e_______ ____ _______ ______ ____r ______.",
+      "answer": "AncientPersiankingsbiltnnormousroadnetworkacrosstheiempire",
+      "locks1": [
+        8,
+        16,
+        40,
+        49,
+        53
+      ],
+      "locks2": [
+        1,
+        25,
+        28,
+        33,
+        38
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "32": {
+      "phrase": "_______ _________ ____ ____ _______ __ __c___ _____ a__ o____ ___n________.",
+      "answer": "AncientSumeriansusedclaytabletstoreordtradendthertrasactions",
+      "locks1": [
+        5,
+        7,
+        13,
+        45,
+        49
+      ],
+      "locks2": [
+        1,
+        22,
+        39,
+        53,
+        58
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "33": {
+      "phrase": "___ __________ ____ ___ _______ __ g____ ___ ____ o_ C____'s _____ _______.",
+      "answer": "TheTerracottaArmywascreatedtouardthetombfhinafirstemperor",
+      "locks1": [
+        18,
+        23,
+        27,
+        34,
+        39
+      ],
+      "locks2": [
+        1,
+        4,
+        42,
+        46,
+        51
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "34": {
+      "phrase": "_________ ___ _____ _______ _ _uge ______ ___o__ _____ a_ ____ 32 _____ ___.",
+      "answer": "AlexandertheGreatcreatedahempirebefredyingtonlyyearsold",
+      "locks1": [
+        10,
+        33,
+        35,
+        40,
+        50
+      ],
+      "locks2": [
+        13,
+        19,
+        22,
+        30,
+        44
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "35": {
+      "phrase": "_______ ______ _____ ________ __ _a_ _____t_ ____ c____ b_ ______ ___ _____d.",
+      "answer": "AncientRomanswrotemessagesonwxtablesthatouldeerasedandreuse",
+      "locks1": [
+        27,
+        30,
+        38,
+        50,
+        51
+      ],
+      "locks2": [
+        3,
+        22,
+        42,
+        46,
+        56
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "36": {
+      "phrase": "____e__ ______ u__d _____ t_ ____ _____ _n_ ______ ____r _______.",
+      "answer": "AncintRomansseurineohelpcleanadwhitentheiclothes",
+      "locks1": [
+        4,
+        11,
+        24,
+        33,
+        40
+      ],
+      "locks2": [
+        8,
+        16,
+        22,
+        27,
+        45
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "37": {
+      "phrase": "_____ ________ _____ b_____ s_r_____ ____ _______ t_ ________ ____ _i__.",
+      "answer": "Romanconcretecouldecometongerwhenexposedoseawaterovertme",
+      "locks1": [
+        3,
+        15,
+        19,
+        25,
+        39
+      ],
+      "locks2": [
+        8,
+        21,
+        31,
+        46,
+        50
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "38": {
+      "phrase": "___ _______ _____ R___ _______ ________ __ ______ _______ _c____ ___ _____e.",
+      "answer": "ThePersianRoyaloadallowedmessagestotravelquicklyarosstheempir",
+      "locks1": [
+        8,
+        28,
+        33,
+        46,
+        53
+      ],
+      "locks2": [
+        1,
+        23,
+        36,
+        44,
+        50
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "39": {
+      "phrase": "_____ _______ ____ a_ _______ ______ ________ s_______ ____d g___ ______ __________.",
+      "answer": "ChessevolvedfromnancientIndianmilitarytrategyboaramecalledChaturanga",
+      "locks1": [
+        3,
+        7,
+        17,
+        36,
+        66
+      ],
+      "locks2": [
+        10,
+        27,
+        32,
+        55,
+        61
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "40": {
+      "phrase": "_______ ____ ___ _ ______e _______ ___l__ ___ _________ f__ p_____ ______.",
+      "answer": "AncientRomehadamassivstadiumcaledtheColosseumorublicevents",
+      "locks1": [
+        11,
+        19,
+        33,
+        39,
+        41
+      ],
+      "locks2": [
+        2,
+        22,
+        26,
+        37,
+        56
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "41": {
+      "phrase": "_______ u___ _______ __o___ __ ____ ________ __ _____y ____.",
+      "answer": "Vikingssedcrystalstnestohelpnavigateonclouddays",
+      "locks1": [
+        16,
+        18,
+        37,
+        41,
+        45
+      ],
+      "locks2": [
+        1,
+        5,
+        25,
+        33,
+        39
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "42": {
+      "phrase": "____ _______ ________ ____i__ w___ ______v__ f__ _____a___ __ ____s.",
+      "answer": "SomeancientEgyptianmummeserepreseredorthousndsofyear",
+      "locks1": [
+        5,
+        7,
+        24,
+        39,
+        47
+      ],
+      "locks2": [
+        16,
+        21,
+        41,
+        44,
+        49
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "43": {
+      "phrase": "_h_ _______ _a__ ____ _____ ___n_ __ ________ i_ ____ r_____s.",
+      "answer": "TeancientMyausedcacaobeasascurrencynsomeegion",
+      "locks1": [
+        6,
+        15,
+        17,
+        20,
+        22
+      ],
+      "locks2": [
+        3,
+        28,
+        31,
+        38,
+        41
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "44": {
+      "phrase": "___ _______ ____ __ _______ w__ ______ __ ___n_ _____i__ __ 79 C_.",
+      "answer": "TheancientcityofPompeiiasburiedbyMoutVesuvusinE",
+      "locks1": [
+        1,
+        7,
+        31,
+        42,
+        45
+      ],
+      "locks2": [
+        4,
+        11,
+        18,
+        21,
+        27
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "45": {
+      "phrase": "___ _______ _________ ____ _____ a_ _ _________ ___ ____t____ __ ________.",
+      "answer": "TheancientEgyptiansusedhoneysasweetenerandsomeimesasmedicine",
+      "locks1": [
+        0,
+        12,
+        20,
+        41,
+        52
+      ],
+      "locks2": [
+        17,
+        31,
+        34,
+        37,
+        58
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "46": {
+      "phrase": "___ _______ ____ ______ __ _____ ___ ________ ____i__ f__ ___r o__ ________ ___ _______ _____.",
+      "answer": "TheancientIronPillarofDelhihasresistedrustngorovenethousandsixhundredyears",
+      "locks1": [
+        20,
+        26,
+        29,
+        30,
+        66
+      ],
+      "locks2": [
+        12,
+        39,
+        54,
+        60,
+        70
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "47": {
+      "phrase": "___ _______ ______ _______ a________ t_ _____ _____ _____ i___ _____ ______.",
+      "answer": "TheancientRomanscreatedqueductsocarryfreshwaterntotheircities",
+      "locks1": [
+        22,
+        25,
+        33,
+        35,
+        44
+      ],
+      "locks2": [
+        7,
+        29,
+        40,
+        51,
+        57
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "48": {
+      "phrase": "_______ _________ ____ _ ____ __ ________t_ ___e f___ ______l ________ ___________.",
+      "answer": "AncientEgyptiansusedaformoftoothpasemadromseverapowderedingredients",
+      "locks1": [
+        17,
+        21,
+        24,
+        45,
+        53
+      ],
+      "locks2": [
+        10,
+        14,
+        28,
+        58,
+        64
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "49": {
+      "phrase": "___________ ___ ________ __ _______ C____ l___ ______ i_ _______ __r___.",
+      "answer": "PapermakingwasinventedinancienthinaongbeforetreachedEuope",
+      "locks1": [
+        17,
+        19,
+        26,
+        45,
+        55
+      ],
+      "locks2": [
+        5,
+        8,
+        32,
+        41,
+        48
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "50": {
+      "phrase": "___ _______ _o____ u___ p_____ _______ _________ __ ___________ ________ __s____.",
+      "answer": "TheancientRmanssedublictoiletsconnectedtoundergrounddrainagesytems",
+      "locks1": [
+        8,
+        12,
+        45,
+        54,
+        59
+      ],
+      "locks2": [
+        1,
+        6,
+        25,
+        35,
+        48
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    }
+  }
+}

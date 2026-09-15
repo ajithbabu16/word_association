@@ -1,0 +1,1005 @@
+{
+  "sceneName": "Food",
+  "puzzles": {
+    "1": {
+      "phrase": "_____a_ _r_ ______l_y _________v_ _____s_ ____ ______n ________m 40.",
+      "answer": "Banansaenaturalradioactiebecauetheycontaipotassiu",
+      "locks1": [
+        3,
+        8,
+        20,
+        26,
+        36
+      ],
+      "locks2": [
+        1,
+        22,
+        32,
+        42,
+        45
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "2": {
+      "phrase": "_____ ___ ______ ______ ___ _________ o_ _____ w___ _e____ ________.",
+      "answer": "Honeycanremainedibleforthousandsfyearshensaledproperly",
+      "locks1": [
+        13,
+        18,
+        27,
+        31,
+        49
+      ],
+      "locks2": [
+        1,
+        16,
+        21,
+        36,
+        47
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "3": {
+      "phrase": "_______ ____ __i_______ _____ __ ______, ______, w___e, a__ ___ _________.",
+      "answer": "Carrotswereorginallygrowninpurpleyellowhitndredvarieties",
+      "locks1": [
+        19,
+        21,
+        24,
+        37,
+        49
+      ],
+      "locks2": [
+        2,
+        28,
+        35,
+        45,
+        52
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "4": {
+      "phrase": "______ _____ __ _____ _______ a____ _ _____e_ __ ____r ______ i_ ___.",
+      "answer": "Applesfloatinwaterbecauseboutaquartroftheivolumesair",
+      "locks1": [
+        4,
+        6,
+        11,
+        37,
+        51
+      ],
+      "locks2": [
+        1,
+        22,
+        33,
+        39,
+        46
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "5": {
+      "phrase": "_______ ___ _______, ______ __e_ ____ _______ _______ __ _____ th__ n___.",
+      "answer": "Peanutsarelegumesmakingthmmorecloselyrelatedtobeansanuts",
+      "locks1": [
+        9,
+        13,
+        22,
+        26,
+        44
+      ],
+      "locks2": [
+        1,
+        4,
+        32,
+        39,
+        47
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "6": {
+      "phrase": "________ ___ ___________ ______, a__ __t________ ____ ___ ______ ______ ____i__.",
+      "answer": "Avocadosaretechnicallyfruitsndboanicallytheyaresingleseededberres",
+      "locks1": [
+        11,
+        21,
+        26,
+        48,
+        58
+      ],
+      "locks2": [
+        1,
+        16,
+        33,
+        42,
+        54
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "7": {
+      "phrase": "_________ __s ___e ____ __ a f___ o_ ________ __ ___ _______ ____c_.",
+      "answer": "ChocolatewaoncusedasormfcurrencybytheancientAztes",
+      "locks1": [
+        14,
+        19,
+        24,
+        26,
+        32
+      ],
+      "locks2": [
+        1,
+        30,
+        35,
+        39,
+        46
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "8": {
+      "phrase": "________ ____ t__ _____ ____ _______ a__ _____ __ s____ b_ __________.",
+      "answer": "Potatoeswerehefirstfoodplantedndgrowninpaceyastronauts",
+      "locks1": [
+        10,
+        17,
+        38,
+        45,
+        48
+      ],
+      "locks2": [
+        2,
+        15,
+        20,
+        26,
+        33
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "9": {
+      "phrase": "_____ ___________ ___ ______ _______ t___ __n____ _____ a__ __c____.",
+      "answer": "Freshcranberriescanbouncebecauseheycotainsmallirpokets",
+      "locks1": [
+        1,
+        6,
+        25,
+        31,
+        45
+      ],
+      "locks2": [
+        8,
+        17,
+        28,
+        42,
+        51
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "10": {
+      "phrase": "______ _______ ____ _______ _ ____ _______ a__ ____ _____r_ __m___t_",
+      "answer": "GuavascontainmorevitaminCthanorangesndhelpsuppotimuniy",
+      "locks1": [
+        16,
+        29,
+        34,
+        42,
+        46
+      ],
+      "locks2": [
+        1,
+        11,
+        20,
+        40,
+        51
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "11": {
+      "phrase": "_______ _______ ___ _______ _____ ______ ____ _ur__ i___ _________ _____.",
+      "answer": "Popcornkernelspopbecausewaterinsidethemtnsntoexpandingsteam",
+      "locks1": [
+        5,
+        12,
+        28,
+        35,
+        41
+      ],
+      "locks2": [
+        18,
+        22,
+        30,
+        50,
+        57
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "12": {
+      "phrase": "______ ____ v_______ ______ ___ no_ ____r__ _______ __ _______ D.",
+      "answer": "Unlikemostitaminsfruitsaretnatualsourcesofvitamin",
+      "locks1": [
+        1,
+        8,
+        21,
+        23,
+        41
+      ],
+      "locks2": [
+        3,
+        29,
+        34,
+        37,
+        44
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "13": {
+      "phrase": "_______ _____ ____ _n ______ _______ t___ _r______ l___ _____ ____ ____.",
+      "answer": "Vanillacomesfromaorchidspecieshatpoducesonggreenseedpods",
+      "locks1": [
+        17,
+        25,
+        27,
+        51,
+        53
+      ],
+      "locks2": [
+        2,
+        5,
+        8,
+        35,
+        45
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "14": {
+      "phrase": "____ ___ ____ __ ______l_ ____ _____ ____i___ w___ _________ p___ ____ __.",
+      "answer": "SaltwasoncesovaluabethatRomansolderseresometimesaidwithit",
+      "locks1": [
+        5,
+        20,
+        22,
+        32,
+        54
+      ],
+      "locks2": [
+        8,
+        16,
+        27,
+        40,
+        43
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "15": {
+      "phrase": "________ ___ ___________ ___ ____ ___tiv____ _________ o_ ___ s___ _____ _______.",
+      "answer": "Broccoliandcauliflowerarebothculatedvarietiesftheameplantspecies",
+      "locks1": [
+        29,
+        44,
+        54,
+        56,
+        60
+      ],
+      "locks2": [
+        1,
+        4,
+        13,
+        19,
+        62
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "16": {
+      "phrase": "______ _____ ___ a_______ _____ _____ __s___ t__ _r___ o_ __f___ ___n__.",
+      "answer": "Coffeebeansarectuallyseedsfoundinidehefuitfcofeeplats",
+      "locks1": [
+        11,
+        18,
+        27,
+        46,
+        49
+      ],
+      "locks2": [
+        4,
+        7,
+        15,
+        22,
+        34
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "17": {
+      "phrase": "______ ___ __ m___ ____ ___ ____ o_ ____, _____, s____, ___ _____l_.",
+      "answer": "Cheesecanbeadefromthemilkfcowsgoatsheepandbuffao",
+      "locks1": [
+        4,
+        16,
+        20,
+        31,
+        42
+      ],
+      "locks2": [
+        2,
+        23,
+        27,
+        36,
+        40
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "18": {
+      "phrase": "________o__ ____ _____ i_ ____e__ _____ ______n__ _f _____ a__.",
+      "answer": "WatermelnsweregrownnancintEgyptthousadsoyearsgo",
+      "locks1": [
+        9,
+        22,
+        25,
+        38,
+        41
+      ],
+      "locks2": [
+        2,
+        11,
+        16,
+        28,
+        34
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "19": {
+      "phrase": "_______ ___ _____ ____ _ ____t, _a____ ____ ___________ _______ __ _______.",
+      "answer": "Almondsareseedsfromafruimkingthembotanicallyrelatedtopeaches",
+      "locks1": [
+        16,
+        38,
+        41,
+        46,
+        55
+      ],
+      "locks2": [
+        2,
+        21,
+        27,
+        31,
+        57
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "20": {
+      "phrase": "_______ _____ ___ __ ______, _____, __ b____ _______n_ o_ ___ _____ _______.",
+      "answer": "Mustardseedscanbeyellowbrownorlackdependigntheplantvariety",
+      "locks1": [
+        4,
+        9,
+        15,
+        45,
+        55
+      ],
+      "locks2": [
+        19,
+        25,
+        38,
+        48,
+        52
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "21": {
+      "phrase": "____ __ _ ______ ____ __r ____ t___ ____ __ ___ w_____ p_________.",
+      "answer": "Riceisastaplefoodfomorehanhalfoftheorldsopulation",
+      "locks1": [
+        0,
+        16,
+        22,
+        30,
+        48
+      ],
+      "locks2": [
+        8,
+        11,
+        27,
+        33,
+        43
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "22": {
+      "phrase": "___ _____ ___ _____ _____ ____ _______s _____ i_ t__ _e__ ____.",
+      "answer": "Eggyolksgettheircolorfrompigmentfoundnhehnsdiet",
+      "locks1": [
+        22,
+        27,
+        31,
+        35,
+        41
+      ],
+      "locks2": [
+        5,
+        9,
+        14,
+        18,
+        44
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "23": {
+      "phrase": "_____ _____ i_ ___e __ _______ _a_ ________d ____ _______ _____ t___s.",
+      "answer": "Maplesyrupsmadbyboilingspcollectefromcertainmapleree",
+      "locks1": [
+        5,
+        15,
+        32,
+        43,
+        48
+      ],
+      "locks2": [
+        12,
+        17,
+        20,
+        35,
+        39
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "24": {
+      "phrase": "______ __ _______ ____ _____i____ ________ _______ s___r_ __ ____.",
+      "answer": "Yogurtiscreatedwhenbenefcialbacteriafermentugasinmilk",
+      "locks1": [
+        4,
+        14,
+        34,
+        44,
+        49
+      ],
+      "locks2": [
+        1,
+        16,
+        22,
+        32,
+        39
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "25": {
+      "phrase": "_____c ________ ______ _________ ____ ____t_ ___ ___o__ _____ _n_ _____r.",
+      "answer": "Garlicontainssulfurcompoundsthatcreaeitsstrngsmelladflavo",
+      "locks1": [
+        1,
+        3,
+        15,
+        26,
+        29
+      ],
+      "locks2": [
+        9,
+        17,
+        34,
+        48,
+        54
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "26": {
+      "phrase": "_____ _______ f___ __t _______ c________ _________ ____ ______g _________.",
+      "answer": "Chilipepperseelhobecauseapsaicinactivatesheatsensinreceptors",
+      "locks1": [
+        5,
+        20,
+        32,
+        47,
+        51
+      ],
+      "locks2": [
+        25,
+        29,
+        39,
+        42,
+        56
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "27": {
+      "phrase": "_______ ____ ________ __ ___ ______ __ _ _____y _____ ______ a __s_e_ _____.",
+      "answer": "Cashewsgrowattachedtothebottomofafleshfruitcalledcahwapple",
+      "locks1": [
+        12,
+        39,
+        41,
+        47,
+        55
+      ],
+      "locks2": [
+        3,
+        9,
+        17,
+        26,
+        44
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "28": {
+      "phrase": "F___ _______ ____ _______ ___t ___o_ ______ ___ _____ ______ ____ _______.",
+      "answer": "igscontaintinyflowersthablominsidethefruitratherthanoutside",
+      "locks1": [
+        16,
+        25,
+        30,
+        41,
+        51
+      ],
+      "locks2": [
+        6,
+        12,
+        35,
+        44,
+        54
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "29": {
+      "phrase": "___________ ________ _______ ___ ____ ____ _____ t_ ______ f____ a___.",
+      "answer": "Traditionalbalsamicvinegarcantakemanyyearsobecomeullyged",
+      "locks1": [
+        5,
+        18,
+        24,
+        30,
+        35
+      ],
+      "locks2": [
+        2,
+        12,
+        15,
+        47,
+        51
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "30": {
+      "phrase": "_______, _____, ________, ___ a_______ ___ ______ t_ ___ s___ _____ f_____.",
+      "answer": "Peachesplumscherriesandpricotsallbelongotheamefruitamily",
+      "locks1": [
+        0,
+        5,
+        13,
+        46,
+        50
+      ],
+      "locks2": [
+        10,
+        28,
+        35,
+        41,
+        54
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "31": {
+      "phrase": "____ ______ ____ i__ ____ _____ __o_ ______l__ ________ _______ __ m___.",
+      "answer": "Bluecheesegetstsblueveinsfrmspecialyselectedspeciesofold",
+      "locks1": [
+        10,
+        19,
+        44,
+        49,
+        54
+      ],
+      "locks2": [
+        8,
+        21,
+        30,
+        37,
+        47
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "32": {
+      "phrase": "_____ ___ ___ ____ __ ______ _______n_ o_ ___ _l___ _______ ___ _______ t___.",
+      "answer": "Oliveoilcanvaryinflavordependigntheoivevarietyandharvestime",
+      "locks1": [
+        11,
+        22,
+        24,
+        45,
+        49
+      ],
+      "locks2": [
+        9,
+        28,
+        33,
+        41,
+        47
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "33": {
+      "phrase": "_____ ______ _____ ____ _____ _______ ____ ____ o_ a ________ t_______ ___e.",
+      "answer": "Blackpeppercomesfromdriedberriesthatgrownclimbingropicalvin",
+      "locks1": [
+        1,
+        22,
+        34,
+        39,
+        44
+      ],
+      "locks2": [
+        14,
+        17,
+        27,
+        47,
+        57
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "34": {
+      "phrase": "________ ___ _______a___ ______ c_____ d_____, ___ tru_ ___s.",
+      "answer": "Coconutsaretechnicllyfruitsalledrupesnotenut",
+      "locks1": [
+        6,
+        9,
+        18,
+        22,
+        38
+      ],
+      "locks2": [
+        3,
+        24,
+        30,
+        34,
+        42
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "35": {
+      "phrase": "________ ____ ____ _____ __ ___am____l ______ __ _____ o_ __r___.",
+      "answer": "TomatoeswereoncegrownasornentaplantsinpartsfEuope",
+      "locks1": [
+        5,
+        22,
+        33,
+        37,
+        39
+      ],
+      "locks2": [
+        2,
+        9,
+        14,
+        31,
+        41
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "36": {
+      "phrase": "____ __ ____ __ ___d____ ___ ____ a__ ___s____ t__ _________ ____ c____.",
+      "answer": "Tofuismadebycurlingsoymilkndpresingheresultingbeanurds",
+      "locks1": [
+        19,
+        34,
+        38,
+        41,
+        48
+      ],
+      "locks2": [
+        2,
+        13,
+        16,
+        23,
+        44
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "37": {
+      "phrase": "______ _____ a__ n__ __________ f___ _r____, _______ _____ _____s ____.",
+      "answer": "FrenchfriesreotoriginallyromFancedespitetheirfamouname",
+      "locks1": [
+        17,
+        37,
+        47,
+        51,
+        53
+      ],
+      "locks2": [
+        3,
+        9,
+        20,
+        34,
+        42
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "38": {
+      "phrase": "_____ _____ _____ ____ __ ____u____ _____n _______ d_____ ____________.",
+      "answer": "Yeastmakesbreadrisebyprodcingcarbodioxideuringfermentation",
+      "locks1": [
+        16,
+        20,
+        37,
+        40,
+        54
+      ],
+      "locks2": [
+        1,
+        23,
+        32,
+        35,
+        47
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "39": {
+      "phrase": "____ ___ _____ ___t _______ ______ __d_ a__ _e____ _o ___ ______ ______.",
+      "answer": "Peasareseedsthadevelopinsideposndblongtthelegumefamily",
+      "locks1": [
+        3,
+        9,
+        16,
+        24,
+        41
+      ],
+      "locks2": [
+        13,
+        26,
+        36,
+        44,
+        50
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "40": {
+      "phrase": "____ _________ ___ ____ i_ t__ ___k, ____ ____ s___ _________.",
+      "answer": "Somemushroomscanglownhedarjustlikeomejellyfish",
+      "locks1": [
+        2,
+        4,
+        10,
+        23,
+        28
+      ],
+      "locks2": [
+        8,
+        17,
+        31,
+        38,
+        41
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "41": {
+      "phrase": "________ ___ ______ _______ ____ _______ ____ t__ _________ ____ o_ a p____.",
+      "answer": "Pumpkinsarefruitsbecausetheydevelopfromhefloweringpartflant",
+      "locks1": [
+        8,
+        17,
+        21,
+        38,
+        42
+      ],
+      "locks2": [
+        5,
+        15,
+        32,
+        47,
+        52
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "42": {
+      "phrase": "_u______ _____ m___ _______ __e__ b_____ ____o_ _____ ___ ______ __a___.",
+      "answer": "Trmericgivesanycurriesthirrightyellwcolorandearthyflvor",
+      "locks1": [
+        1,
+        10,
+        18,
+        23,
+        42
+      ],
+      "locks2": [
+        5,
+        8,
+        13,
+        39,
+        45
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "43": {
+      "phrase": "______ ______ _______ _____ i_ _____ _a__ ___nl_ ____ ____e_____h _______.",
+      "answer": "WasabiservedoutsideJapansoftenmdemaiyfromhorsradisinstead",
+      "locks1": [
+        1,
+        13,
+        15,
+        35,
+        53
+      ],
+      "locks2": [
+        7,
+        20,
+        27,
+        38,
+        42
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "44": {
+      "phrase": "______ __ ____ __ ________ _____ _____ ___ f__ s________ ____ ___ __q___.",
+      "answer": "Butterismadebychurningcreamuntilitsateparatesfromtheliuid",
+      "locks1": [
+        7,
+        13,
+        16,
+        27,
+        51
+      ],
+      "locks2": [
+        4,
+        10,
+        24,
+        39,
+        43
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "45": {
+      "phrase": "______ __ ______ ___ ___ ______ _____ ___ _s __________ i_ ___e ______ _l____.",
+      "answer": "Durianisfamousforitsstrongsmellandirestrictednsompublicpaces",
+      "locks1": [
+        1,
+        5,
+        8,
+        13,
+        19
+      ],
+      "locks2": [
+        27,
+        36,
+        42,
+        50,
+        57
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "46": {
+      "phrase": "______ __ _ ____, ____ ______ _t i_ ________ ________ ___ e____ ____ a _____.",
+      "answer": "Quinoaisaseedeventhoughiscommonlypreparedandatenlikegrain",
+      "locks1": [
+        17,
+        26,
+        35,
+        42,
+        55
+      ],
+      "locks2": [
+        3,
+        28,
+        31,
+        37,
+        49
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "47": {
+      "phrase": "________ __ _ t____ _____ p_______ ______ ___ _______ _f ______ _____.",
+      "answer": "Molassesisahicksyruproducedduringtheprocessomakingsugar",
+      "locks1": [
+        2,
+        8,
+        32,
+        36,
+        41
+      ],
+      "locks2": [
+        16,
+        28,
+        34,
+        45,
+        51
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "48": {
+      "phrase": "____ __________ __ ___ ________ _o b_____ s______ _____ _____ _________.",
+      "answer": "Ripepineapplesdonotcontinuetecomeweeterafterbeingharvested",
+      "locks1": [
+        5,
+        43,
+        50,
+        52,
+        54
+      ],
+      "locks2": [
+        2,
+        7,
+        11,
+        20,
+        23
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "49": {
+      "phrase": "______ __ _ ____, _____ ____ _____ ___m t__ _______l ________ ______ i_.",
+      "answer": "Nutmegisaseedwhilemacecomesfrohecolorfucoveringaroundt",
+      "locks1": [
+        13,
+        16,
+        29,
+        42,
+        44
+      ],
+      "locks2": [
+        4,
+        20,
+        33,
+        37,
+        48
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "50": {
+      "phrase": "_______ _____ ____ _____ _________ _r___ ___n a__ _____ ___e_ h___ ____.",
+      "answer": "Caramelformswhensugarmoleculesbeakdowndbrownundrighheat",
+      "locks1": [
+        2,
+        6,
+        7,
+        15,
+        44
+      ],
+      "locks2": [
+        10,
+        17,
+        25,
+        41,
+        52
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    }
+  }
+}

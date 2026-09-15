@@ -1,0 +1,1005 @@
+{
+  "sceneName": "Insects",
+  "puzzles": {
+    "1": {
+      "phrase": "_n__ ___ ___r_ _______ m___ _____ h______ ____ t__i_ o__ b__y ______.",
+      "answer": "Atscancaryobjectsanytimeseavierthanherwnodweight",
+      "locks1": [
+        6,
+        13,
+        24,
+        34,
+        47
+      ],
+      "locks2": [
+        4,
+        15,
+        21,
+        29,
+        43
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "2": {
+      "phrase": "____ ___ _________ _____ _____ _____ ________ __ _____ a__ d__k ______.",
+      "answer": "Beescanrecognizehumanfacesusingpatternsoflightndarshapes",
+      "locks1": [
+        10,
+        35,
+        41,
+        49,
+        52
+      ],
+      "locks2": [
+        2,
+        8,
+        24,
+        33,
+        44
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "3": {
+      "phrase": "______f____ t____ ____ ____r ____ __ ____ ______l_ ______ ___ _____ ____.",
+      "answer": "Butterliesastewiththeifeettofindsuitabeplantsfortheireggs",
+      "locks1": [
+        15,
+        20,
+        28,
+        43,
+        48
+      ],
+      "locks2": [
+        2,
+        7,
+        23,
+        46,
+        55
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "4": {
+      "phrase": "___________ ___ f__ b_______ ___ ___n__ _________ ______ i_______y.",
+      "answer": "Dragonfliescanlyackwardandchagedirectionalmostnstantl",
+      "locks1": [
+        12,
+        15,
+        25,
+        27,
+        33
+      ],
+      "locks2": [
+        5,
+        35,
+        44,
+        48,
+        51
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "5": {
+      "phrase": "____ ____ ____ f____ ______r____ __ _____ m___ _o____ __ ____.",
+      "answer": "Someantsfarmungiundergoundastheirainsurceoffood",
+      "locks1": [
+        2,
+        6,
+        14,
+        26,
+        43
+      ],
+      "locks2": [
+        10,
+        17,
+        24,
+        31,
+        39
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "6": {
+      "phrase": "_________ _______ _____ _______ _ c_______ r_______ _____e ___i_ ______.",
+      "answer": "Firefliesproducelightthroughahemicaleactioninsidtherbodies",
+      "locks1": [
+        1,
+        17,
+        39,
+        41,
+        45
+      ],
+      "locks2": [
+        7,
+        13,
+        25,
+        37,
+        53
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "7": {
+      "phrase": "__________ _____ ____ _____ sen____ l______ o_ _h___ ____.",
+      "answer": "Housefliestastefoodusingsorsocatednteirfeet",
+      "locks1": [
+        16,
+        22,
+        38,
+        39,
+        42
+      ],
+      "locks2": [
+        2,
+        7,
+        20,
+        25,
+        30
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "8": {
+      "phrase": "_______ ____ __ t__ _______ g____ o_ _______ ___w_ __ _______.",
+      "answer": "Beetlesmakeuphelargestroupfinsectsknontoscience",
+      "locks1": [
+        4,
+        17,
+        33,
+        38,
+        43
+      ],
+      "locks2": [
+        1,
+        19,
+        24,
+        30,
+        45
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "9": {
+      "phrase": "____________ ___ ____ ____ _____ _h___ ____ ______ i_ a ______ l___.",
+      "answer": "Grasshopperscanjumpmanytimesteirbodylengthnsingleeap",
+      "locks1": [
+        6,
+        8,
+        10,
+        14,
+        27
+      ],
+      "locks2": [
+        16,
+        20,
+        34,
+        39,
+        47
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "10": {
+      "phrase": "____ _______ c__ su_____ b____ ______ ___ _____ ______ ______ _____.",
+      "answer": "Someinsectsanrviveeingfrozenandlaterbecomeactiveagain",
+      "locks1": [
+        16,
+        26,
+        33,
+        38,
+        48
+      ],
+      "locks2": [
+        14,
+        29,
+        40,
+        45,
+        51
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "11": {
+      "phrase": "_____ ___ ___ ____ ___ _____ __ h___ ________ ______ _________ _____t_.",
+      "answer": "MothsusetheMoonandstarstoelpnavigateduringnighttimeflighs",
+      "locks1": [
+        16,
+        28,
+        30,
+        46,
+        50
+      ],
+      "locks2": [
+        3,
+        12,
+        20,
+        34,
+        39
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "12": {
+      "phrase": "____ __________ _______ e__ ______ w____ f______ _____ ____k b____.",
+      "answer": "Malemosquitoesusuallyatnectarhileemalesoftendrinlood",
+      "locks1": [
+        6,
+        8,
+        28,
+        29,
+        32
+      ],
+      "locks2": [
+        2,
+        17,
+        24,
+        42,
+        45
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "13": {
+      "phrase": "________ _____ ____ ___t_ ____ c__ _______ m_______ __ _______u__ _______.",
+      "answer": "Termitesbuildtallnessthatancontainillionsofindividalinsects",
+      "locks1": [
+        15,
+        18,
+        38,
+        42,
+        58
+      ],
+      "locks2": [
+        3,
+        23,
+        30,
+        44,
+        53
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "14": {
+      "phrase": "_______ ________ ___ __r_ _____ _____ ___h _______ ____ ______ c__.",
+      "answer": "Prayingmantisescantuntheirheadsmucfartherthanhumansan",
+      "locks1": [
+        8,
+        22,
+        27,
+        32,
+        35
+      ],
+      "locks2": [
+        1,
+        4,
+        12,
+        39,
+        42
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "15": {
+      "phrase": "________ _______ _ ______ ____i_ ____ ____ fe__ __r_______ b_ _________.",
+      "answer": "Ladybugsreleaseayellowliqudwhentheyeltheatenedypredators",
+      "locks1": [
+        17,
+        28,
+        33,
+        41,
+        48
+      ],
+      "locks2": [
+        11,
+        20,
+        43,
+        51,
+        54
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "16": {
+      "phrase": "____ ____ u__ _____ __n ____e_ t_ ____ ______ b______ ____ ____.",
+      "answer": "Someantssetheirowbodisoformlivingridgesovergaps",
+      "locks1": [
+        11,
+        13,
+        18,
+        20,
+        27
+      ],
+      "locks2": [
+        1,
+        24,
+        34,
+        37,
+        45
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "17": {
+      "phrase": "___________ ____ ____ ____ ____ _____ ____ o_ t__ _______ __ _____ ____s.",
+      "answer": "Dragonflieshavehugeeyesthatcovermuchfhesurfaceoftheirhead",
+      "locks1": [
+        17,
+        20,
+        30,
+        39,
+        52
+      ],
+      "locks2": [
+        5,
+        8,
+        25,
+        28,
+        49
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "18": {
+      "phrase": "____ ______ic___ ____ _________ ____g _________ _____ a_ ___ ______ __n__.",
+      "answer": "Beescommunatefoodlocationsusinmovementsknownsthewaggledace",
+      "locks1": [
+        10,
+        13,
+        34,
+        39,
+        46
+      ],
+      "locks2": [
+        2,
+        5,
+        21,
+        28,
+        32
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "19": {
+      "phrase": "____ _______ c__ ____ _______ _a__ _____ _______ ____ _____ ___ b_d___.",
+      "answer": "Somebeetlesanliftobjectsmnytimesheavierthantheirownoies",
+      "locks1": [
+        16,
+        27,
+        33,
+        44,
+        50
+      ],
+      "locks2": [
+        6,
+        21,
+        30,
+        36,
+        41
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "20": {
+      "phrase": "_______ ______ ___ ____ s_ ____ ____ _____h__ ____ _________ ____ ___m.",
+      "answer": "Walkingstickscanlookomuchlikebrancesthatpredatorsmissthe",
+      "locks1": [
+        24,
+        39,
+        41,
+        48,
+        52
+      ],
+      "locks2": [
+        1,
+        9,
+        27,
+        30,
+        45
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "21": {
+      "phrase": "___________ ____ ____ _____s c_______ _____ _____ t___ ______ _____ ______.",
+      "answer": "Butterflieshavetinyscaleoveringtheirwingshatcreatetheircolors",
+      "locks1": [
+        24,
+        32,
+        34,
+        55,
+        58
+      ],
+      "locks2": [
+        2,
+        13,
+        29,
+        39,
+        51
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "22": {
+      "phrase": "___________ ___ l___ ___ w____ _______ _o__ _____ ______n __________.",
+      "answer": "Cockroachescaniveforeekswithoutfodundercertaiconditions",
+      "locks1": [
+        2,
+        9,
+        18,
+        29,
+        53
+      ],
+      "locks2": [
+        26,
+        35,
+        41,
+        46,
+        49
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "23": {
+      "phrase": "____ _______ _______ t_r____ ____ o_e_____ ______ _________ _____ _____ ______.",
+      "answer": "Someinsectsbreathehoughtinypningscalledspiraclesalongtheirbodies",
+      "locks1": [
+        2,
+        12,
+        30,
+        48,
+        54
+      ],
+      "locks2": [
+        5,
+        37,
+        40,
+        44,
+        60
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "24": {
+      "phrase": "___ ________ ___ h___ _______ q_____ _______ng __ ___ _______.",
+      "answer": "Antcoloniescanaveseveralueensdependionthespecies",
+      "locks1": [
+        20,
+        22,
+        34,
+        36,
+        38
+      ],
+      "locks2": [
+        1,
+        4,
+        25,
+        31,
+        44
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "25": {
+      "phrase": "__e_ ____ ____ ____, _________ __r__ ____ ____ __ t__ of ___i_ _____.",
+      "answer": "Beshavefiveeyesincludingtheetinyeyesonoptherheads",
+      "locks1": [
+        9,
+        13,
+        29,
+        31,
+        36
+      ],
+      "locks2": [
+        5,
+        17,
+        20,
+        33,
+        45
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "26": {
+      "phrase": "____ ____________ _____c_ ______ t_ ___________ ____ n_____ ________a__.",
+      "answer": "Somecaterpillarsproduesoundsocommunicatewithearbyindividuls",
+      "locks1": [
+        2,
+        14,
+        16,
+        22,
+        40
+      ],
+      "locks2": [
+        10,
+        25,
+        32,
+        51,
+        54
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "27": {
+      "phrase": "_________ ___ ___ _______ ______e ____ ____ ___ht ____ _______ o_ ___.",
+      "answer": "Scorpionsarenotinsectsbecaustheyhaveeiglegsinsteadfsix",
+      "locks1": [
+        5,
+        7,
+        14,
+        32,
+        53
+      ],
+      "locks2": [
+        1,
+        24,
+        30,
+        41,
+        48
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "28": {
+      "phrase": "________ _____ ____ __ __e__ _____ _________r b_____ ________ ____t_.",
+      "answer": "Mayfliesspendmostofthirlivesunderwateeforebecomingaduls",
+      "locks1": [
+        6,
+        16,
+        25,
+        27,
+        47
+      ],
+      "locks2": [
+        2,
+        10,
+        30,
+        34,
+        52
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "29": {
+      "phrase": "____ _______ _____ ____ __ ____d _________ ____ w____ ________ ______ __e_.",
+      "answer": "Someinsectsmimicantstoavoipredatorsthatouldnormallyattackthm",
+      "locks1": [
+        14,
+        24,
+        26,
+        33,
+        36
+      ],
+      "locks2": [
+        1,
+        29,
+        45,
+        49,
+        53
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "30": {
+      "phrase": "__________ _______ ___ _____ _ ___ c______l m____r_ a_ _________ _________.",
+      "answer": "Bombardierbeetlescansprayahothemicaixtuetattackingpredators",
+      "locks1": [
+        6,
+        13,
+        16,
+        34,
+        49
+      ],
+      "locks2": [
+        4,
+        21,
+        36,
+        52,
+        56
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "31": {
+      "phrase": "____ ________ ___ _________ _____l_ t_ w___ ____r ______ o_ ______.",
+      "answer": "Sometermitesusevibrationsignasoarntheicolonyfdanger",
+      "locks1": [
+        6,
+        18,
+        40,
+        42,
+        48
+      ],
+      "locks2": [
+        1,
+        26,
+        32,
+        36,
+        46
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "32": {
+      "phrase": "_______ ________ ___ _____ ___e____ _____ ____ t_ c______ p___ _______.",
+      "answer": "Prayingmantisesusetheirpowrfulfrontlegsoapturereyquickly",
+      "locks1": [
+        25,
+        32,
+        35,
+        52,
+        54
+      ],
+      "locks2": [
+        2,
+        5,
+        20,
+        27,
+        42
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "33": {
+      "phrase": "_________ ______ __v_ __________ ___ __nt s____ _______ _______.",
+      "answer": "Dragonflylarvaelieunderwaterandhumallaquaticanimals",
+      "locks1": [
+        14,
+        34,
+        39,
+        42,
+        46
+      ],
+      "locks2": [
+        2,
+        7,
+        19,
+        23,
+        29
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "34": {
+      "phrase": "____ ______f____ m______ ______n_s __ _____ _______ __a_____ ________.",
+      "answer": "Somebutterliesigratethousadofmilesbetweensesonalhabitats",
+      "locks1": [
+        5,
+        12,
+        20,
+        25,
+        55
+      ],
+      "locks2": [
+        1,
+        32,
+        35,
+        38,
+        45
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "35": {
+      "phrase": "____ ___ ___ _____ ____l_ t_ ____e _____ ______s ______ a ____ ______.",
+      "answer": "Antscanusescenttraisoguidotherworkertowardfoodsource",
+      "locks1": [
+        4,
+        21,
+        23,
+        29,
+        41
+      ],
+      "locks2": [
+        12,
+        26,
+        32,
+        44,
+        47
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "36": {
+      "phrase": "____ ___ ____ _____ w____ ______ ___ _______ t____ _v___ se____.",
+      "answer": "Beescanflaptheiringsaroundtwohundredimeseerycond",
+      "locks1": [
+        14,
+        24,
+        29,
+        34,
+        43
+      ],
+      "locks2": [
+        12,
+        21,
+        32,
+        38,
+        46
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "37": {
+      "phrase": "____ _______ ____ ___________ _____ ____ h___ ____ _l___ _n_o t____ ____________.",
+      "answer": "Someinsectshavetransparentwingsthatelpthembenditheirsurroundings",
+      "locks1": [
+        4,
+        31,
+        38,
+        44,
+        55
+      ],
+      "locks2": [
+        2,
+        7,
+        13,
+        57,
+        60
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "38": {
+      "phrase": "_____ _______ ___ ______ l___ ____ _____ ____ a__ _t___ ________.",
+      "answer": "Stickinsectscanregrowostlegswhiletheyresillimmature",
+      "locks1": [
+        15,
+        19,
+        31,
+        35,
+        42
+      ],
+      "locks2": [
+        1,
+        6,
+        25,
+        29,
+        46
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "39": {
+      "phrase": "_______ _______ ___ ________ _____ t__ M___y ___ _n ___a_ ______.",
+      "answer": "CertainbeetlescannavigateusingheilkWayoclernights",
+      "locks1": [
+        1,
+        9,
+        17,
+        33,
+        43
+      ],
+      "locks2": [
+        15,
+        28,
+        36,
+        40,
+        46
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "40": {
+      "phrase": "____ _______ ___ __________ t___ _____ ____ ____ ____ __a_e_ o_ _______.",
+      "answer": "Someinsectsusecamouflagehatmakesthemlooklikelevsrflowers",
+      "locks1": [
+        1,
+        13,
+        28,
+        34,
+        45
+      ],
+      "locks2": [
+        8,
+        19,
+        22,
+        37,
+        42
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "41": {
+      "phrase": "_________ _____ a__ _______ ____ _______d_ o_ ___________ ___________ s_____.",
+      "answer": "Butterflywingsrecoveredwiththousansfoverlappingmicroscopiccales",
+      "locks1": [
+        1,
+        8,
+        27,
+        36,
+        54
+      ],
+      "locks2": [
+        3,
+        20,
+        25,
+        30,
+        45
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "42": {
+      "phrase": "____ ____ __ _____ ___ ____t_e ______h ___y ________ i_ _____ ______.",
+      "answer": "Antshavenolungsandbreahthrougtinopeningsntheirbodies",
+      "locks1": [
+        0,
+        7,
+        20,
+        29,
+        35
+      ],
+      "locks2": [
+        11,
+        26,
+        33,
+        38,
+        48
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "43": {
+      "phrase": "____ ____s ___ _he__ ____ ______ ____r _______ f__ _____ ______ __ ___.",
+      "answer": "Somewasplaytireggsinsideotheinsectsortheirlarvaetoeat",
+      "locks1": [
+        9,
+        20,
+        29,
+        37,
+        49
+      ],
+      "locks2": [
+        15,
+        26,
+        33,
+        40,
+        45
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "44": {
+      "phrase": "_____ ___ ____ ____ 100 _____ _____ ___ _o__ ______ i_ ___ ___p",
+      "answer": "Fleascanjumpovertimestheirownbdylengthnonelea",
+      "locks1": [
+        9,
+        11,
+        12,
+        24,
+        36
+      ],
+      "locks2": [
+        6,
+        18,
+        27,
+        33,
+        43
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "45": {
+      "phrase": "____ _______ _______ _____________, _____i__ _______c____ d_____ ______p____.",
+      "answer": "Manyinsectsundergometamorphosischangngdramatiallyuringdeveloment",
+      "locks1": [
+        4,
+        13,
+        25,
+        48,
+        63
+      ],
+      "locks2": [
+        7,
+        19,
+        28,
+        43,
+        58
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "46": {
+      "phrase": "____ _______ ___________ b_ _______ t____ _____ a____s_ ______ ________.",
+      "answer": "Somebeetlescommunicateytappingheirheadsgaintwoodensurfaces",
+      "locks1": [
+        3,
+        29,
+        34,
+        47,
+        50
+      ],
+      "locks2": [
+        6,
+        13,
+        20,
+        26,
+        55
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "47": {
+      "phrase": "___________ ____ ____ ______ ______ _____ ___ _o__ t___ 300 _______ __a__.",
+      "answer": "DragonflieshavebeenflyingaroundEarthformrehanmillionyers",
+      "locks1": [
+        2,
+        4,
+        27,
+        29,
+        53
+      ],
+      "locks2": [
+        13,
+        21,
+        32,
+        37,
+        50
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "48": {
+      "phrase": "____ ____ ____e__ ______ ____u__ t___ _______ _____ ________ ____ ____.",
+      "answer": "Someantsprotctaphidsbecaseheycollectsweethoneydewfromthem",
+      "locks1": [
+        2,
+        22,
+        41,
+        49,
+        51
+      ],
+      "locks2": [
+        15,
+        18,
+        33,
+        39,
+        55
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "49": {
+      "phrase": "____ _______ ___ p__d___ _________ ____ ______ __ ___r___ m____.",
+      "answer": "Malecicadascanrouceextremelyloudsoundstoattactates",
+      "locks1": [
+        0,
+        3,
+        14,
+        16,
+        38
+      ],
+      "locks2": [
+        5,
+        8,
+        24,
+        29,
+        36
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "50": {
+      "phrase": "____ _______ _______ __ __e_______ t_ __ __a_ ____ _________ ___r____.",
+      "answer": "Someinsectssurvivebyprtendingobededwhenpredatorsappoach",
+      "locks1": [
+        5,
+        24,
+        32,
+        41,
+        47
+      ],
+      "locks2": [
+        8,
+        15,
+        27,
+        37,
+        53
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    }
+  }
+}

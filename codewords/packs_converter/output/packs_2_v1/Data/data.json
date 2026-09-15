@@ -1,0 +1,1005 @@
+{
+  "sceneName": "Music",
+  "puzzles": {
+    "1": {
+      "phrase": "_____ ______ ______ ______ b_ __du_i__ ________ ________o_ _n y___ __a__ _________.",
+      "answer": "Musiclowersstresslevelsyrecngcortisolproductiniourbrinnaturally",
+      "locks1": [
+        28,
+        35,
+        41,
+        43,
+        60
+      ],
+      "locks2": [
+        1,
+        13,
+        18,
+        21,
+        30
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "2": {
+      "phrase": "_________ t_ ______ _____ ______ ________ ___________ a__ e________ ______ ________.",
+      "answer": "Listeningoupbeatsongsboostsphysicalperformancendnduranceduringworkouts",
+      "locks1": [
+        10,
+        25,
+        41,
+        60,
+        64
+      ],
+      "locks2": [
+        2,
+        18,
+        22,
+        31,
+        44
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "3": {
+      "phrase": "___ _____'_ ______ ________ _______ __________ __ _ ____ b___ f____ a___ _v__ ______ m________.",
+      "answer": "Theworldsoldestplayablemusicalinstrumentisabirdonelutegedoerthirtyillennia",
+      "locks1": [
+        0,
+        5,
+        28,
+        40,
+        64
+      ],
+      "locks2": [
+        10,
+        17,
+        34,
+        44,
+        51
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "4": {
+      "phrase": "____ _____ ____ ___________ _______ __ _a___ t__ ________ _____ o_ __e _____ y__ ____.",
+      "answer": "Yourheartratedynamicallyadjuststomtchhespecifictempofthmusicouhear",
+      "locks1": [
+        10,
+        22,
+        27,
+        41,
+        51
+      ],
+      "locks2": [
+        1,
+        19,
+        48,
+        57,
+        63
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "5": {
+      "phrase": "______ ____ ______ ___ _________ ____ e______ t_ __o_____ ______c__ ________ d____.",
+      "answer": "Plantsgrowfasterandhealthierwhenxposedosothingclassialmelodiesaily",
+      "locks1": [
+        9,
+        11,
+        41,
+        44,
+        53
+      ],
+      "locks2": [
+        1,
+        13,
+        24,
+        50,
+        57
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "6": {
+      "phrase": "_______ __ _ _____ ________ ___o______ ___ c______ s_____ ________ __ ______ __________.",
+      "answer": "Singinginagroupreleasesendrphinsandreatestrongfeelingsofsocialconnection",
+      "locks1": [
+        5,
+        24,
+        38,
+        53,
+        58
+      ],
+      "locks2": [
+        2,
+        27,
+        33,
+        49,
+        65
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "7": {
+      "phrase": "______ P_i___ ______ 27 _________ ___________ o_ ___ ____ ____t _____ a____.",
+      "answer": "Singerrnceplayeddifferentinstrumentsnhisveryfirsdebutlbum",
+      "locks1": [
+        8,
+        12,
+        26,
+        39,
+        50
+      ],
+      "locks2": [
+        17,
+        21,
+        29,
+        41,
+        46
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "8": {
+      "phrase": "________ __ ____r_m___ ________ ______ _e_______ ___ _______ _________ ______ i_ ____.",
+      "answer": "Learninganinstuentimprovesmemoryrtentionandspatialreasoningskillsnkids",
+      "locks1": [
+        7,
+        42,
+        45,
+        59,
+        62
+      ],
+      "locks2": [
+        3,
+        22,
+        30,
+        56,
+        68
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "9": {
+      "phrase": "__________ _________ ______ __ ____ __ s____ ________ b_ N___ _______ ___________.",
+      "answer": "AstronautsregularlylistentowakeupongsselectedyASAmissioncontrollers",
+      "locks1": [
+        12,
+        16,
+        55,
+        56,
+        60
+      ],
+      "locks2": [
+        3,
+        14,
+        23,
+        62,
+        65
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "10": {
+      "phrase": "__ _______ ______ ____ _ ______ ____ l____ _________ ______ y___ ____________ m___.",
+      "answer": "Anearwormoccurswhenacatchytuneoopsendlesslyinsideoursubconsciousind",
+      "locks1": [
+        17,
+        20,
+        44,
+        46,
+        61
+      ],
+      "locks2": [
+        4,
+        13,
+        36,
+        54,
+        57
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "11": {
+      "phrase": "____ _______ _____________ ____ ____ w___ _________ _o ___a____ ________ ______.",
+      "answer": "Cowsproducesignificantlymoremilkhenlisteningtrelxingacoustictracks",
+      "locks1": [
+        5,
+        19,
+        23,
+        45,
+        62
+      ],
+      "locks2": [
+        1,
+        12,
+        30,
+        36,
+        56
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "12": {
+      "phrase": "___ ________ ______ __ ______ ________ n_ _______ l_____ a__ i_ ______ __s_________.",
+      "answer": "ThenationalanthemofMonacocontainsowrittenyricsndspurelyintrumental",
+      "locks1": [
+        12,
+        22,
+        38,
+        51,
+        56
+      ],
+      "locks2": [
+        7,
+        14,
+        35,
+        44,
+        59
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "13": {
+      "phrase": "________ _____ c__ _____ _________ ___________ __ ______ d___ ______ ___a__t___.",
+      "answer": "Binauralbeatsanalterbrainwavefrequenciestoinduceeepmentalrelxaion",
+      "locks1": [
+        15,
+        18,
+        29,
+        39,
+        41
+      ],
+      "locks2": [
+        4,
+        27,
+        33,
+        45,
+        54
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "14": {
+      "phrase": "_____ _____ _____ _____ ____ ______e__ _______ i______ _____ __d ______ s_____.",
+      "answer": "Heavymetalmusichelpsmanylistenrsprocessntenseangeranreducetress",
+      "locks1": [
+        1,
+        19,
+        45,
+        48,
+        57
+      ],
+      "locks2": [
+        26,
+        33,
+        36,
+        40,
+        43
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "15": {
+      "phrase": "_______ _____ _______ _________ ____y ______ r____n _f _h_ _______ _______ ______.",
+      "answer": "Playingmusicengagesvirtuallyeversingleegiootecentralnervoussystem",
+      "locks1": [
+        4,
+        13,
+        37,
+        48,
+        59
+      ],
+      "locks2": [
+        1,
+        10,
+        16,
+        24,
+        39
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "16": {
+      "phrase": "___ _____'_ _______ _______ _______ ____o______ ___l e__ i_ t__ __a_ ______ ___ f____.",
+      "answer": "Theworldslongestrunningmusicalperfrmancewilndnheyertwentysixorty",
+      "locks1": [
+        13,
+        16,
+        23,
+        31,
+        33
+      ],
+      "locks2": [
+        4,
+        10,
+        38,
+        53,
+        58
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "17": {
+      "phrase": "____ _______ _____ ____ _______ ______ _____ __t_ ___ _____ a__ b_____ ___ h___.",
+      "answer": "JimiHendrixcouldplaycomplexguitarsoloswihhisteethndehindhisead",
+      "locks1": [
+        14,
+        20,
+        36,
+        46,
+        56
+      ],
+      "locks2": [
+        12,
+        28,
+        31,
+        42,
+        54
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "18": {
+      "phrase": "____ __________ _____ e_________ __________ p_____s __ c______ ____ ___h ______.",
+      "answer": "Loudbackgroundmusicncouragesrestaurantatrontoonsumefoodmucfaster",
+      "locks1": [
+        18,
+        43,
+        45,
+        51,
+        59
+      ],
+      "locks2": [
+        11,
+        15,
+        30,
+        35,
+        61
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "19": {
+      "phrase": "______ _____ ___ ____ _____ ________ w___ _e _a_ ____ _____ y____ ___.",
+      "answer": "Mozartwrotehisveryfirstsymphonyhenhwsonlyeightearsold",
+      "locks1": [
+        22,
+        24,
+        30,
+        49,
+        50
+      ],
+      "locks2": [
+        3,
+        15,
+        27,
+        39,
+        42
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "20": {
+      "phrase": "_____ ______ ____ ________ ______ _____ _________ __ _____ a______ t____r______.",
+      "answer": "Chirpsoundsfromcricketschangepitchdependingonlocalmbientempeatures",
+      "locks1": [
+        18,
+        25,
+        38,
+        57,
+        59
+      ],
+      "locks2": [
+        6,
+        27,
+        41,
+        48,
+        63
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "21": {
+      "phrase": "_____ _______ _________ ____ ______ s____ _____ t___ _______ _____ _____ _o______.",
+      "answer": "Vinylrecordsreproducewarmanalogoundwaveshatdigitalfilesoftencmpress",
+      "locks1": [
+        3,
+        8,
+        17,
+        38,
+        63
+      ],
+      "locks2": [
+        13,
+        28,
+        46,
+        53,
+        58
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "22": {
+      "phrase": "___ ____ _____ __ _____ ___ __________ _____ ___n_ _o__ a__ ____ i_ _______.",
+      "answer": "ThetermpianoisshortforpianofortewhichmeassftndloudnItalian",
+      "locks1": [
+        0,
+        10,
+        23,
+        34,
+        43
+      ],
+      "locks2": [
+        4,
+        8,
+        20,
+        48,
+        52
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "23": {
+      "phrase": "______ ______ ________y _______ _____ b_____ t_ ____ _n_ _____ __ ___ _e__.",
+      "answer": "Grooverhythmnaturallcompelshumanodiesomoveaddancetothebat",
+      "locks1": [
+        26,
+        27,
+        45,
+        47,
+        51
+      ],
+      "locks2": [
+        4,
+        14,
+        17,
+        30,
+        39
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "24": {
+      "phrase": "______ ______ c______ _____ ____ ______ ______n__ _f _____ _______ o____ ______.",
+      "answer": "Whalescreateomplexsongsthattravelthousadsomilesthroughceanwaters",
+      "locks1": [
+        45,
+        48,
+        52,
+        56,
+        61
+      ],
+      "locks2": [
+        1,
+        19,
+        24,
+        30,
+        37
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "25": {
+      "phrase": "_________ __ ________ _____ r_______ ___a____ s______ __ __t___ ____ ch__o_____.",
+      "answer": "Listeningtofavoritetuneseleasesdopmineimilartoeaingfineoclates",
+      "locks1": [
+        4,
+        21,
+        31,
+        44,
+        54
+      ],
+      "locks2": [
+        1,
+        12,
+        17,
+        35,
+        58
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "26": {
+      "phrase": "_ _________ ____ a w_____ _____ _o ____ c______ __________ ______ ____________.",
+      "answer": "Aconductorusesoodenbatontkeepomplexorchestraltimingsynchronized",
+      "locks1": [
+        12,
+        22,
+        52,
+        54,
+        62
+      ],
+      "locks2": [
+        20,
+        26,
+        31,
+        37,
+        48
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "27": {
+      "phrase": "_____ _______ _____ ______ _______ ____in l___ ______ ___ _____ ________ a________.",
+      "answer": "Musictherapyhelpsstrokevictimsregaostspeechandmotormovementbilities",
+      "locks1": [
+        9,
+        11,
+        27,
+        30,
+        46
+      ],
+      "locks2": [
+        40,
+        44,
+        52,
+        55,
+        63
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "28": {
+      "phrase": "___ _______ ____ ________ _____d__ _____ t_____ o_ _______ ______ ______ _l____.",
+      "answer": "TheBeatlesusedbackwardrecoredaudioracksnseveralfamousstudioabums",
+      "locks1": [
+        19,
+        23,
+        25,
+        30,
+        60
+      ],
+      "locks2": [
+        4,
+        15,
+        42,
+        50,
+        56
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "29": {
+      "phrase": "_______ _______ ______ c__ _______ _____s_ ______ ____ y___ _____ _________.",
+      "answer": "Certainmusicalchordsantriggerintenechillsdownourspineinstantly",
+      "locks1": [
+        8,
+        25,
+        38,
+        48,
+        53
+      ],
+      "locks2": [
+        12,
+        18,
+        42,
+        51,
+        58
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "30": {
+      "phrase": "____ ______ _______ ___t__ _____ ___s __ ____________ _________ r________ i_ _______.",
+      "answer": "Filmscoresutilizesubleaudiocuetomanipulationemotionalesponsesnviewers",
+      "locks1": [
+        7,
+        21,
+        27,
+        42,
+        64
+      ],
+      "locks2": [
+        1,
+        25,
+        39,
+        49,
+        66
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "31": {
+      "phrase": "____ _______ m____ _____ _____ _______ _____ ________ ___ ___h ____ ____o_____.",
+      "answer": "Highpitchedusicmakessweetflavorstastestrongerandmucmorepronunced",
+      "locks1": [
+        15,
+        32,
+        44,
+        46,
+        62
+      ],
+      "locks2": [
+        9,
+        21,
+        27,
+        40,
+        60
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "32": {
+      "phrase": "___ _________ ____ _____ _____ ___s____ __________ y__ ___l _n____ ____ _____.",
+      "answer": "Lowfrequencybassnotescausephyicalvibrationsoufeeisideyourchest",
+      "locks1": [
+        17,
+        27,
+        34,
+        47,
+        51
+      ],
+      "locks2": [
+        4,
+        7,
+        24,
+        54,
+        59
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "33": {
+      "phrase": "_____ _______ ___ _____ _______ _________ __ ________ i__ _______ ____na___ _r_______.",
+      "answer": "Operasingerscanbreakcrystalglasswarebymatchingtsnaturalresoncefequency",
+      "locks1": [
+        21,
+        23,
+        61,
+        65,
+        69
+      ],
+      "locks2": [
+        16,
+        29,
+        42,
+        50,
+        57
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "34": {
+      "phrase": "___ _____ ____ ____ _________ ____ _____ ___ J_____ _e___ p_____ __ a ____o_i__.",
+      "answer": "ThefirstsongeverbroadcastfromspacewasingleBllslayedonharmnca",
+      "locks1": [
+        3,
+        8,
+        26,
+        30,
+        52
+      ],
+      "locks2": [
+        13,
+        18,
+        22,
+        35,
+        55
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "35": {
+      "phrase": "_______ ___ ____ _____ ___a_ _____ _e_ ______ t___ __y o____ _______ ________.",
+      "answer": "Finlandhasmoreheavymetlbandsprcapitahananthercountryglobally",
+      "locks1": [
+        1,
+        8,
+        13,
+        30,
+        49
+      ],
+      "locks2": [
+        15,
+        25,
+        34,
+        46,
+        55
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "36": {
+      "phrase": "____________ _______ _________ t_ _____a__ e_______ n__ __________ s__________.",
+      "answer": "Synthesizersallowedmusiciansogenertentirelyewelectronicoundscapes",
+      "locks1": [
+        7,
+        26,
+        52,
+        56,
+        62
+      ],
+      "locks2": [
+        2,
+        13,
+        17,
+        30,
+        60
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "37": {
+      "phrase": "_________ ____ ____he ________ ______ b_ _________ t__ ______ __ a _________.",
+      "answer": "Lullabieshelpsootrestlessbabiesymimickingherhythmofheartbeat",
+      "locks1": [
+        9,
+        26,
+        39,
+        48,
+        49
+      ],
+      "locks2": [
+        18,
+        22,
+        28,
+        45,
+        54
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "38": {
+      "phrase": "_____ e________ ________ _______t__ _____s____ ___ _______ ________ ___________.",
+      "answer": "Musicducationenhanceslinguisicprocesingandforeignlanguageacquisition",
+      "locks1": [
+        15,
+        17,
+        21,
+        42,
+        51
+      ],
+      "locks2": [
+        19,
+        36,
+        40,
+        54,
+        66
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "39": {
+      "phrase": "___ _____ __ r___ _______ _______ ____ ___se ____ _____ ______ ____ __l___ ___t.",
+      "answer": "Thesoundofaincreatesnaturalpinknoithathelpspeoplefallaseepfas",
+      "locks1": [
+        13,
+        24,
+        28,
+        52,
+        55
+      ],
+      "locks2": [
+        6,
+        18,
+        35,
+        40,
+        47
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "40": {
+      "phrase": "____ _____ ______ _______ o_ ___________ _____v_______ b______ a__ _______e _______.",
+      "answer": "Jazzmusicreliesheavilynspontaneousimproisationetweenllensemblplayers",
+      "locks1": [
+        14,
+        15,
+        41,
+        60,
+        65
+      ],
+      "locks2": [
+        6,
+        19,
+        27,
+        37,
+        55
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "41": {
+      "phrase": "_________ __ __________ ___ ____ _______ _______ i_________ ______ t__ ______ w____.",
+      "answer": "Harmonicaisofficiallythebestsellingmusicalnstrumentacrossheentireorld",
+      "locks1": [
+        7,
+        34,
+        38,
+        47,
+        64
+      ],
+      "locks2": [
+        4,
+        26,
+        36,
+        54,
+        60
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "42": {
+      "phrase": "_________ __ ___ _____ ___ ____________y ____ p_____ f___ _o_______ a__ h____.",
+      "answer": "Listeningtosadsongscanparadoxicallmakeeopleeelcmfortedndappy",
+      "locks1": [
+        16,
+        27,
+        35,
+        37,
+        53
+      ],
+      "locks2": [
+        7,
+        20,
+        23,
+        32,
+        41
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "43": {
+      "phrase": "_________ _______ s_____ _____ d_______ _______a_ _________ i_ ____ou_ ________.",
+      "answer": "Differentmusicalcalesevokeistinctemotionlreactionsnvariscultures",
+      "locks1": [
+        6,
+        39,
+        56,
+        59,
+        63
+      ],
+      "locks2": [
+        14,
+        24,
+        43,
+        46,
+        53
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "44": {
+      "phrase": "__________ _____ ________ ____ i_______ s_____ _______ _______d p____ ____.",
+      "answer": "Microtonalmusicutilizestinyntervalpacesbetweenstandarianokeys",
+      "locks1": [
+        10,
+        13,
+        36,
+        39,
+        58
+      ],
+      "locks2": [
+        2,
+        6,
+        19,
+        25,
+        51
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "45": {
+      "phrase": "_______ ___ _____ __ ________i__ _______ _________ _________ l___ B___ __d __________.",
+      "answer": "PigeonscanlearntodistingushbetweenclassicalcomposersikeachanStravinsky",
+      "locks1": [
+        26,
+        27,
+        38,
+        58,
+        61
+      ],
+      "locks2": [
+        8,
+        11,
+        36,
+        41,
+        45
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "46": {
+      "phrase": "____________ _______ ___ _____ ____ _____ _______ __ d____ _______ s_____ wo__.",
+      "answer": "Stradivariusviolinsowetheirrichsoundqualitytoenseantiquepruceod",
+      "locks1": [
+        18,
+        21,
+        28,
+        35,
+        53
+      ],
+      "locks2": [
+        3,
+        8,
+        14,
+        23,
+        57
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "47": {
+      "phrase": "_______ _______ _______ _____ __ ____ __ _________ a_ t__ _____ ______ ______l___.",
+      "answer": "Silencebetweenmusicalnotesisjustasimportantshenotesplayedthemseves",
+      "locks1": [
+        4,
+        13,
+        23,
+        27,
+        30
+      ],
+      "locks2": [
+        8,
+        18,
+        36,
+        48,
+        52
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "48": {
+      "phrase": "_____ ____ ___________ ___ _______ t_ ___a__e _____ w______ _______ ___________.",
+      "answer": "Videogamesoundtracksarecraftedoenhncfocusithoutcausingdistraction",
+      "locks1": [
+        13,
+        21,
+        25,
+        57,
+        59
+      ],
+      "locks2": [
+        3,
+        15,
+        27,
+        38,
+        51
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "49": {
+      "phrase": "________ ________ ___ ____ u___ ___ _________ i_ ____ed _______ __________.",
+      "answer": "Rhythmicdrumminghasbeensedformillenniansacrhealingceremonies",
+      "locks1": [
+        7,
+        16,
+        28,
+        33,
+        54
+      ],
+      "locks2": [
+        4,
+        35,
+        40,
+        45,
+        57
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "50": {
+      "phrase": "_____ __ _ _________ _____ _a______ ____ _r_______s ___ ________ __________.",
+      "answer": "Musicisauniversalhumanlnguagethattanscendallculturalboundaries",
+      "locks1": [
+        3,
+        19,
+        28,
+        32,
+        53
+      ],
+      "locks2": [
+        15,
+        25,
+        36,
+        47,
+        56
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    }
+  }
+}

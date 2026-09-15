@@ -1,0 +1,1005 @@
+{
+  "sceneName": "Science",
+  "puzzles": {
+    "1": {
+      "phrase": "_____ _______ ____ i_ __e____, _h___ __ w__ ___ f__at_ o_ ______ _____.",
+      "answer": "Waterexpandswhentfrezeswichishyicelosnliquidwater",
+      "locks1": [
+        18,
+        25,
+        27,
+        34,
+        44
+      ],
+      "locks2": [
+        2,
+        20,
+        32,
+        39,
+        47
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "2": {
+      "phrase": "___ ___ ______ ___ _____ ____ _________ __ ______ ___ __t___ w___ u_______.",
+      "answer": "TheDNAinsideonehumancellstretchestonearlytwomeershenncoiled",
+      "locks1": [
+        20,
+        23,
+        27,
+        33,
+        53
+      ],
+      "locks2": [
+        4,
+        8,
+        17,
+        25,
+        56
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "3": {
+      "phrase": "_____ _______ f_____ th_____ ____r ____ __ ____ _______ ___.",
+      "answer": "Soundtravelsasterroughwatethanitdoesthroughair",
+      "locks1": [
+        1,
+        10,
+        24,
+        29,
+        31
+      ],
+      "locks2": [
+        6,
+        19,
+        33,
+        38,
+        44
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "4": {
+      "phrase": "___ _____ ___i_ ____ _______ _s ____ _____ __ a _____ _____ ____.",
+      "answer": "Thehumanbranusesroughlyamuchpowerassmalllightbulb",
+      "locks1": [
+        1,
+        12,
+        24,
+        29,
+        39
+      ],
+      "locks2": [
+        18,
+        21,
+        31,
+        36,
+        46
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "5": {
+      "phrase": "_ ____ __ _________ ___ ____ __e _________n_ ___ t_ ___r___ ____________.",
+      "answer": "Aboltoflightningcanheatthsurroundigairoextemetemperatures",
+      "locks1": [
+        3,
+        25,
+        36,
+        51,
+        55
+      ],
+      "locks2": [
+        8,
+        28,
+        43,
+        46,
+        49
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "6": {
+      "phrase": "_____'_ __________ __ ______ ________, ____ o_____ m_____ u_ __c_ __ ___ ____.",
+      "answer": "Earthsatmosphereismostlynitrogenwithxygenakingpmuhoftherest",
+      "locks1": [
+        4,
+        11,
+        31,
+        50,
+        57
+      ],
+      "locks2": [
+        8,
+        13,
+        25,
+        39,
+        53
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "7": {
+      "phrase": "___ ________ ___ _______ ____________ u___ t_ _____ a__ ________ _____g o________.",
+      "answer": "DNAcontainsthegeneticinstructionssedobuildndmaintainlivinrganisms",
+      "locks1": [
+        0,
+        12,
+        18,
+        22,
+        59
+      ],
+      "locks2": [
+        28,
+        31,
+        40,
+        49,
+        63
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "8": {
+      "phrase": "____ ______ ___ ________ _____ ________ _h_p_ _____ _____ b___ __ ______.",
+      "answer": "Somemetalscanremembertheiroriginalsaeafterbeingentorheated",
+      "locks1": [
+        4,
+        32,
+        37,
+        39,
+        51
+      ],
+      "locks2": [
+        7,
+        23,
+        29,
+        45,
+        48
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "9": {
+      "phrase": "____ ______ ___ ______ ____ v_________ _____d b_ ____________ _______ _____ l_____.",
+      "answer": "Someplantscandetecttinyibrationscauseycaterpillarschewingtheireaves",
+      "locks1": [
+        1,
+        4,
+        22,
+        53,
+        56
+      ],
+      "locks2": [
+        17,
+        30,
+        44,
+        48,
+        58
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "10": {
+      "phrase": "_____ _____ ___ ____ _____ __ ____n___ ____ t___ ______ _________ _____s o_ _______ _____.",
+      "answer": "Blackholescanbendlightsostroglythatheycreatedistortedimagefdistantstars",
+      "locks1": [
+        13,
+        32,
+        40,
+        49,
+        65
+      ],
+      "locks2": [
+        6,
+        11,
+        29,
+        51,
+        69
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "11": {
+      "phrase": "___ _____ ____ _____ ___ _ ____ ______ __ _______ _____ ____ ___ e___ ___n__ ______.",
+      "answer": "Thehumanbodygivesoffatinyamountofvisiblelightthatouryescanotdetect",
+      "locks1": [
+        15,
+        17,
+        26,
+        33,
+        50
+      ],
+      "locks2": [
+        1,
+        9,
+        13,
+        38,
+        46
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "12": {
+      "phrase": "____ _______ ___ ______ _______c _i____ t_ ____ ____ ______ _______ ___ a__.",
+      "answer": "SomespidersuseEarthselectrifeldsohelpthemtravelthroughtheir",
+      "locks1": [
+        0,
+        23,
+        34,
+        45,
+        54
+      ],
+      "locks2": [
+        8,
+        12,
+        25,
+        29,
+        52
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "13": {
+      "phrase": "___ ________ __ _________ ___ _______ ________ a__ g________ ______ ____ ___m u_.",
+      "answer": "Theuniverseisexpandinganddistantgalaxiesreenerallymovingawayfros",
+      "locks1": [
+        1,
+        6,
+        14,
+        17,
+        56
+      ],
+      "locks2": [
+        4,
+        30,
+        34,
+        37,
+        51
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "14": {
+      "phrase": "_______ ___ ____ _______ _____ ______ ____ _____, _u_ s____ ______ c__ ______ f____r ____ _____.",
+      "answer": "Nothingcanmovethroughspacefasterthanlightbtpaceitselfanexpandastethanlight",
+      "locks1": [
+        6,
+        16,
+        48,
+        51,
+        65
+      ],
+      "locks2": [
+        12,
+        24,
+        37,
+        56,
+        71
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "15": {
+      "phrase": "______ ___ c__________ ___m____ ____a__ ____ ____ ___ ________ __ i_____s.",
+      "answer": "Plantscanommunicatecheicalsignlswhentheyareattackedbynsect",
+      "locks1": [
+        24,
+        37,
+        43,
+        50,
+        52
+      ],
+      "locks2": [
+        2,
+        10,
+        14,
+        28,
+        34
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "16": {
+      "phrase": "____ ________ ___ ______e i_ ____________ t_a_ _____ b_ ______ __ _____s.",
+      "answer": "Somebacteriacansurvivnenvironmentshtwouldedeadlytohuman",
+      "locks1": [
+        4,
+        9,
+        40,
+        44,
+        52
+      ],
+      "locks2": [
+        13,
+        17,
+        25,
+        32,
+        46
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "17": {
+      "phrase": "_____ ___ ______ ________ _______ __ __ ______ ___ _____i_s v___ l_____ _____.",
+      "answer": "Honeycanresistspoilagebecauseitisacidicandcontaneryittlewater",
+      "locks1": [
+        23,
+        32,
+        39,
+        42,
+        57
+      ],
+      "locks2": [
+        15,
+        27,
+        34,
+        45,
+        52
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "18": {
+      "phrase": "Tr_______ __ ___ ____es_ ______ _____ ____ 25,000 _____.",
+      "answer": "avelingtotheneartgalaxycouldtakeyears",
+      "locks1": [
+        1,
+        8,
+        11,
+        32,
+        36
+      ],
+      "locks2": [
+        5,
+        13,
+        18,
+        25,
+        29
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "19": {
+      "phrase": "__ __ ______ 65 _______ _____-_____ ____ ____ _____, w_ ___ s__ _________ _______ a_____ o_ _____.",
+      "answer": "IfwetravelmillionlightyearsawayfromEarthecaneedinosaursroamingroundnEarth",
+      "locks1": [
+        17,
+        27,
+        41,
+        56,
+        68
+      ],
+      "locks2": [
+        7,
+        11,
+        48,
+        52,
+        60
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "20": {
+      "phrase": "_______ ___ ____ _______ _____ ______ ____ _____, ___ _____ ______ ___ e_____ ______ t___ l____.",
+      "answer": "Nothingcanmovethroughspacefasterthanlightbutspaceitselfcanxpandfasterhanight",
+      "locks1": [
+        1,
+        7,
+        21,
+        31,
+        50
+      ],
+      "locks2": [
+        19,
+        38,
+        61,
+        66,
+        73
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "21": {
+      "phrase": "_____ __ ___________ _ s____, ________ __ ___ _______ _________ ___per____.",
+      "answer": "Glassistechnicallyaolidalthoughithasunusualmolecularproties",
+      "locks1": [
+        2,
+        7,
+        12,
+        23,
+        31
+      ],
+      "locks2": [
+        14,
+        26,
+        34,
+        37,
+        50
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "22": {
+      "phrase": "_____ ___ _____ __ a _____, l_____, ___ ___ _____ _______ __________.",
+      "answer": "Watercanexistassolidiquidandgasundernaturalconditions",
+      "locks1": [
+        12,
+        14,
+        31,
+        37,
+        45
+      ],
+      "locks2": [
+        2,
+        16,
+        29,
+        39,
+        49
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "23": {
+      "phrase": "___ ______ ____ _____ w____ s___p___ __ ____ __ _o_ f____ ____ ____ ____ __h__.",
+      "answer": "Seaottersholdhandshileleeingsotheydontloatawayfromeachoter",
+      "locks1": [
+        14,
+        28,
+        35,
+        42,
+        49
+      ],
+      "locks2": [
+        1,
+        11,
+        31,
+        40,
+        51
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "24": {
+      "phrase": "____ _____ ___ ___t___ ___ ________ _f _______ ____ i_____.",
+      "answer": "Somefungicanconrolthebehavioroinsectstheynfect",
+      "locks1": [
+        1,
+        9,
+        40,
+        41,
+        44
+      ],
+      "locks2": [
+        5,
+        22,
+        25,
+        32,
+        35
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "25": {
+      "phrase": "____ _____ ___ ____ ____ ____ _r_ t______ b__ ____n_ ______ ____ ___ ____ __e______ s____.",
+      "answer": "Ratslaughoutloudwhentheyaeickleduthumascannothearthehighfrquencyound",
+      "locks1": [
+        8,
+        15,
+        40,
+        48,
+        60
+      ],
+      "locks2": [
+        2,
+        5,
+        50,
+        54,
+        62
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "26": {
+      "phrase": "_____ _____ _________ __ _____ __ ______ ____ t__ ____ o_ ___ _u_ __ ___ _______.",
+      "answer": "LighttakesthousandsofyearstotravelfromhecoreftheSntoitssurface",
+      "locks1": [
+        4,
+        31,
+        51,
+        57,
+        59
+      ],
+      "locks2": [
+        8,
+        15,
+        29,
+        41,
+        53
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "27": {
+      "phrase": "______ _____ _____ __ _____ __ a _____i__r _____ ______ _____ ____ __.",
+      "answer": "Saturnwouldfloatinwaterifcontanelargeenoughcouldholdit",
+      "locks1": [
+        0,
+        20,
+        22,
+        36,
+        50
+      ],
+      "locks2": [
+        9,
+        14,
+        28,
+        38,
+        45
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "28": {
+      "phrase": "____ _____ ___ _______ ____ _______c___ _______ _n_ ________ _________ i_ __.",
+      "answer": "Purewatercanconductzeroelectriitywithoutaymineralsdissolvednit",
+      "locks1": [
+        3,
+        16,
+        34,
+        50,
+        52
+      ],
+      "locks2": [
+        13,
+        24,
+        44,
+        47,
+        56
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "29": {
+      "phrase": "________ ___ __ ______ ___ ______ ____ ____ ______ _i_____ g__ a_ ____ ____.",
+      "answer": "Diamondscanbeburnedandturnedintopurecarbondoxideasthighheat",
+      "locks1": [
+        5,
+        17,
+        30,
+        32,
+        45
+      ],
+      "locks2": [
+        2,
+        14,
+        26,
+        52,
+        56
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "30": {
+      "phrase": "__ ___ _______ ___ _____ ______ _____ a____ ________ ____d f__ __ _ _____ ____.",
+      "answer": "Ifyouremovedallspaceinsidehumantomseveryonewoulitinasugarcube",
+      "locks1": [
+        9,
+        21,
+        41,
+        50,
+        59
+      ],
+      "locks2": [
+        3,
+        27,
+        33,
+        36,
+        39
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "31": {
+      "phrase": "______ ______ i_ _a__ _____, _________ _______, ___p____, ___ ________.",
+      "answer": "Carbonexistsnmnyformsincludingdiamondgrahiteandgraphene",
+      "locks1": [
+        3,
+        10,
+        20,
+        23,
+        48
+      ],
+      "locks2": [
+        17,
+        28,
+        31,
+        34,
+        52
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "32": {
+      "phrase": "_ ________ __ _______ ____ c__ _______ _____o__ __ ______ _____s_____ _________.",
+      "answer": "Ateaspoonofhealthysoilancontainmillinsoflivingmicrocopicorganisms",
+      "locks1": [
+        29,
+        33,
+        37,
+        43,
+        46
+      ],
+      "locks2": [
+        26,
+        41,
+        54,
+        59,
+        62
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "33": {
+      "phrase": "_____ __ ___ ____ _____ ______ __ ___ s____ ______ n__ _____ _____ a _____.",
+      "answer": "Earthistheonlyknownplanetinourolarsystemotnamedafterdeity",
+      "locks1": [
+        11,
+        30,
+        32,
+        41,
+        44
+      ],
+      "locks2": [
+        8,
+        17,
+        22,
+        50,
+        55
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "34": {
+      "phrase": "_h_ _______ _a___ __ E_____ _____s _______ ____ _______ ________ _____u__.",
+      "answer": "Tedeepestprtsofarthsoceancontainlifedespiteenormouspressre",
+      "locks1": [
+        11,
+        14,
+        26,
+        28,
+        53
+      ],
+      "locks2": [
+        6,
+        18,
+        22,
+        30,
+        34
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "35": {
+      "phrase": "________ __e___ __n _x____ ___ ______ ___ _______ _____c_ o_ __ ______.",
+      "answer": "Magneticfildscaetendfarbeyondthevisiblesurfaefanobject",
+      "locks1": [
+        5,
+        12,
+        22,
+        46,
+        53
+      ],
+      "locks2": [
+        26,
+        30,
+        33,
+        36,
+        42
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "36": {
+      "phrase": "_____ ______ ____ d___ y___ ____ i_ _____ _____ _e_____ _____ __ ____ _____t_.",
+      "answer": "Tearscannotfallownourfacenouterspacebcausethereiszerograviy",
+      "locks1": [
+        14,
+        27,
+        32,
+        41,
+        49
+      ],
+      "locks2": [
+        2,
+        19,
+        22,
+        34,
+        44
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "37": {
+      "phrase": "____ _______ ___ ___ ___________ _______s t___ g__d_ ____ ______ f______.",
+      "answer": "Someinsectscanseeultravioletpatternhatuiethemtowardlowers",
+      "locks1": [
+        19,
+        21,
+        41,
+        44,
+        45
+      ],
+      "locks2": [
+        2,
+        6,
+        25,
+        29,
+        32
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "38": {
+      "phrase": "___ _____ ________ ________ 206 _____ i_ ____ _____ ____n a_____.",
+      "answer": "Thehumanskeletoncontainsbonesnmostfullygrowdults",
+      "locks1": [
+        3,
+        9,
+        24,
+        26,
+        40
+      ],
+      "locks2": [
+        14,
+        21,
+        31,
+        37,
+        45
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "39": {
+      "phrase": "____________ _______ ____ __ ___ ______ t___ __l_s n___ __ ________.",
+      "answer": "Mitochondriaproducemuchoftheenergyhatceleedtofunction",
+      "locks1": [
+        1,
+        3,
+        18,
+        22,
+        51
+      ],
+      "locks2": [
+        6,
+        10,
+        30,
+        41,
+        46
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "40": {
+      "phrase": "____ ________ ___ u__ __n_____ ___ _________ ______d o_ ________ ___ _____y.",
+      "answer": "Somebacteriacansemieralsandchemicalsinsteafsunlightforenerg",
+      "locks1": [
+        7,
+        26,
+        38,
+        46,
+        51
+      ],
+      "locks2": [
+        20,
+        33,
+        40,
+        49,
+        57
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "41": {
+      "phrase": "______ ____e___ _____ _____ _______ ___ p_____ f___ ______d _____ _________.",
+      "answer": "Earthsmagnticfieldhelpsprotectthelanetromchargesolarparticles",
+      "locks1": [
+        8,
+        17,
+        29,
+        50,
+        58
+      ],
+      "locks2": [
+        3,
+        14,
+        21,
+        31,
+        39
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "42": {
+      "phrase": "_ ______ ____ ___ __r__ _____ _______ t____ a__ n_ _______e_ __ _______.",
+      "answer": "Avacuumdoesnotcarysoundbecauseherereoparticlstovibrate",
+      "locks1": [
+        9,
+        14,
+        25,
+        43,
+        46
+      ],
+      "locks2": [
+        2,
+        19,
+        28,
+        31,
+        40
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "43": {
+      "phrase": "___ ________ _______s ________ o_ ________, ____ _____i____ ______u_ _______ __ ___r_.",
+      "answer": "Theuniversecontainbillionsfgalaxieseachcontaningenormosnumbersofstas",
+      "locks1": [
+        17,
+        20,
+        35,
+        46,
+        65
+      ],
+      "locks2": [
+        5,
+        8,
+        30,
+        51,
+        57
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "44": {
+      "phrase": "____ ________ ___ ____r___ __ ________ ____g_ ____ ____ ___ _____z__.",
+      "answer": "Somecrystalscangeneateanelectriccharewhentheyaresqueeed",
+      "locks1": [
+        2,
+        13,
+        20,
+        22,
+        42
+      ],
+      "locks2": [
+        6,
+        10,
+        29,
+        38,
+        46
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "45": {
+      "phrase": "T__ _____ ____ ________ ___ _ed b____ _____ ______ ____ ______.",
+      "answer": "hehumanbodyproducesnewrloodcellsinsidebonemarrow",
+      "locks1": [
+        5,
+        14,
+        27,
+        32,
+        46
+      ],
+      "locks2": [
+        9,
+        20,
+        30,
+        35,
+        40
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "46": {
+      "phrase": "___ _______ _______ __ ___________ ___ ___ _____ _____ ______ t___ ___ ___ o_ E____.",
+      "answer": "Theelementbismuthisradioactivebutitsdecaytakeslongerhantheagefarth",
+      "locks1": [
+        4,
+        10,
+        15,
+        17,
+        36
+      ],
+      "locks2": [
+        26,
+        44,
+        47,
+        50,
+        59
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "47": {
+      "phrase": "____ _________ ______ ______ __________ ___ ______t ___________ w___ n_ __________.",
+      "answer": "Somematerialsbecomehighlyconductiveandconducelectricityithoresistance",
+      "locks1": [
+        1,
+        3,
+        9,
+        34,
+        66
+      ],
+      "locks2": [
+        5,
+        16,
+        40,
+        50,
+        63
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "48": {
+      "phrase": "______ ___ ____ _______ ____ w___ ____ r______ _____ ___ _________ ______nt_.",
+      "answer": "Plantscangrowwithoutsoilhentheyeceivewaterandnecessarynutries",
+      "locks1": [
+        5,
+        21,
+        23,
+        40,
+        42
+      ],
+      "locks2": [
+        2,
+        15,
+        28,
+        46,
+        57
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "49": {
+      "phrase": "_ ______ _________ ____ ___ _______ ___u__ __e___ t_ _____ ____ _____ b______.",
+      "answer": "Asinglelightningboltcancontainenoghenrgyopowermanyhomesriefly",
+      "locks1": [
+        4,
+        9,
+        32,
+        35,
+        47
+      ],
+      "locks2": [
+        14,
+        21,
+        25,
+        43,
+        53
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "50": {
+      "phrase": "_ _______ __ ________ _ ____ ______ ___ ___ ______ _____l_ _i___ ___ __w__ ____.",
+      "answer": "Arainbowisactuallyafullcirclebutthegroundusualyhdesitsloerhalf",
+      "locks1": [
+        8,
+        17,
+        38,
+        49,
+        57
+      ],
+      "locks2": [
+        5,
+        21,
+        30,
+        33,
+        42
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    }
+  }
+}

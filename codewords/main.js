@@ -741,7 +741,16 @@ class CodewordsGame {
 
                             // Validate and Load
                             if (data && typeof data === 'object') {
-                                this.levels = data;
+                                // Support nested format: { sceneName, puzzles: { "1": {...}, ... } }
+                                // as well as flat format: { "1": {...}, "2": {...}, ... }
+                                if (data.puzzles && typeof data.puzzles === 'object') {
+                                    this.levels = data.puzzles;
+                                    this.levelMeta = { ...data };
+                                    delete this.levelMeta.puzzles;
+                                } else {
+                                    this.levels = data;
+                                    this.levelMeta = {};
+                                }
                                 this.levelIds = Object.keys(this.levels).filter(k => !isNaN(parseInt(k))).sort((a, b) => parseInt(a) - parseInt(b));
                                 console.log(`Loaded ${this.levelIds.length} levels from upload.`);
                             } else {

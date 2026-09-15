@@ -1,0 +1,1005 @@
+{
+  "sceneName": "Dinosaurs",
+  "puzzles": {
+    "1": {
+      "phrase": "____ _________ ____ n_ b_g___ t___ a ______ __i____ __ _______ s___.",
+      "answer": "Somedinosaurswereoigerhanmodernchckeninoverallize",
+      "locks1": [
+        4,
+        7,
+        14,
+        25,
+        40
+      ],
+      "locks2": [
+        2,
+        9,
+        23,
+        34,
+        43
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "2": {
+      "phrase": "_________ _____ ________ ______ ___ ________ ____o_, ____ 230 _______ _____ a__.",
+      "answer": "DinosaursfirstappearedduringtheTriassicPeridovermillionyearsgo",
+      "locks1": [
+        0,
+        35,
+        37,
+        45,
+        56
+      ],
+      "locks2": [
+        16,
+        25,
+        29,
+        50,
+        53
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "3": {
+      "phrase": "_______r f______ ____ ____ _____ w___ _________ _____c_ ________ i_____ ____.",
+      "answer": "Dinosauossilshavebeenfoundithpreservedstomahcontentsnsidethem",
+      "locks1": [
+        25,
+        39,
+        44,
+        48,
+        60
+      ],
+      "locks2": [
+        4,
+        8,
+        14,
+        19,
+        31
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "4": {
+      "phrase": "_____________ ___ _____ ______ t_ h_____ ____ __ __d __ S__________.",
+      "answer": "Tyrannosaurusrexlivedcloseroumansthanitditotegosaurus",
+      "locks1": [
+        0,
+        13,
+        38,
+        44,
+        47
+      ],
+      "locks2": [
+        3,
+        6,
+        11,
+        34,
+        50
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "5": {
+      "phrase": "________a___s ___ ________ ____t_____ ____ ___ ___ __ ___ _e__.",
+      "answer": "Brachiosuruhadnostrilsposiionednearthetopofitshad",
+      "locks1": [
+        5,
+        12,
+        34,
+        42,
+        43
+      ],
+      "locks2": [
+        2,
+        9,
+        16,
+        29,
+        36
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "6": {
+      "phrase": "____________ ______ __________ _______ __ a m_____ o______ __ s____.",
+      "answer": "Ornithomimuslookedremarkablysimilartoodernstrichinhape",
+      "locks1": [
+        6,
+        19,
+        24,
+        46,
+        48
+      ],
+      "locks2": [
+        2,
+        9,
+        15,
+        31,
+        39
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "7": {
+      "phrase": "___e ________ __________ ____ ____ ______ ma_ ____ _______d _o______.",
+      "answer": "Somdinosaurfootprintsshowthatgroupsyhavetraveletgether",
+      "locks1": [
+        2,
+        6,
+        9,
+        33,
+        52
+      ],
+      "locks2": [
+        15,
+        22,
+        26,
+        41,
+        44
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "8": {
+      "phrase": "____-______ _________ _a_ _______ _____ f__ _______g p____ ________.",
+      "answer": "Duckbilleddinosaurshdcomplexteethorgrindinlantmaterial",
+      "locks1": [
+        0,
+        8,
+        16,
+        22,
+        48
+      ],
+      "locks2": [
+        13,
+        25,
+        31,
+        38,
+        52
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "9": {
+      "phrase": "________ _____ ___ ______ _______ w___ ______l_ ______ r____c_ ____.",
+      "answer": "Dinosaurbonescanbecomefossilshenminerasslowlyeplaethem",
+      "locks1": [
+        15,
+        22,
+        25,
+        41,
+        53
+      ],
+      "locks2": [
+        2,
+        6,
+        10,
+        35,
+        43
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "10": {
+      "phrase": "___________ ___ a _____ t___ ___ ____________ s____ ___ ___ __d_.",
+      "answer": "Stegosaurushadbrainhatwassurprisinglymallforitsboy",
+      "locks1": [
+        15,
+        20,
+        27,
+        41,
+        47
+      ],
+      "locks2": [
+        3,
+        9,
+        17,
+        23,
+        45
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "11": {
+      "phrase": "___________ ___ ____ _____ ____ o_ ___ _i__ __n____ ____ _____.",
+      "answer": "Spinosaurusmayhavespentmuchfitslfehutingnearwater",
+      "locks1": [
+        3,
+        8,
+        13,
+        16,
+        29
+      ],
+      "locks2": [
+        20,
+        24,
+        38,
+        42,
+        45
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "12": {
+      "phrase": "____ _________ ____ ____ __ ____s ___ __y h___ _u_____ _____ ___n_.",
+      "answer": "Manydinosaurslaideggsinnestandmaavegardedtheiryoug",
+      "locks1": [
+        5,
+        18,
+        22,
+        28,
+        46
+      ],
+      "locks2": [
+        2,
+        15,
+        24,
+        39,
+        44
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "13": {
+      "phrase": "________ _______ ____ ____ _____ __ _v___ c___i____ o_ _____ _____.",
+      "answer": "DinosaurfossilshavebeenfoundoneeryontnentnEarthtoday",
+      "locks1": [
+        27,
+        29,
+        38,
+        45,
+        51
+      ],
+      "locks2": [
+        12,
+        20,
+        32,
+        35,
+        43
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "14": {
+      "phrase": "_____ ___ ______ ________s, _______e_ ____ a _r____ o_ _________.",
+      "answer": "Birdsarelivingdinosaurdescenddfrombanchftheropods",
+      "locks1": [
+        9,
+        17,
+        28,
+        45,
+        47
+      ],
+      "locks2": [
+        2,
+        6,
+        25,
+        31,
+        42
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "15": {
+      "phrase": "________ _g__ ____ __ m___ ______ __d _____, _________ on ___ _______.",
+      "answer": "Dinosauregscameinanyshapesansizesdependingthespecies",
+      "locks1": [
+        14,
+        16,
+        25,
+        33,
+        46
+      ],
+      "locks2": [
+        1,
+        31,
+        37,
+        43,
+        48
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "16": {
+      "phrase": "____ di__s___ _______ _____ __ w___ __ n__ ___ ______ ______.",
+      "answer": "SomenoaurspecieslivedinhatisowtheArcticregion",
+      "locks1": [
+        6,
+        17,
+        22,
+        32,
+        39
+      ],
+      "locks2": [
+        2,
+        14,
+        19,
+        37,
+        42
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "17": {
+      "phrase": "_______r_ ____ ___ _________, _u_ g____ ______ ________.",
+      "answer": "Mosasauswerenotdinosaursbtiantmarinereptiles",
+      "locks1": [
+        4,
+        14,
+        34,
+        36,
+        38
+      ],
+      "locks2": [
+        2,
+        10,
+        17,
+        21,
+        41
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "18": {
+      "phrase": "_________ ________ ____ ____-__t___ ________s, ____ a_ _. r__.",
+      "answer": "TheropodsincludedmanymeateaingdinosaursuchsTex",
+      "locks1": [
+        1,
+        5,
+        13,
+        21,
+        31
+      ],
+      "locks2": [
+        7,
+        10,
+        15,
+        36,
+        40
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "19": {
+      "phrase": "____ _________ ___ _________ ________ ____ ______ t___ h___ o_ ____d ______.",
+      "answer": "Somedinosaurshadexcellenteyesightthathelpedhemuntravoidanger",
+      "locks1": [
+        7,
+        13,
+        36,
+        39,
+        58
+      ],
+      "locks2": [
+        20,
+        23,
+        26,
+        29,
+        51
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "20": {
+      "phrase": "__________ ___ ________ j___ ____ _____ _____ ____t ___ _u_____",
+      "answer": "Mosasaurushadpowerfulawsthatcouldcrushgianseatrtles",
+      "locks1": [
+        11,
+        30,
+        33,
+        38,
+        46
+      ],
+      "locks2": [
+        5,
+        8,
+        16,
+        25,
+        43
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "21": {
+      "phrase": "___________ ______ ___ ____ ______ ____ _______ a__ b___ _______t__e.",
+      "answer": "Stegosaurusplatesmayhavehelpedwithdisplayndodytemperaur",
+      "locks1": [
+        6,
+        8,
+        18,
+        29,
+        41
+      ],
+      "locks2": [
+        22,
+        25,
+        32,
+        39,
+        49
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "22": {
+      "phrase": "____ _________ ___ _________ ____ _____ ____ ______ __la___ __e__ b_____.",
+      "answer": "Somedinosaurshadextremelylongtailsthathelpedbancethirodies",
+      "locks1": [
+        1,
+        14,
+        17,
+        25,
+        37
+      ],
+      "locks2": [
+        8,
+        21,
+        31,
+        39,
+        54
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "23": {
+      "phrase": "___ ____ ________ _____ \"__r_____ ______\" i_ _nc____ _____ l______e.",
+      "answer": "TheworddinosaurmeansteriblelizardnaientGreekanguag",
+      "locks1": [
+        2,
+        25,
+        29,
+        40,
+        48
+      ],
+      "locks2": [
+        11,
+        23,
+        31,
+        37,
+        42
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "24": {
+      "phrase": "____________ _____ __e ___ ____ c___ a_ _ ________ _________ ______.",
+      "answer": "Ankylosauruscouldusitstaillubsapowerfuldefensiveweapon",
+      "locks1": [
+        13,
+        23,
+        45,
+        47,
+        48
+      ],
+      "locks2": [
+        1,
+        5,
+        20,
+        32,
+        52
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "25": {
+      "phrase": "____________ h__ a _______ _______ bo__ ___ _ ________ t___ ____.",
+      "answer": "Ankylosaurusadheavilyarmoreddyandapowerfulailclub",
+      "locks1": [
+        16,
+        27,
+        31,
+        37,
+        41
+      ],
+      "locks2": [
+        6,
+        9,
+        18,
+        35,
+        43
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "26": {
+      "phrase": "____ _________ _____ ____ __ 2 l___ ___ ______ t_ 4 ____ n___e_.",
+      "answer": "Somedinosaurscouldwalkonegsandswitchowheneedd",
+      "locks1": [
+        4,
+        12,
+        20,
+        34,
+        39
+      ],
+      "locks2": [
+        2,
+        7,
+        28,
+        32,
+        42
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "27": {
+      "phrase": "__________ _______r ____ ___ ___n __________ i_ _____a_ _________ _______.",
+      "answer": "Fossilizeddinosauskinhasbeediscoverednseverldifferentspecies",
+      "locks1": [
+        15,
+        23,
+        28,
+        30,
+        57
+      ],
+      "locks2": [
+        7,
+        18,
+        33,
+        39,
+        50
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "28": {
+      "phrase": "S___ _________ ___ ________ __n_ b_____ ___ _____ _____ __o____.",
+      "answer": "omedinosaurshadfeatherslogeforethefirstbirdsevlved",
+      "locks1": [
+        6,
+        23,
+        32,
+        35,
+        48
+      ],
+      "locks2": [
+        1,
+        13,
+        19,
+        28,
+        41
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "29": {
+      "phrase": "_________ ________ ____ __ ___ _______ _______ ____ _o ____ _n l___.",
+      "answer": "Sauropodsincludedsomeofthelargestanimalsevertwalkoand",
+      "locks1": [
+        8,
+        19,
+        30,
+        40,
+        47
+      ],
+      "locks2": [
+        3,
+        10,
+        14,
+        24,
+        38
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "30": {
+      "phrase": "____ _________ ___ ____ ____ f_______ t_ _e__ _____ ______ w__m.",
+      "answer": "Somedinosaursmayhaveusedeathersokeptheirbodiesar",
+      "locks1": [
+        4,
+        9,
+        15,
+        22,
+        43
+      ],
+      "locks2": [
+        2,
+        11,
+        25,
+        37,
+        41
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "31": {
+      "phrase": "___e _i_______ ___ ______ _____ t___ _____d ______ _____ ____ ______.",
+      "answer": "Somdnosaurshadhollowboneshathelpereducetheirbodyweight",
+      "locks1": [
+        4,
+        11,
+        23,
+        40,
+        52
+      ],
+      "locks2": [
+        1,
+        16,
+        30,
+        46,
+        50
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "32": {
+      "phrase": "____ _________ _________ ______ ____ ___ h___ _____d _____ t____ ____.",
+      "answer": "Somedinosaursswallowedstonesthatmayavehelpegrindheirfood",
+      "locks1": [
+        17,
+        25,
+        31,
+        43,
+        55
+      ],
+      "locks2": [
+        1,
+        9,
+        15,
+        23,
+        39
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "33": {
+      "phrase": "_____ _____a___ h__ _ _____, ____-______ s____.",
+      "answer": "Pachydinosursadathickdomeshapedkull",
+      "locks1": [
+        2,
+        4,
+        14,
+        17,
+        25
+      ],
+      "locks2": [
+        8,
+        11,
+        23,
+        29,
+        32
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "34": {
+      "phrase": "________ __o_______ c__ ___e__ __w _a__ __m_ _i_______ ____ _____.",
+      "answer": "Dinosaurfotprintsanrevalhofstsoednosaursoncemoved",
+      "locks1": [
+        1,
+        8,
+        12,
+        38,
+        43
+      ],
+      "locks2": [
+        6,
+        14,
+        20,
+        36,
+        46
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "35": {
+      "phrase": "___________ ___ _____ _____ ___ a _____, b___ f____ ______ i__ ____.",
+      "answer": "Triceratopshadthreehornsandlargeonyrillbehindtshead",
+      "locks1": [
+        1,
+        9,
+        25,
+        31,
+        36
+      ],
+      "locks2": [
+        3,
+        16,
+        20,
+        33,
+        48
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "36": {
+      "phrase": "___________ ___ a _______ _____ ____ c____ r___h ____ 2 ______ l_n_.",
+      "answer": "Triceratopshadmassiveskullthatouldeacovermetersog",
+      "locks1": [
+        7,
+        20,
+        27,
+        44,
+        46
+      ],
+      "locks2": [
+        5,
+        17,
+        23,
+        32,
+        38
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "37": {
+      "phrase": "___________ ___ a ____ s___ ______ _____ ___ ______ __ it_ ____.",
+      "answer": "Spinosaurushadtallailrisingalongthemiddleofsback",
+      "locks1": [
+        20,
+        21,
+        33,
+        37,
+        41
+      ],
+      "locks2": [
+        16,
+        25,
+        30,
+        39,
+        45
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "38": {
+      "phrase": "___ __________ ________ ______ _____ _____ 66 _______ _____ a__, n___ ___i__.",
+      "answer": "TheextinctionasteroidstruckEarthaboutmillionyearsgoearMexco",
+      "locks1": [
+        2,
+        3,
+        11,
+        15,
+        22
+      ],
+      "locks2": [
+        17,
+        24,
+        30,
+        34,
+        52
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "39": {
+      "phrase": "__________ ___ a_ _x_______ l___ ____ ___ _ ____, ____-____ ____.",
+      "answer": "Diplodocushadnetremelyongneckandalongwhipliketail",
+      "locks1": [
+        15,
+        22,
+        30,
+        40,
+        47
+      ],
+      "locks2": [
+        3,
+        6,
+        26,
+        35,
+        43
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "40": {
+      "phrase": "_________s h__ ________ __ _____ __c___ ______y ____ _____ __w_.",
+      "answer": "Hadrosauradhundredsofteethpakedtightlintotheirjas",
+      "locks1": [
+        18,
+        20,
+        21,
+        24,
+        44
+      ],
+      "locks2": [
+        1,
+        4,
+        7,
+        32,
+        38
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "41": {
+      "phrase": "____ ________ _____ _________ ______ o_ ___s a_______ _n ________ ________.",
+      "answer": "Somedinosaurnestscontaineddozensfeggrrangedicircularpatterns",
+      "locks1": [
+        5,
+        8,
+        23,
+        37,
+        59
+      ],
+      "locks2": [
+        1,
+        14,
+        19,
+        50,
+        54
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "42": {
+      "phrase": "__________ ___ p__-____ ____h ______ f__ ________g ______ ____ ______.",
+      "answer": "Diplodocushadegliketeetsuitedorstrippinleavesfromplants",
+      "locks1": [
+        9,
+        10,
+        20,
+        25,
+        29
+      ],
+      "locks2": [
+        1,
+        16,
+        35,
+        41,
+        52
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "43": {
+      "phrase": "________ ________ ___ a ___g, h_____ c____ ____ ___ ____ ___e ______.",
+      "answer": "Parasaurdinosaurhadlonollowrestthatmayhavemadsounds",
+      "locks1": [
+        1,
+        20,
+        41,
+        45,
+        47
+      ],
+      "locks2": [
+        5,
+        13,
+        17,
+        29,
+        32
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "44": {
+      "phrase": "_____ ________ ___ _b___ t__ ____ o_ a _____, ______ ___ ____ _____.",
+      "answer": "Compydynosaurwasaouthesizefsmallmoderncatwhenyoung",
+      "locks1": [
+        3,
+        28,
+        30,
+        38,
+        46
+      ],
+      "locks2": [
+        1,
+        6,
+        24,
+        33,
+        42
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "45": {
+      "phrase": "_________ _____ __ _____ ___ ____ t___ 160 _______ _e___ o______.",
+      "answer": "DinosaurslivedonEarthformorehanmillionyarsverall",
+      "locks1": [
+        2,
+        4,
+        9,
+        15,
+        26
+      ],
+      "locks2": [
+        6,
+        22,
+        32,
+        36,
+        46
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "46": {
+      "phrase": "______r__t__ ___ ____ _______ ____ __e _________ _____ __ ______.",
+      "answer": "Velociaporwasmuchsmallerthanthdinosaursshowninmovies",
+      "locks1": [
+        5,
+        12,
+        34,
+        37,
+        44
+      ],
+      "locks2": [
+        15,
+        20,
+        32,
+        41,
+        48
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "47": {
+      "phrase": "_. ___ ___ ___ __ ___ _________ k____ ____s a____ ____ _______!",
+      "answer": "Trexhadoneofthestrongestnownbitemonglandanimals",
+      "locks1": [
+        1,
+        5,
+        10,
+        36,
+        39
+      ],
+      "locks2": [
+        13,
+        19,
+        30,
+        33,
+        42
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "48": {
+      "phrase": "___n_______ ___ ___y ____ ___ 2 l____ _____ _____ ___ ____.",
+      "answer": "Carotaurushadtinarmsandargehornsaboveitseyes",
+      "locks1": [
+        13,
+        18,
+        26,
+        29,
+        40
+      ],
+      "locks2": [
+        1,
+        11,
+        21,
+        34,
+        38
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "49": {
+      "phrase": "______i ______u_ ___ ____ _e_____ ____ ____ 60 ____ ____ _____ ___w_!",
+      "answer": "Argentdinosarmayhavewighedmorethantonswhenfullygron",
+      "locks1": [
+        25,
+        27,
+        30,
+        36,
+        40
+      ],
+      "locks2": [
+        4,
+        9,
+        14,
+        17,
+        43
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    },
+    "50": {
+      "phrase": "___ ________ ______ _____ ___ _____ __ _o_-b___ _________ _____ 66 _______ _e_r_ a__.",
+      "answer": "Theasteroidimpactendedthereignofnnirddinosaursaboutmillionyasgo",
+      "locks1": [
+        24,
+        44,
+        46,
+        51,
+        56
+      ],
+      "locks2": [
+        7,
+        12,
+        15,
+        39,
+        49
+      ],
+      "author": "Fun Facts",
+      "desc": ""
+    }
+  }
+}
