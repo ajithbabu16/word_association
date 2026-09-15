@@ -17,6 +17,8 @@ import zoneinfo
 from urllib.parse import urlparse, parse_qs
 from sentence_transformers import SentenceTransformer, util
 
+import sqlite3
+
 # --- CONFIGURATION (DEFAULTS) ---
 REPORTS_DIR = 'reports'
 if not os.path.exists(REPORTS_DIR): os.makedirs(REPORTS_DIR)
@@ -37,7 +39,142 @@ SIMILARITY_THRESHOLD = 0.85
 PORT = 8080
 IST = zoneinfo.ZoneInfo("Asia/Kolkata")
 
+# --- TRACKING DATE SQLITE DATABASE & EMAIL AUTOMATION ---
+TRACKING_DB_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'tracking_date.db')
+
+def init_tracking_db():
+    conn = sqlite3.connect(TRACKING_DB_PATH)
+    cursor = conn.cursor()
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS tracking_items (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL,
+            start_date TEXT NOT NULL,
+            end_date TEXT NOT NULL,
+            trigger_days_before INTEGER DEFAULT 5,
+            recipient_emails TEXT DEFAULT 'ajith@quriousbit.com, rajeev@quriousbit.com',
+            status TEXT DEFAULT 'ACTIVE',
+            notes TEXT DEFAULT '',
+            last_email_sent TEXT DEFAULT '',
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        )
+    ''')
+    conn.commit()
+    conn.close()
+
+init_tracking_db()
+
+def send_tracking_alert_email(name, start_date, end_date, days_remaining, recipient_emails, is_expired=False):
+    try:
+        receivers = [r.strip() for r in recipient_emails.split(',') if r.strip()]
+        if not receivers:
+            receivers = ["ajith@quriousbit.com", "rajeev@quriousbit.com"]
+            
+        m = MIMEMultipart()
+        m['From'] = EMAIL_SENDER
+        m['To'] = ", ".join(receivers)
+        
+        if is_expired:
+            days_overdue = abs(days_remaining)
+            subject = f"[EXPIRED ALERT] Pack / Item '{name}' Has Exceeded End Date ({end_date})!"
+            body = f"""⚠️ URGENT TRACKING EXPIRED ALERT ⚠️
+
+The product item '{name}' has exceeded its scheduled end date of {end_date}!
+
+Item Details:
+• Item Name: {name}
+• Start Date: {start_date}
+• End Date: {end_date}
+• Status: EXPIRED ({days_overdue} day(s) past end date)
+• Recipients Notified: {', '.join(receivers)}
+
+Please log in to the Tracking Studio (http://localhost:3000/tracking_date.html) to renew the end date or mark the item complete.
+
+Automated Genie Notification Core - QuriousBit Games
+"""
+        else:
+            subject = f"[REMINDER] Pack / Item '{name}' Is Ending Soon on {end_date} ({days_remaining} Days Left)"
+            body = f"""🔔 PRODUCT ITEM EXPIRATION REMINDER 🔔
+
+Your tracked product item '{name}' is ending soon in {days_remaining} day(s)!
+
+Item Details:
+• Item Name: {name}
+• Start Date: {start_date}
+• End Date: {end_date}
+• Days Remaining: {days_remaining} day(s)
+• Recipients Notified: {', '.join(receivers)}
+
+Manage or edit this item at: http://localhost:3000/tracking_date.html
+
+Automated Genie Notification Core - QuriousBit Games
+"""
+
+        m.attach(MIMEText(body, 'plain'))
+        s = smtplib.SMTP('smtp.gmail.com', 587)
+        s.starttls()
+        s.login(EMAIL_SENDER, EMAIL_PASSWORD)
+        s.send_message(m)
+        s.quit()
+        print(f"Tracking alert email sent for '{name}' to {receivers}")
+        return True
+    except Exception as e:
+        print(f"Failed to send tracking alert email for '{name}': {e}")
+        return False
+
+def tracking_email_scheduler():
+    import time
+    while True:
+        try:
+            conn = sqlite3.connect(TRACKING_DB_PATH)
+            cursor = conn.cursor()
+            cursor.execute("SELECT id, name, start_date, end_date, trigger_days_before, recipient_emails, status, last_email_sent FROM tracking_items WHERE status != 'COMPLETED'")
+            rows = cursor.fetchall()
+            
+            today = datetime.now(IST).date()
+            today_str = today.strftime("%Y-%m-%d")
+            now_ts = datetime.now(IST).strftime("%Y-%m-%d %H:%M:%S")
+            
+            for row in rows:
+                item_id, name, start_date, end_date, trigger_days, recipients, status, last_email = row
+                try:
+                    end_dt = datetime.strptime(end_date, "%Y-%m-%d").date()
+                    days_remaining = (end_dt - today).days
+                    
+                    if days_remaining < 0:
+                        should_send = False
+                        if not last_email:
+                            should_send = True
+                        else:
+                            try:
+                                last_dt = datetime.strptime(last_email[:10], "%Y-%m-%d")
+                                if last_dt.date() < today:
+                                    should_send = True
+                            except:
+                                should_send = True
+                        
+                        if should_send:
+                            if send_tracking_alert_email(name, start_date, end_date, days_remaining, recipients, is_expired=True):
+                                cursor.execute("UPDATE tracking_items SET status = 'EXPIRED', last_email_sent = ? WHERE id = ?", (now_ts, item_id))
+                                conn.commit()
+                                
+                    elif days_remaining <= trigger_days:
+                        if not last_email or last_email[:10] != today_str:
+                            if send_tracking_alert_email(name, start_date, end_date, days_remaining, recipients, is_expired=False):
+                                cursor.execute("UPDATE tracking_items SET status = 'ENDING_SOON', last_email_sent = ? WHERE id = ?", (now_ts, item_id))
+                                conn.commit()
+                                
+                except Exception as ex:
+                    print(f"Error checking tracking item {item_id}: {ex}")
+                    
+            conn.close()
+        except Exception as e:
+            print(f"Error in tracking scheduler: {e}")
+        time.sleep(3600)
+
 import threading
+threading.Thread(target=tracking_email_scheduler, daemon=True).start()
 
 model = None
 def init_model():
@@ -398,13 +535,134 @@ class CombinedHandler(http.server.SimpleHTTPRequestHandler):
                 self._set_headers()
                 self.wfile.write(json.dumps({"status": "logged", "loop": loop, "level": level}).encode())
 
+            elif self.path == '/api/tracking-dates/add':
+                content_length = int(self.headers['Content-Length'])
+                data = json.loads(self.rfile.read(content_length))
+                conn = sqlite3.connect(TRACKING_DB_PATH)
+                cursor = conn.cursor()
+                cursor.execute(
+                    "INSERT INTO tracking_items (name, start_date, end_date, trigger_days_before, recipient_emails, notes, status) VALUES (?, ?, ?, ?, ?, ?, ?)",
+                    (
+                        data.get('name', 'Unnamed Item'),
+                        data.get('start_date', datetime.now(IST).strftime("%Y-%m-%d")),
+                        data.get('end_date', datetime.now(IST).strftime("%Y-%m-%d")),
+                        int(data.get('trigger_days_before', 5)),
+                        data.get('recipient_emails', 'ajith@quriousbit.com, rajeev@quriousbit.com'),
+                        data.get('notes', ''),
+                        data.get('status', 'ACTIVE')
+                    )
+                )
+                conn.commit()
+                new_id = cursor.lastrowid
+                conn.close()
+                self._set_headers()
+                self.wfile.write(json.dumps({"status": "success", "id": new_id}).encode())
+
+            elif self.path == '/api/tracking-dates/update':
+                content_length = int(self.headers['Content-Length'])
+                data = json.loads(self.rfile.read(content_length))
+                conn = sqlite3.connect(TRACKING_DB_PATH)
+                cursor = conn.cursor()
+                cursor.execute(
+                    "UPDATE tracking_items SET name=?, start_date=?, end_date=?, trigger_days_before=?, recipient_emails=?, notes=?, status=?, updated_at=CURRENT_TIMESTAMP WHERE id=?",
+                    (
+                        data.get('name'),
+                        data.get('start_date'),
+                        data.get('end_date'),
+                        int(data.get('trigger_days_before', 5)),
+                        data.get('recipient_emails'),
+                        data.get('notes', ''),
+                        data.get('status', 'ACTIVE'),
+                        int(data.get('id'))
+                    )
+                )
+                conn.commit()
+                conn.close()
+                self._set_headers()
+                self.wfile.write(json.dumps({"status": "success"}).encode())
+
+            elif self.path == '/api/tracking-dates/delete':
+                content_length = int(self.headers.get('Content-Length', 0))
+                item_id = None
+                if content_length > 0:
+                    data = json.loads(self.rfile.read(content_length))
+                    item_id = data.get('id')
+                else:
+                    query = parse_qs(urlparse(self.path).query)
+                    item_id = query.get('id', [None])[0]
+                
+                if item_id:
+                    conn = sqlite3.connect(TRACKING_DB_PATH)
+                    cursor = conn.cursor()
+                    cursor.execute("DELETE FROM tracking_items WHERE id=?", (int(item_id),))
+                    conn.commit()
+                    conn.close()
+                self._set_headers()
+                self.wfile.write(json.dumps({"status": "success"}).encode())
+
+            elif self.path == '/api/tracking-dates/send-now':
+                content_length = int(self.headers['Content-Length'])
+                data = json.loads(self.rfile.read(content_length))
+                item_id = data.get('id')
+                conn = sqlite3.connect(TRACKING_DB_PATH)
+                cursor = conn.cursor()
+                cursor.execute("SELECT id, name, start_date, end_date, trigger_days_before, recipient_emails, status FROM tracking_items WHERE id=?", (int(item_id),))
+                row = cursor.fetchone()
+                conn.close()
+                
+                if row:
+                    item_id, name, start_date, end_date, trigger_days, recipients, status = row
+                    today = datetime.now(IST).date()
+                    end_dt = datetime.strptime(end_date, "%Y-%m-%d").date()
+                    days_remaining = (end_dt - today).days
+                    is_expired = days_remaining < 0
+                    sent = send_tracking_alert_email(name, start_date, end_date, days_remaining, recipients, is_expired=is_expired)
+                    self._set_headers()
+                    self.wfile.write(json.dumps({"status": "success" if sent else "error", "sent": sent}).encode())
+                else:
+                    self._set_headers(404)
+                    self.wfile.write(json.dumps({"error": "Item not found"}).encode())
+
         except Exception as e:
             self._set_headers(500)
             self.wfile.write(json.dumps({"error": str(e)}).encode())
 
     def do_GET(self):
         try:
-            if self.path == '/api/list-scripts':
+            if self.path == '/api/tracking-dates':
+                conn = sqlite3.connect(TRACKING_DB_PATH)
+                conn.row_factory = sqlite3.Row
+                cursor = conn.cursor()
+                cursor.execute("SELECT id, name, start_date, end_date, trigger_days_before, recipient_emails, status, notes, last_email_sent, created_at, updated_at FROM tracking_items ORDER BY end_date ASC")
+                rows = cursor.fetchall()
+                conn.close()
+                
+                today = datetime.now(IST).date()
+                items = []
+                for row in rows:
+                    item = dict(row)
+                    try:
+                        end_dt = datetime.strptime(item['end_date'], "%Y-%m-%d").date()
+                        item['days_remaining'] = (end_dt - today).days
+                    except:
+                        item['days_remaining'] = 0
+                    
+                    if item['status'] != 'COMPLETED':
+                        if item['days_remaining'] < 0:
+                            item['calculated_status'] = 'EXPIRED'
+                        elif item['days_remaining'] <= item['trigger_days_before']:
+                            item['calculated_status'] = 'ENDING_SOON'
+                        else:
+                            item['calculated_status'] = 'ACTIVE'
+                    else:
+                        item['calculated_status'] = 'COMPLETED'
+                        
+                    items.append(item)
+                    
+                self._set_headers()
+                self.wfile.write(json.dumps({"status": "success", "items": items}).encode())
+
+            elif self.path == '/api/list-scripts':
                 script_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'cw_scripts')
                 if not os.path.exists(script_dir):
                     scripts = []
