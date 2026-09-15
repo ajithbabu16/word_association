@@ -3,8 +3,8 @@ import { Calendar, Layers, CheckCircle2, Sparkles, Play } from 'lucide-react';
 
 interface ModeSelectionModalProps {
   isOpen: boolean;
-  activeMode: 'daily' | 'main' | 'prefab' | 'special' | 'testcase' | 'json_compare';
-  onSelectMode: (mode: 'daily' | 'main' | 'prefab' | 'special' | 'testcase' | 'json_compare') => void;
+  activeMode: 'daily' | 'main' | 'prefab' | 'special' | 'testcase' | 'json_compare' | 'font_check';
+  onSelectMode: (mode: 'daily' | 'main' | 'prefab' | 'special' | 'testcase' | 'json_compare' | 'font_check') => void;
   onClose?: () => void;
 }
 
