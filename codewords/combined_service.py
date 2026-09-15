@@ -15,7 +15,11 @@ from email import encoders
 from datetime import datetime
 import zoneinfo
 from urllib.parse import urlparse, parse_qs
-from sentence_transformers import SentenceTransformer, util
+try:
+    from sentence_transformers import SentenceTransformer, util
+except ImportError:
+    SentenceTransformer = None
+    util = None
 
 import sqlite3
 
@@ -242,7 +246,16 @@ threading.Thread(target=tracking_email_scheduler, daemon=True).start()
 
 model = None
 def init_model():
-    global model
+    global model, SentenceTransformer, util
+    if SentenceTransformer is None:
+        try:
+            from sentence_transformers import SentenceTransformer as ST, util as u
+            SentenceTransformer = ST
+            util = u
+        except Exception:
+            print("SentenceTransformer package not available in environment.")
+            return
+
     try:
         print(f"Loading Sentence Transformer: {SENTENCE_MODEL_NAME}...")
         model = SentenceTransformer(SENTENCE_MODEL_NAME)
