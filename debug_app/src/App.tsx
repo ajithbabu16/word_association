@@ -17,6 +17,7 @@ import html2canvas from 'html2canvas';
 import { AutoSolveModal, AutoSolveMode } from './components/AutoSolveModal';
 import { ModeSelectionModal } from './components/ModeSelectionModal';
 import { PrefabCreationView } from './components/PrefabCreationView';
+import { FontCheckView } from './components/FontCheckView';
 import { TestCaseGenerator } from './components/TestCaseGenerator';
 import { JsonCompareView } from './components/JsonCompareView';
 
@@ -177,10 +178,10 @@ function StackedCategoryPill({ formed, total, isAnimating }: { formed: number; t
 }
 
 export default function App() {
-  const getInitialMode = (): 'daily' | 'main' | 'prefab' | 'special' | 'testcase' | 'json_compare' => {
+  const getInitialMode = (): 'daily' | 'main' | 'prefab' | 'special' | 'testcase' | 'json_compare' | 'font_check' => {
     const params = new URLSearchParams(window.location.search);
     const mode = params.get('mode');
-    if (mode === 'prefab' || mode === 'main' || mode === 'daily' || mode === 'special' || mode === 'testcase' || mode === 'json_compare') {
+    if (mode === 'prefab' || mode === 'main' || mode === 'daily' || mode === 'special' || mode === 'testcase' || mode === 'json_compare' || mode === 'font_check') {
       return mode;
     }
     return 'daily';
@@ -189,8 +190,8 @@ export default function App() {
   const initialMode = getInitialMode();
   const hasUrlMode = new URLSearchParams(window.location.search).has('mode');
 
-  // Active Mode: 'daily' | 'main' | 'prefab' | 'special' | 'testcase' | 'json_compare'
-  const [activeMode, setActiveMode] = useState<'daily' | 'main' | 'prefab' | 'special' | 'testcase' | 'json_compare'>(initialMode);
+  // Active Mode: 'daily' | 'main' | 'prefab' | 'special' | 'testcase' | 'json_compare' | 'font_check'
+  const [activeMode, setActiveMode] = useState<'daily' | 'main' | 'prefab' | 'special' | 'testcase' | 'json_compare' | 'font_check'>(initialMode);
   const [showModeModal, setShowModeModal] = useState<boolean>(!hasUrlMode);
   const [isPillAnimating, setIsPillAnimating] = useState<boolean>(false);
 
@@ -340,7 +341,7 @@ export default function App() {
   }, []);
 
   // Mode change handler
-  const handleSelectMode = (mode: 'daily' | 'main' | 'prefab' | 'special' | 'testcase' | 'json_compare') => {
+  const handleSelectMode = (mode: 'daily' | 'main' | 'prefab' | 'special' | 'testcase' | 'json_compare' | 'font_check') => {
     setActiveMode(mode);
     setIsAutoSolving(false);
     setIsRangeAutoSolving(false);
@@ -1158,7 +1159,7 @@ export default function App() {
   return (
     <>
       {/* Top Navbar Header */}
-      {activeMode !== 'prefab' && (
+      {activeMode !== 'prefab' && activeMode !== 'font_check' && (
         <div style={{ width: '100%', padding: '12px 20px', backgroundColor: '#1e293b', textAlign: 'center', display: 'flex', justifyContent: 'space-between', alignItems: 'center', boxSizing: 'border-box', borderBottom: '1px solid #334155' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
             <button 
@@ -1179,7 +1180,7 @@ export default function App() {
               }}
             >
               {activeMode === 'main' || activeMode === 'special' ? <Layers size={16} /> : <Calendar size={16} />}
-              Mode: {activeMode === 'main' ? 'Main Puzzle (MP)' : activeMode === 'special' ? 'Special Puzzle (SP)' : activeMode === 'testcase' ? 'Qubit Gen Automation' : activeMode === 'json_compare' ? 'JSON Comparison' : 'Daily Puzzle (DP)'} 🔄
+              Mode: {activeMode === 'main' ? 'Main Puzzle (MP)' : activeMode === 'special' ? 'Special Puzzle (SP)' : activeMode === 'testcase' ? 'Qubit Gen Automation' : 'Daily Puzzle (DP)'} 🔄
             </button>
           </div>
 
@@ -1204,6 +1205,8 @@ export default function App() {
       <div className="app-container">
         {activeMode === 'prefab' ? (
           <PrefabCreationView />
+        ) : activeMode === 'font_check' ? (
+          <FontCheckView />
         ) : activeMode === 'testcase' ? (
           <TestCaseGenerator onClose={() => setActiveMode('daily')} />
         ) : activeMode === 'json_compare' ? (
@@ -1316,7 +1319,7 @@ export default function App() {
           </div>
         )}
 
-        {activeMode !== 'prefab' && activeMode !== 'testcase' && activeMode !== 'json_compare' && (
+        {activeMode !== 'prefab' && activeMode !== 'testcase' && activeMode !== 'json_compare' && activeMode !== 'font_check' && (
           <DebugDashboard
             activeMode={activeMode as 'daily' | 'main' | 'special'}
             currentDate={currentDate}
