@@ -15,6 +15,7 @@ import {
   generateCocos2xPrefab,
   generateTextureMeta,
   generatePrefabMeta,
+  generateJsonMeta,
   generatePsdMeta,
   generateCutPsdBinary,
   generateLayoutCatalog,
@@ -238,8 +239,8 @@ export function PrefabCreationView() {
   const handleDownloadPackage = async () => {
     if (extractedPieces.length === 0 || !sourceCanvas) return;
 
-    // Ensure deterministic UUIDs for all pieces
-    ensurePieceUuids(extractedPieces);
+    // Ensure deterministic UUIDs for all pieces based on target Cocos version
+    ensurePieceUuids(extractedPieces, cocosVersion);
 
     const exportOptions: PrefabExportOptions = {
       cocosVersion,
@@ -250,28 +251,28 @@ export function PrefabCreationView() {
     };
 
     const zip = new JSZip();
-    const textureFolder = zip.folder('Texture');
+    const textureFolder = zip.folder('textures');
     const prefabsFolder = zip.folder('prefabs');
 
-    // 1. Save extracted shape cut PNG assets & optional .meta sidecars inside Texture/
+    // 1. Save extracted shape cut PNG assets & optional .meta sidecars inside textures/
     extractedPieces.forEach((piece) => {
       const pngFileName = `${piece.name}.png`;
       textureFolder?.file(pngFileName, piece.blob);
 
       if (includeMeta) {
-        const { metaContent } = generateTextureMeta(piece);
+        const { metaContent } = generateTextureMeta(piece, cocosVersion);
         textureFolder?.file(`${pngFileName}.meta`, metaContent);
       }
     });
 
-    // 2. Generate layered Photoshop PSD file (.psd ArrayBuffer) inside Texture/
+    // 2. Generate layered Photoshop PSD file (.psd ArrayBuffer) inside textures/
     try {
       const psdBuffer = generateCutPsdBinary(extractedPieces, sourceCanvas.width, sourceCanvas.height);
       const psdFileName = `${rootNodeName}.psd`;
       textureFolder?.file(psdFileName, psdBuffer);
 
       if (includeMeta) {
-        const { metaContent } = generatePsdMeta();
+        const { metaContent } = generatePsdMeta(cocosVersion);
         textureFolder?.file(`${psdFileName}.meta`, metaContent);
       }
     } catch (e) {
@@ -288,13 +289,19 @@ export function PrefabCreationView() {
     prefabsFolder?.file(prefabFileName, JSON.stringify(prefabData, null, 2));
 
     if (includeMeta) {
-      const { metaContent } = generatePrefabMeta();
+      const { metaContent } = generatePrefabMeta(cocosVersion);
       prefabsFolder?.file(`${prefabFileName}.meta`, metaContent);
     }
 
-    // 4. Generate layout.json catalog
+    // 4. Generate layout.json catalog & optional sidecar .meta
     const layoutCatalog = generateLayoutCatalog(extractedPieces, exportOptions);
-    zip.file('layout.json', JSON.stringify(layoutCatalog, null, 2));
+    const layoutFileName = 'layout.json';
+    zip.file(layoutFileName, JSON.stringify(layoutCatalog, null, 2));
+
+    if (includeMeta) {
+      const { metaContent } = generateJsonMeta(cocosVersion);
+      zip.file(`${layoutFileName}.meta`, metaContent);
+    }
 
     // Generate ZIP blob and trigger download
     const zipBlob = await zip.generateAsync({ type: 'blob' });

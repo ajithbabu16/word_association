@@ -24,13 +24,20 @@ function generateShortUUID(): string {
 /**
  * Ensures each cut piece has deterministic UUIDs for its Texture and SpriteFrame assets.
  */
-export function ensurePieceUuids(pieces: CutPieceResult[]) {
+export function ensurePieceUuids(
+  pieces: CutPieceResult[],
+  cocosVersion: '3.8.8' | '3.x' | '2.x' = '3.8.8'
+) {
   pieces.forEach((piece) => {
     if (!piece.textureUuid) {
       piece.textureUuid = generateUUID();
     }
     if (!piece.spriteFrameUuid) {
-      piece.spriteFrameUuid = `${piece.textureUuid}@f9941`;
+      if (cocosVersion === '2.x') {
+        piece.spriteFrameUuid = generateUUID();
+      } else {
+        piece.spriteFrameUuid = `${piece.textureUuid}@f9941`;
+      }
     }
   });
 }
@@ -42,7 +49,7 @@ export function generateCocos3xPrefab(
   pieces: CutPieceResult[],
   options: PrefabExportOptions
 ) {
-  ensurePieceUuids(pieces);
+  ensurePieceUuids(pieces, options.cocosVersion);
 
   const rootNodeId = generateShortUUID();
   const nodes: any[] = [];
@@ -50,9 +57,9 @@ export function generateCocos3xPrefab(
   // Index 0: cc.Prefab asset wrapper required by Cocos Creator 3.8.x
   nodes.push({
     "__type__": "cc.Prefab",
-    "_name__": options.rootNodeName || "PrefabRoot",
-    "_objFlags__": 0,
-    "_native__": "",
+    "_name": options.rootNodeName || "PrefabRoot",
+    "_objFlags": 0,
+    "_native": "",
     "data": {
       "__id__": 1
     },
@@ -63,21 +70,21 @@ export function generateCocos3xPrefab(
   // Index 1: Root cc.Node (2D UI Layer = 33554432)
   nodes.push({
     "__type__": "cc.Node",
-    "_name__": options.rootNodeName || "PrefabRoot",
-    "_objFlags__": 0,
-    "_parent__": null,
-    "_children__": [],
-    "_active__": true,
-    "_components__": [
+    "_name": options.rootNodeName || "PrefabRoot",
+    "_objFlags": 0,
+    "_parent": null,
+    "_children": [],
+    "_active": true,
+    "_components": [
       { "__id__": 2 }
     ],
-    "_prefab__": {
+    "_prefab": {
       "__type__": "cc.PrefabInfo",
-      "root__": { "__id__": 1 },
-      "asset__": { "__id__": 0 },
-      "fileId__": rootNodeId,
-      "targetOverrides__": null,
-      "nestedPrefabInstanceRoots__": null
+      "root": { "__id__": 1 },
+      "asset": { "__id__": 0 },
+      "fileId": rootNodeId,
+      "targetOverrides": null,
+      "nestedPrefabInstanceRoots": null
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -98,19 +105,19 @@ export function generateCocos3xPrefab(
       "y": 1,
       "z": 1
     },
-    "_layer__": 33554432
+    "_layer": 33554432
   });
 
   // Index 2: Root cc.UITransform component
   nodes.push({
     "__type__": "cc.UITransform",
-    "_name__": "",
-    "_objFlags__": 0,
-    "node__": { "__id__": 1 },
-    "_enabled__": true,
+    "_name": "",
+    "_objFlags": 0,
+    "node": { "__id__": 1 },
+    "_enabled": true,
     "__prefab__": {
       "__type__": "cc.CompPrefabInfo",
-      "fileId__": generateShortUUID()
+      "fileId": generateShortUUID()
     },
     "_contentSize": {
       "__type__": "cc.Size",
@@ -139,22 +146,22 @@ export function generateCocos3xPrefab(
     // Child Node (Attached to Root Node at __id__: 1)
     nodes.push({
       "__type__": "cc.Node",
-      "_name__": piece.name,
-      "_objFlags__": 0,
-      "_parent__": { "__id__": 1 },
-      "_children__": [],
-      "_active__": true,
-      "_components__": [
+      "_name": piece.name,
+      "_objFlags": 0,
+      "_parent": { "__id__": 1 },
+      "_children": [],
+      "_active": true,
+      "_components": [
         { "__id__": uiTransformIndex },
         { "__id__": spriteIndex }
       ],
-      "_prefab__": {
+      "_prefab": {
         "__type__": "cc.PrefabInfo",
-        "root__": { "__id__": 1 },
-        "asset__": { "__id__": 0 },
-        "fileId__": generateShortUUID(),
-        "targetOverrides__": null,
-        "nestedPrefabInstanceRoots__": null
+        "root": { "__id__": 1 },
+        "asset": { "__id__": 0 },
+        "fileId": generateShortUUID(),
+        "targetOverrides": null,
+        "nestedPrefabInstanceRoots": null
       },
       "_lpos": {
         "__type__": "cc.Vec3",
@@ -175,19 +182,19 @@ export function generateCocos3xPrefab(
         "y": 1,
         "z": 1
       },
-      "_layer__": 33554432
+      "_layer": 33554432
     });
 
     // Child UITransform
     nodes.push({
       "__type__": "cc.UITransform",
-      "_name__": "",
-      "_objFlags__": 0,
-      "node__": { "__id__": nodeIndex },
-      "_enabled__": true,
+      "_name": "",
+      "_objFlags": 0,
+      "node": { "__id__": nodeIndex },
+      "_enabled": true,
       "__prefab__": {
         "__type__": "cc.CompPrefabInfo",
-        "fileId__": generateShortUUID()
+        "fileId": generateShortUUID()
       },
       "_contentSize": {
         "__type__": "cc.Size",
@@ -204,44 +211,44 @@ export function generateCocos3xPrefab(
     // Child Sprite referencing piece spriteFrame UUID
     nodes.push({
       "__type__": "cc.Sprite",
-      "_name__": "",
-      "_objFlags__": 0,
-      "node__": { "__id__": nodeIndex },
-      "_enabled__": true,
+      "_name": "",
+      "_objFlags": 0,
+      "node": { "__id__": nodeIndex },
+      "_enabled": true,
       "__prefab__": {
         "__type__": "cc.CompPrefabInfo",
-        "fileId__": generateShortUUID()
+        "fileId": generateShortUUID()
       },
-      "_customMaterial__": null,
-      "_srcBlendFactor__": 2,
-      "_dstBlendFactor__": 4,
-      "_color__": {
+      "_customMaterial": null,
+      "_srcBlendFactor": 2,
+      "_dstBlendFactor": 4,
+      "_color": {
         "__type__": "cc.Color",
         "r": 255,
         "g": 255,
         "b": 255,
         "a": 255
       },
-      "_spriteFrame__": {
+      "_spriteFrame": {
         "__uuid__": piece.spriteFrameUuid || `${piece.textureUuid}@f9941`,
         "__expectedType__": "cc.SpriteFrame"
       },
-      "_type__": 0,
-      "_sizeMode__": 1,
-      "_fillType__": 0,
-      "_fillCenter__": {
+      "_type": 0,
+      "_sizeMode": 1,
+      "_fillType": 0,
+      "_fillCenter": {
         "__type__": "cc.Vec2",
         "x": 0,
         "y": 0
       },
-      "_fillStart__": 0,
-      "_fillRange__": 0,
-      "_isTrimmedMode__": true,
-      "_useGrayscale__": false
+      "_fillStart": 0,
+      "_fillRange": 0,
+      "_isTrimmedMode": true,
+      "_useGrayscale": false
     });
 
     // Add child reference to root node (__id__: 1)
-    nodes[1]._children__.push({ "__id__": nodeIndex });
+    nodes[1]._children.push({ "__id__": nodeIndex });
 
     currentId += 3;
   });
@@ -256,61 +263,61 @@ export function generateCocos2xPrefab(
   pieces: CutPieceResult[],
   options: PrefabExportOptions
 ) {
-  ensurePieceUuids(pieces);
+  ensurePieceUuids(pieces, options.cocosVersion);
 
   const nodes: any[] = [];
 
   // Root Node
   nodes.push({
     "__type__": "cc.Node",
-    "_name__": options.rootNodeName || "PrefabRoot",
-    "_objFlags__": 0,
-    "_parent__": null,
+    "_name": options.rootNodeName || "PrefabRoot",
+    "_objFlags": 0,
+    "_parent": null,
     "_children": [],
-    "_active__": true,
-    "_level__": 1,
-    "_components__": [],
-    "_prefab__": {
+    "_active": true,
+    "_level": 1,
+    "_components": [],
+    "_prefab": {
       "__type__": "cc.PrefabInfo",
-      "root__": { "__id__": 0 },
-      "asset__": { "__id__": 0 },
-      "fileId__": generateShortUUID(),
-      "sync__": false
+      "root": { "__id__": 0 },
+      "asset": { "__id__": 0 },
+      "fileId": generateShortUUID(),
+      "sync": false
     },
-    "_opacity__": 255,
-    "_color__": {
+    "_opacity": 255,
+    "_color": {
       "__type__": "cc.Color",
       "r": 255,
       "g": 255,
       "b": 255,
       "a": 255
     },
-    "_contentSize__": {
+    "_contentSize": {
       "__type__": "cc.Size",
       "width": options.canvasWidth,
       "height": options.canvasHeight
     },
-    "_anchorPoint__": {
+    "_anchorPoint": {
       "__type__": "cc.Vec2",
       "x": 0.5,
       "y": 0.5
     },
-    "_position__": {
+    "_position": {
       "__type__": "cc.Vec3",
       "x": 0,
       "y": 0,
       "z": 0
     },
-    "_scale__": {
+    "_scale": {
       "__type__": "cc.Vec3",
       "x": 1,
       "y": 1,
       "z": 1
     },
-    "_rotationX__": 0,
-    "_rotationY__": 0,
-    "_skewX__": 0,
-    "_skewY__": 0
+    "_rotationX": 0,
+    "_rotationY": 0,
+    "_skewX": 0,
+    "_skewY": 0
   });
 
   let currentId = 1;
@@ -324,47 +331,47 @@ export function generateCocos2xPrefab(
 
     nodes.push({
       "__type__": "cc.Node",
-      "_name__": piece.name,
-      "_objFlags__": 0,
-      "_parent__": { "__id__": 0 },
+      "_name": piece.name,
+      "_objFlags": 0,
+      "_parent": { "__id__": 0 },
       "_children": [],
-      "_active__": true,
-      "_level__": 2,
-      "_components__": [
+      "_active": true,
+      "_level": 2,
+      "_components": [
         { "__id__": spriteIndex }
       ],
-      "_prefab__": {
+      "_prefab": {
         "__type__": "cc.PrefabInfo",
-        "root__": { "__id__": 0 },
-        "asset__": { "__id__": 0 },
-        "fileId__": generateShortUUID(),
-        "sync__": false
+        "root": { "__id__": 0 },
+        "asset": { "__id__": 0 },
+        "fileId": generateShortUUID(),
+        "sync": false
       },
-      "_opacity__": 255,
-      "_color__": {
+      "_opacity": 255,
+      "_color": {
         "__type__": "cc.Color",
         "r": 255,
         "g": 255,
         "b": 255,
         "a": 255
       },
-      "_contentSize__": {
+      "_contentSize": {
         "__type__": "cc.Size",
         "width": piece.width,
         "height": piece.height
       },
-      "_anchorPoint__": {
+      "_anchorPoint": {
         "__type__": "cc.Vec2",
         "x": 0.5,
         "y": 0.5
       },
-      "_position__": {
+      "_position": {
         "__type__": "cc.Vec3",
         "x": cocosX,
         "y": cocosY,
         "z": 0
       },
-      "_scale__": {
+      "_scale": {
         "__type__": "cc.Vec3",
         "x": 1,
         "y": 1,
@@ -374,28 +381,28 @@ export function generateCocos2xPrefab(
 
     nodes.push({
       "__type__": "cc.Sprite",
-      "_name__": "",
-      "_objFlags__": 0,
-      "node__": { "__id__": nodeIndex },
-      "_enabled__": true,
-      "_materials__": [],
-      "_srcBlendFactor__": 770,
-      "_dstBlendFactor__": 771,
-      "_spriteFrame__": {
+      "_name": "",
+      "_objFlags": 0,
+      "node": { "__id__": nodeIndex },
+      "_enabled": true,
+      "_materials": [],
+      "_srcBlendFactor": 770,
+      "_dstBlendFactor": 771,
+      "_spriteFrame": {
         "__uuid__": piece.spriteFrameUuid || piece.textureUuid
       },
-      "_type__": 0,
-      "_sizeMode__": 1,
-      "_fillType__": 0,
-      "_fillCenter__": {
+      "_type": 0,
+      "_sizeMode": 1,
+      "_fillType": 0,
+      "_fillCenter": {
         "__type__": "cc.Vec2",
         "x": 0,
         "y": 0
       },
-      "_fillStart__": 0,
-      "_fillRange__": 0,
-      "_isTrimmedMode__": true,
-      "_state__": 0
+      "_fillStart": 0,
+      "_fillRange": 0,
+      "_isTrimmedMode": true,
+      "_state": 0
     });
 
     nodes[0]._children.push({ "__id__": nodeIndex });
@@ -407,12 +414,55 @@ export function generateCocos2xPrefab(
 }
 
 /**
- * Generate Cocos Creator .meta sidecar file for a texture PNG (Compatible with Cocos Creator 3.8.8 & 3.x).
+ * Generate Cocos Creator .meta sidecar file for a texture PNG (Compatible with Cocos Creator 3.8.8 & 3.x & 2.x).
  */
-export function generateTextureMeta(piece: CutPieceResult): { metaContent: string; uuid: string } {
+export function generateTextureMeta(
+  piece: CutPieceResult,
+  cocosVersion: '3.8.8' | '3.x' | '2.x' = '3.8.8'
+): { metaContent: string; uuid: string } {
   const texUuid = piece.textureUuid || generateUUID();
-  const sfUuid = piece.spriteFrameUuid || `${texUuid}@f9941`;
 
+  if (cocosVersion === '2.x') {
+    const sfUuid = piece.spriteFrameUuid || generateUUID();
+    const metaObj = {
+      "ver": "2.3.6",
+      "uuid": texUuid,
+      "importer": "texture",
+      "type": "sprite",
+      "subMetas": {
+        [piece.name]: {
+          "ver": "1.0.4",
+          "uuid": sfUuid,
+          "importer": "sprite-frame",
+          "name": piece.name,
+          "rawTextureUuid": texUuid,
+          "size": [piece.width, piece.height],
+          "type": "sprite",
+          "userData": {
+            "trimType": "auto",
+            "trimThreshold": 1,
+            "rotated": false,
+            "offsetX": 0,
+            "offsetY": 0,
+            "trimX": 0,
+            "trimY": 0,
+            "width": piece.width,
+            "height": piece.height,
+            "rawWidth": piece.width,
+            "rawHeight": piece.height,
+            "borderTop": 0,
+            "borderBottom": 0,
+            "borderLeft": 0,
+            "borderRight": 0
+          }
+        }
+      }
+    };
+    return { metaContent: JSON.stringify(metaObj, null, 2), uuid: texUuid };
+  }
+
+  // Cocos 3.x / 3.8.8
+  const sfUuid = piece.spriteFrameUuid || `${texUuid}@f9941`;
   const metaObj = {
     "ver": "1.0.22",
     "importer": "image",
@@ -424,42 +474,19 @@ export function generateTextureMeta(piece: CutPieceResult): { metaContent: strin
     "subMetas": {
       "6c48a": {
         "ver": "1.0.4",
-        "importer": "sprite-frame",
+        "importer": "texture",
         "name": piece.name,
-        "uuid": sfUuid,
+        "uuid": `${texUuid}@6c48a`,
         "rawTextureUuid": texUuid,
         "size": [piece.width, piece.height],
-        "type": "sprite",
-        "userData": {
-          "trimType": "auto",
-          "trimThreshold": 1,
-          "rotated": false,
-          "offsetX": 0,
-          "offsetY": 0,
-          "trimX": 0,
-          "trimY": 0,
-          "width": piece.width,
-          "height": piece.height,
-          "rawWidth": piece.width,
-          "rawHeight": piece.height,
-          "borderTop": 0,
-          "borderBottom": 0,
-          "borderLeft": 0,
-          "borderRight": 0,
-          "packable": true,
-          "pixelsToUnit": 100,
-          "pivot": {
-            "x": 0.5,
-            "y": 0.5
-          },
-          "meshType": 0
-        }
+        "type": "texture",
+        "userData": {}
       },
       "f9941": {
         "ver": "1.0.4",
         "importer": "sprite-frame",
         "name": piece.name,
-        "uuid": `${texUuid}@f9941`,
+        "uuid": sfUuid,
         "rawTextureUuid": texUuid,
         "size": [piece.width, piece.height],
         "type": "sprite",
@@ -496,12 +523,50 @@ export function generateTextureMeta(piece: CutPieceResult): { metaContent: strin
 /**
  * Generate Cocos Creator .meta sidecar file for a .prefab JSON file.
  */
-export function generatePrefabMeta(): { metaContent: string; uuid: string } {
+export function generatePrefabMeta(
+  cocosVersion: '3.8.8' | '3.x' | '2.x' = '3.8.8'
+): { metaContent: string; uuid: string } {
   const uuid = generateUUID();
-  const metaObj = {
-    "ver": "1.0.8",
+  const metaObj = cocosVersion === '2.x' ? {
+    "ver": "1.2.0",
     "uuid": uuid,
+    "importer": "prefab",
     "type": "prefab",
+    "subMetas": {}
+  } : {
+    "ver": "1.2.0",
+    "importer": "prefab",
+    "type": "cc.Prefab",
+    "uuid": uuid,
+    "files": [
+      ".json"
+    ],
+    "subMetas": {}
+  };
+  return { metaContent: JSON.stringify(metaObj, null, 2), uuid };
+}
+
+/**
+ * Generate Cocos Creator .meta sidecar file for layout.json catalog file.
+ */
+export function generateJsonMeta(
+  cocosVersion: '3.8.8' | '3.x' | '2.x' = '3.8.8'
+): { metaContent: string; uuid: string } {
+  const uuid = generateUUID();
+  const metaObj = cocosVersion === '2.x' ? {
+    "ver": "2.3.6",
+    "uuid": uuid,
+    "importer": "json",
+    "type": "json",
+    "subMetas": {}
+  } : {
+    "ver": "1.0.1",
+    "importer": "json",
+    "type": "json",
+    "uuid": uuid,
+    "files": [
+      ".json"
+    ],
     "subMetas": {}
   };
   return { metaContent: JSON.stringify(metaObj, null, 2), uuid };
@@ -568,13 +633,26 @@ export function generateCutPsdBinary(
 /**
  * Generate Cocos Creator .meta sidecar file for a .psd Photoshop file.
  */
-export function generatePsdMeta(): { metaContent: string; uuid: string } {
+export function generatePsdMeta(
+  cocosVersion: '3.8.8' | '3.x' | '2.x' = '3.8.8'
+): { metaContent: string; uuid: string } {
   const uuid = generateUUID();
-  const metaObj = {
-    "ver": "1.0.8",
+  const metaObj = cocosVersion === '2.x' ? {
+    "ver": "2.3.6",
     "uuid": uuid,
+    "importer": "raw",
     "type": "raw",
+    "subMetas": {}
+  } : {
+    "ver": "1.0.1",
+    "importer": "raw",
+    "type": "raw",
+    "uuid": uuid,
+    "files": [
+      ".psd"
+    ],
     "subMetas": {}
   };
   return { metaContent: JSON.stringify(metaObj, null, 2), uuid };
 }
+
