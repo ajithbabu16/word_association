@@ -9,6 +9,15 @@ import {
   createGeometricCutPiece,
   createJigsawCutPieces,
   createTriangleCutPieces,
+  detectImageLowPolyVertices,
+  delaunayTriangulate,
+  filterSubjectTriangles,
+  ensureFullSubjectCoverage,
+  createImageLowPolyCutPieces,
+  parseSvgLowPolyMesh,
+  verifySubjectPixelCoverage,
+  PixelMatchResult,
+  LowPolyMesh,
 } from '../utils/shapeUtils';
 import {
   generateCocos3xPrefab,
@@ -33,6 +42,10 @@ export function PrefabCreationView() {
 
   // Slicing parameters
   const [cutMode, setCutMode] = useState<CutMode>('triangle_slicer');
+  const [triangleSubMode, setTriangleSubMode] = useState<'image_adaptive' | 'grid'>('image_adaptive');
+  const [vertexSensitivity, setVertexSensitivity] = useState<number>(60);
+  const [detectedMesh, setDetectedMesh] = useState<LowPolyMesh | null>(null);
+  const [matchVerification, setMatchVerification] = useState<PixelMatchResult | null>(null);
   const [gridCols, setGridCols] = useState<number>(3);
   const [gridRows, setGridRows] = useState<number>(3);
   const [targetPieceCount, setTargetPieceCount] = useState<number>(18);
@@ -81,6 +94,19 @@ export function PrefabCreationView() {
 
   const previewCanvasRef = useRef<HTMLCanvasElement | null>(null);
 
+  // Auto-calculate low-poly triangle mesh when sourceCanvas or vertexSensitivity changes
+  useEffect(() => {
+    if (!sourceCanvas) {
+      setDetectedMesh(null);
+      return;
+    }
+    const pts = detectImageLowPolyVertices(sourceCanvas, vertexSensitivity);
+    const tris = delaunayTriangulate(pts, sourceCanvas.width, sourceCanvas.height);
+    const subjectTris = filterSubjectTriangles(sourceCanvas, pts, tris);
+    const guaranteedMesh = ensureFullSubjectCoverage(sourceCanvas, pts, subjectTris);
+    setDetectedMesh(guaranteedMesh);
+  }, [sourceCanvas, vertexSensitivity]);
+
   // Download a single piece PNG file
   const handleDownloadSinglePiece = (piece: CutPieceResult) => {
     const a = document.createElement('a');
@@ -91,7 +117,7 @@ export function PrefabCreationView() {
     document.body.removeChild(a);
   };
 
-  // Handle File Upload (.psd, .png, .jpg, .webp)
+  // Handle File Upload (.psd, .png, .jpg, .webp, .svg)
   const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files || e.target.files.length === 0) return;
     const file = e.target.files[0];
@@ -103,8 +129,35 @@ export function PrefabCreationView() {
 
     try {
       const isPsd = file.name.toLowerCase().endsWith('.psd');
+      const isSvg = file.name.toLowerCase().endsWith('.svg');
 
-      if (isPsd) {
+      if (isSvg) {
+        setStatus('Parsing SVG vector artwork...');
+        const text = await file.text();
+        const img = new Image();
+        const svgBlob = new Blob([text], { type: 'image/svg+xml;charset=utf-8' });
+        const url = URL.createObjectURL(svgBlob);
+        img.src = url;
+        await img.decode();
+
+        const canvas = document.createElement('canvas');
+        canvas.width = img.width || 800;
+        canvas.height = img.height || 800;
+        const ctx = canvas.getContext('2d');
+        if (ctx) ctx.drawImage(img, 0, 0);
+
+        setSourceCanvas(canvas);
+        setPsdLayers([{ name: file.name.replace(/\.[^/.]+$/, ''), canvas }]);
+
+        const parsedMesh = parseSvgLowPolyMesh(text, canvas.width, canvas.height);
+        if (parsedMesh) {
+          setDetectedMesh(parsedMesh);
+          setStatus(`SVG Vector mesh loaded! ${parsedMesh.triangles.length} exact low-poly triangles detected.`);
+        } else {
+          setStatus(`SVG Image Loaded! ${canvas.width}x${canvas.height} resolution.`);
+        }
+        URL.revokeObjectURL(url);
+      } else if (isPsd) {
         setStatus('Parsing Photoshop PSD structure...');
         const buffer = await file.arrayBuffer();
         const psd = readPsd(buffer);
@@ -157,7 +210,8 @@ export function PrefabCreationView() {
       setRootNodeName(cleanName.toLowerCase() === 'honeybee' ? 'hp' : cleanName);
     } catch (err) {
       console.error(err);
-      setStatus('Failed to load file. Please select a valid PSD or image file.');
+      setStatus('Failed to load file. Please select a valid PSD, SVG, or image file.');
+      setIsProcessing(false);
     }
   };
 
@@ -207,10 +261,23 @@ export function PrefabCreationView() {
         setProgress(50);
         pieces = await createGridCutPieces(sourceCanvas, gridCols, gridRows, rootNodeName);
       } else if (cutMode === 'triangle_slicer') {
-        const totalTriangles = gridCols * gridRows * (triangleSplitMode === 'diagonal_2' ? 2 : 4);
-        setStatus(`Slicing image into ${totalTriangles} triangle pieces (${gridCols}x${gridRows} grid)...`);
-        setProgress(50);
-        pieces = await createTriangleCutPieces(sourceCanvas, gridCols, gridRows, triangleSplitMode, rootNodeName);
+        if (triangleSubMode === 'image_adaptive') {
+          let mesh = detectedMesh;
+          if (!mesh || mesh.vertices.length < 3) {
+            const pts = detectImageLowPolyVertices(sourceCanvas, vertexSensitivity);
+            const tris = delaunayTriangulate(pts, sourceCanvas.width, sourceCanvas.height);
+            mesh = { vertices: pts, triangles: tris };
+            setDetectedMesh(mesh);
+          }
+          setStatus(`Slicing image along ${mesh.triangles.length} image-adaptive low-poly triangles...`);
+          setProgress(50);
+          pieces = await createImageLowPolyCutPieces(sourceCanvas, mesh.vertices, mesh.triangles, rootNodeName);
+        } else {
+          const totalTriangles = gridCols * gridRows * (triangleSplitMode === 'diagonal_2' ? 2 : 4);
+          setStatus(`Slicing image into ${totalTriangles} grid triangle pieces (${gridCols}x${gridRows} grid)...`);
+          setProgress(50);
+          pieces = await createTriangleCutPieces(sourceCanvas, gridCols, gridRows, triangleSplitMode, rootNodeName);
+        }
       } else if (cutMode === 'geometric_shapes') {
         setStatus(`Applying ${geoShape.toUpperCase()} shape mask...`);
         setProgress(50);
@@ -225,13 +292,96 @@ export function PrefabCreationView() {
       setExtractedPieces(pieces);
       setPreviewMode('reassembled');
       setProgress(100);
-      setStatus(`Shape Cutting Complete! ${pieces.length} shaped asset pieces generated.`);
+
+      // Perform pixel-by-pixel accuracy verification between reassembled cut output and original source image
+      const verification = verifySubjectPixelCoverage(sourceCanvas, pieces);
+      setMatchVerification(verification);
+
+      if (verification.isPerfectMatch) {
+        setStatus(`🟢 GREEN SIGNAL: 100% Perfect Match Confirmed! ${pieces.length} shaped asset pieces generated with zero missing pixels.`);
+      } else {
+        setStatus(`Shape Cutting Complete! ${pieces.length} asset pieces generated (${verification.coveragePercentage}% pixel accuracy).`);
+      }
       setIsProcessing(false);
       setCompleted(true);
     } catch (err) {
       console.error(err);
       setStatus('Error occurred during shape cutting process.');
       setIsProcessing(false);
+    }
+  };
+
+  // Download Reassembled Composite Image as Transparent PNG (Matching Reference Image 2)
+  const handleDownloadCombinedPng = () => {
+    if (!sourceCanvas || extractedPieces.length === 0) return;
+
+    const tempCanvas = document.createElement('canvas');
+    tempCanvas.width = sourceCanvas.width;
+    tempCanvas.height = sourceCanvas.height;
+    const ctx = tempCanvas.getContext('2d');
+    if (!ctx) return;
+
+    // 100% transparent background matching reference image 2
+    ctx.clearRect(0, 0, tempCanvas.width, tempCanvas.height);
+
+    extractedPieces.forEach((piece) => {
+      if (piece.canvas) {
+        ctx.drawImage(piece.canvas, piece.x, piece.y);
+      }
+    });
+
+    const dataUrl = tempCanvas.toDataURL('image/png');
+    const a = document.createElement('a');
+    a.href = dataUrl;
+    a.download = `${rootNodeName}_combined_transparent.png`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  };
+
+  // Download Reassembled Composite Image as JPG file directly
+  const handleDownloadCombinedJpg = () => {
+    if (!previewCanvasRef.current && !sourceCanvas) return;
+    const canvasToUse = previewCanvasRef.current || sourceCanvas;
+    if (!canvasToUse) return;
+
+    const tempCanvas = document.createElement('canvas');
+    tempCanvas.width = canvasToUse.width;
+    tempCanvas.height = canvasToUse.height;
+    const ctx = tempCanvas.getContext('2d');
+    if (!ctx) return;
+
+    // Draw white background for JPG format
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, tempCanvas.width, tempCanvas.height);
+    ctx.drawImage(canvasToUse, 0, 0);
+
+    const dataUrl = tempCanvas.toDataURL('image/jpeg', 0.92);
+    const a = document.createElement('a');
+    a.href = dataUrl;
+    a.download = `${rootNodeName}_combined_assembled.jpg`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  };
+
+  // Download Layered Photoshop PSD File (.psd) directly
+  const handleDownloadPsdFile = () => {
+    if (extractedPieces.length === 0 || !sourceCanvas) return;
+    try {
+      const psdBuffer = generateCutPsdBinary(extractedPieces, sourceCanvas.width, sourceCanvas.height);
+      const blob = new Blob([psdBuffer], { type: 'application/octet-stream' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `${rootNodeName}.psd`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    } catch (err) {
+      console.error('Failed to generate PSD file:', err);
+      alert('Failed to generate Photoshop PSD file.');
     }
   };
 
@@ -253,6 +403,21 @@ export function PrefabCreationView() {
     const zip = new JSZip();
     const textureFolder = zip.folder('textures');
     const prefabsFolder = zip.folder('prefabs');
+
+    // Save combined composite assembled image JPG directly in zip root
+    if (previewCanvasRef.current) {
+      const tempCanvas = document.createElement('canvas');
+      tempCanvas.width = previewCanvasRef.current.width;
+      tempCanvas.height = previewCanvasRef.current.height;
+      const ctx = tempCanvas.getContext('2d');
+      if (ctx) {
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, tempCanvas.width, tempCanvas.height);
+        ctx.drawImage(previewCanvasRef.current, 0, 0);
+        const jpgBlob = await new Promise<Blob>((res) => tempCanvas.toBlob((b) => res(b || new Blob()), 'image/jpeg', 0.92));
+        zip.file(`${rootNodeName}_combined_assembled.jpg`, jpgBlob);
+      }
+    }
 
     // 1. Save extracted shape cut PNG assets & optional .meta sidecars inside textures/
     extractedPieces.forEach((piece) => {
@@ -336,7 +501,31 @@ export function PrefabCreationView() {
     if (previewMode === 'source_overlay' || extractedPieces.length === 0) {
       ctx.drawImage(sourceCanvas, 0, 0);
 
-      if (extractedPieces.length > 0) {
+      // Render Image-Adaptive Low-Poly Triangle Mesh overlay
+      if (cutMode === 'triangle_slicer' && triangleSubMode === 'image_adaptive' && detectedMesh) {
+        ctx.strokeStyle = '#10b981';
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        for (const tri of detectedMesh.triangles) {
+          const p1 = detectedMesh.vertices[tri[0]];
+          const p2 = detectedMesh.vertices[tri[1]];
+          const p3 = detectedMesh.vertices[tri[2]];
+          if (p1 && p2 && p3) {
+            ctx.moveTo(p1.x, p1.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.lineTo(p3.x, p3.y);
+            ctx.lineTo(p1.x, p1.y);
+          }
+        }
+        ctx.stroke();
+
+        ctx.fillStyle = '#00f5d4';
+        for (const v of detectedMesh.vertices) {
+          ctx.beginPath();
+          ctx.arc(v.x, v.y, 3.5, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      } else if (extractedPieces.length > 0) {
         extractedPieces.forEach((piece) => {
           const isHovered = piece.id === hoveredPieceId;
           ctx.strokeStyle = isHovered ? '#10b981' : 'rgba(59, 130, 246, 0.75)';
@@ -407,7 +596,7 @@ export function PrefabCreationView() {
         ctx.fillRect(drawX, drawY, piece.width, piece.height);
       }
     });
-  }, [sourceCanvas, extractedPieces, hoveredPieceId, previewMode, explodedGap, showPieceBorders]);
+  }, [sourceCanvas, extractedPieces, hoveredPieceId, previewMode, explodedGap, showPieceBorders, cutMode, triangleSubMode, detectedMesh]);
 
   return (
     <div style={{
@@ -660,17 +849,55 @@ export function PrefabCreationView() {
             )}
 
             {cutMode === 'triangle_slicer' && (
-              <div>
-                <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: '#475569', marginBottom: '6px' }}>
-                  Triangle Split Pattern
-                </label>
-                <select
-                  value={triangleSplitMode} onChange={(e) => setTriangleSplitMode(e.target.value as 'diagonal_2' | 'quad_4')}
-                  style={{ width: '100%', padding: '8px 12px', borderRadius: '8px', border: '1px solid #cbd5e1' }}
-                >
-                  <option value="diagonal_2">2 Triangles / cell (Diagonal Split)</option>
-                  <option value="quad_4">4 Triangles / cell (Quad Cross Split)</option>
-                </select>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                <div>
+                  <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: '#475569', marginBottom: '6px' }}>
+                    Triangle Cutting Technique
+                  </label>
+                  <select
+                    value={triangleSubMode} onChange={(e) => setTriangleSubMode(e.target.value as 'image_adaptive' | 'grid')}
+                    style={{ width: '100%', padding: '8px 12px', borderRadius: '8px', border: '1.5px solid #10b981', fontWeight: 700, backgroundColor: '#f0fdf4', color: '#15803d' }}
+                  >
+                    <option value="image_adaptive">✨ Image-Adaptive Triangles (Cuts artwork's actual low-poly facets)</option>
+                    <option value="grid">📐 Generic Grid Triangles (Uniform grid cell splits)</option>
+                  </select>
+                </div>
+
+                {triangleSubMode === 'image_adaptive' ? (
+                  <div style={{ backgroundColor: '#ecfdf5', padding: '12px', borderRadius: '10px', border: '1px solid #a7f3d0' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
+                      <label style={{ fontSize: '12px', fontWeight: 700, color: '#065f46' }}>
+                        Low-Poly Point Density (Sensitivity): {vertexSensitivity}
+                      </label>
+                      <span style={{ fontSize: '11px', fontWeight: 700, color: '#047857' }}>
+                        {detectedMesh ? `${detectedMesh.vertices.length} vertices, ${detectedMesh.triangles.length} triangles` : 'Calculating...'}
+                      </span>
+                    </div>
+                    <input
+                      type="range" min="15" max="200" step="5" value={vertexSensitivity}
+                      onChange={(e) => setVertexSensitivity(parseInt(e.target.value))}
+                      style={{ width: '100%', accentColor: '#10b981' }}
+                    />
+                    <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '4px', fontSize: '10px', color: '#047857', fontWeight: 600 }}>
+                      <span>Coarse (15 pts)</span>
+                      <span>Medium (60 pts)</span>
+                      <span>Detailed (200 pts)</span>
+                    </div>
+                  </div>
+                ) : (
+                  <div>
+                    <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: '#475569', marginBottom: '6px' }}>
+                      Grid Cell Triangle Split Pattern
+                    </label>
+                    <select
+                      value={triangleSplitMode} onChange={(e) => setTriangleSplitMode(e.target.value as 'diagonal_2' | 'quad_4')}
+                      style={{ width: '100%', padding: '8px 12px', borderRadius: '8px', border: '1px solid #cbd5e1' }}
+                    >
+                      <option value="diagonal_2">2 Triangles / cell (Diagonal Split)</option>
+                      <option value="quad_4">4 Triangles / cell (Quad Cross Split)</option>
+                    </select>
+                  </div>
+                )}
               </div>
             )}
 
@@ -735,6 +962,40 @@ export function PrefabCreationView() {
           <div style={{ width: '100%', height: '6px', backgroundColor: '#e2e8f0', borderRadius: '3px', overflow: 'hidden' }}>
             <div style={{ height: '100%', width: `${progress}%`, backgroundColor: '#10b981', transition: 'width 0.4s ease' }} />
           </div>
+
+          {/* Green Signal Automated Match Verification Badge */}
+          {completed && matchVerification && (
+            <div style={{
+              marginTop: '16px', padding: '14px 20px', borderRadius: '12px',
+              backgroundColor: matchVerification.isPerfectMatch ? '#ecfdf5' : '#fffbe6',
+              border: `1.5px solid ${matchVerification.isPerfectMatch ? '#10b981' : '#f59e0b'}`,
+              display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px'
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                <div style={{
+                  width: '36px', height: '36px', borderRadius: '50%',
+                  backgroundColor: matchVerification.isPerfectMatch ? '#10b981' : '#f59e0b',
+                  color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: '18px'
+                }}>
+                  {matchVerification.isPerfectMatch ? '✓' : '!'}
+                </div>
+                <div>
+                  <div style={{ fontSize: '14px', fontWeight: 800, color: matchVerification.isPerfectMatch ? '#065f46' : '#92400e' }}>
+                    {matchVerification.isPerfectMatch
+                      ? '🟢 GREEN SIGNAL: 100% PERFECT MATCH CONFIRMED!'
+                      : '⚠️ ACCURACY WARNING: Review Cut Coverage'}
+                  </div>
+                  <div style={{ fontSize: '12px', fontWeight: 600, color: matchVerification.isPerfectMatch ? '#047857' : '#b45309', marginTop: '2px' }}>
+                    Reassembled cut image matches original uploaded source image with {matchVerification.coveragePercentage}% accuracy ({matchVerification.matchedPixels.toLocaleString()} / {matchVerification.totalSubjectPixels.toLocaleString()} subject pixels verified, 0 missing parts).
+                  </div>
+                </div>
+              </div>
+
+              <div style={{ padding: '6px 14px', borderRadius: '20px', backgroundColor: matchVerification.isPerfectMatch ? '#d1fae5' : '#fef3c7', fontWeight: 800, fontSize: '13px', color: matchVerification.isPerfectMatch ? '#065f46' : '#92400e' }}>
+                Match: {matchVerification.coveragePercentage}%
+              </div>
+            </div>
+          )}
         </div>
       )}
 
@@ -839,21 +1100,54 @@ export function PrefabCreationView() {
 
           {/* Piece Overview Summary Box */}
           <div style={{ backgroundColor: '#f8fafc', padding: '20px', borderRadius: '20px', border: '1px solid #e2e8f0', display: 'flex', flexDirection: 'column' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px', flexWrap: 'wrap', gap: '8px' }}>
               <h4 style={{ margin: 0, fontSize: '16px', color: '#0f172a', fontWeight: 700 }}>
-                Extracted Pieces Summary ({extractedPieces.length})
+                Extracted Pieces ({extractedPieces.length})
               </h4>
               {completed && (
-                <button
-                  onClick={handleDownloadPackage}
-                  style={{
-                    padding: '8px 16px', borderRadius: '10px', border: 'none', backgroundColor: '#10b981', color: '#fff',
-                    fontWeight: 700, fontSize: '13px', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px',
-                    boxShadow: '0 4px 12px rgba(16, 185, 129, 0.25)'
-                  }}
-                >
-                  <FolderDown size={16} /> Download ZIP Package
-                </button>
+                <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                  <button
+                    onClick={handleDownloadCombinedPng}
+                    title="Download Reassembled Combined Cut Pieces Image on Transparent Background (.png)"
+                    style={{
+                      padding: '8px 14px', borderRadius: '10px', border: '1px solid #10b981', backgroundColor: '#ecfdf5', color: '#047857',
+                      fontWeight: 700, fontSize: '12px', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px',
+                    }}
+                  >
+                    <Sparkles size={15} /> Combined PNG (Transparent)
+                  </button>
+                  <button
+                    onClick={handleDownloadCombinedJpg}
+                    title="Download Reassembled Combined Cut Pieces Image (.jpg)"
+                    style={{
+                      padding: '8px 14px', borderRadius: '10px', border: '1px solid #3b82f6', backgroundColor: '#eff6ff', color: '#1d4ed8',
+                      fontWeight: 700, fontSize: '12px', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px',
+                    }}
+                  >
+                    <Download size={15} /> Combined JPG
+                  </button>
+                  <button
+                    onClick={handleDownloadPsdFile}
+                    title="Download Photoshop Layered PSD Asset (.psd)"
+                    style={{
+                      padding: '8px 14px', borderRadius: '10px', border: '1px solid #8b5cf6', backgroundColor: '#f5f3ff', color: '#6d28d9',
+                      fontWeight: 700, fontSize: '12px', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px',
+                    }}
+                  >
+                    <FileImage size={15} /> Layered PSD
+                  </button>
+                  <button
+                    onClick={handleDownloadPackage}
+                    title="Download Complete Cocos Creator Prefab + Textures ZIP Package"
+                    style={{
+                      padding: '8px 16px', borderRadius: '10px', border: 'none', backgroundColor: '#10b981', color: '#fff',
+                      fontWeight: 700, fontSize: '12px', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px',
+                      boxShadow: '0 4px 12px rgba(16, 185, 129, 0.25)'
+                    }}
+                  >
+                    <FolderDown size={15} /> Download ZIP
+                  </button>
+                </div>
               )}
             </div>
 

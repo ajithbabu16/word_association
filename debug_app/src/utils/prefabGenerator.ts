@@ -622,12 +622,13 @@ export function generateCutPsdBinary(
     children: pieces.map((piece) => ({
       name: piece.name,
       canvas: piece.canvas,
-      left: piece.x,
-      top: piece.y,
+      left: Math.round(piece.x),
+      top: Math.round(piece.y),
     })),
   };
 
-  return writePsd(psdStructure);
+  const buffer = writePsd(psdStructure, { generateThumbnail: true });
+  return buffer as ArrayBuffer;
 }
 
 /**
