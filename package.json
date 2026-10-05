@@ -1,0 +1,10 @@
+{
+  "name": "word-association-root",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix debug_app run dev",
+    "start": "npm --prefix debug_app run dev",
+    "build": "npm --prefix debug_app run build",
+    "convert-images": "npm --prefix debug_app run convert-images"
+  }
+}
